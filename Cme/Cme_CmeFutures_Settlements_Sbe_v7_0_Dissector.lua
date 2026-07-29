@@ -97,52 +97,16 @@ omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_ind
 local show = {}
 
 -- Cme CmeFutures Settlements Sbe 7.0 Element Dissection Options
-show.binary_packet_header = true
-show.formatted_last_px = true
-show.group_size = true
-show.high_px = true
-show.incremental_refresh_high_low_group = true
-show.incremental_refresh_high_low_groups = true
-show.incremental_refresh_settle_group = true
-show.incremental_refresh_settle_groups = true
-show.incremental_refresh_voi_group = true
-show.incremental_refresh_voi_groups = true
-show.low_px = true
-show.maturity_month_year = true
+show.structs = true
+show.repeating_groups = true
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.settl_price_type = true
-show.strike_price = true
-show.underlying_maturity_month_year = true
-show.incremental_refresh_settle_group_index = true
-show.incremental_refresh_voi_group_index = true
-show.incremental_refresh_high_low_group_index = true
+show.indexes = true
 
 -- Register Cme CmeFutures Settlements Sbe 7.0 Show Options
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_formatted_last_px = Pref.bool("Show Formatted Last Px", show.formatted_last_px, "Parse and add Formatted Last Px to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_high_px = Pref.bool("Show High Px", show.high_px, "Parse and add High Px to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group = Pref.bool("Show Incremental Refresh High Low Group", show.incremental_refresh_high_low_group, "Parse and add Incremental Refresh High Low Group to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups = Pref.bool("Show Incremental Refresh High Low Groups", show.incremental_refresh_high_low_groups, "Parse and add Incremental Refresh High Low Groups to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group = Pref.bool("Show Incremental Refresh Settle Group", show.incremental_refresh_settle_group, "Parse and add Incremental Refresh Settle Group to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups = Pref.bool("Show Incremental Refresh Settle Groups", show.incremental_refresh_settle_groups, "Parse and add Incremental Refresh Settle Groups to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group = Pref.bool("Show Incremental Refresh Voi Group", show.incremental_refresh_voi_group, "Parse and add Incremental Refresh Voi Group to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups = Pref.bool("Show Incremental Refresh Voi Groups", show.incremental_refresh_voi_groups, "Parse and add Incremental Refresh Voi Groups to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_low_px = Pref.bool("Show Low Px", show.low_px, "Parse and add Low Px to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
+omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index = Pref.bool("Show Incremental Refresh Settle Group Index", show.incremental_refresh_settle_group_index, "Show generated incremental refresh settle group index in protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index = Pref.bool("Show Incremental Refresh Voi Group Index", show.incremental_refresh_voi_group_index, "Show generated incremental refresh voi group index in protocol tree")
-omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index = Pref.bool("Show Incremental Refresh High Low Group Index", show.incremental_refresh_high_low_group_index, "Show generated incremental refresh high low group index in protocol tree")
+omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -152,68 +116,14 @@ function omi_cme_cmefutures_settlements_sbe_v7_0.prefs_changed()
   if show.application_messages ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages
   end
-  if show.binary_packet_header ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_binary_packet_header then
-    show.binary_packet_header = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_binary_packet_header
+  if show.repeating_groups ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups
   end
-  if show.formatted_last_px ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_formatted_last_px then
-    show.formatted_last_px = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_formatted_last_px
+  if show.structs ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_structs then
+    show.structs = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_structs
   end
-  if show.group_size ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_group_size then
-    show.group_size = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_group_size
-  end
-  if show.high_px ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_high_px then
-    show.high_px = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_high_px
-  end
-  if show.incremental_refresh_high_low_group ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group then
-    show.incremental_refresh_high_low_group = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group
-  end
-  if show.incremental_refresh_high_low_groups ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups then
-    show.incremental_refresh_high_low_groups = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_groups
-  end
-  if show.incremental_refresh_settle_group ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group then
-    show.incremental_refresh_settle_group = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group
-  end
-  if show.incremental_refresh_settle_groups ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups then
-    show.incremental_refresh_settle_groups = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_groups
-  end
-  if show.incremental_refresh_voi_group ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group then
-    show.incremental_refresh_voi_group = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group
-  end
-  if show.incremental_refresh_voi_groups ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups then
-    show.incremental_refresh_voi_groups = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_groups
-  end
-  if show.low_px ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_low_px then
-    show.low_px = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_low_px
-  end
-  if show.maturity_month_year ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_maturity_month_year then
-    show.maturity_month_year = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_maturity_month_year
-  end
-  if show.message ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message then
-    show.message = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message
-  end
-  if show.message_header ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message_header then
-    show.message_header = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_packet then
-    show.packet = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_packet
-  end
-  if show.settl_price_type ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_settl_price_type then
-    show.settl_price_type = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_settl_price_type
-  end
-  if show.strike_price ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_strike_price then
-    show.strike_price = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_strike_price
-  end
-  if show.underlying_maturity_month_year ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year then
-    show.underlying_maturity_month_year = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_underlying_maturity_month_year
-  end
-  if show.incremental_refresh_settle_group_index ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index then
-    show.incremental_refresh_settle_group_index = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_settle_group_index
-  end
-  if show.incremental_refresh_voi_group_index ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index then
-    show.incremental_refresh_voi_group_index = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_voi_group_index
-  end
-  if show.incremental_refresh_high_low_group_index ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index then
-    show.incremental_refresh_high_low_group_index = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_incremental_refresh_high_low_group_index
+  if show.indexes ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_indexes then
+    show.indexes = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_indexes
   end
 end
 
@@ -1440,7 +1350,7 @@ end
 
 -- Dissect: High Px
 cme_cmefutures_settlements_sbe_v7_0.high_px.dissect = function(buffer, offset, packet, parent)
-  if show.high_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.high_px, buffer(offset, 0))
     local index, value = cme_cmefutures_settlements_sbe_v7_0.high_px.fields(buffer, offset, packet, parent)
@@ -1494,7 +1404,7 @@ end
 
 -- Dissect: Low Px
 cme_cmefutures_settlements_sbe_v7_0.low_px.dissect = function(buffer, offset, packet, parent)
-  if show.low_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.low_px, buffer(offset, 0))
     local index, value = cme_cmefutures_settlements_sbe_v7_0.low_px.fields(buffer, offset, packet, parent)
@@ -1546,7 +1456,7 @@ end
 
 -- Dissect: Underlying Maturity Month Year
 cme_cmefutures_settlements_sbe_v7_0.underlying_maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.underlying_maturity_month_year, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.underlying_maturity_month_year.fields(buffer, offset, packet, parent)
@@ -1600,7 +1510,7 @@ end
 
 -- Dissect: Strike Price
 cme_cmefutures_settlements_sbe_v7_0.strike_price.dissect = function(buffer, offset, packet, parent)
-  if show.strike_price then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.strike_price, buffer(offset, 0))
     local index, value = cme_cmefutures_settlements_sbe_v7_0.strike_price.fields(buffer, offset, packet, parent)
@@ -1652,7 +1562,7 @@ end
 
 -- Dissect: Maturity Month Year
 cme_cmefutures_settlements_sbe_v7_0.maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.maturity_month_year, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.maturity_month_year.fields(buffer, offset, packet, parent)
@@ -1704,7 +1614,7 @@ cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields = 
   local index = offset
 
   -- Implicit Incremental Refresh High Low Group Index
-  if incremental_refresh_high_low_group_index ~= nil and show.incremental_refresh_high_low_group_index then
+  if incremental_refresh_high_low_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group_index, incremental_refresh_high_low_group_index)
     iteration:set_generated()
   end
@@ -1774,7 +1684,7 @@ end
 
 -- Dissect: Incremental Refresh High Low Group
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
-  if show.incremental_refresh_high_low_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_group.fields(buffer, offset, packet, parent, incremental_refresh_high_low_group_index)
@@ -1818,7 +1728,7 @@ end
 
 -- Dissect: Group Size
 cme_cmefutures_settlements_sbe_v7_0.group_size.dissect = function(buffer, offset, packet, parent)
-  if show.group_size then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.group_size, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.group_size.fields(buffer, offset, packet, parent)
@@ -1875,7 +1785,7 @@ end
 
 -- Dissect: Incremental Refresh High Low Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_refresh_high_low_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
@@ -1976,7 +1886,7 @@ cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields = funct
   local index = offset
 
   -- Implicit Incremental Refresh Voi Group Index
-  if incremental_refresh_voi_group_index ~= nil and show.incremental_refresh_voi_group_index then
+  if incremental_refresh_voi_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index, incremental_refresh_voi_group_index)
     iteration:set_generated()
   end
@@ -2043,7 +1953,7 @@ end
 
 -- Dissect: Incremental Refresh Voi Group
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
-  if show.incremental_refresh_voi_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_group.fields(buffer, offset, packet, parent, incremental_refresh_voi_group_index)
@@ -2100,7 +2010,7 @@ end
 
 -- Dissect: Incremental Refresh Voi Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_refresh_voi_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
@@ -2248,7 +2158,7 @@ cme_cmefutures_settlements_sbe_v7_0.settl_price_type.dissect = function(buffer, 
   local display = cme_cmefutures_settlements_sbe_v7_0.settl_price_type.display(range, value, packet, parent)
   local element = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.settl_price_type, range, display)
 
-  if show.settl_price_type then
+  if show.structs then
     cme_cmefutures_settlements_sbe_v7_0.settl_price_type.bits(range, value, packet, element)
   end
 
@@ -2293,7 +2203,7 @@ end
 
 -- Dissect: Formatted Last Px
 cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.dissect = function(buffer, offset, packet, parent)
-  if show.formatted_last_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.formatted_last_px, buffer(offset, 0))
     local index, value = cme_cmefutures_settlements_sbe_v7_0.formatted_last_px.fields(buffer, offset, packet, parent)
@@ -2347,7 +2257,7 @@ cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = fu
   local index = offset
 
   -- Implicit Incremental Refresh Settle Group Index
-  if incremental_refresh_settle_group_index ~= nil and show.incremental_refresh_settle_group_index then
+  if incremental_refresh_settle_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_index, incremental_refresh_settle_group_index)
     iteration:set_generated()
   end
@@ -2423,7 +2333,7 @@ end
 
 -- Dissect: Incremental Refresh Settle Group
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
-  if show.incremental_refresh_settle_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_settle_group, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_group.fields(buffer, offset, packet, parent, incremental_refresh_settle_group_index)
@@ -2480,7 +2390,7 @@ end
 
 -- Dissect: Incremental Refresh Settle Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_refresh_settle_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
@@ -2607,7 +2517,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_settlements_sbe_v7_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.message_header.fields(buffer, offset, packet, parent)
@@ -2655,7 +2565,7 @@ cme_cmefutures_settlements_sbe_v7_0.message.dissect = function(buffer, offset, p
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.message, buffer(offset, 0))
     local current = cme_cmefutures_settlements_sbe_v7_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -2699,7 +2609,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_settlements_sbe_v7_0.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.binary_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.binary_packet_header.fields(buffer, offset, packet, parent)

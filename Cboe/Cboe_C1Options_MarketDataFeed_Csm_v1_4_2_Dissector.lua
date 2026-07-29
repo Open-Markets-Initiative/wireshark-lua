@@ -145,84 +145,14 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry_index = Prot
 local show = {}
 
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Element Dissection Options
-show.currency_code = true
+show.structs = true
 show.application_messages = true
-show.eop = true
-show.index_value_md_entry = true
-show.max_strike_price = true
-show.md_entry = true
-show.md_entry_px = true
-show.message = true
-show.message_header = true
-show.minimum_above_premium_fraction = true
-show.minimum_below_premium_fraction = true
-show.minimum_strike_price_fraction = true
-show.net_chg_prev_day = true
-show.packet = true
-show.packet_header = true
-show.premium_break_point = true
-show.prev_close_px = true
-show.recap_update_md_entry = true
-show.security_definition_leg = true
-show.security_type = true
-show.settlement_value_md_entry = true
-show.strike_price = true
-show.summary_md_entry = true
-show.symbol = true
-show.target_location_id = true
-show.ticker_md_entry = true
-show.trade_condition = true
-show.underlying_px = true
-show.underlying_symbol = true
-show.underlying_type = true
-show.message_index = true
-show.security_definition_leg_index = true
-show.md_entry_index = true
-show.recap_update_md_entry_index = true
-show.ticker_md_entry_index = true
-show.index_value_md_entry_index = true
-show.settlement_value_md_entry_index = true
-show.summary_md_entry_index = true
+show.indexes = true
 
 -- Register Cboe C1Options MarketDataFeed Csm 1.4.2 Show Options
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code = Pref.bool("Show Currency Code", show.currency_code, "Parse and add Currency Code to protocol tree")
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_eop = Pref.bool("Show Eop", show.eop, "Parse and add Eop to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry = Pref.bool("Show Index Value Md Entry", show.index_value_md_entry, "Parse and add Index Value Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price = Pref.bool("Show Max Strike Price", show.max_strike_price, "Parse and add Max Strike Price to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry = Pref.bool("Show Md Entry", show.md_entry, "Parse and add Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction = Pref.bool("Show Minimum Above Premium Fraction", show.minimum_above_premium_fraction, "Parse and add Minimum Above Premium Fraction to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction = Pref.bool("Show Minimum Below Premium Fraction", show.minimum_below_premium_fraction, "Parse and add Minimum Below Premium Fraction to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction = Pref.bool("Show Minimum Strike Price Fraction", show.minimum_strike_price_fraction, "Parse and add Minimum Strike Price Fraction to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point = Pref.bool("Show Premium Break Point", show.premium_break_point, "Parse and add Premium Break Point to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px = Pref.bool("Show Prev Close Px", show.prev_close_px, "Parse and add Prev Close Px to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry = Pref.bool("Show Recap Update Md Entry", show.recap_update_md_entry, "Parse and add Recap Update Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg = Pref.bool("Show Security Definition Leg", show.security_definition_leg, "Parse and add Security Definition Leg to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_type = Pref.bool("Show Security Type", show.security_type, "Parse and add Security Type to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry = Pref.bool("Show Settlement Value Md Entry", show.settlement_value_md_entry, "Parse and add Settlement Value Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry = Pref.bool("Show Summary Md Entry", show.summary_md_entry, "Parse and add Summary Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_symbol = Pref.bool("Show Symbol", show.symbol, "Parse and add Symbol to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id = Pref.bool("Show Target Location Id", show.target_location_id, "Parse and add Target Location Id to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry = Pref.bool("Show Ticker Md Entry", show.ticker_md_entry, "Parse and add Ticker Md Entry to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px = Pref.bool("Show Underlying Px", show.underlying_px, "Parse and add Underlying Px to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol = Pref.bool("Show Underlying Symbol", show.underlying_symbol, "Parse and add Underlying Symbol to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type = Pref.bool("Show Underlying Type", show.underlying_type, "Parse and add Underlying Type to protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg_index = Pref.bool("Show Security Definition Leg Index", show.security_definition_leg_index, "Show generated security definition leg index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_index = Pref.bool("Show Md Entry Index", show.md_entry_index, "Show generated md entry index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry_index = Pref.bool("Show Recap Update Md Entry Index", show.recap_update_md_entry_index, "Show generated recap update md entry index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry_index = Pref.bool("Show Ticker Md Entry Index", show.ticker_md_entry_index, "Show generated ticker md entry index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry_index = Pref.bool("Show Index Value Md Entry Index", show.index_value_md_entry_index, "Show generated index value md entry index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry_index = Pref.bool("Show Settlement Value Md Entry Index", show.settlement_value_md_entry_index, "Show generated settlement value md entry index in protocol tree")
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry_index = Pref.bool("Show Summary Md Entry Index", show.summary_md_entry_index, "Show generated summary md entry index in protocol tree")
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -232,116 +162,11 @@ function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs_changed()
   if show.application_messages ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages
   end
-  if show.currency_code ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code then
-    show.currency_code = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_currency_code
+  if show.structs ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs then
+    show.structs = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs
   end
-  if show.eop ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_eop then
-    show.eop = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_eop
-  end
-  if show.index_value_md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry then
-    show.index_value_md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry
-  end
-  if show.max_strike_price ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price then
-    show.max_strike_price = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_max_strike_price
-  end
-  if show.md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry then
-    show.md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry
-  end
-  if show.md_entry_px ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px then
-    show.md_entry_px = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_px
-  end
-  if show.message ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message then
-    show.message = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message
-  end
-  if show.message_header ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_header then
-    show.message_header = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_header
-  end
-  if show.minimum_above_premium_fraction ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction then
-    show.minimum_above_premium_fraction = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_above_premium_fraction
-  end
-  if show.minimum_below_premium_fraction ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction then
-    show.minimum_below_premium_fraction = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_below_premium_fraction
-  end
-  if show.minimum_strike_price_fraction ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction then
-    show.minimum_strike_price_fraction = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_minimum_strike_price_fraction
-  end
-  if show.net_chg_prev_day ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day then
-    show.net_chg_prev_day = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_net_chg_prev_day
-  end
-  if show.packet ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet then
-    show.packet = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header then
-    show.packet_header = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_packet_header
-  end
-  if show.premium_break_point ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point then
-    show.premium_break_point = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_premium_break_point
-  end
-  if show.prev_close_px ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px then
-    show.prev_close_px = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_prev_close_px
-  end
-  if show.recap_update_md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry then
-    show.recap_update_md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry
-  end
-  if show.security_definition_leg ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg then
-    show.security_definition_leg = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg
-  end
-  if show.security_type ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_type then
-    show.security_type = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_type
-  end
-  if show.settlement_value_md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry then
-    show.settlement_value_md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry
-  end
-  if show.strike_price ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price then
-    show.strike_price = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_strike_price
-  end
-  if show.summary_md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry then
-    show.summary_md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry
-  end
-  if show.symbol ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_symbol then
-    show.symbol = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_symbol
-  end
-  if show.target_location_id ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id then
-    show.target_location_id = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_target_location_id
-  end
-  if show.ticker_md_entry ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry then
-    show.ticker_md_entry = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry
-  end
-  if show.trade_condition ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition then
-    show.trade_condition = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_trade_condition
-  end
-  if show.underlying_px ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px then
-    show.underlying_px = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_px
-  end
-  if show.underlying_symbol ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol then
-    show.underlying_symbol = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_symbol
-  end
-  if show.underlying_type ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type then
-    show.underlying_type = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_underlying_type
-  end
-  if show.message_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_index then
-    show.message_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_message_index
-  end
-  if show.security_definition_leg_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg_index then
-    show.security_definition_leg_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_security_definition_leg_index
-  end
-  if show.md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_index then
-    show.md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_md_entry_index
-  end
-  if show.recap_update_md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry_index then
-    show.recap_update_md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_recap_update_md_entry_index
-  end
-  if show.ticker_md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry_index then
-    show.ticker_md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_ticker_md_entry_index
-  end
-  if show.index_value_md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry_index then
-    show.index_value_md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_index_value_md_entry_index
-  end
-  if show.settlement_value_md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry_index then
-    show.settlement_value_md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_settlement_value_md_entry_index
-  end
-  if show.summary_md_entry_index ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry_index then
-    show.summary_md_entry_index = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_summary_md_entry_index
+  if show.indexes ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_indexes then
+    show.indexes = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_indexes
   end
 end
 
@@ -2176,7 +2001,7 @@ end
 
 -- Dissect: Md Entry Px
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  if show.md_entry_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_px, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_px.fields(buffer, offset, packet, parent)
@@ -2210,7 +2035,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.fields = function(buff
   local index = offset
 
   -- Implicit Summary Md Entry Index
-  if summary_md_entry_index ~= nil and show.summary_md_entry_index then
+  if summary_md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry_index, summary_md_entry_index)
     iteration:set_generated()
   end
@@ -2226,7 +2051,7 @@ end
 
 -- Dissect: Summary Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.dissect = function(buffer, offset, packet, parent, summary_md_entry_index)
-  if show.summary_md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.fields(buffer, offset, packet, parent, summary_md_entry_index)
@@ -2270,7 +2095,7 @@ end
 
 -- Dissect: Underlying Px
 cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_px.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_px, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_px.fields(buffer, offset, packet, parent)
@@ -2314,7 +2139,7 @@ end
 
 -- Dissect: Net Chg Prev Day
 cboe_c1options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.dissect = function(buffer, offset, packet, parent)
-  if show.net_chg_prev_day then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.net_chg_prev_day.fields(buffer, offset, packet, parent)
@@ -2437,7 +2262,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.fields = func
   local index = offset
 
   -- Implicit Settlement Value Md Entry Index
-  if settlement_value_md_entry_index ~= nil and show.settlement_value_md_entry_index then
+  if settlement_value_md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry_index, settlement_value_md_entry_index)
     iteration:set_generated()
   end
@@ -2453,7 +2278,7 @@ end
 
 -- Dissect: Settlement Value Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.dissect = function(buffer, offset, packet, parent, settlement_value_md_entry_index)
-  if show.settlement_value_md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.fields(buffer, offset, packet, parent, settlement_value_md_entry_index)
@@ -2556,7 +2381,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.fields = function(
   local index = offset
 
   -- Implicit Index Value Md Entry Index
-  if index_value_md_entry_index ~= nil and show.index_value_md_entry_index then
+  if index_value_md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry_index, index_value_md_entry_index)
     iteration:set_generated()
   end
@@ -2572,7 +2397,7 @@ end
 
 -- Dissect: Index Value Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.dissect = function(buffer, offset, packet, parent, index_value_md_entry_index)
-  if show.index_value_md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.fields(buffer, offset, packet, parent, index_value_md_entry_index)
@@ -2623,7 +2448,7 @@ end
 
 -- Dissect: Symbol
 cboe_c1options_marketdatafeed_csm_v1_4_2.symbol.dissect = function(buffer, offset, packet, parent)
-  if show.symbol then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.symbol, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.symbol.fields(buffer, offset, packet, parent)
@@ -2726,7 +2551,7 @@ end
 
 -- Dissect: Eop
 cboe_c1options_marketdatafeed_csm_v1_4_2.eop.dissect = function(buffer, offset, packet, parent)
-  if show.eop then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.eop, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.eop.fields(buffer, offset, packet, parent)
@@ -2837,7 +2662,7 @@ end
 
 -- Dissect: Trade Condition
 cboe_c1options_marketdatafeed_csm_v1_4_2.trade_condition.dissect = function(buffer, offset, packet, parent)
-  if show.trade_condition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.trade_condition, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.trade_condition.fields(buffer, offset, packet, parent)
@@ -2881,7 +2706,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.fields = function(buffe
   local index = offset
 
   -- Implicit Ticker Md Entry Index
-  if ticker_md_entry_index ~= nil and show.ticker_md_entry_index then
+  if ticker_md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry_index, ticker_md_entry_index)
     iteration:set_generated()
   end
@@ -2903,7 +2728,7 @@ end
 
 -- Dissect: Ticker Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.dissect = function(buffer, offset, packet, parent, ticker_md_entry_index)
-  if show.ticker_md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.fields(buffer, offset, packet, parent, ticker_md_entry_index)
@@ -3008,7 +2833,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.fields = function
   local index = offset
 
   -- Implicit Recap Update Md Entry Index
-  if recap_update_md_entry_index ~= nil and show.recap_update_md_entry_index then
+  if recap_update_md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry_index, recap_update_md_entry_index)
     iteration:set_generated()
   end
@@ -3027,7 +2852,7 @@ end
 
 -- Dissect: Recap Update Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.dissect = function(buffer, offset, packet, parent, recap_update_md_entry_index)
-  if show.recap_update_md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.fields(buffer, offset, packet, parent, recap_update_md_entry_index)
@@ -3071,7 +2896,7 @@ end
 
 -- Dissect: Prev Close Px
 cboe_c1options_marketdatafeed_csm_v1_4_2.prev_close_px.dissect = function(buffer, offset, packet, parent)
-  if show.prev_close_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.prev_close_px, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.prev_close_px.fields(buffer, offset, packet, parent)
@@ -3186,7 +3011,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Md Entry Index
-  if md_entry_index ~= nil and show.md_entry_index then
+  if md_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_index, md_entry_index)
     iteration:set_generated()
   end
@@ -3208,7 +3033,7 @@ end
 
 -- Dissect: Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.dissect = function(buffer, offset, packet, parent, md_entry_index)
-  if show.md_entry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.fields(buffer, offset, packet, parent, md_entry_index)
@@ -3485,7 +3310,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.fields = functi
   local index = offset
 
   -- Implicit Security Definition Leg Index
-  if security_definition_leg_index ~= nil and show.security_definition_leg_index then
+  if security_definition_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg_index, security_definition_leg_index)
     iteration:set_generated()
   end
@@ -3504,7 +3329,7 @@ end
 
 -- Dissect: Security Definition Leg
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.dissect = function(buffer, offset, packet, parent, security_definition_leg_index)
-  if show.security_definition_leg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.fields(buffer, offset, packet, parent, security_definition_leg_index)
@@ -3555,7 +3380,7 @@ end
 
 -- Dissect: Underlying Type
 cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_type.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_type then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_type, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_type.fields(buffer, offset, packet, parent)
@@ -3606,7 +3431,7 @@ end
 
 -- Dissect: Underlying Symbol
 cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_symbol then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_symbol.fields(buffer, offset, packet, parent)
@@ -3657,7 +3482,7 @@ end
 
 -- Dissect: Currency Code
 cboe_c1options_marketdatafeed_csm_v1_4_2.currency_code.dissect = function(buffer, offset, packet, parent)
-  if show.currency_code then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.currency_code, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.currency_code.fields(buffer, offset, packet, parent)
@@ -3701,7 +3526,7 @@ end
 
 -- Dissect: Minimum Below Premium Fraction
 cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.dissect = function(buffer, offset, packet, parent)
-  if show.minimum_below_premium_fraction then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.fields(buffer, offset, packet, parent)
@@ -3745,7 +3570,7 @@ end
 
 -- Dissect: Minimum Above Premium Fraction
 cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.dissect = function(buffer, offset, packet, parent)
-  if show.minimum_above_premium_fraction then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_above_premium_fraction.fields(buffer, offset, packet, parent)
@@ -3789,7 +3614,7 @@ end
 
 -- Dissect: Premium Break Point
 cboe_c1options_marketdatafeed_csm_v1_4_2.premium_break_point.dissect = function(buffer, offset, packet, parent)
-  if show.premium_break_point then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.premium_break_point, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.premium_break_point.fields(buffer, offset, packet, parent)
@@ -3833,7 +3658,7 @@ end
 
 -- Dissect: Max Strike Price
 cboe_c1options_marketdatafeed_csm_v1_4_2.max_strike_price.dissect = function(buffer, offset, packet, parent)
-  if show.max_strike_price then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.max_strike_price, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.max_strike_price.fields(buffer, offset, packet, parent)
@@ -3877,7 +3702,7 @@ end
 
 -- Dissect: Minimum Strike Price Fraction
 cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.dissect = function(buffer, offset, packet, parent)
-  if show.minimum_strike_price_fraction then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_strike_price_fraction.fields(buffer, offset, packet, parent)
@@ -3921,7 +3746,7 @@ end
 
 -- Dissect: Strike Price
 cboe_c1options_marketdatafeed_csm_v1_4_2.strike_price.dissect = function(buffer, offset, packet, parent)
-  if show.strike_price then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.strike_price, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.strike_price.fields(buffer, offset, packet, parent)
@@ -3972,7 +3797,7 @@ end
 
 -- Dissect: Target Location Id
 cboe_c1options_marketdatafeed_csm_v1_4_2.target_location_id.dissect = function(buffer, offset, packet, parent)
-  if show.target_location_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.target_location_id, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.target_location_id.fields(buffer, offset, packet, parent)
@@ -4023,7 +3848,7 @@ end
 
 -- Dissect: Security Type
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_type.dissect = function(buffer, offset, packet, parent)
-  if show.security_type then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.security_type, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.security_type.fields(buffer, offset, packet, parent)
@@ -4286,7 +4111,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_marketdatafeed_csm_v1_4_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.message_header.fields(buffer, offset, packet, parent)
@@ -4329,7 +4154,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4348,7 +4173,7 @@ end
 
 -- Dissect: Message
 cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, message_index)
@@ -4404,7 +4229,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c1options_marketdatafeed_csm_v1_4_2.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.packet_header.fields(buffer, offset, packet, parent)

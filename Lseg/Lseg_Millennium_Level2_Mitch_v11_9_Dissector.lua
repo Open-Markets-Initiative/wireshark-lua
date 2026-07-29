@@ -113,78 +113,28 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.message_index = ProtoField.new("Me
 local show = {}
 
 -- Lseg Millennium Level2 Mitch 11.9 Element Dissection Options
-show.add_attributed_order_flags = true
+show.structs = true
 show.application_messages = true
-show.add_order_flags = true
-show.message = true
-show.message_header = true
-show.order_book_clear_flags = true
-show.order_deleted_flags = true
-show.order_modified_flags = true
-show.packet = true
-show.pt_mod_flags = true
-show.symbol_status_flags = true
-show.unit_header = true
-show.message_index = true
+show.indexes = true
 
 -- Register Lseg Millennium Level2 Mitch 11.9 Show Options
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags = Pref.bool("Show Add Attributed Order Flags", show.add_attributed_order_flags, "Parse and add Add Attributed Order Flags to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_flags = Pref.bool("Show Add Order Flags", show.add_order_flags, "Parse and add Add Order Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_flags = Pref.bool("Show Order Book Clear Flags", show.order_book_clear_flags, "Parse and add Order Book Clear Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_flags = Pref.bool("Show Order Deleted Flags", show.order_deleted_flags, "Parse and add Order Deleted Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_flags = Pref.bool("Show Order Modified Flags", show.order_modified_flags, "Parse and add Order Modified Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags = Pref.bool("Show Pt Mod Flags", show.pt_mod_flags, "Parse and add Pt Mod Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags = Pref.bool("Show Symbol Status Flags", show.symbol_status_flags, "Parse and add Symbol Status Flags to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()
 
   -- Check if preferences have changed
-  if show.add_attributed_order_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags then
-    show.add_attributed_order_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_attributed_order_flags
-  end
-  if show.add_order_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_flags then
-    show.add_order_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_add_order_flags
-  end
   if show.application_messages ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages then
     show.application_messages = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages
   end
-  if show.message ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message then
-    show.message = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message
+  if show.structs ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs then
+    show.structs = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs
   end
-  if show.message_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header then
-    show.message_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_header
-  end
-  if show.order_book_clear_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_flags then
-    show.order_book_clear_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_book_clear_flags
-  end
-  if show.order_deleted_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_flags then
-    show.order_deleted_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_deleted_flags
-  end
-  if show.order_modified_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_flags then
-    show.order_modified_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_order_modified_flags
-  end
-  if show.packet ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet then
-    show.packet = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_packet
-  end
-  if show.pt_mod_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags then
-    show.pt_mod_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_pt_mod_flags
-  end
-  if show.symbol_status_flags ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags then
-    show.symbol_status_flags = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_symbol_status_flags
-  end
-  if show.unit_header ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header then
-    show.unit_header = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_unit_header
-  end
-  if show.message_index ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index then
-    show.message_index = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_message_index
+  if show.indexes ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_indexes then
+    show.indexes = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_indexes
   end
 end
 
@@ -1752,7 +1702,7 @@ lseg_millennium_level2_mitch_v11_9.pt_mod_flags.dissect = function(buffer, offse
   local display = lseg_millennium_level2_mitch_v11_9.pt_mod_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags, range, display)
 
-  if show.pt_mod_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.pt_mod_flags.bits(range, value, packet, element)
   end
 
@@ -2073,7 +2023,7 @@ lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.dissect = function(buf
   local display = lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_flags, range, display)
 
-  if show.order_book_clear_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.bits(range, value, packet, element)
   end
 
@@ -2182,7 +2132,7 @@ lseg_millennium_level2_mitch_v11_9.order_modified_flags.dissect = function(buffe
   local display = lseg_millennium_level2_mitch_v11_9.order_modified_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_modified_flags, range, display)
 
-  if show.order_modified_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.order_modified_flags.bits(range, value, packet, element)
   end
 
@@ -2284,7 +2234,7 @@ lseg_millennium_level2_mitch_v11_9.order_deleted_flags.dissect = function(buffer
   local display = lseg_millennium_level2_mitch_v11_9.order_deleted_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.order_deleted_flags, range, display)
 
-  if show.order_deleted_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.order_deleted_flags.bits(range, value, packet, element)
   end
 
@@ -2389,7 +2339,7 @@ lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.dissect = function
   local display = lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_flags, range, display)
 
-  if show.add_attributed_order_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.bits(range, value, packet, element)
   end
 
@@ -2529,7 +2479,7 @@ lseg_millennium_level2_mitch_v11_9.add_order_flags.dissect = function(buffer, of
   local display = lseg_millennium_level2_mitch_v11_9.add_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_flags, range, display)
 
-  if show.add_order_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.add_order_flags.bits(range, value, packet, element)
   end
 
@@ -2651,7 +2601,7 @@ lseg_millennium_level2_mitch_v11_9.symbol_status_flags.dissect = function(buffer
   local display = lseg_millennium_level2_mitch_v11_9.symbol_status_flags.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status_flags, range, display)
 
-  if show.symbol_status_flags then
+  if show.structs then
     lseg_millennium_level2_mitch_v11_9.symbol_status_flags.bits(range, value, packet, element)
   end
 
@@ -3007,7 +2957,7 @@ end
 
 -- Dissect: Message Header
 lseg_millennium_level2_mitch_v11_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9.message_header.fields(buffer, offset, packet, parent)
@@ -3050,7 +3000,7 @@ lseg_millennium_level2_mitch_v11_9.message.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3069,7 +3019,7 @@ end
 
 -- Dissect: Message
 lseg_millennium_level2_mitch_v11_9.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9.message.fields(buffer, offset, packet, parent, message_index)
@@ -3121,7 +3071,7 @@ end
 
 -- Dissect: Unit Header
 lseg_millennium_level2_mitch_v11_9.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.unit_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9.unit_header.fields(buffer, offset, packet, parent)

@@ -158,27 +158,13 @@ local show = {}
 
 -- Asx AsxSecurities Ntp Itch 1.05 Element Dissection Options
 show.application_messages = true
-show.bundle_leg = true
-show.combination_leg = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
-show.combination_leg_index = true
-show.bundle_leg_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Asx AsxSecurities Ntp Itch 1.05 Show Options
 omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg = Pref.bool("Show Bundle Leg", show.bundle_leg, "Parse and add Bundle Leg to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg = Pref.bool("Show Combination Leg", show.combination_leg, "Parse and add Combination Leg to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg_index = Pref.bool("Show Combination Leg Index", show.combination_leg_index, "Show generated combination leg index in protocol tree")
-omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg_index = Pref.bool("Show Bundle Leg Index", show.bundle_leg_index, "Show generated bundle leg index in protocol tree")
+omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -188,32 +174,11 @@ function omi_asx_asxsecurities_ntp_itch_v1_05.prefs_changed()
   if show.application_messages ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_application_messages
   end
-  if show.bundle_leg ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg then
-    show.bundle_leg = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg
+  if show.structs ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_structs then
+    show.structs = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_structs
   end
-  if show.combination_leg ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg then
-    show.combination_leg = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg
-  end
-  if show.message ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message then
-    show.message = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message
-  end
-  if show.message_header ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_header then
-    show.message_header = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_header
-  end
-  if show.packet ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet then
-    show.packet = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet
-  end
-  if show.packet_header ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet_header then
-    show.packet_header = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_index then
-    show.message_index = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_message_index
-  end
-  if show.combination_leg_index ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg_index then
-    show.combination_leg_index = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_combination_leg_index
-  end
-  if show.bundle_leg_index ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg_index then
-    show.bundle_leg_index = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_bundle_leg_index
+  if show.indexes ~= omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_indexes then
+    show.indexes = omi_asx_asxsecurities_ntp_itch_v1_05.prefs.show_indexes
   end
 end
 
@@ -4229,7 +4194,7 @@ asx_asxsecurities_ntp_itch_v1_05.bundle_leg.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Bundle Leg Index
-  if bundle_leg_index ~= nil and show.bundle_leg_index then
+  if bundle_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.bundle_leg_index, bundle_leg_index)
     iteration:set_generated()
   end
@@ -4251,7 +4216,7 @@ end
 
 -- Dissect: Bundle Leg
 asx_asxsecurities_ntp_itch_v1_05.bundle_leg.dissect = function(buffer, offset, packet, parent, bundle_leg_index)
-  if show.bundle_leg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.bundle_leg, buffer(offset, 0))
     local index = asx_asxsecurities_ntp_itch_v1_05.bundle_leg.fields(buffer, offset, packet, parent, bundle_leg_index)
@@ -4373,7 +4338,7 @@ asx_asxsecurities_ntp_itch_v1_05.combination_leg.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Combination Leg Index
-  if combination_leg_index ~= nil and show.combination_leg_index then
+  if combination_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.combination_leg_index, combination_leg_index)
     iteration:set_generated()
   end
@@ -4395,7 +4360,7 @@ end
 
 -- Dissect: Combination Leg
 asx_asxsecurities_ntp_itch_v1_05.combination_leg.dissect = function(buffer, offset, packet, parent, combination_leg_index)
-  if show.combination_leg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.combination_leg, buffer(offset, 0))
     local index = asx_asxsecurities_ntp_itch_v1_05.combination_leg.fields(buffer, offset, packet, parent, combination_leg_index)
@@ -5021,7 +4986,7 @@ end
 
 -- Dissect: Message Header
 asx_asxsecurities_ntp_itch_v1_05.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.message_header, buffer(offset, 0))
     local index = asx_asxsecurities_ntp_itch_v1_05.message_header.fields(buffer, offset, packet, parent)
@@ -5060,7 +5025,7 @@ asx_asxsecurities_ntp_itch_v1_05.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5083,7 +5048,7 @@ asx_asxsecurities_ntp_itch_v1_05.message.dissect = function(buffer, offset, pack
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.message, buffer(offset, 0))
     local current = asx_asxsecurities_ntp_itch_v1_05.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -5194,7 +5159,7 @@ end
 
 -- Dissect: Packet Header
 asx_asxsecurities_ntp_itch_v1_05.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_ntp_itch_v1_05.fields.packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_ntp_itch_v1_05.packet_header.fields(buffer, offset, packet, parent)

@@ -172,193 +172,33 @@ omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_short_quote_ap
 local show = {}
 
 -- Siac Cqs Input Cta 2.9.b Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.block_header = true
-show.control_message = true
-show.message = true
-show.message_header = true
-show.odd_lot_bid_extended_quote_appendage = true
-show.odd_lot_bid_long_quote_appendage = true
-show.odd_lot_bid_short_quote_appendage = true
-show.odd_lot_offer_extended_quote_appendage = true
-show.odd_lot_offer_long_quote_appendage = true
-show.odd_lot_offer_short_quote_appendage = true
-show.packet = true
-show.partial_reject_odd_lot_bid_extended_quote_appendage = true
-show.partial_reject_odd_lot_bid_long_quote_appendage = true
-show.partial_reject_odd_lot_bid_short_quote_appendage = true
-show.partial_reject_odd_lot_offer_extended_quote_appendage = true
-show.partial_reject_odd_lot_offer_long_quote_appendage = true
-show.partial_reject_odd_lot_offer_short_quote_appendage = true
-show.quote_message = true
-show.timestamp_1 = true
-show.timestamp_2 = true
-show.trade_message = true
-show.message_index = true
-show.partial_reject_odd_lot_bid_short_quote_appendage_index = true
-show.partial_reject_odd_lot_offer_short_quote_appendage_index = true
-show.partial_reject_odd_lot_bid_long_quote_appendage_index = true
-show.partial_reject_odd_lot_offer_long_quote_appendage_index = true
-show.partial_reject_odd_lot_bid_extended_quote_appendage_index = true
-show.partial_reject_odd_lot_offer_extended_quote_appendage_index = true
-show.odd_lot_bid_short_quote_appendage_index = true
-show.odd_lot_offer_short_quote_appendage_index = true
-show.odd_lot_bid_long_quote_appendage_index = true
-show.odd_lot_offer_long_quote_appendage_index = true
-show.odd_lot_bid_extended_quote_appendage_index = true
-show.odd_lot_offer_extended_quote_appendage_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Siac Cqs Input Cta 2.9.b Show Options
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_siac_cqs_input_cta_v2_9_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_input_cta_v2_9_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage = Pref.bool("Show Odd Lot Bid Extended Quote Appendage", show.odd_lot_bid_extended_quote_appendage, "Parse and add Odd Lot Bid Extended Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage = Pref.bool("Show Odd Lot Bid Long Quote Appendage", show.odd_lot_bid_long_quote_appendage, "Parse and add Odd Lot Bid Long Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage = Pref.bool("Show Odd Lot Bid Short Quote Appendage", show.odd_lot_bid_short_quote_appendage, "Parse and add Odd Lot Bid Short Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage = Pref.bool("Show Odd Lot Offer Extended Quote Appendage", show.odd_lot_offer_extended_quote_appendage, "Parse and add Odd Lot Offer Extended Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage = Pref.bool("Show Odd Lot Offer Long Quote Appendage", show.odd_lot_offer_long_quote_appendage, "Parse and add Odd Lot Offer Long Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage = Pref.bool("Show Odd Lot Offer Short Quote Appendage", show.odd_lot_offer_short_quote_appendage, "Parse and add Odd Lot Offer Short Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Bid Extended Quote Appendage", show.partial_reject_odd_lot_bid_extended_quote_appendage, "Parse and add Partial Reject Odd Lot Bid Extended Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Bid Long Quote Appendage", show.partial_reject_odd_lot_bid_long_quote_appendage, "Parse and add Partial Reject Odd Lot Bid Long Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Bid Short Quote Appendage", show.partial_reject_odd_lot_bid_short_quote_appendage, "Parse and add Partial Reject Odd Lot Bid Short Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Offer Extended Quote Appendage", show.partial_reject_odd_lot_offer_extended_quote_appendage, "Parse and add Partial Reject Odd Lot Offer Extended Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Offer Long Quote Appendage", show.partial_reject_odd_lot_offer_long_quote_appendage, "Parse and add Partial Reject Odd Lot Offer Long Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage = Pref.bool("Show Partial Reject Odd Lot Offer Short Quote Appendage", show.partial_reject_odd_lot_offer_short_quote_appendage, "Parse and add Partial Reject Odd Lot Offer Short Quote Appendage to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Bid Short Quote Appendage Index", show.partial_reject_odd_lot_bid_short_quote_appendage_index, "Show generated partial reject odd lot bid short quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Offer Short Quote Appendage Index", show.partial_reject_odd_lot_offer_short_quote_appendage_index, "Show generated partial reject odd lot offer short quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Bid Long Quote Appendage Index", show.partial_reject_odd_lot_bid_long_quote_appendage_index, "Show generated partial reject odd lot bid long quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Offer Long Quote Appendage Index", show.partial_reject_odd_lot_offer_long_quote_appendage_index, "Show generated partial reject odd lot offer long quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Bid Extended Quote Appendage Index", show.partial_reject_odd_lot_bid_extended_quote_appendage_index, "Show generated partial reject odd lot bid extended quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage_index = Pref.bool("Show Partial Reject Odd Lot Offer Extended Quote Appendage Index", show.partial_reject_odd_lot_offer_extended_quote_appendage_index, "Show generated partial reject odd lot offer extended quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage_index = Pref.bool("Show Odd Lot Bid Short Quote Appendage Index", show.odd_lot_bid_short_quote_appendage_index, "Show generated odd lot bid short quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage_index = Pref.bool("Show Odd Lot Offer Short Quote Appendage Index", show.odd_lot_offer_short_quote_appendage_index, "Show generated odd lot offer short quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage_index = Pref.bool("Show Odd Lot Bid Long Quote Appendage Index", show.odd_lot_bid_long_quote_appendage_index, "Show generated odd lot bid long quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage_index = Pref.bool("Show Odd Lot Offer Long Quote Appendage Index", show.odd_lot_offer_long_quote_appendage_index, "Show generated odd lot offer long quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage_index = Pref.bool("Show Odd Lot Bid Extended Quote Appendage Index", show.odd_lot_bid_extended_quote_appendage_index, "Show generated odd lot bid extended quote appendage index in protocol tree")
-omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage_index = Pref.bool("Show Odd Lot Offer Extended Quote Appendage Index", show.odd_lot_offer_extended_quote_appendage_index, "Show generated odd lot offer extended quote appendage index in protocol tree")
+omi_siac_cqs_input_cta_v2_9_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_siac_cqs_input_cta_v2_9_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_siac_cqs_input_cta_v2_9_b.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_administrative_message then
-    show.administrative_message = omi_siac_cqs_input_cta_v2_9_b.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_input_cta_v2_9_b.prefs.show_application_messages
   end
-  if show.block_header ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_block_header then
-    show.block_header = omi_siac_cqs_input_cta_v2_9_b.prefs.show_block_header
+  if show.repeating_groups ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_repeating_groups then
+    show.repeating_groups = omi_siac_cqs_input_cta_v2_9_b.prefs.show_repeating_groups
   end
-  if show.control_message ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_control_message then
-    show.control_message = omi_siac_cqs_input_cta_v2_9_b.prefs.show_control_message
+  if show.structs ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_structs then
+    show.structs = omi_siac_cqs_input_cta_v2_9_b.prefs.show_structs
   end
-  if show.message ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_message then
-    show.message = omi_siac_cqs_input_cta_v2_9_b.prefs.show_message
-  end
-  if show.message_header ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_header then
-    show.message_header = omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_header
-  end
-  if show.odd_lot_bid_extended_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage then
-    show.odd_lot_bid_extended_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage
-  end
-  if show.odd_lot_bid_long_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage then
-    show.odd_lot_bid_long_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage
-  end
-  if show.odd_lot_bid_short_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage then
-    show.odd_lot_bid_short_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage
-  end
-  if show.odd_lot_offer_extended_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage then
-    show.odd_lot_offer_extended_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage
-  end
-  if show.odd_lot_offer_long_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage then
-    show.odd_lot_offer_long_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage
-  end
-  if show.odd_lot_offer_short_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage then
-    show.odd_lot_offer_short_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage
-  end
-  if show.packet ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_packet then
-    show.packet = omi_siac_cqs_input_cta_v2_9_b.prefs.show_packet
-  end
-  if show.partial_reject_odd_lot_bid_extended_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage then
-    show.partial_reject_odd_lot_bid_extended_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage
-  end
-  if show.partial_reject_odd_lot_bid_long_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage then
-    show.partial_reject_odd_lot_bid_long_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage
-  end
-  if show.partial_reject_odd_lot_bid_short_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage then
-    show.partial_reject_odd_lot_bid_short_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage
-  end
-  if show.partial_reject_odd_lot_offer_extended_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage then
-    show.partial_reject_odd_lot_offer_extended_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage
-  end
-  if show.partial_reject_odd_lot_offer_long_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage then
-    show.partial_reject_odd_lot_offer_long_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage
-  end
-  if show.partial_reject_odd_lot_offer_short_quote_appendage ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage then
-    show.partial_reject_odd_lot_offer_short_quote_appendage = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage
-  end
-  if show.quote_message ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_quote_message then
-    show.quote_message = omi_siac_cqs_input_cta_v2_9_b.prefs.show_quote_message
-  end
-  if show.timestamp_1 ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_1 then
-    show.timestamp_1 = omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_1
-  end
-  if show.timestamp_2 ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_2 then
-    show.timestamp_2 = omi_siac_cqs_input_cta_v2_9_b.prefs.show_timestamp_2
-  end
-  if show.trade_message ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_trade_message then
-    show.trade_message = omi_siac_cqs_input_cta_v2_9_b.prefs.show_trade_message
-  end
-  if show.message_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_index then
-    show.message_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_message_index
-  end
-  if show.partial_reject_odd_lot_bid_short_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage_index then
-    show.partial_reject_odd_lot_bid_short_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_short_quote_appendage_index
-  end
-  if show.partial_reject_odd_lot_offer_short_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage_index then
-    show.partial_reject_odd_lot_offer_short_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_short_quote_appendage_index
-  end
-  if show.partial_reject_odd_lot_bid_long_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage_index then
-    show.partial_reject_odd_lot_bid_long_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_long_quote_appendage_index
-  end
-  if show.partial_reject_odd_lot_offer_long_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage_index then
-    show.partial_reject_odd_lot_offer_long_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_long_quote_appendage_index
-  end
-  if show.partial_reject_odd_lot_bid_extended_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage_index then
-    show.partial_reject_odd_lot_bid_extended_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_bid_extended_quote_appendage_index
-  end
-  if show.partial_reject_odd_lot_offer_extended_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage_index then
-    show.partial_reject_odd_lot_offer_extended_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_partial_reject_odd_lot_offer_extended_quote_appendage_index
-  end
-  if show.odd_lot_bid_short_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage_index then
-    show.odd_lot_bid_short_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_short_quote_appendage_index
-  end
-  if show.odd_lot_offer_short_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage_index then
-    show.odd_lot_offer_short_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_short_quote_appendage_index
-  end
-  if show.odd_lot_bid_long_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage_index then
-    show.odd_lot_bid_long_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_long_quote_appendage_index
-  end
-  if show.odd_lot_offer_long_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage_index then
-    show.odd_lot_offer_long_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_long_quote_appendage_index
-  end
-  if show.odd_lot_bid_extended_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage_index then
-    show.odd_lot_bid_extended_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_bid_extended_quote_appendage_index
-  end
-  if show.odd_lot_offer_extended_quote_appendage_index ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage_index then
-    show.odd_lot_offer_extended_quote_appendage_index = omi_siac_cqs_input_cta_v2_9_b.prefs.show_odd_lot_offer_extended_quote_appendage_index
+  if show.indexes ~= omi_siac_cqs_input_cta_v2_9_b.prefs.show_indexes then
+    show.indexes = omi_siac_cqs_input_cta_v2_9_b.prefs.show_indexes
   end
 end
 
@@ -2871,7 +2711,7 @@ end
 
 -- Dissect: Trade Message
 siac_cqs_input_cta_v2_9_b.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.trade_message, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.trade_message.fields(buffer, offset, packet, parent)
@@ -2906,7 +2746,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_offer_extended_quote_appendage.fields = functi
   local index = offset
 
   -- Implicit Odd Lot Offer Extended Quote Appendage Index
-  if odd_lot_offer_extended_quote_appendage_index ~= nil and show.odd_lot_offer_extended_quote_appendage_index then
+  if odd_lot_offer_extended_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_extended_quote_appendage_index, odd_lot_offer_extended_quote_appendage_index)
     iteration:set_generated()
   end
@@ -2925,7 +2765,7 @@ end
 
 -- Dissect: Odd Lot Offer Extended Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_offer_extended_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_offer_extended_quote_appendage_index)
-  if show.odd_lot_offer_extended_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_extended_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_offer_extended_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_offer_extended_quote_appendage_index)
@@ -2960,7 +2800,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_bid_extended_quote_appendage.fields = function
   local index = offset
 
   -- Implicit Odd Lot Bid Extended Quote Appendage Index
-  if odd_lot_bid_extended_quote_appendage_index ~= nil and show.odd_lot_bid_extended_quote_appendage_index then
+  if odd_lot_bid_extended_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_extended_quote_appendage_index, odd_lot_bid_extended_quote_appendage_index)
     iteration:set_generated()
   end
@@ -2979,7 +2819,7 @@ end
 
 -- Dissect: Odd Lot Bid Extended Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_bid_extended_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_bid_extended_quote_appendage_index)
-  if show.odd_lot_bid_extended_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_extended_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_bid_extended_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_bid_extended_quote_appendage_index)
@@ -3091,7 +2931,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_offer_long_quote_appendage.fields = function(b
   local index = offset
 
   -- Implicit Odd Lot Offer Long Quote Appendage Index
-  if odd_lot_offer_long_quote_appendage_index ~= nil and show.odd_lot_offer_long_quote_appendage_index then
+  if odd_lot_offer_long_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_long_quote_appendage_index, odd_lot_offer_long_quote_appendage_index)
     iteration:set_generated()
   end
@@ -3107,7 +2947,7 @@ end
 
 -- Dissect: Odd Lot Offer Long Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_offer_long_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_offer_long_quote_appendage_index)
-  if show.odd_lot_offer_long_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_long_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_offer_long_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_offer_long_quote_appendage_index)
@@ -3141,7 +2981,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_bid_long_quote_appendage.fields = function(buf
   local index = offset
 
   -- Implicit Odd Lot Bid Long Quote Appendage Index
-  if odd_lot_bid_long_quote_appendage_index ~= nil and show.odd_lot_bid_long_quote_appendage_index then
+  if odd_lot_bid_long_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_long_quote_appendage_index, odd_lot_bid_long_quote_appendage_index)
     iteration:set_generated()
   end
@@ -3157,7 +2997,7 @@ end
 
 -- Dissect: Odd Lot Bid Long Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_bid_long_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_bid_long_quote_appendage_index)
-  if show.odd_lot_bid_long_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_long_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_bid_long_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_bid_long_quote_appendage_index)
@@ -3269,7 +3109,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_offer_short_quote_appendage.fields = function(
   local index = offset
 
   -- Implicit Odd Lot Offer Short Quote Appendage Index
-  if odd_lot_offer_short_quote_appendage_index ~= nil and show.odd_lot_offer_short_quote_appendage_index then
+  if odd_lot_offer_short_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_short_quote_appendage_index, odd_lot_offer_short_quote_appendage_index)
     iteration:set_generated()
   end
@@ -3285,7 +3125,7 @@ end
 
 -- Dissect: Odd Lot Offer Short Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_offer_short_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_offer_short_quote_appendage_index)
-  if show.odd_lot_offer_short_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_offer_short_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_offer_short_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_offer_short_quote_appendage_index)
@@ -3319,7 +3159,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_bid_short_quote_appendage.fields = function(bu
   local index = offset
 
   -- Implicit Odd Lot Bid Short Quote Appendage Index
-  if odd_lot_bid_short_quote_appendage_index ~= nil and show.odd_lot_bid_short_quote_appendage_index then
+  if odd_lot_bid_short_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_short_quote_appendage_index, odd_lot_bid_short_quote_appendage_index)
     iteration:set_generated()
   end
@@ -3335,7 +3175,7 @@ end
 
 -- Dissect: Odd Lot Bid Short Quote Appendage
 siac_cqs_input_cta_v2_9_b.odd_lot_bid_short_quote_appendage.dissect = function(buffer, offset, packet, parent, odd_lot_bid_short_quote_appendage_index)
-  if show.odd_lot_bid_short_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_short_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.odd_lot_bid_short_quote_appendage.fields(buffer, offset, packet, parent, odd_lot_bid_short_quote_appendage_index)
@@ -3457,7 +3297,7 @@ end
 
 -- Dissect: Timestamp 2
 siac_cqs_input_cta_v2_9_b.timestamp_2.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_2 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.timestamp_2, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.timestamp_2.fields(buffer, offset, packet, parent)
@@ -4302,7 +4142,7 @@ end
 
 -- Dissect: Quote Message
 siac_cqs_input_cta_v2_9_b.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.quote_message, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.quote_message.fields(buffer, offset, packet, parent)
@@ -4536,7 +4376,7 @@ end
 
 -- Dissect: Control Message
 siac_cqs_input_cta_v2_9_b.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.control_message, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.control_message.fields(buffer, offset, packet, parent)
@@ -4615,7 +4455,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_extended_quote_appendage.
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Offer Extended Quote Appendage Index
-  if partial_reject_odd_lot_offer_extended_quote_appendage_index ~= nil and show.partial_reject_odd_lot_offer_extended_quote_appendage_index then
+  if partial_reject_odd_lot_offer_extended_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_extended_quote_appendage_index, partial_reject_odd_lot_offer_extended_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4634,7 +4474,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Offer Extended Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_extended_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_offer_extended_quote_appendage_index)
-  if show.partial_reject_odd_lot_offer_extended_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_extended_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_extended_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_offer_extended_quote_appendage_index)
@@ -4669,7 +4509,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_extended_quote_appendage.fi
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Bid Extended Quote Appendage Index
-  if partial_reject_odd_lot_bid_extended_quote_appendage_index ~= nil and show.partial_reject_odd_lot_bid_extended_quote_appendage_index then
+  if partial_reject_odd_lot_bid_extended_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_extended_quote_appendage_index, partial_reject_odd_lot_bid_extended_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4688,7 +4528,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Bid Extended Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_extended_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_bid_extended_quote_appendage_index)
-  if show.partial_reject_odd_lot_bid_extended_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_extended_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_extended_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_bid_extended_quote_appendage_index)
@@ -4722,7 +4562,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_long_quote_appendage.fiel
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Offer Long Quote Appendage Index
-  if partial_reject_odd_lot_offer_long_quote_appendage_index ~= nil and show.partial_reject_odd_lot_offer_long_quote_appendage_index then
+  if partial_reject_odd_lot_offer_long_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_long_quote_appendage_index, partial_reject_odd_lot_offer_long_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4738,7 +4578,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Offer Long Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_long_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_offer_long_quote_appendage_index)
-  if show.partial_reject_odd_lot_offer_long_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_long_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_long_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_offer_long_quote_appendage_index)
@@ -4772,7 +4612,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_long_quote_appendage.fields
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Bid Long Quote Appendage Index
-  if partial_reject_odd_lot_bid_long_quote_appendage_index ~= nil and show.partial_reject_odd_lot_bid_long_quote_appendage_index then
+  if partial_reject_odd_lot_bid_long_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_long_quote_appendage_index, partial_reject_odd_lot_bid_long_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4788,7 +4628,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Bid Long Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_long_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_bid_long_quote_appendage_index)
-  if show.partial_reject_odd_lot_bid_long_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_long_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_long_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_bid_long_quote_appendage_index)
@@ -4822,7 +4662,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_short_quote_appendage.fie
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Offer Short Quote Appendage Index
-  if partial_reject_odd_lot_offer_short_quote_appendage_index ~= nil and show.partial_reject_odd_lot_offer_short_quote_appendage_index then
+  if partial_reject_odd_lot_offer_short_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_short_quote_appendage_index, partial_reject_odd_lot_offer_short_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4838,7 +4678,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Offer Short Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_short_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_offer_short_quote_appendage_index)
-  if show.partial_reject_odd_lot_offer_short_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_short_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_offer_short_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_offer_short_quote_appendage_index)
@@ -4872,7 +4712,7 @@ siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_short_quote_appendage.field
   local index = offset
 
   -- Implicit Partial Reject Odd Lot Bid Short Quote Appendage Index
-  if partial_reject_odd_lot_bid_short_quote_appendage_index ~= nil and show.partial_reject_odd_lot_bid_short_quote_appendage_index then
+  if partial_reject_odd_lot_bid_short_quote_appendage_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_short_quote_appendage_index, partial_reject_odd_lot_bid_short_quote_appendage_index)
     iteration:set_generated()
   end
@@ -4888,7 +4728,7 @@ end
 
 -- Dissect: Partial Reject Odd Lot Bid Short Quote Appendage
 siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_short_quote_appendage.dissect = function(buffer, offset, packet, parent, partial_reject_odd_lot_bid_short_quote_appendage_index)
-  if show.partial_reject_odd_lot_bid_short_quote_appendage then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_bid_short_quote_appendage, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.partial_reject_odd_lot_bid_short_quote_appendage.fields(buffer, offset, packet, parent, partial_reject_odd_lot_bid_short_quote_appendage_index)
@@ -5221,7 +5061,7 @@ end
 
 -- Dissect: Administrative Message
 siac_cqs_input_cta_v2_9_b.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.administrative_message, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.administrative_message.fields(buffer, offset, packet, parent)
@@ -5290,7 +5130,7 @@ end
 
 -- Dissect: Timestamp 1
 siac_cqs_input_cta_v2_9_b.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_1 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.timestamp_1, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.timestamp_1.fields(buffer, offset, packet, parent)
@@ -5358,7 +5198,7 @@ end
 
 -- Dissect: Message Header
 siac_cqs_input_cta_v2_9_b.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.message_header, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.message_header.fields(buffer, offset, packet, parent)
@@ -5399,7 +5239,7 @@ siac_cqs_input_cta_v2_9_b.message.fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5418,7 +5258,7 @@ end
 
 -- Dissect: Message
 siac_cqs_input_cta_v2_9_b.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.message, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.message.fields(buffer, offset, packet, parent, message_index)
@@ -5474,7 +5314,7 @@ end
 
 -- Dissect: Block Header
 siac_cqs_input_cta_v2_9_b.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.block_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.block_header.fields(buffer, offset, packet, parent)

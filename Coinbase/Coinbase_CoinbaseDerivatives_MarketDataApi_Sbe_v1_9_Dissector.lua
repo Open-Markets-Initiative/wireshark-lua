@@ -177,26 +177,12 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.trading_status_up
 local show = {}
 
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.9 Element Dissection Options
-show.definition_flags = true
+show.structs = true
 show.application_messages = true
-show.flags = true
-show.instr_header = true
-show.logical_expiry = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.sbe_message = true
 
 -- Register Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.9 Show Options
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_logical_expiry = Pref.bool("Show Logical Expiry", show.logical_expiry, "Parse and add Logical Expiry to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 
 
 -- Handle changed preferences
@@ -206,29 +192,8 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs_changed()
   if show.application_messages ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_application_messages
   end
-  if show.definition_flags ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_definition_flags then
-    show.definition_flags = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_definition_flags
-  end
-  if show.flags ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_flags then
-    show.flags = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_flags
-  end
-  if show.instr_header ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_instr_header then
-    show.instr_header = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_instr_header
-  end
-  if show.logical_expiry ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_logical_expiry then
-    show.logical_expiry = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_logical_expiry
-  end
-  if show.message_header ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_message_header then
-    show.message_header = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_message_header
-  end
-  if show.packet ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet then
-    show.packet = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet
-  end
-  if show.packet_header ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet_header then
-    show.packet_header = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_packet_header
-  end
-  if show.sbe_message ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message then
-    show.sbe_message = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_sbe_message
+  if show.structs ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_structs then
+    show.structs = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.prefs.show_structs
   end
 end
 
@@ -3783,7 +3748,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.dissect = f
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.definition_flags, range, display)
 
-  if show.definition_flags then
+  if show.structs then
     coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.bits(range, value, packet, element)
   end
 
@@ -4046,7 +4011,7 @@ end
 
 -- Dissect: Logical Expiry
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.logical_expiry.dissect = function(buffer, offset, packet, parent)
-  if show.logical_expiry then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.logical_expiry, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.logical_expiry.fields(buffer, offset, packet, parent)
@@ -4450,7 +4415,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.flags.dissect = function(buf
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.flags, range, display)
 
-  if show.flags then
+  if show.structs then
     coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.flags.bits(range, value, packet, element)
   end
 
@@ -4505,7 +4470,7 @@ end
 
 -- Dissect: Instr Header
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.instr_header.dissect = function(buffer, offset, packet, parent)
-  if show.instr_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.instr_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.instr_header.fields(buffer, offset, packet, parent)
@@ -5750,7 +5715,7 @@ end
 
 -- Dissect: Message Header
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.message_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_header.fields(buffer, offset, packet, parent)
@@ -5804,7 +5769,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.sbe_message.dissect = functi
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.sbe_message, buffer(offset, 0))
     local current = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
@@ -5864,7 +5829,7 @@ end
 
 -- Dissect: Packet Header
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.packet_header.fields(buffer, offset, packet, parent)

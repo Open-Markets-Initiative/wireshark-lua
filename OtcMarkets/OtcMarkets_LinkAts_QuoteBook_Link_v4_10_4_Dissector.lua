@@ -109,27 +109,13 @@ local show = {}
 
 -- OtcMarkets LinkAts QuoteBook Link 4.10.4 Element Dissection Options
 show.application_messages = true
-show.extended_quote_flags = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_flag = true
-show.packet_header = true
-show.quote_flags = true
-show.security_flags = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register OtcMarkets LinkAts QuoteBook Link 4.10.4 Show Options
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_extended_quote_flags = Pref.bool("Show Extended Quote Flags", show.extended_quote_flags, "Parse and add Extended Quote Flags to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_flag = Pref.bool("Show Packet Flag", show.packet_flag, "Parse and add Packet Flag to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_quote_flags = Pref.bool("Show Quote Flags", show.quote_flags, "Parse and add Quote Flags to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_security_flags = Pref.bool("Show Security Flags", show.security_flags, "Parse and add Security Flags to protocol tree")
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -139,32 +125,11 @@ function omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs_changed()
   if show.application_messages ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_application_messages
   end
-  if show.extended_quote_flags ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_extended_quote_flags then
-    show.extended_quote_flags = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_extended_quote_flags
+  if show.structs ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_structs then
+    show.structs = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_structs
   end
-  if show.message ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message then
-    show.message = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message
-  end
-  if show.message_header ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_header then
-    show.message_header = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_header
-  end
-  if show.packet ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet then
-    show.packet = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet
-  end
-  if show.packet_flag ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_flag then
-    show.packet_flag = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_flag
-  end
-  if show.packet_header ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_header then
-    show.packet_header = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_packet_header
-  end
-  if show.quote_flags ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_quote_flags then
-    show.quote_flags = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_quote_flags
-  end
-  if show.security_flags ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_security_flags then
-    show.security_flags = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_security_flags
-  end
-  if show.message_index ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_index then
-    show.message_index = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_message_index
+  if show.indexes ~= omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_indexes then
+    show.indexes = omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_indexes
   end
 end
 
@@ -1323,7 +1288,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.extended_quote_flags.dissect = functio
   local display = otcmarkets_linkats_quotebook_link_v4_10_4.extended_quote_flags.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.extended_quote_flags, range, display)
 
-  if show.extended_quote_flags then
+  if show.structs then
     otcmarkets_linkats_quotebook_link_v4_10_4.extended_quote_flags.bits(range, value, packet, element)
   end
 
@@ -1412,7 +1377,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.quote_flags.dissect = function(buffer,
   local display = otcmarkets_linkats_quotebook_link_v4_10_4.quote_flags.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.quote_flags, range, display)
 
-  if show.quote_flags then
+  if show.structs then
     otcmarkets_linkats_quotebook_link_v4_10_4.quote_flags.bits(range, value, packet, element)
   end
 
@@ -1673,7 +1638,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.security_flags.dissect = function(buff
   local display = otcmarkets_linkats_quotebook_link_v4_10_4.security_flags.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.security_flags, range, display)
 
-  if show.security_flags then
+  if show.structs then
     otcmarkets_linkats_quotebook_link_v4_10_4.security_flags.bits(range, value, packet, element)
   end
 
@@ -2025,7 +1990,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_linkats_quotebook_link_v4_10_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_linkats_quotebook_link_v4_10_4.message_header.fields(buffer, offset, packet, parent)
@@ -2054,7 +2019,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.message.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2076,7 +2041,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.message.dissect = function(buffer, off
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message, buffer(offset, 0))
     local current = otcmarkets_linkats_quotebook_link_v4_10_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2149,7 +2114,7 @@ otcmarkets_linkats_quotebook_link_v4_10_4.packet_flag.dissect = function(buffer,
   local display = otcmarkets_linkats_quotebook_link_v4_10_4.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_flag, range, display)
 
-  if show.packet_flag then
+  if show.structs then
     otcmarkets_linkats_quotebook_link_v4_10_4.packet_flag.bits(range, value, packet, element)
   end
 
@@ -2196,7 +2161,7 @@ end
 
 -- Dissect: Packet Header
 otcmarkets_linkats_quotebook_link_v4_10_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_header, buffer(offset, 0))
     local index = otcmarkets_linkats_quotebook_link_v4_10_4.packet_header.fields(buffer, offset, packet, parent)

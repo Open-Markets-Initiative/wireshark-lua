@@ -138,93 +138,33 @@ omi_eurex_t7_edci_fbe_v13_0.fields.sessions_grp_comp_index = ProtoField.new("Ses
 local show = {}
 
 -- Eurex T7 Edci Fbe 13.0 Element Dissection Options
-show.affected_ord_grp_comp = true
+show.repeating_groups = true
 show.application_messages = true
-show.fills_grp_comp = true
-show.message = true
-show.message_header = true
-show.notif_header_comp = true
-show.packet = true
-show.partition_grp_comp = true
-show.rbc_header_comp = true
-show.request_header_comp = true
-show.response_header_comp = true
-show.sessions_grp_comp = true
-show.affected_ord_grp_comp_index = true
-show.fills_grp_comp_index = true
-show.partition_grp_comp_index = true
-show.sessions_grp_comp_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Eurex T7 Edci Fbe 13.0 Show Options
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
+omi_eurex_t7_edci_fbe_v13_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_edci_fbe_v13_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp = Pref.bool("Show Fills Grp Comp", show.fills_grp_comp, "Parse and add Fills Grp Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_notif_header_comp = Pref.bool("Show Notif Header Comp", show.notif_header_comp, "Parse and add Notif Header Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp = Pref.bool("Show Partition Grp Comp", show.partition_grp_comp, "Parse and add Partition Grp Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_rbc_header_comp = Pref.bool("Show Rbc Header Comp", show.rbc_header_comp, "Parse and add Rbc Header Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp_index = Pref.bool("Show Affected Ord Grp Comp Index", show.affected_ord_grp_comp_index, "Show generated affected ord grp comp index in protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp_index = Pref.bool("Show Partition Grp Comp Index", show.partition_grp_comp_index, "Show generated partition grp comp index in protocol tree")
-omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
+omi_eurex_t7_edci_fbe_v13_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_edci_fbe_v13_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_eurex_t7_edci_fbe_v13_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.affected_ord_grp_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp then
-    show.affected_ord_grp_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp
-  end
   if show.application_messages ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_t7_edci_fbe_v13_0.prefs.show_application_messages
   end
-  if show.fills_grp_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp then
-    show.fills_grp_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp
+  if show.repeating_groups ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_eurex_t7_edci_fbe_v13_0.prefs.show_repeating_groups
   end
-  if show.message ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_message then
-    show.message = omi_eurex_t7_edci_fbe_v13_0.prefs.show_message
+  if show.structs ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_structs then
+    show.structs = omi_eurex_t7_edci_fbe_v13_0.prefs.show_structs
   end
-  if show.message_header ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_message_header then
-    show.message_header = omi_eurex_t7_edci_fbe_v13_0.prefs.show_message_header
-  end
-  if show.notif_header_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_notif_header_comp then
-    show.notif_header_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_notif_header_comp
-  end
-  if show.packet ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_packet then
-    show.packet = omi_eurex_t7_edci_fbe_v13_0.prefs.show_packet
-  end
-  if show.partition_grp_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp then
-    show.partition_grp_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp
-  end
-  if show.rbc_header_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_rbc_header_comp then
-    show.rbc_header_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_rbc_header_comp
-  end
-  if show.request_header_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_request_header_comp then
-    show.request_header_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_request_header_comp
-  end
-  if show.response_header_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_response_header_comp then
-    show.response_header_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_response_header_comp
-  end
-  if show.sessions_grp_comp ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp then
-    show.sessions_grp_comp = omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp
-  end
-  if show.affected_ord_grp_comp_index ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp_index then
-    show.affected_ord_grp_comp_index = omi_eurex_t7_edci_fbe_v13_0.prefs.show_affected_ord_grp_comp_index
-  end
-  if show.fills_grp_comp_index ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp_index then
-    show.fills_grp_comp_index = omi_eurex_t7_edci_fbe_v13_0.prefs.show_fills_grp_comp_index
-  end
-  if show.partition_grp_comp_index ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp_index then
-    show.partition_grp_comp_index = omi_eurex_t7_edci_fbe_v13_0.prefs.show_partition_grp_comp_index
-  end
-  if show.sessions_grp_comp_index ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp_index then
-    show.sessions_grp_comp_index = omi_eurex_t7_edci_fbe_v13_0.prefs.show_sessions_grp_comp_index
+  if show.indexes ~= omi_eurex_t7_edci_fbe_v13_0.prefs.show_indexes then
+    show.indexes = omi_eurex_t7_edci_fbe_v13_0.prefs.show_indexes
   end
 end
 
@@ -3057,7 +2997,7 @@ end
 
 -- Dissect: Rbc Header Comp
 eurex_t7_edci_fbe_v13_0.rbc_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.rbc_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.rbc_header_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.rbc_header_comp.fields(buffer, offset, packet, parent)
@@ -3158,7 +3098,7 @@ eurex_t7_edci_fbe_v13_0.sessions_grp_comp.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil and show.sessions_grp_comp_index then
+  if sessions_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
   end
@@ -3180,7 +3120,7 @@ end
 
 -- Dissect: Sessions Grp Comp
 eurex_t7_edci_fbe_v13_0.sessions_grp_comp.dissect = function(buffer, offset, packet, parent, sessions_grp_comp_index)
-  if show.sessions_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.sessions_grp_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
@@ -3220,7 +3160,7 @@ end
 
 -- Dissect: Notif Header Comp
 eurex_t7_edci_fbe_v13_0.notif_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.notif_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.notif_header_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.notif_header_comp.fields(buffer, offset, packet, parent)
@@ -3340,7 +3280,7 @@ end
 
 -- Dissect: Response Header Comp
 eurex_t7_edci_fbe_v13_0.response_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.response_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.response_header_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.response_header_comp.fields(buffer, offset, packet, parent)
@@ -3456,7 +3396,7 @@ eurex_t7_edci_fbe_v13_0.partition_grp_comp.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Partition Grp Comp Index
-  if partition_grp_comp_index ~= nil and show.partition_grp_comp_index then
+  if partition_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.partition_grp_comp_index, partition_grp_comp_index)
     iteration:set_generated()
   end
@@ -3472,7 +3412,7 @@ end
 
 -- Dissect: Partition Grp Comp
 eurex_t7_edci_fbe_v13_0.partition_grp_comp.dissect = function(buffer, offset, packet, parent, partition_grp_comp_index)
-  if show.partition_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.partition_grp_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.partition_grp_comp.fields(buffer, offset, packet, parent, partition_grp_comp_index)
@@ -3572,7 +3512,7 @@ eurex_t7_edci_fbe_v13_0.fills_grp_comp.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Fills Grp Comp Index
-  if fills_grp_comp_index ~= nil and show.fills_grp_comp_index then
+  if fills_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
   end
@@ -3594,7 +3534,7 @@ end
 
 -- Dissect: Fills Grp Comp
 eurex_t7_edci_fbe_v13_0.fills_grp_comp.dissect = function(buffer, offset, packet, parent, fills_grp_comp_index)
-  if show.fills_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.fills_grp_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.fills_grp_comp.fields(buffer, offset, packet, parent, fills_grp_comp_index)
@@ -3875,7 +3815,7 @@ end
 
 -- Dissect: Request Header Comp
 eurex_t7_edci_fbe_v13_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.request_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.request_header_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.request_header_comp.fields(buffer, offset, packet, parent)
@@ -4292,7 +4232,7 @@ eurex_t7_edci_fbe_v13_0.affected_ord_grp_comp.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Affected Ord Grp Comp Index
-  if affected_ord_grp_comp_index ~= nil and show.affected_ord_grp_comp_index then
+  if affected_ord_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.affected_ord_grp_comp_index, affected_ord_grp_comp_index)
     iteration:set_generated()
   end
@@ -4335,7 +4275,7 @@ end
 
 -- Dissect: Affected Ord Grp Comp
 eurex_t7_edci_fbe_v13_0.affected_ord_grp_comp.dissect = function(buffer, offset, packet, parent, affected_ord_grp_comp_index)
-  if show.affected_ord_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.affected_ord_grp_comp, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.affected_ord_grp_comp.fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
@@ -4510,7 +4450,7 @@ end
 
 -- Dissect: Message Header
 eurex_t7_edci_fbe_v13_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.message_header, buffer(offset, 0))
     local index = eurex_t7_edci_fbe_v13_0.message_header.fields(buffer, offset, packet, parent)
@@ -4555,7 +4495,7 @@ eurex_t7_edci_fbe_v13_0.message.dissect = function(buffer, offset, packet, paren
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_0.fields.message, buffer(offset, 0))
     local current = eurex_t7_edci_fbe_v13_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

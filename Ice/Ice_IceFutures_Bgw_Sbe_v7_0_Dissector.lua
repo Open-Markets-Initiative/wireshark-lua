@@ -434,143 +434,15 @@ local show = {}
 
 -- Ice IceFutures Bgw Sbe 7.0 Element Dissection Options
 show.application_messages = true
-show.cleared_alias = true
-show.exec_i_d_order_exec_id = true
-show.framing_header = true
-show.group_size_encoding = true
-show.header_flags = true
-show.home_exchange = true
-show.hub_alias = true
-show.hub_name = true
-show.i_p_report_message_no_users_group = true
-show.i_p_report_message_no_users_groups = true
-show.i_p_request_message_no_users_group = true
-show.i_p_request_message_no_users_groups = true
-show.mass_quote_report_message_no_quote_sets_group = true
-show.mass_quote_report_message_no_quote_sets_groups = true
-show.mass_quote_request_message_no_quote_sets_group = true
-show.mass_quote_request_message_no_quote_sets_groups = true
-show.message_header = true
-show.new_order_cross_request_message_no_legs_group = true
-show.new_order_cross_request_message_no_legs_groups = true
-show.new_order_cross_request_message_no_sides_group = true
-show.new_order_cross_request_message_no_sides_groups = true
-show.order_modification_flags = true
-show.orig_order_id = true
-show.packet = true
-show.physical_code = true
-show.price_denomination = true
-show.price_unit = true
-show.product_desc = true
-show.product_group = true
-show.product_name = true
-show.quote_cancel_request_message_no_quote_entries_group = true
-show.quote_cancel_request_message_no_quote_entries_groups = true
-show.security_definition_report_message_no_block_details_group = true
-show.security_definition_report_message_no_block_details_groups = true
-show.security_definition_report_message_no_security_alt_i_d_group = true
-show.security_definition_report_message_no_security_alt_i_d_groups = true
-show.security_definition_report_strategy_message_no_block_details_group = true
-show.security_definition_report_strategy_message_no_block_details_groups = true
-show.security_definition_report_strategy_message_no_legs_group = true
-show.security_definition_report_strategy_message_no_legs_groups = true
-show.security_definition_report_strategy_message_no_security_alt_i_d_group = true
-show.security_definition_report_strategy_message_no_security_alt_i_d_groups = true
-show.security_definition_request_create_strategy_message_no_legs_group = true
-show.security_definition_request_create_strategy_message_no_legs_groups = true
-show.security_desc = true
-show.security_exchange = true
-show.security_id = true
-show.simple_open_frame = true
-show.simple_open_framing_header = true
-show.strategy_security_id = true
-show.strip_name = true
-show.text = true
-show.trade_flags = true
-show.unit_of_measure = true
-show.security_definition_report_strategy_message_no_block_details_group_index = true
-show.security_definition_report_strategy_message_no_security_alt_i_d_group_index = true
-show.security_definition_report_strategy_message_no_legs_group_index = true
-show.security_definition_report_message_no_block_details_group_index = true
-show.security_definition_report_message_no_security_alt_i_d_group_index = true
-show.i_p_request_message_no_users_group_index = true
-show.i_p_report_message_no_users_group_index = true
-show.new_order_cross_request_message_no_sides_group_index = true
-show.new_order_cross_request_message_no_legs_group_index = true
-show.mass_quote_request_message_no_quote_sets_group_index = true
-show.quote_cancel_request_message_no_quote_entries_group_index = true
-show.security_definition_request_create_strategy_message_no_legs_group_index = true
-show.mass_quote_report_message_no_quote_sets_group_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Ice IceFutures Bgw Sbe 7.0 Show Options
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_cleared_alias = Pref.bool("Show Cleared Alias", show.cleared_alias, "Parse and add Cleared Alias to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_exec_i_d_order_exec_id = Pref.bool("Show Exec I D order Exec Id", show.exec_i_d_order_exec_id, "Parse and add Exec I D order Exec Id to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_header_flags = Pref.bool("Show Header Flags", show.header_flags, "Parse and add Header Flags to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_home_exchange = Pref.bool("Show Home Exchange", show.home_exchange, "Parse and add Home Exchange to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_alias = Pref.bool("Show Hub Alias", show.hub_alias, "Parse and add Hub Alias to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_name = Pref.bool("Show Hub Name", show.hub_name, "Parse and add Hub Name to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group = Pref.bool("Show I P Report Message no Users Group", show.i_p_report_message_no_users_group, "Parse and add I P Report Message no Users Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_groups = Pref.bool("Show I P Report Message no Users Groups", show.i_p_report_message_no_users_groups, "Parse and add I P Report Message no Users Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group = Pref.bool("Show I P Request Message no Users Group", show.i_p_request_message_no_users_group, "Parse and add I P Request Message no Users Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_groups = Pref.bool("Show I P Request Message no Users Groups", show.i_p_request_message_no_users_groups, "Parse and add I P Request Message no Users Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group = Pref.bool("Show Mass Quote Report Message no Quote Sets Group", show.mass_quote_report_message_no_quote_sets_group, "Parse and add Mass Quote Report Message no Quote Sets Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_groups = Pref.bool("Show Mass Quote Report Message no Quote Sets Groups", show.mass_quote_report_message_no_quote_sets_groups, "Parse and add Mass Quote Report Message no Quote Sets Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group = Pref.bool("Show Mass Quote Request Message no Quote Sets Group", show.mass_quote_request_message_no_quote_sets_group, "Parse and add Mass Quote Request Message no Quote Sets Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_groups = Pref.bool("Show Mass Quote Request Message no Quote Sets Groups", show.mass_quote_request_message_no_quote_sets_groups, "Parse and add Mass Quote Request Message no Quote Sets Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group = Pref.bool("Show New Order Cross Request Message no Legs Group", show.new_order_cross_request_message_no_legs_group, "Parse and add New Order Cross Request Message no Legs Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_groups = Pref.bool("Show New Order Cross Request Message no Legs Groups", show.new_order_cross_request_message_no_legs_groups, "Parse and add New Order Cross Request Message no Legs Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group = Pref.bool("Show New Order Cross Request Message no Sides Group", show.new_order_cross_request_message_no_sides_group, "Parse and add New Order Cross Request Message no Sides Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_groups = Pref.bool("Show New Order Cross Request Message no Sides Groups", show.new_order_cross_request_message_no_sides_groups, "Parse and add New Order Cross Request Message no Sides Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_order_modification_flags = Pref.bool("Show Order Modification Flags", show.order_modification_flags, "Parse and add Order Modification Flags to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_orig_order_id = Pref.bool("Show Orig Order Id", show.orig_order_id, "Parse and add Orig Order Id to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_physical_code = Pref.bool("Show Physical Code", show.physical_code, "Parse and add Physical Code to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_denomination = Pref.bool("Show Price Denomination", show.price_denomination, "Parse and add Price Denomination to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_unit = Pref.bool("Show Price Unit", show.price_unit, "Parse and add Price Unit to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_desc = Pref.bool("Show Product Desc", show.product_desc, "Parse and add Product Desc to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_group = Pref.bool("Show Product Group", show.product_group, "Parse and add Product Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_name = Pref.bool("Show Product Name", show.product_name, "Parse and add Product Name to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group = Pref.bool("Show Quote Cancel Request Message no Quote Entries Group", show.quote_cancel_request_message_no_quote_entries_group, "Parse and add Quote Cancel Request Message no Quote Entries Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_groups = Pref.bool("Show Quote Cancel Request Message no Quote Entries Groups", show.quote_cancel_request_message_no_quote_entries_groups, "Parse and add Quote Cancel Request Message no Quote Entries Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group = Pref.bool("Show Security Definition Report Message no Block Details Group", show.security_definition_report_message_no_block_details_group, "Parse and add Security Definition Report Message no Block Details Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_groups = Pref.bool("Show Security Definition Report Message no Block Details Groups", show.security_definition_report_message_no_block_details_groups, "Parse and add Security Definition Report Message no Block Details Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group = Pref.bool("Show Security Definition Report Message no Security Alt I D Group", show.security_definition_report_message_no_security_alt_i_d_group, "Parse and add Security Definition Report Message no Security Alt I D Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_groups = Pref.bool("Show Security Definition Report Message no Security Alt I D Groups", show.security_definition_report_message_no_security_alt_i_d_groups, "Parse and add Security Definition Report Message no Security Alt I D Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group = Pref.bool("Show Security Definition Report Strategy Message no Block Details Group", show.security_definition_report_strategy_message_no_block_details_group, "Parse and add Security Definition Report Strategy Message no Block Details Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_groups = Pref.bool("Show Security Definition Report Strategy Message no Block Details Groups", show.security_definition_report_strategy_message_no_block_details_groups, "Parse and add Security Definition Report Strategy Message no Block Details Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group = Pref.bool("Show Security Definition Report Strategy Message no Legs Group", show.security_definition_report_strategy_message_no_legs_group, "Parse and add Security Definition Report Strategy Message no Legs Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_groups = Pref.bool("Show Security Definition Report Strategy Message no Legs Groups", show.security_definition_report_strategy_message_no_legs_groups, "Parse and add Security Definition Report Strategy Message no Legs Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group = Pref.bool("Show Security Definition Report Strategy Message no Security Alt I D Group", show.security_definition_report_strategy_message_no_security_alt_i_d_group, "Parse and add Security Definition Report Strategy Message no Security Alt I D Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_groups = Pref.bool("Show Security Definition Report Strategy Message no Security Alt I D Groups", show.security_definition_report_strategy_message_no_security_alt_i_d_groups, "Parse and add Security Definition Report Strategy Message no Security Alt I D Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group = Pref.bool("Show Security Definition Request Create Strategy Message no Legs Group", show.security_definition_request_create_strategy_message_no_legs_group, "Parse and add Security Definition Request Create Strategy Message no Legs Group to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_groups = Pref.bool("Show Security Definition Request Create Strategy Message no Legs Groups", show.security_definition_request_create_strategy_message_no_legs_groups, "Parse and add Security Definition Request Create Strategy Message no Legs Groups to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_desc = Pref.bool("Show Security Desc", show.security_desc, "Parse and add Security Desc to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_exchange = Pref.bool("Show Security Exchange", show.security_exchange, "Parse and add Security Exchange to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_id = Pref.bool("Show Security Id", show.security_id, "Parse and add Security Id to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strategy_security_id = Pref.bool("Show Strategy Security Id", show.strategy_security_id, "Parse and add Strategy Security Id to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strip_name = Pref.bool("Show Strip Name", show.strip_name, "Parse and add Strip Name to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_unit_of_measure = Pref.bool("Show Unit Of Measure", show.unit_of_measure, "Parse and add Unit Of Measure to protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group_index = Pref.bool("Show Security Definition Report Strategy Message no Block Details Group Index", show.security_definition_report_strategy_message_no_block_details_group_index, "Show generated security definition report strategy message no block details group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group_index = Pref.bool("Show Security Definition Report Strategy Message no Security Alt I D Group Index", show.security_definition_report_strategy_message_no_security_alt_i_d_group_index, "Show generated security definition report strategy message no security alt i d group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group_index = Pref.bool("Show Security Definition Report Strategy Message no Legs Group Index", show.security_definition_report_strategy_message_no_legs_group_index, "Show generated security definition report strategy message no legs group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group_index = Pref.bool("Show Security Definition Report Message no Block Details Group Index", show.security_definition_report_message_no_block_details_group_index, "Show generated security definition report message no block details group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group_index = Pref.bool("Show Security Definition Report Message no Security Alt I D Group Index", show.security_definition_report_message_no_security_alt_i_d_group_index, "Show generated security definition report message no security alt i d group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group_index = Pref.bool("Show I P Request Message no Users Group Index", show.i_p_request_message_no_users_group_index, "Show generated i p request message no users group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group_index = Pref.bool("Show I P Report Message no Users Group Index", show.i_p_report_message_no_users_group_index, "Show generated i p report message no users group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group_index = Pref.bool("Show New Order Cross Request Message no Sides Group Index", show.new_order_cross_request_message_no_sides_group_index, "Show generated new order cross request message no sides group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group_index = Pref.bool("Show New Order Cross Request Message no Legs Group Index", show.new_order_cross_request_message_no_legs_group_index, "Show generated new order cross request message no legs group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group_index = Pref.bool("Show Mass Quote Request Message no Quote Sets Group Index", show.mass_quote_request_message_no_quote_sets_group_index, "Show generated mass quote request message no quote sets group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group_index = Pref.bool("Show Quote Cancel Request Message no Quote Entries Group Index", show.quote_cancel_request_message_no_quote_entries_group_index, "Show generated quote cancel request message no quote entries group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group_index = Pref.bool("Show Security Definition Request Create Strategy Message no Legs Group Index", show.security_definition_request_create_strategy_message_no_legs_group_index, "Show generated security definition request create strategy message no legs group index in protocol tree")
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group_index = Pref.bool("Show Mass Quote Report Message no Quote Sets Group Index", show.mass_quote_report_message_no_quote_sets_group_index, "Show generated mass quote report message no quote sets group index in protocol tree")
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -580,206 +452,14 @@ function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
   if show.application_messages ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages
   end
-  if show.cleared_alias ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_cleared_alias then
-    show.cleared_alias = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_cleared_alias
+  if show.repeating_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups
   end
-  if show.exec_i_d_order_exec_id ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_exec_i_d_order_exec_id then
-    show.exec_i_d_order_exec_id = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_exec_i_d_order_exec_id
+  if show.structs ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs then
+    show.structs = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs
   end
-  if show.framing_header ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_framing_header then
-    show.framing_header = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_framing_header
-  end
-  if show.group_size_encoding ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_group_size_encoding
-  end
-  if show.header_flags ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_header_flags then
-    show.header_flags = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_header_flags
-  end
-  if show.home_exchange ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_home_exchange then
-    show.home_exchange = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_home_exchange
-  end
-  if show.hub_alias ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_alias then
-    show.hub_alias = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_alias
-  end
-  if show.hub_name ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_name then
-    show.hub_name = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_hub_name
-  end
-  if show.i_p_report_message_no_users_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group then
-    show.i_p_report_message_no_users_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group
-  end
-  if show.i_p_report_message_no_users_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_groups then
-    show.i_p_report_message_no_users_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_groups
-  end
-  if show.i_p_request_message_no_users_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group then
-    show.i_p_request_message_no_users_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group
-  end
-  if show.i_p_request_message_no_users_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_groups then
-    show.i_p_request_message_no_users_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_groups
-  end
-  if show.mass_quote_report_message_no_quote_sets_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group then
-    show.mass_quote_report_message_no_quote_sets_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group
-  end
-  if show.mass_quote_report_message_no_quote_sets_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_groups then
-    show.mass_quote_report_message_no_quote_sets_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_groups
-  end
-  if show.mass_quote_request_message_no_quote_sets_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group then
-    show.mass_quote_request_message_no_quote_sets_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group
-  end
-  if show.mass_quote_request_message_no_quote_sets_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_groups then
-    show.mass_quote_request_message_no_quote_sets_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_groups
-  end
-  if show.message_header ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_message_header then
-    show.message_header = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_message_header
-  end
-  if show.new_order_cross_request_message_no_legs_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group then
-    show.new_order_cross_request_message_no_legs_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group
-  end
-  if show.new_order_cross_request_message_no_legs_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_groups then
-    show.new_order_cross_request_message_no_legs_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_groups
-  end
-  if show.new_order_cross_request_message_no_sides_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group then
-    show.new_order_cross_request_message_no_sides_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group
-  end
-  if show.new_order_cross_request_message_no_sides_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_groups then
-    show.new_order_cross_request_message_no_sides_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_groups
-  end
-  if show.order_modification_flags ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_order_modification_flags then
-    show.order_modification_flags = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_order_modification_flags
-  end
-  if show.orig_order_id ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_orig_order_id then
-    show.orig_order_id = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_orig_order_id
-  end
-  if show.packet ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_packet then
-    show.packet = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_packet
-  end
-  if show.physical_code ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_physical_code then
-    show.physical_code = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_physical_code
-  end
-  if show.price_denomination ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_denomination then
-    show.price_denomination = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_denomination
-  end
-  if show.price_unit ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_unit then
-    show.price_unit = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_price_unit
-  end
-  if show.product_desc ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_desc then
-    show.product_desc = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_desc
-  end
-  if show.product_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_group then
-    show.product_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_group
-  end
-  if show.product_name ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_name then
-    show.product_name = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_product_name
-  end
-  if show.quote_cancel_request_message_no_quote_entries_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group then
-    show.quote_cancel_request_message_no_quote_entries_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group
-  end
-  if show.quote_cancel_request_message_no_quote_entries_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_groups then
-    show.quote_cancel_request_message_no_quote_entries_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_groups
-  end
-  if show.security_definition_report_message_no_block_details_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group then
-    show.security_definition_report_message_no_block_details_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group
-  end
-  if show.security_definition_report_message_no_block_details_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_groups then
-    show.security_definition_report_message_no_block_details_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_groups
-  end
-  if show.security_definition_report_message_no_security_alt_i_d_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group then
-    show.security_definition_report_message_no_security_alt_i_d_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group
-  end
-  if show.security_definition_report_message_no_security_alt_i_d_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_groups then
-    show.security_definition_report_message_no_security_alt_i_d_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_groups
-  end
-  if show.security_definition_report_strategy_message_no_block_details_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group then
-    show.security_definition_report_strategy_message_no_block_details_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group
-  end
-  if show.security_definition_report_strategy_message_no_block_details_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_groups then
-    show.security_definition_report_strategy_message_no_block_details_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_groups
-  end
-  if show.security_definition_report_strategy_message_no_legs_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group then
-    show.security_definition_report_strategy_message_no_legs_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group
-  end
-  if show.security_definition_report_strategy_message_no_legs_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_groups then
-    show.security_definition_report_strategy_message_no_legs_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_groups
-  end
-  if show.security_definition_report_strategy_message_no_security_alt_i_d_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group then
-    show.security_definition_report_strategy_message_no_security_alt_i_d_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group
-  end
-  if show.security_definition_report_strategy_message_no_security_alt_i_d_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_groups then
-    show.security_definition_report_strategy_message_no_security_alt_i_d_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_groups
-  end
-  if show.security_definition_request_create_strategy_message_no_legs_group ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group then
-    show.security_definition_request_create_strategy_message_no_legs_group = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group
-  end
-  if show.security_definition_request_create_strategy_message_no_legs_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_groups then
-    show.security_definition_request_create_strategy_message_no_legs_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_groups
-  end
-  if show.security_desc ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_desc then
-    show.security_desc = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_desc
-  end
-  if show.security_exchange ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_exchange then
-    show.security_exchange = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_exchange
-  end
-  if show.security_id ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_id then
-    show.security_id = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_id
-  end
-  if show.simple_open_frame ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_frame then
-    show.simple_open_frame = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_frame
-  end
-  if show.simple_open_framing_header ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_framing_header then
-    show.simple_open_framing_header = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_simple_open_framing_header
-  end
-  if show.strategy_security_id ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strategy_security_id then
-    show.strategy_security_id = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strategy_security_id
-  end
-  if show.strip_name ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strip_name then
-    show.strip_name = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_strip_name
-  end
-  if show.text ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_text then
-    show.text = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_text
-  end
-  if show.trade_flags ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_trade_flags then
-    show.trade_flags = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_trade_flags
-  end
-  if show.unit_of_measure ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_unit_of_measure then
-    show.unit_of_measure = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_unit_of_measure
-  end
-  if show.security_definition_report_strategy_message_no_block_details_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group_index then
-    show.security_definition_report_strategy_message_no_block_details_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_block_details_group_index
-  end
-  if show.security_definition_report_strategy_message_no_security_alt_i_d_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group_index then
-    show.security_definition_report_strategy_message_no_security_alt_i_d_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_security_alt_i_d_group_index
-  end
-  if show.security_definition_report_strategy_message_no_legs_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group_index then
-    show.security_definition_report_strategy_message_no_legs_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_strategy_message_no_legs_group_index
-  end
-  if show.security_definition_report_message_no_block_details_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group_index then
-    show.security_definition_report_message_no_block_details_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_block_details_group_index
-  end
-  if show.security_definition_report_message_no_security_alt_i_d_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group_index then
-    show.security_definition_report_message_no_security_alt_i_d_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_report_message_no_security_alt_i_d_group_index
-  end
-  if show.i_p_request_message_no_users_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group_index then
-    show.i_p_request_message_no_users_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_request_message_no_users_group_index
-  end
-  if show.i_p_report_message_no_users_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group_index then
-    show.i_p_report_message_no_users_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_i_p_report_message_no_users_group_index
-  end
-  if show.new_order_cross_request_message_no_sides_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group_index then
-    show.new_order_cross_request_message_no_sides_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_sides_group_index
-  end
-  if show.new_order_cross_request_message_no_legs_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group_index then
-    show.new_order_cross_request_message_no_legs_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_new_order_cross_request_message_no_legs_group_index
-  end
-  if show.mass_quote_request_message_no_quote_sets_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group_index then
-    show.mass_quote_request_message_no_quote_sets_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_request_message_no_quote_sets_group_index
-  end
-  if show.quote_cancel_request_message_no_quote_entries_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group_index then
-    show.quote_cancel_request_message_no_quote_entries_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_quote_cancel_request_message_no_quote_entries_group_index
-  end
-  if show.security_definition_request_create_strategy_message_no_legs_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group_index then
-    show.security_definition_request_create_strategy_message_no_legs_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_security_definition_request_create_strategy_message_no_legs_group_index
-  end
-  if show.mass_quote_report_message_no_quote_sets_group_index ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group_index then
-    show.mass_quote_report_message_no_quote_sets_group_index = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_mass_quote_report_message_no_quote_sets_group_index
+  if show.indexes ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes then
+    show.indexes = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes
   end
 end
 
@@ -8984,7 +8664,7 @@ end
 
 -- Dissect: Text
 ice_icefutures_bgw_sbe_v7_0.text.dissect = function(buffer, offset, packet, parent)
-  if show.text then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.text, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.text.fields(buffer, offset, packet, parent)
@@ -9132,7 +8812,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.fields
   local index = offset
 
   -- Implicit Mass Quote Report Message no Quote Sets Group Index
-  if mass_quote_report_message_no_quote_sets_group_index ~= nil and show.mass_quote_report_message_no_quote_sets_group_index then
+  if mass_quote_report_message_no_quote_sets_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group_index, mass_quote_report_message_no_quote_sets_group_index)
     iteration:set_generated()
   end
@@ -9163,7 +8843,7 @@ end
 
 -- Dissect: Mass Quote Report Message no Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.dissect = function(buffer, offset, packet, parent, mass_quote_report_message_no_quote_sets_group_index)
-  if show.mass_quote_report_message_no_quote_sets_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.fields(buffer, offset, packet, parent, mass_quote_report_message_no_quote_sets_group_index)
@@ -9207,7 +8887,7 @@ end
 
 -- Dissect: Group Size Encoding
 ice_icefutures_bgw_sbe_v7_0.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.group_size_encoding, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -9264,7 +8944,7 @@ end
 
 -- Dissect: Mass Quote Report Message no Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_report_message_no_quote_sets_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.fields(buffer, offset, packet, parent)
@@ -9689,7 +9369,7 @@ ice_icefutures_bgw_sbe_v7_0.trade_flags.dissect = function(buffer, offset, packe
   local display = ice_icefutures_bgw_sbe_v7_0.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     ice_icefutures_bgw_sbe_v7_0.trade_flags.bits(range, value, packet, element)
   end
 
@@ -9724,7 +9404,7 @@ end
 
 -- Dissect: Orig Order Id
 ice_icefutures_bgw_sbe_v7_0.orig_order_id.dissect = function(buffer, offset, packet, parent)
-  if show.orig_order_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.orig_order_id, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.orig_order_id.fields(buffer, offset, packet, parent)
@@ -9928,7 +9608,7 @@ end
 
 -- Dissect: Exec I D order Exec Id
 ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.dissect = function(buffer, offset, packet, parent)
-  if show.exec_i_d_order_exec_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.exec_i_d_order_exec_id, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.fields(buffer, offset, packet, parent)
@@ -10441,7 +10121,7 @@ ice_icefutures_bgw_sbe_v7_0.order_modification_flags.dissect = function(buffer, 
   local display = ice_icefutures_bgw_sbe_v7_0.order_modification_flags.display(range, value, packet, parent)
   local element = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_modification_flags, range, display)
 
-  if show.order_modification_flags then
+  if show.structs then
     ice_icefutures_bgw_sbe_v7_0.order_modification_flags.bits(range, value, packet, element)
   end
 
@@ -10739,7 +10419,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   local index = offset
 
   -- Implicit Security Definition Request Create Strategy Message no Legs Group Index
-  if security_definition_request_create_strategy_message_no_legs_group_index ~= nil and show.security_definition_request_create_strategy_message_no_legs_group_index then
+  if security_definition_request_create_strategy_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index, security_definition_request_create_strategy_message_no_legs_group_index)
     iteration:set_generated()
   end
@@ -10770,7 +10450,7 @@ end
 
 -- Dissect: Security Definition Request Create Strategy Message no Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.dissect = function(buffer, offset, packet, parent, security_definition_request_create_strategy_message_no_legs_group_index)
-  if show.security_definition_request_create_strategy_message_no_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.fields(buffer, offset, packet, parent, security_definition_request_create_strategy_message_no_legs_group_index)
@@ -10827,7 +10507,7 @@ end
 
 -- Dissect: Security Definition Request Create Strategy Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_request_create_strategy_message_no_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -10947,7 +10627,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.
   local index = offset
 
   -- Implicit Quote Cancel Request Message no Quote Entries Group Index
-  if quote_cancel_request_message_no_quote_entries_group_index ~= nil and show.quote_cancel_request_message_no_quote_entries_group_index then
+  if quote_cancel_request_message_no_quote_entries_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group_index, quote_cancel_request_message_no_quote_entries_group_index)
     iteration:set_generated()
   end
@@ -10966,7 +10646,7 @@ end
 
 -- Dissect: Quote Cancel Request Message no Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_request_message_no_quote_entries_group_index)
-  if show.quote_cancel_request_message_no_quote_entries_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.fields(buffer, offset, packet, parent, quote_cancel_request_message_no_quote_entries_group_index)
@@ -11023,7 +10703,7 @@ end
 
 -- Dissect: Quote Cancel Request Message no Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_request_message_no_quote_entries_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.fields(buffer, offset, packet, parent)
@@ -11123,7 +10803,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.field
   local index = offset
 
   -- Implicit Mass Quote Request Message no Quote Sets Group Index
-  if mass_quote_request_message_no_quote_sets_group_index ~= nil and show.mass_quote_request_message_no_quote_sets_group_index then
+  if mass_quote_request_message_no_quote_sets_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group_index, mass_quote_request_message_no_quote_sets_group_index)
     iteration:set_generated()
   end
@@ -11157,7 +10837,7 @@ end
 
 -- Dissect: Mass Quote Request Message no Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.dissect = function(buffer, offset, packet, parent, mass_quote_request_message_no_quote_sets_group_index)
-  if show.mass_quote_request_message_no_quote_sets_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.fields(buffer, offset, packet, parent, mass_quote_request_message_no_quote_sets_group_index)
@@ -11214,7 +10894,7 @@ end
 
 -- Dissect: Mass Quote Request Message no Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_request_message_no_quote_sets_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.fields(buffer, offset, packet, parent)
@@ -11440,7 +11120,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.fields
   local index = offset
 
   -- Implicit New Order Cross Request Message no Legs Group Index
-  if new_order_cross_request_message_no_legs_group_index ~= nil and show.new_order_cross_request_message_no_legs_group_index then
+  if new_order_cross_request_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group_index, new_order_cross_request_message_no_legs_group_index)
     iteration:set_generated()
   end
@@ -11474,7 +11154,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.dissect = function(buffer, offset, packet, parent, new_order_cross_request_message_no_legs_group_index)
-  if show.new_order_cross_request_message_no_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.fields(buffer, offset, packet, parent, new_order_cross_request_message_no_legs_group_index)
@@ -11531,7 +11211,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_cross_request_message_no_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -11588,7 +11268,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.field
   local index = offset
 
   -- Implicit New Order Cross Request Message no Sides Group Index
-  if new_order_cross_request_message_no_sides_group_index ~= nil and show.new_order_cross_request_message_no_sides_group_index then
+  if new_order_cross_request_message_no_sides_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group_index, new_order_cross_request_message_no_sides_group_index)
     iteration:set_generated()
   end
@@ -11673,7 +11353,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.dissect = function(buffer, offset, packet, parent, new_order_cross_request_message_no_sides_group_index)
-  if show.new_order_cross_request_message_no_sides_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.fields(buffer, offset, packet, parent, new_order_cross_request_message_no_sides_group_index)
@@ -11730,7 +11410,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_cross_request_message_no_sides_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.fields(buffer, offset, packet, parent)
@@ -12621,7 +12301,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.fields = function(
   local index = offset
 
   -- Implicit I P Report Message no Users Group Index
-  if i_p_report_message_no_users_group_index ~= nil and show.i_p_report_message_no_users_group_index then
+  if i_p_report_message_no_users_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group_index, i_p_report_message_no_users_group_index)
     iteration:set_generated()
   end
@@ -12646,7 +12326,7 @@ end
 
 -- Dissect: I P Report Message no Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.dissect = function(buffer, offset, packet, parent, i_p_report_message_no_users_group_index)
-  if show.i_p_report_message_no_users_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.fields(buffer, offset, packet, parent, i_p_report_message_no_users_group_index)
@@ -12703,7 +12383,7 @@ end
 
 -- Dissect: I P Report Message no Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
-  if show.i_p_report_message_no_users_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.fields(buffer, offset, packet, parent)
@@ -12791,7 +12471,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.fields = function
   local index = offset
 
   -- Implicit I P Request Message no Users Group Index
-  if i_p_request_message_no_users_group_index ~= nil and show.i_p_request_message_no_users_group_index then
+  if i_p_request_message_no_users_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group_index, i_p_request_message_no_users_group_index)
     iteration:set_generated()
   end
@@ -12804,7 +12484,7 @@ end
 
 -- Dissect: I P Request Message no Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.dissect = function(buffer, offset, packet, parent, i_p_request_message_no_users_group_index)
-  if show.i_p_request_message_no_users_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.fields(buffer, offset, packet, parent, i_p_request_message_no_users_group_index)
@@ -12861,7 +12541,7 @@ end
 
 -- Dissect: I P Request Message no Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
-  if show.i_p_request_message_no_users_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.fields(buffer, offset, packet, parent)
@@ -12982,7 +12662,7 @@ end
 
 -- Dissect: Product Group
 ice_icefutures_bgw_sbe_v7_0.product_group.dissect = function(buffer, offset, packet, parent)
-  if show.product_group then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.product_group.fields(buffer, offset, packet, parent)
@@ -13053,7 +12733,7 @@ end
 
 -- Dissect: Product Desc
 ice_icefutures_bgw_sbe_v7_0.product_desc.dissect = function(buffer, offset, packet, parent)
-  if show.product_desc then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.product_desc.fields(buffer, offset, packet, parent)
@@ -13124,7 +12804,7 @@ end
 
 -- Dissect: Product Name
 ice_icefutures_bgw_sbe_v7_0.product_name.dissect = function(buffer, offset, packet, parent)
-  if show.product_name then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.product_name.fields(buffer, offset, packet, parent)
@@ -13473,7 +13153,7 @@ end
 
 -- Dissect: Home Exchange
 ice_icefutures_bgw_sbe_v7_0.home_exchange.dissect = function(buffer, offset, packet, parent)
-  if show.home_exchange then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.home_exchange.fields(buffer, offset, packet, parent)
@@ -13544,7 +13224,7 @@ end
 
 -- Dissect: Physical Code
 ice_icefutures_bgw_sbe_v7_0.physical_code.dissect = function(buffer, offset, packet, parent)
-  if show.physical_code then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.physical_code.fields(buffer, offset, packet, parent)
@@ -13615,7 +13295,7 @@ end
 
 -- Dissect: Security Exchange
 ice_icefutures_bgw_sbe_v7_0.security_exchange.dissect = function(buffer, offset, packet, parent)
-  if show.security_exchange then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.security_exchange.fields(buffer, offset, packet, parent)
@@ -13686,7 +13366,7 @@ end
 
 -- Dissect: Hub Alias
 ice_icefutures_bgw_sbe_v7_0.hub_alias.dissect = function(buffer, offset, packet, parent)
-  if show.hub_alias then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.hub_alias.fields(buffer, offset, packet, parent)
@@ -13757,7 +13437,7 @@ end
 
 -- Dissect: Hub Name
 ice_icefutures_bgw_sbe_v7_0.hub_name.dissect = function(buffer, offset, packet, parent)
-  if show.hub_name then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.hub_name.fields(buffer, offset, packet, parent)
@@ -13828,7 +13508,7 @@ end
 
 -- Dissect: Strip Name
 ice_icefutures_bgw_sbe_v7_0.strip_name.dissect = function(buffer, offset, packet, parent)
-  if show.strip_name then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.strip_name.fields(buffer, offset, packet, parent)
@@ -13899,7 +13579,7 @@ end
 
 -- Dissect: Price Unit
 ice_icefutures_bgw_sbe_v7_0.price_unit.dissect = function(buffer, offset, packet, parent)
-  if show.price_unit then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.price_unit.fields(buffer, offset, packet, parent)
@@ -13970,7 +13650,7 @@ end
 
 -- Dissect: Security Desc
 ice_icefutures_bgw_sbe_v7_0.security_desc.dissect = function(buffer, offset, packet, parent)
-  if show.security_desc then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.security_desc.fields(buffer, offset, packet, parent)
@@ -14041,7 +13721,7 @@ end
 
 -- Dissect: Cleared Alias
 ice_icefutures_bgw_sbe_v7_0.cleared_alias.dissect = function(buffer, offset, packet, parent)
-  if show.cleared_alias then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.cleared_alias.fields(buffer, offset, packet, parent)
@@ -14112,7 +13792,7 @@ end
 
 -- Dissect: Price Denomination
 ice_icefutures_bgw_sbe_v7_0.price_denomination.dissect = function(buffer, offset, packet, parent)
-  if show.price_denomination then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.price_denomination.fields(buffer, offset, packet, parent)
@@ -14183,7 +13863,7 @@ end
 
 -- Dissect: Unit Of Measure
 ice_icefutures_bgw_sbe_v7_0.unit_of_measure.dissect = function(buffer, offset, packet, parent)
-  if show.unit_of_measure then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.unit_of_measure.fields(buffer, offset, packet, parent)
@@ -14254,7 +13934,7 @@ end
 
 -- Dissect: Security Id
 ice_icefutures_bgw_sbe_v7_0.security_id.dissect = function(buffer, offset, packet, parent)
-  if show.security_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.security_id.fields(buffer, offset, packet, parent)
@@ -14288,7 +13968,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   local index = offset
 
   -- Implicit Security Definition Report Message no Security Alt I D Group Index
-  if security_definition_report_message_no_security_alt_i_d_group_index ~= nil and show.security_definition_report_message_no_security_alt_i_d_group_index then
+  if security_definition_report_message_no_security_alt_i_d_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group_index, security_definition_report_message_no_security_alt_i_d_group_index)
     iteration:set_generated()
   end
@@ -14304,7 +13984,7 @@ end
 
 -- Dissect: Security Definition Report Message no Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.dissect = function(buffer, offset, packet, parent, security_definition_report_message_no_security_alt_i_d_group_index)
-  if show.security_definition_report_message_no_security_alt_i_d_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.fields(buffer, offset, packet, parent, security_definition_report_message_no_security_alt_i_d_group_index)
@@ -14361,7 +14041,7 @@ end
 
 -- Dissect: Security Definition Report Message no Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_report_message_no_security_alt_i_d_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.fields(buffer, offset, packet, parent)
@@ -14396,7 +14076,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   local index = offset
 
   -- Implicit Security Definition Report Message no Block Details Group Index
-  if security_definition_report_message_no_block_details_group_index ~= nil and show.security_definition_report_message_no_block_details_group_index then
+  if security_definition_report_message_no_block_details_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group_index, security_definition_report_message_no_block_details_group_index)
     iteration:set_generated()
   end
@@ -14415,7 +14095,7 @@ end
 
 -- Dissect: Security Definition Report Message no Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.dissect = function(buffer, offset, packet, parent, security_definition_report_message_no_block_details_group_index)
-  if show.security_definition_report_message_no_block_details_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.fields(buffer, offset, packet, parent, security_definition_report_message_no_block_details_group_index)
@@ -14472,7 +14152,7 @@ end
 
 -- Dissect: Security Definition Report Message no Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_report_message_no_block_details_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.fields(buffer, offset, packet, parent)
@@ -14968,7 +14648,7 @@ end
 
 -- Dissect: Strategy Security Id
 ice_icefutures_bgw_sbe_v7_0.strategy_security_id.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_security_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id, buffer(offset, 0))
     local index, value = ice_icefutures_bgw_sbe_v7_0.strategy_security_id.fields(buffer, offset, packet, parent)
@@ -15010,7 +14690,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   local index = offset
 
   -- Implicit Security Definition Report Strategy Message no Legs Group Index
-  if security_definition_report_strategy_message_no_legs_group_index ~= nil and show.security_definition_report_strategy_message_no_legs_group_index then
+  if security_definition_report_strategy_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group_index, security_definition_report_strategy_message_no_legs_group_index)
     iteration:set_generated()
   end
@@ -15050,7 +14730,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_legs_group_index)
-  if show.security_definition_report_strategy_message_no_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.fields(buffer, offset, packet, parent, security_definition_report_strategy_message_no_legs_group_index)
@@ -15107,7 +14787,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_report_strategy_message_no_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -15141,7 +14821,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   local index = offset
 
   -- Implicit Security Definition Report Strategy Message no Security Alt I D Group Index
-  if security_definition_report_strategy_message_no_security_alt_i_d_group_index ~= nil and show.security_definition_report_strategy_message_no_security_alt_i_d_group_index then
+  if security_definition_report_strategy_message_no_security_alt_i_d_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group_index, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
     iteration:set_generated()
   end
@@ -15157,7 +14837,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
-  if show.security_definition_report_strategy_message_no_security_alt_i_d_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.fields(buffer, offset, packet, parent, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
@@ -15214,7 +14894,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_report_strategy_message_no_security_alt_i_d_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.fields(buffer, offset, packet, parent)
@@ -15249,7 +14929,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   local index = offset
 
   -- Implicit Security Definition Report Strategy Message no Block Details Group Index
-  if security_definition_report_strategy_message_no_block_details_group_index ~= nil and show.security_definition_report_strategy_message_no_block_details_group_index then
+  if security_definition_report_strategy_message_no_block_details_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group_index, security_definition_report_strategy_message_no_block_details_group_index)
     iteration:set_generated()
   end
@@ -15268,7 +14948,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_block_details_group_index)
-  if show.security_definition_report_strategy_message_no_block_details_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.fields(buffer, offset, packet, parent, security_definition_report_strategy_message_no_block_details_group_index)
@@ -15325,7 +15005,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_report_strategy_message_no_block_details_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.fields(buffer, offset, packet, parent)
@@ -16027,7 +15707,7 @@ end
 
 -- Dissect: Framing Header
 ice_icefutures_bgw_sbe_v7_0.framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.framing_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.framing_header, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.framing_header.fields(buffer, offset, packet, parent)
@@ -16303,7 +15983,7 @@ ice_icefutures_bgw_sbe_v7_0.header_flags.dissect = function(buffer, offset, pack
   local display = ice_icefutures_bgw_sbe_v7_0.header_flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags, range, display)
 
-  if show.header_flags then
+  if show.structs then
     ice_icefutures_bgw_sbe_v7_0.header_flags.bits(range, value, packet, element)
   end
 
@@ -16358,7 +16038,7 @@ end
 
 -- Dissect: Message Header
 ice_icefutures_bgw_sbe_v7_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.message_header.fields(buffer, offset, packet, parent)
@@ -16402,7 +16082,7 @@ end
 
 -- Dissect: Simple Open Framing Header
 ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.simple_open_framing_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header.fields(buffer, offset, packet, parent)
@@ -16450,7 +16130,7 @@ ice_icefutures_bgw_sbe_v7_0.simple_open_frame.dissect = function(buffer, offset,
   local index = offset + size_of_simple_open_frame
 
   -- Optionally add group/struct element to protocol tree
-  if show.simple_open_frame then
+  if show.structs then
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame, buffer(offset, 0))
     local current = ice_icefutures_bgw_sbe_v7_0.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
     parent:set_len(size_of_simple_open_frame)

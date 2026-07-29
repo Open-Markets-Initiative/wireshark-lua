@@ -275,63 +275,15 @@ local show = {}
 
 -- B3 B3Derivatives BinaryUmdf Sbe 1.6 Element Dissection Options
 show.application_messages = true
-show.contract_settl_month = true
-show.deprecated_instr_attribs_group = true
-show.deprecated_instr_attribs_groups = true
-show.deprecated_legs_group = true
-show.deprecated_legs_groups = true
-show.deprecated_underlyings_group = true
-show.deprecated_underlyings_groups = true
-show.framing_header = true
-show.group_size_encoding = true
-show.headline = true
-show.imbalance_condition = true
-show.match_event_indicator = true
-show.maturity_month_year = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.security_desc = true
-show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = true
-show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = true
-show.text = true
-show.trade_condition = true
-show.url_link = true
-show.deprecated_underlyings_group_index = true
-show.deprecated_legs_group_index = true
-show.deprecated_instr_attribs_group_index = true
-show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register B3 B3Derivatives BinaryUmdf Sbe 1.6 Show Options
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_contract_settl_month = Pref.bool("Show Contract Settl Month", show.contract_settl_month, "Parse and add Contract Settl Month to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group = Pref.bool("Show Deprecated Instr Attribs Group", show.deprecated_instr_attribs_group, "Parse and add Deprecated Instr Attribs Group to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups = Pref.bool("Show Deprecated Instr Attribs Groups", show.deprecated_instr_attribs_groups, "Parse and add Deprecated Instr Attribs Groups to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group = Pref.bool("Show Deprecated Legs Group", show.deprecated_legs_group, "Parse and add Deprecated Legs Group to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups = Pref.bool("Show Deprecated Legs Groups", show.deprecated_legs_groups, "Parse and add Deprecated Legs Groups to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group = Pref.bool("Show Deprecated Underlyings Group", show.deprecated_underlyings_group, "Parse and add Deprecated Underlyings Group to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups = Pref.bool("Show Deprecated Underlyings Groups", show.deprecated_underlyings_groups, "Parse and add Deprecated Underlyings Groups to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_headline = Pref.bool("Show Headline", show.headline, "Parse and add Headline to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_imbalance_condition = Pref.bool("Show Imbalance Condition", show.imbalance_condition, "Parse and add Imbalance Condition to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_security_desc = Pref.bool("Show Security Desc", show.security_desc, "Parse and add Security Desc to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, "Parse and add Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_url_link = Pref.bool("Show Url Link", show.url_link, "Parse and add Url Link to protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group_index = Pref.bool("Show Deprecated Underlyings Group Index", show.deprecated_underlyings_group_index, "Show generated deprecated underlyings group index in protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group_index = Pref.bool("Show Deprecated Legs Group Index", show.deprecated_legs_group_index, "Show generated deprecated legs group index in protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group_index = Pref.bool("Show Deprecated Instr Attribs Group Index", show.deprecated_instr_attribs_group_index, "Show generated deprecated instr attribs group index in protocol tree")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = Pref.bool("Show Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, "Show generated snapshot full refresh orders mb o 71 message no m d entries group index in protocol tree")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -341,86 +293,14 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs_changed()
   if show.application_messages ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_application_messages then
     show.application_messages = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_application_messages
   end
-  if show.contract_settl_month ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_contract_settl_month then
-    show.contract_settl_month = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_contract_settl_month
+  if show.repeating_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_repeating_groups then
+    show.repeating_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_repeating_groups
   end
-  if show.deprecated_instr_attribs_group ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group then
-    show.deprecated_instr_attribs_group = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group
+  if show.structs ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_structs then
+    show.structs = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_structs
   end
-  if show.deprecated_instr_attribs_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups then
-    show.deprecated_instr_attribs_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_groups
-  end
-  if show.deprecated_legs_group ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group then
-    show.deprecated_legs_group = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group
-  end
-  if show.deprecated_legs_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups then
-    show.deprecated_legs_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_groups
-  end
-  if show.deprecated_underlyings_group ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group then
-    show.deprecated_underlyings_group = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group
-  end
-  if show.deprecated_underlyings_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups then
-    show.deprecated_underlyings_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_groups
-  end
-  if show.framing_header ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_framing_header then
-    show.framing_header = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_framing_header
-  end
-  if show.group_size_encoding ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_group_size_encoding
-  end
-  if show.headline ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_headline then
-    show.headline = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_headline
-  end
-  if show.imbalance_condition ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_imbalance_condition then
-    show.imbalance_condition = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_imbalance_condition
-  end
-  if show.match_event_indicator ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_match_event_indicator then
-    show.match_event_indicator = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_match_event_indicator
-  end
-  if show.maturity_month_year ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_maturity_month_year then
-    show.maturity_month_year = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_maturity_month_year
-  end
-  if show.message ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message then
-    show.message = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message
-  end
-  if show.message_header ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message_header then
-    show.message_header = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_message_header
-  end
-  if show.packet ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet then
-    show.packet = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet
-  end
-  if show.packet_header ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet_header then
-    show.packet_header = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_packet_header
-  end
-  if show.security_desc ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_security_desc then
-    show.security_desc = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_security_desc
-  end
-  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
-    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group
-  end
-  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
-    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups
-  end
-  if show.text ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_text then
-    show.text = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_text
-  end
-  if show.trade_condition ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_trade_condition then
-    show.trade_condition = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_trade_condition
-  end
-  if show.url_link ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_url_link then
-    show.url_link = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_url_link
-  end
-  if show.deprecated_underlyings_group_index ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group_index then
-    show.deprecated_underlyings_group_index = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_underlyings_group_index
-  end
-  if show.deprecated_legs_group_index ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group_index then
-    show.deprecated_legs_group_index = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_legs_group_index
-  end
-  if show.deprecated_instr_attribs_group_index ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group_index then
-    show.deprecated_instr_attribs_group_index = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_deprecated_instr_attribs_group_index
-  end
-  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index then
-    show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index
+  if show.indexes ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes then
+    show.indexes = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.prefs.show_indexes
   end
 end
 
@@ -5321,7 +5201,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_messag
   local index = offset
 
   -- Implicit Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index
-  if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil and show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index then
+  if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
     iteration:set_generated()
   end
@@ -5352,7 +5232,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
-  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
@@ -5396,7 +5276,7 @@ end
 
 -- Dissect: Group Size Encoding
 b3_b3derivatives_binaryumdf_sbe_v1_6.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.group_size_encoding, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -5453,7 +5333,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
@@ -5601,7 +5481,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.match_event_indicator.dissect = function(bu
   local display = b3_b3derivatives_binaryumdf_sbe_v1_6.match_event_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.match_event_indicator, range, display)
 
-  if show.match_event_indicator then
+  if show.structs then
     b3_b3derivatives_binaryumdf_sbe_v1_6.match_event_indicator.bits(range, value, packet, element)
   end
 
@@ -5982,7 +5862,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.trade_condition.dissect = function(buffer, 
   local display = b3_b3derivatives_binaryumdf_sbe_v1_6.trade_condition.display(range, value, packet, parent)
   local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trade_condition, range, display)
 
-  if show.trade_condition then
+  if show.structs then
     b3_b3derivatives_binaryumdf_sbe_v1_6.trade_condition.bits(range, value, packet, element)
   end
 
@@ -6948,7 +6828,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.imbalance_condition.dissect = function(buff
   local display = b3_b3derivatives_binaryumdf_sbe_v1_6.imbalance_condition.display(range, value, packet, parent)
   local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.imbalance_condition, range, display)
 
-  if show.imbalance_condition then
+  if show.structs then
     b3_b3derivatives_binaryumdf_sbe_v1_6.imbalance_condition.bits(range, value, packet, element)
   end
 
@@ -7387,7 +7267,7 @@ end
 
 -- Dissect: Url Link
 b3_b3derivatives_binaryumdf_sbe_v1_6.url_link.dissect = function(buffer, offset, packet, parent)
-  if show.url_link then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.url_link, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.url_link.fields(buffer, offset, packet, parent)
@@ -7451,7 +7331,7 @@ end
 
 -- Dissect: Text
 b3_b3derivatives_binaryumdf_sbe_v1_6.text.dissect = function(buffer, offset, packet, parent)
-  if show.text then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.text, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.text.fields(buffer, offset, packet, parent)
@@ -7515,7 +7395,7 @@ end
 
 -- Dissect: Headline
 b3_b3derivatives_binaryumdf_sbe_v1_6.headline.dissect = function(buffer, offset, packet, parent)
-  if show.headline then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.headline, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.headline.fields(buffer, offset, packet, parent)
@@ -7686,7 +7566,7 @@ end
 
 -- Dissect: Security Desc
 b3_b3derivatives_binaryumdf_sbe_v1_6.security_desc.dissect = function(buffer, offset, packet, parent)
-  if show.security_desc then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.security_desc, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryumdf_sbe_v1_6.security_desc.fields(buffer, offset, packet, parent)
@@ -7720,7 +7600,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields = fun
   local index = offset
 
   -- Implicit Deprecated Instr Attribs Group Index
-  if deprecated_instr_attribs_group_index ~= nil and show.deprecated_instr_attribs_group_index then
+  if deprecated_instr_attribs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group_index, deprecated_instr_attribs_group_index)
     iteration:set_generated()
   end
@@ -7736,7 +7616,7 @@ end
 
 -- Dissect: Deprecated Instr Attribs Group
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.dissect = function(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
-  if show.deprecated_instr_attribs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_instr_attribs_group.fields(buffer, offset, packet, parent, deprecated_instr_attribs_group_index)
@@ -7793,7 +7673,7 @@ end
 
 -- Dissect: Deprecated Instr Attribs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.deprecated_instr_attribs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_instr_attribs_groups.fields(buffer, offset, packet, parent)
@@ -7830,7 +7710,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_legs_group.fields = function(buf
   local index = offset
 
   -- Implicit Deprecated Legs Group Index
-  if deprecated_legs_group_index ~= nil and show.deprecated_legs_group_index then
+  if deprecated_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_legs_group_index, deprecated_legs_group_index)
     iteration:set_generated()
   end
@@ -7855,7 +7735,7 @@ end
 
 -- Dissect: Deprecated Legs Group
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_legs_group.dissect = function(buffer, offset, packet, parent, deprecated_legs_group_index)
-  if show.deprecated_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_legs_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_legs_group.fields(buffer, offset, packet, parent, deprecated_legs_group_index)
@@ -7912,7 +7792,7 @@ end
 
 -- Dissect: Deprecated Legs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.deprecated_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_legs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_legs_groups.fields(buffer, offset, packet, parent)
@@ -7948,7 +7828,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields = funct
   local index = offset
 
   -- Implicit Deprecated Underlyings Group Index
-  if deprecated_underlyings_group_index ~= nil and show.deprecated_underlyings_group_index then
+  if deprecated_underlyings_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group_index, deprecated_underlyings_group_index)
     iteration:set_generated()
   end
@@ -7970,7 +7850,7 @@ end
 
 -- Dissect: Deprecated Underlyings Group
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_underlyings_group.dissect = function(buffer, offset, packet, parent, deprecated_underlyings_group_index)
-  if show.deprecated_underlyings_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_underlyings_group.fields(buffer, offset, packet, parent, deprecated_underlyings_group_index)
@@ -8027,7 +7907,7 @@ end
 
 -- Dissect: Deprecated Underlyings Groups
 b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.deprecated_underlyings_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -8079,7 +7959,7 @@ end
 
 -- Dissect: Contract Settl Month
 b3_b3derivatives_binaryumdf_sbe_v1_6.contract_settl_month.dissect = function(buffer, offset, packet, parent)
-  if show.contract_settl_month then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.contract_settl_month, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.contract_settl_month.fields(buffer, offset, packet, parent)
@@ -8131,7 +8011,7 @@ end
 
 -- Dissect: Maturity Month Year
 b3_b3derivatives_binaryumdf_sbe_v1_6.maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.maturity_month_year, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.maturity_month_year.fields(buffer, offset, packet, parent)
@@ -8807,7 +8687,7 @@ end
 
 -- Dissect: Message Header
 b3_b3derivatives_binaryumdf_sbe_v1_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.message_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)
@@ -8851,7 +8731,7 @@ end
 
 -- Dissect: Framing Header
 b3_b3derivatives_binaryumdf_sbe_v1_6.framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.framing_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.framing_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.framing_header.fields(buffer, offset, packet, parent)
@@ -8899,7 +8779,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.message.dissect = function(buffer, offset, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.message, buffer(offset, 0))
     local current = b3_b3derivatives_binaryumdf_sbe_v1_6.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -8955,7 +8835,7 @@ end
 
 -- Dissect: Packet Header
 b3_b3derivatives_binaryumdf_sbe_v1_6.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.packet_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_6.packet_header.fields(buffer, offset, packet, parent)

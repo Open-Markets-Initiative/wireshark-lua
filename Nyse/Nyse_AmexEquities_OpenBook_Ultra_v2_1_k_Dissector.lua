@@ -87,21 +87,15 @@ local show = {}
 
 -- Nyse AmexEquities OpenBook Ultra 2.1.k Element Dissection Options
 show.application_messages = true
-show.delta_price_point = true
-show.full_price_point = true
-show.packet = true
-show.packet_header = true
-show.full_price_point_index = true
-show.delta_price_point_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse AmexEquities OpenBook Ultra 2.1.k Show Options
 omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point = Pref.bool("Show Full Price Point", show.full_price_point, "Parse and add Full Price Point to protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point_index = Pref.bool("Show Full Price Point Index", show.full_price_point_index, "Show generated full price point index in protocol tree")
-omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point_index = Pref.bool("Show Delta Price Point Index", show.delta_price_point_index, "Show generated delta price point index in protocol tree")
+omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -111,23 +105,14 @@ function omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs_changed()
   if show.application_messages ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages
   end
-  if show.delta_price_point ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point then
-    show.delta_price_point = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point
+  if show.repeating_groups ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_repeating_groups
   end
-  if show.full_price_point ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point then
-    show.full_price_point = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point
+  if show.structs ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs then
+    show.structs = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs
   end
-  if show.packet ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet then
-    show.packet = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet_header then
-    show.packet_header = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_packet_header
-  end
-  if show.full_price_point_index ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point_index then
-    show.full_price_point_index = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_full_price_point_index
-  end
-  if show.delta_price_point_index ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point_index then
-    show.delta_price_point_index = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_delta_price_point_index
+  if show.indexes ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes then
+    show.indexes = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes
   end
 end
 
@@ -1327,7 +1312,7 @@ nyse_amexequities_openbook_ultra_v2_1_k.delta_price_point.fields = function(buff
   local index = offset
 
   -- Implicit Delta Price Point Index
-  if delta_price_point_index ~= nil and show.delta_price_point_index then
+  if delta_price_point_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.delta_price_point_index, delta_price_point_index)
     iteration:set_generated()
   end
@@ -1364,7 +1349,7 @@ end
 
 -- Dissect: Delta Price Point
 nyse_amexequities_openbook_ultra_v2_1_k.delta_price_point.dissect = function(buffer, offset, packet, parent, delta_price_point_index)
-  if show.delta_price_point then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.delta_price_point, buffer(offset, 0))
     local index = nyse_amexequities_openbook_ultra_v2_1_k.delta_price_point.fields(buffer, offset, packet, parent, delta_price_point_index)
@@ -1495,7 +1480,7 @@ nyse_amexequities_openbook_ultra_v2_1_k.full_price_point.fields = function(buffe
   local index = offset
 
   -- Implicit Full Price Point Index
-  if full_price_point_index ~= nil and show.full_price_point_index then
+  if full_price_point_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.full_price_point_index, full_price_point_index)
     iteration:set_generated()
   end
@@ -1520,7 +1505,7 @@ end
 
 -- Dissect: Full Price Point
 nyse_amexequities_openbook_ultra_v2_1_k.full_price_point.dissect = function(buffer, offset, packet, parent, full_price_point_index)
-  if show.full_price_point then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.full_price_point, buffer(offset, 0))
     local index = nyse_amexequities_openbook_ultra_v2_1_k.full_price_point.fields(buffer, offset, packet, parent, full_price_point_index)
@@ -2170,7 +2155,7 @@ end
 
 -- Dissect: Packet Header
 nyse_amexequities_openbook_ultra_v2_1_k.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet_header, buffer(offset, 0))
     local index = nyse_amexequities_openbook_ultra_v2_1_k.packet_header.fields(buffer, offset, packet, parent)

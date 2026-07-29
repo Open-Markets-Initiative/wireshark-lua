@@ -101,23 +101,13 @@ local show = {}
 
 -- Iex IexEquities Deep IexTp 1.0.8 Element Dissection Options
 show.application_messages = true
-show.iextp_header = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.sale_condition_flags = true
-show.security_directory_flags = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Iex IexEquities Deep IexTp 1.0.8 Show Options
 omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_iextp_header = Pref.bool("Show Iextp Header", show.iextp_header, "Parse and add Iextp Header to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_sale_condition_flags = Pref.bool("Show Sale Condition Flags", show.sale_condition_flags, "Parse and add Sale Condition Flags to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_security_directory_flags = Pref.bool("Show Security Directory Flags", show.security_directory_flags, "Parse and add Security Directory Flags to protocol tree")
-omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -127,26 +117,11 @@ function omi_iex_iexequities_deep_iextp_v1_0_8.prefs_changed()
   if show.application_messages ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_application_messages then
     show.application_messages = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_application_messages
   end
-  if show.iextp_header ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_iextp_header then
-    show.iextp_header = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_iextp_header
+  if show.structs ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_structs then
+    show.structs = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_structs
   end
-  if show.message ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message then
-    show.message = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message
-  end
-  if show.message_header ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_header then
-    show.message_header = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_header
-  end
-  if show.packet ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_packet then
-    show.packet = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_packet
-  end
-  if show.sale_condition_flags ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_sale_condition_flags then
-    show.sale_condition_flags = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_sale_condition_flags
-  end
-  if show.security_directory_flags ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_security_directory_flags then
-    show.security_directory_flags = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_security_directory_flags
-  end
-  if show.message_index ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_index then
-    show.message_index = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_message_index
+  if show.indexes ~= omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_indexes then
+    show.indexes = omi_iex_iexequities_deep_iextp_v1_0_8.prefs.show_indexes
   end
 end
 
@@ -1562,7 +1537,7 @@ iex_iexequities_deep_iextp_v1_0_8.sale_condition_flags.dissect = function(buffer
   local display = iex_iexequities_deep_iextp_v1_0_8.sale_condition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.sale_condition_flags, range, display)
 
-  if show.sale_condition_flags then
+  if show.structs then
     iex_iexequities_deep_iextp_v1_0_8.sale_condition_flags.bits(range, value, packet, element)
   end
 
@@ -2151,7 +2126,7 @@ iex_iexequities_deep_iextp_v1_0_8.security_directory_flags.dissect = function(bu
   local display = iex_iexequities_deep_iextp_v1_0_8.security_directory_flags.display(range, value, packet, parent)
   local element = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.security_directory_flags, range, display)
 
-  if show.security_directory_flags then
+  if show.structs then
     iex_iexequities_deep_iextp_v1_0_8.security_directory_flags.bits(range, value, packet, element)
   end
 
@@ -2351,7 +2326,7 @@ end
 
 -- Dissect: Message Header
 iex_iexequities_deep_iextp_v1_0_8.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.message_header, buffer(offset, 0))
     local index = iex_iexequities_deep_iextp_v1_0_8.message_header.fields(buffer, offset, packet, parent)
@@ -2390,7 +2365,7 @@ iex_iexequities_deep_iextp_v1_0_8.message.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2413,7 +2388,7 @@ iex_iexequities_deep_iextp_v1_0_8.message.dissect = function(buffer, offset, pac
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.message, buffer(offset, 0))
     local current = iex_iexequities_deep_iextp_v1_0_8.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2531,7 +2506,7 @@ end
 
 -- Dissect: Iextp Header
 iex_iexequities_deep_iextp_v1_0_8.iextp_header.dissect = function(buffer, offset, packet, parent)
-  if show.iextp_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexequities_deep_iextp_v1_0_8.fields.iextp_header, buffer(offset, 0))
     local index = iex_iexequities_deep_iextp_v1_0_8.iextp_header.fields(buffer, offset, packet, parent)

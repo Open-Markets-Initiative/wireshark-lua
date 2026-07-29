@@ -257,41 +257,13 @@ local show = {}
 
 -- Nyse ArcaOptions BinaryGateway PillarStream 3.15 Element Dissection Options
 show.application_messages = true
-show.bulk_quote = true
+show.structs = true
 show.session_messages = true
-show.complex_leg = true
-show.complex_leg_ack = true
-show.covered = true
-show.exposed = true
-show.mpv_level_definition = true
-show.msg_header = true
-show.optional_order_add_on = true
-show.order_instructions = true
-show.quote_ack = true
-show.ref_seq_msg_id = true
-show.seq_msg_header = true
-show.seq_msg_id = true
-show.stream_id = true
-show.sub_msg_header = true
 
 -- Register Nyse ArcaOptions BinaryGateway PillarStream 3.15 Show Options
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_bulk_quote = Pref.bool("Show Bulk Quote", show.bulk_quote, "Parse and add Bulk Quote to protocol tree")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg_ack = Pref.bool("Show Complex Leg Ack", show.complex_leg_ack, "Parse and add Complex Leg Ack to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_quote_ack = Pref.bool("Show Quote Ack", show.quote_ack, "Parse and add Quote Ack to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 
 
 -- Handle changed preferences
@@ -301,53 +273,11 @@ function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs_changed()
   if show.application_messages ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_messages
   end
-  if show.bulk_quote ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_bulk_quote then
-    show.bulk_quote = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_bulk_quote
-  end
-  if show.complex_leg ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg then
-    show.complex_leg = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg
-  end
-  if show.complex_leg_ack ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg_ack then
-    show.complex_leg_ack = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_complex_leg_ack
-  end
-  if show.covered ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_covered then
-    show.covered = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_covered
-  end
-  if show.exposed ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_exposed then
-    show.exposed = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_exposed
-  end
-  if show.mpv_level_definition ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_mpv_level_definition then
-    show.mpv_level_definition = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_mpv_level_definition
-  end
-  if show.msg_header ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_msg_header then
-    show.msg_header = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_msg_header
-  end
-  if show.optional_order_add_on ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_optional_order_add_on then
-    show.optional_order_add_on = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_optional_order_add_on
-  end
-  if show.order_instructions ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_order_instructions then
-    show.order_instructions = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_order_instructions
-  end
-  if show.quote_ack ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_quote_ack then
-    show.quote_ack = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_quote_ack
-  end
-  if show.ref_seq_msg_id ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_ref_seq_msg_id then
-    show.ref_seq_msg_id = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_ref_seq_msg_id
-  end
-  if show.seq_msg_header ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_header then
-    show.seq_msg_header = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_header
-  end
-  if show.seq_msg_id ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_id then
-    show.seq_msg_id = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_seq_msg_id
-  end
   if show.session_messages ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_session_messages then
     show.session_messages = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_session_messages
   end
-  if show.stream_id ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_stream_id then
-    show.stream_id = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_stream_id
-  end
-  if show.sub_msg_header ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_sub_msg_header then
-    show.sub_msg_header = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_sub_msg_header
+  if show.structs ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_structs then
+    show.structs = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_structs
   end
 end
 
@@ -6254,7 +6184,7 @@ end
 
 -- Dissect: Complex Leg Ack
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.complex_leg_ack.dissect = function(buffer, offset, packet, parent)
-  if show.complex_leg_ack then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.complex_leg_ack, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.complex_leg_ack.fields(buffer, offset, packet, parent)
@@ -6298,7 +6228,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -6789,7 +6719,7 @@ end
 
 -- Dissect: Stream Id
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.stream_id.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.stream_id, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.stream_id.fields(buffer, offset, packet, parent)
@@ -6833,7 +6763,7 @@ end
 
 -- Dissect: Ref Seq Msg Id
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.ref_seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.ref_seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.ref_seq_msg_id, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.ref_seq_msg_id.fields(buffer, offset, packet, parent)
@@ -6965,7 +6895,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.sub_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -7029,7 +6959,7 @@ end
 
 -- Dissect: Optional Order Add On
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.dissect = function(buffer, offset, packet, parent)
-  if show.optional_order_add_on then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.optional_order_add_on, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.fields(buffer, offset, packet, parent)
@@ -7520,7 +7450,7 @@ end
 
 -- Dissect: Quote Ack
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.quote_ack.dissect = function(buffer, offset, packet, parent)
-  if show.quote_ack then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.quote_ack, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.quote_ack.fields(buffer, offset, packet, parent)
@@ -7708,7 +7638,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.dissect = f
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.order_instructions, range, display)
 
-  if show.order_instructions then
+  if show.structs then
     nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.bits(range, value, packet, element)
   end
 
@@ -8165,7 +8095,7 @@ end
 
 -- Dissect: Mpv Level Definition
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.mpv_level_definition.dissect = function(buffer, offset, packet, parent)
-  if show.mpv_level_definition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.mpv_level_definition, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.mpv_level_definition.fields(buffer, offset, packet, parent)
@@ -8492,7 +8422,7 @@ end
 
 -- Dissect: Complex Leg
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.complex_leg.dissect = function(buffer, offset, packet, parent)
-  if show.complex_leg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.complex_leg, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.complex_leg.fields(buffer, offset, packet, parent)
@@ -8967,7 +8897,7 @@ end
 
 -- Dissect: Covered
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered.dissect = function(buffer, offset, packet, parent)
-  if show.covered then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.covered, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered.fields(buffer, offset, packet, parent)
@@ -9059,7 +8989,7 @@ end
 
 -- Dissect: Exposed
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.exposed.dissect = function(buffer, offset, packet, parent)
-  if show.exposed then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.exposed, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.exposed.fields(buffer, offset, packet, parent)
@@ -9201,7 +9131,7 @@ end
 
 -- Dissect: Bulk Quote
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.bulk_quote.dissect = function(buffer, offset, packet, parent)
-  if show.bulk_quote then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.bulk_quote, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.bulk_quote.fields(buffer, offset, packet, parent)
@@ -9804,7 +9734,7 @@ end
 
 -- Dissect: Seq Msg Id
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.seq_msg_id, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_id.fields(buffer, offset, packet, parent)
@@ -9848,7 +9778,7 @@ end
 
 -- Dissect: Msg Header
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.msg_header, buffer(offset, 0))
     local index = nyse_arcaoptions_binarygateway_pillarstream_v3_15.msg_header.fields(buffer, offset, packet, parent)

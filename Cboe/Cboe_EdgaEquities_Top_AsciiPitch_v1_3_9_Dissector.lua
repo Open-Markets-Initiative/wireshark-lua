@@ -97,19 +97,11 @@ local show = {}
 
 -- Cboe EdgaEquities Top AsciiPitch 1.3.9 Element Dissection Options
 show.application_messages = true
-show.logon_rejected_packet = true
-show.logon_request_packet = true
-show.milliseconds_packet = true
-show.packet = true
-show.seconds_packet = true
+show.structs = true
 
 -- Register Cboe EdgaEquities Top AsciiPitch 1.3.9 Show Options
 omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_rejected_packet = Pref.bool("Show Logon Rejected Packet", show.logon_rejected_packet, "Parse and add Logon Rejected Packet to protocol tree")
-omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_request_packet = Pref.bool("Show Logon Request Packet", show.logon_request_packet, "Parse and add Logon Request Packet to protocol tree")
-omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_milliseconds_packet = Pref.bool("Show Milliseconds Packet", show.milliseconds_packet, "Parse and add Milliseconds Packet to protocol tree")
-omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_seconds_packet = Pref.bool("Show Seconds Packet", show.seconds_packet, "Parse and add Seconds Packet to protocol tree")
+omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -119,20 +111,8 @@ function omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs_changed()
   if show.application_messages ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_application_messages
   end
-  if show.logon_rejected_packet ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_rejected_packet then
-    show.logon_rejected_packet = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_rejected_packet
-  end
-  if show.logon_request_packet ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_request_packet then
-    show.logon_request_packet = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_logon_request_packet
-  end
-  if show.milliseconds_packet ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_milliseconds_packet then
-    show.milliseconds_packet = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_milliseconds_packet
-  end
-  if show.packet ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_packet then
-    show.packet = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_packet
-  end
-  if show.seconds_packet ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_seconds_packet then
-    show.seconds_packet = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_seconds_packet
+  if show.structs ~= omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_structs then
+    show.structs = omi_cboe_edgaequities_top_asciipitch_v1_3_9.prefs.show_structs
   end
 end
 
@@ -2539,7 +2519,7 @@ end
 
 -- Dissect: Milliseconds Packet
 cboe_edgaequities_top_asciipitch_v1_3_9.milliseconds_packet.dissect = function(buffer, offset, packet, parent)
-  if show.milliseconds_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.milliseconds_packet, buffer(offset, 0))
     local index = cboe_edgaequities_top_asciipitch_v1_3_9.milliseconds_packet.fields(buffer, offset, packet, parent)
@@ -2579,7 +2559,7 @@ end
 
 -- Dissect: Seconds Packet
 cboe_edgaequities_top_asciipitch_v1_3_9.seconds_packet.dissect = function(buffer, offset, packet, parent)
-  if show.seconds_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.seconds_packet, buffer(offset, 0))
     local index = cboe_edgaequities_top_asciipitch_v1_3_9.seconds_packet.fields(buffer, offset, packet, parent)
@@ -2619,7 +2599,7 @@ end
 
 -- Dissect: Logon Rejected Packet
 cboe_edgaequities_top_asciipitch_v1_3_9.logon_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.logon_rejected_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.logon_rejected_packet, buffer(offset, 0))
     local index = cboe_edgaequities_top_asciipitch_v1_3_9.logon_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2667,7 +2647,7 @@ end
 
 -- Dissect: Logon Request Packet
 cboe_edgaequities_top_asciipitch_v1_3_9.logon_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.logon_request_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.logon_request_packet, buffer(offset, 0))
     local index = cboe_edgaequities_top_asciipitch_v1_3_9.logon_request_packet.fields(buffer, offset, packet, parent)

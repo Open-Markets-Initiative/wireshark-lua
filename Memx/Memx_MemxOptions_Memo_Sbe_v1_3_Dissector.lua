@@ -207,232 +207,32 @@ local show = {}
 
 -- Memx MemxOptions Memo Sbe 1.3 Element Dissection Options
 show.application_messages = true
-show.allocation_instruction_message_allocations_group = true
-show.allocation_instruction_message_allocations_groups = true
-show.allocation_report_message_allocations_group = true
-show.allocation_report_message_allocations_groups = true
-show.allocation_report_message_parties_group = true
-show.allocation_report_message_parties_groups = true
-show.common_header = true
-show.exec_inst = true
-show.login_accepted_message = true
-show.login_rejected_message = true
-show.login_request_message = true
-show.mass_cancel_inst = true
-show.nested_parties_group = true
-show.nested_parties_groups = true
-show.one_sided_quotes_group = true
-show.one_sided_quotes_groups = true
-show.packet = true
-show.parties_group = true
-show.parties_groups = true
-show.repeating_group_dimensions = true
-show.replay_all_request_message = true
-show.replay_begin_message = true
-show.replay_complete_message = true
-show.replay_rejected_message = true
-show.replay_request_message = true
-show.sbe_header = true
-show.sbe_message = true
-show.sequenced_message = true
-show.start_of_session_message = true
-show.stream_begin_message = true
-show.stream_complete_message = true
-show.stream_rejected_message = true
-show.stream_request_message = true
-show.two_sided_quotes_group = true
-show.two_sided_quotes_groups = true
-show.unsequenced_message = true
-show.parties_group_index = true
-show.two_sided_quotes_group_index = true
-show.one_sided_quotes_group_index = true
-show.allocation_instruction_message_allocations_group_index = true
-show.nested_parties_group_index = true
-show.allocation_report_message_allocations_group_index = true
-show.allocation_report_message_parties_group_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Memx MemxOptions Memo Sbe 1.3 Show Options
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group = Pref.bool("Show Allocation Instruction Message Allocations Group", show.allocation_instruction_message_allocations_group, "Parse and add Allocation Instruction Message Allocations Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_groups = Pref.bool("Show Allocation Instruction Message Allocations Groups", show.allocation_instruction_message_allocations_groups, "Parse and add Allocation Instruction Message Allocations Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group = Pref.bool("Show Allocation Report Message Allocations Group", show.allocation_report_message_allocations_group, "Parse and add Allocation Report Message Allocations Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_groups = Pref.bool("Show Allocation Report Message Allocations Groups", show.allocation_report_message_allocations_groups, "Parse and add Allocation Report Message Allocations Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group = Pref.bool("Show Allocation Report Message Parties Group", show.allocation_report_message_parties_group, "Parse and add Allocation Report Message Parties Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_groups = Pref.bool("Show Allocation Report Message Parties Groups", show.allocation_report_message_parties_groups, "Parse and add Allocation Report Message Parties Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group = Pref.bool("Show Nested Parties Group", show.nested_parties_group, "Parse and add Nested Parties Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_groups = Pref.bool("Show Nested Parties Groups", show.nested_parties_groups, "Parse and add Nested Parties Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group = Pref.bool("Show One Sided Quotes Group", show.one_sided_quotes_group, "Parse and add One Sided Quotes Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_groups = Pref.bool("Show One Sided Quotes Groups", show.one_sided_quotes_groups, "Parse and add One Sided Quotes Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group = Pref.bool("Show Two Sided Quotes Group", show.two_sided_quotes_group, "Parse and add Two Sided Quotes Group to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_groups = Pref.bool("Show Two Sided Quotes Groups", show.two_sided_quotes_groups, "Parse and add Two Sided Quotes Groups to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group_index = Pref.bool("Show Parties Group Index", show.parties_group_index, "Show generated parties group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group_index = Pref.bool("Show Two Sided Quotes Group Index", show.two_sided_quotes_group_index, "Show generated two sided quotes group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group_index = Pref.bool("Show One Sided Quotes Group Index", show.one_sided_quotes_group_index, "Show generated one sided quotes group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group_index = Pref.bool("Show Allocation Instruction Message Allocations Group Index", show.allocation_instruction_message_allocations_group_index, "Show generated allocation instruction message allocations group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group_index = Pref.bool("Show Nested Parties Group Index", show.nested_parties_group_index, "Show generated nested parties group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group_index = Pref.bool("Show Allocation Report Message Allocations Group Index", show.allocation_report_message_allocations_group_index, "Show generated allocation report message allocations group index in protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group_index = Pref.bool("Show Allocation Report Message Parties Group Index", show.allocation_report_message_parties_group_index, "Show generated allocation report message parties group index in protocol tree")
+omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_3.prefs_changed()
 
   -- Check if preferences have changed
-  if show.allocation_instruction_message_allocations_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group then
-    show.allocation_instruction_message_allocations_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group
-  end
-  if show.allocation_instruction_message_allocations_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_groups then
-    show.allocation_instruction_message_allocations_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_groups
-  end
-  if show.allocation_report_message_allocations_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group then
-    show.allocation_report_message_allocations_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group
-  end
-  if show.allocation_report_message_allocations_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_groups then
-    show.allocation_report_message_allocations_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_groups
-  end
-  if show.allocation_report_message_parties_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group then
-    show.allocation_report_message_parties_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group
-  end
-  if show.allocation_report_message_parties_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_groups then
-    show.allocation_report_message_parties_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_groups
-  end
   if show.application_messages ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_application_messages
   end
-  if show.common_header ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_common_header then
-    show.common_header = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_common_header
+  if show.repeating_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_groups then
+    show.repeating_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_groups
   end
-  if show.exec_inst ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_exec_inst then
-    show.exec_inst = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_exec_inst
+  if show.structs ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_structs then
+    show.structs = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_structs
   end
-  if show.login_accepted_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_accepted_message then
-    show.login_accepted_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_accepted_message
-  end
-  if show.login_rejected_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_rejected_message then
-    show.login_rejected_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_rejected_message
-  end
-  if show.login_request_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_request_message then
-    show.login_request_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_login_request_message
-  end
-  if show.mass_cancel_inst ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_mass_cancel_inst then
-    show.mass_cancel_inst = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_mass_cancel_inst
-  end
-  if show.nested_parties_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group then
-    show.nested_parties_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group
-  end
-  if show.nested_parties_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_groups then
-    show.nested_parties_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_groups
-  end
-  if show.one_sided_quotes_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group then
-    show.one_sided_quotes_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group
-  end
-  if show.one_sided_quotes_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_groups then
-    show.one_sided_quotes_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_groups
-  end
-  if show.packet ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_packet then
-    show.packet = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_packet
-  end
-  if show.parties_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group then
-    show.parties_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group
-  end
-  if show.parties_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_groups then
-    show.parties_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_groups
-  end
-  if show.repeating_group_dimensions ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_group_dimensions then
-    show.repeating_group_dimensions = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_repeating_group_dimensions
-  end
-  if show.replay_all_request_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_all_request_message
-  end
-  if show.replay_begin_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_begin_message then
-    show.replay_begin_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_begin_message
-  end
-  if show.replay_complete_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_complete_message then
-    show.replay_complete_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_complete_message
-  end
-  if show.replay_rejected_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_rejected_message
-  end
-  if show.replay_request_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_request_message then
-    show.replay_request_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_replay_request_message
-  end
-  if show.sbe_header ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_header then
-    show.sbe_header = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_header
-  end
-  if show.sbe_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_message then
-    show.sbe_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sbe_message
-  end
-  if show.sequenced_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sequenced_message then
-    show.sequenced_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_sequenced_message
-  end
-  if show.start_of_session_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_start_of_session_message then
-    show.start_of_session_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_start_of_session_message
-  end
-  if show.stream_begin_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_begin_message then
-    show.stream_begin_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_begin_message
-  end
-  if show.stream_complete_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_complete_message then
-    show.stream_complete_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_complete_message
-  end
-  if show.stream_rejected_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_rejected_message
-  end
-  if show.stream_request_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_request_message then
-    show.stream_request_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_stream_request_message
-  end
-  if show.two_sided_quotes_group ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group then
-    show.two_sided_quotes_group = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group
-  end
-  if show.two_sided_quotes_groups ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_groups then
-    show.two_sided_quotes_groups = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_groups
-  end
-  if show.unsequenced_message ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_unsequenced_message
-  end
-  if show.parties_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group_index then
-    show.parties_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_parties_group_index
-  end
-  if show.two_sided_quotes_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group_index then
-    show.two_sided_quotes_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_two_sided_quotes_group_index
-  end
-  if show.one_sided_quotes_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group_index then
-    show.one_sided_quotes_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_one_sided_quotes_group_index
-  end
-  if show.allocation_instruction_message_allocations_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group_index then
-    show.allocation_instruction_message_allocations_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_instruction_message_allocations_group_index
-  end
-  if show.nested_parties_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group_index then
-    show.nested_parties_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_nested_parties_group_index
-  end
-  if show.allocation_report_message_allocations_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group_index then
-    show.allocation_report_message_allocations_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_allocations_group_index
-  end
-  if show.allocation_report_message_parties_group_index ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group_index then
-    show.allocation_report_message_parties_group_index = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_allocation_report_message_parties_group_index
+  if show.indexes ~= omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_indexes then
+    show.indexes = omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_indexes
   end
 end
 
@@ -4419,7 +4219,7 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.fields = 
   local index = offset
 
   -- Implicit Allocation Report Message Parties Group Index
-  if allocation_report_message_parties_group_index ~= nil and show.allocation_report_message_parties_group_index then
+  if allocation_report_message_parties_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_group_index, allocation_report_message_parties_group_index)
     iteration:set_generated()
   end
@@ -4438,7 +4238,7 @@ end
 
 -- Dissect: Allocation Report Message Parties Group
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
-  if show.allocation_report_message_parties_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.fields(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
@@ -4482,7 +4282,7 @@ end
 
 -- Dissect: Repeating Group Dimensions
 memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.dissect = function(buffer, offset, packet, parent)
-  if show.repeating_group_dimensions then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.repeating_group_dimensions, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.fields(buffer, offset, packet, parent)
@@ -4539,7 +4339,7 @@ end
 
 -- Dissect: Allocation Report Message Parties Groups
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message_parties_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_groups.fields(buffer, offset, packet, parent)
@@ -4583,7 +4383,7 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message_allocations_group.field
   local index = offset
 
   -- Implicit Allocation Report Message Allocations Group Index
-  if allocation_report_message_allocations_group_index ~= nil and show.allocation_report_message_allocations_group_index then
+  if allocation_report_message_allocations_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_group_index, allocation_report_message_allocations_group_index)
     iteration:set_generated()
   end
@@ -4605,7 +4405,7 @@ end
 
 -- Dissect: Allocation Report Message Allocations Group
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_allocations_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
-  if show.allocation_report_message_allocations_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_report_message_allocations_group.fields(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
@@ -4663,7 +4463,7 @@ end
 
 -- Dissect: Allocation Report Message Allocations Groups
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message_allocations_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields(buffer, offset, packet, parent)
@@ -5002,7 +4802,7 @@ memx_memxoptions_memo_sbe_v1_3.mass_cancel_inst.dissect = function(buffer, offse
   local display = memx_memxoptions_memo_sbe_v1_3.mass_cancel_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.mass_cancel_inst, range, display)
 
-  if show.mass_cancel_inst then
+  if show.structs then
     memx_memxoptions_memo_sbe_v1_3.mass_cancel_inst.bits(range, value, packet, element)
   end
 
@@ -5776,7 +5576,7 @@ memx_memxoptions_memo_sbe_v1_3.parties_group.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Parties Group Index
-  if parties_group_index ~= nil and show.parties_group_index then
+  if parties_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end
@@ -5795,7 +5595,7 @@ end
 
 -- Dissect: Parties Group
 memx_memxoptions_memo_sbe_v1_3.parties_group.dissect = function(buffer, offset, packet, parent, parties_group_index)
-  if show.parties_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
@@ -5852,7 +5652,7 @@ end
 
 -- Dissect: Parties Groups
 memx_memxoptions_memo_sbe_v1_3.parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.parties_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.parties_groups.fields(buffer, offset, packet, parent)
@@ -6222,7 +6022,7 @@ memx_memxoptions_memo_sbe_v1_3.exec_inst.dissect = function(buffer, offset, pack
   local display = memx_memxoptions_memo_sbe_v1_3.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.exec_inst, range, display)
 
-  if show.exec_inst then
+  if show.structs then
     memx_memxoptions_memo_sbe_v1_3.exec_inst.bits(range, value, packet, element)
   end
 
@@ -6518,7 +6318,7 @@ memx_memxoptions_memo_sbe_v1_3.nested_parties_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Nested Parties Group Index
-  if nested_parties_group_index ~= nil and show.nested_parties_group_index then
+  if nested_parties_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_group_index, nested_parties_group_index)
     iteration:set_generated()
   end
@@ -6537,7 +6337,7 @@ end
 
 -- Dissect: Nested Parties Group
 memx_memxoptions_memo_sbe_v1_3.nested_parties_group.dissect = function(buffer, offset, packet, parent, nested_parties_group_index)
-  if show.nested_parties_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.nested_parties_group.fields(buffer, offset, packet, parent, nested_parties_group_index)
@@ -6594,7 +6394,7 @@ end
 
 -- Dissect: Nested Parties Groups
 memx_memxoptions_memo_sbe_v1_3.nested_parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.nested_parties_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.nested_parties_groups.fields(buffer, offset, packet, parent)
@@ -6638,7 +6438,7 @@ memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message_allocations_group.
   local index = offset
 
   -- Implicit Allocation Instruction Message Allocations Group Index
-  if allocation_instruction_message_allocations_group_index ~= nil and show.allocation_instruction_message_allocations_group_index then
+  if allocation_instruction_message_allocations_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_instruction_message_allocations_group_index, allocation_instruction_message_allocations_group_index)
     iteration:set_generated()
   end
@@ -6660,7 +6460,7 @@ end
 
 -- Dissect: Allocation Instruction Message Allocations Group
 memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message_allocations_group.dissect = function(buffer, offset, packet, parent, allocation_instruction_message_allocations_group_index)
-  if show.allocation_instruction_message_allocations_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_instruction_message_allocations_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message_allocations_group.fields(buffer, offset, packet, parent, allocation_instruction_message_allocations_group_index)
@@ -6718,7 +6518,7 @@ end
 
 -- Dissect: Allocation Instruction Message Allocations Groups
 memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_message_allocations_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_instruction_message_allocations_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message_allocations_groups.fields(buffer, offset, packet, parent)
@@ -7111,7 +6911,7 @@ memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit One Sided Quotes Group Index
-  if one_sided_quotes_group_index ~= nil and show.one_sided_quotes_group_index then
+  if one_sided_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_group_index, one_sided_quotes_group_index)
     iteration:set_generated()
   end
@@ -7136,7 +6936,7 @@ end
 
 -- Dissect: One Sided Quotes Group
 memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_group.dissect = function(buffer, offset, packet, parent, one_sided_quotes_group_index)
-  if show.one_sided_quotes_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_group.fields(buffer, offset, packet, parent, one_sided_quotes_group_index)
@@ -7193,7 +6993,7 @@ end
 
 -- Dissect: One Sided Quotes Groups
 memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.one_sided_quotes_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
@@ -7421,7 +7221,7 @@ memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Two Sided Quotes Group Index
-  if two_sided_quotes_group_index ~= nil and show.two_sided_quotes_group_index then
+  if two_sided_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group_index, two_sided_quotes_group_index)
     iteration:set_generated()
   end
@@ -7449,7 +7249,7 @@ end
 
 -- Dissect: Two Sided Quotes Group
 memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_group.dissect = function(buffer, offset, packet, parent, two_sided_quotes_group_index)
-  if show.two_sided_quotes_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_group.fields(buffer, offset, packet, parent, two_sided_quotes_group_index)
@@ -7506,7 +7306,7 @@ end
 
 -- Dissect: Two Sided Quotes Groups
 memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.two_sided_quotes_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
@@ -8011,7 +7811,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_memo_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
@@ -8067,7 +7867,7 @@ end
 
 -- Dissect: Sbe Message
 memx_memxoptions_memo_sbe_v1_3.sbe_message.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent)
@@ -8112,7 +7912,7 @@ end
 
 -- Dissect: Sequenced Message
 memx_memxoptions_memo_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.sequenced_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
@@ -8152,7 +7952,7 @@ end
 
 -- Dissect: Stream Complete Message
 memx_memxoptions_memo_sbe_v1_3.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -8192,7 +7992,7 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_memxoptions_memo_sbe_v1_3.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -8236,7 +8036,7 @@ end
 
 -- Dissect: Stream Begin Message
 memx_memxoptions_memo_sbe_v1_3.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -8276,7 +8076,7 @@ end
 
 -- Dissect: Replay Complete Message
 memx_memxoptions_memo_sbe_v1_3.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -8316,7 +8116,7 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_memxoptions_memo_sbe_v1_3.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -8360,7 +8160,7 @@ end
 
 -- Dissect: Replay Begin Message
 memx_memxoptions_memo_sbe_v1_3.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -8400,7 +8200,7 @@ end
 
 -- Dissect: Start Of Session Message
 memx_memxoptions_memo_sbe_v1_3.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_session_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -8440,7 +8240,7 @@ end
 
 -- Dissect: Login Rejected Message
 memx_memxoptions_memo_sbe_v1_3.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -8480,7 +8280,7 @@ end
 
 -- Dissect: Login Accepted Message
 memx_memxoptions_memo_sbe_v1_3.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -8525,7 +8325,7 @@ end
 
 -- Dissect: Unsequenced Message
 memx_memxoptions_memo_sbe_v1_3.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.unsequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.unsequenced_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -8569,7 +8369,7 @@ end
 
 -- Dissect: Stream Request Message
 memx_memxoptions_memo_sbe_v1_3.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.stream_request_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.stream_request_message.fields(buffer, offset, packet, parent)
@@ -8609,7 +8409,7 @@ end
 
 -- Dissect: Replay All Request Message
 memx_memxoptions_memo_sbe_v1_3.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_all_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -8657,7 +8457,7 @@ end
 
 -- Dissect: Replay Request Message
 memx_memxoptions_memo_sbe_v1_3.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_request_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.replay_request_message.fields(buffer, offset, packet, parent)
@@ -8701,7 +8501,7 @@ end
 
 -- Dissect: Login Request Message
 memx_memxoptions_memo_sbe_v1_3.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.login_request_message, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.login_request_message.fields(buffer, offset, packet, parent)
@@ -8814,7 +8614,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_memo_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.common_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)

@@ -227,287 +227,23 @@ omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence_index = Pr
 local show = {}
 
 -- Cboe C2Options BinaryOrderEntry Boe3 1.0.12 Element Dissection Options
-show.cancel_order_message = true
-show.cancel_rejected_message = true
-show.carried_restatement_message = true
-show.complex_leg = true
-show.done_for_day_message = true
-show.login_request_message = true
-show.login_response_message = true
-show.logout_response_message = true
-show.mass_cancel_acknowledgment_message = true
-show.mass_cancel_inst = true
-show.mass_cancel_order_message = true
-show.mass_cancel_rejected_message = true
-show.message_header = true
-show.modify_order_message = true
-show.modify_rejected_message = true
-show.new_complex_instrument_accepted_message = true
-show.new_complex_instrument_message = true
-show.new_complex_instrument_rejected_message = true
-show.new_complex_order_message = true
-show.new_complex_order_short_message = true
-show.new_order_message = true
-show.new_order_short_message = true
-show.order_acknowledgement_message = true
-show.order_cancelled_message = true
-show.order_execution_message = true
-show.order_modified_message = true
-show.order_rejected_message = true
-show.order_restated_message = true
-show.packet = true
-show.prevent_match = true
-show.purge_acknowledgement_message = true
-show.purge_notification_message = true
-show.purge_orders_message = true
-show.purge_rejected_message = true
-show.quote = true
-show.quote_acknowledgement = true
-show.quote_cancelled_message = true
-show.quote_execution_message = true
-show.quote_restated_message = true
-show.quote_short = true
-show.quote_update_acknowledgement_message = true
-show.quote_update_message = true
-show.quote_update_rejected_message = true
-show.quote_update_short_message = true
-show.reset_risk_acknowledgement_message = true
-show.reset_risk_message = true
-show.trade_cancel_correct_message = true
-show.unit_sequence = true
-show.unit_sequence_index = true
-show.complex_leg_index = true
-show.leg_position_effect_index = true
-show.quote_index = true
-show.quote_short_index = true
-show.quote_acknowledgement_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Cboe C2Options BinaryOrderEntry Boe3 1.0.12 Show Options
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message = Pref.bool("Show Cancel Rejected Message", show.cancel_rejected_message, "Parse and add Cancel Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_carried_restatement_message = Pref.bool("Show Carried Restatement Message", show.carried_restatement_message, "Parse and add Carried Restatement Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_done_for_day_message = Pref.bool("Show Done For Day Message", show.done_for_day_message, "Parse and add Done For Day Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_response_message = Pref.bool("Show Login Response Message", show.login_response_message, "Parse and add Login Response Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_logout_response_message = Pref.bool("Show Logout Response Message", show.logout_response_message, "Parse and add Logout Response Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message = Pref.bool("Show Mass Cancel Acknowledgment Message", show.mass_cancel_acknowledgment_message, "Parse and add Mass Cancel Acknowledgment Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst = Pref.bool("Show Mass Cancel Inst", show.mass_cancel_inst, "Parse and add Mass Cancel Inst to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message = Pref.bool("Show Mass Cancel Rejected Message", show.mass_cancel_rejected_message, "Parse and add Mass Cancel Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_rejected_message = Pref.bool("Show Modify Rejected Message", show.modify_rejected_message, "Parse and add Modify Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message = Pref.bool("Show New Complex Instrument Accepted Message", show.new_complex_instrument_accepted_message, "Parse and add New Complex Instrument Accepted Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message = Pref.bool("Show New Complex Instrument Message", show.new_complex_instrument_message, "Parse and add New Complex Instrument Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message = Pref.bool("Show New Complex Instrument Rejected Message", show.new_complex_instrument_rejected_message, "Parse and add New Complex Instrument Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_message = Pref.bool("Show New Complex Order Message", show.new_complex_order_message, "Parse and add New Complex Order Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message = Pref.bool("Show New Complex Order Short Message", show.new_complex_order_short_message, "Parse and add New Complex Order Short Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_short_message = Pref.bool("Show New Order Short Message", show.new_order_short_message, "Parse and add New Order Short Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message = Pref.bool("Show Order Acknowledgement Message", show.order_acknowledgement_message, "Parse and add Order Acknowledgement Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_cancelled_message = Pref.bool("Show Order Cancelled Message", show.order_cancelled_message, "Parse and add Order Cancelled Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_modified_message = Pref.bool("Show Order Modified Message", show.order_modified_message, "Parse and add Order Modified Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_rejected_message = Pref.bool("Show Order Rejected Message", show.order_rejected_message, "Parse and add Order Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_restated_message = Pref.bool("Show Order Restated Message", show.order_restated_message, "Parse and add Order Restated Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_prevent_match = Pref.bool("Show Prevent Match", show.prevent_match, "Parse and add Prevent Match to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message = Pref.bool("Show Purge Acknowledgement Message", show.purge_acknowledgement_message, "Parse and add Purge Acknowledgement Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_notification_message = Pref.bool("Show Purge Notification Message", show.purge_notification_message, "Parse and add Purge Notification Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_orders_message = Pref.bool("Show Purge Orders Message", show.purge_orders_message, "Parse and add Purge Orders Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_rejected_message = Pref.bool("Show Purge Rejected Message", show.purge_rejected_message, "Parse and add Purge Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote = Pref.bool("Show Quote", show.quote, "Parse and add Quote to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement = Pref.bool("Show Quote Acknowledgement", show.quote_acknowledgement, "Parse and add Quote Acknowledgement to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message = Pref.bool("Show Quote Cancelled Message", show.quote_cancelled_message, "Parse and add Quote Cancelled Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_execution_message = Pref.bool("Show Quote Execution Message", show.quote_execution_message, "Parse and add Quote Execution Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_restated_message = Pref.bool("Show Quote Restated Message", show.quote_restated_message, "Parse and add Quote Restated Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short = Pref.bool("Show Quote Short", show.quote_short, "Parse and add Quote Short to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message = Pref.bool("Show Quote Update Acknowledgement Message", show.quote_update_acknowledgement_message, "Parse and add Quote Update Acknowledgement Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_message = Pref.bool("Show Quote Update Message", show.quote_update_message, "Parse and add Quote Update Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message = Pref.bool("Show Quote Update Rejected Message", show.quote_update_rejected_message, "Parse and add Quote Update Rejected Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_short_message = Pref.bool("Show Quote Update Short Message", show.quote_update_short_message, "Parse and add Quote Update Short Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message = Pref.bool("Show Reset Risk Acknowledgement Message", show.reset_risk_acknowledgement_message, "Parse and add Reset Risk Acknowledgement Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_message = Pref.bool("Show Reset Risk Message", show.reset_risk_message, "Parse and add Reset Risk Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message = Pref.bool("Show Trade Cancel Correct Message", show.trade_cancel_correct_message, "Parse and add Trade Cancel Correct Message to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence_index = Pref.bool("Show Unit Sequence Index", show.unit_sequence_index, "Show generated unit sequence index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg_index = Pref.bool("Show Complex Leg Index", show.complex_leg_index, "Show generated complex leg index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_leg_position_effect_index = Pref.bool("Show Leg Position Effect Index", show.leg_position_effect_index, "Show generated leg position effect index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_index = Pref.bool("Show Quote Index", show.quote_index, "Show generated quote index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short_index = Pref.bool("Show Quote Short Index", show.quote_short_index, "Show generated quote short index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_custom_group_id_index = Pref.bool("Show Custom Group Id Index", show.custom_group_id_index, "Show generated custom group id index in protocol tree")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index = Pref.bool("Show Quote Acknowledgement Index", show.quote_acknowledgement_index, "Show generated quote acknowledgement index in protocol tree")
+omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs_changed()
 
   -- Check if preferences have changed
-  if show.cancel_order_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_order_message then
-    show.cancel_order_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_order_message
+  if show.structs ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_structs then
+    show.structs = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_structs
   end
-  if show.cancel_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message then
-    show.cancel_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_cancel_rejected_message
-  end
-  if show.carried_restatement_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_carried_restatement_message then
-    show.carried_restatement_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_carried_restatement_message
-  end
-  if show.complex_leg ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg then
-    show.complex_leg = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg
-  end
-  if show.done_for_day_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_done_for_day_message then
-    show.done_for_day_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_done_for_day_message
-  end
-  if show.login_request_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_request_message then
-    show.login_request_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_request_message
-  end
-  if show.login_response_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_response_message then
-    show.login_response_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_login_response_message
-  end
-  if show.logout_response_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_logout_response_message then
-    show.logout_response_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_logout_response_message
-  end
-  if show.mass_cancel_acknowledgment_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message then
-    show.mass_cancel_acknowledgment_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_acknowledgment_message
-  end
-  if show.mass_cancel_inst ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst then
-    show.mass_cancel_inst = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_inst
-  end
-  if show.mass_cancel_order_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_order_message
-  end
-  if show.mass_cancel_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message then
-    show.mass_cancel_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_mass_cancel_rejected_message
-  end
-  if show.message_header ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_message_header then
-    show.message_header = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_message_header
-  end
-  if show.modify_order_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_order_message then
-    show.modify_order_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_order_message
-  end
-  if show.modify_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_rejected_message then
-    show.modify_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_modify_rejected_message
-  end
-  if show.new_complex_instrument_accepted_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message then
-    show.new_complex_instrument_accepted_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_accepted_message
-  end
-  if show.new_complex_instrument_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message then
-    show.new_complex_instrument_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_message
-  end
-  if show.new_complex_instrument_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message then
-    show.new_complex_instrument_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_instrument_rejected_message
-  end
-  if show.new_complex_order_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_message then
-    show.new_complex_order_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_message
-  end
-  if show.new_complex_order_short_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message then
-    show.new_complex_order_short_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_complex_order_short_message
-  end
-  if show.new_order_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_message then
-    show.new_order_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_message
-  end
-  if show.new_order_short_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_short_message then
-    show.new_order_short_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_new_order_short_message
-  end
-  if show.order_acknowledgement_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message then
-    show.order_acknowledgement_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_acknowledgement_message
-  end
-  if show.order_cancelled_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_cancelled_message then
-    show.order_cancelled_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_cancelled_message
-  end
-  if show.order_execution_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_execution_message then
-    show.order_execution_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_execution_message
-  end
-  if show.order_modified_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_modified_message then
-    show.order_modified_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_modified_message
-  end
-  if show.order_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_rejected_message then
-    show.order_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_rejected_message
-  end
-  if show.order_restated_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_restated_message then
-    show.order_restated_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_order_restated_message
-  end
-  if show.packet ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_packet then
-    show.packet = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_packet
-  end
-  if show.prevent_match ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_prevent_match then
-    show.prevent_match = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_prevent_match
-  end
-  if show.purge_acknowledgement_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message then
-    show.purge_acknowledgement_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_acknowledgement_message
-  end
-  if show.purge_notification_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_notification_message then
-    show.purge_notification_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_notification_message
-  end
-  if show.purge_orders_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_orders_message then
-    show.purge_orders_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_orders_message
-  end
-  if show.purge_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_rejected_message then
-    show.purge_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_purge_rejected_message
-  end
-  if show.quote ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote then
-    show.quote = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote
-  end
-  if show.quote_acknowledgement ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement then
-    show.quote_acknowledgement = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement
-  end
-  if show.quote_cancelled_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message then
-    show.quote_cancelled_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_cancelled_message
-  end
-  if show.quote_execution_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_execution_message then
-    show.quote_execution_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_execution_message
-  end
-  if show.quote_restated_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_restated_message then
-    show.quote_restated_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_restated_message
-  end
-  if show.quote_short ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short then
-    show.quote_short = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short
-  end
-  if show.quote_update_acknowledgement_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message then
-    show.quote_update_acknowledgement_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_acknowledgement_message
-  end
-  if show.quote_update_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_message then
-    show.quote_update_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_message
-  end
-  if show.quote_update_rejected_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message then
-    show.quote_update_rejected_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_rejected_message
-  end
-  if show.quote_update_short_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_short_message then
-    show.quote_update_short_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_update_short_message
-  end
-  if show.reset_risk_acknowledgement_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message then
-    show.reset_risk_acknowledgement_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_acknowledgement_message
-  end
-  if show.reset_risk_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_message then
-    show.reset_risk_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_reset_risk_message
-  end
-  if show.trade_cancel_correct_message ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message then
-    show.trade_cancel_correct_message = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_trade_cancel_correct_message
-  end
-  if show.unit_sequence ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence then
-    show.unit_sequence = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence
-  end
-  if show.unit_sequence_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence_index then
-    show.unit_sequence_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_unit_sequence_index
-  end
-  if show.complex_leg_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg_index then
-    show.complex_leg_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_complex_leg_index
-  end
-  if show.leg_position_effect_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_leg_position_effect_index then
-    show.leg_position_effect_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_leg_position_effect_index
-  end
-  if show.quote_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_index then
-    show.quote_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_index
-  end
-  if show.quote_short_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short_index then
-    show.quote_short_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_short_index
-  end
-  if show.custom_group_id_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_custom_group_id_index then
-    show.custom_group_id_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_custom_group_id_index
-  end
-  if show.quote_acknowledgement_index ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index then
-    show.quote_acknowledgement_index = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_quote_acknowledgement_index
+  if show.indexes ~= omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_indexes then
+    show.indexes = omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.prefs.show_indexes
   end
 end
 
@@ -4599,7 +4335,7 @@ end
 
 -- Dissect: Done For Day Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.done_for_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.done_for_day_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.done_for_day_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.done_for_day_message.fields(buffer, offset, packet, parent)
@@ -4647,7 +4383,7 @@ end
 
 -- Dissect: Prevent Match
 cboe_c2options_binaryorderentry_boe3_v1_0_12.prevent_match.dissect = function(buffer, offset, packet, parent)
-  if show.prevent_match then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.prevent_match, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.prevent_match.fields(buffer, offset, packet, parent)
@@ -4891,7 +4627,7 @@ end
 
 -- Dissect: Carried Restatement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.carried_restatement_message.dissect = function(buffer, offset, packet, parent)
-  if show.carried_restatement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.carried_restatement_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.carried_restatement_message.fields(buffer, offset, packet, parent)
@@ -4951,7 +4687,7 @@ end
 
 -- Dissect: New Complex Instrument Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_instrument_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_complex_instrument_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_rejected_message.fields(buffer, offset, packet, parent)
@@ -4989,7 +4725,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.complex_leg.fields = function(buffe
   local index = offset
 
   -- Implicit Complex Leg Index
-  if complex_leg_index ~= nil and show.complex_leg_index then
+  if complex_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.complex_leg_index, complex_leg_index)
     iteration:set_generated()
   end
@@ -5017,7 +4753,7 @@ end
 
 -- Dissect: Complex Leg
 cboe_c2options_binaryorderentry_boe3_v1_0_12.complex_leg.dissect = function(buffer, offset, packet, parent, complex_leg_index)
-  if show.complex_leg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.complex_leg, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.complex_leg.fields(buffer, offset, packet, parent, complex_leg_index)
@@ -5096,7 +4832,7 @@ end
 
 -- Dissect: New Complex Instrument Accepted Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_instrument_accepted_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_complex_instrument_accepted_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_accepted_message.fields(buffer, offset, packet, parent)
@@ -5164,7 +4900,7 @@ end
 
 -- Dissect: Purge Notification Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.purge_notification_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.purge_notification_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_notification_message.fields(buffer, offset, packet, parent)
@@ -5224,7 +4960,7 @@ end
 
 -- Dissect: Purge Acknowledgement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  if show.purge_acknowledgement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.purge_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_message.fields(buffer, offset, packet, parent)
@@ -5280,7 +5016,7 @@ end
 
 -- Dissect: Mass Cancel Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.mass_cancel_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_rejected_message.fields(buffer, offset, packet, parent)
@@ -5336,7 +5072,7 @@ end
 
 -- Dissect: Mass Cancel Acknowledgment Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_acknowledgment_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_acknowledgment_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.mass_cancel_acknowledgment_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_acknowledgment_message.fields(buffer, offset, packet, parent)
@@ -5388,7 +5124,7 @@ end
 
 -- Dissect: Reset Risk Acknowledgement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.reset_risk_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  if show.reset_risk_acknowledgement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.reset_risk_acknowledgement_message.fields(buffer, offset, packet, parent)
@@ -5444,7 +5180,7 @@ end
 
 -- Dissect: Purge Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.purge_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.purge_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_rejected_message.fields(buffer, offset, packet, parent)
@@ -5576,7 +5312,7 @@ end
 
 -- Dissect: Trade Cancel Correct Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.trade_cancel_correct_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_correct_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.trade_cancel_correct_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.trade_cancel_correct_message.fields(buffer, offset, packet, parent)
@@ -5684,7 +5420,7 @@ end
 
 -- Dissect: Quote Execution Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_execution_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_execution_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_execution_message.fields(buffer, offset, packet, parent)
@@ -5836,7 +5572,7 @@ end
 
 -- Dissect: Order Execution Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_execution_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_execution_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_execution_message.fields(buffer, offset, packet, parent)
@@ -5900,7 +5636,7 @@ end
 
 -- Dissect: Cancel Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.cancel_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.cancel_rejected_message.fields(buffer, offset, packet, parent)
@@ -5968,7 +5704,7 @@ end
 
 -- Dissect: Quote Cancelled Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancelled_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_cancelled_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_cancelled_message.fields(buffer, offset, packet, parent)
@@ -6040,7 +5776,7 @@ end
 
 -- Dissect: Order Cancelled Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancelled_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_cancelled_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_cancelled_message.fields(buffer, offset, packet, parent)
@@ -6108,7 +5844,7 @@ end
 
 -- Dissect: Modify Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.modify_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.modify_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.modify_rejected_message.fields(buffer, offset, packet, parent)
@@ -6180,7 +5916,7 @@ end
 
 -- Dissect: Quote Restated Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_restated_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_restated_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_restated_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_restated_message.fields(buffer, offset, packet, parent)
@@ -6284,7 +6020,7 @@ end
 
 -- Dissect: Order Restated Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_restated_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_restated_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_restated_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_restated_message.fields(buffer, offset, packet, parent)
@@ -6396,7 +6132,7 @@ end
 
 -- Dissect: Order Modified Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_modified_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_modified_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_modified_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_modified_message.fields(buffer, offset, packet, parent)
@@ -6448,7 +6184,7 @@ end
 
 -- Dissect: Quote Update Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_update_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_rejected_message.fields(buffer, offset, packet, parent)
@@ -6512,7 +6248,7 @@ end
 
 -- Dissect: Order Rejected Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_rejected_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_rejected_message.fields(buffer, offset, packet, parent)
@@ -6548,7 +6284,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_acknowledgement.fields = func
   local index = offset
 
   -- Implicit Quote Acknowledgement Index
-  if quote_acknowledgement_index ~= nil and show.quote_acknowledgement_index then
+  if quote_acknowledgement_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_acknowledgement_index, quote_acknowledgement_index)
     iteration:set_generated()
   end
@@ -6570,7 +6306,7 @@ end
 
 -- Dissect: Quote Acknowledgement
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_acknowledgement.dissect = function(buffer, offset, packet, parent, quote_acknowledgement_index)
-  if show.quote_acknowledgement then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_acknowledgement, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_acknowledgement.fields(buffer, offset, packet, parent, quote_acknowledgement_index)
@@ -6644,7 +6380,7 @@ end
 
 -- Dissect: Quote Update Acknowledgement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_acknowledgement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_update_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
@@ -6744,7 +6480,7 @@ end
 
 -- Dissect: Order Acknowledgement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_acknowledgement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.order_acknowledgement_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.fields(buffer, offset, packet, parent)
@@ -6808,7 +6544,7 @@ end
 
 -- Dissect: Reset Risk Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.reset_risk_message.dissect = function(buffer, offset, packet, parent)
-  if show.reset_risk_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.reset_risk_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.reset_risk_message.fields(buffer, offset, packet, parent)
@@ -6868,7 +6604,7 @@ end
 
 -- Dissect: Mass Cancel Inst
 cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_inst then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.mass_cancel_inst, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_inst.fields(buffer, offset, packet, parent)
@@ -6957,7 +6693,7 @@ end
 
 -- Dissect: Purge Orders Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_orders_message.dissect = function(buffer, offset, packet, parent)
-  if show.purge_orders_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.purge_orders_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.purge_orders_message.fields(buffer, offset, packet, parent)
@@ -6995,7 +6731,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_short.fields = function(buffe
   local index = offset
 
   -- Implicit Quote Short Index
-  if quote_short_index ~= nil and show.quote_short_index then
+  if quote_short_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_short_index, quote_short_index)
     iteration:set_generated()
   end
@@ -7023,7 +6759,7 @@ end
 
 -- Dissect: Quote Short
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_short.dissect = function(buffer, offset, packet, parent, quote_short_index)
-  if show.quote_short then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_short, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_short.fields(buffer, offset, packet, parent, quote_short_index)
@@ -7122,7 +6858,7 @@ end
 
 -- Dissect: Quote Update Short Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_short_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_update_short_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_short_message.fields(buffer, offset, packet, parent)
@@ -7160,7 +6896,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.quote.fields = function(buffer, off
   local index = offset
 
   -- Implicit Quote Index
-  if quote_index ~= nil and show.quote_index then
+  if quote_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_index, quote_index)
     iteration:set_generated()
   end
@@ -7188,7 +6924,7 @@ end
 
 -- Dissect: Quote
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote.dissect = function(buffer, offset, packet, parent, quote_index)
-  if show.quote then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote.fields(buffer, offset, packet, parent, quote_index)
@@ -7297,7 +7033,7 @@ end
 
 -- Dissect: Quote Update Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_update_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.quote_update_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.quote_update_message.fields(buffer, offset, packet, parent)
@@ -7381,7 +7117,7 @@ end
 
 -- Dissect: Modify Order Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.modify_order_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.modify_order_message.fields(buffer, offset, packet, parent)
@@ -7445,7 +7181,7 @@ end
 
 -- Dissect: Mass Cancel Order Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.mass_cancel_order_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.mass_cancel_order_message.fields(buffer, offset, packet, parent)
@@ -7497,7 +7233,7 @@ end
 
 -- Dissect: Cancel Order Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.cancel_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.cancel_order_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.cancel_order_message.fields(buffer, offset, packet, parent)
@@ -7681,7 +7417,7 @@ end
 
 -- Dissect: New Complex Order Short Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_order_short_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_complex_order_short_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_order_short_message.fields(buffer, offset, packet, parent)
@@ -7945,7 +7681,7 @@ end
 
 -- Dissect: New Complex Order Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_complex_order_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_order_message.fields(buffer, offset, packet, parent)
@@ -8014,7 +7750,7 @@ end
 
 -- Dissect: New Complex Instrument Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_complex_instrument_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_complex_instrument_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_message.fields(buffer, offset, packet, parent)
@@ -8158,7 +7894,7 @@ end
 
 -- Dissect: New Order Short Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_order_short_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_short_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_order_short_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_order_short_message.fields(buffer, offset, packet, parent)
@@ -8374,7 +8110,7 @@ end
 
 -- Dissect: New Order Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.new_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.new_order_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.new_order_message.fields(buffer, offset, packet, parent)
@@ -8418,7 +8154,7 @@ end
 
 -- Dissect: Logout Response Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.logout_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
@@ -8452,7 +8188,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields = function(buf
   local index = offset
 
   -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil and show.unit_sequence_index then
+  if unit_sequence_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
   end
@@ -8468,7 +8204,7 @@ end
 
 -- Dissect: Unit Sequence
 cboe_c2options_binaryorderentry_boe3_v1_0_12.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
-  if show.unit_sequence then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
@@ -8537,7 +8273,7 @@ end
 
 -- Dissect: Login Response Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.login_response_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
@@ -8611,7 +8347,7 @@ end
 
 -- Dissect: Login Request Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.login_request_message, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.login_request_message.fields(buffer, offset, packet, parent)
@@ -8852,7 +8588,7 @@ end
 
 -- Dissect: Message Header
 cboe_c2options_binaryorderentry_boe3_v1_0_12.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
     local index = cboe_c2options_binaryorderentry_boe3_v1_0_12.message_header.fields(buffer, offset, packet, parent)

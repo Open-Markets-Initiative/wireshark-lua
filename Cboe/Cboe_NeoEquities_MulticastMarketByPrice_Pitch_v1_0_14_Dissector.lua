@@ -92,58 +92,28 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_index =
 local show = {}
 
 -- Cboe NeoEquities MulticastMarketByPrice Pitch 1.0.14 Element Dissection Options
-show.allowed_book_types = true
+show.structs = true
 show.application_messages = true
-show.instrument_flags = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.trade_flags = true
-show.message_index = true
+show.indexes = true
 
 -- Register Cboe NeoEquities MulticastMarketByPrice Pitch 1.0.14 Show Options
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_instrument_flags = Pref.bool("Show Instrument Flags", show.instrument_flags, "Parse and add Instrument Flags to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs_changed()
 
   -- Check if preferences have changed
-  if show.allowed_book_types ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_allowed_book_types then
-    show.allowed_book_types = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_allowed_book_types
-  end
   if show.application_messages ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_application_messages then
     show.application_messages = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_application_messages
   end
-  if show.instrument_flags ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_instrument_flags then
-    show.instrument_flags = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_instrument_flags
+  if show.structs ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_structs then
+    show.structs = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_structs
   end
-  if show.message ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message then
-    show.message = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message
-  end
-  if show.message_header ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_header then
-    show.message_header = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_header
-  end
-  if show.packet ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet then
-    show.packet = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet_header then
-    show.packet_header = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_packet_header
-  end
-  if show.trade_flags ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_trade_flags then
-    show.trade_flags = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_trade_flags
-  end
-  if show.message_index ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_index then
-    show.message_index = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_message_index
+  if show.indexes ~= omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_indexes then
+    show.indexes = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.prefs.show_indexes
   end
 end
 
@@ -1576,7 +1546,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_flags.dissect = func
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_flags.bits(range, value, packet, element)
   end
 
@@ -1774,7 +1744,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_flags.dissect =
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.instrument_flags, range, display)
 
-  if show.instrument_flags then
+  if show.structs then
     cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_flags.bits(range, value, packet, element)
   end
 
@@ -1845,7 +1815,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.dissect
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.allowed_book_types, range, display)
 
-  if show.allowed_book_types then
+  if show.structs then
     cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.allowed_book_types.bits(range, value, packet, element)
   end
 
@@ -2041,7 +2011,7 @@ end
 
 -- Dissect: Message Header
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_header, buffer(offset, 0))
     local index = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_header.fields(buffer, offset, packet, parent)
@@ -2080,7 +2050,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message.fields = function(
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2103,7 +2073,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message.dissect = function
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message, buffer(offset, 0))
     local current = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2194,7 +2164,7 @@ end
 
 -- Dissect: Packet Header
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.packet_header, buffer(offset, 0))
     local index = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.packet_header.fields(buffer, offset, packet, parent)

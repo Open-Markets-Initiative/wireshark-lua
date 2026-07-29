@@ -40,38 +40,18 @@ omi_b3_securities_binarypacketheader_udp_v1_0.fields.version = ProtoField.new("V
 local show = {}
 
 -- B3 Securities BinaryPacketHeader Udp 1.0 Element Dissection Options
-show.framing_header = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
+show.structs = true
 
 -- Register B3 Securities BinaryPacketHeader Udp 1.0 Show Options
-omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header = Pref.bool("Show Framing Header", show.framing_header, "Parse and add Framing Header to protocol tree")
-omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_b3_securities_binarypacketheader_udp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.framing_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header then
-    show.framing_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_framing_header
-  end
-  if show.message ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message then
-    show.message = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message
-  end
-  if show.message_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header then
-    show.message_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet then
-    show.packet = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header then
-    show.packet_header = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_packet_header
+  if show.structs ~= omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_structs then
+    show.structs = omi_b3_securities_binarypacketheader_udp_v1_0.prefs.show_structs
   end
 end
 
@@ -397,7 +377,7 @@ end
 
 -- Dissect: Message Header
 b3_securities_binarypacketheader_udp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.message_header, buffer(offset, 0))
     local index = b3_securities_binarypacketheader_udp_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -441,7 +421,7 @@ end
 
 -- Dissect: Framing Header
 b3_securities_binarypacketheader_udp_v1_0.framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.framing_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.framing_header, buffer(offset, 0))
     local index = b3_securities_binarypacketheader_udp_v1_0.framing_header.fields(buffer, offset, packet, parent)
@@ -492,7 +472,7 @@ b3_securities_binarypacketheader_udp_v1_0.message.dissect = function(buffer, off
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.message, buffer(offset, 0))
     local current = b3_securities_binarypacketheader_udp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -548,7 +528,7 @@ end
 
 -- Dissect: Packet Header
 b3_securities_binarypacketheader_udp_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.packet_header, buffer(offset, 0))
     local index = b3_securities_binarypacketheader_udp_v1_0.packet_header.fields(buffer, offset, packet, parent)

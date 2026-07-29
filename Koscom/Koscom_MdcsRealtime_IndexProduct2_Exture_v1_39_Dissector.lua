@@ -109,11 +109,11 @@ local show = {}
 
 -- Koscom MdcsRealtime IndexProduct2 Exture 1.39 Element Dissection Options
 show.application_messages = true
-show.packet = true
+show.structs = true
 
 -- Register Koscom MdcsRealtime IndexProduct2 Exture 1.39 Show Options
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -123,8 +123,8 @@ function omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs_changed()
   if show.application_messages ~= omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_application_messages then
     show.application_messages = omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_application_messages
   end
-  if show.packet ~= omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_packet then
-    show.packet = omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_packet
+  if show.structs ~= omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_structs then
+    show.structs = omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.prefs.show_structs
   end
 end
 

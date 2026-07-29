@@ -108,43 +108,33 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.timestamp = ProtoField.
 local show = {}
 
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Element Dissection Options
-show.application_message = true
+show.structs = true
 show.application_messages = true
-show.leg_definition = true
-show.mach_message = true
-show.packet = true
-show.leg_definition_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Show Options
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_message then
-    show.application_message = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_message
-  end
   if show.application_messages ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_application_messages
   end
-  if show.leg_definition ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition then
-    show.leg_definition = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition
+  if show.repeating_groups ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_repeating_groups
   end
-  if show.mach_message ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_mach_message then
-    show.mach_message = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_mach_message
+  if show.structs ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_structs then
+    show.structs = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_structs
   end
-  if show.packet ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_packet then
-    show.packet = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_packet
-  end
-  if show.leg_definition_index ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition_index then
-    show.leg_definition_index = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_leg_definition_index
+  if show.indexes ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_indexes then
+    show.indexes = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.prefs.show_indexes
   end
 end
 
@@ -2616,7 +2606,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.fields = function(b
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.leg_definition_index then
+  if leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -2638,7 +2628,7 @@ end
 
 -- Dissect: Leg Definition
 miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_definition, buffer(offset, 0))
     local index = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -2988,7 +2978,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.application_message.dissect = func
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.application_message, buffer(offset, 0))
     local current = miax_miaxoptions_complextopofmarket_mach_v1_3.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -3132,7 +3122,7 @@ end
 
 -- Dissect: Mach Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.mach_message, buffer(offset, 0))
     local index = miax_miaxoptions_complextopofmarket_mach_v1_3.mach_message.fields(buffer, offset, packet, parent)

@@ -80,23 +80,13 @@ local show = {}
 
 -- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Element Dissection Options
 show.application_messages = true
-show.common_header = true
-show.message = true
-show.packet = true
-show.sbe_header = true
-show.sbe_message = true
-show.sequenced_message = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register 24X 24XEquities MemoirDepthFeed Sbe 1.3 Show Options
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -106,26 +96,11 @@ function omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs_changed()
   if show.application_messages ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_messages
   end
-  if show.common_header ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header then
-    show.common_header = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_common_header
+  if show.structs ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs then
+    show.structs = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs
   end
-  if show.message ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message then
-    show.message = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message
-  end
-  if show.packet ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_packet then
-    show.packet = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_packet
-  end
-  if show.sbe_header ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header then
-    show.sbe_header = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_header
-  end
-  if show.sbe_message ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message then
-    show.sbe_message = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sbe_message
-  end
-  if show.sequenced_message ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message then
-    show.sequenced_message = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_sequenced_message
-  end
-  if show.message_index ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message_index then
-    show.message_index = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_message_index
+  if show.indexes ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes then
+    show.indexes = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes
   end
 end
 
@@ -1895,7 +1870,7 @@ end
 
 -- Dissect: Sbe Header
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = n24x_24xequities_memoirdepthfeed_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
@@ -1940,7 +1915,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.sbe_message.dissect = function(buffer,
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
     local current = n24x_24xequities_memoirdepthfeed_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
@@ -1969,7 +1944,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.message.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -1994,7 +1969,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.message.dissect = function(buffer, off
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.message, buffer(offset, 0))
     local current = n24x_24xequities_memoirdepthfeed_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2055,7 +2030,7 @@ end
 
 -- Dissect: Sequenced Message
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.sequenced_message, buffer(offset, 0))
     local index = n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
@@ -2120,7 +2095,7 @@ end
 
 -- Dissect: Common Header
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.common_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = n24x_24xequities_memoirdepthfeed_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)

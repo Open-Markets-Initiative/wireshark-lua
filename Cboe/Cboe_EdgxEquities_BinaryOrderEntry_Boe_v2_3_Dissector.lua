@@ -409,78 +409,16 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.param_group_index = Proto
 local show = {}
 
 -- Cboe EdgxEquities BinaryOrderEntry Boe 2.3 Element Dissection Options
-show.cancel_order_bitfield_1 = true
-show.cancel_order_bitfield_2 = true
+show.structs = true
 show.application_messages = true
-show.message_header = true
-show.modify_order_bitfield_1 = true
-show.modify_order_bitfield_2 = true
-show.new_order_bitfield_1 = true
-show.new_order_bitfield_2 = true
-show.new_order_bitfield_3 = true
-show.new_order_bitfield_4 = true
-show.new_order_bitfield_5 = true
-show.new_order_bitfield_6 = true
-show.new_order_bitfield_7 = true
-show.packet = true
-show.param_group = true
-show.purge_order_bitfield_1 = true
-show.purge_order_bitfield_2 = true
-show.return_bitfield_1 = true
-show.return_bitfield_10 = true
-show.return_bitfield_11 = true
-show.return_bitfield_12 = true
-show.return_bitfield_13 = true
-show.return_bitfield_14 = true
-show.return_bitfield_15 = true
-show.return_bitfield_16 = true
-show.return_bitfield_17 = true
-show.return_bitfield_2 = true
-show.return_bitfield_3 = true
-show.return_bitfield_4 = true
-show.return_bitfield_5 = true
-show.return_bitfield_6 = true
-show.return_bitfield_7 = true
-show.return_bitfield_8 = true
-show.return_bitfield_9 = true
-show.param_group_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cboe EdgxEquities BinaryOrderEntry Boe 2.3 Show Options
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_1 = Pref.bool("Show Cancel Order Bitfield 1", show.cancel_order_bitfield_1, "Parse and add Cancel Order Bitfield 1 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_2 = Pref.bool("Show Cancel Order Bitfield 2", show.cancel_order_bitfield_2, "Parse and add Cancel Order Bitfield 2 to protocol tree")
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_1 = Pref.bool("Show Modify Order Bitfield 1", show.modify_order_bitfield_1, "Parse and add Modify Order Bitfield 1 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_2 = Pref.bool("Show Modify Order Bitfield 2", show.modify_order_bitfield_2, "Parse and add Modify Order Bitfield 2 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_1 = Pref.bool("Show New Order Bitfield 1", show.new_order_bitfield_1, "Parse and add New Order Bitfield 1 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_2 = Pref.bool("Show New Order Bitfield 2", show.new_order_bitfield_2, "Parse and add New Order Bitfield 2 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_3 = Pref.bool("Show New Order Bitfield 3", show.new_order_bitfield_3, "Parse and add New Order Bitfield 3 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_4 = Pref.bool("Show New Order Bitfield 4", show.new_order_bitfield_4, "Parse and add New Order Bitfield 4 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_5 = Pref.bool("Show New Order Bitfield 5", show.new_order_bitfield_5, "Parse and add New Order Bitfield 5 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_6 = Pref.bool("Show New Order Bitfield 6", show.new_order_bitfield_6, "Parse and add New Order Bitfield 6 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_7 = Pref.bool("Show New Order Bitfield 7", show.new_order_bitfield_7, "Parse and add New Order Bitfield 7 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group = Pref.bool("Show Param Group", show.param_group, "Parse and add Param Group to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_1 = Pref.bool("Show Purge Order Bitfield 1", show.purge_order_bitfield_1, "Parse and add Purge Order Bitfield 1 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_2 = Pref.bool("Show Purge Order Bitfield 2", show.purge_order_bitfield_2, "Parse and add Purge Order Bitfield 2 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_1 = Pref.bool("Show Return Bitfield 1", show.return_bitfield_1, "Parse and add Return Bitfield 1 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_10 = Pref.bool("Show Return Bitfield 10", show.return_bitfield_10, "Parse and add Return Bitfield 10 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_11 = Pref.bool("Show Return Bitfield 11", show.return_bitfield_11, "Parse and add Return Bitfield 11 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_12 = Pref.bool("Show Return Bitfield 12", show.return_bitfield_12, "Parse and add Return Bitfield 12 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_13 = Pref.bool("Show Return Bitfield 13", show.return_bitfield_13, "Parse and add Return Bitfield 13 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_14 = Pref.bool("Show Return Bitfield 14", show.return_bitfield_14, "Parse and add Return Bitfield 14 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_15 = Pref.bool("Show Return Bitfield 15", show.return_bitfield_15, "Parse and add Return Bitfield 15 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_16 = Pref.bool("Show Return Bitfield 16", show.return_bitfield_16, "Parse and add Return Bitfield 16 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_17 = Pref.bool("Show Return Bitfield 17", show.return_bitfield_17, "Parse and add Return Bitfield 17 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_2 = Pref.bool("Show Return Bitfield 2", show.return_bitfield_2, "Parse and add Return Bitfield 2 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_3 = Pref.bool("Show Return Bitfield 3", show.return_bitfield_3, "Parse and add Return Bitfield 3 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_4 = Pref.bool("Show Return Bitfield 4", show.return_bitfield_4, "Parse and add Return Bitfield 4 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_5 = Pref.bool("Show Return Bitfield 5", show.return_bitfield_5, "Parse and add Return Bitfield 5 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_6 = Pref.bool("Show Return Bitfield 6", show.return_bitfield_6, "Parse and add Return Bitfield 6 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_7 = Pref.bool("Show Return Bitfield 7", show.return_bitfield_7, "Parse and add Return Bitfield 7 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_8 = Pref.bool("Show Return Bitfield 8", show.return_bitfield_8, "Parse and add Return Bitfield 8 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_9 = Pref.bool("Show Return Bitfield 9", show.return_bitfield_9, "Parse and add Return Bitfield 9 to protocol tree")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group_index = Pref.bool("Show Param Group Index", show.param_group_index, "Show generated param group index in protocol tree")
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -490,107 +428,14 @@ function omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs_changed()
   if show.application_messages ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_application_messages
   end
-  if show.cancel_order_bitfield_1 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_1 then
-    show.cancel_order_bitfield_1 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_1
+  if show.repeating_groups ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_repeating_groups
   end
-  if show.cancel_order_bitfield_2 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_2 then
-    show.cancel_order_bitfield_2 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_cancel_order_bitfield_2
+  if show.structs ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_structs then
+    show.structs = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_structs
   end
-  if show.message_header ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_message_header then
-    show.message_header = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_message_header
-  end
-  if show.modify_order_bitfield_1 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_1 then
-    show.modify_order_bitfield_1 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_1
-  end
-  if show.modify_order_bitfield_2 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_2 then
-    show.modify_order_bitfield_2 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_modify_order_bitfield_2
-  end
-  if show.new_order_bitfield_1 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_1 then
-    show.new_order_bitfield_1 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_1
-  end
-  if show.new_order_bitfield_2 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_2 then
-    show.new_order_bitfield_2 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_2
-  end
-  if show.new_order_bitfield_3 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_3 then
-    show.new_order_bitfield_3 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_3
-  end
-  if show.new_order_bitfield_4 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_4 then
-    show.new_order_bitfield_4 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_4
-  end
-  if show.new_order_bitfield_5 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_5 then
-    show.new_order_bitfield_5 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_5
-  end
-  if show.new_order_bitfield_6 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_6 then
-    show.new_order_bitfield_6 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_6
-  end
-  if show.new_order_bitfield_7 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_7 then
-    show.new_order_bitfield_7 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_new_order_bitfield_7
-  end
-  if show.packet ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_packet then
-    show.packet = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_packet
-  end
-  if show.param_group ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group then
-    show.param_group = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group
-  end
-  if show.purge_order_bitfield_1 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_1 then
-    show.purge_order_bitfield_1 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_1
-  end
-  if show.purge_order_bitfield_2 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_2 then
-    show.purge_order_bitfield_2 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_purge_order_bitfield_2
-  end
-  if show.return_bitfield_1 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_1 then
-    show.return_bitfield_1 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_1
-  end
-  if show.return_bitfield_10 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_10 then
-    show.return_bitfield_10 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_10
-  end
-  if show.return_bitfield_11 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_11 then
-    show.return_bitfield_11 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_11
-  end
-  if show.return_bitfield_12 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_12 then
-    show.return_bitfield_12 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_12
-  end
-  if show.return_bitfield_13 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_13 then
-    show.return_bitfield_13 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_13
-  end
-  if show.return_bitfield_14 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_14 then
-    show.return_bitfield_14 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_14
-  end
-  if show.return_bitfield_15 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_15 then
-    show.return_bitfield_15 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_15
-  end
-  if show.return_bitfield_16 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_16 then
-    show.return_bitfield_16 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_16
-  end
-  if show.return_bitfield_17 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_17 then
-    show.return_bitfield_17 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_17
-  end
-  if show.return_bitfield_2 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_2 then
-    show.return_bitfield_2 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_2
-  end
-  if show.return_bitfield_3 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_3 then
-    show.return_bitfield_3 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_3
-  end
-  if show.return_bitfield_4 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_4 then
-    show.return_bitfield_4 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_4
-  end
-  if show.return_bitfield_5 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_5 then
-    show.return_bitfield_5 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_5
-  end
-  if show.return_bitfield_6 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_6 then
-    show.return_bitfield_6 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_6
-  end
-  if show.return_bitfield_7 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_7 then
-    show.return_bitfield_7 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_7
-  end
-  if show.return_bitfield_8 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_8 then
-    show.return_bitfield_8 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_8
-  end
-  if show.return_bitfield_9 ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_9 then
-    show.return_bitfield_9 = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_return_bitfield_9
-  end
-  if show.param_group_index ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group_index then
-    show.param_group_index = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_param_group_index
+  if show.indexes ~= omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_indexes then
+    show.indexes = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.prefs.show_indexes
   end
 end
 
@@ -3600,7 +3445,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_17.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_17, range, display)
 
-  if show.return_bitfield_17 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_17.bits(range, value, packet, element)
   end
 
@@ -3689,7 +3534,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_16.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_16, range, display)
 
-  if show.return_bitfield_16 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_16.bits(range, value, packet, element)
   end
 
@@ -3778,7 +3623,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_15.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_15, range, display)
 
-  if show.return_bitfield_15 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_15.bits(range, value, packet, element)
   end
 
@@ -3867,7 +3712,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_14.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_14, range, display)
 
-  if show.return_bitfield_14 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_14.bits(range, value, packet, element)
   end
 
@@ -3956,7 +3801,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_13.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_13, range, display)
 
-  if show.return_bitfield_13 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_13.bits(range, value, packet, element)
   end
 
@@ -4045,7 +3890,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_12.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_12, range, display)
 
-  if show.return_bitfield_12 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_12.bits(range, value, packet, element)
   end
 
@@ -4134,7 +3979,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_11.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_11, range, display)
 
-  if show.return_bitfield_11 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_11.bits(range, value, packet, element)
   end
 
@@ -4223,7 +4068,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_10.dissect = functio
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_10, range, display)
 
-  if show.return_bitfield_10 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_10.bits(range, value, packet, element)
   end
 
@@ -4312,7 +4157,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_9.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_9, range, display)
 
-  if show.return_bitfield_9 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_9.bits(range, value, packet, element)
   end
 
@@ -4401,7 +4246,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_8.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_8, range, display)
 
-  if show.return_bitfield_8 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_8.bits(range, value, packet, element)
   end
 
@@ -4490,7 +4335,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_7.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_7, range, display)
 
-  if show.return_bitfield_7 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_7.bits(range, value, packet, element)
   end
 
@@ -4579,7 +4424,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_6.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_6, range, display)
 
-  if show.return_bitfield_6 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_6.bits(range, value, packet, element)
   end
 
@@ -4668,7 +4513,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_5.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_5, range, display)
 
-  if show.return_bitfield_5 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_5.bits(range, value, packet, element)
   end
 
@@ -4757,7 +4602,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_4.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_4, range, display)
 
-  if show.return_bitfield_4 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_4.bits(range, value, packet, element)
   end
 
@@ -4846,7 +4691,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_3.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_3, range, display)
 
-  if show.return_bitfield_3 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_3.bits(range, value, packet, element)
   end
 
@@ -4935,7 +4780,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_2.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_2, range, display)
 
-  if show.return_bitfield_2 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_2.bits(range, value, packet, element)
   end
 
@@ -5024,7 +4869,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_1.dissect = function
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1, range, display)
 
-  if show.return_bitfield_1 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.return_bitfield_1.bits(range, value, packet, element)
   end
 
@@ -9699,7 +9544,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_2.dissect = fun
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.purge_order_bitfield_2, range, display)
 
-  if show.purge_order_bitfield_2 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_2.bits(range, value, packet, element)
   end
 
@@ -9788,7 +9633,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_1.dissect = fun
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.purge_order_bitfield_1, range, display)
 
-  if show.purge_order_bitfield_1 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.purge_order_bitfield_1.bits(range, value, packet, element)
   end
 
@@ -9997,7 +9842,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_2.dissect = fu
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.modify_order_bitfield_2, range, display)
 
-  if show.modify_order_bitfield_2 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_2.bits(range, value, packet, element)
   end
 
@@ -10086,7 +9931,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_1.dissect = fu
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.modify_order_bitfield_1, range, display)
 
-  if show.modify_order_bitfield_1 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.modify_order_bitfield_1.bits(range, value, packet, element)
   end
 
@@ -10334,7 +10179,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_2.dissect = fu
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.cancel_order_bitfield_2, range, display)
 
-  if show.cancel_order_bitfield_2 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_2.bits(range, value, packet, element)
   end
 
@@ -10423,7 +10268,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_1.dissect = fu
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.cancel_order_bitfield_1, range, display)
 
-  if show.cancel_order_bitfield_1 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.cancel_order_bitfield_1.bits(range, value, packet, element)
   end
 
@@ -10596,7 +10441,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_7.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_7, range, display)
 
-  if show.new_order_bitfield_7 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_7.bits(range, value, packet, element)
   end
 
@@ -10685,7 +10530,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_6.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_6, range, display)
 
-  if show.new_order_bitfield_6 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_6.bits(range, value, packet, element)
   end
 
@@ -10774,7 +10619,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_5.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_5, range, display)
 
-  if show.new_order_bitfield_5 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_5.bits(range, value, packet, element)
   end
 
@@ -10863,7 +10708,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_4.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_4, range, display)
 
-  if show.new_order_bitfield_4 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_4.bits(range, value, packet, element)
   end
 
@@ -10952,7 +10797,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_3.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_3, range, display)
 
-  if show.new_order_bitfield_3 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_3.bits(range, value, packet, element)
   end
 
@@ -11041,7 +10886,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_2.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_2, range, display)
 
-  if show.new_order_bitfield_2 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_2.bits(range, value, packet, element)
   end
 
@@ -11130,7 +10975,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_1.dissect = funct
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_1, range, display)
 
-  if show.new_order_bitfield_1 then
+  if show.structs then
     cboe_edgxequities_binaryorderentry_boe_v2_3.new_order_bitfield_1.bits(range, value, packet, element)
   end
 
@@ -11614,7 +11459,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.param_group.fields = function(buffer
   local index = offset
 
   -- Implicit Param Group Index
-  if param_group_index ~= nil and show.param_group_index then
+  if param_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.param_group_index, param_group_index)
     iteration:set_generated()
   end
@@ -11630,7 +11475,7 @@ end
 
 -- Dissect: Param Group
 cboe_edgxequities_binaryorderentry_boe_v2_3.param_group.dissect = function(buffer, offset, packet, parent, param_group_index)
-  if show.param_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.param_group, buffer(offset, 0))
     local index = cboe_edgxequities_binaryorderentry_boe_v2_3.param_group.fields(buffer, offset, packet, parent, param_group_index)
@@ -11920,7 +11765,7 @@ end
 
 -- Dissect: Message Header
 cboe_edgxequities_binaryorderentry_boe_v2_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.message_header, buffer(offset, 0))
     local index = cboe_edgxequities_binaryorderentry_boe_v2_3.message_header.fields(buffer, offset, packet, parent)

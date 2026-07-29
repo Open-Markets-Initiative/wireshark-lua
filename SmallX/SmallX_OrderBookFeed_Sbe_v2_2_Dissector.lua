@@ -170,66 +170,16 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index = ProtoField.
 local show = {}
 
 -- SmallX OrderBookFeed Sbe 2.2 Element Dissection Options
-show.group_dimension = true
-show.incremental_message_instructions = true
-show.incremental_trade_group = true
-show.incremental_trade_groups = true
-show.incremetal_orders_group = true
-show.incremetal_orders_groups = true
+show.structs = true
+show.repeating_groups = true
 show.application_messages = true
-show.legs_group = true
-show.legs_groups = true
-show.message_header = true
-show.order_attributes = true
-show.packet = true
-show.packet_flags = true
-show.packet_header = true
-show.sbe_frame = true
-show.snaphot_orders_group = true
-show.snaphot_orders_groups = true
-show.snapshot_message_instructions = true
-show.trade_bust_group = true
-show.trade_bust_groups = true
-show.trade_conditions = true
-show.trade_correct_group = true
-show.trade_correct_groups = true
-show.incremental_trade_group_index = true
-show.trade_correct_group_index = true
-show.trade_bust_group_index = true
-show.incremetal_orders_group_index = true
-show.snaphot_orders_group_index = true
-show.legs_group_index = true
+show.indexes = true
 
 -- Register SmallX OrderBookFeed Sbe 2.2 Show Options
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension = Pref.bool("Show Group Dimension", show.group_dimension, "Parse and add Group Dimension to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_message_instructions = Pref.bool("Show Incremental Message Instructions", show.incremental_message_instructions, "Parse and add Incremental Message Instructions to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group = Pref.bool("Show Incremental Trade Group", show.incremental_trade_group, "Parse and add Incremental Trade Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups = Pref.bool("Show Incremental Trade Groups", show.incremental_trade_groups, "Parse and add Incremental Trade Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group = Pref.bool("Show Incremetal Orders Group", show.incremetal_orders_group, "Parse and add Incremetal Orders Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups = Pref.bool("Show Incremetal Orders Groups", show.incremetal_orders_groups, "Parse and add Incremetal Orders Groups to protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes = Pref.bool("Show Order Attributes", show.order_attributes, "Parse and add Order Attributes to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame = Pref.bool("Show Sbe Frame", show.sbe_frame, "Parse and add Sbe Frame to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group = Pref.bool("Show Snaphot Orders Group", show.snaphot_orders_group, "Parse and add Snaphot Orders Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups = Pref.bool("Show Snaphot Orders Groups", show.snaphot_orders_groups, "Parse and add Snaphot Orders Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions = Pref.bool("Show Snapshot Message Instructions", show.snapshot_message_instructions, "Parse and add Snapshot Message Instructions to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group = Pref.bool("Show Trade Bust Group", show.trade_bust_group, "Parse and add Trade Bust Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups = Pref.bool("Show Trade Bust Groups", show.trade_bust_groups, "Parse and add Trade Bust Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions = Pref.bool("Show Trade Conditions", show.trade_conditions, "Parse and add Trade Conditions to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group = Pref.bool("Show Trade Correct Group", show.trade_correct_group, "Parse and add Trade Correct Group to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups = Pref.bool("Show Trade Correct Groups", show.trade_correct_groups, "Parse and add Trade Correct Groups to protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index = Pref.bool("Show Incremental Trade Group Index", show.incremental_trade_group_index, "Show generated incremental trade group index in protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index = Pref.bool("Show Trade Correct Group Index", show.trade_correct_group_index, "Show generated trade correct group index in protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index = Pref.bool("Show Trade Bust Group Index", show.trade_bust_group_index, "Show generated trade bust group index in protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index = Pref.bool("Show Incremetal Orders Group Index", show.incremetal_orders_group_index, "Show generated incremetal orders group index in protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index = Pref.bool("Show Snaphot Orders Group Index", show.snaphot_orders_group_index, "Show generated snaphot orders group index in protocol tree")
-omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
+omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -239,89 +189,14 @@ function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()
   if show.application_messages ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages then
     show.application_messages = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages
   end
-  if show.group_dimension ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension then
-    show.group_dimension = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_group_dimension
+  if show.repeating_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_repeating_groups then
+    show.repeating_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_repeating_groups
   end
-  if show.incremental_message_instructions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_message_instructions then
-    show.incremental_message_instructions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_message_instructions
+  if show.structs ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_structs then
+    show.structs = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_structs
   end
-  if show.incremental_trade_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group then
-    show.incremental_trade_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group
-  end
-  if show.incremental_trade_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups then
-    show.incremental_trade_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_groups
-  end
-  if show.incremetal_orders_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group then
-    show.incremetal_orders_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group
-  end
-  if show.incremetal_orders_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups then
-    show.incremetal_orders_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_groups
-  end
-  if show.legs_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group then
-    show.legs_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group
-  end
-  if show.legs_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups then
-    show.legs_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_groups
-  end
-  if show.message_header ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header then
-    show.message_header = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_message_header
-  end
-  if show.order_attributes ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes then
-    show.order_attributes = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_order_attributes
-  end
-  if show.packet ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet then
-    show.packet = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet
-  end
-  if show.packet_flags ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags then
-    show.packet_flags = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_flags
-  end
-  if show.packet_header ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header then
-    show.packet_header = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_packet_header
-  end
-  if show.sbe_frame ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame then
-    show.sbe_frame = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_sbe_frame
-  end
-  if show.snaphot_orders_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group then
-    show.snaphot_orders_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group
-  end
-  if show.snaphot_orders_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups then
-    show.snaphot_orders_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_groups
-  end
-  if show.snapshot_message_instructions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions then
-    show.snapshot_message_instructions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snapshot_message_instructions
-  end
-  if show.trade_bust_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group then
-    show.trade_bust_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group
-  end
-  if show.trade_bust_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups then
-    show.trade_bust_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_groups
-  end
-  if show.trade_conditions ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions then
-    show.trade_conditions = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_conditions
-  end
-  if show.trade_correct_group ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group then
-    show.trade_correct_group = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group
-  end
-  if show.trade_correct_groups ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups then
-    show.trade_correct_groups = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_groups
-  end
-  if show.incremental_trade_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index then
-    show.incremental_trade_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremental_trade_group_index
-  end
-  if show.trade_correct_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index then
-    show.trade_correct_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_correct_group_index
-  end
-  if show.trade_bust_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index then
-    show.trade_bust_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_trade_bust_group_index
-  end
-  if show.incremetal_orders_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index then
-    show.incremetal_orders_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_incremetal_orders_group_index
-  end
-  if show.snaphot_orders_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index then
-    show.snaphot_orders_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_snaphot_orders_group_index
-  end
-  if show.legs_group_index ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index then
-    show.legs_group_index = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_legs_group_index
+  if show.indexes ~= omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_indexes then
+    show.indexes = omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_indexes
   end
 end
 
@@ -2864,7 +2739,7 @@ smallx_orderbookfeed_sbe_v2_2.legs_group.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil and show.legs_group_index then
+  if legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -2889,7 +2764,7 @@ end
 
 -- Dissect: Legs Group
 smallx_orderbookfeed_sbe_v2_2.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
-  if show.legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.legs_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
@@ -2933,7 +2808,7 @@ end
 
 -- Dissect: Group Dimension
 smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect = function(buffer, offset, packet, parent)
-  if show.group_dimension then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.group_dimension, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.group_dimension.fields(buffer, offset, packet, parent)
@@ -2990,7 +2865,7 @@ end
 
 -- Dissect: Legs Groups
 smallx_orderbookfeed_sbe_v2_2.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.legs_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.legs_groups.fields(buffer, offset, packet, parent)
@@ -3098,7 +2973,7 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect = function(b
   local display = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_message_instructions, range, display)
 
-  if show.snapshot_message_instructions then
+  if show.structs then
     smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits(range, value, packet, element)
   end
 
@@ -3476,7 +3351,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect = functio
   local display = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions, range, display)
 
-  if show.incremental_message_instructions then
+  if show.structs then
     smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits(range, value, packet, element)
   end
 
@@ -3999,7 +3874,7 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect = function(buffer, offset
   local display = smallx_orderbookfeed_sbe_v2_2.order_attributes.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_attributes, range, display)
 
-  if show.order_attributes then
+  if show.structs then
     smallx_orderbookfeed_sbe_v2_2.order_attributes.bits(range, value, packet, element)
   end
 
@@ -4029,7 +3904,7 @@ smallx_orderbookfeed_sbe_v2_2.snaphot_orders_group.fields = function(buffer, off
   local index = offset
 
   -- Implicit Snaphot Orders Group Index
-  if snaphot_orders_group_index ~= nil and show.snaphot_orders_group_index then
+  if snaphot_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_group_index, snaphot_orders_group_index)
     iteration:set_generated()
   end
@@ -4060,7 +3935,7 @@ end
 
 -- Dissect: Snaphot Orders Group
 smallx_orderbookfeed_sbe_v2_2.snaphot_orders_group.dissect = function(buffer, offset, packet, parent, snaphot_orders_group_index)
-  if show.snaphot_orders_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.snaphot_orders_group.fields(buffer, offset, packet, parent, snaphot_orders_group_index)
@@ -4117,7 +3992,7 @@ end
 
 -- Dissect: Snaphot Orders Groups
 smallx_orderbookfeed_sbe_v2_2.snaphot_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.snaphot_orders_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snaphot_orders_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.snaphot_orders_groups.fields(buffer, offset, packet, parent)
@@ -4334,7 +4209,7 @@ smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Incremetal Orders Group Index
-  if incremetal_orders_group_index ~= nil and show.incremetal_orders_group_index then
+  if incremetal_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremetal_orders_group_index, incremetal_orders_group_index)
     iteration:set_generated()
   end
@@ -4368,7 +4243,7 @@ end
 
 -- Dissect: Incremetal Orders Group
 smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group.dissect = function(buffer, offset, packet, parent, incremetal_orders_group_index)
-  if show.incremetal_orders_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremetal_orders_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group.fields(buffer, offset, packet, parent, incremetal_orders_group_index)
@@ -4425,7 +4300,7 @@ end
 
 -- Dissect: Incremetal Orders Groups
 smallx_orderbookfeed_sbe_v2_2.incremetal_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremetal_orders_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremetal_orders_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.incremetal_orders_groups.fields(buffer, offset, packet, parent)
@@ -4559,7 +4434,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions.dissect = function(buffer, offset
   local display = smallx_orderbookfeed_sbe_v2_2.trade_conditions.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_conditions, range, display)
 
-  if show.trade_conditions then
+  if show.structs then
     smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits(range, value, packet, element)
   end
 
@@ -4590,7 +4465,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_group.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Trade Bust Group Index
-  if trade_bust_group_index ~= nil and show.trade_bust_group_index then
+  if trade_bust_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_bust_group_index, trade_bust_group_index)
     iteration:set_generated()
   end
@@ -4624,7 +4499,7 @@ end
 
 -- Dissect: Trade Bust Group
 smallx_orderbookfeed_sbe_v2_2.trade_bust_group.dissect = function(buffer, offset, packet, parent, trade_bust_group_index)
-  if show.trade_bust_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_bust_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_bust_group.fields(buffer, offset, packet, parent, trade_bust_group_index)
@@ -4681,7 +4556,7 @@ end
 
 -- Dissect: Trade Bust Groups
 smallx_orderbookfeed_sbe_v2_2.trade_bust_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_bust_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_bust_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_bust_groups.fields(buffer, offset, packet, parent)
@@ -4817,7 +4692,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_correct_group.fields = function(buffer, offs
   local index = offset
 
   -- Implicit Trade Correct Group Index
-  if trade_correct_group_index ~= nil and show.trade_correct_group_index then
+  if trade_correct_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index, trade_correct_group_index)
     iteration:set_generated()
   end
@@ -4854,7 +4729,7 @@ end
 
 -- Dissect: Trade Correct Group
 smallx_orderbookfeed_sbe_v2_2.trade_correct_group.dissect = function(buffer, offset, packet, parent, trade_correct_group_index)
-  if show.trade_correct_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_correct_group.fields(buffer, offset, packet, parent, trade_correct_group_index)
@@ -4911,7 +4786,7 @@ end
 
 -- Dissect: Trade Correct Groups
 smallx_orderbookfeed_sbe_v2_2.trade_correct_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_correct_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_correct_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.trade_correct_groups.fields(buffer, offset, packet, parent)
@@ -5045,7 +4920,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_trade_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Incremental Trade Group Index
-  if incremental_trade_group_index ~= nil and show.incremental_trade_group_index then
+  if incremental_trade_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_group_index, incremental_trade_group_index)
     iteration:set_generated()
   end
@@ -5076,7 +4951,7 @@ end
 
 -- Dissect: Incremental Trade Group
 smallx_orderbookfeed_sbe_v2_2.incremental_trade_group.dissect = function(buffer, offset, packet, parent, incremental_trade_group_index)
-  if show.incremental_trade_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_group, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.incremental_trade_group.fields(buffer, offset, packet, parent, incremental_trade_group_index)
@@ -5133,7 +5008,7 @@ end
 
 -- Dissect: Incremental Trade Groups
 smallx_orderbookfeed_sbe_v2_2.incremental_trade_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_trade_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_trade_groups, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.incremental_trade_groups.fields(buffer, offset, packet, parent)
@@ -5401,7 +5276,7 @@ end
 
 -- Dissect: Message Header
 smallx_orderbookfeed_sbe_v2_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.message_header.fields(buffer, offset, packet, parent)
@@ -5449,7 +5324,7 @@ smallx_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, offset, packe
   local index = offset + size_of_sbe_frame
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_frame then
+  if show.structs then
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame, buffer(offset, 0))
     local current = smallx_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame)
     parent:set_len(size_of_sbe_frame)
@@ -5515,7 +5390,7 @@ smallx_orderbookfeed_sbe_v2_2.packet_flags.dissect = function(buffer, offset, pa
   local display = smallx_orderbookfeed_sbe_v2_2.packet_flags.display(range, value, packet, parent)
   local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags, range, display)
 
-  if show.packet_flags then
+  if show.structs then
     smallx_orderbookfeed_sbe_v2_2.packet_flags.bits(range, value, packet, element)
   end
 
@@ -5566,7 +5441,7 @@ end
 
 -- Dissect: Packet Header
 smallx_orderbookfeed_sbe_v2_2.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.packet_header.fields(buffer, offset, packet, parent)

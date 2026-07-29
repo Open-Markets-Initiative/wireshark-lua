@@ -110,29 +110,13 @@ local show = {}
 
 -- Asx AsxSecurities Trade Itch 3.1 Element Dissection Options
 show.application_messages = true
-show.exchange_order_type = true
-show.leg_1 = true
-show.leg_2 = true
-show.leg_3 = true
-show.leg_4 = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Asx AsxSecurities Trade Itch 3.1 Show Options
 omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_exchange_order_type = Pref.bool("Show Exchange Order Type", show.exchange_order_type, "Parse and add Exchange Order Type to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_1 = Pref.bool("Show Leg 1", show.leg_1, "Parse and add Leg 1 to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_2 = Pref.bool("Show Leg 2", show.leg_2, "Parse and add Leg 2 to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_3 = Pref.bool("Show Leg 3", show.leg_3, "Parse and add Leg 3 to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_4 = Pref.bool("Show Leg 4", show.leg_4, "Parse and add Leg 4 to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -142,35 +126,11 @@ function omi_asx_asxsecurities_trade_itch_v3_1.prefs_changed()
   if show.application_messages ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_application_messages
   end
-  if show.exchange_order_type ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_exchange_order_type then
-    show.exchange_order_type = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_exchange_order_type
+  if show.structs ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_structs then
+    show.structs = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_structs
   end
-  if show.leg_1 ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_1 then
-    show.leg_1 = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_1
-  end
-  if show.leg_2 ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_2 then
-    show.leg_2 = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_2
-  end
-  if show.leg_3 ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_3 then
-    show.leg_3 = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_3
-  end
-  if show.leg_4 ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_4 then
-    show.leg_4 = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_leg_4
-  end
-  if show.message ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message then
-    show.message = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message
-  end
-  if show.message_header ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_header then
-    show.message_header = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_header
-  end
-  if show.packet ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet then
-    show.packet = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet
-  end
-  if show.packet_header ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet_header then
-    show.packet_header = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_index then
-    show.message_index = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_message_index
+  if show.indexes ~= omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_indexes then
+    show.indexes = omi_asx_asxsecurities_trade_itch_v3_1.prefs.show_indexes
   end
 end
 
@@ -1846,7 +1806,7 @@ asx_asxsecurities_trade_itch_v3_1.exchange_order_type.dissect = function(buffer,
   local display = asx_asxsecurities_trade_itch_v3_1.exchange_order_type.display(range, value, packet, parent)
   local element = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.exchange_order_type, range, display)
 
-  if show.exchange_order_type then
+  if show.structs then
     asx_asxsecurities_trade_itch_v3_1.exchange_order_type.bits(range, value, packet, element)
   end
 
@@ -2397,7 +2357,7 @@ end
 
 -- Dissect: Leg 4
 asx_asxsecurities_trade_itch_v3_1.leg_4.dissect = function(buffer, offset, packet, parent)
-  if show.leg_4 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.leg_4, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.leg_4.fields(buffer, offset, packet, parent)
@@ -2445,7 +2405,7 @@ end
 
 -- Dissect: Leg 3
 asx_asxsecurities_trade_itch_v3_1.leg_3.dissect = function(buffer, offset, packet, parent)
-  if show.leg_3 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.leg_3, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.leg_3.fields(buffer, offset, packet, parent)
@@ -2493,7 +2453,7 @@ end
 
 -- Dissect: Leg 2
 asx_asxsecurities_trade_itch_v3_1.leg_2.dissect = function(buffer, offset, packet, parent)
-  if show.leg_2 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.leg_2, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.leg_2.fields(buffer, offset, packet, parent)
@@ -2541,7 +2501,7 @@ end
 
 -- Dissect: Leg 1
 asx_asxsecurities_trade_itch_v3_1.leg_1.dissect = function(buffer, offset, packet, parent)
-  if show.leg_1 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.leg_1, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.leg_1.fields(buffer, offset, packet, parent)
@@ -2889,7 +2849,7 @@ end
 
 -- Dissect: Message Header
 asx_asxsecurities_trade_itch_v3_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.message_header, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.message_header.fields(buffer, offset, packet, parent)
@@ -2928,7 +2888,7 @@ asx_asxsecurities_trade_itch_v3_1.message.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2951,7 +2911,7 @@ asx_asxsecurities_trade_itch_v3_1.message.dissect = function(buffer, offset, pac
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.message, buffer(offset, 0))
     local current = asx_asxsecurities_trade_itch_v3_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3062,7 +3022,7 @@ end
 
 -- Dissect: Packet Header
 asx_asxsecurities_trade_itch_v3_1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_trade_itch_v3_1.packet_header.fields(buffer, offset, packet, parent)

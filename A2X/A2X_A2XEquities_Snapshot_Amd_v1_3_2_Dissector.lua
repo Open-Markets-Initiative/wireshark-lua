@@ -58,19 +58,13 @@ local show = {}
 
 -- A2X A2XEquities Snapshot Amd 1.3.2 Element Dissection Options
 show.application_messages = true
-show.market_flags = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register A2X A2XEquities Snapshot Amd 1.3.2 Show Options
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -80,20 +74,11 @@ function omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs_changed()
   if show.application_messages ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_application_messages then
     show.application_messages = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_application_messages
   end
-  if show.market_flags ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_market_flags then
-    show.market_flags = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_market_flags
+  if show.structs ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_structs then
+    show.structs = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_structs
   end
-  if show.message ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message then
-    show.message = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message
-  end
-  if show.message_header ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_header then
-    show.message_header = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_header
-  end
-  if show.packet ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_packet then
-    show.packet = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_packet
-  end
-  if show.message_index ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_index then
-    show.message_index = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_message_index
+  if show.indexes ~= omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes then
+    show.indexes = omi_a2x_a2xequities_snapshot_amd_v1_3_2.prefs.show_indexes
   end
 end
 
@@ -645,7 +630,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.dissect = function(buffer, offs
   local display = a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.display(range, value, packet, parent)
   local element = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_flags, range, display)
 
-  if show.market_flags then
+  if show.structs then
     a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.bits(range, value, packet, element)
   end
 
@@ -825,7 +810,7 @@ end
 
 -- Dissect: Message Header
 a2x_a2xequities_snapshot_amd_v1_3_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_header, buffer(offset, 0))
     local index = a2x_a2xequities_snapshot_amd_v1_3_2.message_header.fields(buffer, offset, packet, parent)
@@ -854,7 +839,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.message.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -876,7 +861,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.message.dissect = function(buffer, offset, p
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message, buffer(offset, 0))
     local current = a2x_a2xequities_snapshot_amd_v1_3_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)

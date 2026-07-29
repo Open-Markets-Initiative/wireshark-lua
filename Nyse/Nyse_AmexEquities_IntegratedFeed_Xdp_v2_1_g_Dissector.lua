@@ -144,163 +144,23 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_index = ProtoFiel
 local show = {}
 
 -- Nyse AmexEquities IntegratedFeed Xdp 2.1.g Element Dissection Options
-show.add_order_message = true
-show.add_order_refresh_message = true
-show.cross_correction_message = true
-show.cross_trade_message = true
-show.delete_order_message = true
-show.heartbeat_response_message = true
-show.imbalance_message = true
-show.message = true
-show.message_header = true
-show.message_unavailable_message = true
-show.modify_order_message = true
-show.non_displayed_trade_message = true
-show.order_execution_message = true
-show.packet = true
-show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.replace_order_message = true
-show.request_response_message = true
-show.retail_price_improvement_message = true
-show.retransmission_request_message = true
-show.security_status_message = true
-show.sequence_number_reset_message = true
-show.source_time_reference_message = true
-show.stock_summary_message = true
-show.symbol_clear_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.trade_cancel_message = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse AmexEquities IntegratedFeed Xdp 2.1.g Show Options
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message = Pref.bool("Show Add Order Message", show.add_order_message, "Parse and add Add Order Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message = Pref.bool("Show Add Order Refresh Message", show.add_order_refresh_message, "Parse and add Add Order Refresh Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message = Pref.bool("Show Cross Correction Message", show.cross_correction_message, "Parse and add Cross Correction Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message = Pref.bool("Show Imbalance Message", show.imbalance_message, "Parse and add Imbalance Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message = Pref.bool("Show Modify Order Message", show.modify_order_message, "Parse and add Modify Order Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message = Pref.bool("Show Non Displayed Trade Message", show.non_displayed_trade_message, "Parse and add Non Displayed Trade Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message = Pref.bool("Show Order Execution Message", show.order_execution_message, "Parse and add Order Execution Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message = Pref.bool("Show Retail Price Improvement Message", show.retail_price_improvement_message, "Parse and add Retail Price Improvement Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message = Pref.bool("Show Security Status Message", show.security_status_message, "Parse and add Security Status Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message = Pref.bool("Show Source Time Reference Message", show.source_time_reference_message, "Parse and add Source Time Reference Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message = Pref.bool("Show Stock Summary Message", show.stock_summary_message, "Parse and add Stock Summary Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message = Pref.bool("Show Symbol Clear Message", show.symbol_clear_message, "Parse and add Symbol Clear Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message = Pref.bool("Show Trade Cancel Message", show.trade_cancel_message, "Parse and add Trade Cancel Message to protocol tree")
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs_changed()
 
   -- Check if preferences have changed
-  if show.add_order_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message then
-    show.add_order_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_message
+  if show.structs ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_structs then
+    show.structs = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_structs
   end
-  if show.add_order_refresh_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message then
-    show.add_order_refresh_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_add_order_refresh_message
-  end
-  if show.cross_correction_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message then
-    show.cross_correction_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_correction_message
-  end
-  if show.cross_trade_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message then
-    show.cross_trade_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_cross_trade_message
-  end
-  if show.delete_order_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message then
-    show.delete_order_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_delete_order_message
-  end
-  if show.heartbeat_response_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_heartbeat_response_message
-  end
-  if show.imbalance_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message then
-    show.imbalance_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_imbalance_message
-  end
-  if show.message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message then
-    show.message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message
-  end
-  if show.message_header ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_header then
-    show.message_header = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_header
-  end
-  if show.message_unavailable_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_unavailable_message
-  end
-  if show.modify_order_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message then
-    show.modify_order_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_modify_order_message
-  end
-  if show.non_displayed_trade_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message then
-    show.non_displayed_trade_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_non_displayed_trade_message
-  end
-  if show.order_execution_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message then
-    show.order_execution_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_order_execution_message
-  end
-  if show.packet ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet then
-    show.packet = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet_header then
-    show.packet_header = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_packet_header
-  end
-  if show.refresh_header_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message then
-    show.refresh_header_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_header_message
-  end
-  if show.refresh_request_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message then
-    show.refresh_request_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_refresh_request_message
-  end
-  if show.replace_order_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message then
-    show.replace_order_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_replace_order_message
-  end
-  if show.request_response_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message then
-    show.request_response_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_request_response_message
-  end
-  if show.retail_price_improvement_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message then
-    show.retail_price_improvement_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retail_price_improvement_message
-  end
-  if show.retransmission_request_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_retransmission_request_message
-  end
-  if show.security_status_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message then
-    show.security_status_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_security_status_message
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_sequence_number_reset_message
-  end
-  if show.source_time_reference_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message then
-    show.source_time_reference_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_source_time_reference_message
-  end
-  if show.stock_summary_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message then
-    show.stock_summary_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_stock_summary_message
-  end
-  if show.symbol_clear_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message then
-    show.symbol_clear_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_clear_message
-  end
-  if show.symbol_index_mapping_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_message
-  end
-  if show.symbol_index_mapping_request_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_symbol_index_mapping_request_message
-  end
-  if show.trade_cancel_message ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message then
-    show.trade_cancel_message = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_trade_cancel_message
-  end
-  if show.message_index ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_index then
-    show.message_index = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_message_index
+  if show.indexes ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_indexes then
+    show.indexes = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_indexes
   end
 end
 
@@ -2937,7 +2797,7 @@ end
 
 -- Dissect: Stock Summary Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_summary_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.stock_summary_message.fields(buffer, offset, packet, parent)
@@ -3005,7 +2865,7 @@ end
 
 -- Dissect: Non Displayed Trade Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.non_displayed_trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.fields(buffer, offset, packet, parent)
@@ -3081,7 +2941,7 @@ end
 
 -- Dissect: Order Execution Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_execution_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.order_execution_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_execution_message.fields(buffer, offset, packet, parent)
@@ -3197,7 +3057,7 @@ end
 
 -- Dissect: Imbalance Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.imbalance_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.imbalance_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_message.fields(buffer, offset, packet, parent)
@@ -3273,7 +3133,7 @@ end
 
 -- Dissect: Add Order Refresh Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_refresh_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.fields(buffer, offset, packet, parent)
@@ -3325,7 +3185,7 @@ end
 
 -- Dissect: Retail Price Improvement Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.dissect = function(buffer, offset, packet, parent)
-  if show.retail_price_improvement_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.fields(buffer, offset, packet, parent)
@@ -3381,7 +3241,7 @@ end
 
 -- Dissect: Cross Correction Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_correction_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_correction_message.fields(buffer, offset, packet, parent)
@@ -3445,7 +3305,7 @@ end
 
 -- Dissect: Cross Trade Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_trade_message.fields(buffer, offset, packet, parent)
@@ -3497,7 +3357,7 @@ end
 
 -- Dissect: Trade Cancel Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancel_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3553,7 +3413,7 @@ end
 
 -- Dissect: Delete Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.delete_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.delete_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.delete_order_message.fields(buffer, offset, packet, parent)
@@ -3625,7 +3485,7 @@ end
 
 -- Dissect: Replace Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.replace_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.replace_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.replace_order_message.fields(buffer, offset, packet, parent)
@@ -3697,7 +3557,7 @@ end
 
 -- Dissect: Modify Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.modify_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.modify_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.modify_order_message.fields(buffer, offset, packet, parent)
@@ -3769,7 +3629,7 @@ end
 
 -- Dissect: Add Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.add_order_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_message.fields(buffer, offset, packet, parent)
@@ -3821,7 +3681,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -3917,7 +3777,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_status_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status_message.fields(buffer, offset, packet, parent)
@@ -3969,7 +3829,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_clear_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -4021,7 +3881,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.message_unavailable_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -4073,7 +3933,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -4129,7 +3989,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -4169,7 +4029,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -4233,7 +4093,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.request_response_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.request_response_message.fields(buffer, offset, packet, parent)
@@ -4289,7 +4149,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -4389,7 +4249,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4437,7 +4297,7 @@ end
 
 -- Dissect: Source Time Reference Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.source_time_reference_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.fields(buffer, offset, packet, parent)
@@ -4489,7 +4349,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -4642,7 +4502,7 @@ end
 
 -- Dissect: Message Header
 nyse_amexequities_integratedfeed_xdp_v2_1_g.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_header, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.message_header.fields(buffer, offset, packet, parent)
@@ -4671,7 +4531,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.message.fields = function(buffer, of
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4693,7 +4553,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.message.dissect = function(buffer, o
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message, buffer(offset, 0))
     local current = nyse_amexequities_integratedfeed_xdp_v2_1_g.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -4753,7 +4613,7 @@ end
 
 -- Dissect: Packet Header
 nyse_amexequities_integratedfeed_xdp_v2_1_g.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.packet_header, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.packet_header.fields(buffer, offset, packet, parent)

@@ -140,93 +140,33 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = Pro
 local show = {}
 
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Element Dissection Options
-show.additional_order_indicators = true
+show.structs = true
 show.application_messages = true
-show.goodbye_packet = true
-show.login_request = true
-show.login_response = true
-show.logout_request = true
-show.order_instructions = true
-show.packet = true
-show.retransmission_request = true
-show.self_trade_protection = true
-show.sequenced_data_packet = true
-show.sesm_packet_header = true
-show.sesm_tcp_packet = true
-show.strategy_leg = true
-show.unsequenced_data_packet = true
-show.strategy_leg_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators = Pref.bool("Show Additional Order Indicators", show.additional_order_indicators, "Parse and add Additional Order Indicators to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions = Pref.bool("Show Order Instructions", show.order_instructions, "Parse and add Order Instructions to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header = Pref.bool("Show Sesm Packet Header", show.sesm_packet_header, "Parse and add Sesm Packet Header to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg = Pref.bool("Show Strategy Leg", show.strategy_leg, "Parse and add Strategy Leg to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index = Pref.bool("Show Strategy Leg Index", show.strategy_leg_index, "Show generated strategy leg index in protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
 
   -- Check if preferences have changed
-  if show.additional_order_indicators ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators then
-    show.additional_order_indicators = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_additional_order_indicators
-  end
   if show.application_messages ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages then
     show.application_messages = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages
   end
-  if show.goodbye_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet then
-    show.goodbye_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_goodbye_packet
+  if show.repeating_groups ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups
   end
-  if show.login_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request then
-    show.login_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_request
+  if show.structs ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs then
+    show.structs = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs
   end
-  if show.login_response ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response then
-    show.login_response = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_login_response
-  end
-  if show.logout_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request then
-    show.logout_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_logout_request
-  end
-  if show.order_instructions ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions then
-    show.order_instructions = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_order_instructions
-  end
-  if show.packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet then
-    show.packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_packet
-  end
-  if show.retransmission_request ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request then
-    show.retransmission_request = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_retransmission_request
-  end
-  if show.self_trade_protection ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection then
-    show.self_trade_protection = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_self_trade_protection
-  end
-  if show.sequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sequenced_data_packet
-  end
-  if show.sesm_packet_header ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header then
-    show.sesm_packet_header = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_packet_header
-  end
-  if show.sesm_tcp_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet then
-    show.sesm_tcp_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_sesm_tcp_packet
-  end
-  if show.strategy_leg ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg then
-    show.strategy_leg = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg
-  end
-  if show.unsequenced_data_packet ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_unsequenced_data_packet
-  end
-  if show.strategy_leg_index ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index then
-    show.strategy_leg_index = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_strategy_leg_index
+  if show.indexes ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes then
+    show.indexes = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes
   end
 end
 
@@ -2322,7 +2262,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.goodbye_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -2379,7 +2319,7 @@ end
 
 -- Dissect: Logout Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.logout_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.fields(buffer, offset, packet, parent)
@@ -2423,7 +2363,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.fields(buffer, offset, packet, parent)
@@ -2471,7 +2411,7 @@ end
 
 -- Dissect: Login Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.login_response then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.fields(buffer, offset, packet, parent)
@@ -2531,7 +2471,7 @@ end
 
 -- Dissect: Login Request
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.login_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.fields(buffer, offset, packet, parent)
@@ -2626,7 +2566,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.fields = function(buff
   local index = offset
 
   -- Implicit Strategy Leg Index
-  if strategy_leg_index ~= nil and show.strategy_leg_index then
+  if strategy_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index, strategy_leg_index)
     iteration:set_generated()
   end
@@ -2645,7 +2585,7 @@ end
 
 -- Dissect: Strategy Leg
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.dissect = function(buffer, offset, packet, parent, strategy_leg_index)
-  if show.strategy_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.fields(buffer, offset, packet, parent, strategy_leg_index)
@@ -3143,7 +3083,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.dissect
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators, range, display)
 
-  if show.additional_order_indicators then
+  if show.structs then
     miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits(range, value, packet, element)
   end
 
@@ -3349,7 +3289,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.dissect = fun
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection, range, display)
 
-  if show.self_trade_protection then
+  if show.structs then
     miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits(range, value, packet, element)
   end
 
@@ -3392,7 +3332,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.dissect = functi
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions, range, display)
 
-  if show.order_instructions then
+  if show.structs then
     miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits(range, value, packet, element)
   end
 
@@ -3617,7 +3557,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect = f
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -4374,7 +4314,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect = fun
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet, buffer(offset, 0))
     local current = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -4471,7 +4411,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.sesm_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.fields(buffer, offset, packet, parent)
@@ -4516,7 +4456,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_tcp_packet.dissect = function(
   local index = offset + size_of_sesm_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sesm_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet, buffer(offset, 0))
     local current = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
     parent:set_len(size_of_sesm_tcp_packet)

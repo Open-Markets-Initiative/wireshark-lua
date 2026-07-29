@@ -258,35 +258,13 @@ local show = {}
 
 -- Nyse ArcaEquities BinaryGateway PillarStream 5.17 Element Dissection Options
 show.application_messages = true
-show.bitfield_flow_indicator = true
-show.bitfield_order_instructions = true
+show.structs = true
 show.session_messages = true
-show.manual_action_id = true
-show.mpv_level_definition = true
-show.msg_header = true
-show.optional_order_add_on = true
-show.optional_routing_strategy_add_on = true
-show.ref_seq_msg_id = true
-show.seq_msg_header = true
-show.seq_msg_id = true
-show.stream_id = true
-show.sub_msg_header = true
 
 -- Register Nyse ArcaEquities BinaryGateway PillarStream 5.17 Show Options
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_order_instructions = Pref.bool("Show Bitfield Order Instructions", show.bitfield_order_instructions, "Parse and add Bitfield Order Instructions to protocol tree")
+omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_manual_action_id = Pref.bool("Show Manual Action Id", show.manual_action_id, "Parse and add Manual Action Id to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_routing_strategy_add_on = Pref.bool("Show Optional Routing Strategy Add On", show.optional_routing_strategy_add_on, "Parse and add Optional Routing Strategy Add On to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
 
 
 -- Handle changed preferences
@@ -296,44 +274,11 @@ function omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs_changed()
   if show.application_messages ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages
   end
-  if show.bitfield_flow_indicator ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_flow_indicator then
-    show.bitfield_flow_indicator = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_flow_indicator
-  end
-  if show.bitfield_order_instructions ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_order_instructions then
-    show.bitfield_order_instructions = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_bitfield_order_instructions
-  end
-  if show.manual_action_id ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_manual_action_id then
-    show.manual_action_id = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_manual_action_id
-  end
-  if show.mpv_level_definition ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_mpv_level_definition then
-    show.mpv_level_definition = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_mpv_level_definition
-  end
-  if show.msg_header ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_msg_header then
-    show.msg_header = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_msg_header
-  end
-  if show.optional_order_add_on ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_order_add_on then
-    show.optional_order_add_on = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_order_add_on
-  end
-  if show.optional_routing_strategy_add_on ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_routing_strategy_add_on then
-    show.optional_routing_strategy_add_on = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_optional_routing_strategy_add_on
-  end
-  if show.ref_seq_msg_id ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_ref_seq_msg_id then
-    show.ref_seq_msg_id = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_ref_seq_msg_id
-  end
-  if show.seq_msg_header ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_header then
-    show.seq_msg_header = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_header
-  end
-  if show.seq_msg_id ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_id then
-    show.seq_msg_id = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_seq_msg_id
-  end
   if show.session_messages ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages then
     show.session_messages = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages
   end
-  if show.stream_id ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_stream_id then
-    show.stream_id = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_stream_id
-  end
-  if show.sub_msg_header ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_sub_msg_header then
-    show.sub_msg_header = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_sub_msg_header
+  if show.structs ~= omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_structs then
+    show.structs = omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.prefs.show_structs
   end
 end
 
@@ -6274,7 +6219,7 @@ end
 
 -- Dissect: Stream Id
 nyse_arcaequities_binarygateway_pillarstream_v5_17.stream_id.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.stream_id, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.stream_id.fields(buffer, offset, packet, parent)
@@ -6318,7 +6263,7 @@ end
 
 -- Dissect: Manual Action Id
 nyse_arcaequities_binarygateway_pillarstream_v5_17.manual_action_id.dissect = function(buffer, offset, packet, parent)
-  if show.manual_action_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.manual_action_id, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.manual_action_id.fields(buffer, offset, packet, parent)
@@ -6820,7 +6765,7 @@ end
 
 -- Dissect: Ref Seq Msg Id
 nyse_arcaequities_binarygateway_pillarstream_v5_17.ref_seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.ref_seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.ref_seq_msg_id, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.ref_seq_msg_id.fields(buffer, offset, packet, parent)
@@ -6944,7 +6889,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_arcaequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.sub_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -6992,7 +6937,7 @@ end
 
 -- Dissect: Optional Routing Strategy Add On
 nyse_arcaequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect = function(buffer, offset, packet, parent)
-  if show.optional_routing_strategy_add_on then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.optional_routing_strategy_add_on, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields(buffer, offset, packet, parent)
@@ -7060,7 +7005,7 @@ end
 
 -- Dissect: Optional Order Add On
 nyse_arcaequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect = function(buffer, offset, packet, parent)
-  if show.optional_order_add_on then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.optional_order_add_on, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields(buffer, offset, packet, parent)
@@ -7314,7 +7259,7 @@ nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.disse
   local display = nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.display(range, value, packet, parent)
   local element = parent:add_le(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.bitfield_flow_indicator, range, display)
 
-  if show.bitfield_flow_indicator then
+  if show.structs then
     nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.bits(range, value, packet, element)
   end
 
@@ -7505,7 +7450,7 @@ nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.d
   local display = nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.display(range, value, packet, parent)
   local element = parent:add_le(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.bitfield_order_instructions, range, display)
 
-  if show.bitfield_order_instructions then
+  if show.structs then
     nyse_arcaequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.bits(range, value, packet, element)
   end
 
@@ -7896,7 +7841,7 @@ end
 
 -- Dissect: Mpv Level Definition
 nyse_arcaequities_binarygateway_pillarstream_v5_17.mpv_level_definition.dissect = function(buffer, offset, packet, parent)
-  if show.mpv_level_definition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.mpv_level_definition, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.mpv_level_definition.fields(buffer, offset, packet, parent)
@@ -9071,7 +9016,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_arcaequities_binarygateway_pillarstream_v5_17.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -9115,7 +9060,7 @@ end
 
 -- Dissect: Seq Msg Id
 nyse_arcaequities_binarygateway_pillarstream_v5_17.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.seq_msg_id, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
@@ -9159,7 +9104,7 @@ end
 
 -- Dissect: Msg Header
 nyse_arcaequities_binarygateway_pillarstream_v5_17.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.msg_header, buffer(offset, 0))
     local index = nyse_arcaequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)

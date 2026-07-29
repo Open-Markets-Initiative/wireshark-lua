@@ -369,93 +369,11 @@ local show = {}
 
 -- Txse TxseEquities Seed Rake 1.0 Element Dissection Options
 show.application_messages = true
-show.debug_message = true
-show.define_symbol_bit_fields = true
-show.limit_order_accepted_bit_fields = true
-show.limit_order_accepted_presence_bits = true
-show.limit_order_bit_fields = true
-show.limit_order_presence_bits = true
-show.limit_order_rejected_bit_fields = true
-show.limit_order_rejected_presence_bits = true
-show.logon_request_packet = true
-show.logon_response_message = true
-show.market_order_accepted_bit_fields = true
-show.market_order_accepted_presence_bits = true
-show.market_order_bit_fields = true
-show.market_order_presence_bits = true
-show.market_order_rejected_bit_fields = true
-show.market_order_rejected_presence_bits = true
-show.mass_cancel_accepted_bit_fields = true
-show.mass_cancel_accepted_presence_bits = true
-show.mass_cancel_bit_fields = true
-show.mass_cancel_presence_bits = true
-show.mass_cancel_rejected_bit_fields = true
-show.mass_cancel_rejected_presence_bits = true
-show.modify_order_bit_fields = true
-show.modify_order_presence_bits = true
-show.modify_rejected_bit_fields = true
-show.modify_rejected_presence_bits = true
-show.order_modified_bit_fields = true
-show.order_modified_presence_bits = true
-show.order_replaced_bit_fields = true
-show.order_replaced_presence_bits = true
-show.order_restated_presence_bits = true
-show.packet = true
-show.rake_message_header = true
-show.rake_tcp_message = true
-show.replace_order_bit_fields = true
-show.replace_order_presence_bits = true
-show.replace_rejected_bit_fields = true
-show.replace_rejected_presence_bits = true
-show.symbol_status_presence_bits = true
-show.tcp_sequenced_message = true
-show.tcp_unsequenced_message = true
-show.trading_session_status_presence_bits = true
+show.structs = true
 
 -- Register Txse TxseEquities Seed Rake 1.0 Show Options
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_debug_message = Pref.bool("Show Debug Message", show.debug_message, "Parse and add Debug Message to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_define_symbol_bit_fields = Pref.bool("Show Define Symbol Bit Fields", show.define_symbol_bit_fields, "Parse and add Define Symbol Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_bit_fields = Pref.bool("Show Limit Order Accepted Bit Fields", show.limit_order_accepted_bit_fields, "Parse and add Limit Order Accepted Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_presence_bits = Pref.bool("Show Limit Order Accepted Presence Bits", show.limit_order_accepted_presence_bits, "Parse and add Limit Order Accepted Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_bit_fields = Pref.bool("Show Limit Order Bit Fields", show.limit_order_bit_fields, "Parse and add Limit Order Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_presence_bits = Pref.bool("Show Limit Order Presence Bits", show.limit_order_presence_bits, "Parse and add Limit Order Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_bit_fields = Pref.bool("Show Limit Order Rejected Bit Fields", show.limit_order_rejected_bit_fields, "Parse and add Limit Order Rejected Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_presence_bits = Pref.bool("Show Limit Order Rejected Presence Bits", show.limit_order_rejected_presence_bits, "Parse and add Limit Order Rejected Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_request_packet = Pref.bool("Show Logon Request Packet", show.logon_request_packet, "Parse and add Logon Request Packet to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_response_message = Pref.bool("Show Logon Response Message", show.logon_response_message, "Parse and add Logon Response Message to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_bit_fields = Pref.bool("Show Market Order Accepted Bit Fields", show.market_order_accepted_bit_fields, "Parse and add Market Order Accepted Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_presence_bits = Pref.bool("Show Market Order Accepted Presence Bits", show.market_order_accepted_presence_bits, "Parse and add Market Order Accepted Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_bit_fields = Pref.bool("Show Market Order Bit Fields", show.market_order_bit_fields, "Parse and add Market Order Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_presence_bits = Pref.bool("Show Market Order Presence Bits", show.market_order_presence_bits, "Parse and add Market Order Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_bit_fields = Pref.bool("Show Market Order Rejected Bit Fields", show.market_order_rejected_bit_fields, "Parse and add Market Order Rejected Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_presence_bits = Pref.bool("Show Market Order Rejected Presence Bits", show.market_order_rejected_presence_bits, "Parse and add Market Order Rejected Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_bit_fields = Pref.bool("Show Mass Cancel Accepted Bit Fields", show.mass_cancel_accepted_bit_fields, "Parse and add Mass Cancel Accepted Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_presence_bits = Pref.bool("Show Mass Cancel Accepted Presence Bits", show.mass_cancel_accepted_presence_bits, "Parse and add Mass Cancel Accepted Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_bit_fields = Pref.bool("Show Mass Cancel Bit Fields", show.mass_cancel_bit_fields, "Parse and add Mass Cancel Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_presence_bits = Pref.bool("Show Mass Cancel Presence Bits", show.mass_cancel_presence_bits, "Parse and add Mass Cancel Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_bit_fields = Pref.bool("Show Mass Cancel Rejected Bit Fields", show.mass_cancel_rejected_bit_fields, "Parse and add Mass Cancel Rejected Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_presence_bits = Pref.bool("Show Mass Cancel Rejected Presence Bits", show.mass_cancel_rejected_presence_bits, "Parse and add Mass Cancel Rejected Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_bit_fields = Pref.bool("Show Modify Order Bit Fields", show.modify_order_bit_fields, "Parse and add Modify Order Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_presence_bits = Pref.bool("Show Modify Order Presence Bits", show.modify_order_presence_bits, "Parse and add Modify Order Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_bit_fields = Pref.bool("Show Modify Rejected Bit Fields", show.modify_rejected_bit_fields, "Parse and add Modify Rejected Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_presence_bits = Pref.bool("Show Modify Rejected Presence Bits", show.modify_rejected_presence_bits, "Parse and add Modify Rejected Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_bit_fields = Pref.bool("Show Order Modified Bit Fields", show.order_modified_bit_fields, "Parse and add Order Modified Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_presence_bits = Pref.bool("Show Order Modified Presence Bits", show.order_modified_presence_bits, "Parse and add Order Modified Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_bit_fields = Pref.bool("Show Order Replaced Bit Fields", show.order_replaced_bit_fields, "Parse and add Order Replaced Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_presence_bits = Pref.bool("Show Order Replaced Presence Bits", show.order_replaced_presence_bits, "Parse and add Order Replaced Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_restated_presence_bits = Pref.bool("Show Order Restated Presence Bits", show.order_restated_presence_bits, "Parse and add Order Restated Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_message_header = Pref.bool("Show Rake Message Header", show.rake_message_header, "Parse and add Rake Message Header to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_tcp_message = Pref.bool("Show Rake Tcp Message", show.rake_tcp_message, "Parse and add Rake Tcp Message to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_bit_fields = Pref.bool("Show Replace Order Bit Fields", show.replace_order_bit_fields, "Parse and add Replace Order Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_presence_bits = Pref.bool("Show Replace Order Presence Bits", show.replace_order_presence_bits, "Parse and add Replace Order Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_bit_fields = Pref.bool("Show Replace Rejected Bit Fields", show.replace_rejected_bit_fields, "Parse and add Replace Rejected Bit Fields to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_presence_bits = Pref.bool("Show Replace Rejected Presence Bits", show.replace_rejected_presence_bits, "Parse and add Replace Rejected Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_symbol_status_presence_bits = Pref.bool("Show Symbol Status Presence Bits", show.symbol_status_presence_bits, "Parse and add Symbol Status Presence Bits to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_sequenced_message = Pref.bool("Show Tcp Sequenced Message", show.tcp_sequenced_message, "Parse and add Tcp Sequenced Message to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
-omi_txse_txseequities_seed_rake_v1_0.prefs.show_trading_session_status_presence_bits = Pref.bool("Show Trading Session Status Presence Bits", show.trading_session_status_presence_bits, "Parse and add Trading Session Status Presence Bits to protocol tree")
+omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -465,131 +383,8 @@ function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()
   if show.application_messages ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages then
     show.application_messages = omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages
   end
-  if show.debug_message ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_debug_message then
-    show.debug_message = omi_txse_txseequities_seed_rake_v1_0.prefs.show_debug_message
-  end
-  if show.define_symbol_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_define_symbol_bit_fields then
-    show.define_symbol_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_define_symbol_bit_fields
-  end
-  if show.limit_order_accepted_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_bit_fields then
-    show.limit_order_accepted_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_bit_fields
-  end
-  if show.limit_order_accepted_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_presence_bits then
-    show.limit_order_accepted_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_accepted_presence_bits
-  end
-  if show.limit_order_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_bit_fields then
-    show.limit_order_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_bit_fields
-  end
-  if show.limit_order_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_presence_bits then
-    show.limit_order_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_presence_bits
-  end
-  if show.limit_order_rejected_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_bit_fields then
-    show.limit_order_rejected_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_bit_fields
-  end
-  if show.limit_order_rejected_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_presence_bits then
-    show.limit_order_rejected_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_limit_order_rejected_presence_bits
-  end
-  if show.logon_request_packet ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_request_packet then
-    show.logon_request_packet = omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_request_packet
-  end
-  if show.logon_response_message ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_response_message then
-    show.logon_response_message = omi_txse_txseequities_seed_rake_v1_0.prefs.show_logon_response_message
-  end
-  if show.market_order_accepted_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_bit_fields then
-    show.market_order_accepted_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_bit_fields
-  end
-  if show.market_order_accepted_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_presence_bits then
-    show.market_order_accepted_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_accepted_presence_bits
-  end
-  if show.market_order_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_bit_fields then
-    show.market_order_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_bit_fields
-  end
-  if show.market_order_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_presence_bits then
-    show.market_order_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_presence_bits
-  end
-  if show.market_order_rejected_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_bit_fields then
-    show.market_order_rejected_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_bit_fields
-  end
-  if show.market_order_rejected_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_presence_bits then
-    show.market_order_rejected_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_market_order_rejected_presence_bits
-  end
-  if show.mass_cancel_accepted_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_bit_fields then
-    show.mass_cancel_accepted_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_bit_fields
-  end
-  if show.mass_cancel_accepted_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_presence_bits then
-    show.mass_cancel_accepted_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_accepted_presence_bits
-  end
-  if show.mass_cancel_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_bit_fields then
-    show.mass_cancel_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_bit_fields
-  end
-  if show.mass_cancel_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_presence_bits then
-    show.mass_cancel_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_presence_bits
-  end
-  if show.mass_cancel_rejected_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_bit_fields then
-    show.mass_cancel_rejected_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_bit_fields
-  end
-  if show.mass_cancel_rejected_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_presence_bits then
-    show.mass_cancel_rejected_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_mass_cancel_rejected_presence_bits
-  end
-  if show.modify_order_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_bit_fields then
-    show.modify_order_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_bit_fields
-  end
-  if show.modify_order_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_presence_bits then
-    show.modify_order_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_order_presence_bits
-  end
-  if show.modify_rejected_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_bit_fields then
-    show.modify_rejected_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_bit_fields
-  end
-  if show.modify_rejected_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_presence_bits then
-    show.modify_rejected_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_modify_rejected_presence_bits
-  end
-  if show.order_modified_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_bit_fields then
-    show.order_modified_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_bit_fields
-  end
-  if show.order_modified_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_presence_bits then
-    show.order_modified_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_modified_presence_bits
-  end
-  if show.order_replaced_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_bit_fields then
-    show.order_replaced_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_bit_fields
-  end
-  if show.order_replaced_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_presence_bits then
-    show.order_replaced_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_replaced_presence_bits
-  end
-  if show.order_restated_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_restated_presence_bits then
-    show.order_restated_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_order_restated_presence_bits
-  end
-  if show.packet ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_packet then
-    show.packet = omi_txse_txseequities_seed_rake_v1_0.prefs.show_packet
-  end
-  if show.rake_message_header ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_message_header then
-    show.rake_message_header = omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_message_header
-  end
-  if show.rake_tcp_message ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_tcp_message then
-    show.rake_tcp_message = omi_txse_txseequities_seed_rake_v1_0.prefs.show_rake_tcp_message
-  end
-  if show.replace_order_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_bit_fields then
-    show.replace_order_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_bit_fields
-  end
-  if show.replace_order_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_presence_bits then
-    show.replace_order_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_order_presence_bits
-  end
-  if show.replace_rejected_bit_fields ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_bit_fields then
-    show.replace_rejected_bit_fields = omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_bit_fields
-  end
-  if show.replace_rejected_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_presence_bits then
-    show.replace_rejected_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_replace_rejected_presence_bits
-  end
-  if show.symbol_status_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_symbol_status_presence_bits then
-    show.symbol_status_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_symbol_status_presence_bits
-  end
-  if show.tcp_sequenced_message ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_sequenced_message then
-    show.tcp_sequenced_message = omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_sequenced_message
-  end
-  if show.tcp_unsequenced_message ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_unsequenced_message then
-    show.tcp_unsequenced_message = omi_txse_txseequities_seed_rake_v1_0.prefs.show_tcp_unsequenced_message
-  end
-  if show.trading_session_status_presence_bits ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_trading_session_status_presence_bits then
-    show.trading_session_status_presence_bits = omi_txse_txseequities_seed_rake_v1_0.prefs.show_trading_session_status_presence_bits
+  if show.structs ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs then
+    show.structs = omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs
   end
 end
 
@@ -5755,7 +5550,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_bit_fields.dissect = funct
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_rejected_bit_fields, range, display)
 
-  if show.mass_cancel_rejected_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_bit_fields.bits(range, value, packet, element)
   end
 
@@ -5819,7 +5614,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_presence_bits.dissect = fu
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_rejected_presence_bits, range, display)
 
-  if show.mass_cancel_rejected_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_presence_bits.bits(range, value, packet, element)
   end
 
@@ -5996,7 +5791,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_bit_fields.dissect = funct
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_accepted_bit_fields, range, display)
 
-  if show.mass_cancel_accepted_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_bit_fields.bits(range, value, packet, element)
   end
 
@@ -6060,7 +5855,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_presence_bits.dissect = fu
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_accepted_presence_bits, range, display)
 
-  if show.mass_cancel_accepted_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_presence_bits.bits(range, value, packet, element)
   end
 
@@ -6323,7 +6118,7 @@ txse_txseequities_seed_rake_v1_0.order_restated_presence_bits.dissect = function
   local display = txse_txseequities_seed_rake_v1_0.order_restated_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_presence_bits, range, display)
 
-  if show.order_restated_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.order_restated_presence_bits.bits(range, value, packet, element)
   end
 
@@ -6560,7 +6355,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.dissect = function(
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_bit_fields, range, display)
 
-  if show.replace_rejected_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.bits(range, value, packet, element)
   end
 
@@ -6652,7 +6447,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.dissect = functi
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_presence_bits, range, display)
 
-  if show.replace_rejected_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.bits(range, value, packet, element)
   end
 
@@ -6906,7 +6701,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.dissect = function(bu
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_bit_fields, range, display)
 
-  if show.order_replaced_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.bits(range, value, packet, element)
   end
 
@@ -7012,7 +6807,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.dissect = function
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_presence_bits, range, display)
 
-  if show.order_replaced_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.bits(range, value, packet, element)
   end
 
@@ -7282,7 +7077,7 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.dissect = function(b
   local display = txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.modify_rejected_bit_fields, range, display)
 
-  if show.modify_rejected_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.bits(range, value, packet, element)
   end
 
@@ -7339,7 +7134,7 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_presence_bits.dissect = functio
   local display = txse_txseequities_seed_rake_v1_0.modify_rejected_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.modify_rejected_presence_bits, range, display)
 
-  if show.modify_rejected_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.modify_rejected_presence_bits.bits(range, value, packet, element)
   end
 
@@ -7487,7 +7282,7 @@ txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.dissect = function(bu
   local display = txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_modified_bit_fields, range, display)
 
-  if show.order_modified_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.bits(range, value, packet, element)
   end
 
@@ -7544,7 +7339,7 @@ txse_txseequities_seed_rake_v1_0.order_modified_presence_bits.dissect = function
   local display = txse_txseequities_seed_rake_v1_0.order_modified_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_modified_presence_bits, range, display)
 
-  if show.order_modified_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.order_modified_presence_bits.bits(range, value, packet, element)
   end
 
@@ -7803,7 +7598,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.dissect = func
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_bit_fields, range, display)
 
-  if show.market_order_rejected_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.bits(range, value, packet, element)
   end
 
@@ -7881,7 +7676,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.dissect = f
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_presence_bits, range, display)
 
-  if show.market_order_rejected_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.bits(range, value, packet, element)
   end
 
@@ -8093,7 +7888,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.dissect = func
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_bit_fields, range, display)
 
-  if show.market_order_accepted_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.bits(range, value, packet, element)
   end
 
@@ -8171,7 +7966,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.dissect = f
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_presence_bits, range, display)
 
-  if show.market_order_accepted_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.bits(range, value, packet, element)
   end
 
@@ -8411,7 +8206,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.dissect = funct
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_bit_fields, range, display)
 
-  if show.limit_order_rejected_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.bits(range, value, packet, element)
   end
 
@@ -8538,7 +8333,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.dissect = fu
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_presence_bits, range, display)
 
-  if show.limit_order_rejected_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.bits(range, value, packet, element)
   end
 
@@ -8895,7 +8690,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.dissect = funct
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_bit_fields, range, display)
 
-  if show.limit_order_accepted_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.bits(range, value, packet, element)
   end
 
@@ -9036,7 +8831,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.dissect = fu
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_presence_bits, range, display)
 
-  if show.limit_order_accepted_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.bits(range, value, packet, element)
   end
 
@@ -9395,7 +9190,7 @@ txse_txseequities_seed_rake_v1_0.symbol_status_presence_bits.dissect = function(
   local display = txse_txseequities_seed_rake_v1_0.symbol_status_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.symbol_status_presence_bits, range, display)
 
-  if show.symbol_status_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.symbol_status_presence_bits.bits(range, value, packet, element)
   end
 
@@ -9535,7 +9330,7 @@ txse_txseequities_seed_rake_v1_0.define_symbol_bit_fields.dissect = function(buf
   local display = txse_txseequities_seed_rake_v1_0.define_symbol_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.define_symbol_bit_fields, range, display)
 
-  if show.define_symbol_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.define_symbol_bit_fields.bits(range, value, packet, element)
   end
 
@@ -9653,7 +9448,7 @@ txse_txseequities_seed_rake_v1_0.trading_session_status_presence_bits.dissect = 
   local display = txse_txseequities_seed_rake_v1_0.trading_session_status_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_presence_bits, range, display)
 
-  if show.trading_session_status_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.trading_session_status_presence_bits.bits(range, value, packet, element)
   end
 
@@ -9877,7 +9672,7 @@ txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect = function(buffer
   local index = offset + size_of_tcp_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.tcp_sequenced_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.tcp_sequenced_message, buffer(offset, 0))
     local current = txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
     parent:set_len(size_of_tcp_sequenced_message)
@@ -9937,7 +9732,7 @@ end
 
 -- Dissect: Logon Response Message
 txse_txseequities_seed_rake_v1_0.logon_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.logon_response_message, buffer(offset, 0))
     local index = txse_txseequities_seed_rake_v1_0.logon_response_message.fields(buffer, offset, packet, parent)
@@ -9989,7 +9784,7 @@ end
 
 -- Dissect: Debug Message
 txse_txseequities_seed_rake_v1_0.debug_message.dissect = function(buffer, offset, packet, parent)
-  if show.debug_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.debug_message, buffer(offset, 0))
     local index = txse_txseequities_seed_rake_v1_0.debug_message.fields(buffer, offset, packet, parent)
@@ -10041,7 +9836,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_bit_fields.dissect = function(buffe
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_bit_fields, range, display)
 
-  if show.mass_cancel_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_bit_fields.bits(range, value, packet, element)
   end
 
@@ -10105,7 +9900,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_presence_bits.dissect = function(bu
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_presence_bits, range, display)
 
-  if show.mass_cancel_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.mass_cancel_presence_bits.bits(range, value, packet, element)
   end
 
@@ -10296,7 +10091,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.dissect = function(buf
   local display = txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_bit_fields, range, display)
 
-  if show.replace_order_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.bits(range, value, packet, element)
   end
 
@@ -10388,7 +10183,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.dissect = function(
   local display = txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_presence_bits, range, display)
 
-  if show.replace_order_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.bits(range, value, packet, element)
   end
 
@@ -10611,7 +10406,7 @@ txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.dissect = function(buff
   local display = txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.modify_order_bit_fields, range, display)
 
-  if show.modify_order_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.bits(range, value, packet, element)
   end
 
@@ -10668,7 +10463,7 @@ txse_txseequities_seed_rake_v1_0.modify_order_presence_bits.dissect = function(b
   local display = txse_txseequities_seed_rake_v1_0.modify_order_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.modify_order_presence_bits, range, display)
 
-  if show.modify_order_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.modify_order_presence_bits.bits(range, value, packet, element)
   end
 
@@ -10852,7 +10647,7 @@ txse_txseequities_seed_rake_v1_0.market_order_bit_fields.dissect = function(buff
   local display = txse_txseequities_seed_rake_v1_0.market_order_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_bit_fields, range, display)
 
-  if show.market_order_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_bit_fields.bits(range, value, packet, element)
   end
 
@@ -10930,7 +10725,7 @@ txse_txseequities_seed_rake_v1_0.market_order_presence_bits.dissect = function(b
   local display = txse_txseequities_seed_rake_v1_0.market_order_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_presence_bits, range, display)
 
-  if show.market_order_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_presence_bits.bits(range, value, packet, element)
   end
 
@@ -11160,7 +10955,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.dissect = function(buffe
   local display = txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_bit_fields, range, display)
 
-  if show.limit_order_bit_fields then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.bits(range, value, packet, element)
   end
 
@@ -11287,7 +11082,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.dissect = function(bu
   local display = txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.display(range, value, packet, parent)
   local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_presence_bits, range, display)
 
-  if show.limit_order_presence_bits then
+  if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.bits(range, value, packet, element)
   end
 
@@ -11631,7 +11426,7 @@ txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.dissect = function(buff
   local index = offset + size_of_tcp_unsequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.tcp_unsequenced_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.tcp_unsequenced_message, buffer(offset, 0))
     local current = txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
     parent:set_len(size_of_tcp_unsequenced_message)
@@ -11683,7 +11478,7 @@ end
 
 -- Dissect: Logon Request Packet
 txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.logon_request_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.logon_request_packet, buffer(offset, 0))
     local index = txse_txseequities_seed_rake_v1_0.logon_request_packet.fields(buffer, offset, packet, parent)
@@ -11760,7 +11555,7 @@ end
 
 -- Dissect: Rake Message Header
 txse_txseequities_seed_rake_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.rake_message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header, buffer(offset, 0))
     local index = txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
@@ -11805,7 +11600,7 @@ txse_txseequities_seed_rake_v1_0.rake_tcp_message.dissect = function(buffer, off
   local index = offset + size_of_rake_tcp_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.rake_tcp_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message, buffer(offset, 0))
     local current = txse_txseequities_seed_rake_v1_0.rake_tcp_message.fields(buffer, offset, packet, parent, size_of_rake_tcp_message)
     parent:set_len(size_of_rake_tcp_message)

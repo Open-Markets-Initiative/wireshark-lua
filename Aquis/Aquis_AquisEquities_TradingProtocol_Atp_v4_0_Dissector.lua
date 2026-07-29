@@ -122,36 +122,12 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_message = ProtoFie
 local show = {}
 
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Element Dissection Options
-show.extended_order_flags = true
-show.flags = true
+show.structs = true
 show.application_messages = true
-show.ioi_extended_flags = true
-show.message = true
-show.message_header = true
-show.order_add_response_flags = true
-show.packet = true
-show.status = true
-show.table_select_1 = true
-show.table_select_2 = true
-show.table_select_3 = true
-show.trade_capture_flags = true
-show.trade_flags = true
 
 -- Register Aquis AquisEquities TradingProtocol Atp 4.0 Show Options
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_extended_order_flags = Pref.bool("Show Extended Order Flags", show.extended_order_flags, "Parse and add Extended Order Flags to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_ioi_extended_flags = Pref.bool("Show Ioi Extended Flags", show.ioi_extended_flags, "Parse and add Ioi Extended Flags to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_order_add_response_flags = Pref.bool("Show Order Add Response Flags", show.order_add_response_flags, "Parse and add Order Add Response Flags to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_status = Pref.bool("Show Status", show.status, "Parse and add Status to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_1 = Pref.bool("Show Table Select 1", show.table_select_1, "Parse and add Table Select 1 to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_2 = Pref.bool("Show Table Select 2", show.table_select_2, "Parse and add Table Select 2 to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_3 = Pref.bool("Show Table Select 3", show.table_select_3, "Parse and add Table Select 3 to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_capture_flags = Pref.bool("Show Trade Capture Flags", show.trade_capture_flags, "Parse and add Trade Capture Flags to protocol tree")
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
 
 
 -- Handle changed preferences
@@ -161,44 +137,8 @@ function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
   if show.application_messages ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages
   end
-  if show.extended_order_flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_extended_order_flags then
-    show.extended_order_flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_extended_order_flags
-  end
-  if show.flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_flags then
-    show.flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_flags
-  end
-  if show.ioi_extended_flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_ioi_extended_flags then
-    show.ioi_extended_flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_ioi_extended_flags
-  end
-  if show.message ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message then
-    show.message = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message
-  end
-  if show.message_header ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message_header then
-    show.message_header = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_message_header
-  end
-  if show.order_add_response_flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_order_add_response_flags then
-    show.order_add_response_flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_order_add_response_flags
-  end
-  if show.packet ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_packet then
-    show.packet = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_packet
-  end
-  if show.status ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_status then
-    show.status = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_status
-  end
-  if show.table_select_1 ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_1 then
-    show.table_select_1 = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_1
-  end
-  if show.table_select_2 ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_2 then
-    show.table_select_2 = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_2
-  end
-  if show.table_select_3 ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_3 then
-    show.table_select_3 = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_table_select_3
-  end
-  if show.trade_capture_flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_capture_flags then
-    show.trade_capture_flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_capture_flags
-  end
-  if show.trade_flags ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_flags then
-    show.trade_flags = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_trade_flags
+  if show.structs ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs then
+    show.structs = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs
   end
 end
 
@@ -1747,7 +1687,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_extended_flags.dissect = functi
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_extended_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.ioi_extended_flags, range, display)
 
-  if show.ioi_extended_flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_extended_flags.bits(range, value, packet, element)
   end
 
@@ -1786,7 +1726,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.dissect = function(b
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_3, range, display)
 
-  if show.table_select_3 then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.bits(range, value, packet, element)
   end
 
@@ -1825,7 +1765,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.dissect = function(b
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_2, range, display)
 
-  if show.table_select_2 then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.bits(range, value, packet, element)
   end
 
@@ -1864,7 +1804,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.dissect = function(b
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_1, range, display)
 
-  if show.table_select_1 then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.bits(range, value, packet, element)
   end
 
@@ -1921,7 +1861,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.flags.dissect = function(buffer, of
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.flags, range, display)
 
-  if show.flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.flags.bits(range, value, packet, element)
   end
 
@@ -2147,7 +2087,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_flags.dissect = function(buff
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.trade_flags.bits(range, value, packet, element)
   end
 
@@ -2266,7 +2206,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.status.dissect = function(buffer, o
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.status.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.status, range, display)
 
-  if show.status then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.status.bits(range, value, packet, element)
   end
 
@@ -2368,7 +2308,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.dissect = funct
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_flags, range, display)
 
-  if show.trade_capture_flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.bits(range, value, packet, element)
   end
 
@@ -2650,7 +2590,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_response_flags.dissect = 
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_response_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_add_response_flags, range, display)
 
-  if show.order_add_response_flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_response_flags.bits(range, value, packet, element)
   end
 
@@ -3026,7 +2966,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.dissect = func
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.extended_order_flags, range, display)
 
-  if show.extended_order_flags then
+  if show.structs then
     aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.bits(range, value, packet, element)
   end
 
@@ -3530,7 +3470,7 @@ end
 
 -- Dissect: Message Header
 aquis_aquisequities_tradingprotocol_atp_v4_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header, buffer(offset, 0))
     local index = aquis_aquisequities_tradingprotocol_atp_v4_0.message_header.fields(buffer, offset, packet, parent)
@@ -3575,7 +3515,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.message.dissect = function(buffer, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message, buffer(offset, 0))
     local current = aquis_aquisequities_tradingprotocol_atp_v4_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

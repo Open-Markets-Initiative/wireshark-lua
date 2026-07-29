@@ -186,41 +186,15 @@ local show = {}
 
 -- Eurex T7 Eobi Fbe 14.0 Element Dissection Options
 show.application_messages = true
-show.eobi_header = true
-show.instrmt_leg_grp_comp = true
-show.md_instrument_entry_grp_comp = true
-show.md_trade_entry_grp_comp = true
-show.message = true
-show.message_header_comp = true
-show.order_details_comp = true
-show.packet = true
-show.packet_header = true
-show.related_instrument_grp_comp = true
-show.remaining_order_details_comp = true
-show.sec_mass_stat_grp_comp = true
-show.instrmt_leg_grp_comp_index = true
-show.md_instrument_entry_grp_comp_index = true
-show.sec_mass_stat_grp_comp_index = true
-show.md_trade_entry_grp_comp_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Eurex T7 Eobi Fbe 14.0 Show Options
 omi_eurex_t7_eobi_fbe_v14_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_eobi_header = Pref.bool("Show Eobi Header", show.eobi_header, "Parse and add Eobi Header to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp = Pref.bool("Show Md Instrument Entry Grp Comp", show.md_instrument_entry_grp_comp, "Parse and add Md Instrument Entry Grp Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp = Pref.bool("Show Md Trade Entry Grp Comp", show.md_trade_entry_grp_comp, "Parse and add Md Trade Entry Grp Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message_header_comp = Pref.bool("Show Message Header Comp", show.message_header_comp, "Parse and add Message Header Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_order_details_comp = Pref.bool("Show Order Details Comp", show.order_details_comp, "Parse and add Order Details Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_related_instrument_grp_comp = Pref.bool("Show Related Instrument Grp Comp", show.related_instrument_grp_comp, "Parse and add Related Instrument Grp Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_remaining_order_details_comp = Pref.bool("Show Remaining Order Details Comp", show.remaining_order_details_comp, "Parse and add Remaining Order Details Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp = Pref.bool("Show Sec Mass Stat Grp Comp", show.sec_mass_stat_grp_comp, "Parse and add Sec Mass Stat Grp Comp to protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp_index = Pref.bool("Show Instrmt Leg Grp Comp Index", show.instrmt_leg_grp_comp_index, "Show generated instrmt leg grp comp index in protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp_index = Pref.bool("Show Md Instrument Entry Grp Comp Index", show.md_instrument_entry_grp_comp_index, "Show generated md instrument entry grp comp index in protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp_index = Pref.bool("Show Sec Mass Stat Grp Comp Index", show.sec_mass_stat_grp_comp_index, "Show generated sec mass stat grp comp index in protocol tree")
-omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp_index = Pref.bool("Show Md Trade Entry Grp Comp Index", show.md_trade_entry_grp_comp_index, "Show generated md trade entry grp comp index in protocol tree")
+omi_eurex_t7_eobi_fbe_v14_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_eobi_fbe_v14_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_eurex_t7_eobi_fbe_v14_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -230,53 +204,14 @@ function omi_eurex_t7_eobi_fbe_v14_0.prefs_changed()
   if show.application_messages ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_application_messages
   end
-  if show.eobi_header ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_eobi_header then
-    show.eobi_header = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_eobi_header
+  if show.repeating_groups ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_repeating_groups
   end
-  if show.instrmt_leg_grp_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp then
-    show.instrmt_leg_grp_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp
+  if show.structs ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_structs then
+    show.structs = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_structs
   end
-  if show.md_instrument_entry_grp_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp then
-    show.md_instrument_entry_grp_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp
-  end
-  if show.md_trade_entry_grp_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp then
-    show.md_trade_entry_grp_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp
-  end
-  if show.message ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message then
-    show.message = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message
-  end
-  if show.message_header_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message_header_comp then
-    show.message_header_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_message_header_comp
-  end
-  if show.order_details_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_order_details_comp then
-    show.order_details_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_order_details_comp
-  end
-  if show.packet ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet then
-    show.packet = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet_header then
-    show.packet_header = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_packet_header
-  end
-  if show.related_instrument_grp_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_related_instrument_grp_comp then
-    show.related_instrument_grp_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_related_instrument_grp_comp
-  end
-  if show.remaining_order_details_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_remaining_order_details_comp then
-    show.remaining_order_details_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_remaining_order_details_comp
-  end
-  if show.sec_mass_stat_grp_comp ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp then
-    show.sec_mass_stat_grp_comp = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp
-  end
-  if show.instrmt_leg_grp_comp_index ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp_index then
-    show.instrmt_leg_grp_comp_index = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_instrmt_leg_grp_comp_index
-  end
-  if show.md_instrument_entry_grp_comp_index ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp_index then
-    show.md_instrument_entry_grp_comp_index = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_instrument_entry_grp_comp_index
-  end
-  if show.sec_mass_stat_grp_comp_index ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp_index then
-    show.sec_mass_stat_grp_comp_index = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_sec_mass_stat_grp_comp_index
-  end
-  if show.md_trade_entry_grp_comp_index ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp_index then
-    show.md_trade_entry_grp_comp_index = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_md_trade_entry_grp_comp_index
+  if show.indexes ~= omi_eurex_t7_eobi_fbe_v14_0.prefs.show_indexes then
+    show.indexes = omi_eurex_t7_eobi_fbe_v14_0.prefs.show_indexes
   end
 end
 
@@ -4509,7 +4444,7 @@ eurex_t7_eobi_fbe_v14_0.md_trade_entry_grp_comp.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Md Trade Entry Grp Comp Index
-  if md_trade_entry_grp_comp_index ~= nil and show.md_trade_entry_grp_comp_index then
+  if md_trade_entry_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -4531,7 +4466,7 @@ end
 
 -- Dissect: Md Trade Entry Grp Comp
 eurex_t7_eobi_fbe_v14_0.md_trade_entry_grp_comp.dissect = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
-  if show.md_trade_entry_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.md_trade_entry_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.md_trade_entry_grp_comp.fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
@@ -4937,7 +4872,7 @@ end
 
 -- Dissect: Order Details Comp
 eurex_t7_eobi_fbe_v14_0.order_details_comp.dissect = function(buffer, offset, packet, parent)
-  if show.order_details_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.order_details_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.order_details_comp.fields(buffer, offset, packet, parent)
@@ -5555,7 +5490,7 @@ eurex_t7_eobi_fbe_v14_0.sec_mass_stat_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Sec Mass Stat Grp Comp Index
-  if sec_mass_stat_grp_comp_index ~= nil and show.sec_mass_stat_grp_comp_index then
+  if sec_mass_stat_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.sec_mass_stat_grp_comp_index, sec_mass_stat_grp_comp_index)
     iteration:set_generated()
   end
@@ -5595,7 +5530,7 @@ end
 
 -- Dissect: Sec Mass Stat Grp Comp
 eurex_t7_eobi_fbe_v14_0.sec_mass_stat_grp_comp.dissect = function(buffer, offset, packet, parent, sec_mass_stat_grp_comp_index)
-  if show.sec_mass_stat_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.sec_mass_stat_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.sec_mass_stat_grp_comp.fields(buffer, offset, packet, parent, sec_mass_stat_grp_comp_index)
@@ -5745,7 +5680,7 @@ eurex_t7_eobi_fbe_v14_0.md_instrument_entry_grp_comp.fields = function(buffer, o
   local index = offset
 
   -- Implicit Md Instrument Entry Grp Comp Index
-  if md_instrument_entry_grp_comp_index ~= nil and show.md_instrument_entry_grp_comp_index then
+  if md_instrument_entry_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -5782,7 +5717,7 @@ end
 
 -- Dissect: Md Instrument Entry Grp Comp
 eurex_t7_eobi_fbe_v14_0.md_instrument_entry_grp_comp.dissect = function(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
-  if show.md_instrument_entry_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.md_instrument_entry_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.md_instrument_entry_grp_comp.fields(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
@@ -6167,7 +6102,7 @@ end
 
 -- Dissect: Remaining Order Details Comp
 eurex_t7_eobi_fbe_v14_0.remaining_order_details_comp.dissect = function(buffer, offset, packet, parent)
-  if show.remaining_order_details_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.remaining_order_details_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.remaining_order_details_comp.fields(buffer, offset, packet, parent)
@@ -6511,7 +6446,7 @@ end
 
 -- Dissect: Related Instrument Grp Comp
 eurex_t7_eobi_fbe_v14_0.related_instrument_grp_comp.dissect = function(buffer, offset, packet, parent)
-  if show.related_instrument_grp_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.related_instrument_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.related_instrument_grp_comp.fields(buffer, offset, packet, parent)
@@ -6709,7 +6644,7 @@ eurex_t7_eobi_fbe_v14_0.instrmt_leg_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil and show.instrmt_leg_grp_comp_index then
+  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
   end
@@ -6749,7 +6684,7 @@ end
 
 -- Dissect: Instrmt Leg Grp Comp
 eurex_t7_eobi_fbe_v14_0.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  if show.instrmt_leg_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
@@ -7014,7 +6949,7 @@ end
 
 -- Dissect: Message Header Comp
 eurex_t7_eobi_fbe_v14_0.message_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.message_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.message_header_comp, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.message_header_comp.fields(buffer, offset, packet, parent)
@@ -7059,7 +6994,7 @@ eurex_t7_eobi_fbe_v14_0.message.dissect = function(buffer, offset, packet, paren
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.message, buffer(offset, 0))
     local current = eurex_t7_eobi_fbe_v14_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -7107,7 +7042,7 @@ end
 
 -- Dissect: Eobi Header
 eurex_t7_eobi_fbe_v14_0.eobi_header.dissect = function(buffer, offset, packet, parent)
-  if show.eobi_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.eobi_header, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.eobi_header.fields(buffer, offset, packet, parent)
@@ -7175,7 +7110,7 @@ end
 
 -- Dissect: Packet Header
 eurex_t7_eobi_fbe_v14_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v14_0.fields.packet_header, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v14_0.packet_header.fields(buffer, offset, packet, parent)

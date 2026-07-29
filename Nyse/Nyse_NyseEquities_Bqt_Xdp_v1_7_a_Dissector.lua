@@ -133,133 +133,23 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Mess
 local show = {}
 
 -- Nyse NyseEquities Bqt Xdp 1.7.a Element Dissection Options
-show.bqt_message = true
-show.consolidated_security_status_message = true
-show.consolidated_single_sided_quote_message = true
-show.consolidated_stock_summary_message = true
-show.consolidated_symbol_clear_message = true
-show.consolidated_trade_cancel_message = true
-show.consolidated_trade_correction_message = true
-show.consolidated_trade_message = true
-show.consolidated_trading_session_change_message = true
-show.consolidated_volume_message = true
-show.heartbeat_response_message = true
-show.message = true
-show.message_header = true
-show.message_unavailable_message = true
-show.packet = true
-show.packet_header = true
-show.refresh_header_message = true
-show.refresh_request_message = true
-show.request_response_message = true
-show.retransmission_request_message = true
-show.sequence_number_reset_message = true
-show.symbol_index_mapping_message = true
-show.symbol_index_mapping_request_message = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse NyseEquities Bqt Xdp 1.7.a Show Options
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_bqt_message = Pref.bool("Show Bqt Message", show.bqt_message, "Parse and add Bqt Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message = Pref.bool("Show Consolidated Security Status Message", show.consolidated_security_status_message, "Parse and add Consolidated Security Status Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message = Pref.bool("Show Consolidated Single Sided Quote Message", show.consolidated_single_sided_quote_message, "Parse and add Consolidated Single Sided Quote Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message = Pref.bool("Show Consolidated Stock Summary Message", show.consolidated_stock_summary_message, "Parse and add Consolidated Stock Summary Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message = Pref.bool("Show Consolidated Symbol Clear Message", show.consolidated_symbol_clear_message, "Parse and add Consolidated Symbol Clear Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message = Pref.bool("Show Consolidated Trade Cancel Message", show.consolidated_trade_cancel_message, "Parse and add Consolidated Trade Cancel Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message = Pref.bool("Show Consolidated Trade Correction Message", show.consolidated_trade_correction_message, "Parse and add Consolidated Trade Correction Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message = Pref.bool("Show Consolidated Trade Message", show.consolidated_trade_message, "Parse and add Consolidated Trade Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message = Pref.bool("Show Consolidated Trading Session Change Message", show.consolidated_trading_session_change_message, "Parse and add Consolidated Trading Session Change Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message = Pref.bool("Show Consolidated Volume Message", show.consolidated_volume_message, "Parse and add Consolidated Volume Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message = Pref.bool("Show Heartbeat Response Message", show.heartbeat_response_message, "Parse and add Heartbeat Response Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message = Pref.bool("Show Message Unavailable Message", show.message_unavailable_message, "Parse and add Message Unavailable Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message = Pref.bool("Show Refresh Header Message", show.refresh_header_message, "Parse and add Refresh Header Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message = Pref.bool("Show Refresh Request Message", show.refresh_request_message, "Parse and add Refresh Request Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_request_response_message = Pref.bool("Show Request Response Message", show.request_response_message, "Parse and add Request Response Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message = Pref.bool("Show Retransmission Request Message", show.retransmission_request_message, "Parse and add Retransmission Request Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message = Pref.bool("Show Symbol Index Mapping Message", show.symbol_index_mapping_message, "Parse and add Symbol Index Mapping Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message = Pref.bool("Show Symbol Index Mapping Request Message", show.symbol_index_mapping_request_message, "Parse and add Symbol Index Mapping Request Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.bqt_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_bqt_message then
-    show.bqt_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_bqt_message
+  if show.structs ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs then
+    show.structs = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs
   end
-  if show.consolidated_security_status_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message then
-    show.consolidated_security_status_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_security_status_message
-  end
-  if show.consolidated_single_sided_quote_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message then
-    show.consolidated_single_sided_quote_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_single_sided_quote_message
-  end
-  if show.consolidated_stock_summary_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message then
-    show.consolidated_stock_summary_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_stock_summary_message
-  end
-  if show.consolidated_symbol_clear_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message then
-    show.consolidated_symbol_clear_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_symbol_clear_message
-  end
-  if show.consolidated_trade_cancel_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message then
-    show.consolidated_trade_cancel_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_cancel_message
-  end
-  if show.consolidated_trade_correction_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message then
-    show.consolidated_trade_correction_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_correction_message
-  end
-  if show.consolidated_trade_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message then
-    show.consolidated_trade_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trade_message
-  end
-  if show.consolidated_trading_session_change_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message then
-    show.consolidated_trading_session_change_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_trading_session_change_message
-  end
-  if show.consolidated_volume_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message then
-    show.consolidated_volume_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_consolidated_volume_message
-  end
-  if show.heartbeat_response_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message then
-    show.heartbeat_response_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_heartbeat_response_message
-  end
-  if show.message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message then
-    show.message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message
-  end
-  if show.message_header ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_header then
-    show.message_header = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_header
-  end
-  if show.message_unavailable_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message then
-    show.message_unavailable_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_unavailable_message
-  end
-  if show.packet ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet then
-    show.packet = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet_header then
-    show.packet_header = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_packet_header
-  end
-  if show.refresh_header_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message then
-    show.refresh_header_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_header_message
-  end
-  if show.refresh_request_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message then
-    show.refresh_request_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_refresh_request_message
-  end
-  if show.request_response_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_request_response_message then
-    show.request_response_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_request_response_message
-  end
-  if show.retransmission_request_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message then
-    show.retransmission_request_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_retransmission_request_message
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_sequence_number_reset_message
-  end
-  if show.symbol_index_mapping_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message then
-    show.symbol_index_mapping_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_message
-  end
-  if show.symbol_index_mapping_request_message ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message then
-    show.symbol_index_mapping_request_message = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_symbol_index_mapping_request_message
-  end
-  if show.message_index ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_index then
-    show.message_index = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_message_index
+  if show.indexes ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes then
+    show.indexes = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes
   end
 end
 
@@ -2926,7 +2816,7 @@ end
 
 -- Dissect: Consolidated Volume Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_volume_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_volume_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_volume_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_volume_message.fields(buffer, offset, packet, parent)
@@ -3014,7 +2904,7 @@ end
 
 -- Dissect: Consolidated Stock Summary Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_stock_summary_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_stock_summary_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.fields(buffer, offset, packet, parent)
@@ -3102,7 +2992,7 @@ end
 
 -- Dissect: Consolidated Trade Correction Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_trade_correction_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_trade_correction_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.fields(buffer, offset, packet, parent)
@@ -3162,7 +3052,7 @@ end
 
 -- Dissect: Consolidated Trade Cancel Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_trade_cancel_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_trade_cancel_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3246,7 +3136,7 @@ end
 
 -- Dissect: Consolidated Trade Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_trade_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_message.fields(buffer, offset, packet, parent)
@@ -3314,7 +3204,7 @@ end
 
 -- Dissect: Consolidated Single Sided Quote Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_single_sided_quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.fields(buffer, offset, packet, parent)
@@ -3394,7 +3284,7 @@ end
 
 -- Dissect: Bqt Message
 nyse_nyseequities_bqt_xdp_v1_7_a.bqt_message.dissect = function(buffer, offset, packet, parent)
-  if show.bqt_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.bqt_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.bqt_message.fields(buffer, offset, packet, parent)
@@ -3446,7 +3336,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_nyseequities_bqt_xdp_v1_7_a.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -3546,7 +3436,7 @@ end
 
 -- Dissect: Consolidated Security Status Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_security_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_security_status_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_security_status_message.fields(buffer, offset, packet, parent)
@@ -3606,7 +3496,7 @@ end
 
 -- Dissect: Consolidated Trading Session Change Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_trading_session_change_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_trading_session_change_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.fields(buffer, offset, packet, parent)
@@ -3662,7 +3552,7 @@ end
 
 -- Dissect: Consolidated Symbol Clear Message
 nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.consolidated_symbol_clear_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.consolidated_symbol_clear_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -3714,7 +3604,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_nyseequities_bqt_xdp_v1_7_a.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.message_unavailable_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -3766,7 +3656,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_nyseequities_bqt_xdp_v1_7_a.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -3822,7 +3712,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -3862,7 +3752,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_nyseequities_bqt_xdp_v1_7_a.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.heartbeat_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -3926,7 +3816,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_nyseequities_bqt_xdp_v1_7_a.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.request_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.request_response_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.request_response_message.fields(buffer, offset, packet, parent)
@@ -3982,7 +3872,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_nyseequities_bqt_xdp_v1_7_a.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -4082,7 +3972,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.symbol_index_mapping_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4134,7 +4024,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -4263,7 +4153,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_bqt_xdp_v1_7_a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.message_header.fields(buffer, offset, packet, parent)
@@ -4292,7 +4182,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4314,7 +4204,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.message.dissect = function(buffer, offset, pack
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message, buffer(offset, 0))
     local current = nyse_nyseequities_bqt_xdp_v1_7_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -4374,7 +4264,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.fields(buffer, offset, packet, parent)

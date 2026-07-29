@@ -43,15 +43,11 @@ local show = {}
 
 -- Hkex HkexSecurities Mmdh Omd 2.1 Element Dissection Options
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
+show.structs = true
 
 -- Register Hkex HkexSecurities Mmdh Omd 2.1 Show Options
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -61,14 +57,8 @@ function omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs_changed()
   if show.application_messages ~= omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_application_messages then
     show.application_messages = omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_application_messages
   end
-  if show.message ~= omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message then
-    show.message = omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message
-  end
-  if show.message_header ~= omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message_header then
-    show.message_header = omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_message_header
-  end
-  if show.packet ~= omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_packet then
-    show.packet = omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_packet
+  if show.structs ~= omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_structs then
+    show.structs = omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_structs
   end
 end
 
@@ -515,7 +505,7 @@ end
 
 -- Dissect: Message Header
 hkex_hkexsecurities_mmdh_omd_v2_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message_header, buffer(offset, 0))
     local index = hkex_hkexsecurities_mmdh_omd_v2_1.message_header.fields(buffer, offset, packet, parent)
@@ -563,7 +553,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.message.dissect = function(buffer, offset, pac
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message, buffer(offset, 0))
     local current = hkex_hkexsecurities_mmdh_omd_v2_1.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

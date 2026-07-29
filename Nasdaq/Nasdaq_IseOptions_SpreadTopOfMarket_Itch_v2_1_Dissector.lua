@@ -112,30 +112,16 @@ local show = {}
 -- Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Element Dissection Options
 show.application_messages = true
 show.session_messages = true
-show.leg_information = true
-show.message = true
-show.message_header = true
-show.mold_udp_64_packet = true
-show.soup_bin_tcp_packet = true
-show.tcp_packet = true
-show.tcp_packet_header = true
-show.udp_packet_header = true
-show.leg_information_index = true
-show.message_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Show Options
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information = Pref.bool("Show Leg Information", show.leg_information, "Parse and add Leg Information to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_mold_udp_64_packet = Pref.bool("Show Mold Udp 64 Packet", show.mold_udp_64_packet, "Parse and add Mold Udp 64 Packet to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet_header = Pref.bool("Show Tcp Packet Header", show.tcp_packet_header, "Parse and add Tcp Packet Header to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_udp_packet_header = Pref.bool("Show Udp Packet Header", show.udp_packet_header, "Parse and add Udp Packet Header to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information_index = Pref.bool("Show Leg Information Index", show.leg_information_index, "Show generated leg information index in protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -145,38 +131,17 @@ function omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs_changed()
   if show.application_messages ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_application_messages
   end
-  if show.leg_information ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information then
-    show.leg_information = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information
-  end
-  if show.message ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message then
-    show.message = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message
-  end
-  if show.message_header ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_header then
-    show.message_header = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_header
-  end
-  if show.mold_udp_64_packet ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_mold_udp_64_packet then
-    show.mold_udp_64_packet = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_mold_udp_64_packet
+  if show.repeating_groups ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_repeating_groups
   end
   if show.session_messages ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_session_messages
   end
-  if show.soup_bin_tcp_packet ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_soup_bin_tcp_packet
+  if show.structs ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_structs then
+    show.structs = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_structs
   end
-  if show.tcp_packet ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet then
-    show.tcp_packet = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet
-  end
-  if show.tcp_packet_header ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet_header then
-    show.tcp_packet_header = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_tcp_packet_header
-  end
-  if show.udp_packet_header ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_udp_packet_header then
-    show.udp_packet_header = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_udp_packet_header
-  end
-  if show.leg_information_index ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information_index then
-    show.leg_information_index = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_leg_information_index
-  end
-  if show.message_index ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_index then
-    show.message_index = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_message_index
+  if show.indexes ~= omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_indexes then
+    show.indexes = omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_indexes
   end
 end
 
@@ -2082,7 +2047,7 @@ nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.leg_information.fields = function(
   local index = offset
 
   -- Implicit Leg Information Index
-  if leg_information_index ~= nil and show.leg_information_index then
+  if leg_information_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.leg_information_index, leg_information_index)
     iteration:set_generated()
   end
@@ -2119,7 +2084,7 @@ end
 
 -- Dissect: Leg Information
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.leg_information.dissect = function(buffer, offset, packet, parent, leg_information_index)
-  if show.leg_information then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.leg_information, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.leg_information.fields(buffer, offset, packet, parent, leg_information_index)
@@ -2328,7 +2293,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.message_header.fields(buffer, offset, packet, parent)
@@ -2367,7 +2332,7 @@ nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.message.fields = function(buffer, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2390,7 +2355,7 @@ nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.message.dissect = function(buffer,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message, buffer(offset, 0))
     local current = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2501,7 +2466,7 @@ end
 
 -- Dissect: Udp Packet Header
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.udp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.udp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.udp_packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.udp_packet_header.fields(buffer, offset, packet, parent)
@@ -2967,7 +2932,7 @@ end
 
 -- Dissect: Tcp Packet Header
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.tcp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.tcp_packet_header.fields(buffer, offset, packet, parent)
@@ -3012,7 +2977,7 @@ nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.soup_bin_tcp_packet.dissect = func
   local index = offset + size_of_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.soup_bin_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)

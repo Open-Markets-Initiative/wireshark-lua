@@ -30,28 +30,18 @@ omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.payload = ProtoField.new("Payl
 local show = {}
 
 -- Aquis AquisEquities TcpHeader Atp 1.0 Element Dissection Options
-show.message = true
-show.message_header = true
-show.packet = true
+show.structs = true
 
 -- Register Aquis AquisEquities TcpHeader Atp 1.0 Show Options
-omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.message ~= omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message then
-    show.message = omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message
-  end
-  if show.message_header ~= omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message_header then
-    show.message_header = omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_packet then
-    show.packet = omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_packet
+  if show.structs ~= omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_structs then
+    show.structs = omi_aquis_aquisequities_tcpheader_atp_v1_0.prefs.show_structs
   end
 end
 
@@ -185,7 +175,7 @@ end
 
 -- Dissect: Message Header
 aquis_aquisequities_tcpheader_atp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message_header, buffer(offset, 0))
     local index = aquis_aquisequities_tcpheader_atp_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -233,7 +223,7 @@ aquis_aquisequities_tcpheader_atp_v1_0.message.dissect = function(buffer, offset
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message, buffer(offset, 0))
     local current = aquis_aquisequities_tcpheader_atp_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

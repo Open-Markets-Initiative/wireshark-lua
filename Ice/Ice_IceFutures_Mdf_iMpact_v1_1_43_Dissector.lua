@@ -318,45 +318,15 @@ local show = {}
 
 -- Ice IceFutures Mdf iMpact 1.1.43 Element Dissection Options
 show.application_messages = true
-show.extra_leg_definition = true
-show.extra_strategy_leg_definition = true
-show.hedge_definition = true
-show.leg_definition = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.special_field = true
-show.strategy_leg_definition = true
-show.trade_flags = true
-show.message_index = true
-show.leg_definition_index = true
-show.extra_leg_definition_index = true
-show.special_field_index = true
-show.strategy_leg_definition_index = true
-show.hedge_definition_index = true
-show.extra_strategy_leg_definition_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Ice IceFutures Mdf iMpact 1.1.43 Show Options
 omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition = Pref.bool("Show Extra Leg Definition", show.extra_leg_definition, "Parse and add Extra Leg Definition to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition = Pref.bool("Show Extra Strategy Leg Definition", show.extra_strategy_leg_definition, "Parse and add Extra Strategy Leg Definition to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition = Pref.bool("Show Hedge Definition", show.hedge_definition, "Parse and add Hedge Definition to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field = Pref.bool("Show Special Field", show.special_field, "Parse and add Special Field to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition = Pref.bool("Show Strategy Leg Definition", show.strategy_leg_definition, "Parse and add Strategy Leg Definition to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition_index = Pref.bool("Show Extra Leg Definition Index", show.extra_leg_definition_index, "Show generated extra leg definition index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field_index = Pref.bool("Show Special Field Index", show.special_field_index, "Show generated special field index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition_index = Pref.bool("Show Strategy Leg Definition Index", show.strategy_leg_definition_index, "Show generated strategy leg definition index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition_index = Pref.bool("Show Hedge Definition Index", show.hedge_definition_index, "Show generated hedge definition index in protocol tree")
-omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition_index = Pref.bool("Show Extra Strategy Leg Definition Index", show.extra_strategy_leg_definition_index, "Show generated extra strategy leg definition index in protocol tree")
+omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -366,59 +336,14 @@ function omi_ice_icefutures_mdf_impact_v1_1_43.prefs_changed()
   if show.application_messages ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_application_messages then
     show.application_messages = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_application_messages
   end
-  if show.extra_leg_definition ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition then
-    show.extra_leg_definition = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition
+  if show.repeating_groups ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_repeating_groups then
+    show.repeating_groups = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_repeating_groups
   end
-  if show.extra_strategy_leg_definition ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition then
-    show.extra_strategy_leg_definition = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition
+  if show.structs ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_structs then
+    show.structs = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_structs
   end
-  if show.hedge_definition ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition then
-    show.hedge_definition = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition
-  end
-  if show.leg_definition ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition then
-    show.leg_definition = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition
-  end
-  if show.message ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message then
-    show.message = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message
-  end
-  if show.message_header ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_header then
-    show.message_header = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_header
-  end
-  if show.packet ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet then
-    show.packet = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet
-  end
-  if show.packet_header ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet_header then
-    show.packet_header = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_packet_header
-  end
-  if show.special_field ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field then
-    show.special_field = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field
-  end
-  if show.strategy_leg_definition ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition then
-    show.strategy_leg_definition = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition
-  end
-  if show.trade_flags ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_trade_flags then
-    show.trade_flags = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_trade_flags
-  end
-  if show.message_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_index then
-    show.message_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_message_index
-  end
-  if show.leg_definition_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition_index then
-    show.leg_definition_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_leg_definition_index
-  end
-  if show.extra_leg_definition_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition_index then
-    show.extra_leg_definition_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_leg_definition_index
-  end
-  if show.special_field_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field_index then
-    show.special_field_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_special_field_index
-  end
-  if show.strategy_leg_definition_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition_index then
-    show.strategy_leg_definition_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_strategy_leg_definition_index
-  end
-  if show.hedge_definition_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition_index then
-    show.hedge_definition_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_hedge_definition_index
-  end
-  if show.extra_strategy_leg_definition_index ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition_index then
-    show.extra_strategy_leg_definition_index = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_extra_strategy_leg_definition_index
+  if show.indexes ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes then
+    show.indexes = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes
   end
 end
 
@@ -8654,7 +8579,7 @@ ice_icefutures_mdf_impact_v1_1_43.extra_strategy_leg_definition.fields = functio
   local index = offset
 
   -- Implicit Extra Strategy Leg Definition Index
-  if extra_strategy_leg_definition_index ~= nil and show.extra_strategy_leg_definition_index then
+  if extra_strategy_leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.extra_strategy_leg_definition_index, extra_strategy_leg_definition_index)
     iteration:set_generated()
   end
@@ -8694,7 +8619,7 @@ end
 
 -- Dissect: Extra Strategy Leg Definition
 ice_icefutures_mdf_impact_v1_1_43.extra_strategy_leg_definition.dissect = function(buffer, offset, packet, parent, extra_strategy_leg_definition_index)
-  if show.extra_strategy_leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.extra_strategy_leg_definition, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.extra_strategy_leg_definition.fields(buffer, offset, packet, parent, extra_strategy_leg_definition_index)
@@ -8735,7 +8660,7 @@ ice_icefutures_mdf_impact_v1_1_43.hedge_definition.fields = function(buffer, off
   local index = offset
 
   -- Implicit Hedge Definition Index
-  if hedge_definition_index ~= nil and show.hedge_definition_index then
+  if hedge_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.hedge_definition_index, hedge_definition_index)
     iteration:set_generated()
   end
@@ -8772,7 +8697,7 @@ end
 
 -- Dissect: Hedge Definition
 ice_icefutures_mdf_impact_v1_1_43.hedge_definition.dissect = function(buffer, offset, packet, parent, hedge_definition_index)
-  if show.hedge_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.hedge_definition, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.hedge_definition.fields(buffer, offset, packet, parent, hedge_definition_index)
@@ -8814,7 +8739,7 @@ ice_icefutures_mdf_impact_v1_1_43.strategy_leg_definition.fields = function(buff
   local index = offset
 
   -- Implicit Strategy Leg Definition Index
-  if strategy_leg_definition_index ~= nil and show.strategy_leg_definition_index then
+  if strategy_leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.strategy_leg_definition_index, strategy_leg_definition_index)
     iteration:set_generated()
   end
@@ -8854,7 +8779,7 @@ end
 
 -- Dissect: Strategy Leg Definition
 ice_icefutures_mdf_impact_v1_1_43.strategy_leg_definition.dissect = function(buffer, offset, packet, parent, strategy_leg_definition_index)
-  if show.strategy_leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.strategy_leg_definition, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.strategy_leg_definition.fields(buffer, offset, packet, parent, strategy_leg_definition_index)
@@ -9931,7 +9856,7 @@ ice_icefutures_mdf_impact_v1_1_43.special_field.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Special Field Index
-  if special_field_index ~= nil and show.special_field_index then
+  if special_field_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.special_field_index, special_field_index)
     iteration:set_generated()
   end
@@ -9950,7 +9875,7 @@ end
 
 -- Dissect: Special Field
 ice_icefutures_mdf_impact_v1_1_43.special_field.dissect = function(buffer, offset, packet, parent, special_field_index)
-  if show.special_field then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.special_field, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.special_field.fields(buffer, offset, packet, parent, special_field_index)
@@ -10258,7 +10183,7 @@ ice_icefutures_mdf_impact_v1_1_43.extra_leg_definition.fields = function(buffer,
   local index = offset
 
   -- Implicit Extra Leg Definition Index
-  if extra_leg_definition_index ~= nil and show.extra_leg_definition_index then
+  if extra_leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.extra_leg_definition_index, extra_leg_definition_index)
     iteration:set_generated()
   end
@@ -10295,7 +10220,7 @@ end
 
 -- Dissect: Extra Leg Definition
 ice_icefutures_mdf_impact_v1_1_43.extra_leg_definition.dissect = function(buffer, offset, packet, parent, extra_leg_definition_index)
-  if show.extra_leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.extra_leg_definition, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.extra_leg_definition.fields(buffer, offset, packet, parent, extra_leg_definition_index)
@@ -10336,7 +10261,7 @@ ice_icefutures_mdf_impact_v1_1_43.leg_definition.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.leg_definition_index then
+  if leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -10373,7 +10298,7 @@ end
 
 -- Dissect: Leg Definition
 ice_icefutures_mdf_impact_v1_1_43.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.leg_definition, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -11738,7 +11663,7 @@ ice_icefutures_mdf_impact_v1_1_43.trade_flags.dissect = function(buffer, offset,
   local display = ice_icefutures_mdf_impact_v1_1_43.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     ice_icefutures_mdf_impact_v1_1_43.trade_flags.bits(range, value, packet, element)
   end
 
@@ -12170,7 +12095,7 @@ end
 
 -- Dissect: Message Header
 ice_icefutures_mdf_impact_v1_1_43.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_header, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.message_header.fields(buffer, offset, packet, parent)
@@ -12213,7 +12138,7 @@ ice_icefutures_mdf_impact_v1_1_43.message.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -12232,7 +12157,7 @@ end
 
 -- Dissect: Message
 ice_icefutures_mdf_impact_v1_1_43.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.message.fields(buffer, offset, packet, parent, message_index)
@@ -12284,7 +12209,7 @@ end
 
 -- Dissect: Packet Header
 ice_icefutures_mdf_impact_v1_1_43.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.packet_header, buffer(offset, 0))
     local index = ice_icefutures_mdf_impact_v1_1_43.packet_header.fields(buffer, offset, packet, parent)

@@ -90,63 +90,23 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.trading_action_message = ProtoField.
 local show = {}
 
 -- Finra FinraOtc Bbds Dfi 2018.1A Element Dissection Options
-show.action_datetime = true
-show.administrative = true
-show.control = true
-show.datetime = true
+show.structs = true
 show.application_messages = true
-show.inside_appendage = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.quotation = true
 
 -- Register Finra FinraOtc Bbds Dfi 2018.1A Show Options
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
+omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_inside_appendage = Pref.bool("Show Inside Appendage", show.inside_appendage, "Parse and add Inside Appendage to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_quotation = Pref.bool("Show Quotation", show.quotation, "Parse and add Quotation to protocol tree")
 
 
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.action_datetime ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_action_datetime then
-    show.action_datetime = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_action_datetime
-  end
-  if show.administrative ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_administrative then
-    show.administrative = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_administrative
-  end
   if show.application_messages ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages then
     show.application_messages = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages
   end
-  if show.control ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_control then
-    show.control = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_control
-  end
-  if show.datetime ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_datetime then
-    show.datetime = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_datetime
-  end
-  if show.inside_appendage ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_inside_appendage then
-    show.inside_appendage = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_inside_appendage
-  end
-  if show.message ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message then
-    show.message = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message
-  end
-  if show.message_header ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message_header then
-    show.message_header = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_message_header
-  end
-  if show.packet ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_packet then
-    show.packet = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_packet
-  end
-  if show.quotation ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_quotation then
-    show.quotation = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_quotation
+  if show.structs ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs then
+    show.structs = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs
   end
 end
 
@@ -1419,7 +1379,7 @@ end
 
 -- Dissect: Datetime
 finra_finraotc_bbds_dfi_v2018_1a.datetime.dissect = function(buffer, offset, packet, parent)
-  if show.datetime then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.datetime, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.datetime.fields(buffer, offset, packet, parent)
@@ -1479,7 +1439,7 @@ end
 
 -- Dissect: Message Header
 finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_header, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.message_header.fields(buffer, offset, packet, parent)
@@ -1937,7 +1897,7 @@ end
 
 -- Dissect: Control
 finra_finraotc_bbds_dfi_v2018_1a.control.dissect = function(buffer, offset, packet, parent)
-  if show.control then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
@@ -1997,7 +1957,7 @@ end
 
 -- Dissect: Action Datetime
 finra_finraotc_bbds_dfi_v2018_1a.action_datetime.dissect = function(buffer, offset, packet, parent)
-  if show.action_datetime then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields(buffer, offset, packet, parent)
@@ -2167,7 +2127,7 @@ end
 
 -- Dissect: Administrative
 finra_finraotc_bbds_dfi_v2018_1a.administrative.dissect = function(buffer, offset, packet, parent)
-  if show.administrative then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
@@ -2231,7 +2191,7 @@ end
 
 -- Dissect: Inside Appendage
 finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.inside_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.fields(buffer, offset, packet, parent)
@@ -2438,7 +2398,7 @@ end
 
 -- Dissect: Quotation
 finra_finraotc_bbds_dfi_v2018_1a.quotation.dissect = function(buffer, offset, packet, parent)
-  if show.quotation then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
@@ -2517,7 +2477,7 @@ end
 
 -- Dissect: Message
 finra_finraotc_bbds_dfi_v2018_1a.message.dissect = function(buffer, offset, packet, parent)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)

@@ -44,38 +44,18 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.version = ProtoField.new("Ve
 local show = {}
 
 -- Euronext Optiq MarketDataPacket Udp 1.0 Element Dissection Options
-show.market_data_packet_header = true
-show.message_header = true
-show.optiq_message = true
-show.packet = true
-show.packet_flags = true
+show.structs = true
 
 -- Register Euronext Optiq MarketDataPacket Udp 1.0 Show Options
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header = Pref.bool("Show Market Data Packet Header", show.market_data_packet_header, "Parse and add Market Data Packet Header to protocol tree")
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message = Pref.bool("Show Optiq Message", show.optiq_message, "Parse and add Optiq Message to protocol tree")
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
+omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.market_data_packet_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header then
-    show.market_data_packet_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_market_data_packet_header
-  end
-  if show.message_header ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header then
-    show.message_header = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_message_header
-  end
-  if show.optiq_message ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message then
-    show.optiq_message = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_optiq_message
-  end
-  if show.packet ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet then
-    show.packet = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet
-  end
-  if show.packet_flags ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags then
-    show.packet_flags = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_packet_flags
+  if show.structs ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs then
+    show.structs = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs
   end
 end
 
@@ -409,7 +389,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_marketdatapacket_udp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatapacket_udp_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -457,7 +437,7 @@ euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.dissect = function(buffer
   local index = offset + size_of_optiq_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.optiq_message then
+  if show.structs then
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.optiq_message, buffer(offset, 0))
     local current = euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
     parent:set_len(size_of_optiq_message)
@@ -536,7 +516,7 @@ euronext_optiq_marketdatapacket_udp_v1_0.packet_flags.dissect = function(buffer,
   local display = euronext_optiq_marketdatapacket_udp_v1_0.packet_flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_flags, range, display)
 
-  if show.packet_flags then
+  if show.structs then
     euronext_optiq_marketdatapacket_udp_v1_0.packet_flags.bits(range, value, packet, element)
   end
 
@@ -579,7 +559,7 @@ end
 
 -- Dissect: Market Data Packet Header
 euronext_optiq_marketdatapacket_udp_v1_0.market_data_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.market_data_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.market_data_packet_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatapacket_udp_v1_0.market_data_packet_header.fields(buffer, offset, packet, parent)

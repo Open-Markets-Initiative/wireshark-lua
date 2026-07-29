@@ -152,98 +152,28 @@ omi_siac_cts_input_cta_v2_7_f.fields.message_index = ProtoField.new("Message Ind
 local show = {}
 
 -- Siac Cts Input Cta 2.7.f Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.block_header = true
-show.control_message = true
-show.corrected_prior_day_trade_date_and_time = true
-show.indices_message = true
-show.market_status_message = true
-show.message = true
-show.message_header = true
-show.original_prior_day_trade_date_and_time = true
-show.packet = true
-show.prior_day_message = true
-show.prior_day_trade_date_and_time = true
-show.timestamp_1 = true
-show.timestamp_2 = true
-show.trade_message = true
-show.message_index = true
+show.indexes = true
 
 -- Register Siac Cts Input Cta 2.7.f Show Options
-omi_siac_cts_input_cta_v2_7_f.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_siac_cts_input_cta_v2_7_f.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time = Pref.bool("Show Corrected Prior Day Trade Date And Time", show.corrected_prior_day_trade_date_and_time, "Parse and add Corrected Prior Day Trade Date And Time to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message = Pref.bool("Show Indices Message", show.indices_message, "Parse and add Indices Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_original_prior_day_trade_date_and_time = Pref.bool("Show Original Prior Day Trade Date And Time", show.original_prior_day_trade_date_and_time, "Parse and add Original Prior Day Trade Date And Time to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_message = Pref.bool("Show Prior Day Message", show.prior_day_message, "Parse and add Prior Day Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_trade_date_and_time = Pref.bool("Show Prior Day Trade Date And Time", show.prior_day_trade_date_and_time, "Parse and add Prior Day Trade Date And Time to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_siac_cts_input_cta_v2_7_f.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_administrative_message then
-    show.administrative_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages then
     show.application_messages = omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages
   end
-  if show.block_header ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_block_header then
-    show.block_header = omi_siac_cts_input_cta_v2_7_f.prefs.show_block_header
+  if show.structs ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_structs then
+    show.structs = omi_siac_cts_input_cta_v2_7_f.prefs.show_structs
   end
-  if show.control_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_control_message then
-    show.control_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_control_message
-  end
-  if show.corrected_prior_day_trade_date_and_time ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time then
-    show.corrected_prior_day_trade_date_and_time = omi_siac_cts_input_cta_v2_7_f.prefs.show_corrected_prior_day_trade_date_and_time
-  end
-  if show.indices_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message then
-    show.indices_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_indices_message
-  end
-  if show.market_status_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message then
-    show.market_status_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_market_status_message
-  end
-  if show.message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_message then
-    show.message = omi_siac_cts_input_cta_v2_7_f.prefs.show_message
-  end
-  if show.message_header ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_message_header then
-    show.message_header = omi_siac_cts_input_cta_v2_7_f.prefs.show_message_header
-  end
-  if show.original_prior_day_trade_date_and_time ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_original_prior_day_trade_date_and_time then
-    show.original_prior_day_trade_date_and_time = omi_siac_cts_input_cta_v2_7_f.prefs.show_original_prior_day_trade_date_and_time
-  end
-  if show.packet ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_packet then
-    show.packet = omi_siac_cts_input_cta_v2_7_f.prefs.show_packet
-  end
-  if show.prior_day_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_message then
-    show.prior_day_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_message
-  end
-  if show.prior_day_trade_date_and_time ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_trade_date_and_time then
-    show.prior_day_trade_date_and_time = omi_siac_cts_input_cta_v2_7_f.prefs.show_prior_day_trade_date_and_time
-  end
-  if show.timestamp_1 ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_1 then
-    show.timestamp_1 = omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_1
-  end
-  if show.timestamp_2 ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_2 then
-    show.timestamp_2 = omi_siac_cts_input_cta_v2_7_f.prefs.show_timestamp_2
-  end
-  if show.trade_message ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_trade_message then
-    show.trade_message = omi_siac_cts_input_cta_v2_7_f.prefs.show_trade_message
-  end
-  if show.message_index ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_message_index then
-    show.message_index = omi_siac_cts_input_cta_v2_7_f.prefs.show_message_index
+  if show.indexes ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes then
+    show.indexes = omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes
   end
 end
 
@@ -2441,7 +2371,7 @@ end
 
 -- Dissect: Timestamp 2
 siac_cts_input_cta_v2_7_f.timestamp_2.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_2 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.timestamp_2.fields(buffer, offset, packet, parent)
@@ -3187,7 +3117,7 @@ end
 
 -- Dissect: Trade Message
 siac_cts_input_cta_v2_7_f.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.trade_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.trade_message.fields(buffer, offset, packet, parent)
@@ -3231,7 +3161,7 @@ end
 
 -- Dissect: Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
-  if show.prior_day_trade_date_and_time then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
@@ -3603,7 +3533,7 @@ end
 
 -- Dissect: Original Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
-  if show.original_prior_day_trade_date_and_time then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
@@ -3647,7 +3577,7 @@ end
 
 -- Dissect: Corrected Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
-  if show.corrected_prior_day_trade_date_and_time then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
@@ -3957,7 +3887,7 @@ end
 
 -- Dissect: Prior Day Message
 siac_cts_input_cta_v2_7_f.prior_day_message.dissect = function(buffer, offset, packet, parent)
-  if show.prior_day_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.prior_day_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.prior_day_message.fields(buffer, offset, packet, parent)
@@ -4119,7 +4049,7 @@ end
 
 -- Dissect: Market Status Message
 siac_cts_input_cta_v2_7_f.market_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.market_status_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.market_status_message.fields(buffer, offset, packet, parent)
@@ -4281,7 +4211,7 @@ end
 
 -- Dissect: Indices Message
 siac_cts_input_cta_v2_7_f.indices_message.dissect = function(buffer, offset, packet, parent)
-  if show.indices_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.indices_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.indices_message.fields(buffer, offset, packet, parent)
@@ -4455,7 +4385,7 @@ end
 
 -- Dissect: Control Message
 siac_cts_input_cta_v2_7_f.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.control_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.control_message.fields(buffer, offset, packet, parent)
@@ -4621,7 +4551,7 @@ end
 
 -- Dissect: Administrative Message
 siac_cts_input_cta_v2_7_f.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.administrative_message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.administrative_message.fields(buffer, offset, packet, parent)
@@ -4698,7 +4628,7 @@ end
 
 -- Dissect: Timestamp 1
 siac_cts_input_cta_v2_7_f.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_1 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.timestamp_1.fields(buffer, offset, packet, parent)
@@ -4766,7 +4696,7 @@ end
 
 -- Dissect: Message Header
 siac_cts_input_cta_v2_7_f.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.message_header, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.message_header.fields(buffer, offset, packet, parent)
@@ -4807,7 +4737,7 @@ siac_cts_input_cta_v2_7_f.message.fields = function(buffer, offset, packet, pare
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4826,7 +4756,7 @@ end
 
 -- Dissect: Message
 siac_cts_input_cta_v2_7_f.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.message, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.message.fields(buffer, offset, packet, parent, message_index)
@@ -4882,7 +4812,7 @@ end
 
 -- Dissect: Block Header
 siac_cts_input_cta_v2_7_f.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.block_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.block_header, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.block_header.fields(buffer, offset, packet, parent)

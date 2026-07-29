@@ -110,24 +110,16 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_index = Proto
 local show = {}
 
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Element Dissection Options
-show.delta_price_point = true
+show.repeating_groups = true
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.snapshot_price_point = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Show Options
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_snapshot_price_point = Pref.bool("Show Snapshot Price Point", show.snapshot_price_point, "Parse and add Snapshot Price Point to protocol tree")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -137,26 +129,14 @@ function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
   if show.application_messages ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_application_messages
   end
-  if show.delta_price_point ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_delta_price_point then
-    show.delta_price_point = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_delta_price_point
+  if show.repeating_groups ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups
   end
-  if show.message ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message then
-    show.message = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message
+  if show.structs ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs then
+    show.structs = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs
   end
-  if show.message_header ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_header then
-    show.message_header = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_header
-  end
-  if show.packet ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet then
-    show.packet = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet_header then
-    show.packet_header = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_packet_header
-  end
-  if show.snapshot_price_point ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_snapshot_price_point then
-    show.snapshot_price_point = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_snapshot_price_point
-  end
-  if show.message_index ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_index then
-    show.message_index = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_message_index
+  if show.indexes ~= omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes then
+    show.indexes = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes
   end
 end
 
@@ -2091,7 +2071,7 @@ end
 
 -- Dissect: Delta Price Point
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect = function(buffer, offset, packet, parent)
-  if show.delta_price_point then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.delta_price_point, buffer(offset, 0))
     local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields(buffer, offset, packet, parent)
@@ -2219,7 +2199,7 @@ end
 
 -- Dissect: Snapshot Price Point
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_price_point then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point, buffer(offset, 0))
     local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields(buffer, offset, packet, parent)
@@ -3136,7 +3116,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.message_header.fields(buffer, offset, packet, parent)
@@ -3165,7 +3145,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.message.fields = function(buffer
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3187,7 +3167,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.message.dissect = function(buffe
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message, buffer(offset, 0))
     local current = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3247,7 +3227,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.packet_header.fields(buffer, offset, packet, parent)

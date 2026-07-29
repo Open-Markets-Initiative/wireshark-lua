@@ -105,27 +105,13 @@ local show = {}
 
 -- Aquis AquisEquities RealTime Amd 4.0 Element Dissection Options
 show.application_messages = true
-show.binary_mmt = true
-show.market_flags = true
-show.md_flags = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.security_definition_flags = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Aquis AquisEquities RealTime Amd 4.0 Show Options
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt = Pref.bool("Show Binary Mmt", show.binary_mmt, "Parse and add Binary Mmt to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags = Pref.bool("Show Market Flags", show.market_flags, "Parse and add Market Flags to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_md_flags = Pref.bool("Show Md Flags", show.md_flags, "Parse and add Md Flags to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_security_definition_flags = Pref.bool("Show Security Definition Flags", show.security_definition_flags, "Parse and add Security Definition Flags to protocol tree")
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -135,32 +121,11 @@ function omi_aquis_aquisequities_realtime_amd_v4_0.prefs_changed()
   if show.application_messages ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages then
     show.application_messages = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages
   end
-  if show.binary_mmt ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt then
-    show.binary_mmt = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_binary_mmt
+  if show.structs ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_structs then
+    show.structs = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_structs
   end
-  if show.market_flags ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags then
-    show.market_flags = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_market_flags
-  end
-  if show.md_flags ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_md_flags then
-    show.md_flags = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_md_flags
-  end
-  if show.message ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message then
-    show.message = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message
-  end
-  if show.message_header ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_header then
-    show.message_header = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet then
-    show.packet = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet_header then
-    show.packet_header = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_packet_header
-  end
-  if show.security_definition_flags ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_security_definition_flags then
-    show.security_definition_flags = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_security_definition_flags
-  end
-  if show.message_index ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_index then
-    show.message_index = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_message_index
+  if show.indexes ~= omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_indexes then
+    show.indexes = omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_indexes
   end
 end
 
@@ -1178,7 +1143,7 @@ aquis_aquisequities_realtime_amd_v4_0.market_flags.dissect = function(buffer, of
   local display = aquis_aquisequities_realtime_amd_v4_0.market_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_flags, range, display)
 
-  if show.market_flags then
+  if show.structs then
     aquis_aquisequities_realtime_amd_v4_0.market_flags.bits(range, value, packet, element)
   end
 
@@ -1315,7 +1280,7 @@ aquis_aquisequities_realtime_amd_v4_0.security_definition_flags.dissect = functi
   local display = aquis_aquisequities_realtime_amd_v4_0.security_definition_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_definition_flags, range, display)
 
-  if show.security_definition_flags then
+  if show.structs then
     aquis_aquisequities_realtime_amd_v4_0.security_definition_flags.bits(range, value, packet, element)
   end
 
@@ -1541,7 +1506,7 @@ aquis_aquisequities_realtime_amd_v4_0.binary_mmt.dissect = function(buffer, offs
   local display = aquis_aquisequities_realtime_amd_v4_0.binary_mmt.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt, range, display)
 
-  if show.binary_mmt then
+  if show.structs then
     aquis_aquisequities_realtime_amd_v4_0.binary_mmt.bits(range, value, packet, element)
   end
 
@@ -1644,7 +1609,7 @@ aquis_aquisequities_realtime_amd_v4_0.md_flags.dissect = function(buffer, offset
   local display = aquis_aquisequities_realtime_amd_v4_0.md_flags.display(range, value, packet, parent)
   local element = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.md_flags, range, display)
 
-  if show.md_flags then
+  if show.structs then
     aquis_aquisequities_realtime_amd_v4_0.md_flags.bits(range, value, packet, element)
   end
 
@@ -1980,7 +1945,7 @@ end
 
 -- Dissect: Message Header
 aquis_aquisequities_realtime_amd_v4_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header, buffer(offset, 0))
     local index = aquis_aquisequities_realtime_amd_v4_0.message_header.fields(buffer, offset, packet, parent)
@@ -2009,7 +1974,7 @@ aquis_aquisequities_realtime_amd_v4_0.message.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2031,7 +1996,7 @@ aquis_aquisequities_realtime_amd_v4_0.message.dissect = function(buffer, offset,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.message, buffer(offset, 0))
     local current = aquis_aquisequities_realtime_amd_v4_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2071,7 +2036,7 @@ end
 
 -- Dissect: Packet Header
 aquis_aquisequities_realtime_amd_v4_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header, buffer(offset, 0))
     local index = aquis_aquisequities_realtime_amd_v4_0.packet_header.fields(buffer, offset, packet, parent)

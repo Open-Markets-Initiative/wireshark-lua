@@ -201,52 +201,16 @@ local show = {}
 -- Nasdaq Utp Input Utp 4.0 Element Dissection Options
 show.application_messages = true
 show.session_messages = true
-show.inbound_administrative_messages_message = true
-show.inbound_control_messages_message = true
-show.inbound_quote_messages_message = true
-show.inbound_trade_messages_message = true
-show.message_header = true
-show.odd_lot_ask_adf_form_attachment = true
-show.odd_lot_ask_long_form_attachment = true
-show.odd_lot_ask_short_form_attachment = true
-show.odd_lot_bid_adf_form_attachment = true
-show.odd_lot_bid_long_form_attachment = true
-show.odd_lot_bid_short_form_attachment = true
-show.packet = true
-show.return_administrative_messages_message = true
-show.return_control_messages_message = true
-show.tcp_packet_header = true
-show.odd_lot_bid_short_form_attachment_index = true
-show.odd_lot_ask_short_form_attachment_index = true
-show.odd_lot_bid_long_form_attachment_index = true
-show.odd_lot_ask_long_form_attachment_index = true
-show.odd_lot_bid_adf_form_attachment_index = true
-show.odd_lot_ask_adf_form_attachment_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nasdaq Utp Input Utp 4.0 Show Options
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_administrative_messages_message = Pref.bool("Show Inbound Administrative Messages Message", show.inbound_administrative_messages_message, "Parse and add Inbound Administrative Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_control_messages_message = Pref.bool("Show Inbound Control Messages Message", show.inbound_control_messages_message, "Parse and add Inbound Control Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_quote_messages_message = Pref.bool("Show Inbound Quote Messages Message", show.inbound_quote_messages_message, "Parse and add Inbound Quote Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_trade_messages_message = Pref.bool("Show Inbound Trade Messages Message", show.inbound_trade_messages_message, "Parse and add Inbound Trade Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment = Pref.bool("Show Odd Lot Ask Adf Form Attachment", show.odd_lot_ask_adf_form_attachment, "Parse and add Odd Lot Ask Adf Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment = Pref.bool("Show Odd Lot Ask Long Form Attachment", show.odd_lot_ask_long_form_attachment, "Parse and add Odd Lot Ask Long Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment = Pref.bool("Show Odd Lot Ask Short Form Attachment", show.odd_lot_ask_short_form_attachment, "Parse and add Odd Lot Ask Short Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment = Pref.bool("Show Odd Lot Bid Adf Form Attachment", show.odd_lot_bid_adf_form_attachment, "Parse and add Odd Lot Bid Adf Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment = Pref.bool("Show Odd Lot Bid Long Form Attachment", show.odd_lot_bid_long_form_attachment, "Parse and add Odd Lot Bid Long Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment = Pref.bool("Show Odd Lot Bid Short Form Attachment", show.odd_lot_bid_short_form_attachment, "Parse and add Odd Lot Bid Short Form Attachment to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_administrative_messages_message = Pref.bool("Show Return Administrative Messages Message", show.return_administrative_messages_message, "Parse and add Return Administrative Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_control_messages_message = Pref.bool("Show Return Control Messages Message", show.return_control_messages_message, "Parse and add Return Control Messages Message to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_tcp_packet_header = Pref.bool("Show Tcp Packet Header", show.tcp_packet_header, "Parse and add Tcp Packet Header to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment_index = Pref.bool("Show Odd Lot Bid Short Form Attachment Index", show.odd_lot_bid_short_form_attachment_index, "Show generated odd lot bid short form attachment index in protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment_index = Pref.bool("Show Odd Lot Ask Short Form Attachment Index", show.odd_lot_ask_short_form_attachment_index, "Show generated odd lot ask short form attachment index in protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment_index = Pref.bool("Show Odd Lot Bid Long Form Attachment Index", show.odd_lot_bid_long_form_attachment_index, "Show generated odd lot bid long form attachment index in protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment_index = Pref.bool("Show Odd Lot Ask Long Form Attachment Index", show.odd_lot_ask_long_form_attachment_index, "Show generated odd lot ask long form attachment index in protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment_index = Pref.bool("Show Odd Lot Bid Adf Form Attachment Index", show.odd_lot_bid_adf_form_attachment_index, "Show generated odd lot bid adf form attachment index in protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment_index = Pref.bool("Show Odd Lot Ask Adf Form Attachment Index", show.odd_lot_ask_adf_form_attachment_index, "Show generated odd lot ask adf form attachment index in protocol tree")
+omi_nasdaq_utp_input_utp_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -256,71 +220,17 @@ function omi_nasdaq_utp_input_utp_v4_0.prefs_changed()
   if show.application_messages ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_utp_input_utp_v4_0.prefs.show_application_messages
   end
-  if show.inbound_administrative_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_administrative_messages_message then
-    show.inbound_administrative_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_administrative_messages_message
-  end
-  if show.inbound_control_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_control_messages_message then
-    show.inbound_control_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_control_messages_message
-  end
-  if show.inbound_quote_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_quote_messages_message then
-    show.inbound_quote_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_quote_messages_message
-  end
-  if show.inbound_trade_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_trade_messages_message then
-    show.inbound_trade_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_inbound_trade_messages_message
-  end
-  if show.message_header ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_message_header then
-    show.message_header = omi_nasdaq_utp_input_utp_v4_0.prefs.show_message_header
-  end
-  if show.odd_lot_ask_adf_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment then
-    show.odd_lot_ask_adf_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment
-  end
-  if show.odd_lot_ask_long_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment then
-    show.odd_lot_ask_long_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment
-  end
-  if show.odd_lot_ask_short_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment then
-    show.odd_lot_ask_short_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment
-  end
-  if show.odd_lot_bid_adf_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment then
-    show.odd_lot_bid_adf_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment
-  end
-  if show.odd_lot_bid_long_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment then
-    show.odd_lot_bid_long_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment
-  end
-  if show.odd_lot_bid_short_form_attachment ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment then
-    show.odd_lot_bid_short_form_attachment = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment
-  end
-  if show.packet ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_packet then
-    show.packet = omi_nasdaq_utp_input_utp_v4_0.prefs.show_packet
-  end
-  if show.return_administrative_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_administrative_messages_message then
-    show.return_administrative_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_administrative_messages_message
-  end
-  if show.return_control_messages_message ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_control_messages_message then
-    show.return_control_messages_message = omi_nasdaq_utp_input_utp_v4_0.prefs.show_return_control_messages_message
+  if show.repeating_groups ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups
   end
   if show.session_messages ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages
   end
-  if show.tcp_packet_header ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_tcp_packet_header then
-    show.tcp_packet_header = omi_nasdaq_utp_input_utp_v4_0.prefs.show_tcp_packet_header
+  if show.structs ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_structs then
+    show.structs = omi_nasdaq_utp_input_utp_v4_0.prefs.show_structs
   end
-  if show.odd_lot_bid_short_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment_index then
-    show.odd_lot_bid_short_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_short_form_attachment_index
-  end
-  if show.odd_lot_ask_short_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment_index then
-    show.odd_lot_ask_short_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_short_form_attachment_index
-  end
-  if show.odd_lot_bid_long_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment_index then
-    show.odd_lot_bid_long_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_long_form_attachment_index
-  end
-  if show.odd_lot_ask_long_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment_index then
-    show.odd_lot_ask_long_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_long_form_attachment_index
-  end
-  if show.odd_lot_bid_adf_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment_index then
-    show.odd_lot_bid_adf_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_bid_adf_form_attachment_index
-  end
-  if show.odd_lot_ask_adf_form_attachment_index ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment_index then
-    show.odd_lot_ask_adf_form_attachment_index = omi_nasdaq_utp_input_utp_v4_0.prefs.show_odd_lot_ask_adf_form_attachment_index
+  if show.indexes ~= omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes then
+    show.indexes = omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes
   end
 end
 
@@ -3519,7 +3429,7 @@ end
 
 -- Dissect: Return Control Messages Message
 nasdaq_utp_input_utp_v4_0.return_control_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.return_control_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.return_control_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.return_control_messages_message.fields(buffer, offset, packet, parent)
@@ -3985,7 +3895,7 @@ end
 
 -- Dissect: Return Administrative Messages Message
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.return_administrative_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.return_administrative_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.return_administrative_messages_message.fields(buffer, offset, packet, parent)
@@ -4219,7 +4129,7 @@ end
 
 -- Dissect: Inbound Control Messages Message
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_control_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.inbound_control_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.inbound_control_messages_message.fields(buffer, offset, packet, parent)
@@ -4945,7 +4855,7 @@ end
 
 -- Dissect: Inbound Administrative Messages Message
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_administrative_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.inbound_administrative_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message.fields(buffer, offset, packet, parent)
@@ -5807,7 +5717,7 @@ end
 
 -- Dissect: Inbound Trade Messages Message
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_trade_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.inbound_trade_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message.fields(buffer, offset, packet, parent)
@@ -5842,7 +5752,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment.fields = function(buff
   local index = offset
 
   -- Implicit Odd Lot Ask Adf Form Attachment Index
-  if odd_lot_ask_adf_form_attachment_index ~= nil and show.odd_lot_ask_adf_form_attachment_index then
+  if odd_lot_ask_adf_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_adf_form_attachment_index, odd_lot_ask_adf_form_attachment_index)
     iteration:set_generated()
   end
@@ -5861,7 +5771,7 @@ end
 
 -- Dissect: Odd Lot Ask Adf Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_ask_adf_form_attachment_index)
-  if show.odd_lot_ask_adf_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_adf_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment.fields(buffer, offset, packet, parent, odd_lot_ask_adf_form_attachment_index)
@@ -5896,7 +5806,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment.fields = function(buff
   local index = offset
 
   -- Implicit Odd Lot Bid Adf Form Attachment Index
-  if odd_lot_bid_adf_form_attachment_index ~= nil and show.odd_lot_bid_adf_form_attachment_index then
+  if odd_lot_bid_adf_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_adf_form_attachment_index, odd_lot_bid_adf_form_attachment_index)
     iteration:set_generated()
   end
@@ -5915,7 +5825,7 @@ end
 
 -- Dissect: Odd Lot Bid Adf Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_bid_adf_form_attachment_index)
-  if show.odd_lot_bid_adf_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_adf_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment.fields(buffer, offset, packet, parent, odd_lot_bid_adf_form_attachment_index)
@@ -6415,7 +6325,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment.fields = function(buf
   local index = offset
 
   -- Implicit Odd Lot Ask Long Form Attachment Index
-  if odd_lot_ask_long_form_attachment_index ~= nil and show.odd_lot_ask_long_form_attachment_index then
+  if odd_lot_ask_long_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_long_form_attachment_index, odd_lot_ask_long_form_attachment_index)
     iteration:set_generated()
   end
@@ -6431,7 +6341,7 @@ end
 
 -- Dissect: Odd Lot Ask Long Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_ask_long_form_attachment_index)
-  if show.odd_lot_ask_long_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_long_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment.fields(buffer, offset, packet, parent, odd_lot_ask_long_form_attachment_index)
@@ -6465,7 +6375,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment.fields = function(buf
   local index = offset
 
   -- Implicit Odd Lot Bid Long Form Attachment Index
-  if odd_lot_bid_long_form_attachment_index ~= nil and show.odd_lot_bid_long_form_attachment_index then
+  if odd_lot_bid_long_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_long_form_attachment_index, odd_lot_bid_long_form_attachment_index)
     iteration:set_generated()
   end
@@ -6481,7 +6391,7 @@ end
 
 -- Dissect: Odd Lot Bid Long Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_bid_long_form_attachment_index)
-  if show.odd_lot_bid_long_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_long_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment.fields(buffer, offset, packet, parent, odd_lot_bid_long_form_attachment_index)
@@ -6638,7 +6548,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment.fields = function(bu
   local index = offset
 
   -- Implicit Odd Lot Ask Short Form Attachment Index
-  if odd_lot_ask_short_form_attachment_index ~= nil and show.odd_lot_ask_short_form_attachment_index then
+  if odd_lot_ask_short_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_short_form_attachment_index, odd_lot_ask_short_form_attachment_index)
     iteration:set_generated()
   end
@@ -6654,7 +6564,7 @@ end
 
 -- Dissect: Odd Lot Ask Short Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_ask_short_form_attachment_index)
-  if show.odd_lot_ask_short_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_short_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment.fields(buffer, offset, packet, parent, odd_lot_ask_short_form_attachment_index)
@@ -6688,7 +6598,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment.fields = function(bu
   local index = offset
 
   -- Implicit Odd Lot Bid Short Form Attachment Index
-  if odd_lot_bid_short_form_attachment_index ~= nil and show.odd_lot_bid_short_form_attachment_index then
+  if odd_lot_bid_short_form_attachment_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_short_form_attachment_index, odd_lot_bid_short_form_attachment_index)
     iteration:set_generated()
   end
@@ -6704,7 +6614,7 @@ end
 
 -- Dissect: Odd Lot Bid Short Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment.dissect = function(buffer, offset, packet, parent, odd_lot_bid_short_form_attachment_index)
-  if show.odd_lot_bid_short_form_attachment then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_short_form_attachment, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment.fields(buffer, offset, packet, parent, odd_lot_bid_short_form_attachment_index)
@@ -7275,7 +7185,7 @@ end
 
 -- Dissect: Inbound Quote Messages Message
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_quote_messages_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.inbound_quote_messages_message, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message.fields(buffer, offset, packet, parent)
@@ -7352,7 +7262,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_utp_input_utp_v4_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.message_header.fields(buffer, offset, packet, parent)
@@ -7553,7 +7463,7 @@ end
 
 -- Dissect: Tcp Packet Header
 nasdaq_utp_input_utp_v4_0.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.tcp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_utp_input_utp_v4_0.tcp_packet_header.fields(buffer, offset, packet, parent)

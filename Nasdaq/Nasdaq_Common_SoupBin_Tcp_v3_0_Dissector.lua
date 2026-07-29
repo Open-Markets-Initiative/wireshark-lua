@@ -49,32 +49,22 @@ local show = {}
 
 -- Nasdaq Common SoupBin Tcp 3.0 Element Dissection Options
 show.session_messages = true
-show.packet = true
-show.packet_header = true
-show.soup_bin_tcp_packet = true
+show.structs = true
 
 -- Register Nasdaq Common SoupBin Tcp 3.0 Show Options
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet then
-    show.packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header then
-    show.packet_header = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_packet_header
-  end
   if show.session_messages ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages
   end
-  if show.soup_bin_tcp_packet ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_soup_bin_tcp_packet
+  if show.structs ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs then
+    show.structs = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs
   end
 end
 
@@ -877,7 +867,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_common_soupbin_tcp_v3_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.packet_header.fields(buffer, offset, packet, parent)
@@ -922,7 +912,7 @@ nasdaq_common_soupbin_tcp_v3_0.soup_bin_tcp_packet.dissect = function(buffer, of
   local index = offset + size_of_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.soup_bin_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = nasdaq_common_soupbin_tcp_v3_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)

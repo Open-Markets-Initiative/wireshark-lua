@@ -99,22 +99,14 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message In
 local show = {}
 
 -- Siac Cqs Snapshot Cta 1.0 Element Dissection Options
-show.block_header = true
+show.structs = true
 show.application_messages = true
-show.message = true
-show.packet = true
-show.sip_block_timestamp = true
-show.snapshot_message = true
-show.message_index = true
+show.indexes = true
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp = Pref.bool("Show Sip Block Timestamp", show.sip_block_timestamp, "Parse and add Sip Block Timestamp to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_message = Pref.bool("Show Snapshot Message", show.snapshot_message, "Parse and add Snapshot Message to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -124,23 +116,11 @@ function omi_siac_cqs_snapshot_cta_v1_0.prefs_changed()
   if show.application_messages ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages
   end
-  if show.block_header ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header then
-    show.block_header = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_block_header
+  if show.structs ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs then
+    show.structs = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs
   end
-  if show.message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message then
-    show.message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message
-  end
-  if show.packet ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet then
-    show.packet = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_packet
-  end
-  if show.sip_block_timestamp ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp then
-    show.sip_block_timestamp = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_sip_block_timestamp
-  end
-  if show.snapshot_message ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_message then
-    show.snapshot_message = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_snapshot_message
-  end
-  if show.message_index ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_index then
-    show.message_index = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_message_index
+  if show.indexes ~= omi_siac_cqs_snapshot_cta_v1_0.prefs.show_indexes then
+    show.indexes = omi_siac_cqs_snapshot_cta_v1_0.prefs.show_indexes
   end
 end
 
@@ -2849,7 +2829,7 @@ end
 
 -- Dissect: Snapshot Message
 siac_cqs_snapshot_cta_v1_0.snapshot_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0.snapshot_message.fields(buffer, offset, packet, parent)
@@ -2907,7 +2887,7 @@ siac_cqs_snapshot_cta_v1_0.message.fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2926,7 +2906,7 @@ end
 
 -- Dissect: Message
 siac_cqs_snapshot_cta_v1_0.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0.message.fields(buffer, offset, packet, parent, message_index)
@@ -2970,7 +2950,7 @@ end
 
 -- Dissect: Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.sip_block_timestamp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.fields(buffer, offset, packet, parent)
@@ -3042,7 +3022,7 @@ end
 
 -- Dissect: Block Header
 siac_cqs_snapshot_cta_v1_0.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.block_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0.block_header.fields(buffer, offset, packet, parent)

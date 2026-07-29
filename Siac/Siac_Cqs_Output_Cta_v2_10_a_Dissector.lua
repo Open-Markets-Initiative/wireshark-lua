@@ -145,103 +145,28 @@ omi_siac_cqs_output_cta_v2_10_a.fields.message_index = ProtoField.new("Message I
 local show = {}
 
 -- Siac Cqs Output Cta 2.10.a Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.block_header = true
-show.control_message = true
-show.market_status_message = true
-show.message = true
-show.national_best_bid_and_offer_long_appendage = true
-show.national_best_bid_and_offer_short_appendage = true
-show.national_best_bid_long_appendage = true
-show.national_best_bid_short_appendage = true
-show.national_best_offer_long_appendage = true
-show.national_best_offer_short_appendage = true
-show.packet = true
-show.quote_message = true
-show.sip_block_timestamp = true
-show.timestamp_1 = true
-show.timestamp_2 = true
-show.message_index = true
+show.indexes = true
 
 -- Register Siac Cqs Output Cta 2.10.a Show Options
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_siac_cqs_output_cta_v2_10_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_output_cta_v2_10_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_market_status_message = Pref.bool("Show Market Status Message", show.market_status_message, "Parse and add Market Status Message to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_long_appendage = Pref.bool("Show National Best Bid And Offer Long Appendage", show.national_best_bid_and_offer_long_appendage, "Parse and add National Best Bid And Offer Long Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_short_appendage = Pref.bool("Show National Best Bid And Offer Short Appendage", show.national_best_bid_and_offer_short_appendage, "Parse and add National Best Bid And Offer Short Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_long_appendage = Pref.bool("Show National Best Bid Long Appendage", show.national_best_bid_long_appendage, "Parse and add National Best Bid Long Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_short_appendage = Pref.bool("Show National Best Bid Short Appendage", show.national_best_bid_short_appendage, "Parse and add National Best Bid Short Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_long_appendage = Pref.bool("Show National Best Offer Long Appendage", show.national_best_offer_long_appendage, "Parse and add National Best Offer Long Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_short_appendage = Pref.bool("Show National Best Offer Short Appendage", show.national_best_offer_short_appendage, "Parse and add National Best Offer Short Appendage to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_sip_block_timestamp = Pref.bool("Show SIP Block Timestamp", show.sip_block_timestamp, "Parse and add SIP Block Timestamp to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_1 = Pref.bool("Show Timestamp 1", show.timestamp_1, "Parse and add Timestamp 1 to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_2 = Pref.bool("Show Timestamp 2", show.timestamp_2, "Parse and add Timestamp 2 to protocol tree")
-omi_siac_cqs_output_cta_v2_10_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_siac_cqs_output_cta_v2_10_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v2_10_a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_administrative_message then
-    show.administrative_message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_output_cta_v2_10_a.prefs.show_application_messages
   end
-  if show.block_header ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_block_header then
-    show.block_header = omi_siac_cqs_output_cta_v2_10_a.prefs.show_block_header
+  if show.structs ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_structs then
+    show.structs = omi_siac_cqs_output_cta_v2_10_a.prefs.show_structs
   end
-  if show.control_message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_control_message then
-    show.control_message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_control_message
-  end
-  if show.market_status_message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_market_status_message then
-    show.market_status_message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_market_status_message
-  end
-  if show.message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_message then
-    show.message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_message
-  end
-  if show.national_best_bid_and_offer_long_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_long_appendage then
-    show.national_best_bid_and_offer_long_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_long_appendage
-  end
-  if show.national_best_bid_and_offer_short_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_short_appendage then
-    show.national_best_bid_and_offer_short_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_and_offer_short_appendage
-  end
-  if show.national_best_bid_long_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_long_appendage then
-    show.national_best_bid_long_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_long_appendage
-  end
-  if show.national_best_bid_short_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_short_appendage then
-    show.national_best_bid_short_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_bid_short_appendage
-  end
-  if show.national_best_offer_long_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_long_appendage then
-    show.national_best_offer_long_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_long_appendage
-  end
-  if show.national_best_offer_short_appendage ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_short_appendage then
-    show.national_best_offer_short_appendage = omi_siac_cqs_output_cta_v2_10_a.prefs.show_national_best_offer_short_appendage
-  end
-  if show.packet ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_packet then
-    show.packet = omi_siac_cqs_output_cta_v2_10_a.prefs.show_packet
-  end
-  if show.quote_message ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_quote_message then
-    show.quote_message = omi_siac_cqs_output_cta_v2_10_a.prefs.show_quote_message
-  end
-  if show.sip_block_timestamp ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_sip_block_timestamp then
-    show.sip_block_timestamp = omi_siac_cqs_output_cta_v2_10_a.prefs.show_sip_block_timestamp
-  end
-  if show.timestamp_1 ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_1 then
-    show.timestamp_1 = omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_1
-  end
-  if show.timestamp_2 ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_2 then
-    show.timestamp_2 = omi_siac_cqs_output_cta_v2_10_a.prefs.show_timestamp_2
-  end
-  if show.message_index ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_message_index then
-    show.message_index = omi_siac_cqs_output_cta_v2_10_a.prefs.show_message_index
+  if show.indexes ~= omi_siac_cqs_output_cta_v2_10_a.prefs.show_indexes then
+    show.indexes = omi_siac_cqs_output_cta_v2_10_a.prefs.show_indexes
   end
 end
 
@@ -3002,7 +2927,7 @@ end
 
 -- Dissect: National Best Bid And Offer Short Appendage
 siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_short_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_and_offer_short_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_bid_and_offer_short_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_short_appendage.fields(buffer, offset, packet, parent)
@@ -3050,7 +2975,7 @@ end
 
 -- Dissect: National Best Offer Short Appendage
 siac_cqs_output_cta_v2_10_a.national_best_offer_short_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_offer_short_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_offer_short_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_offer_short_appendage.fields(buffer, offset, packet, parent)
@@ -3098,7 +3023,7 @@ end
 
 -- Dissect: National Best Bid Short Appendage
 siac_cqs_output_cta_v2_10_a.national_best_bid_short_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_short_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_bid_short_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_bid_short_appendage.fields(buffer, offset, packet, parent)
@@ -3174,7 +3099,7 @@ end
 
 -- Dissect: National Best Bid And Offer Long Appendage
 siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_long_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_and_offer_long_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_bid_and_offer_long_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_long_appendage.fields(buffer, offset, packet, parent)
@@ -3230,7 +3155,7 @@ end
 
 -- Dissect: National Best Offer Long Appendage
 siac_cqs_output_cta_v2_10_a.national_best_offer_long_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_offer_long_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_offer_long_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_offer_long_appendage.fields(buffer, offset, packet, parent)
@@ -3286,7 +3211,7 @@ end
 
 -- Dissect: National Best Bid Long Appendage
 siac_cqs_output_cta_v2_10_a.national_best_bid_long_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_long_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.national_best_bid_long_appendage, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.national_best_bid_long_appendage.fields(buffer, offset, packet, parent)
@@ -3343,7 +3268,7 @@ end
 
 -- Dissect: Timestamp 2
 siac_cqs_output_cta_v2_10_a.timestamp_2.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_2 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_2, buffer(offset, 0))
     local index, value = siac_cqs_output_cta_v2_10_a.timestamp_2.fields(buffer, offset, packet, parent)
@@ -3400,7 +3325,7 @@ end
 
 -- Dissect: Timestamp 1
 siac_cqs_output_cta_v2_10_a.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_1 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_1, buffer(offset, 0))
     local index, value = siac_cqs_output_cta_v2_10_a.timestamp_1.fields(buffer, offset, packet, parent)
@@ -4337,7 +4262,7 @@ end
 
 -- Dissect: Quote Message
 siac_cqs_output_cta_v2_10_a.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.quote_message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.quote_message.fields(buffer, offset, packet, parent)
@@ -4543,7 +4468,7 @@ end
 
 -- Dissect: Market Status Message
 siac_cqs_output_cta_v2_10_a.market_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.market_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.market_status_message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.market_status_message.fields(buffer, offset, packet, parent)
@@ -5025,7 +4950,7 @@ end
 
 -- Dissect: Control Message
 siac_cqs_output_cta_v2_10_a.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.control_message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.control_message.fields(buffer, offset, packet, parent)
@@ -5219,7 +5144,7 @@ end
 
 -- Dissect: Administrative Message
 siac_cqs_output_cta_v2_10_a.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.administrative_message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.administrative_message.fields(buffer, offset, packet, parent)
@@ -5289,7 +5214,7 @@ siac_cqs_output_cta_v2_10_a.message.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5308,7 +5233,7 @@ end
 
 -- Dissect: Message
 siac_cqs_output_cta_v2_10_a.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.message.fields(buffer, offset, packet, parent, message_index)
@@ -5365,7 +5290,7 @@ end
 
 -- Dissect: SIP Block Timestamp
 siac_cqs_output_cta_v2_10_a.sip_block_timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.sip_block_timestamp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.sip_block_timestamp, buffer(offset, 0))
     local index, value = siac_cqs_output_cta_v2_10_a.sip_block_timestamp.fields(buffer, offset, packet, parent)
@@ -5433,7 +5358,7 @@ end
 
 -- Dissect: Block Header
 siac_cqs_output_cta_v2_10_a.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.block_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_output_cta_v2_10_a.block_header.fields(buffer, offset, packet, parent)

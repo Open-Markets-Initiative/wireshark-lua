@@ -83,98 +83,23 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.ne
 local show = {}
 
 -- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Element Dissection Options
-show.complex_crossing_rfq_message = true
-show.complex_cube_rfq_message = true
-show.complex_quote_message = true
-show.complex_status_message = true
-show.complex_symbol_definition_message = true
-show.complex_trade_message = true
-show.leg_definition = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.refresh_complex_quote_message = true
-show.refresh_complex_trade_message = true
-show.sequence_number_reset_message = true
-show.stream_id_message = true
-show.message_index = true
-show.leg_definition_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse ArcaOptions ComplexFeed Xdp 1.3.a Show Options
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message = Pref.bool("Show Complex Crossing Rfq Message", show.complex_crossing_rfq_message, "Parse and add Complex Crossing Rfq Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message = Pref.bool("Show Complex Cube Rfq Message", show.complex_cube_rfq_message, "Parse and add Complex Cube Rfq Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message = Pref.bool("Show Complex Quote Message", show.complex_quote_message, "Parse and add Complex Quote Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message = Pref.bool("Show Complex Status Message", show.complex_status_message, "Parse and add Complex Status Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message = Pref.bool("Show Complex Symbol Definition Message", show.complex_symbol_definition_message, "Parse and add Complex Symbol Definition Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message = Pref.bool("Show Complex Trade Message", show.complex_trade_message, "Parse and add Complex Trade Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message = Pref.bool("Show Refresh Complex Quote Message", show.refresh_complex_quote_message, "Parse and add Refresh Complex Quote Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message = Pref.bool("Show Refresh Complex Trade Message", show.refresh_complex_trade_message, "Parse and add Refresh Complex Trade Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.complex_crossing_rfq_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message then
-    show.complex_crossing_rfq_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_crossing_rfq_message
+  if show.structs ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs then
+    show.structs = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs
   end
-  if show.complex_cube_rfq_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message then
-    show.complex_cube_rfq_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_cube_rfq_message
-  end
-  if show.complex_quote_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message then
-    show.complex_quote_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_quote_message
-  end
-  if show.complex_status_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message then
-    show.complex_status_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_status_message
-  end
-  if show.complex_symbol_definition_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message then
-    show.complex_symbol_definition_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_symbol_definition_message
-  end
-  if show.complex_trade_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message then
-    show.complex_trade_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_complex_trade_message
-  end
-  if show.leg_definition ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition then
-    show.leg_definition = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition
-  end
-  if show.message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message then
-    show.message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message
-  end
-  if show.message_header ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_header then
-    show.message_header = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_header
-  end
-  if show.packet ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet then
-    show.packet = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet_header then
-    show.packet_header = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_packet_header
-  end
-  if show.refresh_complex_quote_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message then
-    show.refresh_complex_quote_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_quote_message
-  end
-  if show.refresh_complex_trade_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message then
-    show.refresh_complex_trade_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_refresh_complex_trade_message
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
-  end
-  if show.stream_id_message ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message then
-    show.stream_id_message = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_stream_id_message
-  end
-  if show.message_index ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_index then
-    show.message_index = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_message_index
-  end
-  if show.leg_definition_index ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index then
-    show.leg_definition_index = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_leg_definition_index
+  if show.indexes ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes then
+    show.indexes = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes
   end
 end
 
@@ -1335,7 +1260,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1379,7 +1304,7 @@ end
 
 -- Dissect: Stream Id Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
@@ -1415,7 +1340,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer,
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.leg_definition_index then
+  if leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -1437,7 +1362,7 @@ end
 
 -- Dissect: Leg Definition
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.leg_definition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -1531,7 +1456,7 @@ end
 
 -- Dissect: Complex Symbol Definition Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_symbol_definition_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.fields(buffer, offset, packet, parent)
@@ -1607,7 +1532,7 @@ end
 
 -- Dissect: Refresh Complex Trade Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_complex_trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.fields(buffer, offset, packet, parent)
@@ -1695,7 +1620,7 @@ end
 
 -- Dissect: Refresh Complex Quote Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_complex_quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.fields(buffer, offset, packet, parent)
@@ -1759,7 +1684,7 @@ end
 
 -- Dissect: Complex Status Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_status_message.fields(buffer, offset, packet, parent)
@@ -1827,7 +1752,7 @@ end
 
 -- Dissect: Complex Cube Rfq Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_cube_rfq_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.fields(buffer, offset, packet, parent)
@@ -1895,7 +1820,7 @@ end
 
 -- Dissect: Complex Crossing Rfq Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_crossing_rfq_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.fields(buffer, offset, packet, parent)
@@ -1971,7 +1896,7 @@ end
 
 -- Dissect: Complex Trade Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_trade_message.fields(buffer, offset, packet, parent)
@@ -2059,7 +1984,7 @@ end
 
 -- Dissect: Complex Quote Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.complex_quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_quote_message.fields(buffer, offset, packet, parent)
@@ -2152,7 +2077,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.message_header.fields(buffer, offset, packet, parent)
@@ -2181,7 +2106,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.message.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2203,7 +2128,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.message.dissect = function(buffer, offse
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message, buffer(offset, 0))
     local current = nyse_arcaoptions_complexfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2263,7 +2188,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.fields(buffer, offset, packet, parent)

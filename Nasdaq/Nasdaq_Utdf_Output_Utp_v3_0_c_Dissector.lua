@@ -161,83 +161,33 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message
 local show = {}
 
 -- Nasdaq Utdf Output Utp 3.0.c Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.control_message = true
-show.market_center_closing_price_and_volume_summary = true
-show.market_center_volume_group = true
-show.message = true
-show.message_header = true
-show.mold_udp_64_packet = true
-show.total_consolidated_volume_message = true
-show.trade_message = true
-show.udp_packet_header = true
-show.message_index = true
-show.market_center_closing_price_and_volume_summary_index = true
-show.market_center_volume_group_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nasdaq Utdf Output Utp 3.0.c Show Options
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary = Pref.bool("Show Market Center Closing Price And Volume Summary", show.market_center_closing_price_and_volume_summary, "Parse and add Market Center Closing Price And Volume Summary to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group = Pref.bool("Show Market Center Volume Group", show.market_center_volume_group, "Parse and add Market Center Volume Group to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet = Pref.bool("Show Mold Udp 64 Packet", show.mold_udp_64_packet, "Parse and add Mold Udp 64 Packet to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_total_consolidated_volume_message = Pref.bool("Show Total Consolidated Volume Message", show.total_consolidated_volume_message, "Parse and add Total Consolidated Volume Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_udp_packet_header = Pref.bool("Show Udp Packet Header", show.udp_packet_header, "Parse and add Udp Packet Header to protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary_index = Pref.bool("Show Market Center Closing Price And Volume Summary Index", show.market_center_closing_price_and_volume_summary_index, "Show generated market center closing price and volume summary index in protocol tree")
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group_index = Pref.bool("Show Market Center Volume Group Index", show.market_center_volume_group_index, "Show generated market center volume group index in protocol tree")
+omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v3_0_c.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_administrative_message then
-    show.administrative_message = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_application_messages
   end
-  if show.control_message ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_control_message then
-    show.control_message = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_control_message
+  if show.repeating_groups ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_repeating_groups
   end
-  if show.market_center_closing_price_and_volume_summary ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary then
-    show.market_center_closing_price_and_volume_summary = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary
+  if show.structs ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_structs then
+    show.structs = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_structs
   end
-  if show.market_center_volume_group ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group then
-    show.market_center_volume_group = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group
-  end
-  if show.message ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message then
-    show.message = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message
-  end
-  if show.message_header ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_header then
-    show.message_header = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_header
-  end
-  if show.mold_udp_64_packet ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet then
-    show.mold_udp_64_packet = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet
-  end
-  if show.total_consolidated_volume_message ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_total_consolidated_volume_message then
-    show.total_consolidated_volume_message = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_total_consolidated_volume_message
-  end
-  if show.trade_message ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_trade_message then
-    show.trade_message = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_trade_message
-  end
-  if show.udp_packet_header ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_udp_packet_header then
-    show.udp_packet_header = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_udp_packet_header
-  end
-  if show.message_index ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_index then
-    show.message_index = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_message_index
-  end
-  if show.market_center_closing_price_and_volume_summary_index ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary_index then
-    show.market_center_closing_price_and_volume_summary_index = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_closing_price_and_volume_summary_index
-  end
-  if show.market_center_volume_group_index ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group_index then
-    show.market_center_volume_group_index = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_market_center_volume_group_index
+  if show.indexes ~= omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_indexes then
+    show.indexes = omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_indexes
   end
 end
 
@@ -3786,7 +3736,7 @@ end
 
 -- Dissect: Control Message
 nasdaq_utdf_output_utp_v3_0_c.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.control_message, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.control_message.fields(buffer, offset, packet, parent)
@@ -3820,7 +3770,7 @@ nasdaq_utdf_output_utp_v3_0_c.market_center_volume_group.fields = function(buffe
   local index = offset
 
   -- Implicit Market Center Volume Group Index
-  if market_center_volume_group_index ~= nil and show.market_center_volume_group_index then
+  if market_center_volume_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_volume_group_index, market_center_volume_group_index)
     iteration:set_generated()
   end
@@ -3836,7 +3786,7 @@ end
 
 -- Dissect: Market Center Volume Group
 nasdaq_utdf_output_utp_v3_0_c.market_center_volume_group.dissect = function(buffer, offset, packet, parent, market_center_volume_group_index)
-  if show.market_center_volume_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_volume_group, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.market_center_volume_group.fields(buffer, offset, packet, parent, market_center_volume_group_index)
@@ -3986,7 +3936,7 @@ end
 
 -- Dissect: Total Consolidated Volume Message
 nasdaq_utdf_output_utp_v3_0_c.total_consolidated_volume_message.dissect = function(buffer, offset, packet, parent)
-  if show.total_consolidated_volume_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.total_consolidated_volume_message, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.total_consolidated_volume_message.fields(buffer, offset, packet, parent)
@@ -4024,7 +3974,7 @@ nasdaq_utdf_output_utp_v3_0_c.market_center_closing_price_and_volume_summary.fie
   local index = offset
 
   -- Implicit Market Center Closing Price And Volume Summary Index
-  if market_center_closing_price_and_volume_summary_index ~= nil and show.market_center_closing_price_and_volume_summary_index then
+  if market_center_closing_price_and_volume_summary_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_closing_price_and_volume_summary_index, market_center_closing_price_and_volume_summary_index)
     iteration:set_generated()
   end
@@ -4052,7 +4002,7 @@ end
 
 -- Dissect: Market Center Closing Price And Volume Summary
 nasdaq_utdf_output_utp_v3_0_c.market_center_closing_price_and_volume_summary.dissect = function(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
-  if show.market_center_closing_price_and_volume_summary then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_closing_price_and_volume_summary, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.market_center_closing_price_and_volume_summary.fields(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
@@ -4936,7 +4886,7 @@ end
 
 -- Dissect: Administrative Message
 nasdaq_utdf_output_utp_v3_0_c.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.administrative_message, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.administrative_message.fields(buffer, offset, packet, parent)
@@ -6174,7 +6124,7 @@ end
 
 -- Dissect: Trade Message
 nasdaq_utdf_output_utp_v3_0_c.trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_message, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.trade_message.fields(buffer, offset, packet, parent)
@@ -6247,7 +6197,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_utdf_output_utp_v3_0_c.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_header, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.message_header.fields(buffer, offset, packet, parent)
@@ -6288,7 +6238,7 @@ nasdaq_utdf_output_utp_v3_0_c.message.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -6307,7 +6257,7 @@ end
 
 -- Dissect: Message
 nasdaq_utdf_output_utp_v3_0_c.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.message, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.message.fields(buffer, offset, packet, parent, message_index)
@@ -6412,7 +6362,7 @@ end
 
 -- Dissect: Udp Packet Header
 nasdaq_utdf_output_utp_v3_0_c.udp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.udp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header, buffer(offset, 0))
     local index = nasdaq_utdf_output_utp_v3_0_c.udp_packet_header.fields(buffer, offset, packet, parent)

@@ -80,28 +80,14 @@ omi_currenex_currenexforex_now_cbp_v10_0.fields.level_index = ProtoField.new("Le
 local show = {}
 
 -- Currenex CurrenexForex Now Cbp 10.0 Element Dissection Options
-show.bid = true
-show.conf_factor_25 = true
-show.conf_factor_50 = true
-show.conf_factor_75 = true
+show.structs = true
 show.application_messages = true
-show.level = true
-show.message_header = true
-show.offer = true
-show.packet = true
-show.level_index = true
+show.indexes = true
 
 -- Register Currenex CurrenexForex Now Cbp 10.0 Show Options
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_bid = Pref.bool("Show Bid", show.bid, "Parse and add Bid to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_25 = Pref.bool("Show Conf Factor 25", show.conf_factor_25, "Parse and add Conf Factor 25 to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_50 = Pref.bool("Show Conf Factor 50", show.conf_factor_50, "Parse and add Conf Factor 50 to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_75 = Pref.bool("Show Conf Factor 75", show.conf_factor_75, "Parse and add Conf Factor 75 to protocol tree")
+omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level = Pref.bool("Show Level", show.level, "Parse and add Level to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_offer = Pref.bool("Show Offer", show.offer, "Parse and add Offer to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level_index = Pref.bool("Show Level Index", show.level_index, "Show generated level index in protocol tree")
+omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -111,32 +97,11 @@ function omi_currenex_currenexforex_now_cbp_v10_0.prefs_changed()
   if show.application_messages ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_application_messages then
     show.application_messages = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_application_messages
   end
-  if show.bid ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_bid then
-    show.bid = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_bid
+  if show.structs ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_structs then
+    show.structs = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_structs
   end
-  if show.conf_factor_25 ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_25 then
-    show.conf_factor_25 = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_25
-  end
-  if show.conf_factor_50 ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_50 then
-    show.conf_factor_50 = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_50
-  end
-  if show.conf_factor_75 ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_75 then
-    show.conf_factor_75 = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_conf_factor_75
-  end
-  if show.level ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level then
-    show.level = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level
-  end
-  if show.message_header ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_message_header then
-    show.message_header = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_message_header
-  end
-  if show.offer ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_offer then
-    show.offer = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_offer
-  end
-  if show.packet ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_packet then
-    show.packet = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_packet
-  end
-  if show.level_index ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level_index then
-    show.level_index = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_level_index
+  if show.indexes ~= omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_indexes then
+    show.indexes = omi_currenex_currenexforex_now_cbp_v10_0.prefs.show_indexes
   end
 end
 
@@ -1203,7 +1168,7 @@ end
 
 -- Dissect: Conf Factor 25
 currenex_currenexforex_now_cbp_v10_0.conf_factor_25.dissect = function(buffer, offset, packet, parent)
-  if show.conf_factor_25 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.conf_factor_25, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.conf_factor_25.fields(buffer, offset, packet, parent)
@@ -1247,7 +1212,7 @@ end
 
 -- Dissect: Conf Factor 50
 currenex_currenexforex_now_cbp_v10_0.conf_factor_50.dissect = function(buffer, offset, packet, parent)
-  if show.conf_factor_50 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.conf_factor_50, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.conf_factor_50.fields(buffer, offset, packet, parent)
@@ -1291,7 +1256,7 @@ end
 
 -- Dissect: Conf Factor 75
 currenex_currenexforex_now_cbp_v10_0.conf_factor_75.dissect = function(buffer, offset, packet, parent)
-  if show.conf_factor_75 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.conf_factor_75, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.conf_factor_75.fields(buffer, offset, packet, parent)
@@ -1451,7 +1416,7 @@ end
 
 -- Dissect: Offer
 currenex_currenexforex_now_cbp_v10_0.offer.dissect = function(buffer, offset, packet, parent)
-  if show.offer then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.offer, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.offer.fields(buffer, offset, packet, parent)
@@ -1495,7 +1460,7 @@ end
 
 -- Dissect: Bid
 currenex_currenexforex_now_cbp_v10_0.bid.dissect = function(buffer, offset, packet, parent)
-  if show.bid then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.bid, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.bid.fields(buffer, offset, packet, parent)
@@ -1529,7 +1494,7 @@ currenex_currenexforex_now_cbp_v10_0.level.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Level Index
-  if level_index ~= nil and show.level_index then
+  if level_index ~= nil and show.indexes then
     local iteration = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.level_index, level_index)
     iteration:set_generated()
   end
@@ -1545,7 +1510,7 @@ end
 
 -- Dissect: Level
 currenex_currenexforex_now_cbp_v10_0.level.dissect = function(buffer, offset, packet, parent, level_index)
-  if show.level then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.level, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.level.fields(buffer, offset, packet, parent, level_index)
@@ -2164,7 +2129,7 @@ end
 
 -- Dissect: Message Header
 currenex_currenexforex_now_cbp_v10_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_currenex_currenexforex_now_cbp_v10_0.fields.message_header, buffer(offset, 0))
     local index = currenex_currenexforex_now_cbp_v10_0.message_header.fields(buffer, offset, packet, parent)

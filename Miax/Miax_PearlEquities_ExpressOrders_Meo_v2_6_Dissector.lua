@@ -168,108 +168,23 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.system_state_notification =
 local show = {}
 
 -- Miax PearlEquities ExpressOrders Meo 2.6 Element Dissection Options
-show.additional_liquidity_indicator = true
+show.structs = true
 show.application_messages = true
-show.esesm_packet_header = true
-show.esesm_tcp_packet = true
-show.goodbye_packet = true
-show.login_request = true
-show.login_response = true
-show.logout_request = true
-show.modify_order_instructions = true
-show.new_order_instructions = true
-show.order_execution_instructions = true
-show.packet = true
-show.retransmission_request = true
-show.routing = true
-show.self_trade_protection = true
-show.sequenced_data_packet = true
-show.synchronization_complete = true
-show.test_packet = true
-show.unsequenced_data_packet = true
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator = Pref.bool("Show Additional Liquidity Indicator", show.additional_liquidity_indicator, "Parse and add Additional Liquidity Indicator to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_packet_header = Pref.bool("Show Esesm Packet Header", show.esesm_packet_header, "Parse and add Esesm Packet Header to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet = Pref.bool("Show Esesm Tcp Packet", show.esesm_tcp_packet, "Parse and add Esesm Tcp Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions = Pref.bool("Show Modify Order Instructions", show.modify_order_instructions, "Parse and add Modify Order Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions = Pref.bool("Show New Order Instructions", show.new_order_instructions, "Parse and add New Order Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions = Pref.bool("Show Order Execution Instructions", show.order_execution_instructions, "Parse and add Order Execution Instructions to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_routing = Pref.bool("Show Routing", show.routing, "Parse and add Routing to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_self_trade_protection = Pref.bool("Show Self Trade Protection", show.self_trade_protection, "Parse and add Self Trade Protection to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
-omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
 
   -- Check if preferences have changed
-  if show.additional_liquidity_indicator ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator then
-    show.additional_liquidity_indicator = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_additional_liquidity_indicator
-  end
   if show.application_messages ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages
   end
-  if show.esesm_packet_header ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_packet_header then
-    show.esesm_packet_header = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_packet_header
-  end
-  if show.esesm_tcp_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet then
-    show.esesm_tcp_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_esesm_tcp_packet
-  end
-  if show.goodbye_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_goodbye_packet then
-    show.goodbye_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_goodbye_packet
-  end
-  if show.login_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_request then
-    show.login_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_request
-  end
-  if show.login_response ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_response then
-    show.login_response = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_login_response
-  end
-  if show.logout_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_logout_request then
-    show.logout_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_logout_request
-  end
-  if show.modify_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions then
-    show.modify_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_modify_order_instructions
-  end
-  if show.new_order_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions then
-    show.new_order_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_new_order_instructions
-  end
-  if show.order_execution_instructions ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions then
-    show.order_execution_instructions = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_order_execution_instructions
-  end
-  if show.packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet then
-    show.packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_packet
-  end
-  if show.retransmission_request ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_retransmission_request then
-    show.retransmission_request = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_retransmission_request
-  end
-  if show.routing ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_routing then
-    show.routing = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_routing
-  end
-  if show.self_trade_protection ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_self_trade_protection then
-    show.self_trade_protection = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_self_trade_protection
-  end
-  if show.sequenced_data_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_sequenced_data_packet
-  end
-  if show.synchronization_complete ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete then
-    show.synchronization_complete = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_synchronization_complete
-  end
-  if show.test_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet then
-    show.test_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_test_packet
-  end
-  if show.unsequenced_data_packet ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_unsequenced_data_packet
+  if show.structs ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs then
+    show.structs = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs
   end
 end
 
@@ -3429,7 +3344,7 @@ end
 
 -- Dissect: Test Packet
 miax_pearlequities_expressorders_meo_v2_6.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.test_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.test_packet, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.test_packet.fields(buffer, offset, packet, parent)
@@ -3486,7 +3401,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_pearlequities_expressorders_meo_v2_6.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.goodbye_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -3543,7 +3458,7 @@ end
 
 -- Dissect: Logout Request
 miax_pearlequities_expressorders_meo_v2_6.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.logout_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.logout_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.logout_request.fields(buffer, offset, packet, parent)
@@ -3587,7 +3502,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_expressorders_meo_v2_6.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.retransmission_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.retransmission_request.fields(buffer, offset, packet, parent)
@@ -3627,7 +3542,7 @@ end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_expressorders_meo_v2_6.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.synchronization_complete then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -3679,7 +3594,7 @@ end
 
 -- Dissect: Login Response
 miax_pearlequities_expressorders_meo_v2_6.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.login_response then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_response, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.login_response.fields(buffer, offset, packet, parent)
@@ -3739,7 +3654,7 @@ end
 
 -- Dissect: Login Request
 miax_pearlequities_expressorders_meo_v2_6.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.login_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_request, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.login_request.fields(buffer, offset, packet, parent)
@@ -3787,7 +3702,7 @@ miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.dissect
   local display = miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.additional_liquidity_indicator, range, display)
 
-  if show.additional_liquidity_indicator then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits(range, value, packet, element)
   end
 
@@ -3830,7 +3745,7 @@ miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.dissect =
   local display = miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.order_execution_instructions, range, display)
 
-  if show.order_execution_instructions then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.order_execution_instructions.bits(range, value, packet, element)
   end
 
@@ -4508,7 +4423,7 @@ miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.dissect = fu
   local display = miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.modify_order_instructions, range, display)
 
-  if show.modify_order_instructions then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits(range, value, packet, element)
   end
 
@@ -4706,7 +4621,7 @@ miax_pearlequities_expressorders_meo_v2_6.routing.dissect = function(buffer, off
   local display = miax_pearlequities_expressorders_meo_v2_6.routing.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing, range, display)
 
-  if show.routing then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.routing.bits(range, value, packet, element)
   end
 
@@ -4748,7 +4663,7 @@ miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.dissect = functi
   local display = miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection, range, display)
 
-  if show.self_trade_protection then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits(range, value, packet, element)
   end
 
@@ -4842,7 +4757,7 @@ miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.dissect = funct
   local display = miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.new_order_instructions, range, display)
 
-  if show.new_order_instructions then
+  if show.structs then
     miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits(range, value, packet, element)
   end
 
@@ -5075,7 +4990,7 @@ miax_pearlequities_expressorders_meo_v2_6.unsequenced_data_packet.dissect = func
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = miax_pearlequities_expressorders_meo_v2_6.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -5711,7 +5626,7 @@ miax_pearlequities_expressorders_meo_v2_6.sequenced_data_packet.dissect = functi
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.sequenced_data_packet, buffer(offset, 0))
     local current = miax_pearlequities_expressorders_meo_v2_6.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -5812,7 +5727,7 @@ end
 
 -- Dissect: Esesm Packet Header
 miax_pearlequities_expressorders_meo_v2_6.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.esesm_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_packet_header, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.esesm_packet_header.fields(buffer, offset, packet, parent)
@@ -5857,7 +5772,7 @@ miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.dissect = function(bu
   local index = offset + size_of_esesm_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.esesm_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_tcp_packet, buffer(offset, 0))
     local current = miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
     parent:set_len(size_of_esesm_tcp_packet)

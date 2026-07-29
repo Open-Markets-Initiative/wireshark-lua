@@ -255,46 +255,16 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index = ProtoField.new("T
 local show = {}
 
 -- Tmx Mx Sola Multicast Hsvf 1.14 Element Dissection Options
-show.associated_product = true
+show.structs = true
 show.application_messages = true
-show.bond_definition = true
-show.future_option_symbol = true
-show.future_product = true
-show.market_depth_level = true
-show.message_header = true
-show.option_symbol = true
-show.packet = true
-show.regular_text_bulletin = true
-show.special_text_bulletin = true
-show.strategy_instrument_leg = true
-show.strategy_market_depth_level = true
-show.tick_entry = true
-show.market_depth_level_index = true
-show.strategy_market_depth_level_index = true
-show.strategy_instrument_leg_index = true
-show.bond_definition_index = true
-show.tick_entry_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Tmx Mx Sola Multicast Hsvf 1.14 Show Options
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product = Pref.bool("Show Associated Product", show.associated_product, "Parse and add Associated Product to protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition = Pref.bool("Show Bond Definition", show.bond_definition, "Parse and add Bond Definition to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol = Pref.bool("Show Future Option Symbol", show.future_option_symbol, "Parse and add Future Option Symbol to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product = Pref.bool("Show Future Product", show.future_product, "Parse and add Future Product to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol = Pref.bool("Show Option Symbol", show.option_symbol, "Parse and add Option Symbol to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin = Pref.bool("Show Regular Text Bulletin", show.regular_text_bulletin, "Parse and add Regular Text Bulletin to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin = Pref.bool("Show Special Text Bulletin", show.special_text_bulletin, "Parse and add Special Text Bulletin to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg = Pref.bool("Show Strategy Instrument Leg", show.strategy_instrument_leg, "Parse and add Strategy Instrument Leg to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level = Pref.bool("Show Strategy Market Depth Level", show.strategy_market_depth_level, "Parse and add Strategy Market Depth Level to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry = Pref.bool("Show Tick Entry", show.tick_entry, "Parse and add Tick Entry to protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index = Pref.bool("Show Market Depth Level Index", show.market_depth_level_index, "Show generated market depth level index in protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index = Pref.bool("Show Strategy Market Depth Level Index", show.strategy_market_depth_level_index, "Show generated strategy market depth level index in protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index = Pref.bool("Show Strategy Instrument Leg Index", show.strategy_instrument_leg_index, "Show generated strategy instrument leg index in protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index = Pref.bool("Show Bond Definition Index", show.bond_definition_index, "Show generated bond definition index in protocol tree")
-omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index = Pref.bool("Show Tick Entry Index", show.tick_entry_index, "Show generated tick entry index in protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -304,59 +274,14 @@ function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()
   if show.application_messages ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages then
     show.application_messages = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages
   end
-  if show.associated_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product then
-    show.associated_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_associated_product
+  if show.repeating_groups ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_repeating_groups then
+    show.repeating_groups = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_repeating_groups
   end
-  if show.bond_definition ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition then
-    show.bond_definition = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition
+  if show.structs ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_structs then
+    show.structs = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_structs
   end
-  if show.future_option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol then
-    show.future_option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_option_symbol
-  end
-  if show.future_product ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product then
-    show.future_product = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_future_product
-  end
-  if show.market_depth_level ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level then
-    show.market_depth_level = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level
-  end
-  if show.message_header ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header then
-    show.message_header = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_message_header
-  end
-  if show.option_symbol ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol then
-    show.option_symbol = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_option_symbol
-  end
-  if show.packet ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet then
-    show.packet = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_packet
-  end
-  if show.regular_text_bulletin ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin then
-    show.regular_text_bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_regular_text_bulletin
-  end
-  if show.special_text_bulletin ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin then
-    show.special_text_bulletin = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_special_text_bulletin
-  end
-  if show.strategy_instrument_leg ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg then
-    show.strategy_instrument_leg = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg
-  end
-  if show.strategy_market_depth_level ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level then
-    show.strategy_market_depth_level = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level
-  end
-  if show.tick_entry ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry then
-    show.tick_entry = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry
-  end
-  if show.market_depth_level_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index then
-    show.market_depth_level_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_market_depth_level_index
-  end
-  if show.strategy_market_depth_level_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index then
-    show.strategy_market_depth_level_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_market_depth_level_index
-  end
-  if show.strategy_instrument_leg_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index then
-    show.strategy_instrument_leg_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_strategy_instrument_leg_index
-  end
-  if show.bond_definition_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index then
-    show.bond_definition_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_bond_definition_index
-  end
-  if show.tick_entry_index ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index then
-    show.tick_entry_index = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_tick_entry_index
+  if show.indexes ~= omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_indexes then
+    show.indexes = omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_indexes
   end
 end
 
@@ -4799,7 +4724,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Tick Entry Index
-  if tick_entry_index ~= nil and show.tick_entry_index then
+  if tick_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry_index, tick_entry_index)
     iteration:set_generated()
   end
@@ -4821,7 +4746,7 @@ end
 
 -- Dissect: Tick Entry
 tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.dissect = function(buffer, offset, packet, parent, tick_entry_index)
-  if show.tick_entry then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_entry, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.fields(buffer, offset, packet, parent, tick_entry_index)
@@ -4982,7 +4907,7 @@ end
 
 -- Dissect: Special Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.dissect = function(buffer, offset, packet, parent)
-  if show.special_text_bulletin then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.special_text_bulletin, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.fields(buffer, offset, packet, parent)
@@ -5026,7 +4951,7 @@ end
 
 -- Dissect: Regular Text Bulletin
 tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.dissect = function(buffer, offset, packet, parent)
-  if show.regular_text_bulletin then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.regular_text_bulletin, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.regular_text_bulletin.fields(buffer, offset, packet, parent)
@@ -5139,7 +5064,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Bond Definition Index
-  if bond_definition_index ~= nil and show.bond_definition_index then
+  if bond_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition_index, bond_definition_index)
     iteration:set_generated()
   end
@@ -5167,7 +5092,7 @@ end
 
 -- Dissect: Bond Definition
 tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.dissect = function(buffer, offset, packet, parent, bond_definition_index)
-  if show.bond_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bond_definition, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.fields(buffer, offset, packet, parent, bond_definition_index)
@@ -5219,7 +5144,7 @@ end
 
 -- Dissect: Future Product
 tmx_mx_sola_multicast_hsvf_v1_14.future_product.dissect = function(buffer, offset, packet, parent)
-  if show.future_product then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_product, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_product.fields(buffer, offset, packet, parent)
@@ -5563,7 +5488,7 @@ end
 
 -- Dissect: Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.dissect = function(buffer, offset, packet, parent)
-  if show.option_symbol then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_symbol, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.option_symbol.fields(buffer, offset, packet, parent)
@@ -6283,7 +6208,7 @@ end
 
 -- Dissect: Future Option Symbol
 tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.dissect = function(buffer, offset, packet, parent)
-  if show.future_option_symbol then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.future_option_symbol, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.future_option_symbol.fields(buffer, offset, packet, parent)
@@ -6773,7 +6698,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.fields = function(buffe
   local index = offset
 
   -- Implicit Strategy Instrument Leg Index
-  if strategy_instrument_leg_index ~= nil and show.strategy_instrument_leg_index then
+  if strategy_instrument_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg_index, strategy_instrument_leg_index)
     iteration:set_generated()
   end
@@ -6801,7 +6726,7 @@ end
 
 -- Dissect: Strategy Instrument Leg
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.dissect = function(buffer, offset, packet, parent, strategy_instrument_leg_index)
-  if show.strategy_instrument_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_instrument_leg, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.fields(buffer, offset, packet, parent, strategy_instrument_leg_index)
@@ -7017,7 +6942,7 @@ end
 
 -- Dissect: Associated Product
 tmx_mx_sola_multicast_hsvf_v1_14.associated_product.dissect = function(buffer, offset, packet, parent)
-  if show.associated_product then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.associated_product, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.associated_product.fields(buffer, offset, packet, parent)
@@ -7784,7 +7709,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.fields = function(b
   local index = offset
 
   -- Implicit Strategy Market Depth Level Index
-  if strategy_market_depth_level_index ~= nil and show.strategy_market_depth_level_index then
+  if strategy_market_depth_level_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level_index, strategy_market_depth_level_index)
     iteration:set_generated()
   end
@@ -7827,7 +7752,7 @@ end
 
 -- Dissect: Strategy Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.dissect = function(buffer, offset, packet, parent, strategy_market_depth_level_index)
-  if show.strategy_market_depth_level then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_market_depth_level, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.fields(buffer, offset, packet, parent, strategy_market_depth_level_index)
@@ -7937,7 +7862,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.fields = function(buffer, of
   local index = offset
 
   -- Implicit Market Depth Level Index
-  if market_depth_level_index ~= nil and show.market_depth_level_index then
+  if market_depth_level_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()
   end
@@ -7974,7 +7899,7 @@ end
 
 -- Dissect: Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.dissect = function(buffer, offset, packet, parent, market_depth_level_index)
-  if show.market_depth_level then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.market_depth_level, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.market_depth_level.fields(buffer, offset, packet, parent, market_depth_level_index)
@@ -9486,7 +9411,7 @@ end
 
 -- Dissect: Message Header
 tmx_mx_sola_multicast_hsvf_v1_14.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_header, buffer(offset, 0))
     local index = tmx_mx_sola_multicast_hsvf_v1_14.message_header.fields(buffer, offset, packet, parent)

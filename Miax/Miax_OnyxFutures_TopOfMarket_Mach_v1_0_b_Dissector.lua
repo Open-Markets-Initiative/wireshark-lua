@@ -89,43 +89,33 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index = Proto
 local show = {}
 
 -- Miax OnyxFutures TopOfMarket Mach 1.0.b Element Dissection Options
-show.application_message = true
+show.structs = true
 show.application_messages = true
-show.instrument_leg = true
-show.mach_message = true
-show.packet = true
-show.instrument_leg_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Miax OnyxFutures TopOfMarket Mach 1.0.b Show Options
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message then
-    show.application_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_message
-  end
   if show.application_messages ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages then
     show.application_messages = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages
   end
-  if show.instrument_leg ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg then
-    show.instrument_leg = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg
+  if show.repeating_groups ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_repeating_groups
   end
-  if show.mach_message ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_mach_message then
-    show.mach_message = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_mach_message
+  if show.structs ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_structs then
+    show.structs = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_structs
   end
-  if show.packet ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet then
-    show.packet = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_packet
-  end
-  if show.instrument_leg_index ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index then
-    show.instrument_leg_index = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_instrument_leg_index
+  if show.indexes ~= omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_indexes then
+    show.indexes = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_indexes
   end
 end
 
@@ -1804,7 +1794,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.fields = function(buffer
   local index = offset
 
   -- Implicit Instrument Leg Index
-  if instrument_leg_index ~= nil and show.instrument_leg_index then
+  if instrument_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()
   end
@@ -1826,7 +1816,7 @@ end
 
 -- Dissect: Instrument Leg
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.dissect = function(buffer, offset, packet, parent, instrument_leg_index)
-  if show.instrument_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_leg.fields(buffer, offset, packet, parent, instrument_leg_index)
@@ -2210,7 +2200,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect = function(
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.application_message, buffer(offset, 0))
     local current = miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -2291,7 +2281,7 @@ end
 
 -- Dissect: Mach Message
 miax_onyxfutures_topofmarket_mach_v1_0_b.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mach_message, buffer(offset, 0))
     local index = miax_onyxfutures_topofmarket_mach_v1_0_b.mach_message.fields(buffer, offset, packet, parent)

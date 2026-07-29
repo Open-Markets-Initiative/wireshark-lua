@@ -60,42 +60,22 @@ local show = {}
 
 -- Nyse Options StreamProtocol PillarStream 1.6 Element Dissection Options
 show.session_messages = true
-show.msg_header = true
-show.seq_msg_header = true
-show.seq_msg_id = true
-show.sequenced_message = true
-show.stream_id = true
+show.structs = true
 
 -- Register Nyse Options StreamProtocol PillarStream 1.6 Show Options
 omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
+omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs_changed()
 
   -- Check if preferences have changed
-  if show.msg_header ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_msg_header then
-    show.msg_header = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_msg_header
-  end
-  if show.seq_msg_header ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_header then
-    show.seq_msg_header = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_header
-  end
-  if show.seq_msg_id ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_id then
-    show.seq_msg_id = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_seq_msg_id
-  end
-  if show.sequenced_message ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_sequenced_message then
-    show.sequenced_message = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_sequenced_message
-  end
   if show.session_messages ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages then
     show.session_messages = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages
   end
-  if show.stream_id ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_stream_id then
-    show.stream_id = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_stream_id
+  if show.structs ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_structs then
+    show.structs = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_structs
   end
 end
 
@@ -692,7 +672,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -740,7 +720,7 @@ nyse_options_streamprotocol_pillarstream_v1_6.sequenced_message.dissect = functi
   local index = offset + size_of_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_message then
+  if show.structs then
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.sequenced_message, buffer(offset, 0))
     local current = nyse_options_streamprotocol_pillarstream_v1_6.sequenced_message.fields(buffer, offset, packet, parent, size_of_sequenced_message)
     parent:set_len(size_of_sequenced_message)
@@ -784,7 +764,7 @@ end
 
 -- Dissect: Stream Id
 nyse_options_streamprotocol_pillarstream_v1_6.stream_id.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.stream_id, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.stream_id.fields(buffer, offset, packet, parent)
@@ -828,7 +808,7 @@ end
 
 -- Dissect: Seq Msg Id
 nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_id, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_id.fields(buffer, offset, packet, parent)
@@ -872,7 +852,7 @@ end
 
 -- Dissect: Msg Header
 nyse_options_streamprotocol_pillarstream_v1_6.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_header, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.msg_header.fields(buffer, offset, packet, parent)

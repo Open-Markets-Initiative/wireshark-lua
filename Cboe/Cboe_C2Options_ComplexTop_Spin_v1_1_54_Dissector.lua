@@ -108,26 +108,16 @@ omi_cboe_c2options_complextop_spin_v1_1_54.fields.message_index = ProtoField.new
 local show = {}
 
 -- Cboe C2Options ComplexTop Spin 1.1.54 Element Dissection Options
-show.bit_fields = true
+show.structs = true
 show.application_messages = true
-show.complex_leg = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
-show.complex_leg_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cboe C2Options ComplexTop Spin 1.1.54 Show Options
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_bit_fields = Pref.bool("Show Bit Fields", show.bit_fields, "Parse and add Bit Fields to protocol tree")
+omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg = Pref.bool("Show Complex Leg", show.complex_leg, "Parse and add Complex Leg to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg_index = Pref.bool("Show Complex Leg Index", show.complex_leg_index, "Show generated complex leg index in protocol tree")
+omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -137,29 +127,14 @@ function omi_cboe_c2options_complextop_spin_v1_1_54.prefs_changed()
   if show.application_messages ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_application_messages then
     show.application_messages = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_application_messages
   end
-  if show.bit_fields ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_bit_fields then
-    show.bit_fields = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_bit_fields
+  if show.repeating_groups ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_repeating_groups
   end
-  if show.complex_leg ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg then
-    show.complex_leg = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg
+  if show.structs ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_structs then
+    show.structs = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_structs
   end
-  if show.message ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message then
-    show.message = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message
-  end
-  if show.message_header ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_header then
-    show.message_header = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_header
-  end
-  if show.packet ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet then
-    show.packet = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet_header then
-    show.packet_header = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_index then
-    show.message_index = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_message_index
-  end
-  if show.complex_leg_index ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg_index then
-    show.complex_leg_index = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_complex_leg_index
+  if show.indexes ~= omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_indexes then
+    show.indexes = omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_indexes
   end
 end
 
@@ -1788,7 +1763,7 @@ cboe_c2options_complextop_spin_v1_1_54.bit_fields.dissect = function(buffer, off
   local display = cboe_c2options_complextop_spin_v1_1_54.bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.bit_fields, range, display)
 
-  if show.bit_fields then
+  if show.structs then
     cboe_c2options_complextop_spin_v1_1_54.bit_fields.bits(range, value, packet, element)
   end
 
@@ -2086,7 +2061,7 @@ cboe_c2options_complextop_spin_v1_1_54.complex_leg.fields = function(buffer, off
   local index = offset
 
   -- Implicit Complex Leg Index
-  if complex_leg_index ~= nil and show.complex_leg_index then
+  if complex_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.complex_leg_index, complex_leg_index)
     iteration:set_generated()
   end
@@ -2105,7 +2080,7 @@ end
 
 -- Dissect: Complex Leg
 cboe_c2options_complextop_spin_v1_1_54.complex_leg.dissect = function(buffer, offset, packet, parent, complex_leg_index)
-  if show.complex_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.complex_leg, buffer(offset, 0))
     local index = cboe_c2options_complextop_spin_v1_1_54.complex_leg.fields(buffer, offset, packet, parent, complex_leg_index)
@@ -2744,7 +2719,7 @@ end
 
 -- Dissect: Message Header
 cboe_c2options_complextop_spin_v1_1_54.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.message_header, buffer(offset, 0))
     local index = cboe_c2options_complextop_spin_v1_1_54.message_header.fields(buffer, offset, packet, parent)
@@ -2783,7 +2758,7 @@ cboe_c2options_complextop_spin_v1_1_54.message.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2806,7 +2781,7 @@ cboe_c2options_complextop_spin_v1_1_54.message.dissect = function(buffer, offset
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.message, buffer(offset, 0))
     local current = cboe_c2options_complextop_spin_v1_1_54.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2897,7 +2872,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c2options_complextop_spin_v1_1_54.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c2options_complextop_spin_v1_1_54.fields.packet_header, buffer(offset, 0))
     local index = cboe_c2options_complextop_spin_v1_1_54.packet_header.fields(buffer, offset, packet, parent)

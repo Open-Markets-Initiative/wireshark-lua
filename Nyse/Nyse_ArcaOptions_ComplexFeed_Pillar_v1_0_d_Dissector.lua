@@ -140,27 +140,13 @@ local show = {}
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Element Dissection Options
 show.application_messages = true
-show.leg_definition = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.send_time = true
-show.trade_condition = true
-show.message_index = true
-show.leg_definition_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse ArcaOptions ComplexFeed Pillar 1.0.d Show Options
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -170,32 +156,11 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
   if show.application_messages ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_application_messages
   end
-  if show.leg_definition ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition then
-    show.leg_definition = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition
+  if show.structs ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs then
+    show.structs = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs
   end
-  if show.message ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message then
-    show.message = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message
-  end
-  if show.message_header ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_header then
-    show.message_header = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_header
-  end
-  if show.packet ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet then
-    show.packet = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet_header then
-    show.packet_header = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_packet_header
-  end
-  if show.send_time ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_send_time then
-    show.send_time = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_send_time
-  end
-  if show.trade_condition ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_trade_condition then
-    show.trade_condition = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_trade_condition
-  end
-  if show.message_index ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_index then
-    show.message_index = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_message_index
-  end
-  if show.leg_definition_index ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index then
-    show.leg_definition_index = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_leg_definition_index
+  if show.indexes ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes then
+    show.indexes = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes
   end
 end
 
@@ -2848,7 +2813,7 @@ end
 
 -- Dissect: Trade Condition
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.trade_condition.dissect = function(buffer, offset, packet, parent)
-  if show.trade_condition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.trade_condition, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.trade_condition.fields(buffer, offset, packet, parent)
@@ -3032,7 +2997,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.fields = function(buff
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.leg_definition_index then
+  if leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -3054,7 +3019,7 @@ end
 
 -- Dissect: Leg Definition
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.leg_definition then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -4116,7 +4081,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_header.fields(buffer, offset, packet, parent)
@@ -4145,7 +4110,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.fields = function(buffer, off
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4167,7 +4132,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect = function(buffer, of
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message, buffer(offset, 0))
     local current = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -4224,7 +4189,7 @@ end
 
 -- Dissect: Send Time
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.dissect = function(buffer, offset, packet, parent)
-  if show.send_time then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time, buffer(offset, 0))
     local index, value = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.fields(buffer, offset, packet, parent)
@@ -4280,7 +4245,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_header.fields(buffer, offset, packet, parent)

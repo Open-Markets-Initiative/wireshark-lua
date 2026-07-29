@@ -79,73 +79,33 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_index = ProtoFiel
 local show = {}
 
 -- Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Element Dissection Options
-show.adap_block = true
-show.adap_flags = true
+show.repeating_groups = true
+show.structs = true
 show.application_messages = true
-show.long_update_adap_block = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.short_update_adap_block = true
-show.trade_flags = true
-show.message_index = true
-show.adap_block_index = true
+show.indexes = true
 
 -- Register Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Show Options
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block = Pref.bool("Show Adap Block", show.adap_block, "Parse and add Adap Block to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_flags = Pref.bool("Show Adap Flags", show.adap_flags, "Parse and add Adap Flags to protocol tree")
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_long_update_adap_block = Pref.bool("Show Long Update Adap Block", show.long_update_adap_block, "Parse and add Long Update Adap Block to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block = Pref.bool("Show Short Update Adap Block", show.short_update_adap_block, "Parse and add Short Update Adap Block to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index = Pref.bool("Show Adap Block Index", show.adap_block_index, "Show generated adap block index in protocol tree")
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs_changed()
 
   -- Check if preferences have changed
-  if show.adap_block ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block then
-    show.adap_block = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block
-  end
-  if show.adap_flags ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_flags then
-    show.adap_flags = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_flags
-  end
   if show.application_messages ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages
   end
-  if show.long_update_adap_block ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_long_update_adap_block then
-    show.long_update_adap_block = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_long_update_adap_block
+  if show.repeating_groups ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups
   end
-  if show.message ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message then
-    show.message = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message
+  if show.structs ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_structs then
+    show.structs = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_structs
   end
-  if show.message_header ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_header then
-    show.message_header = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_header
-  end
-  if show.packet ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet then
-    show.packet = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet_header then
-    show.packet_header = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_packet_header
-  end
-  if show.short_update_adap_block ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block then
-    show.short_update_adap_block = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_short_update_adap_block
-  end
-  if show.trade_flags ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags then
-    show.trade_flags = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_trade_flags
-  end
-  if show.message_index ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_index then
-    show.message_index = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_message_index
-  end
-  if show.adap_block_index ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index then
-    show.adap_block_index = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_adap_block_index
+  if show.indexes ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_indexes then
+    show.indexes = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_indexes
   end
 end
 
@@ -1032,7 +992,7 @@ cboe_edgaequities_summarydepth_pitch_v1_0_4.trade_flags.dissect = function(buffe
   local display = cboe_edgaequities_summarydepth_pitch_v1_0_4.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     cboe_edgaequities_summarydepth_pitch_v1_0_4.trade_flags.bits(range, value, packet, element)
   end
 
@@ -1195,7 +1155,7 @@ end
 
 -- Dissect: Long Update Adap Block
 cboe_edgaequities_summarydepth_pitch_v1_0_4.long_update_adap_block.dissect = function(buffer, offset, packet, parent)
-  if show.long_update_adap_block then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.long_update_adap_block, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.long_update_adap_block.fields(buffer, offset, packet, parent)
@@ -1243,7 +1203,7 @@ end
 
 -- Dissect: Short Update Adap Block
 cboe_edgaequities_summarydepth_pitch_v1_0_4.short_update_adap_block.dissect = function(buffer, offset, packet, parent)
-  if show.short_update_adap_block then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.short_update_adap_block, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.short_update_adap_block.fields(buffer, offset, packet, parent)
@@ -1303,7 +1263,7 @@ cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_block.fields = function(buffer,
   local index = offset
 
   -- Implicit Adap Block Index
-  if adap_block_index ~= nil and show.adap_block_index then
+  if adap_block_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.adap_block_index, adap_block_index)
     iteration:set_generated()
   end
@@ -1319,7 +1279,7 @@ end
 
 -- Dissect: Adap Block
 cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_block.dissect = function(buffer, offset, packet, parent, adap_block_index)
-  if show.adap_block then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.adap_block, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_block.fields(buffer, offset, packet, parent, adap_block_index)
@@ -1385,7 +1345,7 @@ cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_flags.dissect = function(buffer
   local display = cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.adap_flags, range, display)
 
-  if show.adap_flags then
+  if show.structs then
     cboe_edgaequities_summarydepth_pitch_v1_0_4.adap_flags.bits(range, value, packet, element)
   end
 
@@ -1632,7 +1592,7 @@ end
 
 -- Dissect: Message Header
 cboe_edgaequities_summarydepth_pitch_v1_0_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_header, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.message_header.fields(buffer, offset, packet, parent)
@@ -1671,7 +1631,7 @@ cboe_edgaequities_summarydepth_pitch_v1_0_4.message.fields = function(buffer, of
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -1694,7 +1654,7 @@ cboe_edgaequities_summarydepth_pitch_v1_0_4.message.dissect = function(buffer, o
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message, buffer(offset, 0))
     local current = cboe_edgaequities_summarydepth_pitch_v1_0_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -1785,7 +1745,7 @@ end
 
 -- Dissect: Packet Header
 cboe_edgaequities_summarydepth_pitch_v1_0_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.packet_header, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.packet_header.fields(buffer, offset, packet, parent)

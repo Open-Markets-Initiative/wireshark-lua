@@ -141,27 +141,15 @@ local show = {}
 
 -- Hkex HkexSecurities FullTickRefresh Omd 1.44 Element Dissection Options
 show.application_messages = true
-show.liquidity_provider = true
-show.message = true
-show.msg_header = true
-show.packet = true
-show.packet_header = true
-show.underlying_security = true
-show.message_index = true
-show.underlying_security_index = true
-show.liquidity_provider_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Hkex HkexSecurities FullTickRefresh Omd 1.44 Show Options
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider = Pref.bool("Show Liquidity Provider", show.liquidity_provider, "Parse and add Liquidity Provider to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security = Pref.bool("Show Underlying Security", show.underlying_security, "Parse and add Underlying Security to protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security_index = Pref.bool("Show Underlying Security Index", show.underlying_security_index, "Show generated underlying security index in protocol tree")
-omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider_index = Pref.bool("Show Liquidity Provider Index", show.liquidity_provider_index, "Show generated liquidity provider index in protocol tree")
+omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -171,32 +159,14 @@ function omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs_changed()
   if show.application_messages ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_application_messages then
     show.application_messages = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_application_messages
   end
-  if show.liquidity_provider ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider then
-    show.liquidity_provider = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider
+  if show.repeating_groups ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_repeating_groups then
+    show.repeating_groups = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_repeating_groups
   end
-  if show.message ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message then
-    show.message = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message
+  if show.structs ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_structs then
+    show.structs = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_structs
   end
-  if show.msg_header ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_msg_header then
-    show.msg_header = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_msg_header
-  end
-  if show.packet ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet then
-    show.packet = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet
-  end
-  if show.packet_header ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet_header then
-    show.packet_header = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_packet_header
-  end
-  if show.underlying_security ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security then
-    show.underlying_security = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security
-  end
-  if show.message_index ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message_index then
-    show.message_index = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_message_index
-  end
-  if show.underlying_security_index ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security_index then
-    show.underlying_security_index = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_underlying_security_index
-  end
-  if show.liquidity_provider_index ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider_index then
-    show.liquidity_provider_index = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_liquidity_provider_index
+  if show.indexes ~= omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_indexes then
+    show.indexes = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.prefs.show_indexes
   end
 end
 
@@ -3106,7 +3076,7 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.liquidity_provider.fields = functi
   local index = offset
 
   -- Implicit Liquidity Provider Index
-  if liquidity_provider_index ~= nil and show.liquidity_provider_index then
+  if liquidity_provider_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.liquidity_provider_index, liquidity_provider_index)
     iteration:set_generated()
   end
@@ -3119,7 +3089,7 @@ end
 
 -- Dissect: Liquidity Provider
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.liquidity_provider.dissect = function(buffer, offset, packet, parent, liquidity_provider_index)
-  if show.liquidity_provider then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.liquidity_provider, buffer(offset, 0))
     local index = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.liquidity_provider.fields(buffer, offset, packet, parent, liquidity_provider_index)
@@ -3212,7 +3182,7 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.underlying_security.fields = funct
   local index = offset
 
   -- Implicit Underlying Security Index
-  if underlying_security_index ~= nil and show.underlying_security_index then
+  if underlying_security_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.underlying_security_index, underlying_security_index)
     iteration:set_generated()
   end
@@ -3228,7 +3198,7 @@ end
 
 -- Dissect: Underlying Security
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.underlying_security.dissect = function(buffer, offset, packet, parent, underlying_security_index)
-  if show.underlying_security then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.underlying_security, buffer(offset, 0))
     local index = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.underlying_security.fields(buffer, offset, packet, parent, underlying_security_index)
@@ -3882,7 +3852,7 @@ end
 
 -- Dissect: Msg Header
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.msg_header, buffer(offset, 0))
     local index = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.msg_header.fields(buffer, offset, packet, parent)
@@ -3911,7 +3881,7 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.message.fields = function(buffer, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3933,7 +3903,7 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.message.dissect = function(buffer,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.message, buffer(offset, 0))
     local current = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3989,7 +3959,7 @@ end
 
 -- Dissect: Packet Header
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.packet_header, buffer(offset, 0))
     local index = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.packet_header.fields(buffer, offset, packet, parent)

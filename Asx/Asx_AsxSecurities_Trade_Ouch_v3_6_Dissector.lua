@@ -97,20 +97,12 @@ local show = {}
 -- Asx AsxSecurities Trade Ouch 3.6 Element Dissection Options
 show.application_messages = true
 show.session_messages = true
-show.match_attributes = true
-show.packet = true
-show.packet_header = true
-show.regulatory_data = true
-show.soup_bin_tcp_packet = true
+show.structs = true
 
 -- Register Asx AsxSecurities Trade Ouch 3.6 Show Options
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_match_attributes = Pref.bool("Show Match Attributes", show.match_attributes, "Parse and add Match Attributes to protocol tree")
-omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_regulatory_data = Pref.bool("Show Regulatory Data", show.regulatory_data, "Parse and add Regulatory Data to protocol tree")
-omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -120,23 +112,11 @@ function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
   if show.application_messages ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages
   end
-  if show.match_attributes ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_match_attributes then
-    show.match_attributes = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_match_attributes
-  end
-  if show.packet ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet then
-    show.packet = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet
-  end
-  if show.packet_header ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet_header then
-    show.packet_header = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_packet_header
-  end
-  if show.regulatory_data ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_regulatory_data then
-    show.regulatory_data = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_regulatory_data
-  end
   if show.session_messages ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages then
     show.session_messages = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages
   end
-  if show.soup_bin_tcp_packet ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_soup_bin_tcp_packet
+  if show.structs ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs then
+    show.structs = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs
   end
 end
 
@@ -1586,7 +1566,7 @@ end
 
 -- Dissect: Regulatory Data
 asx_asxsecurities_trade_ouch_v3_6.regulatory_data.dissect = function(buffer, offset, packet, parent)
-  if show.regulatory_data then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.regulatory_data, buffer(offset, 0))
     local index = asx_asxsecurities_trade_ouch_v3_6.regulatory_data.fields(buffer, offset, packet, parent)
@@ -1985,7 +1965,7 @@ asx_asxsecurities_trade_ouch_v3_6.match_attributes.dissect = function(buffer, of
   local display = asx_asxsecurities_trade_ouch_v3_6.match_attributes.display(range, value, packet, parent)
   local element = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.match_attributes, range, display)
 
-  if show.match_attributes then
+  if show.structs then
     asx_asxsecurities_trade_ouch_v3_6.match_attributes.bits(range, value, packet, element)
   end
 
@@ -2679,7 +2659,7 @@ end
 
 -- Dissect: Packet Header
 asx_asxsecurities_trade_ouch_v3_6.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_trade_ouch_v3_6.packet_header.fields(buffer, offset, packet, parent)
@@ -2724,7 +2704,7 @@ asx_asxsecurities_trade_ouch_v3_6.soup_bin_tcp_packet.dissect = function(buffer,
   local index = offset + size_of_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.soup_bin_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = asx_asxsecurities_trade_ouch_v3_6.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)

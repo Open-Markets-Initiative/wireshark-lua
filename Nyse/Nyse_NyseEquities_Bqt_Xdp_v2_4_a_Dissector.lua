@@ -156,21 +156,13 @@ local show = {}
 
 -- Nyse NyseEquities Bqt Xdp 2.4.a Element Dissection Options
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.retail_pricing_indicator = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse NyseEquities Bqt Xdp 2.4.a Show Options
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_retail_pricing_indicator = Pref.bool("Show Retail Pricing Indicator", show.retail_pricing_indicator, "Parse and add Retail Pricing Indicator to protocol tree")
-omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -180,23 +172,11 @@ function omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs_changed()
   if show.application_messages ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_application_messages
   end
-  if show.message ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message then
-    show.message = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message
+  if show.structs ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_structs then
+    show.structs = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_structs
   end
-  if show.message_header ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_header then
-    show.message_header = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_header
-  end
-  if show.packet ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet then
-    show.packet = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet_header then
-    show.packet_header = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_packet_header
-  end
-  if show.retail_pricing_indicator ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_retail_pricing_indicator then
-    show.retail_pricing_indicator = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_retail_pricing_indicator
-  end
-  if show.message_index ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_index then
-    show.message_index = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_message_index
+  if show.indexes ~= omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_indexes then
+    show.indexes = omi_nyse_nyseequities_bqt_xdp_v2_4_a.prefs.show_indexes
   end
 end
 
@@ -3990,7 +3970,7 @@ nyse_nyseequities_bqt_xdp_v2_4_a.retail_pricing_indicator.dissect = function(buf
   local display = nyse_nyseequities_bqt_xdp_v2_4_a.retail_pricing_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.retail_pricing_indicator, range, display)
 
-  if show.retail_pricing_indicator then
+  if show.structs then
     nyse_nyseequities_bqt_xdp_v2_4_a.retail_pricing_indicator.bits(range, value, packet, element)
   end
 
@@ -5002,7 +4982,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_bqt_xdp_v2_4_a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v2_4_a.message_header.fields(buffer, offset, packet, parent)
@@ -5031,7 +5011,7 @@ nyse_nyseequities_bqt_xdp_v2_4_a.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5053,7 +5033,7 @@ nyse_nyseequities_bqt_xdp_v2_4_a.message.dissect = function(buffer, offset, pack
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.message, buffer(offset, 0))
     local current = nyse_nyseequities_bqt_xdp_v2_4_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -5113,7 +5093,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_bqt_xdp_v2_4_a.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_bqt_xdp_v2_4_a.packet_header.fields(buffer, offset, packet, parent)

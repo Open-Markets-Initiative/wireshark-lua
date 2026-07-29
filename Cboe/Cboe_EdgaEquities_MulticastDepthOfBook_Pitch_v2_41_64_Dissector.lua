@@ -114,24 +114,14 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.utc_offset_hours = 5
 local show = {}
 
 -- Cboe EdgaEquities MulticastDepthOfBook Pitch 2.41.64 Element Dissection Options
-show.add_flags = true
+show.structs = true
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.modify_flags = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
+show.indexes = true
 
 -- Register Cboe EdgaEquities MulticastDepthOfBook Pitch 2.41.64 Show Options
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_add_flags = Pref.bool("Show Add Flags", show.add_flags, "Parse and add Add Flags to protocol tree")
+omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_modify_flags = Pref.bool("Show Modify Flags", show.modify_flags, "Parse and add Modify Flags to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -140,29 +130,14 @@ omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.utc_offset_hours
 function omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs_changed()
 
   -- Check if preferences have changed
-  if show.add_flags ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_add_flags then
-    show.add_flags = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_add_flags
-  end
   if show.application_messages ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_application_messages
   end
-  if show.message ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message then
-    show.message = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message
+  if show.structs ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_structs then
+    show.structs = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_structs
   end
-  if show.message_header ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_header then
-    show.message_header = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_header
-  end
-  if show.modify_flags ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_modify_flags then
-    show.modify_flags = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_modify_flags
-  end
-  if show.packet ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet then
-    show.packet = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet_header then
-    show.packet_header = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index then
-    show.message_index = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_message_index
+  if show.indexes ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes then
+    show.indexes = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes
   end
   if cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.timestamp_format ~= omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format then
     cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.timestamp_format = omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.prefs.timestamp_format
@@ -1871,7 +1846,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.modify_flags.dissect = fun
   local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.modify_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.modify_flags, range, display)
 
-  if show.modify_flags then
+  if show.structs then
     cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.modify_flags.bits(range, value, packet, element)
   end
 
@@ -2234,7 +2209,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.add_flags.dissect = functi
   local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.add_flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.add_flags, range, display)
 
-  if show.add_flags then
+  if show.structs then
     cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.add_flags.bits(range, value, packet, element)
   end
 
@@ -2649,7 +2624,7 @@ end
 
 -- Dissect: Message Header
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.message_header, buffer(offset, 0))
     local index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_header.fields(buffer, offset, packet, parent)
@@ -2688,7 +2663,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message.fields = function(
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2711,7 +2686,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message.dissect = function
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.message, buffer(offset, 0))
     local current = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2802,7 +2777,7 @@ end
 
 -- Dissect: Packet Header
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.packet_header, buffer(offset, 0))
     local index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.packet_header.fields(buffer, offset, packet, parent)

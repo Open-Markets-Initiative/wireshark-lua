@@ -319,628 +319,33 @@ omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_group_in
 local show = {}
 
 -- Cme CmeFutures Streamlined Sbe 5.9 Element Dissection Options
-show.accrued_coupons = true
+show.structs = true
 show.application_messages = true
-show.binary_packet_header = true
-show.cal_fut_px = true
-show.cal_fut_px_optional = true
-show.coupon_rate_optional = true
-show.d_v_01 = true
-show.daily_incremental_eris_pai = true
-show.eris_feed_types_group = true
-show.eris_feed_types_groups = true
-show.eris_group = true
-show.eris_groups = true
-show.eris_legs_group = true
-show.eris_legs_groups = true
-show.eris_original_group = true
-show.eris_original_groups = true
-show.eris_pai = true
-show.eris_reference_data_group = true
-show.eris_reference_data_groups = true
-show.eris_security_alt_id_group = true
-show.eris_security_alt_id_groups = true
-show.events_group = true
-show.events_groups = true
-show.fair_coupon_pct = true
-show.fed_funds_rate = true
-show.final_settlement_futures_price = true
-show.fixed_npv = true
-show.fixed_payment = true
-show.float_npv = true
-show.floating_payment = true
-show.group_size = true
-show.group_size_encoding = true
-show.incremental_refresh_eris_related_instruments_group = true
-show.incremental_refresh_eris_related_instruments_groups = true
-show.incremental_refresh_indices_group = true
-show.incremental_refresh_indices_groups = true
-show.inst_attrib_group = true
-show.inst_attrib_groups = true
-show.interpolation_factor = true
-show.leg_contract_multiplier = true
-show.leg_maturity_month_year = true
-show.leg_purchase_rate = true
-show.leg_strike_price_decimal_64_null = true
-show.leg_unit_of_measure_qty_decimal_64_null = true
-show.lines_of_text_group = true
-show.lines_of_text_groups = true
-show.match_event_indicator = true
-show.maturity_month_year = true
-show.md_entry_px_decimal = true
-show.md_entry_px_decimal_optional = true
-show.md_entry_size = true
-show.message = true
-show.message_header = true
-show.min_price_increment = true
-show.min_price_increment_optional = true
-show.net_chg_prev_day = true
-show.net_pct_chg = true
-show.news_indices_related_sym_group = true
-show.news_indices_related_sym_groups = true
-show.next_fixed_payment_amount = true
-show.next_floating_payment_amount = true
-show.npv = true
-show.otc_group = true
-show.otc_groups = true
-show.otc_original_group = true
-show.otc_original_groups = true
-show.otc_security_alt_id_group = true
-show.otc_security_alt_id_groups = true
-show.otc_underlyings_group = true
-show.otc_underlyings_groups = true
-show.p_v_01 = true
-show.packet = true
-show.percent_trading = true
-show.previous_eris_pai = true
-show.previous_fixing_rate = true
-show.quote_request_related_sym_group = true
-show.quote_request_related_sym_groups = true
-show.settl_price_type = true
-show.settlement_npv = true
-show.strike_price_decimal = true
-show.strike_price_decimal_optional = true
-show.trade_blocks_group = true
-show.trade_blocks_groups = true
-show.trade_blocks_legacy_group = true
-show.trade_blocks_legacy_groups = true
-show.trade_blocks_legs_group = true
-show.trade_blocks_legs_groups = true
-show.trade_blocks_original_group = true
-show.trade_blocks_original_groups = true
-show.trade_blocks_original_legs_group = true
-show.trade_blocks_original_legs_groups = true
-show.trade_blocks_party_ids_group = true
-show.trade_blocks_party_ids_groups = true
-show.trade_blocks_underlyings_group = true
-show.trade_blocks_underlyings_groups = true
-show.underlying_maturity_month_year = true
-show.unit_of_measure_qty_decimal = true
-show.unit_of_measure_qty_decimal_optional = true
-show.yield = true
-show.eris_reference_data_group_index = true
-show.eris_security_alt_id_group_index = true
-show.incremental_refresh_eris_related_instruments_group_index = true
-show.events_group_index = true
-show.news_indices_related_sym_group_index = true
-show.lines_of_text_group_index = true
-show.trade_blocks_original_group_index = true
-show.trade_blocks_underlyings_group_index = true
-show.trade_blocks_party_ids_group_index = true
-show.trade_blocks_original_legs_group_index = true
-show.quote_request_related_sym_group_index = true
-show.inst_attrib_group_index = true
-show.incremental_refresh_indices_group_index = true
-show.trade_blocks_legacy_group_index = true
-show.eris_original_group_index = true
-show.eris_group_index = true
-show.otc_original_group_index = true
-show.otc_underlyings_group_index = true
-show.otc_security_alt_id_group_index = true
-show.eris_feed_types_group_index = true
-show.eris_legs_group_index = true
-show.trade_blocks_group_index = true
-show.trade_blocks_legs_group_index = true
-show.otc_group_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cme CmeFutures Streamlined Sbe 5.9 Show Options
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_accrued_coupons = Pref.bool("Show Accrued Coupons", show.accrued_coupons, "Parse and add Accrued Coupons to protocol tree")
+omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px_optional = Pref.bool("Show Cal Fut Px Optional", show.cal_fut_px_optional, "Parse and add Cal Fut Px Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_coupon_rate_optional = Pref.bool("Show Coupon Rate Optional", show.coupon_rate_optional, "Parse and add Coupon Rate Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_d_v_01 = Pref.bool("Show D V 01", show.d_v_01, "Parse and add D V 01 to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_daily_incremental_eris_pai = Pref.bool("Show Daily Incremental Eris Pai", show.daily_incremental_eris_pai, "Parse and add Daily Incremental Eris Pai to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group = Pref.bool("Show Eris Feed Types Group", show.eris_feed_types_group, "Parse and add Eris Feed Types Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_groups = Pref.bool("Show Eris Feed Types Groups", show.eris_feed_types_groups, "Parse and add Eris Feed Types Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group = Pref.bool("Show Eris Group", show.eris_group, "Parse and add Eris Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_groups = Pref.bool("Show Eris Groups", show.eris_groups, "Parse and add Eris Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group = Pref.bool("Show Eris Legs Group", show.eris_legs_group, "Parse and add Eris Legs Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_groups = Pref.bool("Show Eris Legs Groups", show.eris_legs_groups, "Parse and add Eris Legs Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group = Pref.bool("Show Eris Original Group", show.eris_original_group, "Parse and add Eris Original Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_groups = Pref.bool("Show Eris Original Groups", show.eris_original_groups, "Parse and add Eris Original Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_pai = Pref.bool("Show Eris Pai", show.eris_pai, "Parse and add Eris Pai to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group = Pref.bool("Show Eris Reference Data Group", show.eris_reference_data_group, "Parse and add Eris Reference Data Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_groups = Pref.bool("Show Eris Reference Data Groups", show.eris_reference_data_groups, "Parse and add Eris Reference Data Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group = Pref.bool("Show Eris Security Alt Id Group", show.eris_security_alt_id_group, "Parse and add Eris Security Alt Id Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_groups = Pref.bool("Show Eris Security Alt Id Groups", show.eris_security_alt_id_groups, "Parse and add Eris Security Alt Id Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group = Pref.bool("Show Events Group", show.events_group, "Parse and add Events Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_groups = Pref.bool("Show Events Groups", show.events_groups, "Parse and add Events Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fair_coupon_pct = Pref.bool("Show Fair Coupon Pct", show.fair_coupon_pct, "Parse and add Fair Coupon Pct to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fed_funds_rate = Pref.bool("Show Fed Funds Rate", show.fed_funds_rate, "Parse and add Fed Funds Rate to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_final_settlement_futures_price = Pref.bool("Show Final Settlement Futures Price", show.final_settlement_futures_price, "Parse and add Final Settlement Futures Price to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_npv = Pref.bool("Show Fixed Npv", show.fixed_npv, "Parse and add Fixed Npv to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_payment = Pref.bool("Show Fixed Payment", show.fixed_payment, "Parse and add Fixed Payment to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_float_npv = Pref.bool("Show Float Npv", show.float_npv, "Parse and add Float Npv to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_floating_payment = Pref.bool("Show Floating Payment", show.floating_payment, "Parse and add Floating Payment to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size = Pref.bool("Show Group Size", show.group_size, "Parse and add Group Size to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group = Pref.bool("Show Incremental Refresh Eris Related Instruments Group", show.incremental_refresh_eris_related_instruments_group, "Parse and add Incremental Refresh Eris Related Instruments Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_groups = Pref.bool("Show Incremental Refresh Eris Related Instruments Groups", show.incremental_refresh_eris_related_instruments_groups, "Parse and add Incremental Refresh Eris Related Instruments Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group = Pref.bool("Show Incremental Refresh Indices Group", show.incremental_refresh_indices_group, "Parse and add Incremental Refresh Indices Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_groups = Pref.bool("Show Incremental Refresh Indices Groups", show.incremental_refresh_indices_groups, "Parse and add Incremental Refresh Indices Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group = Pref.bool("Show Inst Attrib Group", show.inst_attrib_group, "Parse and add Inst Attrib Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_groups = Pref.bool("Show Inst Attrib Groups", show.inst_attrib_groups, "Parse and add Inst Attrib Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_interpolation_factor = Pref.bool("Show Interpolation Factor", show.interpolation_factor, "Parse and add Interpolation Factor to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_contract_multiplier = Pref.bool("Show Leg Contract Multiplier", show.leg_contract_multiplier, "Parse and add Leg Contract Multiplier to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_maturity_month_year = Pref.bool("Show Leg Maturity Month Year", show.leg_maturity_month_year, "Parse and add Leg Maturity Month Year to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_purchase_rate = Pref.bool("Show Leg Purchase Rate", show.leg_purchase_rate, "Parse and add Leg Purchase Rate to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_strike_price_decimal_64_null = Pref.bool("Show Leg Strike Price Decimal 64 Null", show.leg_strike_price_decimal_64_null, "Parse and add Leg Strike Price Decimal 64 Null to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_unit_of_measure_qty_decimal_64_null = Pref.bool("Show Leg Unit Of Measure Qty Decimal 64 Null", show.leg_unit_of_measure_qty_decimal_64_null, "Parse and add Leg Unit Of Measure Qty Decimal 64 Null to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group = Pref.bool("Show Lines Of Text Group", show.lines_of_text_group, "Parse and add Lines Of Text Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_groups = Pref.bool("Show Lines Of Text Groups", show.lines_of_text_groups, "Parse and add Lines Of Text Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal = Pref.bool("Show Md Entry Px Decimal", show.md_entry_px_decimal, "Parse and add Md Entry Px Decimal to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal_optional = Pref.bool("Show Md Entry Px Decimal Optional", show.md_entry_px_decimal_optional, "Parse and add Md Entry Px Decimal Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment_optional = Pref.bool("Show Min Price Increment Optional", show.min_price_increment_optional, "Parse and add Min Price Increment Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_pct_chg = Pref.bool("Show Net Pct Chg", show.net_pct_chg, "Parse and add Net Pct Chg to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group = Pref.bool("Show News Indices Related Sym Group", show.news_indices_related_sym_group, "Parse and add News Indices Related Sym Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_groups = Pref.bool("Show News Indices Related Sym Groups", show.news_indices_related_sym_groups, "Parse and add News Indices Related Sym Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_fixed_payment_amount = Pref.bool("Show Next Fixed Payment Amount", show.next_fixed_payment_amount, "Parse and add Next Fixed Payment Amount to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_floating_payment_amount = Pref.bool("Show Next Floating Payment Amount", show.next_floating_payment_amount, "Parse and add Next Floating Payment Amount to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_npv = Pref.bool("Show Npv", show.npv, "Parse and add Npv to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group = Pref.bool("Show Otc Group", show.otc_group, "Parse and add Otc Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_groups = Pref.bool("Show Otc Groups", show.otc_groups, "Parse and add Otc Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group = Pref.bool("Show Otc Original Group", show.otc_original_group, "Parse and add Otc Original Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_groups = Pref.bool("Show Otc Original Groups", show.otc_original_groups, "Parse and add Otc Original Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group = Pref.bool("Show Otc Security Alt Id Group", show.otc_security_alt_id_group, "Parse and add Otc Security Alt Id Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_groups = Pref.bool("Show Otc Security Alt Id Groups", show.otc_security_alt_id_groups, "Parse and add Otc Security Alt Id Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group = Pref.bool("Show Otc Underlyings Group", show.otc_underlyings_group, "Parse and add Otc Underlyings Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_groups = Pref.bool("Show Otc Underlyings Groups", show.otc_underlyings_groups, "Parse and add Otc Underlyings Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_p_v_01 = Pref.bool("Show P V 01", show.p_v_01, "Parse and add P V 01 to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_percent_trading = Pref.bool("Show Percent Trading", show.percent_trading, "Parse and add Percent Trading to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_eris_pai = Pref.bool("Show Previous Eris Pai", show.previous_eris_pai, "Parse and add Previous Eris Pai to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_fixing_rate = Pref.bool("Show Previous Fixing Rate", show.previous_fixing_rate, "Parse and add Previous Fixing Rate to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group = Pref.bool("Show Quote Request Related Sym Group", show.quote_request_related_sym_group, "Parse and add Quote Request Related Sym Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_groups = Pref.bool("Show Quote Request Related Sym Groups", show.quote_request_related_sym_groups, "Parse and add Quote Request Related Sym Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settlement_npv = Pref.bool("Show Settlement Npv", show.settlement_npv, "Parse and add Settlement Npv to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal = Pref.bool("Show Strike Price Decimal", show.strike_price_decimal, "Parse and add Strike Price Decimal to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal_optional = Pref.bool("Show Strike Price Decimal Optional", show.strike_price_decimal_optional, "Parse and add Strike Price Decimal Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group = Pref.bool("Show Trade Blocks Group", show.trade_blocks_group, "Parse and add Trade Blocks Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_groups = Pref.bool("Show Trade Blocks Groups", show.trade_blocks_groups, "Parse and add Trade Blocks Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group = Pref.bool("Show Trade Blocks Legacy Group", show.trade_blocks_legacy_group, "Parse and add Trade Blocks Legacy Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_groups = Pref.bool("Show Trade Blocks Legacy Groups", show.trade_blocks_legacy_groups, "Parse and add Trade Blocks Legacy Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group = Pref.bool("Show Trade Blocks Legs Group", show.trade_blocks_legs_group, "Parse and add Trade Blocks Legs Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_groups = Pref.bool("Show Trade Blocks Legs Groups", show.trade_blocks_legs_groups, "Parse and add Trade Blocks Legs Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group = Pref.bool("Show Trade Blocks Original Group", show.trade_blocks_original_group, "Parse and add Trade Blocks Original Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_groups = Pref.bool("Show Trade Blocks Original Groups", show.trade_blocks_original_groups, "Parse and add Trade Blocks Original Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group = Pref.bool("Show Trade Blocks Original Legs Group", show.trade_blocks_original_legs_group, "Parse and add Trade Blocks Original Legs Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_groups = Pref.bool("Show Trade Blocks Original Legs Groups", show.trade_blocks_original_legs_groups, "Parse and add Trade Blocks Original Legs Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group = Pref.bool("Show Trade Blocks Party Ids Group", show.trade_blocks_party_ids_group, "Parse and add Trade Blocks Party Ids Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_groups = Pref.bool("Show Trade Blocks Party Ids Groups", show.trade_blocks_party_ids_groups, "Parse and add Trade Blocks Party Ids Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group = Pref.bool("Show Trade Blocks Underlyings Group", show.trade_blocks_underlyings_group, "Parse and add Trade Blocks Underlyings Group to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_groups = Pref.bool("Show Trade Blocks Underlyings Groups", show.trade_blocks_underlyings_groups, "Parse and add Trade Blocks Underlyings Groups to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year = Pref.bool("Show Underlying Maturity Month Year", show.underlying_maturity_month_year, "Parse and add Underlying Maturity Month Year to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal = Pref.bool("Show Unit Of Measure Qty Decimal", show.unit_of_measure_qty_decimal, "Parse and add Unit Of Measure Qty Decimal to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional = Pref.bool("Show Unit Of Measure Qty Decimal Optional", show.unit_of_measure_qty_decimal_optional, "Parse and add Unit Of Measure Qty Decimal Optional to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index = Pref.bool("Show Eris Reference Data Group Index", show.eris_reference_data_group_index, "Show generated eris reference data group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index = Pref.bool("Show Eris Security Alt Id Group Index", show.eris_security_alt_id_group_index, "Show generated eris security alt id group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index = Pref.bool("Show Incremental Refresh Eris Related Instruments Group Index", show.incremental_refresh_eris_related_instruments_group_index, "Show generated incremental refresh eris related instruments group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group_index = Pref.bool("Show Events Group Index", show.events_group_index, "Show generated events group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index = Pref.bool("Show News Indices Related Sym Group Index", show.news_indices_related_sym_group_index, "Show generated news indices related sym group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index = Pref.bool("Show Lines Of Text Group Index", show.lines_of_text_group_index, "Show generated lines of text group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index = Pref.bool("Show Trade Blocks Original Group Index", show.trade_blocks_original_group_index, "Show generated trade blocks original group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index = Pref.bool("Show Trade Blocks Underlyings Group Index", show.trade_blocks_underlyings_group_index, "Show generated trade blocks underlyings group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index = Pref.bool("Show Trade Blocks Party Ids Group Index", show.trade_blocks_party_ids_group_index, "Show generated trade blocks party ids group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index = Pref.bool("Show Trade Blocks Original Legs Group Index", show.trade_blocks_original_legs_group_index, "Show generated trade blocks original legs group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index = Pref.bool("Show Quote Request Related Sym Group Index", show.quote_request_related_sym_group_index, "Show generated quote request related sym group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index = Pref.bool("Show Inst Attrib Group Index", show.inst_attrib_group_index, "Show generated inst attrib group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index = Pref.bool("Show Incremental Refresh Indices Group Index", show.incremental_refresh_indices_group_index, "Show generated incremental refresh indices group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index = Pref.bool("Show Trade Blocks Legacy Group Index", show.trade_blocks_legacy_group_index, "Show generated trade blocks legacy group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index = Pref.bool("Show Eris Original Group Index", show.eris_original_group_index, "Show generated eris original group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group_index = Pref.bool("Show Eris Group Index", show.eris_group_index, "Show generated eris group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index = Pref.bool("Show Otc Original Group Index", show.otc_original_group_index, "Show generated otc original group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index = Pref.bool("Show Otc Underlyings Group Index", show.otc_underlyings_group_index, "Show generated otc underlyings group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index = Pref.bool("Show Otc Security Alt Id Group Index", show.otc_security_alt_id_group_index, "Show generated otc security alt id group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index = Pref.bool("Show Eris Feed Types Group Index", show.eris_feed_types_group_index, "Show generated eris feed types group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index = Pref.bool("Show Eris Legs Group Index", show.eris_legs_group_index, "Show generated eris legs group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index = Pref.bool("Show Trade Blocks Group Index", show.trade_blocks_group_index, "Show generated trade blocks group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index = Pref.bool("Show Trade Blocks Legs Group Index", show.trade_blocks_legs_group_index, "Show generated trade blocks legs group index in protocol tree")
-omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group_index = Pref.bool("Show Otc Group Index", show.otc_group_index, "Show generated otc group index in protocol tree")
+omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_cme_cmefutures_streamlined_sbe_v5_9.prefs_changed()
 
   -- Check if preferences have changed
-  if show.accrued_coupons ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_accrued_coupons then
-    show.accrued_coupons = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_accrued_coupons
-  end
   if show.application_messages ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages
   end
-  if show.binary_packet_header ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_binary_packet_header then
-    show.binary_packet_header = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_binary_packet_header
+  if show.repeating_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups
   end
-  if show.cal_fut_px ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px then
-    show.cal_fut_px = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px
+  if show.structs ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_structs then
+    show.structs = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_structs
   end
-  if show.cal_fut_px_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px_optional then
-    show.cal_fut_px_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_cal_fut_px_optional
-  end
-  if show.coupon_rate_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_coupon_rate_optional then
-    show.coupon_rate_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_coupon_rate_optional
-  end
-  if show.d_v_01 ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_d_v_01 then
-    show.d_v_01 = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_d_v_01
-  end
-  if show.daily_incremental_eris_pai ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_daily_incremental_eris_pai then
-    show.daily_incremental_eris_pai = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_daily_incremental_eris_pai
-  end
-  if show.eris_feed_types_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group then
-    show.eris_feed_types_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group
-  end
-  if show.eris_feed_types_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_groups then
-    show.eris_feed_types_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_groups
-  end
-  if show.eris_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group then
-    show.eris_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group
-  end
-  if show.eris_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_groups then
-    show.eris_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_groups
-  end
-  if show.eris_legs_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group then
-    show.eris_legs_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group
-  end
-  if show.eris_legs_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_groups then
-    show.eris_legs_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_groups
-  end
-  if show.eris_original_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group then
-    show.eris_original_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group
-  end
-  if show.eris_original_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_groups then
-    show.eris_original_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_groups
-  end
-  if show.eris_pai ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_pai then
-    show.eris_pai = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_pai
-  end
-  if show.eris_reference_data_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group then
-    show.eris_reference_data_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group
-  end
-  if show.eris_reference_data_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_groups then
-    show.eris_reference_data_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_groups
-  end
-  if show.eris_security_alt_id_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group then
-    show.eris_security_alt_id_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group
-  end
-  if show.eris_security_alt_id_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_groups then
-    show.eris_security_alt_id_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_groups
-  end
-  if show.events_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group then
-    show.events_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group
-  end
-  if show.events_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_groups then
-    show.events_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_groups
-  end
-  if show.fair_coupon_pct ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fair_coupon_pct then
-    show.fair_coupon_pct = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fair_coupon_pct
-  end
-  if show.fed_funds_rate ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fed_funds_rate then
-    show.fed_funds_rate = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fed_funds_rate
-  end
-  if show.final_settlement_futures_price ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_final_settlement_futures_price then
-    show.final_settlement_futures_price = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_final_settlement_futures_price
-  end
-  if show.fixed_npv ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_npv then
-    show.fixed_npv = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_npv
-  end
-  if show.fixed_payment ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_payment then
-    show.fixed_payment = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_fixed_payment
-  end
-  if show.float_npv ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_float_npv then
-    show.float_npv = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_float_npv
-  end
-  if show.floating_payment ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_floating_payment then
-    show.floating_payment = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_floating_payment
-  end
-  if show.group_size ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size then
-    show.group_size = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size
-  end
-  if show.group_size_encoding ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_group_size_encoding
-  end
-  if show.incremental_refresh_eris_related_instruments_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group then
-    show.incremental_refresh_eris_related_instruments_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group
-  end
-  if show.incremental_refresh_eris_related_instruments_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_groups then
-    show.incremental_refresh_eris_related_instruments_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_groups
-  end
-  if show.incremental_refresh_indices_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group then
-    show.incremental_refresh_indices_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group
-  end
-  if show.incremental_refresh_indices_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_groups then
-    show.incremental_refresh_indices_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_groups
-  end
-  if show.inst_attrib_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group then
-    show.inst_attrib_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group
-  end
-  if show.inst_attrib_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_groups then
-    show.inst_attrib_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_groups
-  end
-  if show.interpolation_factor ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_interpolation_factor then
-    show.interpolation_factor = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_interpolation_factor
-  end
-  if show.leg_contract_multiplier ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_contract_multiplier then
-    show.leg_contract_multiplier = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_contract_multiplier
-  end
-  if show.leg_maturity_month_year ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_maturity_month_year then
-    show.leg_maturity_month_year = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_maturity_month_year
-  end
-  if show.leg_purchase_rate ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_purchase_rate then
-    show.leg_purchase_rate = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_purchase_rate
-  end
-  if show.leg_strike_price_decimal_64_null ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_strike_price_decimal_64_null then
-    show.leg_strike_price_decimal_64_null = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_strike_price_decimal_64_null
-  end
-  if show.leg_unit_of_measure_qty_decimal_64_null ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_unit_of_measure_qty_decimal_64_null then
-    show.leg_unit_of_measure_qty_decimal_64_null = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_leg_unit_of_measure_qty_decimal_64_null
-  end
-  if show.lines_of_text_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group then
-    show.lines_of_text_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group
-  end
-  if show.lines_of_text_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_groups then
-    show.lines_of_text_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_groups
-  end
-  if show.match_event_indicator ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_match_event_indicator then
-    show.match_event_indicator = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_match_event_indicator
-  end
-  if show.maturity_month_year ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_maturity_month_year then
-    show.maturity_month_year = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_maturity_month_year
-  end
-  if show.md_entry_px_decimal ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal then
-    show.md_entry_px_decimal = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal
-  end
-  if show.md_entry_px_decimal_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal_optional then
-    show.md_entry_px_decimal_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_px_decimal_optional
-  end
-  if show.md_entry_size ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_size then
-    show.md_entry_size = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_md_entry_size
-  end
-  if show.message ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message then
-    show.message = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message
-  end
-  if show.message_header ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message_header then
-    show.message_header = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_message_header
-  end
-  if show.min_price_increment ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment then
-    show.min_price_increment = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment
-  end
-  if show.min_price_increment_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment_optional then
-    show.min_price_increment_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_min_price_increment_optional
-  end
-  if show.net_chg_prev_day ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_chg_prev_day then
-    show.net_chg_prev_day = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_chg_prev_day
-  end
-  if show.net_pct_chg ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_pct_chg then
-    show.net_pct_chg = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_net_pct_chg
-  end
-  if show.news_indices_related_sym_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group then
-    show.news_indices_related_sym_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group
-  end
-  if show.news_indices_related_sym_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_groups then
-    show.news_indices_related_sym_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_groups
-  end
-  if show.next_fixed_payment_amount ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_fixed_payment_amount then
-    show.next_fixed_payment_amount = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_fixed_payment_amount
-  end
-  if show.next_floating_payment_amount ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_floating_payment_amount then
-    show.next_floating_payment_amount = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_next_floating_payment_amount
-  end
-  if show.npv ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_npv then
-    show.npv = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_npv
-  end
-  if show.otc_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group then
-    show.otc_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group
-  end
-  if show.otc_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_groups then
-    show.otc_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_groups
-  end
-  if show.otc_original_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group then
-    show.otc_original_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group
-  end
-  if show.otc_original_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_groups then
-    show.otc_original_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_groups
-  end
-  if show.otc_security_alt_id_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group then
-    show.otc_security_alt_id_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group
-  end
-  if show.otc_security_alt_id_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_groups then
-    show.otc_security_alt_id_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_groups
-  end
-  if show.otc_underlyings_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group then
-    show.otc_underlyings_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group
-  end
-  if show.otc_underlyings_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_groups then
-    show.otc_underlyings_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_groups
-  end
-  if show.p_v_01 ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_p_v_01 then
-    show.p_v_01 = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_p_v_01
-  end
-  if show.packet ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_packet then
-    show.packet = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_packet
-  end
-  if show.percent_trading ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_percent_trading then
-    show.percent_trading = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_percent_trading
-  end
-  if show.previous_eris_pai ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_eris_pai then
-    show.previous_eris_pai = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_eris_pai
-  end
-  if show.previous_fixing_rate ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_fixing_rate then
-    show.previous_fixing_rate = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_previous_fixing_rate
-  end
-  if show.quote_request_related_sym_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group then
-    show.quote_request_related_sym_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group
-  end
-  if show.quote_request_related_sym_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_groups then
-    show.quote_request_related_sym_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_groups
-  end
-  if show.settl_price_type ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settl_price_type then
-    show.settl_price_type = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settl_price_type
-  end
-  if show.settlement_npv ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settlement_npv then
-    show.settlement_npv = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_settlement_npv
-  end
-  if show.strike_price_decimal ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal then
-    show.strike_price_decimal = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal
-  end
-  if show.strike_price_decimal_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal_optional then
-    show.strike_price_decimal_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_strike_price_decimal_optional
-  end
-  if show.trade_blocks_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group then
-    show.trade_blocks_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group
-  end
-  if show.trade_blocks_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_groups then
-    show.trade_blocks_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_groups
-  end
-  if show.trade_blocks_legacy_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group then
-    show.trade_blocks_legacy_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group
-  end
-  if show.trade_blocks_legacy_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_groups then
-    show.trade_blocks_legacy_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_groups
-  end
-  if show.trade_blocks_legs_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group then
-    show.trade_blocks_legs_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group
-  end
-  if show.trade_blocks_legs_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_groups then
-    show.trade_blocks_legs_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_groups
-  end
-  if show.trade_blocks_original_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group then
-    show.trade_blocks_original_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group
-  end
-  if show.trade_blocks_original_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_groups then
-    show.trade_blocks_original_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_groups
-  end
-  if show.trade_blocks_original_legs_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group then
-    show.trade_blocks_original_legs_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group
-  end
-  if show.trade_blocks_original_legs_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_groups then
-    show.trade_blocks_original_legs_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_groups
-  end
-  if show.trade_blocks_party_ids_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group then
-    show.trade_blocks_party_ids_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group
-  end
-  if show.trade_blocks_party_ids_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_groups then
-    show.trade_blocks_party_ids_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_groups
-  end
-  if show.trade_blocks_underlyings_group ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group then
-    show.trade_blocks_underlyings_group = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group
-  end
-  if show.trade_blocks_underlyings_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_groups then
-    show.trade_blocks_underlyings_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_groups
-  end
-  if show.underlying_maturity_month_year ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year then
-    show.underlying_maturity_month_year = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_underlying_maturity_month_year
-  end
-  if show.unit_of_measure_qty_decimal ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal then
-    show.unit_of_measure_qty_decimal = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal
-  end
-  if show.unit_of_measure_qty_decimal_optional ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional then
-    show.unit_of_measure_qty_decimal_optional = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_unit_of_measure_qty_decimal_optional
-  end
-  if show.yield ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_yield then
-    show.yield = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_yield
-  end
-  if show.eris_reference_data_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index then
-    show.eris_reference_data_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_reference_data_group_index
-  end
-  if show.eris_security_alt_id_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index then
-    show.eris_security_alt_id_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_security_alt_id_group_index
-  end
-  if show.incremental_refresh_eris_related_instruments_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index then
-    show.incremental_refresh_eris_related_instruments_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_eris_related_instruments_group_index
-  end
-  if show.events_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group_index then
-    show.events_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_events_group_index
-  end
-  if show.news_indices_related_sym_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index then
-    show.news_indices_related_sym_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_news_indices_related_sym_group_index
-  end
-  if show.lines_of_text_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index then
-    show.lines_of_text_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_lines_of_text_group_index
-  end
-  if show.trade_blocks_original_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index then
-    show.trade_blocks_original_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_group_index
-  end
-  if show.trade_blocks_underlyings_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index then
-    show.trade_blocks_underlyings_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_underlyings_group_index
-  end
-  if show.trade_blocks_party_ids_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index then
-    show.trade_blocks_party_ids_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_party_ids_group_index
-  end
-  if show.trade_blocks_original_legs_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index then
-    show.trade_blocks_original_legs_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_original_legs_group_index
-  end
-  if show.quote_request_related_sym_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index then
-    show.quote_request_related_sym_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_quote_request_related_sym_group_index
-  end
-  if show.inst_attrib_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index then
-    show.inst_attrib_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_inst_attrib_group_index
-  end
-  if show.incremental_refresh_indices_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index then
-    show.incremental_refresh_indices_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_incremental_refresh_indices_group_index
-  end
-  if show.trade_blocks_legacy_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index then
-    show.trade_blocks_legacy_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legacy_group_index
-  end
-  if show.eris_original_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index then
-    show.eris_original_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_original_group_index
-  end
-  if show.eris_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group_index then
-    show.eris_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_group_index
-  end
-  if show.otc_original_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index then
-    show.otc_original_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_original_group_index
-  end
-  if show.otc_underlyings_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index then
-    show.otc_underlyings_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_underlyings_group_index
-  end
-  if show.otc_security_alt_id_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index then
-    show.otc_security_alt_id_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_security_alt_id_group_index
-  end
-  if show.eris_feed_types_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index then
-    show.eris_feed_types_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_feed_types_group_index
-  end
-  if show.eris_legs_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index then
-    show.eris_legs_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_eris_legs_group_index
-  end
-  if show.trade_blocks_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index then
-    show.trade_blocks_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_group_index
-  end
-  if show.trade_blocks_legs_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index then
-    show.trade_blocks_legs_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_trade_blocks_legs_group_index
-  end
-  if show.otc_group_index ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group_index then
-    show.otc_group_index = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_otc_group_index
+  if show.indexes ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_indexes then
+    show.indexes = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_indexes
   end
 end
 
@@ -5664,7 +5069,7 @@ cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_group.fields = function(
   local index = offset
 
   -- Implicit Otc Security Alt Id Group Index
-  if otc_security_alt_id_group_index ~= nil and show.otc_security_alt_id_group_index then
+  if otc_security_alt_id_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_security_alt_id_group_index, otc_security_alt_id_group_index)
     iteration:set_generated()
   end
@@ -5680,7 +5085,7 @@ end
 
 -- Dissect: Otc Security Alt Id Group
 cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_group.dissect = function(buffer, offset, packet, parent, otc_security_alt_id_group_index)
-  if show.otc_security_alt_id_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_security_alt_id_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_group.fields(buffer, offset, packet, parent, otc_security_alt_id_group_index)
@@ -5724,7 +5129,7 @@ end
 
 -- Dissect: Group Size
 cme_cmefutures_streamlined_sbe_v5_9.group_size.dissect = function(buffer, offset, packet, parent)
-  if show.group_size then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.group_size, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.group_size.fields(buffer, offset, packet, parent)
@@ -5781,7 +5186,7 @@ end
 
 -- Dissect: Otc Security Alt Id Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.otc_security_alt_id_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_security_alt_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_groups.fields(buffer, offset, packet, parent)
@@ -5833,7 +5238,7 @@ end
 
 -- Dissect: Underlying Maturity Month Year
 cme_cmefutures_streamlined_sbe_v5_9.underlying_maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.underlying_maturity_month_year, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.underlying_maturity_month_year.fields(buffer, offset, packet, parent)
@@ -5869,7 +5274,7 @@ cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_group.fields = function(buff
   local index = offset
 
   -- Implicit Otc Underlyings Group Index
-  if otc_underlyings_group_index ~= nil and show.otc_underlyings_group_index then
+  if otc_underlyings_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_underlyings_group_index, otc_underlyings_group_index)
     iteration:set_generated()
   end
@@ -5891,7 +5296,7 @@ end
 
 -- Dissect: Otc Underlyings Group
 cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_group.dissect = function(buffer, offset, packet, parent, otc_underlyings_group_index)
-  if show.otc_underlyings_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_underlyings_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_group.fields(buffer, offset, packet, parent, otc_underlyings_group_index)
@@ -5948,7 +5353,7 @@ end
 
 -- Dissect: Otc Underlyings Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.otc_underlyings_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -6002,7 +5407,7 @@ end
 
 -- Dissect: Unit Of Measure Qty Decimal Optional
 cme_cmefutures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.dissect = function(buffer, offset, packet, parent)
-  if show.unit_of_measure_qty_decimal_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.fields(buffer, offset, packet, parent)
@@ -6056,7 +5461,7 @@ end
 
 -- Dissect: Strike Price Decimal Optional
 cme_cmefutures_streamlined_sbe_v5_9.strike_price_decimal_optional.dissect = function(buffer, offset, packet, parent)
-  if show.strike_price_decimal_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.strike_price_decimal_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.strike_price_decimal_optional.fields(buffer, offset, packet, parent)
@@ -6108,7 +5513,7 @@ end
 
 -- Dissect: Maturity Month Year
 cme_cmefutures_streamlined_sbe_v5_9.maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.maturity_month_year, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.maturity_month_year.fields(buffer, offset, packet, parent)
@@ -6162,7 +5567,7 @@ end
 
 -- Dissect: Md Entry Size
 cme_cmefutures_streamlined_sbe_v5_9.md_entry_size.dissect = function(buffer, offset, packet, parent)
-  if show.md_entry_size then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.md_entry_size, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.md_entry_size.fields(buffer, offset, packet, parent)
@@ -6266,7 +5671,7 @@ cme_cmefutures_streamlined_sbe_v5_9.otc_group.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Otc Group Index
-  if otc_group_index ~= nil and show.otc_group_index then
+  if otc_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_group_index, otc_group_index)
     iteration:set_generated()
   end
@@ -6378,7 +5783,7 @@ end
 
 -- Dissect: Otc Group
 cme_cmefutures_streamlined_sbe_v5_9.otc_group.dissect = function(buffer, offset, packet, parent, otc_group_index)
-  if show.otc_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_group.fields(buffer, offset, packet, parent, otc_group_index)
@@ -6436,7 +5841,7 @@ end
 
 -- Dissect: Otc Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_groups.dissect = function(buffer, offset, packet, parent)
-  if show.otc_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_groups.fields(buffer, offset, packet, parent)
@@ -6534,7 +5939,7 @@ cme_cmefutures_streamlined_sbe_v5_9.match_event_indicator.dissect = function(buf
   local display = cme_cmefutures_streamlined_sbe_v5_9.match_event_indicator.display(range, value, packet, parent)
   local element = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.match_event_indicator, range, display)
 
-  if show.match_event_indicator then
+  if show.structs then
     cme_cmefutures_streamlined_sbe_v5_9.match_event_indicator.bits(range, value, packet, element)
   end
 
@@ -6644,7 +6049,7 @@ end
 
 -- Dissect: Leg Unit Of Measure Qty Decimal 64 Null
 cme_cmefutures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.dissect = function(buffer, offset, packet, parent)
-  if show.leg_unit_of_measure_qty_decimal_64_null then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_decimal_64_null, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.fields(buffer, offset, packet, parent)
@@ -6698,7 +6103,7 @@ end
 
 -- Dissect: Leg Strike Price Decimal 64 Null
 cme_cmefutures_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.dissect = function(buffer, offset, packet, parent)
-  if show.leg_strike_price_decimal_64_null then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.leg_strike_price_decimal_64_null, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.fields(buffer, offset, packet, parent)
@@ -6750,7 +6155,7 @@ end
 
 -- Dissect: Leg Maturity Month Year
 cme_cmefutures_streamlined_sbe_v5_9.leg_maturity_month_year.dissect = function(buffer, offset, packet, parent)
-  if show.leg_maturity_month_year then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.leg_maturity_month_year, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.leg_maturity_month_year.fields(buffer, offset, packet, parent)
@@ -6797,7 +6202,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_group.fields = function(bu
   local index = offset
 
   -- Implicit Trade Blocks Legs Group Index
-  if trade_blocks_legs_group_index ~= nil and show.trade_blocks_legs_group_index then
+  if trade_blocks_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legs_group_index, trade_blocks_legs_group_index)
     iteration:set_generated()
   end
@@ -6852,7 +6257,7 @@ end
 
 -- Dissect: Trade Blocks Legs Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_group.dissect = function(buffer, offset, packet, parent, trade_blocks_legs_group_index)
-  if show.trade_blocks_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legs_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_group.fields(buffer, offset, packet, parent, trade_blocks_legs_group_index)
@@ -6909,7 +6314,7 @@ end
 
 -- Dissect: Trade Blocks Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_groups.fields(buffer, offset, packet, parent)
@@ -6943,7 +6348,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_group.fields = functi
   local index = offset
 
   -- Implicit Trade Blocks Party Ids Group Index
-  if trade_blocks_party_ids_group_index ~= nil and show.trade_blocks_party_ids_group_index then
+  if trade_blocks_party_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_group_index, trade_blocks_party_ids_group_index)
     iteration:set_generated()
   end
@@ -6959,7 +6364,7 @@ end
 
 -- Dissect: Trade Blocks Party Ids Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_group.dissect = function(buffer, offset, packet, parent, trade_blocks_party_ids_group_index)
-  if show.trade_blocks_party_ids_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_group.fields(buffer, offset, packet, parent, trade_blocks_party_ids_group_index)
@@ -7016,7 +6421,7 @@ end
 
 -- Dissect: Trade Blocks Party Ids Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_party_ids_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
@@ -7052,7 +6457,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_group.fields = func
   local index = offset
 
   -- Implicit Trade Blocks Underlyings Group Index
-  if trade_blocks_underlyings_group_index ~= nil and show.trade_blocks_underlyings_group_index then
+  if trade_blocks_underlyings_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_group_index, trade_blocks_underlyings_group_index)
     iteration:set_generated()
   end
@@ -7074,7 +6479,7 @@ end
 
 -- Dissect: Trade Blocks Underlyings Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_group.dissect = function(buffer, offset, packet, parent, trade_blocks_underlyings_group_index)
-  if show.trade_blocks_underlyings_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_group.fields(buffer, offset, packet, parent, trade_blocks_underlyings_group_index)
@@ -7131,7 +6536,7 @@ end
 
 -- Dissect: Trade Blocks Underlyings Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_underlyings_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -7231,7 +6636,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Trade Blocks Group Index
-  if trade_blocks_group_index ~= nil and show.trade_blocks_group_index then
+  if trade_blocks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_group_index, trade_blocks_group_index)
     iteration:set_generated()
   end
@@ -7337,7 +6742,7 @@ end
 
 -- Dissect: Trade Blocks Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_group.dissect = function(buffer, offset, packet, parent, trade_blocks_group_index)
-  if show.trade_blocks_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_group.fields(buffer, offset, packet, parent, trade_blocks_group_index)
@@ -7395,7 +6800,7 @@ end
 
 -- Dissect: Trade Blocks Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_groups.fields(buffer, offset, packet, parent)
@@ -7494,7 +6899,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_group.fields = function
   local index = offset
 
   -- Implicit Eris Security Alt Id Group Index
-  if eris_security_alt_id_group_index ~= nil and show.eris_security_alt_id_group_index then
+  if eris_security_alt_id_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_security_alt_id_group_index, eris_security_alt_id_group_index)
     iteration:set_generated()
   end
@@ -7510,7 +6915,7 @@ end
 
 -- Dissect: Eris Security Alt Id Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_group.dissect = function(buffer, offset, packet, parent, eris_security_alt_id_group_index)
-  if show.eris_security_alt_id_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_security_alt_id_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_group.fields(buffer, offset, packet, parent, eris_security_alt_id_group_index)
@@ -7567,7 +6972,7 @@ end
 
 -- Dissect: Eris Security Alt Id Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_security_alt_id_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
@@ -7621,7 +7026,7 @@ end
 
 -- Dissect: Interpolation Factor
 cme_cmefutures_streamlined_sbe_v5_9.interpolation_factor.dissect = function(buffer, offset, packet, parent)
-  if show.interpolation_factor then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.interpolation_factor, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.interpolation_factor.fields(buffer, offset, packet, parent)
@@ -7675,7 +7080,7 @@ end
 
 -- Dissect: Previous Fixing Rate
 cme_cmefutures_streamlined_sbe_v5_9.previous_fixing_rate.dissect = function(buffer, offset, packet, parent)
-  if show.previous_fixing_rate then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.previous_fixing_rate, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.previous_fixing_rate.fields(buffer, offset, packet, parent)
@@ -7739,7 +7144,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_legs_group.fields = function(buffer, of
   local index = offset
 
   -- Implicit Eris Legs Group Index
-  if eris_legs_group_index ~= nil and show.eris_legs_group_index then
+  if eris_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_legs_group_index, eris_legs_group_index)
     iteration:set_generated()
   end
@@ -7791,7 +7196,7 @@ end
 
 -- Dissect: Eris Legs Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_legs_group.dissect = function(buffer, offset, packet, parent, eris_legs_group_index)
-  if show.eris_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_legs_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_legs_group.fields(buffer, offset, packet, parent, eris_legs_group_index)
@@ -7849,7 +7254,7 @@ end
 
 -- Dissect: Eris Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
@@ -7883,7 +7288,7 @@ cme_cmefutures_streamlined_sbe_v5_9.events_group.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Events Group Index
-  if events_group_index ~= nil and show.events_group_index then
+  if events_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.events_group_index, events_group_index)
     iteration:set_generated()
   end
@@ -7899,7 +7304,7 @@ end
 
 -- Dissect: Events Group
 cme_cmefutures_streamlined_sbe_v5_9.events_group.dissect = function(buffer, offset, packet, parent, events_group_index)
-  if show.events_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.events_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.events_group.fields(buffer, offset, packet, parent, events_group_index)
@@ -7956,7 +7361,7 @@ end
 
 -- Dissect: Events Groups
 cme_cmefutures_streamlined_sbe_v5_9.events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.events_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.events_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
@@ -7990,7 +7395,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_group.fields = function(buff
   local index = offset
 
   -- Implicit Eris Feed Types Group Index
-  if eris_feed_types_group_index ~= nil and show.eris_feed_types_group_index then
+  if eris_feed_types_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_feed_types_group_index, eris_feed_types_group_index)
     iteration:set_generated()
   end
@@ -8006,7 +7411,7 @@ end
 
 -- Dissect: Eris Feed Types Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_group.dissect = function(buffer, offset, packet, parent, eris_feed_types_group_index)
-  if show.eris_feed_types_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_feed_types_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_group.fields(buffer, offset, packet, parent, eris_feed_types_group_index)
@@ -8063,7 +7468,7 @@ end
 
 -- Dissect: Eris Feed Types Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_feed_types_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_feed_types_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_groups.fields(buffer, offset, packet, parent)
@@ -8117,7 +7522,7 @@ end
 
 -- Dissect: Min Price Increment
 cme_cmefutures_streamlined_sbe_v5_9.min_price_increment.dissect = function(buffer, offset, packet, parent)
-  if show.min_price_increment then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.min_price_increment, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.min_price_increment.fields(buffer, offset, packet, parent)
@@ -8296,7 +7701,7 @@ end
 
 -- Dissect: Unit Of Measure Qty Decimal
 cme_cmefutures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal.dissect = function(buffer, offset, packet, parent)
-  if show.unit_of_measure_qty_decimal then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal.fields(buffer, offset, packet, parent)
@@ -8350,7 +7755,7 @@ end
 
 -- Dissect: Strike Price Decimal
 cme_cmefutures_streamlined_sbe_v5_9.strike_price_decimal.dissect = function(buffer, offset, packet, parent)
-  if show.strike_price_decimal then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.strike_price_decimal, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.strike_price_decimal.fields(buffer, offset, packet, parent)
@@ -8454,7 +7859,7 @@ cme_cmefutures_streamlined_sbe_v5_9.otc_original_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Otc Original Group Index
-  if otc_original_group_index ~= nil and show.otc_original_group_index then
+  if otc_original_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_original_group_index, otc_original_group_index)
     iteration:set_generated()
   end
@@ -8566,7 +7971,7 @@ end
 
 -- Dissect: Otc Original Group
 cme_cmefutures_streamlined_sbe_v5_9.otc_original_group.dissect = function(buffer, offset, packet, parent, otc_original_group_index)
-  if show.otc_original_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_original_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_original_group.fields(buffer, offset, packet, parent, otc_original_group_index)
@@ -8624,7 +8029,7 @@ end
 
 -- Dissect: Otc Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.otc_original_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_original_groups.fields(buffer, offset, packet, parent)
@@ -8743,7 +8148,7 @@ end
 
 -- Dissect: Cal Fut Px
 cme_cmefutures_streamlined_sbe_v5_9.cal_fut_px.dissect = function(buffer, offset, packet, parent)
-  if show.cal_fut_px then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.cal_fut_px, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.cal_fut_px.fields(buffer, offset, packet, parent)
@@ -8797,7 +8202,7 @@ end
 
 -- Dissect: Md Entry Px Decimal
 cme_cmefutures_streamlined_sbe_v5_9.md_entry_px_decimal.dissect = function(buffer, offset, packet, parent)
-  if show.md_entry_px_decimal then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.md_entry_px_decimal, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.md_entry_px_decimal.fields(buffer, offset, packet, parent)
@@ -8873,7 +8278,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_group.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Eris Group Index
-  if eris_group_index ~= nil and show.eris_group_index then
+  if eris_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_group_index, eris_group_index)
     iteration:set_generated()
   end
@@ -8943,7 +8348,7 @@ end
 
 -- Dissect: Eris Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_group.dissect = function(buffer, offset, packet, parent, eris_group_index)
-  if show.eris_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_group.fields(buffer, offset, packet, parent, eris_group_index)
@@ -9001,7 +8406,7 @@ end
 
 -- Dissect: Eris Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_groups.fields(buffer, offset, packet, parent)
@@ -9135,7 +8540,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_original_group.fields = function(buffer
   local index = offset
 
   -- Implicit Eris Original Group Index
-  if eris_original_group_index ~= nil and show.eris_original_group_index then
+  if eris_original_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_original_group_index, eris_original_group_index)
     iteration:set_generated()
   end
@@ -9202,7 +8607,7 @@ end
 
 -- Dissect: Eris Original Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_original_group.dissect = function(buffer, offset, packet, parent, eris_original_group_index)
-  if show.eris_original_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_original_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_original_group.fields(buffer, offset, packet, parent, eris_original_group_index)
@@ -9260,7 +8665,7 @@ end
 
 -- Dissect: Eris Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_original_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_original_groups.fields(buffer, offset, packet, parent)
@@ -9367,7 +8772,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_group.fields = fu
   local index = offset
 
   -- Implicit Trade Blocks Original Legs Group Index
-  if trade_blocks_original_legs_group_index ~= nil and show.trade_blocks_original_legs_group_index then
+  if trade_blocks_original_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_group_index, trade_blocks_original_legs_group_index)
     iteration:set_generated()
   end
@@ -9422,7 +8827,7 @@ end
 
 -- Dissect: Trade Blocks Original Legs Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_group.dissect = function(buffer, offset, packet, parent, trade_blocks_original_legs_group_index)
-  if show.trade_blocks_original_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_group.fields(buffer, offset, packet, parent, trade_blocks_original_legs_group_index)
@@ -9479,7 +8884,7 @@ end
 
 -- Dissect: Trade Blocks Original Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_original_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
@@ -9579,7 +8984,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields = function(
   local index = offset
 
   -- Implicit Trade Blocks Legacy Group Index
-  if trade_blocks_legacy_group_index ~= nil and show.trade_blocks_legacy_group_index then
+  if trade_blocks_legacy_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_group_index, trade_blocks_legacy_group_index)
     iteration:set_generated()
   end
@@ -9685,7 +9090,7 @@ end
 
 -- Dissect: Trade Blocks Legacy Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_group.dissect = function(buffer, offset, packet, parent, trade_blocks_legacy_group_index)
-  if show.trade_blocks_legacy_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_group.fields(buffer, offset, packet, parent, trade_blocks_legacy_group_index)
@@ -9743,7 +9148,7 @@ end
 
 -- Dissect: Trade Blocks Legacy Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_legacy_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.fields(buffer, offset, packet, parent)
@@ -9862,7 +9267,7 @@ end
 
 -- Dissect: Percent Trading
 cme_cmefutures_streamlined_sbe_v5_9.percent_trading.dissect = function(buffer, offset, packet, parent)
-  if show.percent_trading then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.percent_trading, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.percent_trading.fields(buffer, offset, packet, parent)
@@ -9916,7 +9321,7 @@ end
 
 -- Dissect: Net Pct Chg
 cme_cmefutures_streamlined_sbe_v5_9.net_pct_chg.dissect = function(buffer, offset, packet, parent)
-  if show.net_pct_chg then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.net_pct_chg, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.net_pct_chg.fields(buffer, offset, packet, parent)
@@ -9970,7 +9375,7 @@ end
 
 -- Dissect: Net Chg Prev Day
 cme_cmefutures_streamlined_sbe_v5_9.net_chg_prev_day.dissect = function(buffer, offset, packet, parent)
-  if show.net_chg_prev_day then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.net_chg_prev_day, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.net_chg_prev_day.fields(buffer, offset, packet, parent)
@@ -10024,7 +9429,7 @@ end
 
 -- Dissect: Yield
 cme_cmefutures_streamlined_sbe_v5_9.yield.dissect = function(buffer, offset, packet, parent)
-  if show.yield then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.yield, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.yield.fields(buffer, offset, packet, parent)
@@ -10071,7 +9476,7 @@ cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_group.fields = f
   local index = offset
 
   -- Implicit Incremental Refresh Indices Group Index
-  if incremental_refresh_indices_group_index ~= nil and show.incremental_refresh_indices_group_index then
+  if incremental_refresh_indices_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_group_index, incremental_refresh_indices_group_index)
     iteration:set_generated()
   end
@@ -10126,7 +9531,7 @@ end
 
 -- Dissect: Incremental Refresh Indices Group
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_indices_group_index)
-  if show.incremental_refresh_indices_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_group.fields(buffer, offset, packet, parent, incremental_refresh_indices_group_index)
@@ -10183,7 +9588,7 @@ end
 
 -- Dissect: Incremental Refresh Indices Groups
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_refresh_indices_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.fields(buffer, offset, packet, parent)
@@ -10282,7 +9687,7 @@ cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Inst Attrib Group Index
-  if inst_attrib_group_index ~= nil and show.inst_attrib_group_index then
+  if inst_attrib_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
   end
@@ -10298,7 +9703,7 @@ end
 
 -- Dissect: Inst Attrib Group
 cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_group.dissect = function(buffer, offset, packet, parent, inst_attrib_group_index)
-  if show.inst_attrib_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.inst_attrib_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_group.fields(buffer, offset, packet, parent, inst_attrib_group_index)
@@ -10342,7 +9747,7 @@ end
 
 -- Dissect: Group Size Encoding
 cme_cmefutures_streamlined_sbe_v5_9.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.group_size_encoding, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -10399,7 +9804,7 @@ end
 
 -- Dissect: Inst Attrib Groups
 cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  if show.inst_attrib_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.inst_attrib_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_groups.fields(buffer, offset, packet, parent)
@@ -10540,7 +9945,7 @@ cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields = fun
   local index = offset
 
   -- Implicit Quote Request Related Sym Group Index
-  if quote_request_related_sym_group_index ~= nil and show.quote_request_related_sym_group_index then
+  if quote_request_related_sym_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.quote_request_related_sym_group_index, quote_request_related_sym_group_index)
     iteration:set_generated()
   end
@@ -10580,7 +9985,7 @@ end
 
 -- Dissect: Quote Request Related Sym Group
 cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_group.dissect = function(buffer, offset, packet, parent, quote_request_related_sym_group_index)
-  if show.quote_request_related_sym_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.quote_request_related_sym_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_group.fields(buffer, offset, packet, parent, quote_request_related_sym_group_index)
@@ -10638,7 +10043,7 @@ end
 
 -- Dissect: Quote Request Related Sym Groups
 cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_related_sym_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.quote_request_related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
@@ -10798,7 +10203,7 @@ cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_group.fields = functio
   local index = offset
 
   -- Implicit Trade Blocks Original Group Index
-  if trade_blocks_original_group_index ~= nil and show.trade_blocks_original_group_index then
+  if trade_blocks_original_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_group_index, trade_blocks_original_group_index)
     iteration:set_generated()
   end
@@ -10904,7 +10309,7 @@ end
 
 -- Dissect: Trade Blocks Original Group
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_group.dissect = function(buffer, offset, packet, parent, trade_blocks_original_group_index)
-  if show.trade_blocks_original_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_group.fields(buffer, offset, packet, parent, trade_blocks_original_group_index)
@@ -10962,7 +10367,7 @@ end
 
 -- Dissect: Trade Blocks Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.trade_blocks_original_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_groups.fields(buffer, offset, packet, parent)
@@ -11055,7 +10460,7 @@ cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_group.fields = function(buffer
   local index = offset
 
   -- Implicit Lines Of Text Group Index
-  if lines_of_text_group_index ~= nil and show.lines_of_text_group_index then
+  if lines_of_text_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.lines_of_text_group_index, lines_of_text_group_index)
     iteration:set_generated()
   end
@@ -11068,7 +10473,7 @@ end
 
 -- Dissect: Lines Of Text Group
 cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_group.dissect = function(buffer, offset, packet, parent, lines_of_text_group_index)
-  if show.lines_of_text_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.lines_of_text_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_group.fields(buffer, offset, packet, parent, lines_of_text_group_index)
@@ -11125,7 +10530,7 @@ end
 
 -- Dissect: Lines Of Text Groups
 cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_groups.dissect = function(buffer, offset, packet, parent)
-  if show.lines_of_text_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.lines_of_text_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_groups.fields(buffer, offset, packet, parent)
@@ -11158,7 +10563,7 @@ cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_group.fields = func
   local index = offset
 
   -- Implicit News Indices Related Sym Group Index
-  if news_indices_related_sym_group_index ~= nil and show.news_indices_related_sym_group_index then
+  if news_indices_related_sym_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.news_indices_related_sym_group_index, news_indices_related_sym_group_index)
     iteration:set_generated()
   end
@@ -11171,7 +10576,7 @@ end
 
 -- Dissect: News Indices Related Sym Group
 cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_group.dissect = function(buffer, offset, packet, parent, news_indices_related_sym_group_index)
-  if show.news_indices_related_sym_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.news_indices_related_sym_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_group.fields(buffer, offset, packet, parent, news_indices_related_sym_group_index)
@@ -11228,7 +10633,7 @@ end
 
 -- Dissect: News Indices Related Sym Groups
 cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.news_indices_related_sym_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.news_indices_related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_groups.fields(buffer, offset, packet, parent)
@@ -11328,7 +10733,7 @@ cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments
   local index = offset
 
   -- Implicit Incremental Refresh Eris Related Instruments Group Index
-  if incremental_refresh_eris_related_instruments_group_index ~= nil and show.incremental_refresh_eris_related_instruments_group_index then
+  if incremental_refresh_eris_related_instruments_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_group_index, incremental_refresh_eris_related_instruments_group_index)
     iteration:set_generated()
   end
@@ -11347,7 +10752,7 @@ end
 
 -- Dissect: Incremental Refresh Eris Related Instruments Group
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_eris_related_instruments_group_index)
-  if show.incremental_refresh_eris_related_instruments_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_group.fields(buffer, offset, packet, parent, incremental_refresh_eris_related_instruments_group_index)
@@ -11404,7 +10809,7 @@ end
 
 -- Dissect: Incremental Refresh Eris Related Instruments Groups
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  if show.incremental_refresh_eris_related_instruments_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
@@ -11458,7 +10863,7 @@ end
 
 -- Dissect: Final Settlement Futures Price
 cme_cmefutures_streamlined_sbe_v5_9.final_settlement_futures_price.dissect = function(buffer, offset, packet, parent)
-  if show.final_settlement_futures_price then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.final_settlement_futures_price, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.final_settlement_futures_price.fields(buffer, offset, packet, parent)
@@ -11512,7 +10917,7 @@ end
 
 -- Dissect: Settlement Npv
 cme_cmefutures_streamlined_sbe_v5_9.settlement_npv.dissect = function(buffer, offset, packet, parent)
-  if show.settlement_npv then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.settlement_npv, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.settlement_npv.fields(buffer, offset, packet, parent)
@@ -11566,7 +10971,7 @@ end
 
 -- Dissect: D V 01
 cme_cmefutures_streamlined_sbe_v5_9.d_v_01.dissect = function(buffer, offset, packet, parent)
-  if show.d_v_01 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.d_v_01, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.d_v_01.fields(buffer, offset, packet, parent)
@@ -11620,7 +11025,7 @@ end
 
 -- Dissect: P V 01
 cme_cmefutures_streamlined_sbe_v5_9.p_v_01.dissect = function(buffer, offset, packet, parent)
-  if show.p_v_01 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.p_v_01, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.p_v_01.fields(buffer, offset, packet, parent)
@@ -11674,7 +11079,7 @@ end
 
 -- Dissect: Leg Contract Multiplier
 cme_cmefutures_streamlined_sbe_v5_9.leg_contract_multiplier.dissect = function(buffer, offset, packet, parent)
-  if show.leg_contract_multiplier then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.leg_contract_multiplier, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.leg_contract_multiplier.fields(buffer, offset, packet, parent)
@@ -11728,7 +11133,7 @@ end
 
 -- Dissect: Previous Eris Pai
 cme_cmefutures_streamlined_sbe_v5_9.previous_eris_pai.dissect = function(buffer, offset, packet, parent)
-  if show.previous_eris_pai then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.previous_eris_pai, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.previous_eris_pai.fields(buffer, offset, packet, parent)
@@ -11782,7 +11187,7 @@ end
 
 -- Dissect: Next Floating Payment Amount
 cme_cmefutures_streamlined_sbe_v5_9.next_floating_payment_amount.dissect = function(buffer, offset, packet, parent)
-  if show.next_floating_payment_amount then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.next_floating_payment_amount, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.next_floating_payment_amount.fields(buffer, offset, packet, parent)
@@ -11836,7 +11241,7 @@ end
 
 -- Dissect: Next Fixed Payment Amount
 cme_cmefutures_streamlined_sbe_v5_9.next_fixed_payment_amount.dissect = function(buffer, offset, packet, parent)
-  if show.next_fixed_payment_amount then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.next_fixed_payment_amount, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.next_fixed_payment_amount.fields(buffer, offset, packet, parent)
@@ -11890,7 +11295,7 @@ end
 
 -- Dissect: Floating Payment
 cme_cmefutures_streamlined_sbe_v5_9.floating_payment.dissect = function(buffer, offset, packet, parent)
-  if show.floating_payment then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.floating_payment, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.floating_payment.fields(buffer, offset, packet, parent)
@@ -11944,7 +11349,7 @@ end
 
 -- Dissect: Fixed Payment
 cme_cmefutures_streamlined_sbe_v5_9.fixed_payment.dissect = function(buffer, offset, packet, parent)
-  if show.fixed_payment then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.fixed_payment, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.fixed_payment.fields(buffer, offset, packet, parent)
@@ -11998,7 +11403,7 @@ end
 
 -- Dissect: Min Price Increment Optional
 cme_cmefutures_streamlined_sbe_v5_9.min_price_increment_optional.dissect = function(buffer, offset, packet, parent)
-  if show.min_price_increment_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.min_price_increment_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.min_price_increment_optional.fields(buffer, offset, packet, parent)
@@ -12052,7 +11457,7 @@ end
 
 -- Dissect: Fed Funds Rate
 cme_cmefutures_streamlined_sbe_v5_9.fed_funds_rate.dissect = function(buffer, offset, packet, parent)
-  if show.fed_funds_rate then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.fed_funds_rate, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.fed_funds_rate.fields(buffer, offset, packet, parent)
@@ -12106,7 +11511,7 @@ end
 
 -- Dissect: Eris Pai
 cme_cmefutures_streamlined_sbe_v5_9.eris_pai.dissect = function(buffer, offset, packet, parent)
-  if show.eris_pai then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_pai, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.eris_pai.fields(buffer, offset, packet, parent)
@@ -12160,7 +11565,7 @@ end
 
 -- Dissect: Daily Incremental Eris Pai
 cme_cmefutures_streamlined_sbe_v5_9.daily_incremental_eris_pai.dissect = function(buffer, offset, packet, parent)
-  if show.daily_incremental_eris_pai then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.daily_incremental_eris_pai, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.daily_incremental_eris_pai.fields(buffer, offset, packet, parent)
@@ -12214,7 +11619,7 @@ end
 
 -- Dissect: Accrued Coupons
 cme_cmefutures_streamlined_sbe_v5_9.accrued_coupons.dissect = function(buffer, offset, packet, parent)
-  if show.accrued_coupons then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.accrued_coupons, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.accrued_coupons.fields(buffer, offset, packet, parent)
@@ -12268,7 +11673,7 @@ end
 
 -- Dissect: Npv
 cme_cmefutures_streamlined_sbe_v5_9.npv.dissect = function(buffer, offset, packet, parent)
-  if show.npv then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.npv, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.npv.fields(buffer, offset, packet, parent)
@@ -12322,7 +11727,7 @@ end
 
 -- Dissect: Float Npv
 cme_cmefutures_streamlined_sbe_v5_9.float_npv.dissect = function(buffer, offset, packet, parent)
-  if show.float_npv then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.float_npv, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.float_npv.fields(buffer, offset, packet, parent)
@@ -12376,7 +11781,7 @@ end
 
 -- Dissect: Fixed Npv
 cme_cmefutures_streamlined_sbe_v5_9.fixed_npv.dissect = function(buffer, offset, packet, parent)
-  if show.fixed_npv then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.fixed_npv, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.fixed_npv.fields(buffer, offset, packet, parent)
@@ -12430,7 +11835,7 @@ end
 
 -- Dissect: Leg Purchase Rate
 cme_cmefutures_streamlined_sbe_v5_9.leg_purchase_rate.dissect = function(buffer, offset, packet, parent)
-  if show.leg_purchase_rate then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.leg_purchase_rate, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.leg_purchase_rate.fields(buffer, offset, packet, parent)
@@ -12484,7 +11889,7 @@ end
 
 -- Dissect: Fair Coupon Pct
 cme_cmefutures_streamlined_sbe_v5_9.fair_coupon_pct.dissect = function(buffer, offset, packet, parent)
-  if show.fair_coupon_pct then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.fair_coupon_pct, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.fair_coupon_pct.fields(buffer, offset, packet, parent)
@@ -12538,7 +11943,7 @@ end
 
 -- Dissect: Coupon Rate Optional
 cme_cmefutures_streamlined_sbe_v5_9.coupon_rate_optional.dissect = function(buffer, offset, packet, parent)
-  if show.coupon_rate_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.coupon_rate_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.coupon_rate_optional.fields(buffer, offset, packet, parent)
@@ -12592,7 +11997,7 @@ end
 
 -- Dissect: Cal Fut Px Optional
 cme_cmefutures_streamlined_sbe_v5_9.cal_fut_px_optional.dissect = function(buffer, offset, packet, parent)
-  if show.cal_fut_px_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.cal_fut_px_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.cal_fut_px_optional.fields(buffer, offset, packet, parent)
@@ -12690,7 +12095,7 @@ cme_cmefutures_streamlined_sbe_v5_9.settl_price_type.dissect = function(buffer, 
   local display = cme_cmefutures_streamlined_sbe_v5_9.settl_price_type.display(range, value, packet, parent)
   local element = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.settl_price_type, range, display)
 
-  if show.settl_price_type then
+  if show.structs then
     cme_cmefutures_streamlined_sbe_v5_9.settl_price_type.bits(range, value, packet, element)
   end
 
@@ -12735,7 +12140,7 @@ end
 
 -- Dissect: Md Entry Px Decimal Optional
 cme_cmefutures_streamlined_sbe_v5_9.md_entry_px_decimal_optional.dissect = function(buffer, offset, packet, parent)
-  if show.md_entry_px_decimal_optional then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.md_entry_px_decimal_optional, buffer(offset, 0))
     local index, value = cme_cmefutures_streamlined_sbe_v5_9.md_entry_px_decimal_optional.fields(buffer, offset, packet, parent)
@@ -12867,7 +12272,7 @@ cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(
   local index = offset
 
   -- Implicit Eris Reference Data Group Index
-  if eris_reference_data_group_index ~= nil and show.eris_reference_data_group_index then
+  if eris_reference_data_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_reference_data_group_index, eris_reference_data_group_index)
     iteration:set_generated()
   end
@@ -13021,7 +12426,7 @@ end
 
 -- Dissect: Eris Reference Data Group
 cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_group.dissect = function(buffer, offset, packet, parent, eris_reference_data_group_index)
-  if show.eris_reference_data_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_reference_data_group, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_group.fields(buffer, offset, packet, parent, eris_reference_data_group_index)
@@ -13079,7 +12484,7 @@ end
 
 -- Dissect: Eris Reference Data Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_groups.dissect = function(buffer, offset, packet, parent)
-  if show.eris_reference_data_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_reference_data_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_groups.fields(buffer, offset, packet, parent)
@@ -13344,7 +12749,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_streamlined_sbe_v5_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.message_header.fields(buffer, offset, packet, parent)
@@ -13392,7 +12797,7 @@ cme_cmefutures_streamlined_sbe_v5_9.message.dissect = function(buffer, offset, p
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.message, buffer(offset, 0))
     local current = cme_cmefutures_streamlined_sbe_v5_9.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -13436,7 +12841,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_streamlined_sbe_v5_9.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.binary_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.binary_packet_header.fields(buffer, offset, packet, parent)

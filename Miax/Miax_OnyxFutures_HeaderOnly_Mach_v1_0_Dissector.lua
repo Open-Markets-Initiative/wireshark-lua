@@ -32,28 +32,18 @@ omi_miax_onyxfutures_headeronly_mach_v1_0.fields.session_number = ProtoField.new
 local show = {}
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Element Dissection Options
-show.application_message = true
-show.mach_message = true
-show.packet = true
+show.structs = true
 
 -- Register Miax OnyxFutures HeaderOnly Mach 1.0 Show Options
-omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_headeronly_mach_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message then
-    show.application_message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_application_message
-  end
-  if show.mach_message ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message then
-    show.mach_message = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_mach_message
-  end
-  if show.packet ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet then
-    show.packet = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_packet
+  if show.structs ~= omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_structs then
+    show.structs = omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_structs
   end
 end
 
@@ -257,7 +247,7 @@ miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect = function(buf
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_onyxfutures_headeronly_mach_v1_0.fields.application_message, buffer(offset, 0))
     local current = miax_onyxfutures_headeronly_mach_v1_0.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -338,7 +328,7 @@ end
 
 -- Dissect: Mach Message
 miax_onyxfutures_headeronly_mach_v1_0.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message, buffer(offset, 0))
     local index = miax_onyxfutures_headeronly_mach_v1_0.mach_message.fields(buffer, offset, packet, parent)

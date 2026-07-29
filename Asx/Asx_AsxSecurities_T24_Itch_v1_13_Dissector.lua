@@ -170,27 +170,13 @@ local show = {}
 
 -- Asx AsxSecurities T24 Itch 1.13 Element Dissection Options
 show.application_messages = true
-show.contract_legs = true
-show.market_updates = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.session = true
-show.message_index = true
-show.contract_legs_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Asx AsxSecurities T24 Itch 1.13 Show Options
 omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs = Pref.bool("Show Contract Legs", show.contract_legs, "Parse and add Contract Legs to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_market_updates = Pref.bool("Show Market Updates", show.market_updates, "Parse and add Market Updates to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_session = Pref.bool("Show Session", show.session, "Parse and add Session to protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs_index = Pref.bool("Show Contract Legs Index", show.contract_legs_index, "Show generated contract legs index in protocol tree")
+omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -200,32 +186,11 @@ function omi_asx_asxsecurities_t24_itch_v1_13.prefs_changed()
   if show.application_messages ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_application_messages
   end
-  if show.contract_legs ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs then
-    show.contract_legs = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs
+  if show.structs ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_structs then
+    show.structs = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_structs
   end
-  if show.market_updates ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_market_updates then
-    show.market_updates = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_market_updates
-  end
-  if show.message ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message then
-    show.message = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message
-  end
-  if show.message_header ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_header then
-    show.message_header = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_header
-  end
-  if show.packet ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet then
-    show.packet = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet
-  end
-  if show.packet_header ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet_header then
-    show.packet_header = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_packet_header
-  end
-  if show.session ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_session then
-    show.session = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_session
-  end
-  if show.message_index ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_index then
-    show.message_index = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_message_index
-  end
-  if show.contract_legs_index ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs_index then
-    show.contract_legs_index = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_contract_legs_index
+  if show.indexes ~= omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_indexes then
+    show.indexes = omi_asx_asxsecurities_t24_itch_v1_13.prefs.show_indexes
   end
 end
 
@@ -3259,7 +3224,7 @@ asx_asxsecurities_t24_itch_v1_13.market_updates.dissect = function(buffer, offse
   local display = asx_asxsecurities_t24_itch_v1_13.market_updates.display(range, value, packet, parent)
   local element = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.market_updates, range, display)
 
-  if show.market_updates then
+  if show.structs then
     asx_asxsecurities_t24_itch_v1_13.market_updates.bits(range, value, packet, element)
   end
 
@@ -4114,7 +4079,7 @@ asx_asxsecurities_t24_itch_v1_13.contract_legs.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Contract Legs Index
-  if contract_legs_index ~= nil and show.contract_legs_index then
+  if contract_legs_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.contract_legs_index, contract_legs_index)
     iteration:set_generated()
   end
@@ -4136,7 +4101,7 @@ end
 
 -- Dissect: Contract Legs
 asx_asxsecurities_t24_itch_v1_13.contract_legs.dissect = function(buffer, offset, packet, parent, contract_legs_index)
-  if show.contract_legs then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.contract_legs, buffer(offset, 0))
     local index = asx_asxsecurities_t24_itch_v1_13.contract_legs.fields(buffer, offset, packet, parent, contract_legs_index)
@@ -5306,7 +5271,7 @@ end
 
 -- Dissect: Message Header
 asx_asxsecurities_t24_itch_v1_13.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.message_header, buffer(offset, 0))
     local index = asx_asxsecurities_t24_itch_v1_13.message_header.fields(buffer, offset, packet, parent)
@@ -5345,7 +5310,7 @@ asx_asxsecurities_t24_itch_v1_13.message.fields = function(buffer, offset, packe
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5368,7 +5333,7 @@ asx_asxsecurities_t24_itch_v1_13.message.dissect = function(buffer, offset, pack
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.message, buffer(offset, 0))
     local current = asx_asxsecurities_t24_itch_v1_13.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -5483,7 +5448,7 @@ end
 
 -- Dissect: Session
 asx_asxsecurities_t24_itch_v1_13.session.dissect = function(buffer, offset, packet, parent)
-  if show.session then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.session, buffer(offset, 0))
     local index = asx_asxsecurities_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
@@ -5531,7 +5496,7 @@ end
 
 -- Dissect: Packet Header
 asx_asxsecurities_t24_itch_v1_13.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_t24_itch_v1_13.fields.packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_t24_itch_v1_13.packet_header.fields(buffer, offset, packet, parent)

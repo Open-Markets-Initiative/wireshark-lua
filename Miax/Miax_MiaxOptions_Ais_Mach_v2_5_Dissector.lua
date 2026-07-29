@@ -148,103 +148,33 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.timestamp = ProtoField.new("Timestamp"
 local show = {}
 
 -- Miax MiaxOptions Ais Mach 2.5 Element Dissection Options
-show.application_message = true
+show.structs = true
 show.application_messages = true
-show.goodbye_packet = true
-show.leg_definition = true
-show.login_request = true
-show.login_response = true
-show.logout_request = true
-show.mach_message = true
-show.retransmission_request = true
-show.sequenced_data_packet = true
-show.sesm_packet_header = true
-show.sesm_tcp_packet = true
-show.synchronization_complete = true
-show.tcp_packet = true
-show.test_packet = true
-show.udp_packet = true
-show.unsequenced_data_packet = true
-show.leg_definition_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Miax MiaxOptions Ais Mach 2.5 Show Options
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition = Pref.bool("Show Leg Definition", show.leg_definition, "Parse and add Leg Definition to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_packet_header = Pref.bool("Show Sesm Packet Header", show.sesm_packet_header, "Parse and add Sesm Packet Header to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_tcp_packet = Pref.bool("Show Sesm Tcp Packet", show.sesm_tcp_packet, "Parse and add Sesm Tcp Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_udp_packet = Pref.bool("Show Udp Packet", show.udp_packet, "Parse and add Udp Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition_index = Pref.bool("Show Leg Definition Index", show.leg_definition_index, "Show generated leg definition index in protocol tree")
+omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_ais_mach_v2_5.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_message then
-    show.application_message = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_message
-  end
   if show.application_messages ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages
   end
-  if show.goodbye_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_goodbye_packet then
-    show.goodbye_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_goodbye_packet
+  if show.repeating_groups ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups
   end
-  if show.leg_definition ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition then
-    show.leg_definition = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition
+  if show.structs ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs then
+    show.structs = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs
   end
-  if show.login_request ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_request then
-    show.login_request = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_request
-  end
-  if show.login_response ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_response then
-    show.login_response = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_login_response
-  end
-  if show.logout_request ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_logout_request then
-    show.logout_request = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_logout_request
-  end
-  if show.mach_message ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_mach_message then
-    show.mach_message = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_mach_message
-  end
-  if show.retransmission_request ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_retransmission_request then
-    show.retransmission_request = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_retransmission_request
-  end
-  if show.sequenced_data_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sequenced_data_packet
-  end
-  if show.sesm_packet_header ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_packet_header then
-    show.sesm_packet_header = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_packet_header
-  end
-  if show.sesm_tcp_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_tcp_packet then
-    show.sesm_tcp_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_sesm_tcp_packet
-  end
-  if show.synchronization_complete ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_synchronization_complete then
-    show.synchronization_complete = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_synchronization_complete
-  end
-  if show.tcp_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_tcp_packet then
-    show.tcp_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_tcp_packet
-  end
-  if show.test_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_test_packet then
-    show.test_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_test_packet
-  end
-  if show.udp_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_udp_packet then
-    show.udp_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_udp_packet
-  end
-  if show.unsequenced_data_packet ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_unsequenced_data_packet
-  end
-  if show.leg_definition_index ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition_index then
-    show.leg_definition_index = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_leg_definition_index
+  if show.indexes ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes then
+    show.indexes = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes
   end
 end
 
@@ -2917,7 +2847,7 @@ end
 
 -- Dissect: Test Packet
 miax_miaxoptions_ais_mach_v2_5.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.test_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.test_packet, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.test_packet.fields(buffer, offset, packet, parent)
@@ -2974,7 +2904,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_miaxoptions_ais_mach_v2_5.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.goodbye_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -3031,7 +2961,7 @@ end
 
 -- Dissect: Logout Request
 miax_miaxoptions_ais_mach_v2_5.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.logout_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.logout_request, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.logout_request.fields(buffer, offset, packet, parent)
@@ -3075,7 +3005,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_miaxoptions_ais_mach_v2_5.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.retransmission_request, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.retransmission_request.fields(buffer, offset, packet, parent)
@@ -3115,7 +3045,7 @@ end
 
 -- Dissect: Synchronization Complete
 miax_miaxoptions_ais_mach_v2_5.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.synchronization_complete then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -3167,7 +3097,7 @@ end
 
 -- Dissect: Login Response
 miax_miaxoptions_ais_mach_v2_5.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.login_response then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.login_response, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.login_response.fields(buffer, offset, packet, parent)
@@ -3227,7 +3157,7 @@ end
 
 -- Dissect: Login Request
 miax_miaxoptions_ais_mach_v2_5.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.login_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.login_request, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.login_request.fields(buffer, offset, packet, parent)
@@ -3771,7 +3701,7 @@ miax_miaxoptions_ais_mach_v2_5.leg_definition.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.leg_definition_index then
+  if leg_definition_index ~= nil and show.indexes then
     local iteration = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition_index, leg_definition_index)
     iteration:set_generated()
   end
@@ -3793,7 +3723,7 @@ end
 
 -- Dissect: Leg Definition
 miax_miaxoptions_ais_mach_v2_5.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.leg_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -4120,7 +4050,7 @@ miax_miaxoptions_ais_mach_v2_5.application_message.dissect = function(buffer, of
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.application_message, buffer(offset, 0))
     local current = miax_miaxoptions_ais_mach_v2_5.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -4291,7 +4221,7 @@ miax_miaxoptions_ais_mach_v2_5.unsequenced_data_packet.dissect = function(buffer
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = miax_miaxoptions_ais_mach_v2_5.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -4350,7 +4280,7 @@ miax_miaxoptions_ais_mach_v2_5.sequenced_data_packet.dissect = function(buffer, 
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.sequenced_data_packet, buffer(offset, 0))
     local current = miax_miaxoptions_ais_mach_v2_5.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -4451,7 +4381,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_miaxoptions_ais_mach_v2_5.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.sesm_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.sesm_packet_header.fields(buffer, offset, packet, parent)
@@ -4496,7 +4426,7 @@ miax_miaxoptions_ais_mach_v2_5.sesm_tcp_packet.dissect = function(buffer, offset
   local index = offset + size_of_sesm_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sesm_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_tcp_packet, buffer(offset, 0))
     local current = miax_miaxoptions_ais_mach_v2_5.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
     parent:set_len(size_of_sesm_tcp_packet)
@@ -4704,7 +4634,7 @@ end
 
 -- Dissect: Mach Message
 miax_miaxoptions_ais_mach_v2_5.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.mach_message, buffer(offset, 0))
     local index = miax_miaxoptions_ais_mach_v2_5.mach_message.fields(buffer, offset, packet, parent)

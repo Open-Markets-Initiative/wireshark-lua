@@ -142,50 +142,12 @@ omi_memx_memxequities_memo_sbe_v1_8.fields.pending_mass_cancel_message = ProtoFi
 local show = {}
 
 -- Memx MemxEquities Memo Sbe 1.8 Element Dissection Options
-show.common_header = true
-show.exec_inst = true
+show.structs = true
 show.application_messages = true
-show.login_accepted_message = true
-show.login_rejected_message = true
-show.login_request_message = true
-show.packet = true
-show.replay_all_request_message = true
-show.replay_begin_message = true
-show.replay_complete_message = true
-show.replay_rejected_message = true
-show.replay_request_message = true
-show.sbe_header = true
-show.sbe_message = true
-show.sequenced_message = true
-show.start_of_session_message = true
-show.stream_begin_message = true
-show.stream_complete_message = true
-show.stream_rejected_message = true
-show.stream_request_message = true
-show.unsequenced_message = true
 
 -- Register Memx MemxEquities Memo Sbe 1.8 Show Options
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
+omi_memx_memxequities_memo_sbe_v1_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_memo_sbe_v1_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-omi_memx_memxequities_memo_sbe_v1_8.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
 
 
 -- Handle changed preferences
@@ -195,65 +157,8 @@ function omi_memx_memxequities_memo_sbe_v1_8.prefs_changed()
   if show.application_messages ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_application_messages then
     show.application_messages = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_application_messages
   end
-  if show.common_header ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_common_header then
-    show.common_header = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_common_header
-  end
-  if show.exec_inst ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_exec_inst then
-    show.exec_inst = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_exec_inst
-  end
-  if show.login_accepted_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_accepted_message then
-    show.login_accepted_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_accepted_message
-  end
-  if show.login_rejected_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_rejected_message then
-    show.login_rejected_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_rejected_message
-  end
-  if show.login_request_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_request_message then
-    show.login_request_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_login_request_message
-  end
-  if show.packet ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_packet then
-    show.packet = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_packet
-  end
-  if show.replay_all_request_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_all_request_message
-  end
-  if show.replay_begin_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_begin_message then
-    show.replay_begin_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_begin_message
-  end
-  if show.replay_complete_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_complete_message then
-    show.replay_complete_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_complete_message
-  end
-  if show.replay_rejected_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_rejected_message
-  end
-  if show.replay_request_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_request_message then
-    show.replay_request_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_replay_request_message
-  end
-  if show.sbe_header ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_header then
-    show.sbe_header = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_header
-  end
-  if show.sbe_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_message then
-    show.sbe_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sbe_message
-  end
-  if show.sequenced_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sequenced_message then
-    show.sequenced_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_sequenced_message
-  end
-  if show.start_of_session_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_start_of_session_message then
-    show.start_of_session_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_start_of_session_message
-  end
-  if show.stream_begin_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_begin_message then
-    show.stream_begin_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_begin_message
-  end
-  if show.stream_complete_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_complete_message then
-    show.stream_complete_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_complete_message
-  end
-  if show.stream_rejected_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_rejected_message
-  end
-  if show.stream_request_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_request_message then
-    show.stream_request_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_stream_request_message
-  end
-  if show.unsequenced_message ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_unsequenced_message
+  if show.structs ~= omi_memx_memxequities_memo_sbe_v1_8.prefs.show_structs then
+    show.structs = omi_memx_memxequities_memo_sbe_v1_8.prefs.show_structs
   end
 end
 
@@ -4275,7 +4180,7 @@ memx_memxequities_memo_sbe_v1_8.exec_inst.dissect = function(buffer, offset, pac
   local display = memx_memxequities_memo_sbe_v1_8.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.exec_inst, range, display)
 
-  if show.exec_inst then
+  if show.structs then
     memx_memxequities_memo_sbe_v1_8.exec_inst.bits(range, value, packet, element)
   end
 
@@ -5083,7 +4988,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxequities_memo_sbe_v1_8.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.sbe_header.fields(buffer, offset, packet, parent)
@@ -5139,7 +5044,7 @@ end
 
 -- Dissect: Sbe Message
 memx_memxequities_memo_sbe_v1_8.sbe_message.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.sbe_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.sbe_message.fields(buffer, offset, packet, parent)
@@ -5184,7 +5089,7 @@ end
 
 -- Dissect: Sequenced Message
 memx_memxequities_memo_sbe_v1_8.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.sequenced_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.sequenced_message.fields(buffer, offset, packet, parent)
@@ -5224,7 +5129,7 @@ end
 
 -- Dissect: Stream Complete Message
 memx_memxequities_memo_sbe_v1_8.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -5264,7 +5169,7 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_memxequities_memo_sbe_v1_8.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -5308,7 +5213,7 @@ end
 
 -- Dissect: Stream Begin Message
 memx_memxequities_memo_sbe_v1_8.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -5348,7 +5253,7 @@ end
 
 -- Dissect: Replay Complete Message
 memx_memxequities_memo_sbe_v1_8.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -5388,7 +5293,7 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_memxequities_memo_sbe_v1_8.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -5432,7 +5337,7 @@ end
 
 -- Dissect: Replay Begin Message
 memx_memxequities_memo_sbe_v1_8.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -5472,7 +5377,7 @@ end
 
 -- Dissect: Start Of Session Message
 memx_memxequities_memo_sbe_v1_8.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_session_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -5512,7 +5417,7 @@ end
 
 -- Dissect: Login Rejected Message
 memx_memxequities_memo_sbe_v1_8.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -5552,7 +5457,7 @@ end
 
 -- Dissect: Login Accepted Message
 memx_memxequities_memo_sbe_v1_8.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -5597,7 +5502,7 @@ end
 
 -- Dissect: Unsequenced Message
 memx_memxequities_memo_sbe_v1_8.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.unsequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.unsequenced_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -5641,7 +5546,7 @@ end
 
 -- Dissect: Stream Request Message
 memx_memxequities_memo_sbe_v1_8.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.stream_request_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.stream_request_message.fields(buffer, offset, packet, parent)
@@ -5681,7 +5586,7 @@ end
 
 -- Dissect: Replay All Request Message
 memx_memxequities_memo_sbe_v1_8.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_all_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -5729,7 +5634,7 @@ end
 
 -- Dissect: Replay Request Message
 memx_memxequities_memo_sbe_v1_8.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.replay_request_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.replay_request_message.fields(buffer, offset, packet, parent)
@@ -5773,7 +5678,7 @@ end
 
 -- Dissect: Login Request Message
 memx_memxequities_memo_sbe_v1_8.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.login_request_message, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.login_request_message.fields(buffer, offset, packet, parent)
@@ -5886,7 +5791,7 @@ end
 
 -- Dissect: Common Header
 memx_memxequities_memo_sbe_v1_8.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.common_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.common_header, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_8.common_header.fields(buffer, offset, packet, parent)

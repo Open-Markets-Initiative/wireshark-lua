@@ -133,28 +133,12 @@ local show = {}
 -- Nasdaq NsmEquities Orders Ouch 5.0 Element Dissection Options
 show.application_messages = true
 show.session_messages = true
-show.enter_order_appendage = true
-show.order_accepted_appendage = true
-show.order_executed_appendage = true
-show.order_restated_appendage = true
-show.packet = true
-show.packet_header = true
-show.replace_order_appendage = true
-show.replaced_message_appendage = true
-show.soup_bin_tcp_packet = true
+show.structs = true
 
 -- Register Nasdaq NsmEquities Orders Ouch 5.0 Show Options
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage = Pref.bool("Show Enter Order Appendage", show.enter_order_appendage, "Parse and add Enter Order Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage = Pref.bool("Show Order Accepted Appendage", show.order_accepted_appendage, "Parse and add Order Accepted Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage = Pref.bool("Show Order Executed Appendage", show.order_executed_appendage, "Parse and add Order Executed Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage = Pref.bool("Show Order Restated Appendage", show.order_restated_appendage, "Parse and add Order Restated Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage = Pref.bool("Show Replace Order Appendage", show.replace_order_appendage, "Parse and add Replace Order Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage = Pref.bool("Show Replaced Message Appendage", show.replaced_message_appendage, "Parse and add Replaced Message Appendage to protocol tree")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -164,35 +148,11 @@ function omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs_changed()
   if show.application_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages
   end
-  if show.enter_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage then
-    show.enter_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_enter_order_appendage
-  end
-  if show.order_accepted_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage then
-    show.order_accepted_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_accepted_appendage
-  end
-  if show.order_executed_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage then
-    show.order_executed_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_executed_appendage
-  end
-  if show.order_restated_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage then
-    show.order_restated_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_order_restated_appendage
-  end
-  if show.packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet then
-    show.packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header then
-    show.packet_header = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_packet_header
-  end
-  if show.replace_order_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage then
-    show.replace_order_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replace_order_appendage
-  end
-  if show.replaced_message_appendage ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage then
-    show.replaced_message_appendage = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_replaced_message_appendage
-  end
   if show.session_messages ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages
   end
-  if show.soup_bin_tcp_packet ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet then
-    show.soup_bin_tcp_packet = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_soup_bin_tcp_packet
+  if show.structs ~= omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs then
+    show.structs = omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs
   end
 end
 
@@ -2635,7 +2595,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(b
   local index = offset + size_of_replace_order_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.replace_order_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
     parent:set_len(size_of_replace_order_appendage)
@@ -2790,7 +2750,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buf
   local index = offset + size_of_enter_order_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.enter_order_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
     parent:set_len(size_of_enter_order_appendage)
@@ -3162,7 +3122,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(
   local index = offset + size_of_order_restated_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_restated_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
     parent:set_len(size_of_order_restated_appendage)
@@ -3666,7 +3626,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(
   local index = offset + size_of_order_executed_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_executed_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
     parent:set_len(size_of_order_executed_appendage)
@@ -3951,7 +3911,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = functio
   local index = offset + size_of_replaced_message_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.replaced_message_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage)
     parent:set_len(size_of_replaced_message_appendage)
@@ -4175,7 +4135,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(
   local index = offset + size_of_order_accepted_appendage
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_accepted_appendage then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
     parent:set_len(size_of_order_accepted_appendage)
@@ -4661,7 +4621,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_nsmequities_orders_ouch_v5_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_nsmequities_orders_ouch_v5_0.packet_header.fields(buffer, offset, packet, parent)
@@ -4706,7 +4666,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.soup_bin_tcp_packet.dissect = function(buffe
   local index = offset + size_of_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.soup_bin_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
     local current = nasdaq_nsmequities_orders_ouch_v5_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
     parent:set_len(size_of_soup_bin_tcp_packet)

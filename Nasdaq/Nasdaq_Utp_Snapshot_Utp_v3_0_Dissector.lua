@@ -149,68 +149,28 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_heartbeat_packet = ProtoField.new
 local show = {}
 
 -- Nasdaq Utp Snapshot Utp 3.0 Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.bolo_appendage_mpid_form = true
-show.control_message = true
 show.session_messages = true
-show.finra_adf_mpid_appendage = true
-show.message_header = true
-show.national_bbo_appendage_longform = true
-show.packet = true
-show.quote_message = true
-show.tcp_packet_header = true
 
 -- Register Nasdaq Utp Snapshot Utp 3.0 Show Options
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_bolo_appendage_mpid_form = Pref.bool("Show Bolo Appendage Mpid Form", show.bolo_appendage_mpid_form, "Parse and add Bolo Appendage Mpid Form to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_finra_adf_mpid_appendage = Pref.bool("Show Finra Adf Mpid Appendage", show.finra_adf_mpid_appendage, "Parse and add Finra Adf Mpid Appendage to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_national_bbo_appendage_longform = Pref.bool("Show National Bbo Appendage Longform", show.national_bbo_appendage_longform, "Parse and add National Bbo Appendage Longform to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_tcp_packet_header = Pref.bool("Show Tcp Packet Header", show.tcp_packet_header, "Parse and add Tcp Packet Header to protocol tree")
 
 
 -- Handle changed preferences
 function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_administrative_message then
-    show.administrative_message = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_application_messages
-  end
-  if show.bolo_appendage_mpid_form ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_bolo_appendage_mpid_form then
-    show.bolo_appendage_mpid_form = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_bolo_appendage_mpid_form
-  end
-  if show.control_message ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_control_message then
-    show.control_message = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_control_message
-  end
-  if show.finra_adf_mpid_appendage ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_finra_adf_mpid_appendage then
-    show.finra_adf_mpid_appendage = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_finra_adf_mpid_appendage
-  end
-  if show.message_header ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_message_header then
-    show.message_header = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_message_header
-  end
-  if show.national_bbo_appendage_longform ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_national_bbo_appendage_longform then
-    show.national_bbo_appendage_longform = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_national_bbo_appendage_longform
-  end
-  if show.packet ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_packet then
-    show.packet = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_packet
-  end
-  if show.quote_message ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_quote_message then
-    show.quote_message = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_quote_message
   end
   if show.session_messages ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages
   end
-  if show.tcp_packet_header ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_tcp_packet_header then
-    show.tcp_packet_header = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_tcp_packet_header
+  if show.structs ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs then
+    show.structs = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs
   end
 end
 
@@ -3316,7 +3276,7 @@ end
 
 -- Dissect: Bolo Appendage Mpid Form
 nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.dissect = function(buffer, offset, packet, parent)
-  if show.bolo_appendage_mpid_form then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.bolo_appendage_mpid_form, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.fields(buffer, offset, packet, parent)
@@ -3444,7 +3404,7 @@ end
 
 -- Dissect: Finra Adf Mpid Appendage
 nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.finra_adf_mpid_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_mpid_appendage, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.fields(buffer, offset, packet, parent)
@@ -3508,7 +3468,7 @@ end
 
 -- Dissect: National Bbo Appendage Longform
 nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.dissect = function(buffer, offset, packet, parent)
-  if show.national_bbo_appendage_longform then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.national_bbo_appendage_longform, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.fields(buffer, offset, packet, parent)
@@ -3710,7 +3670,7 @@ end
 
 -- Dissect: Quote Message
 nasdaq_utp_snapshot_utp_v3_0.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.quote_message, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.quote_message.fields(buffer, offset, packet, parent)
@@ -4072,7 +4032,7 @@ end
 
 -- Dissect: Control Message
 nasdaq_utp_snapshot_utp_v3_0.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.control_message, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.control_message.fields(buffer, offset, packet, parent)
@@ -4890,7 +4850,7 @@ end
 
 -- Dissect: Administrative Message
 nasdaq_utp_snapshot_utp_v3_0.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.administrative_message, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.administrative_message.fields(buffer, offset, packet, parent)
@@ -4955,7 +4915,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_utp_snapshot_utp_v3_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.message_header.fields(buffer, offset, packet, parent)
@@ -5098,7 +5058,7 @@ end
 
 -- Dissect: Tcp Packet Header
 nasdaq_utp_snapshot_utp_v3_0.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.tcp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_utp_snapshot_utp_v3_0.tcp_packet_header.fields(buffer, offset, packet, parent)

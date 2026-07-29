@@ -27,7 +27,7 @@ Note: Some packets contain enough information to programmatically determine the 
 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
 
-The scripts are plain, readable Lua and are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.  This makes real time editing of protocol visibility in Wireshark straightforward without regenerating from the models.
+Omi Lua dissectors are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.
 
 ## Development
 
@@ -35,7 +35,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 779 | 5,866,880 |
+| 779 | 5,780,507 |
 
 ## Testing
 

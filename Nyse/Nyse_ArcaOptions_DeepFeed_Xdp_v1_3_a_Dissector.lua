@@ -90,88 +90,23 @@ omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("
 local show = {}
 
 -- Nyse ArcaOptions DeepFeed Xdp 1.3.a Element Dissection Options
-show.message = true
-show.message_header = true
-show.outright_market_depth_buy_message = true
-show.outright_market_depth_sell_message = true
-show.outright_series_status_message = true
-show.packet = true
-show.packet_header = true
-show.refresh_outright_market_depth_buy_message = true
-show.refresh_outright_market_depth_sell_message = true
-show.sequence_number_reset_message = true
-show.series_index_mapping_message = true
-show.stream_id_message = true
-show.underlying_index_mapping_message = true
-show.underlying_status_message = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nyse ArcaOptions DeepFeed Xdp 1.3.a Show Options
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message = Pref.bool("Show Outright Market Depth Buy Message", show.outright_market_depth_buy_message, "Parse and add Outright Market Depth Buy Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message = Pref.bool("Show Outright Market Depth Sell Message", show.outright_market_depth_sell_message, "Parse and add Outright Market Depth Sell Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message = Pref.bool("Show Outright Series Status Message", show.outright_series_status_message, "Parse and add Outright Series Status Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message = Pref.bool("Show Refresh Outright Market Depth Buy Message", show.refresh_outright_market_depth_buy_message, "Parse and add Refresh Outright Market Depth Buy Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message = Pref.bool("Show Refresh Outright Market Depth Sell Message", show.refresh_outright_market_depth_sell_message, "Parse and add Refresh Outright Market Depth Sell Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message = Pref.bool("Show Sequence Number Reset Message", show.sequence_number_reset_message, "Parse and add Sequence Number Reset Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message = Pref.bool("Show Series Index Mapping Message", show.series_index_mapping_message, "Parse and add Series Index Mapping Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message = Pref.bool("Show Stream Id Message", show.stream_id_message, "Parse and add Stream Id Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message = Pref.bool("Show Underlying Index Mapping Message", show.underlying_index_mapping_message, "Parse and add Underlying Index Mapping Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message = Pref.bool("Show Underlying Status Message", show.underlying_status_message, "Parse and add Underlying Status Message to protocol tree")
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message then
-    show.message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message
+  if show.structs ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_structs then
+    show.structs = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_structs
   end
-  if show.message_header ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_header then
-    show.message_header = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_header
-  end
-  if show.outright_market_depth_buy_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message then
-    show.outright_market_depth_buy_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_buy_message
-  end
-  if show.outright_market_depth_sell_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message then
-    show.outright_market_depth_sell_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_market_depth_sell_message
-  end
-  if show.outright_series_status_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message then
-    show.outright_series_status_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_outright_series_status_message
-  end
-  if show.packet ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet then
-    show.packet = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet_header then
-    show.packet_header = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_packet_header
-  end
-  if show.refresh_outright_market_depth_buy_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message then
-    show.refresh_outright_market_depth_buy_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_buy_message
-  end
-  if show.refresh_outright_market_depth_sell_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message then
-    show.refresh_outright_market_depth_sell_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_refresh_outright_market_depth_sell_message
-  end
-  if show.sequence_number_reset_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message then
-    show.sequence_number_reset_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_sequence_number_reset_message
-  end
-  if show.series_index_mapping_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message then
-    show.series_index_mapping_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_series_index_mapping_message
-  end
-  if show.stream_id_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message then
-    show.stream_id_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_stream_id_message
-  end
-  if show.underlying_index_mapping_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message then
-    show.underlying_index_mapping_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_index_mapping_message
-  end
-  if show.underlying_status_message ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message then
-    show.underlying_status_message = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_underlying_status_message
-  end
-  if show.message_index ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_index then
-    show.message_index = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_message_index
+  if show.indexes ~= omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes then
+    show.indexes = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes
   end
 end
 
@@ -1590,7 +1525,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1634,7 +1569,7 @@ end
 
 -- Dissect: Stream Id Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
@@ -1734,7 +1669,7 @@ end
 
 -- Dissect: Series Index Mapping Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.series_index_mapping_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -1810,7 +1745,7 @@ end
 
 -- Dissect: Underlying Index Mapping Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_index_mapping_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -1910,7 +1845,7 @@ end
 
 -- Dissect: Refresh Outright Market Depth Sell Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_outright_market_depth_sell_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.fields(buffer, offset, packet, parent)
@@ -2010,7 +1945,7 @@ end
 
 -- Dissect: Refresh Outright Market Depth Buy Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_outright_market_depth_buy_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.fields(buffer, offset, packet, parent)
@@ -2074,7 +2009,7 @@ end
 
 -- Dissect: Outright Series Status Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_series_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_series_status_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.fields(buffer, offset, packet, parent)
@@ -2138,7 +2073,7 @@ end
 
 -- Dissect: Underlying Status Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.underlying_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_status_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.underlying_status_message.fields(buffer, offset, packet, parent)
@@ -2238,7 +2173,7 @@ end
 
 -- Dissect: Outright Market Depth Sell Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_market_depth_sell_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.fields(buffer, offset, packet, parent)
@@ -2338,7 +2273,7 @@ end
 
 -- Dissect: Outright Market Depth Buy Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.dissect = function(buffer, offset, packet, parent)
-  if show.outright_market_depth_buy_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.fields(buffer, offset, packet, parent)
@@ -2431,7 +2366,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.message_header.fields(buffer, offset, packet, parent)
@@ -2460,7 +2395,7 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.message.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2482,7 +2417,7 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.message.dissect = function(buffer, offset, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message, buffer(offset, 0))
     local current = nyse_arcaoptions_deepfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2542,7 +2477,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaoptions_deepfeed_xdp_v1_3_a.packet_header.fields(buffer, offset, packet, parent)

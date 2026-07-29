@@ -5,8 +5,8 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Framing.Rake.v1.0.Dissector] | 6/12/2026 | 1023 | [Header][Omi.Glossary.Status.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Rake.v1.0.Pdf] |
-| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11954 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Framing.Rake.v1.0.Dissector] | 6/12/2026 | 988 | [Header][Omi.Glossary.Status.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11749 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
 
 
 Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")

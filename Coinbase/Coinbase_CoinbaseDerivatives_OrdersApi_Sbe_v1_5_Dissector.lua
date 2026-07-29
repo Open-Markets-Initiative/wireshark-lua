@@ -143,19 +143,11 @@ local show = {}
 
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.5 Element Dissection Options
 show.application_messages = true
-show.data = true
-show.flags = true
-show.message_header = true
-show.packet = true
-show.sbe_message = true
+show.structs = true
 
 -- Register Coinbase CoinbaseDerivatives OrdersApi Sbe 1.5 Show Options
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -165,20 +157,8 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs_changed()
   if show.application_messages ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_application_messages
   end
-  if show.data ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_data then
-    show.data = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_data
-  end
-  if show.flags ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_flags then
-    show.flags = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_flags
-  end
-  if show.message_header ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_message_header then
-    show.message_header = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_message_header
-  end
-  if show.packet ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_packet then
-    show.packet = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_packet
-  end
-  if show.sbe_message ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message then
-    show.sbe_message = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_sbe_message
+  if show.structs ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_structs then
+    show.structs = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.prefs.show_structs
   end
 end
 
@@ -3938,7 +3918,7 @@ end
 
 -- Dissect: Data
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.data.dissect = function(buffer, offset, packet, parent)
-  if show.data then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.data, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.data.fields(buffer, offset, packet, parent)
@@ -4603,7 +4583,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.dissect = function(buffer,
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.flags, range, display)
 
-  if show.flags then
+  if show.structs then
     coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.bits(range, value, packet, element)
   end
 
@@ -4674,7 +4654,7 @@ end
 
 -- Dissect: Message Header
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.message_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header.fields(buffer, offset, packet, parent)
@@ -4736,7 +4716,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.sbe_message.dissect = function(b
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.sbe_message, buffer(offset, 0))
     local current = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)

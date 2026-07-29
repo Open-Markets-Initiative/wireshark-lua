@@ -116,107 +116,22 @@ local show = {}
 
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Element Dissection Options
 show.application_messages = true
-show.application_message = true
-show.esesm_packet_header = true
-show.esesm_tcp_packet = true
-show.goodbye_packet = true
-show.login_request = true
-show.login_response = true
-show.logout_request = true
-show.mach_message = true
-show.modify_order_flags = true
-show.order_execution_flags = true
-show.retransmission_request = true
-show.sequenced_data_packet = true
-show.synchronization_complete = true
-show.tcp_packet = true
-show.test_packet = true
-show.trade_flags = true
-show.udp_packet = true
-show.unsequenced_data_packet = true
+show.structs = true
 
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header = Pref.bool("Show Esesm Packet Header", show.esesm_packet_header, "Parse and add Esesm Packet Header to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet = Pref.bool("Show Esesm Tcp Packet", show.esesm_tcp_packet, "Parse and add Esesm Tcp Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_goodbye_packet = Pref.bool("Show Goodbye Packet", show.goodbye_packet, "Parse and add Goodbye Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_request = Pref.bool("Show Login Request", show.login_request, "Parse and add Login Request to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_response = Pref.bool("Show Login Response", show.login_response, "Parse and add Login Response to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request = Pref.bool("Show Logout Request", show.logout_request, "Parse and add Logout Request to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags = Pref.bool("Show Modify Order Flags", show.modify_order_flags, "Parse and add Modify Order Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags = Pref.bool("Show Order Execution Flags", show.order_execution_flags, "Parse and add Order Execution Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request = Pref.bool("Show Retransmission Request", show.retransmission_request, "Parse and add Retransmission Request to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_synchronization_complete = Pref.bool("Show Synchronization Complete", show.synchronization_complete, "Parse and add Synchronization Complete to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_tcp_packet = Pref.bool("Show Tcp Packet", show.tcp_packet, "Parse and add Tcp Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_test_packet = Pref.bool("Show Test Packet", show.test_packet, "Parse and add Test Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_trade_flags = Pref.bool("Show Trade Flags", show.trade_flags, "Parse and add Trade Flags to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_udp_packet = Pref.bool("Show Udp Packet", show.udp_packet, "Parse and add Udp Packet to protocol tree")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_message then
-    show.application_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_message
-  end
   if show.application_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages
   end
-  if show.esesm_packet_header ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header then
-    show.esesm_packet_header = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_packet_header
-  end
-  if show.esesm_tcp_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet then
-    show.esesm_tcp_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_esesm_tcp_packet
-  end
-  if show.goodbye_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_goodbye_packet then
-    show.goodbye_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_goodbye_packet
-  end
-  if show.login_request ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_request then
-    show.login_request = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_request
-  end
-  if show.login_response ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_response then
-    show.login_response = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_login_response
-  end
-  if show.logout_request ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request then
-    show.logout_request = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_logout_request
-  end
-  if show.mach_message ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message then
-    show.mach_message = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_mach_message
-  end
-  if show.modify_order_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags then
-    show.modify_order_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_modify_order_flags
-  end
-  if show.order_execution_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags then
-    show.order_execution_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_order_execution_flags
-  end
-  if show.retransmission_request ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request then
-    show.retransmission_request = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_retransmission_request
-  end
-  if show.sequenced_data_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_sequenced_data_packet
-  end
-  if show.synchronization_complete ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_synchronization_complete then
-    show.synchronization_complete = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_synchronization_complete
-  end
-  if show.tcp_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_tcp_packet then
-    show.tcp_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_tcp_packet
-  end
-  if show.test_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_test_packet then
-    show.test_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_test_packet
-  end
-  if show.trade_flags ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_trade_flags then
-    show.trade_flags = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_trade_flags
-  end
-  if show.udp_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_udp_packet then
-    show.udp_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_udp_packet
-  end
-  if show.unsequenced_data_packet ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_unsequenced_data_packet
+  if show.structs ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs then
+    show.structs = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs
   end
 end
 
@@ -1762,7 +1677,7 @@ end
 
 -- Dissect: Test Packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.dissect = function(buffer, offset, packet, parent)
-  if show.test_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_packet, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.fields(buffer, offset, packet, parent)
@@ -1836,7 +1751,7 @@ end
 
 -- Dissect: Goodbye Packet
 miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.dissect = function(buffer, offset, packet, parent)
-  if show.goodbye_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.fields(buffer, offset, packet, parent)
@@ -1893,7 +1808,7 @@ end
 
 -- Dissect: Logout Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.dissect = function(buffer, offset, packet, parent)
-  if show.logout_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.fields(buffer, offset, packet, parent)
@@ -1937,7 +1852,7 @@ end
 
 -- Dissect: Retransmission Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.dissect = function(buffer, offset, packet, parent)
-  if show.retransmission_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.retransmission_request.fields(buffer, offset, packet, parent)
@@ -1977,7 +1892,7 @@ end
 
 -- Dissect: Synchronization Complete
 miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.dissect = function(buffer, offset, packet, parent)
-  if show.synchronization_complete then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.synchronization_complete, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.synchronization_complete.fields(buffer, offset, packet, parent)
@@ -2029,7 +1944,7 @@ end
 
 -- Dissect: Login Response
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.dissect = function(buffer, offset, packet, parent)
-  if show.login_response then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_response, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.fields(buffer, offset, packet, parent)
@@ -2089,7 +2004,7 @@ end
 
 -- Dissect: Login Request
 miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.dissect = function(buffer, offset, packet, parent)
-  if show.login_request then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_request, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.login_request.fields(buffer, offset, packet, parent)
@@ -2283,7 +2198,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.dissect = f
   local index = offset + size_of_unsequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.unsequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_data_packet, buffer(offset, 0))
     local current = miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
     parent:set_len(size_of_unsequenced_data_packet)
@@ -2342,7 +2257,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.dissect = fun
   local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.sequenced_data_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequenced_data_packet, buffer(offset, 0))
     local current = miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
     parent:set_len(size_of_sequenced_data_packet)
@@ -2443,7 +2358,7 @@ end
 
 -- Dissect: Esesm Packet Header
 miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.esesm_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.fields(buffer, offset, packet, parent)
@@ -2488,7 +2403,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect = function
   local index = offset + size_of_esesm_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.esesm_tcp_packet then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet, buffer(offset, 0))
     local current = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
     parent:set_len(size_of_esesm_tcp_packet)
@@ -2663,7 +2578,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.trade_flags.dissect = function(buff
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.trade_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_flags, range, display)
 
-  if show.trade_flags then
+  if show.structs then
     miax_pearlequities_depthofmarket_mach_v1_3_d.trade_flags.bits(range, value, packet, element)
   end
 
@@ -2777,7 +2692,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.order_execution_flags.dissect = fun
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.order_execution_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.order_execution_flags, range, display)
 
-  if show.order_execution_flags then
+  if show.structs then
     miax_pearlequities_depthofmarket_mach_v1_3_d.order_execution_flags.bits(range, value, packet, element)
   end
 
@@ -2932,7 +2847,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.modify_order_flags.dissect = functi
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.modify_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.modify_order_flags, range, display)
 
-  if show.modify_order_flags then
+  if show.structs then
     miax_pearlequities_depthofmarket_mach_v1_3_d.modify_order_flags.bits(range, value, packet, element)
   end
 
@@ -3428,7 +3343,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.dissect = funct
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_message, buffer(offset, 0))
     local current = miax_pearlequities_depthofmarket_mach_v1_3_d.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -3572,7 +3487,7 @@ end
 
 -- Dissect: Mach Message
 miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields(buffer, offset, packet, parent)

@@ -37,38 +37,23 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.n
 local show = {}
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Element Dissection Options
-show.message = true
-show.message_header = true
-show.packet = true
-show.unit_header = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Lseg Millennium UdpUnitHeader Mitch 1.0 Show Options
-omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.message ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message then
-    show.message = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message
+  if show.structs ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs then
+    show.structs = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs
   end
-  if show.message_header ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header then
-    show.message_header = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet then
-    show.packet = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_packet
-  end
-  if show.unit_header ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header then
-    show.unit_header = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_unit_header
-  end
-  if show.message_index ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_index then
-    show.message_index = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_message_index
+  if show.indexes ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes then
+    show.indexes = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes
   end
 end
 
@@ -271,7 +256,7 @@ end
 
 -- Dissect: Message Header
 lseg_millennium_udpunitheader_mitch_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -305,7 +290,7 @@ lseg_millennium_udpunitheader_mitch_v1_0.message.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -321,7 +306,7 @@ end
 
 -- Dissect: Message
 lseg_millennium_udpunitheader_mitch_v1_0.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, message_index)
@@ -373,7 +358,7 @@ end
 
 -- Dissect: Unit Header
 lseg_millennium_udpunitheader_mitch_v1_0.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.unit_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0.unit_header.fields(buffer, offset, packet, parent)

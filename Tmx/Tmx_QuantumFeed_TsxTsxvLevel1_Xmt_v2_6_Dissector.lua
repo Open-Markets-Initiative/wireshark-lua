@@ -102,24 +102,14 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_index = ProtoField.new("B
 local show = {}
 
 -- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Element Dissection Options
-show.body = true
-show.body_header = true
-show.body_message = true
-show.business_header = true
-show.frame_header = true
+show.structs = true
 show.application_messages = true
-show.packet = true
-show.body_index = true
+show.indexes = true
 
 -- Register Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Show Options
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body = Pref.bool("Show Body", show.body, "Parse and add Body to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_header = Pref.bool("Show Body Header", show.body_header, "Parse and add Body Header to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_message = Pref.bool("Show Body Message", show.body_message, "Parse and add Body Message to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_business_header = Pref.bool("Show Business Header", show.business_header, "Parse and add Business Header to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_frame_header = Pref.bool("Show Frame Header", show.frame_header, "Parse and add Frame Header to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_index = Pref.bool("Show Body Index", show.body_index, "Show generated body index in protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -129,26 +119,11 @@ function omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs_changed()
   if show.application_messages ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages
   end
-  if show.body ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body then
-    show.body = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body
+  if show.structs ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs then
+    show.structs = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs
   end
-  if show.body_header ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_header then
-    show.body_header = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_header
-  end
-  if show.body_message ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_message then
-    show.body_message = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_message
-  end
-  if show.business_header ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_business_header then
-    show.business_header = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_business_header
-  end
-  if show.frame_header ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_frame_header then
-    show.frame_header = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_frame_header
-  end
-  if show.packet ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet then
-    show.packet = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_packet
-  end
-  if show.body_index ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_index then
-    show.body_index = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_body_index
+  if show.indexes ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_indexes then
+    show.indexes = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_indexes
   end
 end
 
@@ -2462,7 +2437,7 @@ end
 
 -- Dissect: Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.dissect = function(buffer, offset, packet, parent)
-  if show.business_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.business_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.fields(buffer, offset, packet, parent)
@@ -2507,7 +2482,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_message.dissect = function(buffer, o
   local index = offset + size_of_body_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.body_message then
+  if show.structs then
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_message, buffer(offset, 0))
     local current = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_message.fields(buffer, offset, packet, parent, size_of_body_message)
     parent:set_len(size_of_body_message)
@@ -2551,7 +2526,7 @@ end
 
 -- Dissect: Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.dissect = function(buffer, offset, packet, parent)
-  if show.body_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.fields(buffer, offset, packet, parent)
@@ -2580,7 +2555,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Body Index
-  if body_index ~= nil and show.body_index then
+  if body_index ~= nil and show.indexes then
     local iteration = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_index, body_index)
     iteration:set_generated()
   end
@@ -2605,7 +2580,7 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body.dissect = function(buffer, offset, p
   local index = offset + size_of_body
 
   -- Optionally add group/struct element to protocol tree
-  if show.body then
+  if show.structs then
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body, buffer(offset, 0))
     local current = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body.fields(buffer, offset, packet, parent, size_of_body, body_index)
     parent:set_len(size_of_body)
@@ -2669,7 +2644,7 @@ end
 
 -- Dissect: Frame Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.dissect = function(buffer, offset, packet, parent)
-  if show.frame_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.frame_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.fields(buffer, offset, packet, parent)

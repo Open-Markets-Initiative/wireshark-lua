@@ -127,29 +127,15 @@ local show = {}
 
 -- Nyse NyseEquities DepthFeed Pillar 1.6 Element Dissection Options
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.participant = true
-show.price_point = true
-show.send_time = true
-show.message_index = true
-show.price_point_index = true
-show.participant_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nyse NyseEquities DepthFeed Pillar 1.6 Show Options
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant = Pref.bool("Show Participant", show.participant, "Parse and add Participant to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point = Pref.bool("Show Price Point", show.price_point, "Parse and add Price Point to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_send_time = Pref.bool("Show Send Time", show.send_time, "Parse and add Send Time to protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point_index = Pref.bool("Show Price Point Index", show.price_point_index, "Show generated price point index in protocol tree")
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant_index = Pref.bool("Show Participant Index", show.participant_index, "Show generated participant index in protocol tree")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -159,35 +145,14 @@ function omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs_changed()
   if show.application_messages ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages
   end
-  if show.message ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message then
-    show.message = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message
+  if show.repeating_groups ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_repeating_groups
   end
-  if show.message_header ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_header then
-    show.message_header = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_header
+  if show.structs ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_structs then
+    show.structs = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_structs
   end
-  if show.packet ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet then
-    show.packet = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet_header then
-    show.packet_header = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_packet_header
-  end
-  if show.participant ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant then
-    show.participant = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant
-  end
-  if show.price_point ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point then
-    show.price_point = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point
-  end
-  if show.send_time ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_send_time then
-    show.send_time = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_send_time
-  end
-  if show.message_index ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_index then
-    show.message_index = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_message_index
-  end
-  if show.price_point_index ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point_index then
-    show.price_point_index = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_price_point_index
-  end
-  if show.participant_index ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant_index then
-    show.participant_index = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_participant_index
+  if show.indexes ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes then
+    show.indexes = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes
   end
 end
 
@@ -2647,7 +2612,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.participant.fields = function(buffer, of
   local index = offset
 
   -- Implicit Participant Index
-  if participant_index ~= nil and show.participant_index then
+  if participant_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.participant_index, participant_index)
     iteration:set_generated()
   end
@@ -2666,7 +2631,7 @@ end
 
 -- Dissect: Participant
 nyse_nyseequities_depthfeed_pillar_v1_6.participant.dissect = function(buffer, offset, packet, parent, participant_index)
-  if show.participant then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.participant, buffer(offset, 0))
     local index = nyse_nyseequities_depthfeed_pillar_v1_6.participant.fields(buffer, offset, packet, parent, participant_index)
@@ -2717,7 +2682,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.price_point.fields = function(buffer, of
   local index = offset
 
   -- Implicit Price Point Index
-  if price_point_index ~= nil and show.price_point_index then
+  if price_point_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_point_index, price_point_index)
     iteration:set_generated()
   end
@@ -2749,7 +2714,7 @@ end
 
 -- Dissect: Price Point
 nyse_nyseequities_depthfeed_pillar_v1_6.price_point.dissect = function(buffer, offset, packet, parent, price_point_index)
-  if show.price_point then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_point, buffer(offset, 0))
     local index = nyse_nyseequities_depthfeed_pillar_v1_6.price_point.fields(buffer, offset, packet, parent, price_point_index)
@@ -3674,7 +3639,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_depthfeed_pillar_v1_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_depthfeed_pillar_v1_6.message_header.fields(buffer, offset, packet, parent)
@@ -3703,7 +3668,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.message.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3725,7 +3690,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.message.dissect = function(buffer, offse
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message, buffer(offset, 0))
     local current = nyse_nyseequities_depthfeed_pillar_v1_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3782,7 +3747,7 @@ end
 
 -- Dissect: Send Time
 nyse_nyseequities_depthfeed_pillar_v1_6.send_time.dissect = function(buffer, offset, packet, parent)
-  if show.send_time then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.send_time, buffer(offset, 0))
     local index, value = nyse_nyseequities_depthfeed_pillar_v1_6.send_time.fields(buffer, offset, packet, parent)
@@ -3838,7 +3803,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_depthfeed_pillar_v1_6.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_depthfeed_pillar_v1_6.packet_header.fields(buffer, offset, packet, parent)

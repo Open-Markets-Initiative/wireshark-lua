@@ -116,103 +116,28 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message 
 local show = {}
 
 -- Finra FinraOrf Tdds Dfi 2.1 Element Dissection Options
-show.action_datetime = true
-show.administrative = true
+show.structs = true
 show.application_messages = true
-show.control = true
-show.corrected_trade_information = true
-show.datetime = true
-show.execution_datetime = true
-show.message = true
-show.message_header = true
-show.mold_udp64 = true
-show.original_dissemination_date = true
-show.original_trade_information = true
-show.packet = true
-show.packet_header = true
-show.trade = true
-show.trade_information = true
-show.trade_summary_information = true
-show.message_index = true
+show.indexes = true
 
 -- Register Finra FinraOrf Tdds Dfi 2.1 Show Options
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_action_datetime = Pref.bool("Show Action Datetime", show.action_datetime, "Parse and add Action Datetime to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_administrative = Pref.bool("Show Administrative", show.administrative, "Parse and add Administrative to protocol tree")
+omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_control = Pref.bool("Show Control", show.control, "Parse and add Control to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_corrected_trade_information = Pref.bool("Show Corrected Trade Information", show.corrected_trade_information, "Parse and add Corrected Trade Information to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_datetime = Pref.bool("Show Datetime", show.datetime, "Parse and add Datetime to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_execution_datetime = Pref.bool("Show Execution Datetime", show.execution_datetime, "Parse and add Execution Datetime to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_mold_udp64 = Pref.bool("Show Mold Udp64", show.mold_udp64, "Parse and add Mold Udp64 to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_dissemination_date = Pref.bool("Show Original Dissemination Date", show.original_dissemination_date, "Parse and add Original Dissemination Date to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_trade_information = Pref.bool("Show Original Trade Information", show.original_trade_information, "Parse and add Original Trade Information to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade = Pref.bool("Show Trade", show.trade, "Parse and add Trade to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_information = Pref.bool("Show Trade Information", show.trade_information, "Parse and add Trade Information to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_summary_information = Pref.bool("Show Trade Summary Information", show.trade_summary_information, "Parse and add Trade Summary Information to protocol tree")
-omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_finra_finraorf_tdds_dfi_v2_1.prefs_changed()
 
   -- Check if preferences have changed
-  if show.action_datetime ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_action_datetime then
-    show.action_datetime = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_action_datetime
-  end
-  if show.administrative ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_administrative then
-    show.administrative = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_administrative
-  end
   if show.application_messages ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_application_messages then
     show.application_messages = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_application_messages
   end
-  if show.control ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_control then
-    show.control = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_control
+  if show.structs ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs then
+    show.structs = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_structs
   end
-  if show.corrected_trade_information ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_corrected_trade_information then
-    show.corrected_trade_information = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_corrected_trade_information
-  end
-  if show.datetime ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_datetime then
-    show.datetime = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_datetime
-  end
-  if show.execution_datetime ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_execution_datetime then
-    show.execution_datetime = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_execution_datetime
-  end
-  if show.message ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message then
-    show.message = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message
-  end
-  if show.message_header ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_header then
-    show.message_header = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_header
-  end
-  if show.mold_udp64 ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_mold_udp64 then
-    show.mold_udp64 = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_mold_udp64
-  end
-  if show.original_dissemination_date ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_dissemination_date then
-    show.original_dissemination_date = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_dissemination_date
-  end
-  if show.original_trade_information ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_trade_information then
-    show.original_trade_information = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_original_trade_information
-  end
-  if show.packet ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet then
-    show.packet = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet
-  end
-  if show.packet_header ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet_header then
-    show.packet_header = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_packet_header
-  end
-  if show.trade ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade then
-    show.trade = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade
-  end
-  if show.trade_information ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_information then
-    show.trade_information = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_information
-  end
-  if show.trade_summary_information ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_summary_information then
-    show.trade_summary_information = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_trade_summary_information
-  end
-  if show.message_index ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_index then
-    show.message_index = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_message_index
+  if show.indexes ~= omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_indexes then
+    show.indexes = omi_finra_finraorf_tdds_dfi_v2_1.prefs.show_indexes
   end
 end
 
@@ -1826,7 +1751,7 @@ end
 
 -- Dissect: Datetime
 finra_finraorf_tdds_dfi_v2_1.datetime.dissect = function(buffer, offset, packet, parent)
-  if show.datetime then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.datetime, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.datetime.fields(buffer, offset, packet, parent)
@@ -1874,7 +1799,7 @@ end
 
 -- Dissect: Message Header
 finra_finraorf_tdds_dfi_v2_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.message_header, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.message_header.fields(buffer, offset, packet, parent)
@@ -2332,7 +2257,7 @@ end
 
 -- Dissect: Control
 finra_finraorf_tdds_dfi_v2_1.control.dissect = function(buffer, offset, packet, parent)
-  if show.control then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.control, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.control.fields(buffer, offset, packet, parent)
@@ -2396,7 +2321,7 @@ end
 
 -- Dissect: Action Datetime
 finra_finraorf_tdds_dfi_v2_1.action_datetime.dissect = function(buffer, offset, packet, parent)
-  if show.action_datetime then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.action_datetime, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.action_datetime.fields(buffer, offset, packet, parent)
@@ -2722,7 +2647,7 @@ end
 
 -- Dissect: Administrative
 finra_finraorf_tdds_dfi_v2_1.administrative.dissect = function(buffer, offset, packet, parent)
-  if show.administrative then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.administrative.fields(buffer, offset, packet, parent)
@@ -2794,7 +2719,7 @@ end
 
 -- Dissect: Trade Summary Information
 finra_finraorf_tdds_dfi_v2_1.trade_summary_information.dissect = function(buffer, offset, packet, parent)
-  if show.trade_summary_information then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_summary_information, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.trade_summary_information.fields(buffer, offset, packet, parent)
@@ -2858,7 +2783,7 @@ end
 
 -- Dissect: Execution Datetime
 finra_finraorf_tdds_dfi_v2_1.execution_datetime.dissect = function(buffer, offset, packet, parent)
-  if show.execution_datetime then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.execution_datetime, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.execution_datetime.fields(buffer, offset, packet, parent)
@@ -2938,7 +2863,7 @@ end
 
 -- Dissect: Corrected Trade Information
 finra_finraorf_tdds_dfi_v2_1.corrected_trade_information.dissect = function(buffer, offset, packet, parent)
-  if show.corrected_trade_information then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.corrected_trade_information, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.corrected_trade_information.fields(buffer, offset, packet, parent)
@@ -3018,7 +2943,7 @@ end
 
 -- Dissect: Original Trade Information
 finra_finraorf_tdds_dfi_v2_1.original_trade_information.dissect = function(buffer, offset, packet, parent)
-  if show.original_trade_information then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.original_trade_information, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.original_trade_information.fields(buffer, offset, packet, parent)
@@ -3066,7 +2991,7 @@ end
 
 -- Dissect: Original Dissemination Date
 finra_finraorf_tdds_dfi_v2_1.original_dissemination_date.dissect = function(buffer, offset, packet, parent)
-  if show.original_dissemination_date then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.original_dissemination_date, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.original_dissemination_date.fields(buffer, offset, packet, parent)
@@ -3274,7 +3199,7 @@ end
 
 -- Dissect: Trade Information
 finra_finraorf_tdds_dfi_v2_1.trade_information.dissect = function(buffer, offset, packet, parent)
-  if show.trade_information then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_information, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.trade_information.fields(buffer, offset, packet, parent)
@@ -3468,7 +3393,7 @@ end
 
 -- Dissect: Trade
 finra_finraorf_tdds_dfi_v2_1.trade.dissect = function(buffer, offset, packet, parent)
-  if show.trade then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.trade.fields(buffer, offset, packet, parent)
@@ -3533,7 +3458,7 @@ end
 
 -- Dissect: Mold Udp64
 finra_finraorf_tdds_dfi_v2_1.mold_udp64.dissect = function(buffer, offset, packet, parent)
-  if show.mold_udp64 then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.mold_udp64, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.mold_udp64.fields(buffer, offset, packet, parent)
@@ -3562,7 +3487,7 @@ finra_finraorf_tdds_dfi_v2_1.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3584,7 +3509,7 @@ finra_finraorf_tdds_dfi_v2_1.message.dissect = function(buffer, offset, packet, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.message, buffer(offset, 0))
     local current = finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3632,7 +3557,7 @@ end
 
 -- Dissect: Packet Header
 finra_finraorf_tdds_dfi_v2_1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.packet_header, buffer(offset, 0))
     local index = finra_finraorf_tdds_dfi_v2_1.packet_header.fields(buffer, offset, packet, parent)

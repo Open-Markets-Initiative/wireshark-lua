@@ -120,29 +120,15 @@ local show = {}
 
 -- Cboe C1Options Flex Pitch 1.1.30 Element Dissection Options
 show.application_messages = true
-show.bit_fields = true
-show.complex_flex_leg = true
-show.dac_delta = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
-show.complex_flex_leg_index = true
-show.dac_delta_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cboe C1Options Flex Pitch 1.1.30 Show Options
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields = Pref.bool("Show Bit Fields", show.bit_fields, "Parse and add Bit Fields to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg = Pref.bool("Show Complex Flex Leg", show.complex_flex_leg, "Parse and add Complex Flex Leg to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta = Pref.bool("Show Dac Delta", show.dac_delta, "Parse and add Dac Delta to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg_index = Pref.bool("Show Complex Flex Leg Index", show.complex_flex_leg_index, "Show generated complex flex leg index in protocol tree")
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta_index = Pref.bool("Show Dac Delta Index", show.dac_delta_index, "Show generated dac delta index in protocol tree")
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -152,35 +138,14 @@ function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()
   if show.application_messages ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages
   end
-  if show.bit_fields ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields then
-    show.bit_fields = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_bit_fields
+  if show.repeating_groups ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_repeating_groups
   end
-  if show.complex_flex_leg ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg then
-    show.complex_flex_leg = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg
+  if show.structs ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_structs then
+    show.structs = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_structs
   end
-  if show.dac_delta ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta then
-    show.dac_delta = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta
-  end
-  if show.message ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message then
-    show.message = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message
-  end
-  if show.message_header ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_header then
-    show.message_header = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_header
-  end
-  if show.packet ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet then
-    show.packet = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet
-  end
-  if show.packet_header ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet_header then
-    show.packet_header = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_index then
-    show.message_index = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_message_index
-  end
-  if show.complex_flex_leg_index ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg_index then
-    show.complex_flex_leg_index = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_complex_flex_leg_index
-  end
-  if show.dac_delta_index ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta_index then
-    show.dac_delta_index = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_dac_delta_index
+  if show.indexes ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes then
+    show.indexes = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes
   end
 end
 
@@ -2471,7 +2436,7 @@ cboe_c1options_flex_pitch_v1_1_30.dac_delta.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Dac Delta Index
-  if dac_delta_index ~= nil and show.dac_delta_index then
+  if dac_delta_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.dac_delta_index, dac_delta_index)
     iteration:set_generated()
   end
@@ -2484,7 +2449,7 @@ end
 
 -- Dissect: Dac Delta
 cboe_c1options_flex_pitch_v1_1_30.dac_delta.dissect = function(buffer, offset, packet, parent, dac_delta_index)
-  if show.dac_delta then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.dac_delta, buffer(offset, 0))
     local index = cboe_c1options_flex_pitch_v1_1_30.dac_delta.fields(buffer, offset, packet, parent, dac_delta_index)
@@ -2713,7 +2678,7 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_leg.fields = function(buffer, off
   local index = offset
 
   -- Implicit Complex Flex Leg Index
-  if complex_flex_leg_index ~= nil and show.complex_flex_leg_index then
+  if complex_flex_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.complex_flex_leg_index, complex_flex_leg_index)
     iteration:set_generated()
   end
@@ -2732,7 +2697,7 @@ end
 
 -- Dissect: Complex Flex Leg
 cboe_c1options_flex_pitch_v1_1_30.complex_flex_leg.dissect = function(buffer, offset, packet, parent, complex_flex_leg_index)
-  if show.complex_flex_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.complex_flex_leg, buffer(offset, 0))
     local index = cboe_c1options_flex_pitch_v1_1_30.complex_flex_leg.fields(buffer, offset, packet, parent, complex_flex_leg_index)
@@ -2873,7 +2838,7 @@ cboe_c1options_flex_pitch_v1_1_30.bit_fields.dissect = function(buffer, offset, 
   local display = cboe_c1options_flex_pitch_v1_1_30.bit_fields.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.bit_fields, range, display)
 
-  if show.bit_fields then
+  if show.structs then
     cboe_c1options_flex_pitch_v1_1_30.bit_fields.bits(range, value, packet, element)
   end
 
@@ -3195,7 +3160,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_flex_pitch_v1_1_30.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_flex_pitch_v1_1_30.message_header.fields(buffer, offset, packet, parent)
@@ -3234,7 +3199,7 @@ cboe_c1options_flex_pitch_v1_1_30.message.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3257,7 +3222,7 @@ cboe_c1options_flex_pitch_v1_1_30.message.dissect = function(buffer, offset, pac
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.message, buffer(offset, 0))
     local current = cboe_c1options_flex_pitch_v1_1_30.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -3348,7 +3313,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c1options_flex_pitch_v1_1_30.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header, buffer(offset, 0))
     local index = cboe_c1options_flex_pitch_v1_1_30.packet_header.fields(buffer, offset, packet, parent)

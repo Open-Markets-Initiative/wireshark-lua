@@ -203,31 +203,15 @@ local show = {}
 
 -- Box Options Sola Unicast Hsvf 4.5.1 Element Dissection Options
 show.application_messages = true
-show.complex_market_depth_level = true
-show.instrument_description = true
-show.instrument_leg = true
-show.market_depth_level = true
-show.market_flow_indicator = true
-show.message_header = true
-show.option_marker = true
-show.packet = true
-show.market_depth_level_index = true
-show.complex_market_depth_level_index = true
-show.instrument_leg_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Box Options Sola Unicast Hsvf 4.5.1 Show Options
 omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level = Pref.bool("Show Complex Market Depth Level", show.complex_market_depth_level, "Parse and add Complex Market Depth Level to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description = Pref.bool("Show Instrument Description", show.instrument_description, "Parse and add Instrument Description to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator = Pref.bool("Show Market Flow Indicator", show.market_flow_indicator, "Parse and add Market Flow Indicator to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level_index = Pref.bool("Show Market Depth Level Index", show.market_depth_level_index, "Show generated market depth level index in protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level_index = Pref.bool("Show Complex Market Depth Level Index", show.complex_market_depth_level_index, "Show generated complex market depth level index in protocol tree")
-omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg_index = Pref.bool("Show Instrument Leg Index", show.instrument_leg_index, "Show generated instrument leg index in protocol tree")
+omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -237,38 +221,14 @@ function omi_box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
   if show.application_messages ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages then
     show.application_messages = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_application_messages
   end
-  if show.complex_market_depth_level ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level then
-    show.complex_market_depth_level = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level
+  if show.repeating_groups ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_repeating_groups then
+    show.repeating_groups = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_repeating_groups
   end
-  if show.instrument_description ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description then
-    show.instrument_description = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description
+  if show.structs ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_structs then
+    show.structs = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_structs
   end
-  if show.instrument_leg ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg then
-    show.instrument_leg = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg
-  end
-  if show.market_depth_level ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level then
-    show.market_depth_level = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level
-  end
-  if show.market_flow_indicator ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator then
-    show.market_flow_indicator = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator
-  end
-  if show.message_header ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header then
-    show.message_header = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header
-  end
-  if show.option_marker ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker then
-    show.option_marker = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker
-  end
-  if show.packet ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet then
-    show.packet = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet
-  end
-  if show.market_depth_level_index ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level_index then
-    show.market_depth_level_index = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level_index
-  end
-  if show.complex_market_depth_level_index ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level_index then
-    show.complex_market_depth_level_index = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level_index
-  end
-  if show.instrument_leg_index ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg_index then
-    show.instrument_leg_index = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg_index
+  if show.indexes ~= omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_indexes then
+    show.indexes = omi_box_options_sola_unicast_hsvf_v4_5_1.prefs.show_indexes
   end
 end
 
@@ -4239,7 +4199,7 @@ end
 
 -- Dissect: Instrument Description
 box_options_sola_unicast_hsvf_v4_5_1.instrument_description.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_description then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.instrument_description.fields(buffer, offset, packet, parent)
@@ -5183,7 +5143,7 @@ end
 
 -- Dissect: Option Marker
 box_options_sola_unicast_hsvf_v4_5_1.option_marker.dissect = function(buffer, offset, packet, parent)
-  if show.option_marker then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.option_marker.fields(buffer, offset, packet, parent)
@@ -5358,7 +5318,7 @@ box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.fields = function(buffer, of
   local index = offset
 
   -- Implicit Instrument Leg Index
-  if instrument_leg_index ~= nil and show.instrument_leg_index then
+  if instrument_leg_index ~= nil and show.indexes then
     local iteration = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg_index, instrument_leg_index)
     iteration:set_generated()
   end
@@ -5377,7 +5337,7 @@ end
 
 -- Dissect: Instrument Leg
 box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.dissect = function(buffer, offset, packet, parent, instrument_leg_index)
-  if show.instrument_leg then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.instrument_leg.fields(buffer, offset, packet, parent, instrument_leg_index)
@@ -5575,7 +5535,7 @@ end
 
 -- Dissect: Market Flow Indicator
 box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.dissect = function(buffer, offset, packet, parent)
-  if show.market_flow_indicator then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.market_flow_indicator.fields(buffer, offset, packet, parent)
@@ -5874,7 +5834,7 @@ box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.fields = functio
   local index = offset
 
   -- Implicit Complex Market Depth Level Index
-  if complex_market_depth_level_index ~= nil and show.complex_market_depth_level_index then
+  if complex_market_depth_level_index ~= nil and show.indexes then
     local iteration = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level_index, complex_market_depth_level_index)
     iteration:set_generated()
   end
@@ -5917,7 +5877,7 @@ end
 
 -- Dissect: Complex Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.dissect = function(buffer, offset, packet, parent, complex_market_depth_level_index)
-  if show.complex_market_depth_level then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.complex_market_depth_level.fields(buffer, offset, packet, parent, complex_market_depth_level_index)
@@ -6027,7 +5987,7 @@ box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.fields = function(buffer
   local index = offset
 
   -- Implicit Market Depth Level Index
-  if market_depth_level_index ~= nil and show.market_depth_level_index then
+  if market_depth_level_index ~= nil and show.indexes then
     local iteration = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level_index, market_depth_level_index)
     iteration:set_generated()
   end
@@ -6064,7 +6024,7 @@ end
 
 -- Dissect: Market Depth Level
 box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.dissect = function(buffer, offset, packet, parent, market_depth_level_index)
-  if show.market_depth_level then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.market_depth_level.fields(buffer, offset, packet, parent, market_depth_level_index)
@@ -6942,7 +6902,7 @@ end
 
 -- Dissect: Message Header
 box_options_sola_unicast_hsvf_v4_5_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.message_header, buffer(offset, 0))
     local index = box_options_sola_unicast_hsvf_v4_5_1.message_header.fields(buffer, offset, packet, parent)

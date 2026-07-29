@@ -298,77 +298,15 @@ local show = {}
 
 -- B3 B3Derivatives BinaryEntryPoint Sbe 7.1 Element Dissection Options
 show.application_messages = true
-show.bidirectional_business_header = true
-show.client_app_name = true
-show.client_app_version = true
-show.client_ip = true
-show.comp_ids_group = true
-show.comp_ids_groups = true
-show.credentials = true
-show.cross_sides_group = true
-show.cross_sides_groups = true
-show.custodian_info = true
-show.deprecated_investor_id = true
-show.desk_id = true
-show.group_size_encoding = true
-show.inbound_business_header = true
-show.investor_id = true
-show.legs_group = true
-show.legs_groups = true
-show.memo = true
-show.message_header = true
-show.outbound_business_header = true
-show.packet = true
-show.positions_group = true
-show.positions_groups = true
-show.quote_req_id = true
-show.sides_group = true
-show.sides_groups = true
-show.simple_open_frame = true
-show.simple_open_framing_header = true
-show.text = true
-show.cross_sides_group_index = true
-show.legs_group_index = true
-show.sides_group_index = true
-show.positions_group_index = true
-show.comp_ids_group_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register B3 B3Derivatives BinaryEntryPoint Sbe 7.1 Show Options
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_bidirectional_business_header = Pref.bool("Show Bidirectional Business Header", show.bidirectional_business_header, "Parse and add Bidirectional Business Header to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_name = Pref.bool("Show Client App Name", show.client_app_name, "Parse and add Client App Name to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_version = Pref.bool("Show Client App Version", show.client_app_version, "Parse and add Client App Version to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_ip = Pref.bool("Show Client Ip", show.client_ip, "Parse and add Client Ip to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group = Pref.bool("Show Comp Ids Group", show.comp_ids_group, "Parse and add Comp Ids Group to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_groups = Pref.bool("Show Comp Ids Groups", show.comp_ids_groups, "Parse and add Comp Ids Groups to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_credentials = Pref.bool("Show Credentials", show.credentials, "Parse and add Credentials to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group = Pref.bool("Show Cross Sides Group", show.cross_sides_group, "Parse and add Cross Sides Group to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_groups = Pref.bool("Show Cross Sides Groups", show.cross_sides_groups, "Parse and add Cross Sides Groups to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_custodian_info = Pref.bool("Show Custodian Info", show.custodian_info, "Parse and add Custodian Info to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_deprecated_investor_id = Pref.bool("Show Deprecated Investor Id", show.deprecated_investor_id, "Parse and add Deprecated Investor Id to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_desk_id = Pref.bool("Show Desk Id", show.desk_id, "Parse and add Desk Id to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_inbound_business_header = Pref.bool("Show Inbound Business Header", show.inbound_business_header, "Parse and add Inbound Business Header to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_investor_id = Pref.bool("Show Investor Id", show.investor_id, "Parse and add Investor Id to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group = Pref.bool("Show Legs Group", show.legs_group, "Parse and add Legs Group to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_groups = Pref.bool("Show Legs Groups", show.legs_groups, "Parse and add Legs Groups to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_memo = Pref.bool("Show Memo", show.memo, "Parse and add Memo to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_outbound_business_header = Pref.bool("Show Outbound Business Header", show.outbound_business_header, "Parse and add Outbound Business Header to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group = Pref.bool("Show Positions Group", show.positions_group, "Parse and add Positions Group to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_groups = Pref.bool("Show Positions Groups", show.positions_groups, "Parse and add Positions Groups to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_quote_req_id = Pref.bool("Show Quote Req Id", show.quote_req_id, "Parse and add Quote Req Id to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group = Pref.bool("Show Sides Group", show.sides_group, "Parse and add Sides Group to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_groups = Pref.bool("Show Sides Groups", show.sides_groups, "Parse and add Sides Groups to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_frame = Pref.bool("Show Simple Open Frame", show.simple_open_frame, "Parse and add Simple Open Frame to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_framing_header = Pref.bool("Show Simple Open Framing Header", show.simple_open_framing_header, "Parse and add Simple Open Framing Header to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_text = Pref.bool("Show Text", show.text, "Parse and add Text to protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group_index = Pref.bool("Show Cross Sides Group Index", show.cross_sides_group_index, "Show generated cross sides group index in protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group_index = Pref.bool("Show Legs Group Index", show.legs_group_index, "Show generated legs group index in protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group_index = Pref.bool("Show Sides Group Index", show.sides_group_index, "Show generated sides group index in protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group_index = Pref.bool("Show Positions Group Index", show.positions_group_index, "Show generated positions group index in protocol tree")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group_index = Pref.bool("Show Comp Ids Group Index", show.comp_ids_group_index, "Show generated comp ids group index in protocol tree")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -378,107 +316,14 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs_changed()
   if show.application_messages ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages then
     show.application_messages = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages
   end
-  if show.bidirectional_business_header ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_bidirectional_business_header then
-    show.bidirectional_business_header = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_bidirectional_business_header
+  if show.repeating_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups then
+    show.repeating_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups
   end
-  if show.client_app_name ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_name then
-    show.client_app_name = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_name
+  if show.structs ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_structs then
+    show.structs = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_structs
   end
-  if show.client_app_version ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_version then
-    show.client_app_version = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_app_version
-  end
-  if show.client_ip ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_ip then
-    show.client_ip = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_client_ip
-  end
-  if show.comp_ids_group ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group then
-    show.comp_ids_group = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group
-  end
-  if show.comp_ids_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_groups then
-    show.comp_ids_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_groups
-  end
-  if show.credentials ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_credentials then
-    show.credentials = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_credentials
-  end
-  if show.cross_sides_group ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group then
-    show.cross_sides_group = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group
-  end
-  if show.cross_sides_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_groups then
-    show.cross_sides_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_groups
-  end
-  if show.custodian_info ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_custodian_info then
-    show.custodian_info = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_custodian_info
-  end
-  if show.deprecated_investor_id ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_deprecated_investor_id then
-    show.deprecated_investor_id = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_deprecated_investor_id
-  end
-  if show.desk_id ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_desk_id then
-    show.desk_id = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_desk_id
-  end
-  if show.group_size_encoding ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_group_size_encoding
-  end
-  if show.inbound_business_header ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_inbound_business_header then
-    show.inbound_business_header = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_inbound_business_header
-  end
-  if show.investor_id ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_investor_id then
-    show.investor_id = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_investor_id
-  end
-  if show.legs_group ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group then
-    show.legs_group = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group
-  end
-  if show.legs_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_groups then
-    show.legs_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_groups
-  end
-  if show.memo ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_memo then
-    show.memo = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_memo
-  end
-  if show.message_header ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_message_header then
-    show.message_header = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_message_header
-  end
-  if show.outbound_business_header ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_outbound_business_header then
-    show.outbound_business_header = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_outbound_business_header
-  end
-  if show.packet ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_packet then
-    show.packet = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_packet
-  end
-  if show.positions_group ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group then
-    show.positions_group = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group
-  end
-  if show.positions_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_groups then
-    show.positions_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_groups
-  end
-  if show.quote_req_id ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_quote_req_id then
-    show.quote_req_id = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_quote_req_id
-  end
-  if show.sides_group ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group then
-    show.sides_group = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group
-  end
-  if show.sides_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_groups then
-    show.sides_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_groups
-  end
-  if show.simple_open_frame ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_frame then
-    show.simple_open_frame = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_frame
-  end
-  if show.simple_open_framing_header ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_framing_header then
-    show.simple_open_framing_header = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_simple_open_framing_header
-  end
-  if show.text ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_text then
-    show.text = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_text
-  end
-  if show.cross_sides_group_index ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group_index then
-    show.cross_sides_group_index = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_cross_sides_group_index
-  end
-  if show.legs_group_index ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group_index then
-    show.legs_group_index = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_legs_group_index
-  end
-  if show.sides_group_index ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group_index then
-    show.sides_group_index = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_sides_group_index
-  end
-  if show.positions_group_index ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group_index then
-    show.positions_group_index = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_positions_group_index
-  end
-  if show.comp_ids_group_index ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group_index then
-    show.comp_ids_group_index = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_comp_ids_group_index
+  if show.indexes ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_indexes then
+    show.indexes = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_indexes
   end
 end
 
@@ -8165,7 +8010,7 @@ end
 
 -- Dissect: Text
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.text.dissect = function(buffer, offset, packet, parent)
-  if show.text then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.text, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.text.fields(buffer, offset, packet, parent)
@@ -8198,7 +8043,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_group.fields = function(buff
   local index = offset
 
   -- Implicit Comp Ids Group Index
-  if comp_ids_group_index ~= nil and show.comp_ids_group_index then
+  if comp_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.comp_ids_group_index, comp_ids_group_index)
     iteration:set_generated()
   end
@@ -8211,7 +8056,7 @@ end
 
 -- Dissect: Comp Ids Group
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_group.dissect = function(buffer, offset, packet, parent, comp_ids_group_index)
-  if show.comp_ids_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.comp_ids_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_group.fields(buffer, offset, packet, parent, comp_ids_group_index)
@@ -8255,7 +8100,7 @@ end
 
 -- Dissect: Group Size Encoding
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.group_size_encoding, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -8312,7 +8157,7 @@ end
 
 -- Dissect: Comp Ids Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.comp_ids_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.comp_ids_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_groups.fields(buffer, offset, packet, parent)
@@ -8368,7 +8213,7 @@ end
 
 -- Dissect: Outbound Business Header
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.outbound_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.outbound_business_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.outbound_business_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.outbound_business_header.fields(buffer, offset, packet, parent)
@@ -8554,7 +8399,7 @@ end
 
 -- Dissect: Inbound Business Header
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.inbound_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_business_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.inbound_business_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.inbound_business_header.fields(buffer, offset, packet, parent)
@@ -8805,7 +8650,7 @@ end
 
 -- Dissect: Memo
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.memo.dissect = function(buffer, offset, packet, parent)
-  if show.memo then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.memo, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.memo.fields(buffer, offset, packet, parent)
@@ -8876,7 +8721,7 @@ end
 
 -- Dissect: Desk Id
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.desk_id.dissect = function(buffer, offset, packet, parent)
-  if show.desk_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.desk_id, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.desk_id.fields(buffer, offset, packet, parent)
@@ -9031,7 +8876,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_group.fields = function(buf
   local index = offset
 
   -- Implicit Positions Group Index
-  if positions_group_index ~= nil and show.positions_group_index then
+  if positions_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.positions_group_index, positions_group_index)
     iteration:set_generated()
   end
@@ -9050,7 +8895,7 @@ end
 
 -- Dissect: Positions Group
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_group.dissect = function(buffer, offset, packet, parent, positions_group_index)
-  if show.positions_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.positions_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_group.fields(buffer, offset, packet, parent, positions_group_index)
@@ -9107,7 +8952,7 @@ end
 
 -- Dissect: Positions Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.positions_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.positions_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_groups.fields(buffer, offset, packet, parent)
@@ -9485,7 +9330,7 @@ end
 
 -- Dissect: Quote Req Id
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  if show.quote_req_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.quote_req_id, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.quote_req_id.fields(buffer, offset, packet, parent)
@@ -9519,7 +9364,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_group.fields = function(buffer,
   local index = offset
 
   -- Implicit Sides Group Index
-  if sides_group_index ~= nil and show.sides_group_index then
+  if sides_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.sides_group_index, sides_group_index)
     iteration:set_generated()
   end
@@ -9535,7 +9380,7 @@ end
 
 -- Dissect: Sides Group
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
-  if show.sides_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.sides_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
@@ -9592,7 +9437,7 @@ end
 
 -- Dissect: Sides Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.sides_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.sides_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_groups.fields(buffer, offset, packet, parent)
@@ -9652,7 +9497,7 @@ end
 
 -- Dissect: Bidirectional Business Header
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.bidirectional_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.bidirectional_business_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.bidirectional_business_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.bidirectional_business_header.fields(buffer, offset, packet, parent)
@@ -10419,7 +10264,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Legs Group Index
-  if legs_group_index ~= nil and show.legs_group_index then
+  if legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
@@ -10441,7 +10286,7 @@ end
 
 -- Dissect: Legs Group
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
-  if show.legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.legs_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
@@ -10498,7 +10343,7 @@ end
 
 -- Dissect: Legs Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.legs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_groups.fields(buffer, offset, packet, parent)
@@ -11740,7 +11585,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_group.fields = function(b
   local index = offset
 
   -- Implicit Cross Sides Group Index
-  if cross_sides_group_index ~= nil and show.cross_sides_group_index then
+  if cross_sides_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.cross_sides_group_index, cross_sides_group_index)
     iteration:set_generated()
   end
@@ -11765,7 +11610,7 @@ end
 
 -- Dissect: Cross Sides Group
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_group.dissect = function(buffer, offset, packet, parent, cross_sides_group_index)
-  if show.cross_sides_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.cross_sides_group, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_group.fields(buffer, offset, packet, parent, cross_sides_group_index)
@@ -11822,7 +11667,7 @@ end
 
 -- Dissect: Cross Sides Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.cross_sides_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.cross_sides_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_groups.fields(buffer, offset, packet, parent)
@@ -12101,7 +11946,7 @@ end
 
 -- Dissect: Deprecated Investor Id
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.deprecated_investor_id.dissect = function(buffer, offset, packet, parent)
-  if show.deprecated_investor_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.deprecated_investor_id, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.deprecated_investor_id.fields(buffer, offset, packet, parent)
@@ -12145,7 +11990,7 @@ end
 
 -- Dissect: Investor Id
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.investor_id.dissect = function(buffer, offset, packet, parent)
-  if show.investor_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.investor_id, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.investor_id.fields(buffer, offset, packet, parent)
@@ -12193,7 +12038,7 @@ end
 
 -- Dissect: Custodian Info
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.custodian_info.dissect = function(buffer, offset, packet, parent)
-  if show.custodian_info then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.custodian_info, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.custodian_info.fields(buffer, offset, packet, parent)
@@ -13298,7 +13143,7 @@ end
 
 -- Dissect: Credentials
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.credentials.dissect = function(buffer, offset, packet, parent)
-  if show.credentials then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.credentials, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.credentials.fields(buffer, offset, packet, parent)
@@ -13570,7 +13415,7 @@ end
 
 -- Dissect: Client App Version
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_app_version.dissect = function(buffer, offset, packet, parent)
-  if show.client_app_version then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.client_app_version, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_app_version.fields(buffer, offset, packet, parent)
@@ -13641,7 +13486,7 @@ end
 
 -- Dissect: Client App Name
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_app_name.dissect = function(buffer, offset, packet, parent)
-  if show.client_app_name then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.client_app_name, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_app_name.fields(buffer, offset, packet, parent)
@@ -13712,7 +13557,7 @@ end
 
 -- Dissect: Client Ip
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_ip.dissect = function(buffer, offset, packet, parent)
-  if show.client_ip then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.client_ip, buffer(offset, 0))
     local index, value = b3_b3derivatives_binaryentrypoint_sbe_v7_1.client_ip.fields(buffer, offset, packet, parent)
@@ -14014,7 +13859,7 @@ end
 
 -- Dissect: Message Header
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.message_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.message_header.fields(buffer, offset, packet, parent)
@@ -14058,7 +13903,7 @@ end
 
 -- Dissect: Simple Open Framing Header
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.simple_open_framing_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.simple_open_framing_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.simple_open_framing_header.fields(buffer, offset, packet, parent)
@@ -14106,7 +13951,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_1.simple_open_frame.dissect = function(
   local index = offset + size_of_simple_open_frame
 
   -- Optionally add group/struct element to protocol tree
-  if show.simple_open_frame then
+  if show.structs then
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.simple_open_frame, buffer(offset, 0))
     local current = b3_b3derivatives_binaryentrypoint_sbe_v7_1.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
     parent:set_len(size_of_simple_open_frame)

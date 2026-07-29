@@ -223,392 +223,32 @@ local show = {}
 
 -- Coinbase Deribit OrdersApi Sbe 1.0 Element Dissection Options
 show.application_messages = true
-show.amend_order_response_message_fills_group = true
-show.amend_order_response_message_fills_groups = true
-show.amend_order_response_message_legs_group = true
-show.amend_order_response_message_legs_groups = true
-show.ask_filled_qty = true
-show.ask_flags = true
-show.ask_qty = true
-show.bid_filled_qty = true
-show.bid_flags = true
-show.bid_qty = true
-show.details = true
-show.fill_qty = true
-show.flags_cancel_flags = true
-show.flags_fill_flags = true
-show.flags_mass_quote_flags = true
-show.flags_multi_part_event_flags = true
-show.flags_order_flags = true
-show.flags_replace_order_flags = true
-show.group_size_encoding = true
-show.mass_quote_orders_placed_message_fills_group = true
-show.mass_quote_orders_placed_message_fills_groups = true
-show.mass_quote_orders_placed_message_legs_group = true
-show.mass_quote_orders_placed_message_legs_groups = true
-show.mass_quote_orders_placed_message_orders_group = true
-show.mass_quote_orders_placed_message_orders_groups = true
-show.mass_quote_request_message_quotes_group = true
-show.mass_quote_request_message_quotes_groups = true
-show.mass_quote_response_message_ask_fills_group = true
-show.mass_quote_response_message_ask_fills_groups = true
-show.mass_quote_response_message_bid_fills_group = true
-show.mass_quote_response_message_bid_fills_groups = true
-show.mass_quote_response_message_legs_group = true
-show.mass_quote_response_message_legs_groups = true
-show.mass_quote_response_message_quotes_group = true
-show.mass_quote_response_message_quotes_groups = true
-show.message_header = true
-show.new_order_response_message_fills_group = true
-show.new_order_response_message_fills_groups = true
-show.new_order_response_message_legs_group = true
-show.new_order_response_message_legs_groups = true
-show.order_filled_message_fills_group = true
-show.order_filled_message_fills_groups = true
-show.order_filled_message_legs_group = true
-show.order_filled_message_legs_groups = true
-show.order_placed_message_fills_group = true
-show.order_placed_message_fills_groups = true
-show.order_placed_message_legs_group = true
-show.order_placed_message_legs_groups = true
-show.orders_canceled_message_orders_group = true
-show.orders_canceled_message_orders_groups = true
-show.packet = true
-show.quantity = true
-show.reason = true
-show.sbe_message = true
-show.session_flags = true
-show.show_qty = true
-show.total_filled = true
-show.visible_qty = true
-show.mass_quote_request_message_quotes_group_index = true
-show.new_order_response_message_fills_group_index = true
-show.new_order_response_message_legs_group_index = true
-show.amend_order_response_message_fills_group_index = true
-show.amend_order_response_message_legs_group_index = true
-show.mass_quote_response_message_quotes_group_index = true
-show.mass_quote_response_message_bid_fills_group_index = true
-show.mass_quote_response_message_ask_fills_group_index = true
-show.mass_quote_response_message_legs_group_index = true
-show.order_filled_message_fills_group_index = true
-show.order_filled_message_legs_group_index = true
-show.orders_canceled_message_orders_group_index = true
-show.order_placed_message_fills_group_index = true
-show.order_placed_message_legs_group_index = true
-show.mass_quote_orders_placed_message_orders_group_index = true
-show.mass_quote_orders_placed_message_fills_group_index = true
-show.mass_quote_orders_placed_message_legs_group_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Coinbase Deribit OrdersApi Sbe 1.0 Show Options
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group = Pref.bool("Show Amend Order Response Message fills Group", show.amend_order_response_message_fills_group, "Parse and add Amend Order Response Message fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_groups = Pref.bool("Show Amend Order Response Message fills Groups", show.amend_order_response_message_fills_groups, "Parse and add Amend Order Response Message fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group = Pref.bool("Show Amend Order Response Message legs Group", show.amend_order_response_message_legs_group, "Parse and add Amend Order Response Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_groups = Pref.bool("Show Amend Order Response Message legs Groups", show.amend_order_response_message_legs_groups, "Parse and add Amend Order Response Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_filled_qty = Pref.bool("Show Ask Filled Qty", show.ask_filled_qty, "Parse and add Ask Filled Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_flags = Pref.bool("Show Ask Flags", show.ask_flags, "Parse and add Ask Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_qty = Pref.bool("Show Ask Qty", show.ask_qty, "Parse and add Ask Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_filled_qty = Pref.bool("Show Bid Filled Qty", show.bid_filled_qty, "Parse and add Bid Filled Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_flags = Pref.bool("Show Bid Flags", show.bid_flags, "Parse and add Bid Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_qty = Pref.bool("Show Bid Qty", show.bid_qty, "Parse and add Bid Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_details = Pref.bool("Show Details", show.details, "Parse and add Details to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_fill_qty = Pref.bool("Show Fill Qty", show.fill_qty, "Parse and add Fill Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_cancel_flags = Pref.bool("Show Flags Cancel Flags", show.flags_cancel_flags, "Parse and add Flags Cancel Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_fill_flags = Pref.bool("Show Flags Fill Flags", show.flags_fill_flags, "Parse and add Flags Fill Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_mass_quote_flags = Pref.bool("Show Flags Mass Quote Flags", show.flags_mass_quote_flags, "Parse and add Flags Mass Quote Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_multi_part_event_flags = Pref.bool("Show Flags Multi Part Event Flags", show.flags_multi_part_event_flags, "Parse and add Flags Multi Part Event Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_order_flags = Pref.bool("Show Flags Order Flags", show.flags_order_flags, "Parse and add Flags Order Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_replace_order_flags = Pref.bool("Show Flags Replace Order Flags", show.flags_replace_order_flags, "Parse and add Flags Replace Order Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group = Pref.bool("Show Mass Quote Orders Placed Message fills Group", show.mass_quote_orders_placed_message_fills_group, "Parse and add Mass Quote Orders Placed Message fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_groups = Pref.bool("Show Mass Quote Orders Placed Message fills Groups", show.mass_quote_orders_placed_message_fills_groups, "Parse and add Mass Quote Orders Placed Message fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group = Pref.bool("Show Mass Quote Orders Placed Message legs Group", show.mass_quote_orders_placed_message_legs_group, "Parse and add Mass Quote Orders Placed Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_groups = Pref.bool("Show Mass Quote Orders Placed Message legs Groups", show.mass_quote_orders_placed_message_legs_groups, "Parse and add Mass Quote Orders Placed Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group = Pref.bool("Show Mass Quote Orders Placed Message orders Group", show.mass_quote_orders_placed_message_orders_group, "Parse and add Mass Quote Orders Placed Message orders Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_groups = Pref.bool("Show Mass Quote Orders Placed Message orders Groups", show.mass_quote_orders_placed_message_orders_groups, "Parse and add Mass Quote Orders Placed Message orders Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group = Pref.bool("Show Mass Quote Request Message quotes Group", show.mass_quote_request_message_quotes_group, "Parse and add Mass Quote Request Message quotes Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_groups = Pref.bool("Show Mass Quote Request Message quotes Groups", show.mass_quote_request_message_quotes_groups, "Parse and add Mass Quote Request Message quotes Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group = Pref.bool("Show Mass Quote Response Message ask Fills Group", show.mass_quote_response_message_ask_fills_group, "Parse and add Mass Quote Response Message ask Fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_groups = Pref.bool("Show Mass Quote Response Message ask Fills Groups", show.mass_quote_response_message_ask_fills_groups, "Parse and add Mass Quote Response Message ask Fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group = Pref.bool("Show Mass Quote Response Message bid Fills Group", show.mass_quote_response_message_bid_fills_group, "Parse and add Mass Quote Response Message bid Fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_groups = Pref.bool("Show Mass Quote Response Message bid Fills Groups", show.mass_quote_response_message_bid_fills_groups, "Parse and add Mass Quote Response Message bid Fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group = Pref.bool("Show Mass Quote Response Message legs Group", show.mass_quote_response_message_legs_group, "Parse and add Mass Quote Response Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_groups = Pref.bool("Show Mass Quote Response Message legs Groups", show.mass_quote_response_message_legs_groups, "Parse and add Mass Quote Response Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group = Pref.bool("Show Mass Quote Response Message quotes Group", show.mass_quote_response_message_quotes_group, "Parse and add Mass Quote Response Message quotes Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_groups = Pref.bool("Show Mass Quote Response Message quotes Groups", show.mass_quote_response_message_quotes_groups, "Parse and add Mass Quote Response Message quotes Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group = Pref.bool("Show New Order Response Message fills Group", show.new_order_response_message_fills_group, "Parse and add New Order Response Message fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_groups = Pref.bool("Show New Order Response Message fills Groups", show.new_order_response_message_fills_groups, "Parse and add New Order Response Message fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group = Pref.bool("Show New Order Response Message legs Group", show.new_order_response_message_legs_group, "Parse and add New Order Response Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_groups = Pref.bool("Show New Order Response Message legs Groups", show.new_order_response_message_legs_groups, "Parse and add New Order Response Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group = Pref.bool("Show Order Filled Message fills Group", show.order_filled_message_fills_group, "Parse and add Order Filled Message fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_groups = Pref.bool("Show Order Filled Message fills Groups", show.order_filled_message_fills_groups, "Parse and add Order Filled Message fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group = Pref.bool("Show Order Filled Message legs Group", show.order_filled_message_legs_group, "Parse and add Order Filled Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_groups = Pref.bool("Show Order Filled Message legs Groups", show.order_filled_message_legs_groups, "Parse and add Order Filled Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group = Pref.bool("Show Order Placed Message fills Group", show.order_placed_message_fills_group, "Parse and add Order Placed Message fills Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_groups = Pref.bool("Show Order Placed Message fills Groups", show.order_placed_message_fills_groups, "Parse and add Order Placed Message fills Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group = Pref.bool("Show Order Placed Message legs Group", show.order_placed_message_legs_group, "Parse and add Order Placed Message legs Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_groups = Pref.bool("Show Order Placed Message legs Groups", show.order_placed_message_legs_groups, "Parse and add Order Placed Message legs Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group = Pref.bool("Show Orders Canceled Message orders Group", show.orders_canceled_message_orders_group, "Parse and add Orders Canceled Message orders Group to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_groups = Pref.bool("Show Orders Canceled Message orders Groups", show.orders_canceled_message_orders_groups, "Parse and add Orders Canceled Message orders Groups to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_quantity = Pref.bool("Show Quantity", show.quantity, "Parse and add Quantity to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_reason = Pref.bool("Show Reason", show.reason, "Parse and add Reason to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_session_flags = Pref.bool("Show Session Flags", show.session_flags, "Parse and add Session Flags to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_show_qty = Pref.bool("Show Show Qty", show.show_qty, "Parse and add Show Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_total_filled = Pref.bool("Show Total Filled", show.total_filled, "Parse and add Total Filled to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_visible_qty = Pref.bool("Show Visible Qty", show.visible_qty, "Parse and add Visible Qty to protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group_index = Pref.bool("Show Mass Quote Request Message quotes Group Index", show.mass_quote_request_message_quotes_group_index, "Show generated mass quote request message quotes group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group_index = Pref.bool("Show New Order Response Message fills Group Index", show.new_order_response_message_fills_group_index, "Show generated new order response message fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group_index = Pref.bool("Show New Order Response Message legs Group Index", show.new_order_response_message_legs_group_index, "Show generated new order response message legs group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group_index = Pref.bool("Show Amend Order Response Message fills Group Index", show.amend_order_response_message_fills_group_index, "Show generated amend order response message fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group_index = Pref.bool("Show Amend Order Response Message legs Group Index", show.amend_order_response_message_legs_group_index, "Show generated amend order response message legs group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group_index = Pref.bool("Show Mass Quote Response Message quotes Group Index", show.mass_quote_response_message_quotes_group_index, "Show generated mass quote response message quotes group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group_index = Pref.bool("Show Mass Quote Response Message bid Fills Group Index", show.mass_quote_response_message_bid_fills_group_index, "Show generated mass quote response message bid fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group_index = Pref.bool("Show Mass Quote Response Message ask Fills Group Index", show.mass_quote_response_message_ask_fills_group_index, "Show generated mass quote response message ask fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group_index = Pref.bool("Show Mass Quote Response Message legs Group Index", show.mass_quote_response_message_legs_group_index, "Show generated mass quote response message legs group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group_index = Pref.bool("Show Order Filled Message fills Group Index", show.order_filled_message_fills_group_index, "Show generated order filled message fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group_index = Pref.bool("Show Order Filled Message legs Group Index", show.order_filled_message_legs_group_index, "Show generated order filled message legs group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group_index = Pref.bool("Show Orders Canceled Message orders Group Index", show.orders_canceled_message_orders_group_index, "Show generated orders canceled message orders group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group_index = Pref.bool("Show Order Placed Message fills Group Index", show.order_placed_message_fills_group_index, "Show generated order placed message fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group_index = Pref.bool("Show Order Placed Message legs Group Index", show.order_placed_message_legs_group_index, "Show generated order placed message legs group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group_index = Pref.bool("Show Mass Quote Orders Placed Message orders Group Index", show.mass_quote_orders_placed_message_orders_group_index, "Show generated mass quote orders placed message orders group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group_index = Pref.bool("Show Mass Quote Orders Placed Message fills Group Index", show.mass_quote_orders_placed_message_fills_group_index, "Show generated mass quote orders placed message fills group index in protocol tree")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index = Pref.bool("Show Mass Quote Orders Placed Message legs Group Index", show.mass_quote_orders_placed_message_legs_group_index, "Show generated mass quote orders placed message legs group index in protocol tree")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.amend_order_response_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group then
-    show.amend_order_response_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group
-  end
-  if show.amend_order_response_message_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_groups then
-    show.amend_order_response_message_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_groups
-  end
-  if show.amend_order_response_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group then
-    show.amend_order_response_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group
-  end
-  if show.amend_order_response_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_groups then
-    show.amend_order_response_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_groups
-  end
   if show.application_messages ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_application_messages
   end
-  if show.ask_filled_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_filled_qty then
-    show.ask_filled_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_filled_qty
+  if show.repeating_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_repeating_groups
   end
-  if show.ask_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_flags then
-    show.ask_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_flags
+  if show.structs ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_structs then
+    show.structs = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_structs
   end
-  if show.ask_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_qty then
-    show.ask_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_ask_qty
-  end
-  if show.bid_filled_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_filled_qty then
-    show.bid_filled_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_filled_qty
-  end
-  if show.bid_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_flags then
-    show.bid_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_flags
-  end
-  if show.bid_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_qty then
-    show.bid_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_bid_qty
-  end
-  if show.details ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_details then
-    show.details = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_details
-  end
-  if show.fill_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_fill_qty then
-    show.fill_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_fill_qty
-  end
-  if show.flags_cancel_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_cancel_flags then
-    show.flags_cancel_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_cancel_flags
-  end
-  if show.flags_fill_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_fill_flags then
-    show.flags_fill_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_fill_flags
-  end
-  if show.flags_mass_quote_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_mass_quote_flags then
-    show.flags_mass_quote_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_mass_quote_flags
-  end
-  if show.flags_multi_part_event_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_multi_part_event_flags then
-    show.flags_multi_part_event_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_multi_part_event_flags
-  end
-  if show.flags_order_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_order_flags then
-    show.flags_order_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_order_flags
-  end
-  if show.flags_replace_order_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_replace_order_flags then
-    show.flags_replace_order_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_flags_replace_order_flags
-  end
-  if show.group_size_encoding ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_group_size_encoding
-  end
-  if show.mass_quote_orders_placed_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group then
-    show.mass_quote_orders_placed_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group
-  end
-  if show.mass_quote_orders_placed_message_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_groups then
-    show.mass_quote_orders_placed_message_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_groups
-  end
-  if show.mass_quote_orders_placed_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group then
-    show.mass_quote_orders_placed_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group
-  end
-  if show.mass_quote_orders_placed_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_groups then
-    show.mass_quote_orders_placed_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_groups
-  end
-  if show.mass_quote_orders_placed_message_orders_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group then
-    show.mass_quote_orders_placed_message_orders_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group
-  end
-  if show.mass_quote_orders_placed_message_orders_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_groups then
-    show.mass_quote_orders_placed_message_orders_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_groups
-  end
-  if show.mass_quote_request_message_quotes_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group then
-    show.mass_quote_request_message_quotes_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group
-  end
-  if show.mass_quote_request_message_quotes_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_groups then
-    show.mass_quote_request_message_quotes_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_groups
-  end
-  if show.mass_quote_response_message_ask_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group then
-    show.mass_quote_response_message_ask_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group
-  end
-  if show.mass_quote_response_message_ask_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_groups then
-    show.mass_quote_response_message_ask_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_groups
-  end
-  if show.mass_quote_response_message_bid_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group then
-    show.mass_quote_response_message_bid_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group
-  end
-  if show.mass_quote_response_message_bid_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_groups then
-    show.mass_quote_response_message_bid_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_groups
-  end
-  if show.mass_quote_response_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group then
-    show.mass_quote_response_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group
-  end
-  if show.mass_quote_response_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_groups then
-    show.mass_quote_response_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_groups
-  end
-  if show.mass_quote_response_message_quotes_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group then
-    show.mass_quote_response_message_quotes_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group
-  end
-  if show.mass_quote_response_message_quotes_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_groups then
-    show.mass_quote_response_message_quotes_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_groups
-  end
-  if show.message_header ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_message_header then
-    show.message_header = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_message_header
-  end
-  if show.new_order_response_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group then
-    show.new_order_response_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group
-  end
-  if show.new_order_response_message_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_groups then
-    show.new_order_response_message_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_groups
-  end
-  if show.new_order_response_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group then
-    show.new_order_response_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group
-  end
-  if show.new_order_response_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_groups then
-    show.new_order_response_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_groups
-  end
-  if show.order_filled_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group then
-    show.order_filled_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group
-  end
-  if show.order_filled_message_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_groups then
-    show.order_filled_message_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_groups
-  end
-  if show.order_filled_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group then
-    show.order_filled_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group
-  end
-  if show.order_filled_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_groups then
-    show.order_filled_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_groups
-  end
-  if show.order_placed_message_fills_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group then
-    show.order_placed_message_fills_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group
-  end
-  if show.order_placed_message_fills_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_groups then
-    show.order_placed_message_fills_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_groups
-  end
-  if show.order_placed_message_legs_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group then
-    show.order_placed_message_legs_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group
-  end
-  if show.order_placed_message_legs_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_groups then
-    show.order_placed_message_legs_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_groups
-  end
-  if show.orders_canceled_message_orders_group ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group then
-    show.orders_canceled_message_orders_group = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group
-  end
-  if show.orders_canceled_message_orders_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_groups then
-    show.orders_canceled_message_orders_groups = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_groups
-  end
-  if show.packet ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_packet then
-    show.packet = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_packet
-  end
-  if show.quantity ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_quantity then
-    show.quantity = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_quantity
-  end
-  if show.reason ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_reason then
-    show.reason = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_reason
-  end
-  if show.sbe_message ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_sbe_message then
-    show.sbe_message = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_sbe_message
-  end
-  if show.session_flags ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_session_flags then
-    show.session_flags = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_session_flags
-  end
-  if show.show_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_show_qty then
-    show.show_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_show_qty
-  end
-  if show.total_filled ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_total_filled then
-    show.total_filled = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_total_filled
-  end
-  if show.visible_qty ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_visible_qty then
-    show.visible_qty = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_visible_qty
-  end
-  if show.mass_quote_request_message_quotes_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group_index then
-    show.mass_quote_request_message_quotes_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_request_message_quotes_group_index
-  end
-  if show.new_order_response_message_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group_index then
-    show.new_order_response_message_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_fills_group_index
-  end
-  if show.new_order_response_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group_index then
-    show.new_order_response_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_new_order_response_message_legs_group_index
-  end
-  if show.amend_order_response_message_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group_index then
-    show.amend_order_response_message_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_fills_group_index
-  end
-  if show.amend_order_response_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group_index then
-    show.amend_order_response_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_amend_order_response_message_legs_group_index
-  end
-  if show.mass_quote_response_message_quotes_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group_index then
-    show.mass_quote_response_message_quotes_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_quotes_group_index
-  end
-  if show.mass_quote_response_message_bid_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group_index then
-    show.mass_quote_response_message_bid_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_bid_fills_group_index
-  end
-  if show.mass_quote_response_message_ask_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group_index then
-    show.mass_quote_response_message_ask_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_ask_fills_group_index
-  end
-  if show.mass_quote_response_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group_index then
-    show.mass_quote_response_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_response_message_legs_group_index
-  end
-  if show.order_filled_message_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group_index then
-    show.order_filled_message_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_fills_group_index
-  end
-  if show.order_filled_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group_index then
-    show.order_filled_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_filled_message_legs_group_index
-  end
-  if show.orders_canceled_message_orders_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group_index then
-    show.orders_canceled_message_orders_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_orders_canceled_message_orders_group_index
-  end
-  if show.order_placed_message_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group_index then
-    show.order_placed_message_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_fills_group_index
-  end
-  if show.order_placed_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group_index then
-    show.order_placed_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_order_placed_message_legs_group_index
-  end
-  if show.mass_quote_orders_placed_message_orders_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group_index then
-    show.mass_quote_orders_placed_message_orders_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_orders_group_index
-  end
-  if show.mass_quote_orders_placed_message_fills_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group_index then
-    show.mass_quote_orders_placed_message_fills_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_fills_group_index
-  end
-  if show.mass_quote_orders_placed_message_legs_group_index ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index then
-    show.mass_quote_orders_placed_message_legs_group_index = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_mass_quote_orders_placed_message_legs_group_index
+  if show.indexes ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes then
+    show.indexes = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes
   end
 end
 
@@ -3262,7 +2902,7 @@ end
 
 -- Dissect: Fill Qty
 coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.dissect = function(buffer, offset, packet, parent)
-  if show.fill_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.fill_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.fill_qty.fields(buffer, offset, packet, parent)
@@ -3299,7 +2939,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_legs_group.
   local index = offset
 
   -- Implicit Mass Quote Orders Placed Message legs Group Index
-  if mass_quote_orders_placed_message_legs_group_index ~= nil and show.mass_quote_orders_placed_message_legs_group_index then
+  if mass_quote_orders_placed_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_legs_group_index, mass_quote_orders_placed_message_legs_group_index)
     iteration:set_generated()
   end
@@ -3324,7 +2964,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_legs_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_legs_group_index)
-  if show.mass_quote_orders_placed_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_legs_group.fields(buffer, offset, packet, parent, mass_quote_orders_placed_message_legs_group_index)
@@ -3368,7 +3008,7 @@ end
 
 -- Dissect: Group Size Encoding
 coinbase_deribit_ordersapi_sbe_v1_0.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.group_size_encoding, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -3425,7 +3065,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_orders_placed_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -3461,7 +3101,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_fills_group
   local index = offset
 
   -- Implicit Mass Quote Orders Placed Message fills Group Index
-  if mass_quote_orders_placed_message_fills_group_index ~= nil and show.mass_quote_orders_placed_message_fills_group_index then
+  if mass_quote_orders_placed_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_fills_group_index, mass_quote_orders_placed_message_fills_group_index)
     iteration:set_generated()
   end
@@ -3483,7 +3123,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_fills_group_index)
-  if show.mass_quote_orders_placed_message_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_fills_group.fields(buffer, offset, packet, parent, mass_quote_orders_placed_message_fills_group_index)
@@ -3540,7 +3180,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_orders_placed_message_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -3591,7 +3231,7 @@ end
 
 -- Dissect: Visible Qty
 coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.dissect = function(buffer, offset, packet, parent)
-  if show.visible_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.visible_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.visible_qty.fields(buffer, offset, packet, parent)
@@ -3642,7 +3282,7 @@ end
 
 -- Dissect: Total Filled
 coinbase_deribit_ordersapi_sbe_v1_0.total_filled.dissect = function(buffer, offset, packet, parent)
-  if show.total_filled then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.total_filled, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.total_filled.fields(buffer, offset, packet, parent)
@@ -3693,7 +3333,7 @@ end
 
 -- Dissect: Quantity
 coinbase_deribit_ordersapi_sbe_v1_0.quantity.dissect = function(buffer, offset, packet, parent)
-  if show.quantity then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.quantity, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.quantity.fields(buffer, offset, packet, parent)
@@ -3735,7 +3375,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_orders_grou
   local index = offset
 
   -- Implicit Mass Quote Orders Placed Message orders Group Index
-  if mass_quote_orders_placed_message_orders_group_index ~= nil and show.mass_quote_orders_placed_message_orders_group_index then
+  if mass_quote_orders_placed_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_orders_group_index, mass_quote_orders_placed_message_orders_group_index)
     iteration:set_generated()
   end
@@ -3775,7 +3415,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message orders Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_orders_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_orders_group_index)
-  if show.mass_quote_orders_placed_message_orders_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_orders_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_orders_group.fields(buffer, offset, packet, parent, mass_quote_orders_placed_message_orders_group_index)
@@ -3832,7 +3472,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message orders Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_orders_placed_message_orders_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_orders_placed_message_orders_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_orders_placed_message_orders_groups.fields(buffer, offset, packet, parent)
@@ -3939,7 +3579,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_legs_group.fields = fun
   local index = offset
 
   -- Implicit Order Placed Message legs Group Index
-  if order_placed_message_legs_group_index ~= nil and show.order_placed_message_legs_group_index then
+  if order_placed_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_legs_group_index, order_placed_message_legs_group_index)
     iteration:set_generated()
   end
@@ -3964,7 +3604,7 @@ end
 
 -- Dissect: Order Placed Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_legs_group.dissect = function(buffer, offset, packet, parent, order_placed_message_legs_group_index)
-  if show.order_placed_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_legs_group.fields(buffer, offset, packet, parent, order_placed_message_legs_group_index)
@@ -4021,7 +3661,7 @@ end
 
 -- Dissect: Order Placed Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.order_placed_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -4056,7 +3696,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_fills_group.fields = fu
   local index = offset
 
   -- Implicit Order Placed Message fills Group Index
-  if order_placed_message_fills_group_index ~= nil and show.order_placed_message_fills_group_index then
+  if order_placed_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_fills_group_index, order_placed_message_fills_group_index)
     iteration:set_generated()
   end
@@ -4075,7 +3715,7 @@ end
 
 -- Dissect: Order Placed Message fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_fills_group.dissect = function(buffer, offset, packet, parent, order_placed_message_fills_group_index)
-  if show.order_placed_message_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_fills_group.fields(buffer, offset, packet, parent, order_placed_message_fills_group_index)
@@ -4132,7 +3772,7 @@ end
 
 -- Dissect: Order Placed Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.order_placed_message_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_placed_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -4289,7 +3929,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_cancel_flags.dissect = function(buffer
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_cancel_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_cancel_flags, range, display)
 
-  if show.flags_cancel_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_cancel_flags.bits(range, value, packet, element)
   end
 
@@ -4318,7 +3958,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.orders_canceled_message_orders_group.fields 
   local index = offset
 
   -- Implicit Orders Canceled Message orders Group Index
-  if orders_canceled_message_orders_group_index ~= nil and show.orders_canceled_message_orders_group_index then
+  if orders_canceled_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.orders_canceled_message_orders_group_index, orders_canceled_message_orders_group_index)
     iteration:set_generated()
   end
@@ -4346,7 +3986,7 @@ end
 
 -- Dissect: Orders Canceled Message orders Group
 coinbase_deribit_ordersapi_sbe_v1_0.orders_canceled_message_orders_group.dissect = function(buffer, offset, packet, parent, orders_canceled_message_orders_group_index)
-  if show.orders_canceled_message_orders_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.orders_canceled_message_orders_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.orders_canceled_message_orders_group.fields(buffer, offset, packet, parent, orders_canceled_message_orders_group_index)
@@ -4403,7 +4043,7 @@ end
 
 -- Dissect: Orders Canceled Message orders Groups
 coinbase_deribit_ordersapi_sbe_v1_0.orders_canceled_message_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.orders_canceled_message_orders_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.orders_canceled_message_orders_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.orders_canceled_message_orders_groups.fields(buffer, offset, packet, parent)
@@ -4455,7 +4095,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_multi_part_event_flags.dissect = funct
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_multi_part_event_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_multi_part_event_flags, range, display)
 
-  if show.flags_multi_part_event_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_multi_part_event_flags.bits(range, value, packet, element)
   end
 
@@ -4543,7 +4183,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_legs_group.fields = fun
   local index = offset
 
   -- Implicit Order Filled Message legs Group Index
-  if order_filled_message_legs_group_index ~= nil and show.order_filled_message_legs_group_index then
+  if order_filled_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_legs_group_index, order_filled_message_legs_group_index)
     iteration:set_generated()
   end
@@ -4568,7 +4208,7 @@ end
 
 -- Dissect: Order Filled Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_legs_group.dissect = function(buffer, offset, packet, parent, order_filled_message_legs_group_index)
-  if show.order_filled_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_legs_group.fields(buffer, offset, packet, parent, order_filled_message_legs_group_index)
@@ -4625,7 +4265,7 @@ end
 
 -- Dissect: Order Filled Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.order_filled_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -4684,7 +4324,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_fill_flags.dissect = function(buffer, 
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_fill_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_fill_flags, range, display)
 
-  if show.flags_fill_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_fill_flags.bits(range, value, packet, element)
   end
 
@@ -4716,7 +4356,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_fills_group.fields = fu
   local index = offset
 
   -- Implicit Order Filled Message fills Group Index
-  if order_filled_message_fills_group_index ~= nil and show.order_filled_message_fills_group_index then
+  if order_filled_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_fills_group_index, order_filled_message_fills_group_index)
     iteration:set_generated()
   end
@@ -4753,7 +4393,7 @@ end
 
 -- Dissect: Order Filled Message fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_fills_group.dissect = function(buffer, offset, packet, parent, order_filled_message_fills_group_index)
-  if show.order_filled_message_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_fills_group.fields(buffer, offset, packet, parent, order_filled_message_fills_group_index)
@@ -4810,7 +4450,7 @@ end
 
 -- Dissect: Order Filled Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.order_filled_message_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_filled_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.order_filled_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -4941,7 +4581,7 @@ end
 
 -- Dissect: Details
 coinbase_deribit_ordersapi_sbe_v1_0.details.dissect = function(buffer, offset, packet, parent)
-  if show.details then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.details, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.details.fields(buffer, offset, packet, parent)
@@ -5174,7 +4814,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_legs_group.field
   local index = offset
 
   -- Implicit Mass Quote Response Message legs Group Index
-  if mass_quote_response_message_legs_group_index ~= nil and show.mass_quote_response_message_legs_group_index then
+  if mass_quote_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_legs_group_index, mass_quote_response_message_legs_group_index)
     iteration:set_generated()
   end
@@ -5199,7 +4839,7 @@ end
 
 -- Dissect: Mass Quote Response Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_legs_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_legs_group_index)
-  if show.mass_quote_response_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_legs_group.fields(buffer, offset, packet, parent, mass_quote_response_message_legs_group_index)
@@ -5256,7 +4896,7 @@ end
 
 -- Dissect: Mass Quote Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_response_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -5292,7 +4932,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_ask_fills_group.
   local index = offset
 
   -- Implicit Mass Quote Response Message ask Fills Group Index
-  if mass_quote_response_message_ask_fills_group_index ~= nil and show.mass_quote_response_message_ask_fills_group_index then
+  if mass_quote_response_message_ask_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_ask_fills_group_index, mass_quote_response_message_ask_fills_group_index)
     iteration:set_generated()
   end
@@ -5314,7 +4954,7 @@ end
 
 -- Dissect: Mass Quote Response Message ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_ask_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_ask_fills_group_index)
-  if show.mass_quote_response_message_ask_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_ask_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_ask_fills_group.fields(buffer, offset, packet, parent, mass_quote_response_message_ask_fills_group_index)
@@ -5371,7 +5011,7 @@ end
 
 -- Dissect: Mass Quote Response Message ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_ask_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_response_message_ask_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_ask_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_ask_fills_groups.fields(buffer, offset, packet, parent)
@@ -5407,7 +5047,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_bid_fills_group.
   local index = offset
 
   -- Implicit Mass Quote Response Message bid Fills Group Index
-  if mass_quote_response_message_bid_fills_group_index ~= nil and show.mass_quote_response_message_bid_fills_group_index then
+  if mass_quote_response_message_bid_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_bid_fills_group_index, mass_quote_response_message_bid_fills_group_index)
     iteration:set_generated()
   end
@@ -5429,7 +5069,7 @@ end
 
 -- Dissect: Mass Quote Response Message bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_bid_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_bid_fills_group_index)
-  if show.mass_quote_response_message_bid_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_bid_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_bid_fills_group.fields(buffer, offset, packet, parent, mass_quote_response_message_bid_fills_group_index)
@@ -5486,7 +5126,7 @@ end
 
 -- Dissect: Mass Quote Response Message bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_bid_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_response_message_bid_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_bid_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_bid_fills_groups.fields(buffer, offset, packet, parent)
@@ -5537,7 +5177,7 @@ end
 
 -- Dissect: Ask Filled Qty
 coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.dissect = function(buffer, offset, packet, parent)
-  if show.ask_filled_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.ask_filled_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.ask_filled_qty.fields(buffer, offset, packet, parent)
@@ -5588,7 +5228,7 @@ end
 
 -- Dissect: Bid Filled Qty
 coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.dissect = function(buffer, offset, packet, parent)
-  if show.bid_filled_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.bid_filled_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.bid_filled_qty.fields(buffer, offset, packet, parent)
@@ -5639,7 +5279,7 @@ end
 
 -- Dissect: Ask Qty
 coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.dissect = function(buffer, offset, packet, parent)
-  if show.ask_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.ask_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.ask_qty.fields(buffer, offset, packet, parent)
@@ -5690,7 +5330,7 @@ end
 
 -- Dissect: Bid Qty
 coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.dissect = function(buffer, offset, packet, parent)
-  if show.bid_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.bid_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.bid_qty.fields(buffer, offset, packet, parent)
@@ -5735,7 +5375,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_quotes_group.fie
   local index = offset
 
   -- Implicit Mass Quote Response Message quotes Group Index
-  if mass_quote_response_message_quotes_group_index ~= nil and show.mass_quote_response_message_quotes_group_index then
+  if mass_quote_response_message_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_quotes_group_index, mass_quote_response_message_quotes_group_index)
     iteration:set_generated()
   end
@@ -5784,7 +5424,7 @@ end
 
 -- Dissect: Mass Quote Response Message quotes Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_quotes_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_quotes_group_index)
-  if show.mass_quote_response_message_quotes_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_quotes_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_quotes_group.fields(buffer, offset, packet, parent, mass_quote_response_message_quotes_group_index)
@@ -5841,7 +5481,7 @@ end
 
 -- Dissect: Mass Quote Response Message quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_response_message_quotes_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_response_message_quotes_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_response_message_quotes_groups.fields(buffer, offset, packet, parent)
@@ -6192,7 +5832,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_legs_group.fiel
   local index = offset
 
   -- Implicit Amend Order Response Message legs Group Index
-  if amend_order_response_message_legs_group_index ~= nil and show.amend_order_response_message_legs_group_index then
+  if amend_order_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_legs_group_index, amend_order_response_message_legs_group_index)
     iteration:set_generated()
   end
@@ -6217,7 +5857,7 @@ end
 
 -- Dissect: Amend Order Response Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_legs_group.dissect = function(buffer, offset, packet, parent, amend_order_response_message_legs_group_index)
-  if show.amend_order_response_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_legs_group.fields(buffer, offset, packet, parent, amend_order_response_message_legs_group_index)
@@ -6274,7 +5914,7 @@ end
 
 -- Dissect: Amend Order Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.amend_order_response_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -6309,7 +5949,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_fills_group.fie
   local index = offset
 
   -- Implicit Amend Order Response Message fills Group Index
-  if amend_order_response_message_fills_group_index ~= nil and show.amend_order_response_message_fills_group_index then
+  if amend_order_response_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_fills_group_index, amend_order_response_message_fills_group_index)
     iteration:set_generated()
   end
@@ -6328,7 +5968,7 @@ end
 
 -- Dissect: Amend Order Response Message fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_fills_group.dissect = function(buffer, offset, packet, parent, amend_order_response_message_fills_group_index)
-  if show.amend_order_response_message_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_fills_group.fields(buffer, offset, packet, parent, amend_order_response_message_fills_group_index)
@@ -6385,7 +6025,7 @@ end
 
 -- Dissect: Amend Order Response Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.amend_order_response_message_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.amend_order_response_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -6617,7 +6257,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_legs_group.fields
   local index = offset
 
   -- Implicit New Order Response Message legs Group Index
-  if new_order_response_message_legs_group_index ~= nil and show.new_order_response_message_legs_group_index then
+  if new_order_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_legs_group_index, new_order_response_message_legs_group_index)
     iteration:set_generated()
   end
@@ -6642,7 +6282,7 @@ end
 
 -- Dissect: New Order Response Message legs Group
 coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_legs_group.dissect = function(buffer, offset, packet, parent, new_order_response_message_legs_group_index)
-  if show.new_order_response_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_legs_group.fields(buffer, offset, packet, parent, new_order_response_message_legs_group_index)
@@ -6699,7 +6339,7 @@ end
 
 -- Dissect: New Order Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_response_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -6734,7 +6374,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_fills_group.field
   local index = offset
 
   -- Implicit New Order Response Message fills Group Index
-  if new_order_response_message_fills_group_index ~= nil and show.new_order_response_message_fills_group_index then
+  if new_order_response_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_fills_group_index, new_order_response_message_fills_group_index)
     iteration:set_generated()
   end
@@ -6753,7 +6393,7 @@ end
 
 -- Dissect: New Order Response Message fills Group
 coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_fills_group.dissect = function(buffer, offset, packet, parent, new_order_response_message_fills_group_index)
-  if show.new_order_response_message_fills_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_fills_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_fills_group.fields(buffer, offset, packet, parent, new_order_response_message_fills_group_index)
@@ -6810,7 +6450,7 @@ end
 
 -- Dissect: New Order Response Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_order_response_message_fills_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.new_order_response_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.new_order_response_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -7121,7 +6761,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.ask_flags.dissect = function(buffer, offset,
   local display = coinbase_deribit_ordersapi_sbe_v1_0.ask_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.ask_flags, range, display)
 
-  if show.ask_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.ask_flags.bits(range, value, packet, element)
   end
 
@@ -7199,7 +6839,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.bid_flags.dissect = function(buffer, offset,
   local display = coinbase_deribit_ordersapi_sbe_v1_0.bid_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.bid_flags, range, display)
 
-  if show.bid_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.bid_flags.bits(range, value, packet, element)
   end
 
@@ -7229,7 +6869,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_request_message_quotes_group.fiel
   local index = offset
 
   -- Implicit Mass Quote Request Message quotes Group Index
-  if mass_quote_request_message_quotes_group_index ~= nil and show.mass_quote_request_message_quotes_group_index then
+  if mass_quote_request_message_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_request_message_quotes_group_index, mass_quote_request_message_quotes_group_index)
     iteration:set_generated()
   end
@@ -7260,7 +6900,7 @@ end
 
 -- Dissect: Mass Quote Request Message quotes Group
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_request_message_quotes_group.dissect = function(buffer, offset, packet, parent, mass_quote_request_message_quotes_group_index)
-  if show.mass_quote_request_message_quotes_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_request_message_quotes_group, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_request_message_quotes_group.fields(buffer, offset, packet, parent, mass_quote_request_message_quotes_group_index)
@@ -7317,7 +6957,7 @@ end
 
 -- Dissect: Mass Quote Request Message quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_request_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.mass_quote_request_message_quotes_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.mass_quote_request_message_quotes_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.mass_quote_request_message_quotes_groups.fields(buffer, offset, packet, parent)
@@ -7369,7 +7009,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_mass_quote_flags.dissect = function(bu
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_mass_quote_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_mass_quote_flags, range, display)
 
-  if show.flags_mass_quote_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_mass_quote_flags.bits(range, value, packet, element)
   end
 
@@ -7544,7 +7184,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_replace_order_flags.dissect = function
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_replace_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_replace_order_flags, range, display)
 
-  if show.flags_replace_order_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_replace_order_flags.bits(range, value, packet, element)
   end
 
@@ -7586,7 +7226,7 @@ end
 
 -- Dissect: Show Qty
 coinbase_deribit_ordersapi_sbe_v1_0.show_qty.dissect = function(buffer, offset, packet, parent)
-  if show.show_qty then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.show_qty, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.show_qty.fields(buffer, offset, packet, parent)
@@ -7737,7 +7377,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.flags_order_flags.dissect = function(buffer,
   local display = coinbase_deribit_ordersapi_sbe_v1_0.flags_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_order_flags, range, display)
 
-  if show.flags_order_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.flags_order_flags.bits(range, value, packet, element)
   end
 
@@ -8098,7 +7738,7 @@ end
 
 -- Dissect: Reason
 coinbase_deribit_ordersapi_sbe_v1_0.reason.dissect = function(buffer, offset, packet, parent)
-  if show.reason then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reason, buffer(offset, 0))
     local index, value = coinbase_deribit_ordersapi_sbe_v1_0.reason.fields(buffer, offset, packet, parent)
@@ -8469,7 +8109,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.session_flags.dissect = function(buffer, off
   local display = coinbase_deribit_ordersapi_sbe_v1_0.session_flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.session_flags, range, display)
 
-  if show.session_flags then
+  if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_0.session_flags.bits(range, value, packet, element)
   end
 
@@ -8528,7 +8168,7 @@ end
 
 -- Dissect: Message Header
 coinbase_deribit_ordersapi_sbe_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.message_header, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -8590,7 +8230,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.sbe_message.dissect = function(buffer, offse
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.sbe_message, buffer(offset, 0))
     local current = coinbase_deribit_ordersapi_sbe_v1_0.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)

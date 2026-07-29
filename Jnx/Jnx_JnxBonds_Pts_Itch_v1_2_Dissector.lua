@@ -87,20 +87,14 @@ jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9
 local show = {}
 
 -- Jnx JnxBonds Pts Itch 1.2 Element Dissection Options
-show.message = true
-show.message_header = true
+show.structs = true
 show.application_messages = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
+show.indexes = true
 
 -- Register Jnx JnxBonds Pts Itch 1.2 Show Options
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_format_enum, false)
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
@@ -112,20 +106,11 @@ function omi_jnx_jnxbonds_pts_itch_v1_2.prefs_changed()
   if show.application_messages ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_application_messages
   end
-  if show.message ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message then
-    show.message = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message
+  if show.structs ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_structs then
+    show.structs = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_structs
   end
-  if show.message_header ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_header then
-    show.message_header = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_header
-  end
-  if show.packet ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet then
-    show.packet = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet
-  end
-  if show.packet_header ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet_header then
-    show.packet_header = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index then
-    show.message_index = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_message_index
+  if show.indexes ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes then
+    show.indexes = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes
   end
   if jnx_jnxbonds_pts_itch_v1_2.timestamp_format ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format then
     jnx_jnxbonds_pts_itch_v1_2.timestamp_format = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format
@@ -1527,7 +1512,7 @@ end
 
 -- Dissect: Message Header
 jnx_jnxbonds_pts_itch_v1_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_header, buffer(offset, 0))
     local index = jnx_jnxbonds_pts_itch_v1_2.message_header.fields(buffer, offset, packet, parent)
@@ -1566,7 +1551,7 @@ jnx_jnxbonds_pts_itch_v1_2.message.fields = function(buffer, offset, packet, par
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -1589,7 +1574,7 @@ jnx_jnxbonds_pts_itch_v1_2.message.dissect = function(buffer, offset, packet, pa
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.message, buffer(offset, 0))
     local current = jnx_jnxbonds_pts_itch_v1_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -1700,7 +1685,7 @@ end
 
 -- Dissect: Packet Header
 jnx_jnxbonds_pts_itch_v1_2.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet_header, buffer(offset, 0))
     local index = jnx_jnxbonds_pts_itch_v1_2.packet_header.fields(buffer, offset, packet, parent)

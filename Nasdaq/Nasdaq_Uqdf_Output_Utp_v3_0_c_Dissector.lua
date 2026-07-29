@@ -171,98 +171,33 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message
 local show = {}
 
 -- Nasdaq Uqdf Output Utp 3.0.c Element Dissection Options
-show.administrative_message = true
+show.structs = true
 show.application_messages = true
-show.bolo_appendage_long_form = true
-show.bolo_appendage_mpid_form = true
-show.bolo_appendage_short_form = true
-show.control_message = true
-show.finra_adf_mpid_appendage = true
-show.market_center_close_recap = true
-show.message = true
-show.message_header = true
-show.mold_udp_64_packet = true
-show.national_bbo_appendage_longform = true
-show.national_bbo_appendage_shortform = true
-show.quote_message = true
-show.udp_packet_header = true
-show.message_index = true
-show.market_center_close_recap_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nasdaq Uqdf Output Utp 3.0.c Show Options
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form = Pref.bool("Show Bolo Appendage Long Form", show.bolo_appendage_long_form, "Parse and add Bolo Appendage Long Form to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form = Pref.bool("Show Bolo Appendage Mpid Form", show.bolo_appendage_mpid_form, "Parse and add Bolo Appendage Mpid Form to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form = Pref.bool("Show Bolo Appendage Short Form", show.bolo_appendage_short_form, "Parse and add Bolo Appendage Short Form to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message = Pref.bool("Show Control Message", show.control_message, "Parse and add Control Message to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage = Pref.bool("Show Finra Adf Mpid Appendage", show.finra_adf_mpid_appendage, "Parse and add Finra Adf Mpid Appendage to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap = Pref.bool("Show Market Center Close Recap", show.market_center_close_recap, "Parse and add Market Center Close Recap to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet = Pref.bool("Show Mold Udp 64 Packet", show.mold_udp_64_packet, "Parse and add Mold Udp 64 Packet to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_longform = Pref.bool("Show National Bbo Appendage Longform", show.national_bbo_appendage_longform, "Parse and add National Bbo Appendage Longform to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_shortform = Pref.bool("Show National Bbo Appendage Shortform", show.national_bbo_appendage_shortform, "Parse and add National Bbo Appendage Shortform to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_quote_message = Pref.bool("Show Quote Message", show.quote_message, "Parse and add Quote Message to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_udp_packet_header = Pref.bool("Show Udp Packet Header", show.udp_packet_header, "Parse and add Udp Packet Header to protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap_index = Pref.bool("Show Market Center Close Recap Index", show.market_center_close_recap_index, "Show generated market center close recap index in protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message then
-    show.administrative_message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_administrative_message
-  end
   if show.application_messages ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages
   end
-  if show.bolo_appendage_long_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form then
-    show.bolo_appendage_long_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_long_form
+  if show.repeating_groups ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_repeating_groups
   end
-  if show.bolo_appendage_mpid_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form then
-    show.bolo_appendage_mpid_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_mpid_form
+  if show.structs ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_structs then
+    show.structs = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_structs
   end
-  if show.bolo_appendage_short_form ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form then
-    show.bolo_appendage_short_form = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_bolo_appendage_short_form
-  end
-  if show.control_message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message then
-    show.control_message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_control_message
-  end
-  if show.finra_adf_mpid_appendage ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage then
-    show.finra_adf_mpid_appendage = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_finra_adf_mpid_appendage
-  end
-  if show.market_center_close_recap ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap then
-    show.market_center_close_recap = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap
-  end
-  if show.message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message then
-    show.message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message
-  end
-  if show.message_header ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_header then
-    show.message_header = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_header
-  end
-  if show.mold_udp_64_packet ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet then
-    show.mold_udp_64_packet = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_mold_udp_64_packet
-  end
-  if show.national_bbo_appendage_longform ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_longform then
-    show.national_bbo_appendage_longform = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_longform
-  end
-  if show.national_bbo_appendage_shortform ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_shortform then
-    show.national_bbo_appendage_shortform = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_national_bbo_appendage_shortform
-  end
-  if show.quote_message ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_quote_message then
-    show.quote_message = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_quote_message
-  end
-  if show.udp_packet_header ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_udp_packet_header then
-    show.udp_packet_header = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_udp_packet_header
-  end
-  if show.message_index ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_index then
-    show.message_index = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_message_index
-  end
-  if show.market_center_close_recap_index ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap_index then
-    show.market_center_close_recap_index = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_market_center_close_recap_index
+  if show.indexes ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes then
+    show.indexes = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes
   end
 end
 
@@ -4002,7 +3937,7 @@ end
 
 -- Dissect: Control Message
 nasdaq_uqdf_output_utp_v3_0_c.control_message.dissect = function(buffer, offset, packet, parent)
-  if show.control_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.control_message, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.control_message.fields(buffer, offset, packet, parent)
@@ -4039,7 +3974,7 @@ nasdaq_uqdf_output_utp_v3_0_c.market_center_close_recap.fields = function(buffer
   local index = offset
 
   -- Implicit Market Center Close Recap Index
-  if market_center_close_recap_index ~= nil and show.market_center_close_recap_index then
+  if market_center_close_recap_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap_index, market_center_close_recap_index)
     iteration:set_generated()
   end
@@ -4064,7 +3999,7 @@ end
 
 -- Dissect: Market Center Close Recap
 nasdaq_uqdf_output_utp_v3_0_c.market_center_close_recap.dissect = function(buffer, offset, packet, parent, market_center_close_recap_index)
-  if show.market_center_close_recap then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.market_center_close_recap.fields(buffer, offset, packet, parent, market_center_close_recap_index)
@@ -4953,7 +4888,7 @@ end
 
 -- Dissect: Administrative Message
 nasdaq_uqdf_output_utp_v3_0_c.administrative_message.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.administrative_message.fields(buffer, offset, packet, parent)
@@ -5021,7 +4956,7 @@ end
 
 -- Dissect: Bolo Appendage Mpid Form
 nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect = function(buffer, offset, packet, parent)
-  if show.bolo_appendage_mpid_form then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_mpid_form, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.fields(buffer, offset, packet, parent)
@@ -5081,7 +5016,7 @@ end
 
 -- Dissect: Bolo Appendage Long Form
 nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.dissect = function(buffer, offset, packet, parent)
-  if show.bolo_appendage_long_form then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_long_form, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.fields(buffer, offset, packet, parent)
@@ -5141,7 +5076,7 @@ end
 
 -- Dissect: Bolo Appendage Short Form
 nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.dissect = function(buffer, offset, packet, parent)
-  if show.bolo_appendage_short_form then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.bolo_appendage_short_form, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.fields(buffer, offset, packet, parent)
@@ -5466,7 +5401,7 @@ end
 
 -- Dissect: Finra Adf Mpid Appendage
 nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.finra_adf_mpid_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.finra_adf_mpid_appendage, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.fields(buffer, offset, packet, parent)
@@ -5530,7 +5465,7 @@ end
 
 -- Dissect: National Bbo Appendage Longform
 nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.dissect = function(buffer, offset, packet, parent)
-  if show.national_bbo_appendage_longform then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_longform, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.fields(buffer, offset, packet, parent)
@@ -5594,7 +5529,7 @@ end
 
 -- Dissect: National Bbo Appendage Shortform
 nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.dissect = function(buffer, offset, packet, parent)
-  if show.national_bbo_appendage_shortform then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.national_bbo_appendage_shortform, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.fields(buffer, offset, packet, parent)
@@ -6542,7 +6477,7 @@ end
 
 -- Dissect: Quote Message
 nasdaq_uqdf_output_utp_v3_0_c.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.quote_message, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.quote_message.fields(buffer, offset, packet, parent)
@@ -6611,7 +6546,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_uqdf_output_utp_v3_0_c.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_header, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.message_header.fields(buffer, offset, packet, parent)
@@ -6652,7 +6587,7 @@ nasdaq_uqdf_output_utp_v3_0_c.message.fields = function(buffer, offset, packet, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -6671,7 +6606,7 @@ end
 
 -- Dissect: Message
 nasdaq_uqdf_output_utp_v3_0_c.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.message.fields(buffer, offset, packet, parent, message_index)
@@ -6776,7 +6711,7 @@ end
 
 -- Dissect: Udp Packet Header
 nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.udp_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_packet_header, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.fields(buffer, offset, packet, parent)

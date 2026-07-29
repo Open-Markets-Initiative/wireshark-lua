@@ -121,21 +121,13 @@ local show = {}
 
 -- Iex IexOptions MarketData Sbe 1.0 Element Dissection Options
 show.application_messages = true
-show.message_header = true
-show.message_list_group_encoding = true
-show.packet = true
-show.sbe_message = true
-show.sequenced_packet_message_messages_groups = true
-show.sequenced_packet_message_messages_group_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Iex IexOptions MarketData Sbe 1.0 Show Options
 omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_list_group_encoding = Pref.bool("Show Message List Group Encoding", show.message_list_group_encoding, "Parse and add Message List Group Encoding to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_groups = Pref.bool("Show Sequenced Packet Message messages Groups", show.sequenced_packet_message_messages_groups, "Parse and add Sequenced Packet Message messages Groups to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_group_index = Pref.bool("Show Sequenced Packet Message messages Group Index", show.sequenced_packet_message_messages_group_index, "Show generated sequenced packet message messages group index in protocol tree")
+omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -145,23 +137,11 @@ function omi_iex_iexoptions_marketdata_sbe_v1_0.prefs_changed()
   if show.application_messages ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_application_messages
   end
-  if show.message_header ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_header then
-    show.message_header = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_header
+  if show.structs ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_structs then
+    show.structs = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_structs
   end
-  if show.message_list_group_encoding ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_list_group_encoding then
-    show.message_list_group_encoding = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_message_list_group_encoding
-  end
-  if show.packet ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_packet then
-    show.packet = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_packet
-  end
-  if show.sbe_message ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sbe_message then
-    show.sbe_message = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sbe_message
-  end
-  if show.sequenced_packet_message_messages_groups ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_groups then
-    show.sequenced_packet_message_messages_groups = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_groups
-  end
-  if show.sequenced_packet_message_messages_group_index ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_group_index then
-    show.sequenced_packet_message_messages_group_index = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_sequenced_packet_message_messages_group_index
+  if show.indexes ~= omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_indexes then
+    show.indexes = omi_iex_iexoptions_marketdata_sbe_v1_0.prefs.show_indexes
   end
 end
 
@@ -2163,7 +2143,7 @@ end
 
 -- Dissect: Message List Group Encoding
 iex_iexoptions_marketdata_sbe_v1_0.message_list_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.message_list_group_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_0.fields.message_list_group_encoding, buffer(offset, 0))
     local index = iex_iexoptions_marketdata_sbe_v1_0.message_list_group_encoding.fields(buffer, offset, packet, parent)
@@ -2220,7 +2200,7 @@ end
 
 -- Dissect: Sequenced Packet Message messages Groups
 iex_iexoptions_marketdata_sbe_v1_0.sequenced_packet_message_messages_groups.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_packet_message_messages_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_0.fields.sequenced_packet_message_messages_groups, buffer(offset, 0))
     local index = iex_iexoptions_marketdata_sbe_v1_0.sequenced_packet_message_messages_groups.fields(buffer, offset, packet, parent)
@@ -3668,7 +3648,7 @@ end
 
 -- Dissect: Message Header
 iex_iexoptions_marketdata_sbe_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_0.fields.message_header, buffer(offset, 0))
     local index = iex_iexoptions_marketdata_sbe_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -3716,7 +3696,7 @@ iex_iexoptions_marketdata_sbe_v1_0.sbe_message.dissect = function(buffer, offset
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_0.fields.sbe_message, buffer(offset, 0))
     local current = iex_iexoptions_marketdata_sbe_v1_0.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)

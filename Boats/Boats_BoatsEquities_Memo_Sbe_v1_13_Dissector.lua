@@ -156,58 +156,16 @@ omi_boats_boatsequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.n
 local show = {}
 
 -- Boats BoatsEquities Memo Sbe 1.13 Element Dissection Options
-show.common_header = true
-show.exec_inst = true
+show.structs = true
 show.application_messages = true
-show.login_accepted_message = true
-show.login_rejected_message = true
-show.login_request_message = true
-show.packet = true
-show.parties_group = true
-show.parties_groups = true
-show.repeating_group_dimensions = true
-show.replay_all_request_message = true
-show.replay_begin_message = true
-show.replay_complete_message = true
-show.replay_rejected_message = true
-show.replay_request_message = true
-show.sbe_header = true
-show.sbe_message = true
-show.sequenced_message = true
-show.start_of_session_message = true
-show.stream_begin_message = true
-show.stream_complete_message = true
-show.stream_rejected_message = true
-show.stream_request_message = true
-show.unsequenced_message = true
-show.parties_group_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Boats BoatsEquities Memo Sbe 1.13 Show Options
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
+omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_accepted_message = Pref.bool("Show Login Accepted Message", show.login_accepted_message, "Parse and add Login Accepted Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_rejected_message = Pref.bool("Show Login Rejected Message", show.login_rejected_message, "Parse and add Login Rejected Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_request_message = Pref.bool("Show Login Request Message", show.login_request_message, "Parse and add Login Request Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group = Pref.bool("Show Parties Group", show.parties_group, "Parse and add Parties Group to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_groups = Pref.bool("Show Parties Groups", show.parties_groups, "Parse and add Parties Groups to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions = Pref.bool("Show Repeating Group Dimensions", show.repeating_group_dimensions, "Parse and add Repeating Group Dimensions to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_all_request_message = Pref.bool("Show Replay All Request Message", show.replay_all_request_message, "Parse and add Replay All Request Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_begin_message = Pref.bool("Show Replay Begin Message", show.replay_begin_message, "Parse and add Replay Begin Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_complete_message = Pref.bool("Show Replay Complete Message", show.replay_complete_message, "Parse and add Replay Complete Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_rejected_message = Pref.bool("Show Replay Rejected Message", show.replay_rejected_message, "Parse and add Replay Rejected Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_request_message = Pref.bool("Show Replay Request Message", show.replay_request_message, "Parse and add Replay Request Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_start_of_session_message = Pref.bool("Show Start Of Session Message", show.start_of_session_message, "Parse and add Start Of Session Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_begin_message = Pref.bool("Show Stream Begin Message", show.stream_begin_message, "Parse and add Stream Begin Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_complete_message = Pref.bool("Show Stream Complete Message", show.stream_complete_message, "Parse and add Stream Complete Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_rejected_message = Pref.bool("Show Stream Rejected Message", show.stream_rejected_message, "Parse and add Stream Rejected Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_request_message = Pref.bool("Show Stream Request Message", show.stream_request_message, "Parse and add Stream Request Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_unsequenced_message = Pref.bool("Show Unsequenced Message", show.unsequenced_message, "Parse and add Unsequenced Message to protocol tree")
-omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group_index = Pref.bool("Show Parties Group Index", show.parties_group_index, "Show generated parties group index in protocol tree")
+omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -217,77 +175,14 @@ function omi_boats_boatsequities_memo_sbe_v1_13.prefs_changed()
   if show.application_messages ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_application_messages then
     show.application_messages = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_application_messages
   end
-  if show.common_header ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_common_header then
-    show.common_header = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_common_header
+  if show.repeating_groups ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_groups then
+    show.repeating_groups = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_groups
   end
-  if show.exec_inst ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_exec_inst then
-    show.exec_inst = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_exec_inst
+  if show.structs ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_structs then
+    show.structs = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_structs
   end
-  if show.login_accepted_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_accepted_message then
-    show.login_accepted_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_accepted_message
-  end
-  if show.login_rejected_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_rejected_message then
-    show.login_rejected_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_rejected_message
-  end
-  if show.login_request_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_request_message then
-    show.login_request_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_login_request_message
-  end
-  if show.packet ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_packet then
-    show.packet = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_packet
-  end
-  if show.parties_group ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group then
-    show.parties_group = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group
-  end
-  if show.parties_groups ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_groups then
-    show.parties_groups = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_groups
-  end
-  if show.repeating_group_dimensions ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions then
-    show.repeating_group_dimensions = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_repeating_group_dimensions
-  end
-  if show.replay_all_request_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_all_request_message then
-    show.replay_all_request_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_all_request_message
-  end
-  if show.replay_begin_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_begin_message then
-    show.replay_begin_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_begin_message
-  end
-  if show.replay_complete_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_complete_message then
-    show.replay_complete_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_complete_message
-  end
-  if show.replay_rejected_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_rejected_message then
-    show.replay_rejected_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_rejected_message
-  end
-  if show.replay_request_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_request_message then
-    show.replay_request_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_replay_request_message
-  end
-  if show.sbe_header ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_header then
-    show.sbe_header = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_header
-  end
-  if show.sbe_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_message then
-    show.sbe_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sbe_message
-  end
-  if show.sequenced_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sequenced_message then
-    show.sequenced_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_sequenced_message
-  end
-  if show.start_of_session_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_start_of_session_message then
-    show.start_of_session_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_start_of_session_message
-  end
-  if show.stream_begin_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_begin_message then
-    show.stream_begin_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_begin_message
-  end
-  if show.stream_complete_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_complete_message then
-    show.stream_complete_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_complete_message
-  end
-  if show.stream_rejected_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_rejected_message then
-    show.stream_rejected_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_rejected_message
-  end
-  if show.stream_request_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_request_message then
-    show.stream_request_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_stream_request_message
-  end
-  if show.unsequenced_message ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_unsequenced_message then
-    show.unsequenced_message = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_unsequenced_message
-  end
-  if show.parties_group_index ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group_index then
-    show.parties_group_index = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_parties_group_index
+  if show.indexes ~= omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_indexes then
+    show.indexes = omi_boats_boatsequities_memo_sbe_v1_13.prefs.show_indexes
   end
 end
 
@@ -3751,7 +3646,7 @@ boats_boatsequities_memo_sbe_v1_13.parties_group.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Parties Group Index
-  if parties_group_index ~= nil and show.parties_group_index then
+  if parties_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.parties_group_index, parties_group_index)
     iteration:set_generated()
   end
@@ -3770,7 +3665,7 @@ end
 
 -- Dissect: Parties Group
 boats_boatsequities_memo_sbe_v1_13.parties_group.dissect = function(buffer, offset, packet, parent, parties_group_index)
-  if show.parties_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.parties_group, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
@@ -3814,7 +3709,7 @@ end
 
 -- Dissect: Repeating Group Dimensions
 boats_boatsequities_memo_sbe_v1_13.repeating_group_dimensions.dissect = function(buffer, offset, packet, parent)
-  if show.repeating_group_dimensions then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.repeating_group_dimensions, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.repeating_group_dimensions.fields(buffer, offset, packet, parent)
@@ -3871,7 +3766,7 @@ end
 
 -- Dissect: Parties Groups
 boats_boatsequities_memo_sbe_v1_13.parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.parties_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.parties_groups, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.parties_groups.fields(buffer, offset, packet, parent)
@@ -5059,7 +4954,7 @@ boats_boatsequities_memo_sbe_v1_13.exec_inst.dissect = function(buffer, offset, 
   local display = boats_boatsequities_memo_sbe_v1_13.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.exec_inst, range, display)
 
-  if show.exec_inst then
+  if show.structs then
     boats_boatsequities_memo_sbe_v1_13.exec_inst.bits(range, value, packet, element)
   end
 
@@ -6011,7 +5906,7 @@ end
 
 -- Dissect: Sbe Header
 boats_boatsequities_memo_sbe_v1_13.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
@@ -6056,7 +5951,7 @@ boats_boatsequities_memo_sbe_v1_13.sbe_message.dissect = function(buffer, offset
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
     local current = boats_boatsequities_memo_sbe_v1_13.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
@@ -6108,7 +6003,7 @@ end
 
 -- Dissect: Sequenced Message
 boats_boatsequities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.sequenced_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
@@ -6148,7 +6043,7 @@ end
 
 -- Dissect: Stream Complete Message
 boats_boatsequities_memo_sbe_v1_13.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -6188,7 +6083,7 @@ end
 
 -- Dissect: Stream Rejected Message
 boats_boatsequities_memo_sbe_v1_13.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -6232,7 +6127,7 @@ end
 
 -- Dissect: Stream Begin Message
 boats_boatsequities_memo_sbe_v1_13.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -6272,7 +6167,7 @@ end
 
 -- Dissect: Replay Complete Message
 boats_boatsequities_memo_sbe_v1_13.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_complete_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -6312,7 +6207,7 @@ end
 
 -- Dissect: Replay Rejected Message
 boats_boatsequities_memo_sbe_v1_13.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -6356,7 +6251,7 @@ end
 
 -- Dissect: Replay Begin Message
 boats_boatsequities_memo_sbe_v1_13.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_begin_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -6396,7 +6291,7 @@ end
 
 -- Dissect: Start Of Session Message
 boats_boatsequities_memo_sbe_v1_13.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.start_of_session_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -6436,7 +6331,7 @@ end
 
 -- Dissect: Login Rejected Message
 boats_boatsequities_memo_sbe_v1_13.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -6476,7 +6371,7 @@ end
 
 -- Dissect: Login Accepted Message
 boats_boatsequities_memo_sbe_v1_13.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -6528,7 +6423,7 @@ end
 
 -- Dissect: Unsequenced Message
 boats_boatsequities_memo_sbe_v1_13.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.unsequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.unsequenced_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -6572,7 +6467,7 @@ end
 
 -- Dissect: Stream Request Message
 boats_boatsequities_memo_sbe_v1_13.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.stream_request_message.fields(buffer, offset, packet, parent)
@@ -6612,7 +6507,7 @@ end
 
 -- Dissect: Replay All Request Message
 boats_boatsequities_memo_sbe_v1_13.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_all_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -6660,7 +6555,7 @@ end
 
 -- Dissect: Replay Request Message
 boats_boatsequities_memo_sbe_v1_13.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.replay_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.replay_request_message.fields(buffer, offset, packet, parent)
@@ -6704,7 +6599,7 @@ end
 
 -- Dissect: Login Request Message
 boats_boatsequities_memo_sbe_v1_13.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.login_request_message.fields(buffer, offset, packet, parent)
@@ -6817,7 +6712,7 @@ end
 
 -- Dissect: Common Header
 boats_boatsequities_memo_sbe_v1_13.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.common_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_boatsequities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
     local index = boats_boatsequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)

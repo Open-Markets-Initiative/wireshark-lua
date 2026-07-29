@@ -107,23 +107,13 @@ local show = {}
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Element Dissection Options
 show.application_messages = true
-show.auction_response = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
-show.auction_response_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Nasdaq IseOptions OrderFeed Itch 1.1 Show Options
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response = Pref.bool("Show Auction Response", show.auction_response, "Parse and add Auction Response to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response_index = Pref.bool("Show Auction Response Index", show.auction_response_index, "Show generated auction response index in protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -135,26 +125,11 @@ function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
   if show.application_messages ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages
   end
-  if show.auction_response ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response then
-    show.auction_response = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response
+  if show.structs ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs then
+    show.structs = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs
   end
-  if show.message ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message then
-    show.message = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message
-  end
-  if show.message_header ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header then
-    show.message_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_header
-  end
-  if show.packet ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet then
-    show.packet = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header then
-    show.packet_header = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_index then
-    show.message_index = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_message_index
-  end
-  if show.auction_response_index ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response_index then
-    show.auction_response_index = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_auction_response_index
+  if show.indexes ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_indexes then
+    show.indexes = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_indexes
   end
   if nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp_format ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.timestamp_format then
     nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp_format = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.timestamp_format
@@ -1532,7 +1507,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields = function(buffer,
   local index = offset
 
   -- Implicit Auction Response Index
-  if auction_response_index ~= nil and show.auction_response_index then
+  if auction_response_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
     iteration:set_generated()
   end
@@ -1548,7 +1523,7 @@ end
 
 -- Dissect: Auction Response
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.dissect = function(buffer, offset, packet, parent, auction_response_index)
-  if show.auction_response then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
@@ -2148,7 +2123,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.message_header.fields(buffer, offset, packet, parent)
@@ -2187,7 +2162,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.message.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -2210,7 +2185,7 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.message.dissect = function(buffer, offset,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message, buffer(offset, 0))
     local current = nasdaq_iseoptions_orderfeed_itch_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -2321,7 +2296,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.packet_header.fields(buffer, offset, packet, parent)

@@ -1333,665 +1333,13 @@ local show = {}
 
 -- Cboe C1Options BinaryOrderEntry Boe 2.10 Element Dissection Options
 show.application_messages = true
-show.cancel_order_byte_1 = true
-show.cancel_order_byte_2 = true
-show.cancel_order_optional_fields = true
-show.cancel_rejected_byte_1 = true
-show.cancel_rejected_byte_10 = true
-show.cancel_rejected_byte_11 = true
-show.cancel_rejected_byte_12 = true
-show.cancel_rejected_byte_13 = true
-show.cancel_rejected_byte_14 = true
-show.cancel_rejected_byte_15 = true
-show.cancel_rejected_byte_16 = true
-show.cancel_rejected_byte_17 = true
-show.cancel_rejected_byte_2 = true
-show.cancel_rejected_byte_3 = true
-show.cancel_rejected_byte_4 = true
-show.cancel_rejected_byte_5 = true
-show.cancel_rejected_byte_6 = true
-show.cancel_rejected_byte_7 = true
-show.cancel_rejected_byte_8 = true
-show.cancel_rejected_byte_9 = true
-show.cancel_rejected_optional_fields = true
-show.cancel_rejected_return_bitfields = true
-show.complex_instrument_accepted_byte_1 = true
-show.complex_instrument_accepted_byte_10 = true
-show.complex_instrument_accepted_byte_11 = true
-show.complex_instrument_accepted_byte_12 = true
-show.complex_instrument_accepted_byte_13 = true
-show.complex_instrument_accepted_byte_14 = true
-show.complex_instrument_accepted_byte_15 = true
-show.complex_instrument_accepted_byte_16 = true
-show.complex_instrument_accepted_byte_17 = true
-show.complex_instrument_accepted_byte_2 = true
-show.complex_instrument_accepted_byte_3 = true
-show.complex_instrument_accepted_byte_4 = true
-show.complex_instrument_accepted_byte_5 = true
-show.complex_instrument_accepted_byte_6 = true
-show.complex_instrument_accepted_byte_7 = true
-show.complex_instrument_accepted_byte_8 = true
-show.complex_instrument_accepted_byte_9 = true
-show.complex_instrument_accepted_optional_fields = true
-show.complex_instrument_accepted_return_bitfields = true
-show.complex_instrument_rejected_byte_1 = true
-show.complex_instrument_rejected_byte_10 = true
-show.complex_instrument_rejected_byte_11 = true
-show.complex_instrument_rejected_byte_12 = true
-show.complex_instrument_rejected_byte_13 = true
-show.complex_instrument_rejected_byte_14 = true
-show.complex_instrument_rejected_byte_15 = true
-show.complex_instrument_rejected_byte_16 = true
-show.complex_instrument_rejected_byte_17 = true
-show.complex_instrument_rejected_byte_2 = true
-show.complex_instrument_rejected_byte_3 = true
-show.complex_instrument_rejected_byte_4 = true
-show.complex_instrument_rejected_byte_5 = true
-show.complex_instrument_rejected_byte_6 = true
-show.complex_instrument_rejected_byte_7 = true
-show.complex_instrument_rejected_byte_8 = true
-show.complex_instrument_rejected_byte_9 = true
-show.complex_instrument_rejected_optional_fields = true
-show.complex_instrument_rejected_return_bitfields = true
-show.cross_order_acknowledgment_byte_1 = true
-show.cross_order_acknowledgment_byte_10 = true
-show.cross_order_acknowledgment_byte_11 = true
-show.cross_order_acknowledgment_byte_12 = true
-show.cross_order_acknowledgment_byte_13 = true
-show.cross_order_acknowledgment_byte_14 = true
-show.cross_order_acknowledgment_byte_15 = true
-show.cross_order_acknowledgment_byte_16 = true
-show.cross_order_acknowledgment_byte_17 = true
-show.cross_order_acknowledgment_byte_2 = true
-show.cross_order_acknowledgment_byte_3 = true
-show.cross_order_acknowledgment_byte_4 = true
-show.cross_order_acknowledgment_byte_5 = true
-show.cross_order_acknowledgment_byte_6 = true
-show.cross_order_acknowledgment_byte_7 = true
-show.cross_order_acknowledgment_byte_8 = true
-show.cross_order_acknowledgment_byte_9 = true
-show.cross_order_acknowledgment_optional_fields = true
-show.cross_order_acknowledgment_return_bitfields = true
-show.cross_order_cancelled_byte_1 = true
-show.cross_order_cancelled_byte_10 = true
-show.cross_order_cancelled_byte_11 = true
-show.cross_order_cancelled_byte_12 = true
-show.cross_order_cancelled_byte_13 = true
-show.cross_order_cancelled_byte_14 = true
-show.cross_order_cancelled_byte_15 = true
-show.cross_order_cancelled_byte_16 = true
-show.cross_order_cancelled_byte_17 = true
-show.cross_order_cancelled_byte_2 = true
-show.cross_order_cancelled_byte_3 = true
-show.cross_order_cancelled_byte_4 = true
-show.cross_order_cancelled_byte_5 = true
-show.cross_order_cancelled_byte_6 = true
-show.cross_order_cancelled_byte_7 = true
-show.cross_order_cancelled_byte_8 = true
-show.cross_order_cancelled_byte_9 = true
-show.cross_order_cancelled_optional_fields = true
-show.cross_order_cancelled_return_bitfields = true
-show.cross_order_rejected_byte_1 = true
-show.cross_order_rejected_byte_10 = true
-show.cross_order_rejected_byte_11 = true
-show.cross_order_rejected_byte_12 = true
-show.cross_order_rejected_byte_13 = true
-show.cross_order_rejected_byte_14 = true
-show.cross_order_rejected_byte_15 = true
-show.cross_order_rejected_byte_16 = true
-show.cross_order_rejected_byte_17 = true
-show.cross_order_rejected_byte_2 = true
-show.cross_order_rejected_byte_3 = true
-show.cross_order_rejected_byte_4 = true
-show.cross_order_rejected_byte_5 = true
-show.cross_order_rejected_byte_6 = true
-show.cross_order_rejected_byte_7 = true
-show.cross_order_rejected_byte_8 = true
-show.cross_order_rejected_byte_9 = true
-show.cross_order_rejected_optional_fields = true
-show.cross_order_rejected_return_bitfields = true
-show.message_header = true
-show.modify_order_byte_1 = true
-show.modify_order_byte_2 = true
-show.modify_order_optional_fields = true
-show.new_complex_instrument_byte_1 = true
-show.new_complex_instrument_optional_fields = true
-show.new_order_byte_1 = true
-show.new_order_byte_2 = true
-show.new_order_byte_3 = true
-show.new_order_byte_4 = true
-show.new_order_byte_5 = true
-show.new_order_byte_6 = true
-show.new_order_byte_7 = true
-show.new_order_byte_8 = true
-show.new_order_byte_9 = true
-show.new_order_cross_byte_1 = true
-show.new_order_cross_byte_2 = true
-show.new_order_cross_byte_3 = true
-show.new_order_cross_byte_4 = true
-show.new_order_cross_multileg_byte_1 = true
-show.new_order_cross_multileg_byte_2 = true
-show.new_order_cross_multileg_byte_3 = true
-show.new_order_cross_multileg_byte_4 = true
-show.new_order_cross_multileg_byte_5 = true
-show.new_order_cross_multileg_optional_fields = true
-show.new_order_cross_optional_fields = true
-show.new_order_optional_fields = true
-show.order_acknowledgment_byte_1 = true
-show.order_acknowledgment_byte_10 = true
-show.order_acknowledgment_byte_11 = true
-show.order_acknowledgment_byte_12 = true
-show.order_acknowledgment_byte_13 = true
-show.order_acknowledgment_byte_14 = true
-show.order_acknowledgment_byte_15 = true
-show.order_acknowledgment_byte_16 = true
-show.order_acknowledgment_byte_17 = true
-show.order_acknowledgment_byte_2 = true
-show.order_acknowledgment_byte_3 = true
-show.order_acknowledgment_byte_4 = true
-show.order_acknowledgment_byte_5 = true
-show.order_acknowledgment_byte_6 = true
-show.order_acknowledgment_byte_7 = true
-show.order_acknowledgment_byte_8 = true
-show.order_acknowledgment_byte_9 = true
-show.order_acknowledgment_optional_fields = true
-show.order_acknowledgment_return_bitfields = true
-show.order_cancelled_byte_1 = true
-show.order_cancelled_byte_10 = true
-show.order_cancelled_byte_11 = true
-show.order_cancelled_byte_12 = true
-show.order_cancelled_byte_13 = true
-show.order_cancelled_byte_14 = true
-show.order_cancelled_byte_15 = true
-show.order_cancelled_byte_16 = true
-show.order_cancelled_byte_17 = true
-show.order_cancelled_byte_2 = true
-show.order_cancelled_byte_3 = true
-show.order_cancelled_byte_4 = true
-show.order_cancelled_byte_5 = true
-show.order_cancelled_byte_6 = true
-show.order_cancelled_byte_7 = true
-show.order_cancelled_byte_8 = true
-show.order_cancelled_byte_9 = true
-show.order_cancelled_optional_fields = true
-show.order_cancelled_return_bitfields = true
-show.order_execution_byte_1 = true
-show.order_execution_byte_10 = true
-show.order_execution_byte_11 = true
-show.order_execution_byte_12 = true
-show.order_execution_byte_13 = true
-show.order_execution_byte_14 = true
-show.order_execution_byte_15 = true
-show.order_execution_byte_16 = true
-show.order_execution_byte_17 = true
-show.order_execution_byte_2 = true
-show.order_execution_byte_3 = true
-show.order_execution_byte_4 = true
-show.order_execution_byte_5 = true
-show.order_execution_byte_6 = true
-show.order_execution_byte_7 = true
-show.order_execution_byte_8 = true
-show.order_execution_byte_9 = true
-show.order_execution_return_bitfields = true
-show.order_modified_byte_1 = true
-show.order_modified_byte_10 = true
-show.order_modified_byte_11 = true
-show.order_modified_byte_12 = true
-show.order_modified_byte_13 = true
-show.order_modified_byte_14 = true
-show.order_modified_byte_15 = true
-show.order_modified_byte_16 = true
-show.order_modified_byte_17 = true
-show.order_modified_byte_2 = true
-show.order_modified_byte_3 = true
-show.order_modified_byte_4 = true
-show.order_modified_byte_5 = true
-show.order_modified_byte_6 = true
-show.order_modified_byte_7 = true
-show.order_modified_byte_8 = true
-show.order_modified_byte_9 = true
-show.order_modified_optional_fields = true
-show.order_modified_return_bitfields = true
-show.order_rejected_byte_1 = true
-show.order_rejected_byte_10 = true
-show.order_rejected_byte_11 = true
-show.order_rejected_byte_12 = true
-show.order_rejected_byte_13 = true
-show.order_rejected_byte_14 = true
-show.order_rejected_byte_15 = true
-show.order_rejected_byte_16 = true
-show.order_rejected_byte_17 = true
-show.order_rejected_byte_2 = true
-show.order_rejected_byte_3 = true
-show.order_rejected_byte_4 = true
-show.order_rejected_byte_5 = true
-show.order_rejected_byte_6 = true
-show.order_rejected_byte_7 = true
-show.order_rejected_byte_8 = true
-show.order_rejected_byte_9 = true
-show.order_rejected_optional_fields = true
-show.order_rejected_return_bitfields = true
-show.order_restated_byte_1 = true
-show.order_restated_byte_10 = true
-show.order_restated_byte_11 = true
-show.order_restated_byte_12 = true
-show.order_restated_byte_13 = true
-show.order_restated_byte_14 = true
-show.order_restated_byte_15 = true
-show.order_restated_byte_16 = true
-show.order_restated_byte_17 = true
-show.order_restated_byte_2 = true
-show.order_restated_byte_3 = true
-show.order_restated_byte_4 = true
-show.order_restated_byte_5 = true
-show.order_restated_byte_6 = true
-show.order_restated_byte_7 = true
-show.order_restated_byte_8 = true
-show.order_restated_byte_9 = true
-show.order_restated_optional_fields = true
-show.order_restated_return_bitfields = true
-show.packet = true
-show.param_group = true
-show.param_header = true
-show.purge_rejected_byte_1 = true
-show.purge_rejected_byte_10 = true
-show.purge_rejected_byte_11 = true
-show.purge_rejected_byte_12 = true
-show.purge_rejected_byte_13 = true
-show.purge_rejected_byte_14 = true
-show.purge_rejected_byte_15 = true
-show.purge_rejected_byte_16 = true
-show.purge_rejected_byte_17 = true
-show.purge_rejected_byte_2 = true
-show.purge_rejected_byte_3 = true
-show.purge_rejected_byte_4 = true
-show.purge_rejected_byte_5 = true
-show.purge_rejected_byte_6 = true
-show.purge_rejected_byte_7 = true
-show.purge_rejected_byte_8 = true
-show.purge_rejected_byte_9 = true
-show.purge_rejected_optional_fields = true
-show.purge_rejected_return_bitfields = true
-show.quote_result_group = true
-show.quote_update = true
-show.return_bitfields = true
-show.short_quote_update = true
-show.trade_cancel_or_correct_byte_1 = true
-show.trade_cancel_or_correct_byte_10 = true
-show.trade_cancel_or_correct_byte_11 = true
-show.trade_cancel_or_correct_byte_12 = true
-show.trade_cancel_or_correct_byte_13 = true
-show.trade_cancel_or_correct_byte_14 = true
-show.trade_cancel_or_correct_byte_15 = true
-show.trade_cancel_or_correct_byte_16 = true
-show.trade_cancel_or_correct_byte_17 = true
-show.trade_cancel_or_correct_byte_2 = true
-show.trade_cancel_or_correct_byte_3 = true
-show.trade_cancel_or_correct_byte_4 = true
-show.trade_cancel_or_correct_byte_5 = true
-show.trade_cancel_or_correct_byte_6 = true
-show.trade_cancel_or_correct_byte_7 = true
-show.trade_cancel_or_correct_byte_8 = true
-show.trade_cancel_or_correct_byte_9 = true
-show.trade_cancel_or_correct_optional_fields = true
-show.trade_cancel_or_correct_return_bitfields = true
-show.unit_sequence = true
-show.unit_sequences = true
-show.user_modify_rejected_byte_1 = true
-show.user_modify_rejected_byte_10 = true
-show.user_modify_rejected_byte_11 = true
-show.user_modify_rejected_byte_12 = true
-show.user_modify_rejected_byte_13 = true
-show.user_modify_rejected_byte_14 = true
-show.user_modify_rejected_byte_15 = true
-show.user_modify_rejected_byte_16 = true
-show.user_modify_rejected_byte_17 = true
-show.user_modify_rejected_byte_2 = true
-show.user_modify_rejected_byte_3 = true
-show.user_modify_rejected_byte_4 = true
-show.user_modify_rejected_byte_5 = true
-show.user_modify_rejected_byte_6 = true
-show.user_modify_rejected_byte_7 = true
-show.user_modify_rejected_byte_8 = true
-show.user_modify_rejected_byte_9 = true
-show.user_modify_rejected_optional_fields = true
-show.user_modify_rejected_return_bitfields = true
-show.param_group_index = true
-show.unit_sequence_index = true
-show.quote_update_index = true
-show.short_quote_update_index = true
-show.quote_result_group_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Cboe C1Options BinaryOrderEntry Boe 2.10 Show Options
 omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_1 = Pref.bool("Show Cancel Order Byte 1", show.cancel_order_byte_1, "Parse and add Cancel Order Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_2 = Pref.bool("Show Cancel Order Byte 2", show.cancel_order_byte_2, "Parse and add Cancel Order Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_optional_fields = Pref.bool("Show Cancel Order Optional Fields", show.cancel_order_optional_fields, "Parse and add Cancel Order Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_1 = Pref.bool("Show Cancel Rejected Byte 1", show.cancel_rejected_byte_1, "Parse and add Cancel Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_10 = Pref.bool("Show Cancel Rejected Byte 10", show.cancel_rejected_byte_10, "Parse and add Cancel Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_11 = Pref.bool("Show Cancel Rejected Byte 11", show.cancel_rejected_byte_11, "Parse and add Cancel Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_12 = Pref.bool("Show Cancel Rejected Byte 12", show.cancel_rejected_byte_12, "Parse and add Cancel Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_13 = Pref.bool("Show Cancel Rejected Byte 13", show.cancel_rejected_byte_13, "Parse and add Cancel Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_14 = Pref.bool("Show Cancel Rejected Byte 14", show.cancel_rejected_byte_14, "Parse and add Cancel Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_15 = Pref.bool("Show Cancel Rejected Byte 15", show.cancel_rejected_byte_15, "Parse and add Cancel Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_16 = Pref.bool("Show Cancel Rejected Byte 16", show.cancel_rejected_byte_16, "Parse and add Cancel Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_17 = Pref.bool("Show Cancel Rejected Byte 17", show.cancel_rejected_byte_17, "Parse and add Cancel Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_2 = Pref.bool("Show Cancel Rejected Byte 2", show.cancel_rejected_byte_2, "Parse and add Cancel Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_3 = Pref.bool("Show Cancel Rejected Byte 3", show.cancel_rejected_byte_3, "Parse and add Cancel Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_4 = Pref.bool("Show Cancel Rejected Byte 4", show.cancel_rejected_byte_4, "Parse and add Cancel Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_5 = Pref.bool("Show Cancel Rejected Byte 5", show.cancel_rejected_byte_5, "Parse and add Cancel Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_6 = Pref.bool("Show Cancel Rejected Byte 6", show.cancel_rejected_byte_6, "Parse and add Cancel Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_7 = Pref.bool("Show Cancel Rejected Byte 7", show.cancel_rejected_byte_7, "Parse and add Cancel Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_8 = Pref.bool("Show Cancel Rejected Byte 8", show.cancel_rejected_byte_8, "Parse and add Cancel Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_9 = Pref.bool("Show Cancel Rejected Byte 9", show.cancel_rejected_byte_9, "Parse and add Cancel Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_optional_fields = Pref.bool("Show Cancel Rejected Optional Fields", show.cancel_rejected_optional_fields, "Parse and add Cancel Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_return_bitfields = Pref.bool("Show Cancel Rejected Return Bitfields", show.cancel_rejected_return_bitfields, "Parse and add Cancel Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_1 = Pref.bool("Show Complex Instrument Accepted Byte 1", show.complex_instrument_accepted_byte_1, "Parse and add Complex Instrument Accepted Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_10 = Pref.bool("Show Complex Instrument Accepted Byte 10", show.complex_instrument_accepted_byte_10, "Parse and add Complex Instrument Accepted Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_11 = Pref.bool("Show Complex Instrument Accepted Byte 11", show.complex_instrument_accepted_byte_11, "Parse and add Complex Instrument Accepted Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_12 = Pref.bool("Show Complex Instrument Accepted Byte 12", show.complex_instrument_accepted_byte_12, "Parse and add Complex Instrument Accepted Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_13 = Pref.bool("Show Complex Instrument Accepted Byte 13", show.complex_instrument_accepted_byte_13, "Parse and add Complex Instrument Accepted Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_14 = Pref.bool("Show Complex Instrument Accepted Byte 14", show.complex_instrument_accepted_byte_14, "Parse and add Complex Instrument Accepted Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_15 = Pref.bool("Show Complex Instrument Accepted Byte 15", show.complex_instrument_accepted_byte_15, "Parse and add Complex Instrument Accepted Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_16 = Pref.bool("Show Complex Instrument Accepted Byte 16", show.complex_instrument_accepted_byte_16, "Parse and add Complex Instrument Accepted Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_17 = Pref.bool("Show Complex Instrument Accepted Byte 17", show.complex_instrument_accepted_byte_17, "Parse and add Complex Instrument Accepted Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_2 = Pref.bool("Show Complex Instrument Accepted Byte 2", show.complex_instrument_accepted_byte_2, "Parse and add Complex Instrument Accepted Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_3 = Pref.bool("Show Complex Instrument Accepted Byte 3", show.complex_instrument_accepted_byte_3, "Parse and add Complex Instrument Accepted Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_4 = Pref.bool("Show Complex Instrument Accepted Byte 4", show.complex_instrument_accepted_byte_4, "Parse and add Complex Instrument Accepted Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_5 = Pref.bool("Show Complex Instrument Accepted Byte 5", show.complex_instrument_accepted_byte_5, "Parse and add Complex Instrument Accepted Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_6 = Pref.bool("Show Complex Instrument Accepted Byte 6", show.complex_instrument_accepted_byte_6, "Parse and add Complex Instrument Accepted Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_7 = Pref.bool("Show Complex Instrument Accepted Byte 7", show.complex_instrument_accepted_byte_7, "Parse and add Complex Instrument Accepted Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_8 = Pref.bool("Show Complex Instrument Accepted Byte 8", show.complex_instrument_accepted_byte_8, "Parse and add Complex Instrument Accepted Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_9 = Pref.bool("Show Complex Instrument Accepted Byte 9", show.complex_instrument_accepted_byte_9, "Parse and add Complex Instrument Accepted Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_optional_fields = Pref.bool("Show Complex Instrument Accepted Optional Fields", show.complex_instrument_accepted_optional_fields, "Parse and add Complex Instrument Accepted Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_return_bitfields = Pref.bool("Show Complex Instrument Accepted Return Bitfields", show.complex_instrument_accepted_return_bitfields, "Parse and add Complex Instrument Accepted Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_1 = Pref.bool("Show Complex Instrument Rejected Byte 1", show.complex_instrument_rejected_byte_1, "Parse and add Complex Instrument Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_10 = Pref.bool("Show Complex Instrument Rejected Byte 10", show.complex_instrument_rejected_byte_10, "Parse and add Complex Instrument Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_11 = Pref.bool("Show Complex Instrument Rejected Byte 11", show.complex_instrument_rejected_byte_11, "Parse and add Complex Instrument Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_12 = Pref.bool("Show Complex Instrument Rejected Byte 12", show.complex_instrument_rejected_byte_12, "Parse and add Complex Instrument Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_13 = Pref.bool("Show Complex Instrument Rejected Byte 13", show.complex_instrument_rejected_byte_13, "Parse and add Complex Instrument Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_14 = Pref.bool("Show Complex Instrument Rejected Byte 14", show.complex_instrument_rejected_byte_14, "Parse and add Complex Instrument Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_15 = Pref.bool("Show Complex Instrument Rejected Byte 15", show.complex_instrument_rejected_byte_15, "Parse and add Complex Instrument Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_16 = Pref.bool("Show Complex Instrument Rejected Byte 16", show.complex_instrument_rejected_byte_16, "Parse and add Complex Instrument Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_17 = Pref.bool("Show Complex Instrument Rejected Byte 17", show.complex_instrument_rejected_byte_17, "Parse and add Complex Instrument Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_2 = Pref.bool("Show Complex Instrument Rejected Byte 2", show.complex_instrument_rejected_byte_2, "Parse and add Complex Instrument Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_3 = Pref.bool("Show Complex Instrument Rejected Byte 3", show.complex_instrument_rejected_byte_3, "Parse and add Complex Instrument Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_4 = Pref.bool("Show Complex Instrument Rejected Byte 4", show.complex_instrument_rejected_byte_4, "Parse and add Complex Instrument Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_5 = Pref.bool("Show Complex Instrument Rejected Byte 5", show.complex_instrument_rejected_byte_5, "Parse and add Complex Instrument Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_6 = Pref.bool("Show Complex Instrument Rejected Byte 6", show.complex_instrument_rejected_byte_6, "Parse and add Complex Instrument Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_7 = Pref.bool("Show Complex Instrument Rejected Byte 7", show.complex_instrument_rejected_byte_7, "Parse and add Complex Instrument Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_8 = Pref.bool("Show Complex Instrument Rejected Byte 8", show.complex_instrument_rejected_byte_8, "Parse and add Complex Instrument Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_9 = Pref.bool("Show Complex Instrument Rejected Byte 9", show.complex_instrument_rejected_byte_9, "Parse and add Complex Instrument Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_optional_fields = Pref.bool("Show Complex Instrument Rejected Optional Fields", show.complex_instrument_rejected_optional_fields, "Parse and add Complex Instrument Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_return_bitfields = Pref.bool("Show Complex Instrument Rejected Return Bitfields", show.complex_instrument_rejected_return_bitfields, "Parse and add Complex Instrument Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_1 = Pref.bool("Show Cross Order Acknowledgment Byte 1", show.cross_order_acknowledgment_byte_1, "Parse and add Cross Order Acknowledgment Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_10 = Pref.bool("Show Cross Order Acknowledgment Byte 10", show.cross_order_acknowledgment_byte_10, "Parse and add Cross Order Acknowledgment Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_11 = Pref.bool("Show Cross Order Acknowledgment Byte 11", show.cross_order_acknowledgment_byte_11, "Parse and add Cross Order Acknowledgment Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_12 = Pref.bool("Show Cross Order Acknowledgment Byte 12", show.cross_order_acknowledgment_byte_12, "Parse and add Cross Order Acknowledgment Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_13 = Pref.bool("Show Cross Order Acknowledgment Byte 13", show.cross_order_acknowledgment_byte_13, "Parse and add Cross Order Acknowledgment Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_14 = Pref.bool("Show Cross Order Acknowledgment Byte 14", show.cross_order_acknowledgment_byte_14, "Parse and add Cross Order Acknowledgment Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_15 = Pref.bool("Show Cross Order Acknowledgment Byte 15", show.cross_order_acknowledgment_byte_15, "Parse and add Cross Order Acknowledgment Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_16 = Pref.bool("Show Cross Order Acknowledgment Byte 16", show.cross_order_acknowledgment_byte_16, "Parse and add Cross Order Acknowledgment Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_17 = Pref.bool("Show Cross Order Acknowledgment Byte 17", show.cross_order_acknowledgment_byte_17, "Parse and add Cross Order Acknowledgment Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_2 = Pref.bool("Show Cross Order Acknowledgment Byte 2", show.cross_order_acknowledgment_byte_2, "Parse and add Cross Order Acknowledgment Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_3 = Pref.bool("Show Cross Order Acknowledgment Byte 3", show.cross_order_acknowledgment_byte_3, "Parse and add Cross Order Acknowledgment Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_4 = Pref.bool("Show Cross Order Acknowledgment Byte 4", show.cross_order_acknowledgment_byte_4, "Parse and add Cross Order Acknowledgment Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_5 = Pref.bool("Show Cross Order Acknowledgment Byte 5", show.cross_order_acknowledgment_byte_5, "Parse and add Cross Order Acknowledgment Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_6 = Pref.bool("Show Cross Order Acknowledgment Byte 6", show.cross_order_acknowledgment_byte_6, "Parse and add Cross Order Acknowledgment Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_7 = Pref.bool("Show Cross Order Acknowledgment Byte 7", show.cross_order_acknowledgment_byte_7, "Parse and add Cross Order Acknowledgment Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_8 = Pref.bool("Show Cross Order Acknowledgment Byte 8", show.cross_order_acknowledgment_byte_8, "Parse and add Cross Order Acknowledgment Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_9 = Pref.bool("Show Cross Order Acknowledgment Byte 9", show.cross_order_acknowledgment_byte_9, "Parse and add Cross Order Acknowledgment Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_optional_fields = Pref.bool("Show Cross Order Acknowledgment Optional Fields", show.cross_order_acknowledgment_optional_fields, "Parse and add Cross Order Acknowledgment Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_return_bitfields = Pref.bool("Show Cross Order Acknowledgment Return Bitfields", show.cross_order_acknowledgment_return_bitfields, "Parse and add Cross Order Acknowledgment Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_1 = Pref.bool("Show Cross Order Cancelled Byte 1", show.cross_order_cancelled_byte_1, "Parse and add Cross Order Cancelled Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_10 = Pref.bool("Show Cross Order Cancelled Byte 10", show.cross_order_cancelled_byte_10, "Parse and add Cross Order Cancelled Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_11 = Pref.bool("Show Cross Order Cancelled Byte 11", show.cross_order_cancelled_byte_11, "Parse and add Cross Order Cancelled Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_12 = Pref.bool("Show Cross Order Cancelled Byte 12", show.cross_order_cancelled_byte_12, "Parse and add Cross Order Cancelled Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_13 = Pref.bool("Show Cross Order Cancelled Byte 13", show.cross_order_cancelled_byte_13, "Parse and add Cross Order Cancelled Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_14 = Pref.bool("Show Cross Order Cancelled Byte 14", show.cross_order_cancelled_byte_14, "Parse and add Cross Order Cancelled Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_15 = Pref.bool("Show Cross Order Cancelled Byte 15", show.cross_order_cancelled_byte_15, "Parse and add Cross Order Cancelled Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_16 = Pref.bool("Show Cross Order Cancelled Byte 16", show.cross_order_cancelled_byte_16, "Parse and add Cross Order Cancelled Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_17 = Pref.bool("Show Cross Order Cancelled Byte 17", show.cross_order_cancelled_byte_17, "Parse and add Cross Order Cancelled Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_2 = Pref.bool("Show Cross Order Cancelled Byte 2", show.cross_order_cancelled_byte_2, "Parse and add Cross Order Cancelled Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_3 = Pref.bool("Show Cross Order Cancelled Byte 3", show.cross_order_cancelled_byte_3, "Parse and add Cross Order Cancelled Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_4 = Pref.bool("Show Cross Order Cancelled Byte 4", show.cross_order_cancelled_byte_4, "Parse and add Cross Order Cancelled Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_5 = Pref.bool("Show Cross Order Cancelled Byte 5", show.cross_order_cancelled_byte_5, "Parse and add Cross Order Cancelled Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_6 = Pref.bool("Show Cross Order Cancelled Byte 6", show.cross_order_cancelled_byte_6, "Parse and add Cross Order Cancelled Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_7 = Pref.bool("Show Cross Order Cancelled Byte 7", show.cross_order_cancelled_byte_7, "Parse and add Cross Order Cancelled Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_8 = Pref.bool("Show Cross Order Cancelled Byte 8", show.cross_order_cancelled_byte_8, "Parse and add Cross Order Cancelled Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_9 = Pref.bool("Show Cross Order Cancelled Byte 9", show.cross_order_cancelled_byte_9, "Parse and add Cross Order Cancelled Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_optional_fields = Pref.bool("Show Cross Order Cancelled Optional Fields", show.cross_order_cancelled_optional_fields, "Parse and add Cross Order Cancelled Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_return_bitfields = Pref.bool("Show Cross Order Cancelled Return Bitfields", show.cross_order_cancelled_return_bitfields, "Parse and add Cross Order Cancelled Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_1 = Pref.bool("Show Cross Order Rejected Byte 1", show.cross_order_rejected_byte_1, "Parse and add Cross Order Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_10 = Pref.bool("Show Cross Order Rejected Byte 10", show.cross_order_rejected_byte_10, "Parse and add Cross Order Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_11 = Pref.bool("Show Cross Order Rejected Byte 11", show.cross_order_rejected_byte_11, "Parse and add Cross Order Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_12 = Pref.bool("Show Cross Order Rejected Byte 12", show.cross_order_rejected_byte_12, "Parse and add Cross Order Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_13 = Pref.bool("Show Cross Order Rejected Byte 13", show.cross_order_rejected_byte_13, "Parse and add Cross Order Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_14 = Pref.bool("Show Cross Order Rejected Byte 14", show.cross_order_rejected_byte_14, "Parse and add Cross Order Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_15 = Pref.bool("Show Cross Order Rejected Byte 15", show.cross_order_rejected_byte_15, "Parse and add Cross Order Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_16 = Pref.bool("Show Cross Order Rejected Byte 16", show.cross_order_rejected_byte_16, "Parse and add Cross Order Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_17 = Pref.bool("Show Cross Order Rejected Byte 17", show.cross_order_rejected_byte_17, "Parse and add Cross Order Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_2 = Pref.bool("Show Cross Order Rejected Byte 2", show.cross_order_rejected_byte_2, "Parse and add Cross Order Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_3 = Pref.bool("Show Cross Order Rejected Byte 3", show.cross_order_rejected_byte_3, "Parse and add Cross Order Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_4 = Pref.bool("Show Cross Order Rejected Byte 4", show.cross_order_rejected_byte_4, "Parse and add Cross Order Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_5 = Pref.bool("Show Cross Order Rejected Byte 5", show.cross_order_rejected_byte_5, "Parse and add Cross Order Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_6 = Pref.bool("Show Cross Order Rejected Byte 6", show.cross_order_rejected_byte_6, "Parse and add Cross Order Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_7 = Pref.bool("Show Cross Order Rejected Byte 7", show.cross_order_rejected_byte_7, "Parse and add Cross Order Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_8 = Pref.bool("Show Cross Order Rejected Byte 8", show.cross_order_rejected_byte_8, "Parse and add Cross Order Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_9 = Pref.bool("Show Cross Order Rejected Byte 9", show.cross_order_rejected_byte_9, "Parse and add Cross Order Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_optional_fields = Pref.bool("Show Cross Order Rejected Optional Fields", show.cross_order_rejected_optional_fields, "Parse and add Cross Order Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_return_bitfields = Pref.bool("Show Cross Order Rejected Return Bitfields", show.cross_order_rejected_return_bitfields, "Parse and add Cross Order Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_1 = Pref.bool("Show Modify Order Byte 1", show.modify_order_byte_1, "Parse and add Modify Order Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_2 = Pref.bool("Show Modify Order Byte 2", show.modify_order_byte_2, "Parse and add Modify Order Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_optional_fields = Pref.bool("Show Modify Order Optional Fields", show.modify_order_optional_fields, "Parse and add Modify Order Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_byte_1 = Pref.bool("Show New Complex Instrument Byte 1", show.new_complex_instrument_byte_1, "Parse and add New Complex Instrument Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_optional_fields = Pref.bool("Show New Complex Instrument Optional Fields", show.new_complex_instrument_optional_fields, "Parse and add New Complex Instrument Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_1 = Pref.bool("Show New Order Byte 1", show.new_order_byte_1, "Parse and add New Order Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_2 = Pref.bool("Show New Order Byte 2", show.new_order_byte_2, "Parse and add New Order Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_3 = Pref.bool("Show New Order Byte 3", show.new_order_byte_3, "Parse and add New Order Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_4 = Pref.bool("Show New Order Byte 4", show.new_order_byte_4, "Parse and add New Order Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_5 = Pref.bool("Show New Order Byte 5", show.new_order_byte_5, "Parse and add New Order Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_6 = Pref.bool("Show New Order Byte 6", show.new_order_byte_6, "Parse and add New Order Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_7 = Pref.bool("Show New Order Byte 7", show.new_order_byte_7, "Parse and add New Order Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_8 = Pref.bool("Show New Order Byte 8", show.new_order_byte_8, "Parse and add New Order Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_9 = Pref.bool("Show New Order Byte 9", show.new_order_byte_9, "Parse and add New Order Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_1 = Pref.bool("Show New Order Cross Byte 1", show.new_order_cross_byte_1, "Parse and add New Order Cross Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_2 = Pref.bool("Show New Order Cross Byte 2", show.new_order_cross_byte_2, "Parse and add New Order Cross Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_3 = Pref.bool("Show New Order Cross Byte 3", show.new_order_cross_byte_3, "Parse and add New Order Cross Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_4 = Pref.bool("Show New Order Cross Byte 4", show.new_order_cross_byte_4, "Parse and add New Order Cross Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_1 = Pref.bool("Show New Order Cross Multileg Byte 1", show.new_order_cross_multileg_byte_1, "Parse and add New Order Cross Multileg Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_2 = Pref.bool("Show New Order Cross Multileg Byte 2", show.new_order_cross_multileg_byte_2, "Parse and add New Order Cross Multileg Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_3 = Pref.bool("Show New Order Cross Multileg Byte 3", show.new_order_cross_multileg_byte_3, "Parse and add New Order Cross Multileg Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_4 = Pref.bool("Show New Order Cross Multileg Byte 4", show.new_order_cross_multileg_byte_4, "Parse and add New Order Cross Multileg Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_5 = Pref.bool("Show New Order Cross Multileg Byte 5", show.new_order_cross_multileg_byte_5, "Parse and add New Order Cross Multileg Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_optional_fields = Pref.bool("Show New Order Cross Multileg Optional Fields", show.new_order_cross_multileg_optional_fields, "Parse and add New Order Cross Multileg Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_optional_fields = Pref.bool("Show New Order Cross Optional Fields", show.new_order_cross_optional_fields, "Parse and add New Order Cross Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_optional_fields = Pref.bool("Show New Order Optional Fields", show.new_order_optional_fields, "Parse and add New Order Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_1 = Pref.bool("Show Order Acknowledgment Byte 1", show.order_acknowledgment_byte_1, "Parse and add Order Acknowledgment Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_10 = Pref.bool("Show Order Acknowledgment Byte 10", show.order_acknowledgment_byte_10, "Parse and add Order Acknowledgment Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_11 = Pref.bool("Show Order Acknowledgment Byte 11", show.order_acknowledgment_byte_11, "Parse and add Order Acknowledgment Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_12 = Pref.bool("Show Order Acknowledgment Byte 12", show.order_acknowledgment_byte_12, "Parse and add Order Acknowledgment Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_13 = Pref.bool("Show Order Acknowledgment Byte 13", show.order_acknowledgment_byte_13, "Parse and add Order Acknowledgment Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_14 = Pref.bool("Show Order Acknowledgment Byte 14", show.order_acknowledgment_byte_14, "Parse and add Order Acknowledgment Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_15 = Pref.bool("Show Order Acknowledgment Byte 15", show.order_acknowledgment_byte_15, "Parse and add Order Acknowledgment Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_16 = Pref.bool("Show Order Acknowledgment Byte 16", show.order_acknowledgment_byte_16, "Parse and add Order Acknowledgment Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_17 = Pref.bool("Show Order Acknowledgment Byte 17", show.order_acknowledgment_byte_17, "Parse and add Order Acknowledgment Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_2 = Pref.bool("Show Order Acknowledgment Byte 2", show.order_acknowledgment_byte_2, "Parse and add Order Acknowledgment Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_3 = Pref.bool("Show Order Acknowledgment Byte 3", show.order_acknowledgment_byte_3, "Parse and add Order Acknowledgment Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_4 = Pref.bool("Show Order Acknowledgment Byte 4", show.order_acknowledgment_byte_4, "Parse and add Order Acknowledgment Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_5 = Pref.bool("Show Order Acknowledgment Byte 5", show.order_acknowledgment_byte_5, "Parse and add Order Acknowledgment Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_6 = Pref.bool("Show Order Acknowledgment Byte 6", show.order_acknowledgment_byte_6, "Parse and add Order Acknowledgment Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_7 = Pref.bool("Show Order Acknowledgment Byte 7", show.order_acknowledgment_byte_7, "Parse and add Order Acknowledgment Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_8 = Pref.bool("Show Order Acknowledgment Byte 8", show.order_acknowledgment_byte_8, "Parse and add Order Acknowledgment Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_9 = Pref.bool("Show Order Acknowledgment Byte 9", show.order_acknowledgment_byte_9, "Parse and add Order Acknowledgment Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_optional_fields = Pref.bool("Show Order Acknowledgment Optional Fields", show.order_acknowledgment_optional_fields, "Parse and add Order Acknowledgment Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_return_bitfields = Pref.bool("Show Order Acknowledgment Return Bitfields", show.order_acknowledgment_return_bitfields, "Parse and add Order Acknowledgment Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_1 = Pref.bool("Show Order Cancelled Byte 1", show.order_cancelled_byte_1, "Parse and add Order Cancelled Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_10 = Pref.bool("Show Order Cancelled Byte 10", show.order_cancelled_byte_10, "Parse and add Order Cancelled Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_11 = Pref.bool("Show Order Cancelled Byte 11", show.order_cancelled_byte_11, "Parse and add Order Cancelled Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_12 = Pref.bool("Show Order Cancelled Byte 12", show.order_cancelled_byte_12, "Parse and add Order Cancelled Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_13 = Pref.bool("Show Order Cancelled Byte 13", show.order_cancelled_byte_13, "Parse and add Order Cancelled Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_14 = Pref.bool("Show Order Cancelled Byte 14", show.order_cancelled_byte_14, "Parse and add Order Cancelled Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_15 = Pref.bool("Show Order Cancelled Byte 15", show.order_cancelled_byte_15, "Parse and add Order Cancelled Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_16 = Pref.bool("Show Order Cancelled Byte 16", show.order_cancelled_byte_16, "Parse and add Order Cancelled Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_17 = Pref.bool("Show Order Cancelled Byte 17", show.order_cancelled_byte_17, "Parse and add Order Cancelled Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_2 = Pref.bool("Show Order Cancelled Byte 2", show.order_cancelled_byte_2, "Parse and add Order Cancelled Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_3 = Pref.bool("Show Order Cancelled Byte 3", show.order_cancelled_byte_3, "Parse and add Order Cancelled Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_4 = Pref.bool("Show Order Cancelled Byte 4", show.order_cancelled_byte_4, "Parse and add Order Cancelled Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_5 = Pref.bool("Show Order Cancelled Byte 5", show.order_cancelled_byte_5, "Parse and add Order Cancelled Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_6 = Pref.bool("Show Order Cancelled Byte 6", show.order_cancelled_byte_6, "Parse and add Order Cancelled Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_7 = Pref.bool("Show Order Cancelled Byte 7", show.order_cancelled_byte_7, "Parse and add Order Cancelled Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_8 = Pref.bool("Show Order Cancelled Byte 8", show.order_cancelled_byte_8, "Parse and add Order Cancelled Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_9 = Pref.bool("Show Order Cancelled Byte 9", show.order_cancelled_byte_9, "Parse and add Order Cancelled Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_optional_fields = Pref.bool("Show Order Cancelled Optional Fields", show.order_cancelled_optional_fields, "Parse and add Order Cancelled Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_return_bitfields = Pref.bool("Show Order Cancelled Return Bitfields", show.order_cancelled_return_bitfields, "Parse and add Order Cancelled Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_1 = Pref.bool("Show Order Execution Byte 1", show.order_execution_byte_1, "Parse and add Order Execution Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_10 = Pref.bool("Show Order Execution Byte 10", show.order_execution_byte_10, "Parse and add Order Execution Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_11 = Pref.bool("Show Order Execution Byte 11", show.order_execution_byte_11, "Parse and add Order Execution Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_12 = Pref.bool("Show Order Execution Byte 12", show.order_execution_byte_12, "Parse and add Order Execution Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_13 = Pref.bool("Show Order Execution Byte 13", show.order_execution_byte_13, "Parse and add Order Execution Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_14 = Pref.bool("Show Order Execution Byte 14", show.order_execution_byte_14, "Parse and add Order Execution Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_15 = Pref.bool("Show Order Execution Byte 15", show.order_execution_byte_15, "Parse and add Order Execution Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_16 = Pref.bool("Show Order Execution Byte 16", show.order_execution_byte_16, "Parse and add Order Execution Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_17 = Pref.bool("Show Order Execution Byte 17", show.order_execution_byte_17, "Parse and add Order Execution Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_2 = Pref.bool("Show Order Execution Byte 2", show.order_execution_byte_2, "Parse and add Order Execution Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_3 = Pref.bool("Show Order Execution Byte 3", show.order_execution_byte_3, "Parse and add Order Execution Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_4 = Pref.bool("Show Order Execution Byte 4", show.order_execution_byte_4, "Parse and add Order Execution Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_5 = Pref.bool("Show Order Execution Byte 5", show.order_execution_byte_5, "Parse and add Order Execution Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_6 = Pref.bool("Show Order Execution Byte 6", show.order_execution_byte_6, "Parse and add Order Execution Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_7 = Pref.bool("Show Order Execution Byte 7", show.order_execution_byte_7, "Parse and add Order Execution Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_8 = Pref.bool("Show Order Execution Byte 8", show.order_execution_byte_8, "Parse and add Order Execution Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_9 = Pref.bool("Show Order Execution Byte 9", show.order_execution_byte_9, "Parse and add Order Execution Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_return_bitfields = Pref.bool("Show Order Execution Return Bitfields", show.order_execution_return_bitfields, "Parse and add Order Execution Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_1 = Pref.bool("Show Order Modified Byte 1", show.order_modified_byte_1, "Parse and add Order Modified Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_10 = Pref.bool("Show Order Modified Byte 10", show.order_modified_byte_10, "Parse and add Order Modified Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_11 = Pref.bool("Show Order Modified Byte 11", show.order_modified_byte_11, "Parse and add Order Modified Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_12 = Pref.bool("Show Order Modified Byte 12", show.order_modified_byte_12, "Parse and add Order Modified Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_13 = Pref.bool("Show Order Modified Byte 13", show.order_modified_byte_13, "Parse and add Order Modified Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_14 = Pref.bool("Show Order Modified Byte 14", show.order_modified_byte_14, "Parse and add Order Modified Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_15 = Pref.bool("Show Order Modified Byte 15", show.order_modified_byte_15, "Parse and add Order Modified Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_16 = Pref.bool("Show Order Modified Byte 16", show.order_modified_byte_16, "Parse and add Order Modified Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_17 = Pref.bool("Show Order Modified Byte 17", show.order_modified_byte_17, "Parse and add Order Modified Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_2 = Pref.bool("Show Order Modified Byte 2", show.order_modified_byte_2, "Parse and add Order Modified Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_3 = Pref.bool("Show Order Modified Byte 3", show.order_modified_byte_3, "Parse and add Order Modified Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_4 = Pref.bool("Show Order Modified Byte 4", show.order_modified_byte_4, "Parse and add Order Modified Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_5 = Pref.bool("Show Order Modified Byte 5", show.order_modified_byte_5, "Parse and add Order Modified Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_6 = Pref.bool("Show Order Modified Byte 6", show.order_modified_byte_6, "Parse and add Order Modified Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_7 = Pref.bool("Show Order Modified Byte 7", show.order_modified_byte_7, "Parse and add Order Modified Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_8 = Pref.bool("Show Order Modified Byte 8", show.order_modified_byte_8, "Parse and add Order Modified Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_9 = Pref.bool("Show Order Modified Byte 9", show.order_modified_byte_9, "Parse and add Order Modified Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_optional_fields = Pref.bool("Show Order Modified Optional Fields", show.order_modified_optional_fields, "Parse and add Order Modified Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_return_bitfields = Pref.bool("Show Order Modified Return Bitfields", show.order_modified_return_bitfields, "Parse and add Order Modified Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_1 = Pref.bool("Show Order Rejected Byte 1", show.order_rejected_byte_1, "Parse and add Order Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_10 = Pref.bool("Show Order Rejected Byte 10", show.order_rejected_byte_10, "Parse and add Order Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_11 = Pref.bool("Show Order Rejected Byte 11", show.order_rejected_byte_11, "Parse and add Order Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_12 = Pref.bool("Show Order Rejected Byte 12", show.order_rejected_byte_12, "Parse and add Order Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_13 = Pref.bool("Show Order Rejected Byte 13", show.order_rejected_byte_13, "Parse and add Order Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_14 = Pref.bool("Show Order Rejected Byte 14", show.order_rejected_byte_14, "Parse and add Order Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_15 = Pref.bool("Show Order Rejected Byte 15", show.order_rejected_byte_15, "Parse and add Order Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_16 = Pref.bool("Show Order Rejected Byte 16", show.order_rejected_byte_16, "Parse and add Order Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_17 = Pref.bool("Show Order Rejected Byte 17", show.order_rejected_byte_17, "Parse and add Order Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_2 = Pref.bool("Show Order Rejected Byte 2", show.order_rejected_byte_2, "Parse and add Order Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_3 = Pref.bool("Show Order Rejected Byte 3", show.order_rejected_byte_3, "Parse and add Order Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_4 = Pref.bool("Show Order Rejected Byte 4", show.order_rejected_byte_4, "Parse and add Order Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_5 = Pref.bool("Show Order Rejected Byte 5", show.order_rejected_byte_5, "Parse and add Order Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_6 = Pref.bool("Show Order Rejected Byte 6", show.order_rejected_byte_6, "Parse and add Order Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_7 = Pref.bool("Show Order Rejected Byte 7", show.order_rejected_byte_7, "Parse and add Order Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_8 = Pref.bool("Show Order Rejected Byte 8", show.order_rejected_byte_8, "Parse and add Order Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_9 = Pref.bool("Show Order Rejected Byte 9", show.order_rejected_byte_9, "Parse and add Order Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_optional_fields = Pref.bool("Show Order Rejected Optional Fields", show.order_rejected_optional_fields, "Parse and add Order Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_return_bitfields = Pref.bool("Show Order Rejected Return Bitfields", show.order_rejected_return_bitfields, "Parse and add Order Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_1 = Pref.bool("Show Order Restated Byte 1", show.order_restated_byte_1, "Parse and add Order Restated Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_10 = Pref.bool("Show Order Restated Byte 10", show.order_restated_byte_10, "Parse and add Order Restated Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_11 = Pref.bool("Show Order Restated Byte 11", show.order_restated_byte_11, "Parse and add Order Restated Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_12 = Pref.bool("Show Order Restated Byte 12", show.order_restated_byte_12, "Parse and add Order Restated Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_13 = Pref.bool("Show Order Restated Byte 13", show.order_restated_byte_13, "Parse and add Order Restated Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_14 = Pref.bool("Show Order Restated Byte 14", show.order_restated_byte_14, "Parse and add Order Restated Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_15 = Pref.bool("Show Order Restated Byte 15", show.order_restated_byte_15, "Parse and add Order Restated Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_16 = Pref.bool("Show Order Restated Byte 16", show.order_restated_byte_16, "Parse and add Order Restated Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_17 = Pref.bool("Show Order Restated Byte 17", show.order_restated_byte_17, "Parse and add Order Restated Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_2 = Pref.bool("Show Order Restated Byte 2", show.order_restated_byte_2, "Parse and add Order Restated Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_3 = Pref.bool("Show Order Restated Byte 3", show.order_restated_byte_3, "Parse and add Order Restated Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_4 = Pref.bool("Show Order Restated Byte 4", show.order_restated_byte_4, "Parse and add Order Restated Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_5 = Pref.bool("Show Order Restated Byte 5", show.order_restated_byte_5, "Parse and add Order Restated Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_6 = Pref.bool("Show Order Restated Byte 6", show.order_restated_byte_6, "Parse and add Order Restated Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_7 = Pref.bool("Show Order Restated Byte 7", show.order_restated_byte_7, "Parse and add Order Restated Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_8 = Pref.bool("Show Order Restated Byte 8", show.order_restated_byte_8, "Parse and add Order Restated Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_9 = Pref.bool("Show Order Restated Byte 9", show.order_restated_byte_9, "Parse and add Order Restated Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_optional_fields = Pref.bool("Show Order Restated Optional Fields", show.order_restated_optional_fields, "Parse and add Order Restated Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_return_bitfields = Pref.bool("Show Order Restated Return Bitfields", show.order_restated_return_bitfields, "Parse and add Order Restated Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group = Pref.bool("Show Param Group", show.param_group, "Parse and add Param Group to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_header = Pref.bool("Show Param Header", show.param_header, "Parse and add Param Header to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_1 = Pref.bool("Show Purge Rejected Byte 1", show.purge_rejected_byte_1, "Parse and add Purge Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_10 = Pref.bool("Show Purge Rejected Byte 10", show.purge_rejected_byte_10, "Parse and add Purge Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_11 = Pref.bool("Show Purge Rejected Byte 11", show.purge_rejected_byte_11, "Parse and add Purge Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_12 = Pref.bool("Show Purge Rejected Byte 12", show.purge_rejected_byte_12, "Parse and add Purge Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_13 = Pref.bool("Show Purge Rejected Byte 13", show.purge_rejected_byte_13, "Parse and add Purge Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_14 = Pref.bool("Show Purge Rejected Byte 14", show.purge_rejected_byte_14, "Parse and add Purge Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_15 = Pref.bool("Show Purge Rejected Byte 15", show.purge_rejected_byte_15, "Parse and add Purge Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_16 = Pref.bool("Show Purge Rejected Byte 16", show.purge_rejected_byte_16, "Parse and add Purge Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_17 = Pref.bool("Show Purge Rejected Byte 17", show.purge_rejected_byte_17, "Parse and add Purge Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_2 = Pref.bool("Show Purge Rejected Byte 2", show.purge_rejected_byte_2, "Parse and add Purge Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_3 = Pref.bool("Show Purge Rejected Byte 3", show.purge_rejected_byte_3, "Parse and add Purge Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_4 = Pref.bool("Show Purge Rejected Byte 4", show.purge_rejected_byte_4, "Parse and add Purge Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_5 = Pref.bool("Show Purge Rejected Byte 5", show.purge_rejected_byte_5, "Parse and add Purge Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_6 = Pref.bool("Show Purge Rejected Byte 6", show.purge_rejected_byte_6, "Parse and add Purge Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_7 = Pref.bool("Show Purge Rejected Byte 7", show.purge_rejected_byte_7, "Parse and add Purge Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_8 = Pref.bool("Show Purge Rejected Byte 8", show.purge_rejected_byte_8, "Parse and add Purge Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_9 = Pref.bool("Show Purge Rejected Byte 9", show.purge_rejected_byte_9, "Parse and add Purge Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_optional_fields = Pref.bool("Show Purge Rejected Optional Fields", show.purge_rejected_optional_fields, "Parse and add Purge Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_return_bitfields = Pref.bool("Show Purge Rejected Return Bitfields", show.purge_rejected_return_bitfields, "Parse and add Purge Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group = Pref.bool("Show Quote Result Group", show.quote_result_group, "Parse and add Quote Result Group to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update = Pref.bool("Show Quote Update", show.quote_update, "Parse and add Quote Update to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_return_bitfields = Pref.bool("Show Return Bitfields", show.return_bitfields, "Parse and add Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update = Pref.bool("Show Short Quote Update", show.short_quote_update, "Parse and add Short Quote Update to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_1 = Pref.bool("Show Trade Cancel Or Correct Byte 1", show.trade_cancel_or_correct_byte_1, "Parse and add Trade Cancel Or Correct Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_10 = Pref.bool("Show Trade Cancel Or Correct Byte 10", show.trade_cancel_or_correct_byte_10, "Parse and add Trade Cancel Or Correct Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_11 = Pref.bool("Show Trade Cancel Or Correct Byte 11", show.trade_cancel_or_correct_byte_11, "Parse and add Trade Cancel Or Correct Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_12 = Pref.bool("Show Trade Cancel Or Correct Byte 12", show.trade_cancel_or_correct_byte_12, "Parse and add Trade Cancel Or Correct Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_13 = Pref.bool("Show Trade Cancel Or Correct Byte 13", show.trade_cancel_or_correct_byte_13, "Parse and add Trade Cancel Or Correct Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_14 = Pref.bool("Show Trade Cancel Or Correct Byte 14", show.trade_cancel_or_correct_byte_14, "Parse and add Trade Cancel Or Correct Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_15 = Pref.bool("Show Trade Cancel Or Correct Byte 15", show.trade_cancel_or_correct_byte_15, "Parse and add Trade Cancel Or Correct Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_16 = Pref.bool("Show Trade Cancel Or Correct Byte 16", show.trade_cancel_or_correct_byte_16, "Parse and add Trade Cancel Or Correct Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_17 = Pref.bool("Show Trade Cancel Or Correct Byte 17", show.trade_cancel_or_correct_byte_17, "Parse and add Trade Cancel Or Correct Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_2 = Pref.bool("Show Trade Cancel Or Correct Byte 2", show.trade_cancel_or_correct_byte_2, "Parse and add Trade Cancel Or Correct Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_3 = Pref.bool("Show Trade Cancel Or Correct Byte 3", show.trade_cancel_or_correct_byte_3, "Parse and add Trade Cancel Or Correct Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_4 = Pref.bool("Show Trade Cancel Or Correct Byte 4", show.trade_cancel_or_correct_byte_4, "Parse and add Trade Cancel Or Correct Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_5 = Pref.bool("Show Trade Cancel Or Correct Byte 5", show.trade_cancel_or_correct_byte_5, "Parse and add Trade Cancel Or Correct Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_6 = Pref.bool("Show Trade Cancel Or Correct Byte 6", show.trade_cancel_or_correct_byte_6, "Parse and add Trade Cancel Or Correct Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_7 = Pref.bool("Show Trade Cancel Or Correct Byte 7", show.trade_cancel_or_correct_byte_7, "Parse and add Trade Cancel Or Correct Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_8 = Pref.bool("Show Trade Cancel Or Correct Byte 8", show.trade_cancel_or_correct_byte_8, "Parse and add Trade Cancel Or Correct Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_9 = Pref.bool("Show Trade Cancel Or Correct Byte 9", show.trade_cancel_or_correct_byte_9, "Parse and add Trade Cancel Or Correct Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_optional_fields = Pref.bool("Show Trade Cancel Or Correct Optional Fields", show.trade_cancel_or_correct_optional_fields, "Parse and add Trade Cancel Or Correct Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_return_bitfields = Pref.bool("Show Trade Cancel Or Correct Return Bitfields", show.trade_cancel_or_correct_return_bitfields, "Parse and add Trade Cancel Or Correct Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence = Pref.bool("Show Unit Sequence", show.unit_sequence, "Parse and add Unit Sequence to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequences = Pref.bool("Show Unit Sequences", show.unit_sequences, "Parse and add Unit Sequences to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_1 = Pref.bool("Show User Modify Rejected Byte 1", show.user_modify_rejected_byte_1, "Parse and add User Modify Rejected Byte 1 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_10 = Pref.bool("Show User Modify Rejected Byte 10", show.user_modify_rejected_byte_10, "Parse and add User Modify Rejected Byte 10 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_11 = Pref.bool("Show User Modify Rejected Byte 11", show.user_modify_rejected_byte_11, "Parse and add User Modify Rejected Byte 11 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_12 = Pref.bool("Show User Modify Rejected Byte 12", show.user_modify_rejected_byte_12, "Parse and add User Modify Rejected Byte 12 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_13 = Pref.bool("Show User Modify Rejected Byte 13", show.user_modify_rejected_byte_13, "Parse and add User Modify Rejected Byte 13 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_14 = Pref.bool("Show User Modify Rejected Byte 14", show.user_modify_rejected_byte_14, "Parse and add User Modify Rejected Byte 14 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_15 = Pref.bool("Show User Modify Rejected Byte 15", show.user_modify_rejected_byte_15, "Parse and add User Modify Rejected Byte 15 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_16 = Pref.bool("Show User Modify Rejected Byte 16", show.user_modify_rejected_byte_16, "Parse and add User Modify Rejected Byte 16 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_17 = Pref.bool("Show User Modify Rejected Byte 17", show.user_modify_rejected_byte_17, "Parse and add User Modify Rejected Byte 17 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_2 = Pref.bool("Show User Modify Rejected Byte 2", show.user_modify_rejected_byte_2, "Parse and add User Modify Rejected Byte 2 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_3 = Pref.bool("Show User Modify Rejected Byte 3", show.user_modify_rejected_byte_3, "Parse and add User Modify Rejected Byte 3 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_4 = Pref.bool("Show User Modify Rejected Byte 4", show.user_modify_rejected_byte_4, "Parse and add User Modify Rejected Byte 4 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_5 = Pref.bool("Show User Modify Rejected Byte 5", show.user_modify_rejected_byte_5, "Parse and add User Modify Rejected Byte 5 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_6 = Pref.bool("Show User Modify Rejected Byte 6", show.user_modify_rejected_byte_6, "Parse and add User Modify Rejected Byte 6 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_7 = Pref.bool("Show User Modify Rejected Byte 7", show.user_modify_rejected_byte_7, "Parse and add User Modify Rejected Byte 7 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_8 = Pref.bool("Show User Modify Rejected Byte 8", show.user_modify_rejected_byte_8, "Parse and add User Modify Rejected Byte 8 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_9 = Pref.bool("Show User Modify Rejected Byte 9", show.user_modify_rejected_byte_9, "Parse and add User Modify Rejected Byte 9 to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_optional_fields = Pref.bool("Show User Modify Rejected Optional Fields", show.user_modify_rejected_optional_fields, "Parse and add User Modify Rejected Optional Fields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_return_bitfields = Pref.bool("Show User Modify Rejected Return Bitfields", show.user_modify_rejected_return_bitfields, "Parse and add User Modify Rejected Return Bitfields to protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group_index = Pref.bool("Show Param Group Index", show.param_group_index, "Show generated param group index in protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence_index = Pref.bool("Show Unit Sequence Index", show.unit_sequence_index, "Show generated unit sequence index in protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update_index = Pref.bool("Show Quote Update Index", show.quote_update_index, "Show generated quote update index in protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update_index = Pref.bool("Show Short Quote Update Index", show.short_quote_update_index, "Show generated short quote update index in protocol tree")
-omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group_index = Pref.bool("Show Quote Result Group Index", show.quote_result_group_index, "Show generated quote result group index in protocol tree")
+omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -2001,989 +1349,11 @@ function omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs_changed()
   if show.application_messages ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_application_messages
   end
-  if show.cancel_order_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_1 then
-    show.cancel_order_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_1
-  end
-  if show.cancel_order_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_2 then
-    show.cancel_order_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_byte_2
-  end
-  if show.cancel_order_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_optional_fields then
-    show.cancel_order_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_order_optional_fields
-  end
-  if show.cancel_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_1 then
-    show.cancel_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_1
-  end
-  if show.cancel_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_10 then
-    show.cancel_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_10
-  end
-  if show.cancel_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_11 then
-    show.cancel_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_11
-  end
-  if show.cancel_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_12 then
-    show.cancel_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_12
-  end
-  if show.cancel_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_13 then
-    show.cancel_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_13
-  end
-  if show.cancel_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_14 then
-    show.cancel_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_14
-  end
-  if show.cancel_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_15 then
-    show.cancel_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_15
-  end
-  if show.cancel_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_16 then
-    show.cancel_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_16
-  end
-  if show.cancel_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_17 then
-    show.cancel_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_17
-  end
-  if show.cancel_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_2 then
-    show.cancel_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_2
-  end
-  if show.cancel_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_3 then
-    show.cancel_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_3
-  end
-  if show.cancel_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_4 then
-    show.cancel_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_4
-  end
-  if show.cancel_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_5 then
-    show.cancel_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_5
-  end
-  if show.cancel_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_6 then
-    show.cancel_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_6
-  end
-  if show.cancel_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_7 then
-    show.cancel_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_7
-  end
-  if show.cancel_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_8 then
-    show.cancel_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_8
-  end
-  if show.cancel_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_9 then
-    show.cancel_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_byte_9
-  end
-  if show.cancel_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_optional_fields then
-    show.cancel_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_optional_fields
-  end
-  if show.cancel_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_return_bitfields then
-    show.cancel_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cancel_rejected_return_bitfields
-  end
-  if show.complex_instrument_accepted_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_1 then
-    show.complex_instrument_accepted_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_1
-  end
-  if show.complex_instrument_accepted_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_10 then
-    show.complex_instrument_accepted_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_10
-  end
-  if show.complex_instrument_accepted_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_11 then
-    show.complex_instrument_accepted_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_11
-  end
-  if show.complex_instrument_accepted_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_12 then
-    show.complex_instrument_accepted_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_12
-  end
-  if show.complex_instrument_accepted_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_13 then
-    show.complex_instrument_accepted_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_13
-  end
-  if show.complex_instrument_accepted_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_14 then
-    show.complex_instrument_accepted_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_14
-  end
-  if show.complex_instrument_accepted_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_15 then
-    show.complex_instrument_accepted_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_15
-  end
-  if show.complex_instrument_accepted_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_16 then
-    show.complex_instrument_accepted_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_16
-  end
-  if show.complex_instrument_accepted_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_17 then
-    show.complex_instrument_accepted_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_17
-  end
-  if show.complex_instrument_accepted_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_2 then
-    show.complex_instrument_accepted_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_2
-  end
-  if show.complex_instrument_accepted_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_3 then
-    show.complex_instrument_accepted_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_3
-  end
-  if show.complex_instrument_accepted_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_4 then
-    show.complex_instrument_accepted_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_4
-  end
-  if show.complex_instrument_accepted_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_5 then
-    show.complex_instrument_accepted_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_5
-  end
-  if show.complex_instrument_accepted_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_6 then
-    show.complex_instrument_accepted_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_6
-  end
-  if show.complex_instrument_accepted_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_7 then
-    show.complex_instrument_accepted_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_7
-  end
-  if show.complex_instrument_accepted_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_8 then
-    show.complex_instrument_accepted_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_8
-  end
-  if show.complex_instrument_accepted_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_9 then
-    show.complex_instrument_accepted_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_byte_9
-  end
-  if show.complex_instrument_accepted_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_optional_fields then
-    show.complex_instrument_accepted_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_optional_fields
-  end
-  if show.complex_instrument_accepted_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_return_bitfields then
-    show.complex_instrument_accepted_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_accepted_return_bitfields
-  end
-  if show.complex_instrument_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_1 then
-    show.complex_instrument_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_1
-  end
-  if show.complex_instrument_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_10 then
-    show.complex_instrument_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_10
-  end
-  if show.complex_instrument_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_11 then
-    show.complex_instrument_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_11
-  end
-  if show.complex_instrument_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_12 then
-    show.complex_instrument_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_12
-  end
-  if show.complex_instrument_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_13 then
-    show.complex_instrument_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_13
-  end
-  if show.complex_instrument_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_14 then
-    show.complex_instrument_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_14
-  end
-  if show.complex_instrument_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_15 then
-    show.complex_instrument_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_15
-  end
-  if show.complex_instrument_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_16 then
-    show.complex_instrument_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_16
-  end
-  if show.complex_instrument_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_17 then
-    show.complex_instrument_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_17
-  end
-  if show.complex_instrument_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_2 then
-    show.complex_instrument_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_2
-  end
-  if show.complex_instrument_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_3 then
-    show.complex_instrument_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_3
-  end
-  if show.complex_instrument_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_4 then
-    show.complex_instrument_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_4
-  end
-  if show.complex_instrument_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_5 then
-    show.complex_instrument_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_5
-  end
-  if show.complex_instrument_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_6 then
-    show.complex_instrument_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_6
-  end
-  if show.complex_instrument_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_7 then
-    show.complex_instrument_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_7
-  end
-  if show.complex_instrument_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_8 then
-    show.complex_instrument_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_8
-  end
-  if show.complex_instrument_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_9 then
-    show.complex_instrument_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_byte_9
-  end
-  if show.complex_instrument_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_optional_fields then
-    show.complex_instrument_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_optional_fields
-  end
-  if show.complex_instrument_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_return_bitfields then
-    show.complex_instrument_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_complex_instrument_rejected_return_bitfields
-  end
-  if show.cross_order_acknowledgment_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_1 then
-    show.cross_order_acknowledgment_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_1
-  end
-  if show.cross_order_acknowledgment_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_10 then
-    show.cross_order_acknowledgment_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_10
-  end
-  if show.cross_order_acknowledgment_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_11 then
-    show.cross_order_acknowledgment_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_11
-  end
-  if show.cross_order_acknowledgment_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_12 then
-    show.cross_order_acknowledgment_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_12
-  end
-  if show.cross_order_acknowledgment_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_13 then
-    show.cross_order_acknowledgment_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_13
-  end
-  if show.cross_order_acknowledgment_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_14 then
-    show.cross_order_acknowledgment_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_14
-  end
-  if show.cross_order_acknowledgment_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_15 then
-    show.cross_order_acknowledgment_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_15
-  end
-  if show.cross_order_acknowledgment_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_16 then
-    show.cross_order_acknowledgment_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_16
-  end
-  if show.cross_order_acknowledgment_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_17 then
-    show.cross_order_acknowledgment_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_17
-  end
-  if show.cross_order_acknowledgment_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_2 then
-    show.cross_order_acknowledgment_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_2
-  end
-  if show.cross_order_acknowledgment_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_3 then
-    show.cross_order_acknowledgment_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_3
-  end
-  if show.cross_order_acknowledgment_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_4 then
-    show.cross_order_acknowledgment_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_4
-  end
-  if show.cross_order_acknowledgment_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_5 then
-    show.cross_order_acknowledgment_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_5
-  end
-  if show.cross_order_acknowledgment_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_6 then
-    show.cross_order_acknowledgment_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_6
-  end
-  if show.cross_order_acknowledgment_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_7 then
-    show.cross_order_acknowledgment_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_7
-  end
-  if show.cross_order_acknowledgment_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_8 then
-    show.cross_order_acknowledgment_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_8
-  end
-  if show.cross_order_acknowledgment_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_9 then
-    show.cross_order_acknowledgment_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_byte_9
-  end
-  if show.cross_order_acknowledgment_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_optional_fields then
-    show.cross_order_acknowledgment_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_optional_fields
-  end
-  if show.cross_order_acknowledgment_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_return_bitfields then
-    show.cross_order_acknowledgment_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_acknowledgment_return_bitfields
-  end
-  if show.cross_order_cancelled_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_1 then
-    show.cross_order_cancelled_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_1
-  end
-  if show.cross_order_cancelled_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_10 then
-    show.cross_order_cancelled_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_10
-  end
-  if show.cross_order_cancelled_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_11 then
-    show.cross_order_cancelled_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_11
-  end
-  if show.cross_order_cancelled_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_12 then
-    show.cross_order_cancelled_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_12
-  end
-  if show.cross_order_cancelled_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_13 then
-    show.cross_order_cancelled_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_13
-  end
-  if show.cross_order_cancelled_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_14 then
-    show.cross_order_cancelled_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_14
-  end
-  if show.cross_order_cancelled_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_15 then
-    show.cross_order_cancelled_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_15
-  end
-  if show.cross_order_cancelled_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_16 then
-    show.cross_order_cancelled_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_16
-  end
-  if show.cross_order_cancelled_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_17 then
-    show.cross_order_cancelled_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_17
-  end
-  if show.cross_order_cancelled_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_2 then
-    show.cross_order_cancelled_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_2
-  end
-  if show.cross_order_cancelled_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_3 then
-    show.cross_order_cancelled_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_3
-  end
-  if show.cross_order_cancelled_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_4 then
-    show.cross_order_cancelled_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_4
-  end
-  if show.cross_order_cancelled_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_5 then
-    show.cross_order_cancelled_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_5
-  end
-  if show.cross_order_cancelled_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_6 then
-    show.cross_order_cancelled_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_6
-  end
-  if show.cross_order_cancelled_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_7 then
-    show.cross_order_cancelled_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_7
-  end
-  if show.cross_order_cancelled_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_8 then
-    show.cross_order_cancelled_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_8
-  end
-  if show.cross_order_cancelled_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_9 then
-    show.cross_order_cancelled_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_byte_9
-  end
-  if show.cross_order_cancelled_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_optional_fields then
-    show.cross_order_cancelled_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_optional_fields
-  end
-  if show.cross_order_cancelled_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_return_bitfields then
-    show.cross_order_cancelled_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_cancelled_return_bitfields
-  end
-  if show.cross_order_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_1 then
-    show.cross_order_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_1
-  end
-  if show.cross_order_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_10 then
-    show.cross_order_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_10
-  end
-  if show.cross_order_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_11 then
-    show.cross_order_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_11
-  end
-  if show.cross_order_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_12 then
-    show.cross_order_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_12
-  end
-  if show.cross_order_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_13 then
-    show.cross_order_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_13
-  end
-  if show.cross_order_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_14 then
-    show.cross_order_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_14
-  end
-  if show.cross_order_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_15 then
-    show.cross_order_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_15
-  end
-  if show.cross_order_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_16 then
-    show.cross_order_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_16
-  end
-  if show.cross_order_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_17 then
-    show.cross_order_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_17
-  end
-  if show.cross_order_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_2 then
-    show.cross_order_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_2
-  end
-  if show.cross_order_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_3 then
-    show.cross_order_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_3
-  end
-  if show.cross_order_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_4 then
-    show.cross_order_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_4
-  end
-  if show.cross_order_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_5 then
-    show.cross_order_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_5
-  end
-  if show.cross_order_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_6 then
-    show.cross_order_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_6
-  end
-  if show.cross_order_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_7 then
-    show.cross_order_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_7
-  end
-  if show.cross_order_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_8 then
-    show.cross_order_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_8
-  end
-  if show.cross_order_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_9 then
-    show.cross_order_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_byte_9
-  end
-  if show.cross_order_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_optional_fields then
-    show.cross_order_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_optional_fields
-  end
-  if show.cross_order_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_return_bitfields then
-    show.cross_order_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_cross_order_rejected_return_bitfields
-  end
-  if show.message_header ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_message_header then
-    show.message_header = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_message_header
-  end
-  if show.modify_order_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_1 then
-    show.modify_order_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_1
-  end
-  if show.modify_order_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_2 then
-    show.modify_order_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_byte_2
-  end
-  if show.modify_order_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_optional_fields then
-    show.modify_order_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_modify_order_optional_fields
-  end
-  if show.new_complex_instrument_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_byte_1 then
-    show.new_complex_instrument_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_byte_1
-  end
-  if show.new_complex_instrument_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_optional_fields then
-    show.new_complex_instrument_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_complex_instrument_optional_fields
-  end
-  if show.new_order_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_1 then
-    show.new_order_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_1
-  end
-  if show.new_order_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_2 then
-    show.new_order_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_2
-  end
-  if show.new_order_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_3 then
-    show.new_order_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_3
-  end
-  if show.new_order_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_4 then
-    show.new_order_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_4
-  end
-  if show.new_order_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_5 then
-    show.new_order_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_5
-  end
-  if show.new_order_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_6 then
-    show.new_order_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_6
-  end
-  if show.new_order_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_7 then
-    show.new_order_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_7
-  end
-  if show.new_order_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_8 then
-    show.new_order_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_8
-  end
-  if show.new_order_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_9 then
-    show.new_order_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_byte_9
-  end
-  if show.new_order_cross_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_1 then
-    show.new_order_cross_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_1
-  end
-  if show.new_order_cross_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_2 then
-    show.new_order_cross_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_2
-  end
-  if show.new_order_cross_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_3 then
-    show.new_order_cross_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_3
-  end
-  if show.new_order_cross_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_4 then
-    show.new_order_cross_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_byte_4
-  end
-  if show.new_order_cross_multileg_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_1 then
-    show.new_order_cross_multileg_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_1
-  end
-  if show.new_order_cross_multileg_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_2 then
-    show.new_order_cross_multileg_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_2
-  end
-  if show.new_order_cross_multileg_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_3 then
-    show.new_order_cross_multileg_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_3
-  end
-  if show.new_order_cross_multileg_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_4 then
-    show.new_order_cross_multileg_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_4
-  end
-  if show.new_order_cross_multileg_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_5 then
-    show.new_order_cross_multileg_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_byte_5
-  end
-  if show.new_order_cross_multileg_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_optional_fields then
-    show.new_order_cross_multileg_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_multileg_optional_fields
-  end
-  if show.new_order_cross_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_optional_fields then
-    show.new_order_cross_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_cross_optional_fields
-  end
-  if show.new_order_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_optional_fields then
-    show.new_order_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_new_order_optional_fields
-  end
-  if show.order_acknowledgment_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_1 then
-    show.order_acknowledgment_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_1
-  end
-  if show.order_acknowledgment_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_10 then
-    show.order_acknowledgment_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_10
-  end
-  if show.order_acknowledgment_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_11 then
-    show.order_acknowledgment_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_11
-  end
-  if show.order_acknowledgment_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_12 then
-    show.order_acknowledgment_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_12
-  end
-  if show.order_acknowledgment_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_13 then
-    show.order_acknowledgment_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_13
-  end
-  if show.order_acknowledgment_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_14 then
-    show.order_acknowledgment_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_14
-  end
-  if show.order_acknowledgment_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_15 then
-    show.order_acknowledgment_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_15
-  end
-  if show.order_acknowledgment_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_16 then
-    show.order_acknowledgment_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_16
-  end
-  if show.order_acknowledgment_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_17 then
-    show.order_acknowledgment_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_17
-  end
-  if show.order_acknowledgment_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_2 then
-    show.order_acknowledgment_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_2
-  end
-  if show.order_acknowledgment_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_3 then
-    show.order_acknowledgment_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_3
-  end
-  if show.order_acknowledgment_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_4 then
-    show.order_acknowledgment_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_4
-  end
-  if show.order_acknowledgment_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_5 then
-    show.order_acknowledgment_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_5
-  end
-  if show.order_acknowledgment_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_6 then
-    show.order_acknowledgment_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_6
-  end
-  if show.order_acknowledgment_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_7 then
-    show.order_acknowledgment_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_7
-  end
-  if show.order_acknowledgment_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_8 then
-    show.order_acknowledgment_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_8
-  end
-  if show.order_acknowledgment_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_9 then
-    show.order_acknowledgment_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_byte_9
-  end
-  if show.order_acknowledgment_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_optional_fields then
-    show.order_acknowledgment_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_optional_fields
-  end
-  if show.order_acknowledgment_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_return_bitfields then
-    show.order_acknowledgment_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_acknowledgment_return_bitfields
-  end
-  if show.order_cancelled_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_1 then
-    show.order_cancelled_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_1
-  end
-  if show.order_cancelled_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_10 then
-    show.order_cancelled_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_10
-  end
-  if show.order_cancelled_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_11 then
-    show.order_cancelled_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_11
-  end
-  if show.order_cancelled_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_12 then
-    show.order_cancelled_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_12
-  end
-  if show.order_cancelled_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_13 then
-    show.order_cancelled_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_13
-  end
-  if show.order_cancelled_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_14 then
-    show.order_cancelled_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_14
-  end
-  if show.order_cancelled_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_15 then
-    show.order_cancelled_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_15
-  end
-  if show.order_cancelled_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_16 then
-    show.order_cancelled_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_16
-  end
-  if show.order_cancelled_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_17 then
-    show.order_cancelled_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_17
-  end
-  if show.order_cancelled_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_2 then
-    show.order_cancelled_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_2
-  end
-  if show.order_cancelled_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_3 then
-    show.order_cancelled_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_3
-  end
-  if show.order_cancelled_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_4 then
-    show.order_cancelled_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_4
-  end
-  if show.order_cancelled_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_5 then
-    show.order_cancelled_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_5
-  end
-  if show.order_cancelled_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_6 then
-    show.order_cancelled_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_6
-  end
-  if show.order_cancelled_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_7 then
-    show.order_cancelled_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_7
-  end
-  if show.order_cancelled_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_8 then
-    show.order_cancelled_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_8
-  end
-  if show.order_cancelled_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_9 then
-    show.order_cancelled_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_byte_9
-  end
-  if show.order_cancelled_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_optional_fields then
-    show.order_cancelled_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_optional_fields
-  end
-  if show.order_cancelled_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_return_bitfields then
-    show.order_cancelled_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_cancelled_return_bitfields
-  end
-  if show.order_execution_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_1 then
-    show.order_execution_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_1
-  end
-  if show.order_execution_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_10 then
-    show.order_execution_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_10
-  end
-  if show.order_execution_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_11 then
-    show.order_execution_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_11
-  end
-  if show.order_execution_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_12 then
-    show.order_execution_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_12
-  end
-  if show.order_execution_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_13 then
-    show.order_execution_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_13
-  end
-  if show.order_execution_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_14 then
-    show.order_execution_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_14
-  end
-  if show.order_execution_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_15 then
-    show.order_execution_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_15
-  end
-  if show.order_execution_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_16 then
-    show.order_execution_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_16
-  end
-  if show.order_execution_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_17 then
-    show.order_execution_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_17
-  end
-  if show.order_execution_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_2 then
-    show.order_execution_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_2
-  end
-  if show.order_execution_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_3 then
-    show.order_execution_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_3
-  end
-  if show.order_execution_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_4 then
-    show.order_execution_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_4
-  end
-  if show.order_execution_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_5 then
-    show.order_execution_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_5
-  end
-  if show.order_execution_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_6 then
-    show.order_execution_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_6
-  end
-  if show.order_execution_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_7 then
-    show.order_execution_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_7
-  end
-  if show.order_execution_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_8 then
-    show.order_execution_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_8
-  end
-  if show.order_execution_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_9 then
-    show.order_execution_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_byte_9
-  end
-  if show.order_execution_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_return_bitfields then
-    show.order_execution_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_execution_return_bitfields
-  end
-  if show.order_modified_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_1 then
-    show.order_modified_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_1
-  end
-  if show.order_modified_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_10 then
-    show.order_modified_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_10
-  end
-  if show.order_modified_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_11 then
-    show.order_modified_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_11
-  end
-  if show.order_modified_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_12 then
-    show.order_modified_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_12
-  end
-  if show.order_modified_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_13 then
-    show.order_modified_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_13
-  end
-  if show.order_modified_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_14 then
-    show.order_modified_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_14
-  end
-  if show.order_modified_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_15 then
-    show.order_modified_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_15
-  end
-  if show.order_modified_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_16 then
-    show.order_modified_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_16
-  end
-  if show.order_modified_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_17 then
-    show.order_modified_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_17
-  end
-  if show.order_modified_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_2 then
-    show.order_modified_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_2
-  end
-  if show.order_modified_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_3 then
-    show.order_modified_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_3
-  end
-  if show.order_modified_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_4 then
-    show.order_modified_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_4
-  end
-  if show.order_modified_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_5 then
-    show.order_modified_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_5
-  end
-  if show.order_modified_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_6 then
-    show.order_modified_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_6
-  end
-  if show.order_modified_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_7 then
-    show.order_modified_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_7
-  end
-  if show.order_modified_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_8 then
-    show.order_modified_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_8
-  end
-  if show.order_modified_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_9 then
-    show.order_modified_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_byte_9
-  end
-  if show.order_modified_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_optional_fields then
-    show.order_modified_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_optional_fields
-  end
-  if show.order_modified_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_return_bitfields then
-    show.order_modified_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_modified_return_bitfields
-  end
-  if show.order_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_1 then
-    show.order_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_1
-  end
-  if show.order_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_10 then
-    show.order_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_10
-  end
-  if show.order_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_11 then
-    show.order_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_11
-  end
-  if show.order_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_12 then
-    show.order_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_12
-  end
-  if show.order_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_13 then
-    show.order_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_13
-  end
-  if show.order_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_14 then
-    show.order_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_14
-  end
-  if show.order_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_15 then
-    show.order_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_15
-  end
-  if show.order_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_16 then
-    show.order_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_16
-  end
-  if show.order_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_17 then
-    show.order_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_17
-  end
-  if show.order_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_2 then
-    show.order_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_2
-  end
-  if show.order_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_3 then
-    show.order_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_3
-  end
-  if show.order_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_4 then
-    show.order_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_4
-  end
-  if show.order_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_5 then
-    show.order_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_5
-  end
-  if show.order_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_6 then
-    show.order_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_6
-  end
-  if show.order_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_7 then
-    show.order_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_7
-  end
-  if show.order_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_8 then
-    show.order_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_8
-  end
-  if show.order_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_9 then
-    show.order_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_byte_9
-  end
-  if show.order_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_optional_fields then
-    show.order_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_optional_fields
-  end
-  if show.order_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_return_bitfields then
-    show.order_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_rejected_return_bitfields
-  end
-  if show.order_restated_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_1 then
-    show.order_restated_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_1
-  end
-  if show.order_restated_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_10 then
-    show.order_restated_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_10
-  end
-  if show.order_restated_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_11 then
-    show.order_restated_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_11
-  end
-  if show.order_restated_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_12 then
-    show.order_restated_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_12
-  end
-  if show.order_restated_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_13 then
-    show.order_restated_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_13
-  end
-  if show.order_restated_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_14 then
-    show.order_restated_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_14
-  end
-  if show.order_restated_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_15 then
-    show.order_restated_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_15
-  end
-  if show.order_restated_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_16 then
-    show.order_restated_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_16
-  end
-  if show.order_restated_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_17 then
-    show.order_restated_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_17
-  end
-  if show.order_restated_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_2 then
-    show.order_restated_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_2
-  end
-  if show.order_restated_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_3 then
-    show.order_restated_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_3
-  end
-  if show.order_restated_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_4 then
-    show.order_restated_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_4
-  end
-  if show.order_restated_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_5 then
-    show.order_restated_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_5
-  end
-  if show.order_restated_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_6 then
-    show.order_restated_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_6
-  end
-  if show.order_restated_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_7 then
-    show.order_restated_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_7
-  end
-  if show.order_restated_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_8 then
-    show.order_restated_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_8
-  end
-  if show.order_restated_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_9 then
-    show.order_restated_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_byte_9
-  end
-  if show.order_restated_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_optional_fields then
-    show.order_restated_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_optional_fields
-  end
-  if show.order_restated_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_return_bitfields then
-    show.order_restated_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_order_restated_return_bitfields
-  end
-  if show.packet ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_packet then
-    show.packet = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_packet
-  end
-  if show.param_group ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group then
-    show.param_group = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group
-  end
-  if show.param_header ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_header then
-    show.param_header = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_header
-  end
-  if show.purge_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_1 then
-    show.purge_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_1
-  end
-  if show.purge_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_10 then
-    show.purge_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_10
-  end
-  if show.purge_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_11 then
-    show.purge_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_11
-  end
-  if show.purge_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_12 then
-    show.purge_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_12
-  end
-  if show.purge_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_13 then
-    show.purge_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_13
-  end
-  if show.purge_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_14 then
-    show.purge_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_14
-  end
-  if show.purge_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_15 then
-    show.purge_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_15
-  end
-  if show.purge_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_16 then
-    show.purge_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_16
-  end
-  if show.purge_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_17 then
-    show.purge_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_17
-  end
-  if show.purge_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_2 then
-    show.purge_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_2
-  end
-  if show.purge_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_3 then
-    show.purge_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_3
-  end
-  if show.purge_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_4 then
-    show.purge_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_4
-  end
-  if show.purge_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_5 then
-    show.purge_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_5
-  end
-  if show.purge_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_6 then
-    show.purge_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_6
-  end
-  if show.purge_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_7 then
-    show.purge_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_7
-  end
-  if show.purge_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_8 then
-    show.purge_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_8
-  end
-  if show.purge_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_9 then
-    show.purge_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_byte_9
-  end
-  if show.purge_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_optional_fields then
-    show.purge_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_optional_fields
-  end
-  if show.purge_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_return_bitfields then
-    show.purge_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_purge_rejected_return_bitfields
-  end
-  if show.quote_result_group ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group then
-    show.quote_result_group = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group
-  end
-  if show.quote_update ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update then
-    show.quote_update = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update
-  end
-  if show.return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_return_bitfields then
-    show.return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_return_bitfields
-  end
-  if show.short_quote_update ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update then
-    show.short_quote_update = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update
-  end
-  if show.trade_cancel_or_correct_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_1 then
-    show.trade_cancel_or_correct_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_1
-  end
-  if show.trade_cancel_or_correct_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_10 then
-    show.trade_cancel_or_correct_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_10
-  end
-  if show.trade_cancel_or_correct_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_11 then
-    show.trade_cancel_or_correct_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_11
-  end
-  if show.trade_cancel_or_correct_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_12 then
-    show.trade_cancel_or_correct_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_12
-  end
-  if show.trade_cancel_or_correct_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_13 then
-    show.trade_cancel_or_correct_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_13
-  end
-  if show.trade_cancel_or_correct_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_14 then
-    show.trade_cancel_or_correct_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_14
-  end
-  if show.trade_cancel_or_correct_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_15 then
-    show.trade_cancel_or_correct_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_15
-  end
-  if show.trade_cancel_or_correct_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_16 then
-    show.trade_cancel_or_correct_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_16
-  end
-  if show.trade_cancel_or_correct_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_17 then
-    show.trade_cancel_or_correct_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_17
-  end
-  if show.trade_cancel_or_correct_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_2 then
-    show.trade_cancel_or_correct_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_2
-  end
-  if show.trade_cancel_or_correct_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_3 then
-    show.trade_cancel_or_correct_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_3
-  end
-  if show.trade_cancel_or_correct_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_4 then
-    show.trade_cancel_or_correct_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_4
-  end
-  if show.trade_cancel_or_correct_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_5 then
-    show.trade_cancel_or_correct_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_5
-  end
-  if show.trade_cancel_or_correct_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_6 then
-    show.trade_cancel_or_correct_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_6
-  end
-  if show.trade_cancel_or_correct_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_7 then
-    show.trade_cancel_or_correct_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_7
-  end
-  if show.trade_cancel_or_correct_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_8 then
-    show.trade_cancel_or_correct_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_8
-  end
-  if show.trade_cancel_or_correct_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_9 then
-    show.trade_cancel_or_correct_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_byte_9
-  end
-  if show.trade_cancel_or_correct_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_optional_fields then
-    show.trade_cancel_or_correct_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_optional_fields
-  end
-  if show.trade_cancel_or_correct_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_return_bitfields then
-    show.trade_cancel_or_correct_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_trade_cancel_or_correct_return_bitfields
-  end
-  if show.unit_sequence ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence then
-    show.unit_sequence = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence
-  end
-  if show.unit_sequences ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequences then
-    show.unit_sequences = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequences
-  end
-  if show.user_modify_rejected_byte_1 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_1 then
-    show.user_modify_rejected_byte_1 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_1
-  end
-  if show.user_modify_rejected_byte_10 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_10 then
-    show.user_modify_rejected_byte_10 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_10
-  end
-  if show.user_modify_rejected_byte_11 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_11 then
-    show.user_modify_rejected_byte_11 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_11
-  end
-  if show.user_modify_rejected_byte_12 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_12 then
-    show.user_modify_rejected_byte_12 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_12
-  end
-  if show.user_modify_rejected_byte_13 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_13 then
-    show.user_modify_rejected_byte_13 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_13
-  end
-  if show.user_modify_rejected_byte_14 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_14 then
-    show.user_modify_rejected_byte_14 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_14
-  end
-  if show.user_modify_rejected_byte_15 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_15 then
-    show.user_modify_rejected_byte_15 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_15
-  end
-  if show.user_modify_rejected_byte_16 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_16 then
-    show.user_modify_rejected_byte_16 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_16
-  end
-  if show.user_modify_rejected_byte_17 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_17 then
-    show.user_modify_rejected_byte_17 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_17
-  end
-  if show.user_modify_rejected_byte_2 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_2 then
-    show.user_modify_rejected_byte_2 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_2
-  end
-  if show.user_modify_rejected_byte_3 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_3 then
-    show.user_modify_rejected_byte_3 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_3
-  end
-  if show.user_modify_rejected_byte_4 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_4 then
-    show.user_modify_rejected_byte_4 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_4
-  end
-  if show.user_modify_rejected_byte_5 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_5 then
-    show.user_modify_rejected_byte_5 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_5
-  end
-  if show.user_modify_rejected_byte_6 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_6 then
-    show.user_modify_rejected_byte_6 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_6
-  end
-  if show.user_modify_rejected_byte_7 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_7 then
-    show.user_modify_rejected_byte_7 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_7
-  end
-  if show.user_modify_rejected_byte_8 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_8 then
-    show.user_modify_rejected_byte_8 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_8
-  end
-  if show.user_modify_rejected_byte_9 ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_9 then
-    show.user_modify_rejected_byte_9 = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_byte_9
-  end
-  if show.user_modify_rejected_optional_fields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_optional_fields then
-    show.user_modify_rejected_optional_fields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_optional_fields
-  end
-  if show.user_modify_rejected_return_bitfields ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_return_bitfields then
-    show.user_modify_rejected_return_bitfields = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_user_modify_rejected_return_bitfields
-  end
-  if show.param_group_index ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group_index then
-    show.param_group_index = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_param_group_index
-  end
-  if show.unit_sequence_index ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence_index then
-    show.unit_sequence_index = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_unit_sequence_index
-  end
-  if show.quote_update_index ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update_index then
-    show.quote_update_index = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_update_index
-  end
-  if show.short_quote_update_index ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update_index then
-    show.short_quote_update_index = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_short_quote_update_index
-  end
-  if show.quote_result_group_index ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group_index then
-    show.quote_result_group_index = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_quote_result_group_index
+  if show.structs ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_structs then
+    show.structs = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_indexes then
+    show.indexes = omi_cboe_c1options_binaryorderentry_boe_v2_10.prefs.show_indexes
   end
 end
 
@@ -8875,7 +7245,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_17.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_17, range, display)
 
-  if show.complex_instrument_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -8964,7 +7334,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_16.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_16, range, display)
 
-  if show.complex_instrument_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -9053,7 +7423,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_15.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_15, range, display)
 
-  if show.complex_instrument_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -9142,7 +7512,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_14.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_14, range, display)
 
-  if show.complex_instrument_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -9231,7 +7601,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_13.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_13, range, display)
 
-  if show.complex_instrument_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -9320,7 +7690,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_12.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_12, range, display)
 
-  if show.complex_instrument_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -9409,7 +7779,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_11.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_11, range, display)
 
-  if show.complex_instrument_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -9498,7 +7868,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_10.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_10, range, display)
 
-  if show.complex_instrument_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -9587,7 +7957,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_9.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_9, range, display)
 
-  if show.complex_instrument_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -9676,7 +8046,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_8.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_8, range, display)
 
-  if show.complex_instrument_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -9765,7 +8135,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_7.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_7, range, display)
 
-  if show.complex_instrument_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -9854,7 +8224,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_6.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_6, range, display)
 
-  if show.complex_instrument_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -9943,7 +8313,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_5.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_5, range, display)
 
-  if show.complex_instrument_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -10032,7 +8402,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_4.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_4, range, display)
 
-  if show.complex_instrument_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -10121,7 +8491,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_3.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_3, range, display)
 
-  if show.complex_instrument_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -10210,7 +8580,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_2.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_2, range, display)
 
-  if show.complex_instrument_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -10299,7 +8669,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_1.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_byte_1, range, display)
 
-  if show.complex_instrument_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -10516,7 +8886,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_optional_f
   local index = offset + size_of_complex_instrument_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.complex_instrument_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_complex_instrument_rejected_optional_fields)
     parent:set_len(size_of_complex_instrument_rejected_optional_fields)
@@ -10685,7 +9055,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_17.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_17, range, display)
 
-  if show.complex_instrument_accepted_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_17.bits(range, value, packet, element)
   end
 
@@ -10774,7 +9144,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_16.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_16, range, display)
 
-  if show.complex_instrument_accepted_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_16.bits(range, value, packet, element)
   end
 
@@ -10863,7 +9233,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_15.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_15, range, display)
 
-  if show.complex_instrument_accepted_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_15.bits(range, value, packet, element)
   end
 
@@ -10952,7 +9322,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_14.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_14, range, display)
 
-  if show.complex_instrument_accepted_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_14.bits(range, value, packet, element)
   end
 
@@ -11041,7 +9411,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_13.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_13, range, display)
 
-  if show.complex_instrument_accepted_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_13.bits(range, value, packet, element)
   end
 
@@ -11130,7 +9500,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_12.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_12, range, display)
 
-  if show.complex_instrument_accepted_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_12.bits(range, value, packet, element)
   end
 
@@ -11219,7 +9589,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_11.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_11, range, display)
 
-  if show.complex_instrument_accepted_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_11.bits(range, value, packet, element)
   end
 
@@ -11308,7 +9678,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_10.di
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_10, range, display)
 
-  if show.complex_instrument_accepted_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_10.bits(range, value, packet, element)
   end
 
@@ -11397,7 +9767,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_9.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_9, range, display)
 
-  if show.complex_instrument_accepted_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_9.bits(range, value, packet, element)
   end
 
@@ -11486,7 +9856,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_8.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_8, range, display)
 
-  if show.complex_instrument_accepted_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_8.bits(range, value, packet, element)
   end
 
@@ -11575,7 +9945,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_7.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_7, range, display)
 
-  if show.complex_instrument_accepted_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_7.bits(range, value, packet, element)
   end
 
@@ -11664,7 +10034,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_6.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_6, range, display)
 
-  if show.complex_instrument_accepted_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_6.bits(range, value, packet, element)
   end
 
@@ -11753,7 +10123,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_5.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_5, range, display)
 
-  if show.complex_instrument_accepted_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_5.bits(range, value, packet, element)
   end
 
@@ -11842,7 +10212,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_4.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_4, range, display)
 
-  if show.complex_instrument_accepted_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_4.bits(range, value, packet, element)
   end
 
@@ -11931,7 +10301,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_3.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_3, range, display)
 
-  if show.complex_instrument_accepted_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_3.bits(range, value, packet, element)
   end
 
@@ -12020,7 +10390,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_2.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_2, range, display)
 
-  if show.complex_instrument_accepted_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_2.bits(range, value, packet, element)
   end
 
@@ -12109,7 +10479,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_1.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_byte_1, range, display)
 
-  if show.complex_instrument_accepted_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_byte_1.bits(range, value, packet, element)
   end
 
@@ -12353,7 +10723,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_optional_f
   local index = offset + size_of_complex_instrument_accepted_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.complex_instrument_accepted_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_optional_fields.fields(buffer, offset, packet, parent, size_of_complex_instrument_accepted_optional_fields)
     parent:set_len(size_of_complex_instrument_accepted_optional_fields)
@@ -12637,7 +11007,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_17.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_17, range, display)
 
-  if show.purge_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -12726,7 +11096,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_16.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_16, range, display)
 
-  if show.purge_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -12815,7 +11185,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_15.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_15, range, display)
 
-  if show.purge_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -12904,7 +11274,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_14.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_14, range, display)
 
-  if show.purge_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -12993,7 +11363,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_13.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_13, range, display)
 
-  if show.purge_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -13082,7 +11452,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_12.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_12, range, display)
 
-  if show.purge_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -13171,7 +11541,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_11.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_11, range, display)
 
-  if show.purge_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -13260,7 +11630,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_10.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_10, range, display)
 
-  if show.purge_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -13349,7 +11719,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_9.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_9, range, display)
 
-  if show.purge_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -13438,7 +11808,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_8.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_8, range, display)
 
-  if show.purge_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -13527,7 +11897,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_7.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_7, range, display)
 
-  if show.purge_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -13616,7 +11986,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_6.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_6, range, display)
 
-  if show.purge_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -13705,7 +12075,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_5.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_5, range, display)
 
-  if show.purge_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -13794,7 +12164,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_4.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_4, range, display)
 
-  if show.purge_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -13883,7 +12253,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_3.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_3, range, display)
 
-  if show.purge_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -13972,7 +12342,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_2.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_2, range, display)
 
-  if show.purge_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -14061,7 +12431,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_1.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_byte_1, range, display)
 
-  if show.purge_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -14287,7 +12657,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_optional_fields.dissect
   local index = offset + size_of_purge_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.purge_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
     parent:set_len(size_of_purge_rejected_optional_fields)
@@ -14453,7 +12823,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_17.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_17, range, display)
 
-  if show.trade_cancel_or_correct_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_17.bits(range, value, packet, element)
   end
 
@@ -14542,7 +12912,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_16.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_16, range, display)
 
-  if show.trade_cancel_or_correct_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_16.bits(range, value, packet, element)
   end
 
@@ -14631,7 +13001,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_15.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_15, range, display)
 
-  if show.trade_cancel_or_correct_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_15.bits(range, value, packet, element)
   end
 
@@ -14720,7 +13090,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_14.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_14, range, display)
 
-  if show.trade_cancel_or_correct_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_14.bits(range, value, packet, element)
   end
 
@@ -14809,7 +13179,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_13.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_13, range, display)
 
-  if show.trade_cancel_or_correct_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_13.bits(range, value, packet, element)
   end
 
@@ -14898,7 +13268,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_12.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_12, range, display)
 
-  if show.trade_cancel_or_correct_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_12.bits(range, value, packet, element)
   end
 
@@ -14987,7 +13357,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_11.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_11, range, display)
 
-  if show.trade_cancel_or_correct_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_11.bits(range, value, packet, element)
   end
 
@@ -15076,7 +13446,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_10.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_10, range, display)
 
-  if show.trade_cancel_or_correct_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_10.bits(range, value, packet, element)
   end
 
@@ -15165,7 +13535,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_9.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_9, range, display)
 
-  if show.trade_cancel_or_correct_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_9.bits(range, value, packet, element)
   end
 
@@ -15254,7 +13624,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_8.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_8, range, display)
 
-  if show.trade_cancel_or_correct_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_8.bits(range, value, packet, element)
   end
 
@@ -15343,7 +13713,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_7.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_7, range, display)
 
-  if show.trade_cancel_or_correct_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_7.bits(range, value, packet, element)
   end
 
@@ -15432,7 +13802,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_6.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_6, range, display)
 
-  if show.trade_cancel_or_correct_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_6.bits(range, value, packet, element)
   end
 
@@ -15521,7 +13891,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_5.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_5, range, display)
 
-  if show.trade_cancel_or_correct_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_5.bits(range, value, packet, element)
   end
 
@@ -15610,7 +13980,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_4.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_4, range, display)
 
-  if show.trade_cancel_or_correct_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_4.bits(range, value, packet, element)
   end
 
@@ -15699,7 +14069,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_3.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_3, range, display)
 
-  if show.trade_cancel_or_correct_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_3.bits(range, value, packet, element)
   end
 
@@ -15788,7 +14158,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_2.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_2, range, display)
 
-  if show.trade_cancel_or_correct_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_2.bits(range, value, packet, element)
   end
 
@@ -15877,7 +14247,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_1.dissect
   local display = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_byte_1, range, display)
 
-  if show.trade_cancel_or_correct_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_byte_1.bits(range, value, packet, element)
   end
 
@@ -16238,7 +14608,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_optional_field
   local index = offset + size_of_trade_cancel_or_correct_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_cancel_or_correct_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_optional_fields.fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
     parent:set_len(size_of_trade_cancel_or_correct_optional_fields)
@@ -16526,7 +14896,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_17.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_17, range, display)
 
-  if show.cancel_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -16615,7 +14985,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_16.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_16, range, display)
 
-  if show.cancel_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -16704,7 +15074,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_15.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_15, range, display)
 
-  if show.cancel_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -16793,7 +15163,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_14.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_14, range, display)
 
-  if show.cancel_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -16882,7 +15252,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_13.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_13, range, display)
 
-  if show.cancel_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -16971,7 +15341,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_12.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_12, range, display)
 
-  if show.cancel_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -17060,7 +15430,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_11.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_11, range, display)
 
-  if show.cancel_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -17149,7 +15519,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_10.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_10, range, display)
 
-  if show.cancel_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -17238,7 +15608,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_9.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_9, range, display)
 
-  if show.cancel_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -17327,7 +15697,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_8.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_8, range, display)
 
-  if show.cancel_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -17416,7 +15786,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_7.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_7, range, display)
 
-  if show.cancel_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -17505,7 +15875,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_6.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_6, range, display)
 
-  if show.cancel_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -17594,7 +15964,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_5.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_5, range, display)
 
-  if show.cancel_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -17683,7 +16053,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_4.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_4, range, display)
 
-  if show.cancel_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -17772,7 +16142,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_3.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_3, range, display)
 
-  if show.cancel_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -17861,7 +16231,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_2.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_2, range, display)
 
-  if show.cancel_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -17950,7 +16320,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_1.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_byte_1, range, display)
 
-  if show.cancel_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -18401,7 +16771,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_optional_fields.dissec
   local index = offset + size_of_cancel_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cancel_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
     parent:set_len(size_of_cancel_rejected_optional_fields)
@@ -18570,7 +16940,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_17.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_17, range, display)
 
-  if show.cross_order_cancelled_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_17.bits(range, value, packet, element)
   end
 
@@ -18659,7 +17029,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_16.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_16, range, display)
 
-  if show.cross_order_cancelled_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_16.bits(range, value, packet, element)
   end
 
@@ -18748,7 +17118,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_15.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_15, range, display)
 
-  if show.cross_order_cancelled_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_15.bits(range, value, packet, element)
   end
 
@@ -18837,7 +17207,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_14.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_14, range, display)
 
-  if show.cross_order_cancelled_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_14.bits(range, value, packet, element)
   end
 
@@ -18926,7 +17296,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_13.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_13, range, display)
 
-  if show.cross_order_cancelled_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_13.bits(range, value, packet, element)
   end
 
@@ -19015,7 +17385,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_12.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_12, range, display)
 
-  if show.cross_order_cancelled_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_12.bits(range, value, packet, element)
   end
 
@@ -19104,7 +17474,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_11.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_11, range, display)
 
-  if show.cross_order_cancelled_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_11.bits(range, value, packet, element)
   end
 
@@ -19193,7 +17563,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_10.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_10, range, display)
 
-  if show.cross_order_cancelled_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_10.bits(range, value, packet, element)
   end
 
@@ -19282,7 +17652,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_9.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_9, range, display)
 
-  if show.cross_order_cancelled_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_9.bits(range, value, packet, element)
   end
 
@@ -19371,7 +17741,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_8.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_8, range, display)
 
-  if show.cross_order_cancelled_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_8.bits(range, value, packet, element)
   end
 
@@ -19460,7 +17830,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_7.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_7, range, display)
 
-  if show.cross_order_cancelled_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_7.bits(range, value, packet, element)
   end
 
@@ -19549,7 +17919,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_6.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_6, range, display)
 
-  if show.cross_order_cancelled_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_6.bits(range, value, packet, element)
   end
 
@@ -19638,7 +18008,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_5.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_5, range, display)
 
-  if show.cross_order_cancelled_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_5.bits(range, value, packet, element)
   end
 
@@ -19727,7 +18097,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_4.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_4, range, display)
 
-  if show.cross_order_cancelled_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_4.bits(range, value, packet, element)
   end
 
@@ -19816,7 +18186,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_3.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_3, range, display)
 
-  if show.cross_order_cancelled_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_3.bits(range, value, packet, element)
   end
 
@@ -19905,7 +18275,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_2.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_2, range, display)
 
-  if show.cross_order_cancelled_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_2.bits(range, value, packet, element)
   end
 
@@ -19994,7 +18364,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_1.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_1, range, display)
 
-  if show.cross_order_cancelled_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_1.bits(range, value, packet, element)
   end
 
@@ -20430,7 +18800,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_optional_fields.
   local index = offset + size_of_cross_order_cancelled_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_cancelled_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_optional_fields.fields(buffer, offset, packet, parent, size_of_cross_order_cancelled_optional_fields)
     parent:set_len(size_of_cross_order_cancelled_optional_fields)
@@ -20661,7 +19031,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_17.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_17, range, display)
 
-  if show.order_cancelled_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_17.bits(range, value, packet, element)
   end
 
@@ -20750,7 +19120,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_16.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_16, range, display)
 
-  if show.order_cancelled_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_16.bits(range, value, packet, element)
   end
 
@@ -20839,7 +19209,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_15.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_15, range, display)
 
-  if show.order_cancelled_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_15.bits(range, value, packet, element)
   end
 
@@ -20928,7 +19298,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_14.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_14, range, display)
 
-  if show.order_cancelled_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_14.bits(range, value, packet, element)
   end
 
@@ -21017,7 +19387,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_13.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_13, range, display)
 
-  if show.order_cancelled_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_13.bits(range, value, packet, element)
   end
 
@@ -21106,7 +19476,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_12.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_12, range, display)
 
-  if show.order_cancelled_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_12.bits(range, value, packet, element)
   end
 
@@ -21195,7 +19565,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_11.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_11, range, display)
 
-  if show.order_cancelled_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_11.bits(range, value, packet, element)
   end
 
@@ -21284,7 +19654,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_10.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_10, range, display)
 
-  if show.order_cancelled_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_10.bits(range, value, packet, element)
   end
 
@@ -21373,7 +19743,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_9.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_9, range, display)
 
-  if show.order_cancelled_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_9.bits(range, value, packet, element)
   end
 
@@ -21462,7 +19832,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_8.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_8, range, display)
 
-  if show.order_cancelled_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_8.bits(range, value, packet, element)
   end
 
@@ -21551,7 +19921,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_7.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_7, range, display)
 
-  if show.order_cancelled_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_7.bits(range, value, packet, element)
   end
 
@@ -21640,7 +20010,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_6.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_6, range, display)
 
-  if show.order_cancelled_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_6.bits(range, value, packet, element)
   end
 
@@ -21729,7 +20099,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_5.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_5, range, display)
 
-  if show.order_cancelled_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_5.bits(range, value, packet, element)
   end
 
@@ -21818,7 +20188,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_4.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_4, range, display)
 
-  if show.order_cancelled_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_4.bits(range, value, packet, element)
   end
 
@@ -21907,7 +20277,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_3.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_3, range, display)
 
-  if show.order_cancelled_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_3.bits(range, value, packet, element)
   end
 
@@ -21996,7 +20366,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_2.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_2, range, display)
 
-  if show.order_cancelled_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_2.bits(range, value, packet, element)
   end
 
@@ -22085,7 +20455,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_1.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_byte_1, range, display)
 
-  if show.order_cancelled_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_byte_1.bits(range, value, packet, element)
   end
 
@@ -22815,7 +21185,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_optional_fields.dissec
   local index = offset + size_of_order_cancelled_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_cancelled_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_optional_fields.fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
     parent:set_len(size_of_order_cancelled_optional_fields)
@@ -22981,7 +21351,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_17.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_17, range, display)
 
-  if show.user_modify_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -23070,7 +21440,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_16.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_16, range, display)
 
-  if show.user_modify_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -23159,7 +21529,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_15.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_15, range, display)
 
-  if show.user_modify_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -23248,7 +21618,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_14.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_14, range, display)
 
-  if show.user_modify_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -23337,7 +21707,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_13.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_13, range, display)
 
-  if show.user_modify_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -23426,7 +21796,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_12.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_12, range, display)
 
-  if show.user_modify_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -23515,7 +21885,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_11.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_11, range, display)
 
-  if show.user_modify_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -23604,7 +21974,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_10.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_10, range, display)
 
-  if show.user_modify_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -23693,7 +22063,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_9.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_9, range, display)
 
-  if show.user_modify_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -23782,7 +22152,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_8.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_8, range, display)
 
-  if show.user_modify_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -23871,7 +22241,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_7.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_7, range, display)
 
-  if show.user_modify_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -23960,7 +22330,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_6.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_6, range, display)
 
-  if show.user_modify_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -24049,7 +22419,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_5.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_5, range, display)
 
-  if show.user_modify_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -24138,7 +22508,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_4.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_4, range, display)
 
-  if show.user_modify_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -24227,7 +22597,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_3.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_3, range, display)
 
-  if show.user_modify_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -24316,7 +22686,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_2.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_2, range, display)
 
-  if show.user_modify_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -24405,7 +22775,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_1.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_byte_1, range, display)
 
-  if show.user_modify_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -24667,7 +23037,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_optional_fields.d
   local index = offset + size_of_user_modify_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_modify_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
     parent:set_len(size_of_user_modify_rejected_optional_fields)
@@ -24907,7 +23277,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_17.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_17, range, display)
 
-  if show.order_restated_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_17.bits(range, value, packet, element)
   end
 
@@ -24996,7 +23366,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_16.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_16, range, display)
 
-  if show.order_restated_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_16.bits(range, value, packet, element)
   end
 
@@ -25085,7 +23455,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_15.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_15, range, display)
 
-  if show.order_restated_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_15.bits(range, value, packet, element)
   end
 
@@ -25174,7 +23544,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_14.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_14, range, display)
 
-  if show.order_restated_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_14.bits(range, value, packet, element)
   end
 
@@ -25263,7 +23633,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_13.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_13, range, display)
 
-  if show.order_restated_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_13.bits(range, value, packet, element)
   end
 
@@ -25352,7 +23722,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_12.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_12, range, display)
 
-  if show.order_restated_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_12.bits(range, value, packet, element)
   end
 
@@ -25441,7 +23811,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_11.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_11, range, display)
 
-  if show.order_restated_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_11.bits(range, value, packet, element)
   end
 
@@ -25530,7 +23900,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_10.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_10, range, display)
 
-  if show.order_restated_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_10.bits(range, value, packet, element)
   end
 
@@ -25619,7 +23989,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_9.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_9, range, display)
 
-  if show.order_restated_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_9.bits(range, value, packet, element)
   end
 
@@ -25708,7 +24078,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_8.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_8, range, display)
 
-  if show.order_restated_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_8.bits(range, value, packet, element)
   end
 
@@ -25797,7 +24167,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_7.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_7, range, display)
 
-  if show.order_restated_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_7.bits(range, value, packet, element)
   end
 
@@ -25886,7 +24256,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_6.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_6, range, display)
 
-  if show.order_restated_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_6.bits(range, value, packet, element)
   end
 
@@ -25975,7 +24345,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_5.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_5, range, display)
 
-  if show.order_restated_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_5.bits(range, value, packet, element)
   end
 
@@ -26064,7 +24434,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_4.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_4, range, display)
 
-  if show.order_restated_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_4.bits(range, value, packet, element)
   end
 
@@ -26153,7 +24523,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_3.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_3, range, display)
 
-  if show.order_restated_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_3.bits(range, value, packet, element)
   end
 
@@ -26242,7 +24612,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_2.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_2, range, display)
 
-  if show.order_restated_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_2.bits(range, value, packet, element)
   end
 
@@ -26331,7 +24701,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_1.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_byte_1, range, display)
 
-  if show.order_restated_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_restated_byte_1.bits(range, value, packet, element)
   end
 
@@ -27061,7 +25431,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_optional_fields.dissect
   local index = offset + size_of_order_restated_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_restated_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_optional_fields.fields(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
     parent:set_len(size_of_order_restated_optional_fields)
@@ -27230,7 +25600,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_17.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_17, range, display)
 
-  if show.order_modified_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_17.bits(range, value, packet, element)
   end
 
@@ -27319,7 +25689,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_16.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_16, range, display)
 
-  if show.order_modified_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_16.bits(range, value, packet, element)
   end
 
@@ -27408,7 +25778,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_15.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_15, range, display)
 
-  if show.order_modified_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_15.bits(range, value, packet, element)
   end
 
@@ -27497,7 +25867,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_14.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_14, range, display)
 
-  if show.order_modified_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_14.bits(range, value, packet, element)
   end
 
@@ -27586,7 +25956,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_13.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_13, range, display)
 
-  if show.order_modified_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_13.bits(range, value, packet, element)
   end
 
@@ -27675,7 +26045,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_12.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_12, range, display)
 
-  if show.order_modified_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_12.bits(range, value, packet, element)
   end
 
@@ -27764,7 +26134,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_11.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_11, range, display)
 
-  if show.order_modified_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_11.bits(range, value, packet, element)
   end
 
@@ -27853,7 +26223,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_10.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_10, range, display)
 
-  if show.order_modified_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_10.bits(range, value, packet, element)
   end
 
@@ -27942,7 +26312,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_9.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_9, range, display)
 
-  if show.order_modified_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_9.bits(range, value, packet, element)
   end
 
@@ -28031,7 +26401,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_8.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_8, range, display)
 
-  if show.order_modified_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_8.bits(range, value, packet, element)
   end
 
@@ -28120,7 +26490,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_7.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_7, range, display)
 
-  if show.order_modified_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_7.bits(range, value, packet, element)
   end
 
@@ -28209,7 +26579,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_6.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_6, range, display)
 
-  if show.order_modified_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_6.bits(range, value, packet, element)
   end
 
@@ -28298,7 +26668,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_5.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_5, range, display)
 
-  if show.order_modified_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_5.bits(range, value, packet, element)
   end
 
@@ -28387,7 +26757,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_4.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_4, range, display)
 
-  if show.order_modified_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_4.bits(range, value, packet, element)
   end
 
@@ -28476,7 +26846,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_3.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_3, range, display)
 
-  if show.order_modified_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_3.bits(range, value, packet, element)
   end
 
@@ -28565,7 +26935,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_2.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_2, range, display)
 
-  if show.order_modified_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_2.bits(range, value, packet, element)
   end
 
@@ -28654,7 +27024,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_1.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_byte_1, range, display)
 
-  if show.order_modified_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_modified_byte_1.bits(range, value, packet, element)
   end
 
@@ -29420,7 +27790,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_optional_fields.dissect
   local index = offset + size_of_order_modified_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modified_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_optional_fields.fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
     parent:set_len(size_of_order_modified_optional_fields)
@@ -29645,7 +28015,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_17.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_17, range, display)
 
-  if show.cross_order_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -29734,7 +28104,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_16.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_16, range, display)
 
-  if show.cross_order_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -29823,7 +28193,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_15.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_15, range, display)
 
-  if show.cross_order_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -29912,7 +28282,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_14.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_14, range, display)
 
-  if show.cross_order_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -30001,7 +28371,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_13.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_13, range, display)
 
-  if show.cross_order_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -30090,7 +28460,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_12.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_12, range, display)
 
-  if show.cross_order_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -30179,7 +28549,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_11.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_11, range, display)
 
-  if show.cross_order_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -30268,7 +28638,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_10.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_10, range, display)
 
-  if show.cross_order_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -30357,7 +28727,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_9.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_9, range, display)
 
-  if show.cross_order_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -30446,7 +28816,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_8.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_8, range, display)
 
-  if show.cross_order_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -30535,7 +28905,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_7.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_7, range, display)
 
-  if show.cross_order_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -30624,7 +28994,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_6.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_6, range, display)
 
-  if show.cross_order_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -30713,7 +29083,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_5.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_5, range, display)
 
-  if show.cross_order_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -30802,7 +29172,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_4.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_4, range, display)
 
-  if show.cross_order_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -30891,7 +29261,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_3.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_3, range, display)
 
-  if show.cross_order_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -30980,7 +29350,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_2.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_2, range, display)
 
-  if show.cross_order_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -31069,7 +29439,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_1.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_1, range, display)
 
-  if show.cross_order_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -31439,7 +29809,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_optional_fields.d
   local index = offset + size_of_cross_order_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_cross_order_rejected_optional_fields)
     parent:set_len(size_of_cross_order_rejected_optional_fields)
@@ -31608,7 +29978,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_17.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_17, range, display)
 
-  if show.order_rejected_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_17.bits(range, value, packet, element)
   end
 
@@ -31697,7 +30067,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_16.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_16, range, display)
 
-  if show.order_rejected_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_16.bits(range, value, packet, element)
   end
 
@@ -31786,7 +30156,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_15.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_15, range, display)
 
-  if show.order_rejected_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_15.bits(range, value, packet, element)
   end
 
@@ -31875,7 +30245,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_14.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_14, range, display)
 
-  if show.order_rejected_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_14.bits(range, value, packet, element)
   end
 
@@ -31964,7 +30334,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_13.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_13, range, display)
 
-  if show.order_rejected_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_13.bits(range, value, packet, element)
   end
 
@@ -32053,7 +30423,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_12.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_12, range, display)
 
-  if show.order_rejected_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_12.bits(range, value, packet, element)
   end
 
@@ -32142,7 +30512,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_11.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_11, range, display)
 
-  if show.order_rejected_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_11.bits(range, value, packet, element)
   end
 
@@ -32231,7 +30601,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_10.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_10, range, display)
 
-  if show.order_rejected_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_10.bits(range, value, packet, element)
   end
 
@@ -32320,7 +30690,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_9.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_9, range, display)
 
-  if show.order_rejected_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_9.bits(range, value, packet, element)
   end
 
@@ -32409,7 +30779,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_8.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_8, range, display)
 
-  if show.order_rejected_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_8.bits(range, value, packet, element)
   end
 
@@ -32498,7 +30868,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_7.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_7, range, display)
 
-  if show.order_rejected_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_7.bits(range, value, packet, element)
   end
 
@@ -32587,7 +30957,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_6.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_6, range, display)
 
-  if show.order_rejected_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_6.bits(range, value, packet, element)
   end
 
@@ -32676,7 +31046,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_5.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_5, range, display)
 
-  if show.order_rejected_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_5.bits(range, value, packet, element)
   end
 
@@ -32765,7 +31135,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_4.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_4, range, display)
 
-  if show.order_rejected_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_4.bits(range, value, packet, element)
   end
 
@@ -32854,7 +31224,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_3.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_3, range, display)
 
-  if show.order_rejected_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_3.bits(range, value, packet, element)
   end
 
@@ -32943,7 +31313,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_2.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_2, range, display)
 
-  if show.order_rejected_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_2.bits(range, value, packet, element)
   end
 
@@ -33032,7 +31402,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_1.dissect = functi
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_byte_1, range, display)
 
-  if show.order_rejected_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_byte_1.bits(range, value, packet, element)
   end
 
@@ -33708,7 +32078,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_optional_fields.dissect
   local index = offset + size_of_order_rejected_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_rejected_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_optional_fields.fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
     parent:set_len(size_of_order_rejected_optional_fields)
@@ -33815,7 +32185,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_result_group.fields = function(b
   local index = offset
 
   -- Implicit Quote Result Group Index
-  if quote_result_group_index ~= nil and show.quote_result_group_index then
+  if quote_result_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.quote_result_group_index, quote_result_group_index)
     iteration:set_generated()
   end
@@ -33837,7 +32207,7 @@ end
 
 -- Dissect: Quote Result Group
 cboe_c1options_binaryorderentry_boe_v2_10.quote_result_group.dissect = function(buffer, offset, packet, parent, quote_result_group_index)
-  if show.quote_result_group then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.quote_result_group, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.quote_result_group.fields(buffer, offset, packet, parent, quote_result_group_index)
@@ -34002,7 +32372,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_17.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_17, range, display)
 
-  if show.cross_order_acknowledgment_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_17.bits(range, value, packet, element)
   end
 
@@ -34091,7 +32461,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_16.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_16, range, display)
 
-  if show.cross_order_acknowledgment_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_16.bits(range, value, packet, element)
   end
 
@@ -34180,7 +32550,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_15.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_15, range, display)
 
-  if show.cross_order_acknowledgment_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_15.bits(range, value, packet, element)
   end
 
@@ -34269,7 +32639,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_14.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_14, range, display)
 
-  if show.cross_order_acknowledgment_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_14.bits(range, value, packet, element)
   end
 
@@ -34358,7 +32728,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_13.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_13, range, display)
 
-  if show.cross_order_acknowledgment_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_13.bits(range, value, packet, element)
   end
 
@@ -34447,7 +32817,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_12.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_12, range, display)
 
-  if show.cross_order_acknowledgment_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_12.bits(range, value, packet, element)
   end
 
@@ -34536,7 +32906,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_11.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_11, range, display)
 
-  if show.cross_order_acknowledgment_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_11.bits(range, value, packet, element)
   end
 
@@ -34625,7 +32995,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_10.dis
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_10, range, display)
 
-  if show.cross_order_acknowledgment_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_10.bits(range, value, packet, element)
   end
 
@@ -34714,7 +33084,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_9.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_9, range, display)
 
-  if show.cross_order_acknowledgment_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_9.bits(range, value, packet, element)
   end
 
@@ -34803,7 +33173,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_8.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_8, range, display)
 
-  if show.cross_order_acknowledgment_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_8.bits(range, value, packet, element)
   end
 
@@ -34892,7 +33262,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_7.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_7, range, display)
 
-  if show.cross_order_acknowledgment_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_7.bits(range, value, packet, element)
   end
 
@@ -34981,7 +33351,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_6.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_6, range, display)
 
-  if show.cross_order_acknowledgment_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_6.bits(range, value, packet, element)
   end
 
@@ -35070,7 +33440,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_5.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_5, range, display)
 
-  if show.cross_order_acknowledgment_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_5.bits(range, value, packet, element)
   end
 
@@ -35159,7 +33529,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_4.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_4, range, display)
 
-  if show.cross_order_acknowledgment_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_4.bits(range, value, packet, element)
   end
 
@@ -35248,7 +33618,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_3.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_3, range, display)
 
-  if show.cross_order_acknowledgment_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_3.bits(range, value, packet, element)
   end
 
@@ -35337,7 +33707,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_2.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_2, range, display)
 
-  if show.cross_order_acknowledgment_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_2.bits(range, value, packet, element)
   end
 
@@ -35426,7 +33796,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_1.diss
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_byte_1, range, display)
 
-  if show.cross_order_acknowledgment_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_byte_1.bits(range, value, packet, element)
   end
 
@@ -35895,7 +34265,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_optional_fi
   local index = offset + size_of_cross_order_acknowledgment_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_acknowledgment_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_optional_fields.fields(buffer, offset, packet, parent, size_of_cross_order_acknowledgment_optional_fields)
     parent:set_len(size_of_cross_order_acknowledgment_optional_fields)
@@ -36061,7 +34431,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_17.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_17, range, display)
 
-  if show.order_acknowledgment_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_17.bits(range, value, packet, element)
   end
 
@@ -36150,7 +34520,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_16.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_16, range, display)
 
-  if show.order_acknowledgment_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_16.bits(range, value, packet, element)
   end
 
@@ -36239,7 +34609,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_15.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_15, range, display)
 
-  if show.order_acknowledgment_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_15.bits(range, value, packet, element)
   end
 
@@ -36328,7 +34698,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_14.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_14, range, display)
 
-  if show.order_acknowledgment_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_14.bits(range, value, packet, element)
   end
 
@@ -36417,7 +34787,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_13.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_13, range, display)
 
-  if show.order_acknowledgment_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_13.bits(range, value, packet, element)
   end
 
@@ -36506,7 +34876,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_12.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_12, range, display)
 
-  if show.order_acknowledgment_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_12.bits(range, value, packet, element)
   end
 
@@ -36595,7 +34965,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_11.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_11, range, display)
 
-  if show.order_acknowledgment_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_11.bits(range, value, packet, element)
   end
 
@@ -36684,7 +35054,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_10.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_10, range, display)
 
-  if show.order_acknowledgment_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_10.bits(range, value, packet, element)
   end
 
@@ -36773,7 +35143,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_9.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_9, range, display)
 
-  if show.order_acknowledgment_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_9.bits(range, value, packet, element)
   end
 
@@ -36862,7 +35232,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_8.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_8, range, display)
 
-  if show.order_acknowledgment_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_8.bits(range, value, packet, element)
   end
 
@@ -36951,7 +35321,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_7.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_7, range, display)
 
-  if show.order_acknowledgment_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_7.bits(range, value, packet, element)
   end
 
@@ -37040,7 +35410,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_6.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_6, range, display)
 
-  if show.order_acknowledgment_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_6.bits(range, value, packet, element)
   end
 
@@ -37129,7 +35499,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_5.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_5, range, display)
 
-  if show.order_acknowledgment_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_5.bits(range, value, packet, element)
   end
 
@@ -37218,7 +35588,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_4.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_4, range, display)
 
-  if show.order_acknowledgment_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_4.bits(range, value, packet, element)
   end
 
@@ -37307,7 +35677,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_3.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_3, range, display)
 
-  if show.order_acknowledgment_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_3.bits(range, value, packet, element)
   end
 
@@ -37396,7 +35766,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_2.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_2, range, display)
 
-  if show.order_acknowledgment_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_2.bits(range, value, packet, element)
   end
 
@@ -37485,7 +35855,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_1.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_byte_1, range, display)
 
-  if show.order_acknowledgment_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_byte_1.bits(range, value, packet, element)
   end
 
@@ -38251,7 +36621,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_optional_fields.d
   local index = offset + size_of_order_acknowledgment_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_acknowledgment_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_optional_fields.fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
     parent:set_len(size_of_order_acknowledgment_optional_fields)
@@ -38669,7 +37039,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_complex_instrument_byte_1.dissect 
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_complex_instrument_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_complex_instrument_byte_1, range, display)
 
-  if show.new_complex_instrument_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_complex_instrument_byte_1.bits(range, value, packet, element)
   end
 
@@ -38746,7 +37116,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_complex_instrument_optional_fields
   local index = offset + size_of_new_complex_instrument_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_complex_instrument_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_complex_instrument_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.new_complex_instrument_optional_fields.fields(buffer, offset, packet, parent, size_of_new_complex_instrument_optional_fields)
     parent:set_len(size_of_new_complex_instrument_optional_fields)
@@ -38968,7 +37338,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_2.dissect = function
   local display = cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.modify_order_byte_2, range, display)
 
-  if show.modify_order_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_2.bits(range, value, packet, element)
   end
 
@@ -39057,7 +37427,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_1.dissect = function
   local display = cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.modify_order_byte_1, range, display)
 
-  if show.modify_order_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.modify_order_byte_1.bits(range, value, packet, element)
   end
 
@@ -39199,7 +37569,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.modify_order_optional_fields.dissect =
   local index = offset + size_of_modify_order_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.modify_order_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.modify_order_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.modify_order_optional_fields.fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
     parent:set_len(size_of_modify_order_optional_fields)
@@ -39296,7 +37666,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.short_quote_update.fields = function(b
   local index = offset
 
   -- Implicit Short Quote Update Index
-  if short_quote_update_index ~= nil and show.short_quote_update_index then
+  if short_quote_update_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.short_quote_update_index, short_quote_update_index)
     iteration:set_generated()
   end
@@ -39324,7 +37694,7 @@ end
 
 -- Dissect: Short Quote Update
 cboe_c1options_binaryorderentry_boe_v2_10.short_quote_update.dissect = function(buffer, offset, packet, parent, short_quote_update_index)
-  if show.short_quote_update then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.short_quote_update, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.short_quote_update.fields(buffer, offset, packet, parent, short_quote_update_index)
@@ -39444,7 +37814,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_update.fields = function(buffer,
   local index = offset
 
   -- Implicit Quote Update Index
-  if quote_update_index ~= nil and show.quote_update_index then
+  if quote_update_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.quote_update_index, quote_update_index)
     iteration:set_generated()
   end
@@ -39472,7 +37842,7 @@ end
 
 -- Dissect: Quote Update
 cboe_c1options_binaryorderentry_boe_v2_10.quote_update.dissect = function(buffer, offset, packet, parent, quote_update_index)
-  if show.quote_update then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.quote_update, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.quote_update.fields(buffer, offset, packet, parent, quote_update_index)
@@ -39720,7 +38090,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_2.dissect = function
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_order_byte_2, range, display)
 
-  if show.cancel_order_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_2.bits(range, value, packet, element)
   end
 
@@ -39809,7 +38179,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_1.dissect = function
   local display = cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_order_byte_1, range, display)
 
-  if show.cancel_order_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_byte_1.bits(range, value, packet, element)
   end
 
@@ -39924,7 +38294,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_optional_fields.dissect =
   local index = offset + size_of_cancel_order_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cancel_order_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_order_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cancel_order_optional_fields.fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
     parent:set_len(size_of_cancel_order_optional_fields)
@@ -40081,7 +38451,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_5.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_byte_5, range, display)
 
-  if show.new_order_cross_multileg_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_5.bits(range, value, packet, element)
   end
 
@@ -40170,7 +38540,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_4.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_byte_4, range, display)
 
-  if show.new_order_cross_multileg_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_4.bits(range, value, packet, element)
   end
 
@@ -40259,7 +38629,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_3.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_byte_3, range, display)
 
-  if show.new_order_cross_multileg_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_3.bits(range, value, packet, element)
   end
 
@@ -40348,7 +38718,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_2.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_byte_2, range, display)
 
-  if show.new_order_cross_multileg_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_2.bits(range, value, packet, element)
   end
 
@@ -40437,7 +38807,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_1.dissec
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_byte_1, range, display)
 
-  if show.new_order_cross_multileg_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_byte_1.bits(range, value, packet, element)
   end
 
@@ -40774,7 +39144,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_optional_fiel
   local index = offset + size_of_new_order_cross_multileg_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_cross_multileg_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_multileg_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_optional_fields.fields(buffer, offset, packet, parent, size_of_new_order_cross_multileg_optional_fields)
     parent:set_len(size_of_new_order_cross_multileg_optional_fields)
@@ -41008,7 +39378,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_4.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_byte_4, range, display)
 
-  if show.new_order_cross_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_4.bits(range, value, packet, element)
   end
 
@@ -41097,7 +39467,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_3.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_byte_3, range, display)
 
-  if show.new_order_cross_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_3.bits(range, value, packet, element)
   end
 
@@ -41186,7 +39556,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_2.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_byte_2, range, display)
 
-  if show.new_order_cross_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_2.bits(range, value, packet, element)
   end
 
@@ -41275,7 +39645,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_1.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_byte_1, range, display)
 
-  if show.new_order_cross_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_byte_1.bits(range, value, packet, element)
   end
 
@@ -41592,7 +39962,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_optional_fields.dissec
   local index = offset + size_of_new_order_cross_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_cross_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_cross_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_optional_fields.fields(buffer, offset, packet, parent, size_of_new_order_cross_optional_fields)
     parent:set_len(size_of_new_order_cross_optional_fields)
@@ -41761,7 +40131,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_9.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_9, range, display)
 
-  if show.new_order_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_9.bits(range, value, packet, element)
   end
 
@@ -41850,7 +40220,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_8.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_8, range, display)
 
-  if show.new_order_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_8.bits(range, value, packet, element)
   end
 
@@ -41939,7 +40309,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_7.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_7, range, display)
 
-  if show.new_order_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_7.bits(range, value, packet, element)
   end
 
@@ -42028,7 +40398,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_6.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_6, range, display)
 
-  if show.new_order_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_6.bits(range, value, packet, element)
   end
 
@@ -42117,7 +40487,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_5.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_5, range, display)
 
-  if show.new_order_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_5.bits(range, value, packet, element)
   end
 
@@ -42206,7 +40576,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_4.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_4, range, display)
 
-  if show.new_order_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_4.bits(range, value, packet, element)
   end
 
@@ -42295,7 +40665,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_3.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_3, range, display)
 
-  if show.new_order_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_3.bits(range, value, packet, element)
   end
 
@@ -42384,7 +40754,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_2.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_2, range, display)
 
-  if show.new_order_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_2.bits(range, value, packet, element)
   end
 
@@ -42473,7 +40843,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_1.dissect = function(bu
   local display = cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_byte_1, range, display)
 
-  if show.new_order_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.new_order_byte_1.bits(range, value, packet, element)
   end
 
@@ -42980,7 +41350,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_optional_fields.dissect = fu
   local index = offset + size_of_new_order_optional_fields
 
   -- Optionally add group/struct element to protocol tree
-  if show.new_order_optional_fields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.new_order_optional_fields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.new_order_optional_fields.fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
     parent:set_len(size_of_new_order_optional_fields)
@@ -43079,7 +41449,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.unit_sequence.fields = function(buffer
   local index = offset
 
   -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil and show.unit_sequence_index then
+  if unit_sequence_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.unit_sequence_index, unit_sequence_index)
     iteration:set_generated()
   end
@@ -43095,7 +41465,7 @@ end
 
 -- Dissect: Unit Sequence
 cboe_c1options_binaryorderentry_boe_v2_10.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
-  if show.unit_sequence then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.unit_sequence, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
@@ -43396,7 +41766,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_return_bit
   local index = offset + size_of_complex_instrument_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.complex_instrument_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_complex_instrument_rejected_return_bitfields)
     parent:set_len(size_of_complex_instrument_rejected_return_bitfields)
@@ -43633,7 +42003,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_return_bit
   local index = offset + size_of_complex_instrument_accepted_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.complex_instrument_accepted_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.complex_instrument_accepted_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_return_bitfields.fields(buffer, offset, packet, parent, size_of_complex_instrument_accepted_return_bitfields)
     parent:set_len(size_of_complex_instrument_accepted_return_bitfields)
@@ -43870,7 +42240,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_return_bitfields.dissec
   local index = offset + size_of_purge_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.purge_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.purge_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.purge_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
     parent:set_len(size_of_purge_rejected_return_bitfields)
@@ -44107,7 +42477,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_return_bitfiel
   local index = offset + size_of_trade_cancel_or_correct_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.trade_cancel_or_correct_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_return_bitfields.fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
     parent:set_len(size_of_trade_cancel_or_correct_return_bitfields)
@@ -44205,7 +42575,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_17.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_17.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_17, range, display)
 
-  if show.order_execution_byte_17 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_17.bits(range, value, packet, element)
   end
 
@@ -44294,7 +42664,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_16.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_16.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_16, range, display)
 
-  if show.order_execution_byte_16 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_16.bits(range, value, packet, element)
   end
 
@@ -44383,7 +42753,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_15.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_15.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_15, range, display)
 
-  if show.order_execution_byte_15 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_15.bits(range, value, packet, element)
   end
 
@@ -44472,7 +42842,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_14.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_14.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_14, range, display)
 
-  if show.order_execution_byte_14 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_14.bits(range, value, packet, element)
   end
 
@@ -44561,7 +42931,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_13.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_13.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_13, range, display)
 
-  if show.order_execution_byte_13 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_13.bits(range, value, packet, element)
   end
 
@@ -44650,7 +43020,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_12.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_12.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_12, range, display)
 
-  if show.order_execution_byte_12 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_12.bits(range, value, packet, element)
   end
 
@@ -44739,7 +43109,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_11.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_11.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_11, range, display)
 
-  if show.order_execution_byte_11 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_11.bits(range, value, packet, element)
   end
 
@@ -44828,7 +43198,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_10.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_10.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_10, range, display)
 
-  if show.order_execution_byte_10 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_10.bits(range, value, packet, element)
   end
 
@@ -44917,7 +43287,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_9.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_9.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_9, range, display)
 
-  if show.order_execution_byte_9 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_9.bits(range, value, packet, element)
   end
 
@@ -45006,7 +43376,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_8.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_8.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_8, range, display)
 
-  if show.order_execution_byte_8 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_8.bits(range, value, packet, element)
   end
 
@@ -45095,7 +43465,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_7.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_7.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_7, range, display)
 
-  if show.order_execution_byte_7 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_7.bits(range, value, packet, element)
   end
 
@@ -45184,7 +43554,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_6.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_6.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_6, range, display)
 
-  if show.order_execution_byte_6 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_6.bits(range, value, packet, element)
   end
 
@@ -45273,7 +43643,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_5.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_5.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_5, range, display)
 
-  if show.order_execution_byte_5 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_5.bits(range, value, packet, element)
   end
 
@@ -45362,7 +43732,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_4.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_4.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_4, range, display)
 
-  if show.order_execution_byte_4 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_4.bits(range, value, packet, element)
   end
 
@@ -45451,7 +43821,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_3.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_3.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_3, range, display)
 
-  if show.order_execution_byte_3 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_3.bits(range, value, packet, element)
   end
 
@@ -45540,7 +43910,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_2.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_2.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_2, range, display)
 
-  if show.order_execution_byte_2 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_2.bits(range, value, packet, element)
   end
 
@@ -45629,7 +43999,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_1.dissect = funct
   local display = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_1.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_byte_1, range, display)
 
-  if show.order_execution_byte_1 then
+  if show.structs then
     cboe_c1options_binaryorderentry_boe_v2_10.order_execution_byte_1.bits(range, value, packet, element)
   end
 
@@ -45857,7 +44227,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_return_bitfields.disse
   local index = offset + size_of_order_execution_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_execution_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_execution_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_execution_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
     parent:set_len(size_of_order_execution_return_bitfields)
@@ -46094,7 +44464,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_return_bitfields.disse
   local index = offset + size_of_cancel_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cancel_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cancel_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
     parent:set_len(size_of_cancel_rejected_return_bitfields)
@@ -46331,7 +44701,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_return_bitfields
   local index = offset + size_of_cross_order_cancelled_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_cancelled_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_return_bitfields.fields(buffer, offset, packet, parent, size_of_cross_order_cancelled_return_bitfields)
     parent:set_len(size_of_cross_order_cancelled_return_bitfields)
@@ -46568,7 +44938,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_return_bitfields.disse
   local index = offset + size_of_order_cancelled_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_cancelled_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_cancelled_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
     parent:set_len(size_of_order_cancelled_return_bitfields)
@@ -46805,7 +45175,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_return_bitfields.
   local index = offset + size_of_user_modify_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.user_modify_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.user_modify_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
     parent:set_len(size_of_user_modify_rejected_return_bitfields)
@@ -47042,7 +45412,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_return_bitfields.dissec
   local index = offset + size_of_order_restated_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_restated_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_restated_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_restated_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
     parent:set_len(size_of_order_restated_return_bitfields)
@@ -47279,7 +45649,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_return_bitfields.dissec
   local index = offset + size_of_order_modified_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_modified_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_modified_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_modified_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
     parent:set_len(size_of_order_modified_return_bitfields)
@@ -47516,7 +45886,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfields.
   local index = offset + size_of_cross_order_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_cross_order_rejected_return_bitfields)
     parent:set_len(size_of_cross_order_rejected_return_bitfields)
@@ -47753,7 +46123,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_return_bitfields.dissec
   local index = offset + size_of_order_rejected_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_rejected_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_rejected_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
     parent:set_len(size_of_order_rejected_return_bitfields)
@@ -47990,7 +46360,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_return_bitf
   local index = offset + size_of_cross_order_acknowledgment_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.cross_order_acknowledgment_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_return_bitfields.fields(buffer, offset, packet, parent, size_of_cross_order_acknowledgment_return_bitfields)
     parent:set_len(size_of_cross_order_acknowledgment_return_bitfields)
@@ -48227,7 +46597,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_return_bitfields.
   local index = offset + size_of_order_acknowledgment_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.order_acknowledgment_return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.order_acknowledgment_return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_return_bitfields.fields(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
     parent:set_len(size_of_order_acknowledgment_return_bitfields)
@@ -48349,7 +46719,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.return_bitfields.dissect = function(bu
   local index = offset + size_of_return_bitfields
 
   -- Optionally add group/struct element to protocol tree
-  if show.return_bitfields then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.return_bitfields, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.return_bitfields.fields(buffer, offset, packet, parent, size_of_return_bitfields)
     parent:set_len(size_of_return_bitfields)
@@ -48408,7 +46778,7 @@ end
 
 -- Dissect: Unit Sequences
 cboe_c1options_binaryorderentry_boe_v2_10.unit_sequences.dissect = function(buffer, offset, packet, parent)
-  if show.unit_sequences then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.unit_sequences, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.unit_sequences.fields(buffer, offset, packet, parent)
@@ -48469,7 +46839,7 @@ end
 
 -- Dissect: Param Header
 cboe_c1options_binaryorderentry_boe_v2_10.param_header.dissect = function(buffer, offset, packet, parent)
-  if show.param_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.param_header, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.param_header.fields(buffer, offset, packet, parent)
@@ -48498,7 +46868,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.param_group.fields = function(buffer, 
   local index = offset
 
   -- Implicit Param Group Index
-  if param_group_index ~= nil and show.param_group_index then
+  if param_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.param_group_index, param_group_index)
     iteration:set_generated()
   end
@@ -48520,7 +46890,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.param_group.dissect = function(buffer,
   local index = offset + size_of_param_group
 
   -- Optionally add group/struct element to protocol tree
-  if show.param_group then
+  if show.structs then
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.param_group, buffer(offset, 0))
     local current = cboe_c1options_binaryorderentry_boe_v2_10.param_group.fields(buffer, offset, packet, parent, size_of_param_group, param_group_index)
     parent:set_len(size_of_param_group)
@@ -48918,7 +47288,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_binaryorderentry_boe_v2_10.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe_v2_10.message_header.fields(buffer, offset, packet, parent)

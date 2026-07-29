@@ -46,53 +46,18 @@ omi_txse_txseequities_framing_rake_v1_0.fields.unsequenced_message = ProtoField.
 local show = {}
 
 -- Txse TxseEquities Framing Rake 1.0 Element Dissection Options
-show.debug_message = true
-show.logon_request_packet = true
-show.logon_response_message = true
-show.packet = true
-show.rake_message_header = true
-show.rake_tcp_message = true
-show.tcp_sequenced_message = true
-show.tcp_unsequenced_message = true
+show.structs = true
 
 -- Register Txse TxseEquities Framing Rake 1.0 Show Options
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_debug_message = Pref.bool("Show Debug Message", show.debug_message, "Parse and add Debug Message to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_request_packet = Pref.bool("Show Logon Request Packet", show.logon_request_packet, "Parse and add Logon Request Packet to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_response_message = Pref.bool("Show Logon Response Message", show.logon_response_message, "Parse and add Logon Response Message to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_message_header = Pref.bool("Show Rake Message Header", show.rake_message_header, "Parse and add Rake Message Header to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_tcp_message = Pref.bool("Show Rake Tcp Message", show.rake_tcp_message, "Parse and add Rake Tcp Message to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_sequenced_message = Pref.bool("Show Tcp Sequenced Message", show.tcp_sequenced_message, "Parse and add Tcp Sequenced Message to protocol tree")
-omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_unsequenced_message = Pref.bool("Show Tcp Unsequenced Message", show.tcp_unsequenced_message, "Parse and add Tcp Unsequenced Message to protocol tree")
+omi_txse_txseequities_framing_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
 function omi_txse_txseequities_framing_rake_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.debug_message ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_debug_message then
-    show.debug_message = omi_txse_txseequities_framing_rake_v1_0.prefs.show_debug_message
-  end
-  if show.logon_request_packet ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_request_packet then
-    show.logon_request_packet = omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_request_packet
-  end
-  if show.logon_response_message ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_response_message then
-    show.logon_response_message = omi_txse_txseequities_framing_rake_v1_0.prefs.show_logon_response_message
-  end
-  if show.packet ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_packet then
-    show.packet = omi_txse_txseequities_framing_rake_v1_0.prefs.show_packet
-  end
-  if show.rake_message_header ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_message_header then
-    show.rake_message_header = omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_message_header
-  end
-  if show.rake_tcp_message ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_tcp_message then
-    show.rake_tcp_message = omi_txse_txseequities_framing_rake_v1_0.prefs.show_rake_tcp_message
-  end
-  if show.tcp_sequenced_message ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_sequenced_message then
-    show.tcp_sequenced_message = omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_sequenced_message
-  end
-  if show.tcp_unsequenced_message ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_unsequenced_message then
-    show.tcp_unsequenced_message = omi_txse_txseequities_framing_rake_v1_0.prefs.show_tcp_unsequenced_message
+  if show.structs ~= omi_txse_txseequities_framing_rake_v1_0.prefs.show_structs then
+    show.structs = omi_txse_txseequities_framing_rake_v1_0.prefs.show_structs
   end
 end
 
@@ -529,7 +494,7 @@ txse_txseequities_framing_rake_v1_0.tcp_sequenced_message.dissect = function(buf
   local index = offset + size_of_tcp_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.tcp_sequenced_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.tcp_sequenced_message, buffer(offset, 0))
     local current = txse_txseequities_framing_rake_v1_0.tcp_sequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_sequenced_message)
     parent:set_len(size_of_tcp_sequenced_message)
@@ -589,7 +554,7 @@ end
 
 -- Dissect: Logon Response Message
 txse_txseequities_framing_rake_v1_0.logon_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.logon_response_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.logon_response_message, buffer(offset, 0))
     local index = txse_txseequities_framing_rake_v1_0.logon_response_message.fields(buffer, offset, packet, parent)
@@ -641,7 +606,7 @@ end
 
 -- Dissect: Debug Message
 txse_txseequities_framing_rake_v1_0.debug_message.dissect = function(buffer, offset, packet, parent)
-  if show.debug_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.debug_message, buffer(offset, 0))
     local index = txse_txseequities_framing_rake_v1_0.debug_message.fields(buffer, offset, packet, parent)
@@ -700,7 +665,7 @@ txse_txseequities_framing_rake_v1_0.tcp_unsequenced_message.dissect = function(b
   local index = offset + size_of_tcp_unsequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.tcp_unsequenced_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.tcp_unsequenced_message, buffer(offset, 0))
     local current = txse_txseequities_framing_rake_v1_0.tcp_unsequenced_message.fields(buffer, offset, packet, parent, size_of_tcp_unsequenced_message)
     parent:set_len(size_of_tcp_unsequenced_message)
@@ -752,7 +717,7 @@ end
 
 -- Dissect: Logon Request Packet
 txse_txseequities_framing_rake_v1_0.logon_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.logon_request_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.logon_request_packet, buffer(offset, 0))
     local index = txse_txseequities_framing_rake_v1_0.logon_request_packet.fields(buffer, offset, packet, parent)
@@ -829,7 +794,7 @@ end
 
 -- Dissect: Rake Message Header
 txse_txseequities_framing_rake_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.rake_message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.rake_message_header, buffer(offset, 0))
     local index = txse_txseequities_framing_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
@@ -874,7 +839,7 @@ txse_txseequities_framing_rake_v1_0.rake_tcp_message.dissect = function(buffer, 
   local index = offset + size_of_rake_tcp_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.rake_tcp_message then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_rake_v1_0.fields.rake_tcp_message, buffer(offset, 0))
     local current = txse_txseequities_framing_rake_v1_0.rake_tcp_message.fields(buffer, offset, packet, parent, size_of_rake_tcp_message)
     parent:set_len(size_of_rake_tcp_message)

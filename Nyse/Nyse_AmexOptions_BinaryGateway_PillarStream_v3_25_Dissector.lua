@@ -249,39 +249,17 @@ local show = {}
 
 -- Nyse AmexOptions BinaryGateway PillarStream 3.25 Element Dissection Options
 show.application_messages = true
-show.bitfield_flow_indicator = true
+show.structs = true
 show.session_messages = true
-show.complex_series_leg_group = true
-show.covered = true
-show.exposed = true
-show.leg_group = true
-show.mpv_level_definition = true
-show.msg_header = true
-show.optional_order_add_on = true
-show.ref_seq_msg_id = true
-show.seq_msg_header = true
-show.seq_msg_id = true
-show.stream_id = true
-show.sub_msg_header = true
-show.leg_group_index = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nyse AmexOptions BinaryGateway PillarStream 3.25 Show Options
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_bitfield_flow_indicator = Pref.bool("Show Bitfield Flow Indicator", show.bitfield_flow_indicator, "Parse and add Bitfield Flow Indicator to protocol tree")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_complex_series_leg_group = Pref.bool("Show Complex Series Leg Group", show.complex_series_leg_group, "Parse and add Complex Series Leg Group to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_covered = Pref.bool("Show Covered", show.covered, "Parse and add Covered to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_exposed = Pref.bool("Show Exposed", show.exposed, "Parse and add Exposed to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group = Pref.bool("Show Leg Group", show.leg_group, "Parse and add Leg Group to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_mpv_level_definition = Pref.bool("Show Mpv Level Definition", show.mpv_level_definition, "Parse and add Mpv Level Definition to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_optional_order_add_on = Pref.bool("Show Optional Order Add On", show.optional_order_add_on, "Parse and add Optional Order Add On to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_ref_seq_msg_id = Pref.bool("Show Ref Seq Msg Id", show.ref_seq_msg_id, "Parse and add Ref Seq Msg Id to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_header = Pref.bool("Show Seq Msg Header", show.seq_msg_header, "Parse and add Seq Msg Header to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_id = Pref.bool("Show Seq Msg Id", show.seq_msg_id, "Parse and add Seq Msg Id to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_stream_id = Pref.bool("Show Stream Id", show.stream_id, "Parse and add Stream Id to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_sub_msg_header = Pref.bool("Show Sub Msg Header", show.sub_msg_header, "Parse and add Sub Msg Header to protocol tree")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group_index = Pref.bool("Show Leg Group Index", show.leg_group_index, "Show generated leg group index in protocol tree")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -291,50 +269,17 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
   if show.application_messages ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages
   end
-  if show.bitfield_flow_indicator ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_bitfield_flow_indicator then
-    show.bitfield_flow_indicator = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_bitfield_flow_indicator
-  end
-  if show.complex_series_leg_group ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_complex_series_leg_group then
-    show.complex_series_leg_group = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_complex_series_leg_group
-  end
-  if show.covered ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_covered then
-    show.covered = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_covered
-  end
-  if show.exposed ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_exposed then
-    show.exposed = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_exposed
-  end
-  if show.leg_group ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group then
-    show.leg_group = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group
-  end
-  if show.mpv_level_definition ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_mpv_level_definition then
-    show.mpv_level_definition = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_mpv_level_definition
-  end
-  if show.msg_header ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_msg_header then
-    show.msg_header = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_msg_header
-  end
-  if show.optional_order_add_on ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_optional_order_add_on then
-    show.optional_order_add_on = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_optional_order_add_on
-  end
-  if show.ref_seq_msg_id ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_ref_seq_msg_id then
-    show.ref_seq_msg_id = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_ref_seq_msg_id
-  end
-  if show.seq_msg_header ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_header then
-    show.seq_msg_header = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_header
-  end
-  if show.seq_msg_id ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_id then
-    show.seq_msg_id = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_seq_msg_id
+  if show.repeating_groups ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups
   end
   if show.session_messages ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_session_messages then
     show.session_messages = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_session_messages
   end
-  if show.stream_id ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_stream_id then
-    show.stream_id = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_stream_id
+  if show.structs ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_structs then
+    show.structs = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_structs
   end
-  if show.sub_msg_header ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_sub_msg_header then
-    show.sub_msg_header = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_sub_msg_header
-  end
-  if show.leg_group_index ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group_index then
-    show.leg_group_index = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_leg_group_index
+  if show.indexes ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes then
+    show.indexes = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes
   end
 end
 
@@ -6322,7 +6267,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_group.fields = function(bu
   local index = offset
 
   -- Implicit Leg Group Index
-  if leg_group_index ~= nil and show.leg_group_index then
+  if leg_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.leg_group_index, leg_group_index)
     iteration:set_generated()
   end
@@ -6341,7 +6286,7 @@ end
 
 -- Dissect: Leg Group
 nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_group.dissect = function(buffer, offset, packet, parent, leg_group_index)
-  if show.leg_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.leg_group, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
@@ -6794,7 +6739,7 @@ end
 
 -- Dissect: Stream Id
 nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.stream_id, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.fields(buffer, offset, packet, parent)
@@ -6838,7 +6783,7 @@ end
 
 -- Dissect: Ref Seq Msg Id
 nyse_amexoptions_binarygateway_pillarstream_v3_25.ref_seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.ref_seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.ref_seq_msg_id, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.ref_seq_msg_id.fields(buffer, offset, packet, parent)
@@ -6965,7 +6910,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.sub_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -7029,7 +6974,7 @@ end
 
 -- Dissect: Optional Order Add On
 nyse_amexoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.dissect = function(buffer, offset, packet, parent)
-  if show.optional_order_add_on then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.optional_order_add_on, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.fields(buffer, offset, packet, parent)
@@ -7313,7 +7258,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.dissec
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.display(range, value, packet, parent)
   local element = parent:add_le(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.bitfield_flow_indicator, range, display)
 
-  if show.bitfield_flow_indicator then
+  if show.structs then
     nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.bits(range, value, packet, element)
   end
 
@@ -7977,7 +7922,7 @@ end
 
 -- Dissect: Mpv Level Definition
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mpv_level_definition.dissect = function(buffer, offset, packet, parent)
-  if show.mpv_level_definition then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mpv_level_definition, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.mpv_level_definition.fields(buffer, offset, packet, parent)
@@ -8295,7 +8240,7 @@ end
 
 -- Dissect: Complex Series Leg Group
 nyse_amexoptions_binarygateway_pillarstream_v3_25.complex_series_leg_group.dissect = function(buffer, offset, packet, parent)
-  if show.complex_series_leg_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.complex_series_leg_group, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.complex_series_leg_group.fields(buffer, offset, packet, parent)
@@ -8837,7 +8782,7 @@ end
 
 -- Dissect: Covered
 nyse_amexoptions_binarygateway_pillarstream_v3_25.covered.dissect = function(buffer, offset, packet, parent)
-  if show.covered then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.covered, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.covered.fields(buffer, offset, packet, parent)
@@ -8966,7 +8911,7 @@ end
 
 -- Dissect: Exposed
 nyse_amexoptions_binarygateway_pillarstream_v3_25.exposed.dissect = function(buffer, offset, packet, parent)
-  if show.exposed then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.exposed, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.exposed.fields(buffer, offset, packet, parent)
@@ -9658,7 +9603,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -9702,7 +9647,7 @@ end
 
 -- Dissect: Seq Msg Id
 nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.seq_msg_id then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_id, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_id.fields(buffer, offset, packet, parent)
@@ -9746,7 +9691,7 @@ end
 
 -- Dissect: Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_header.fields(buffer, offset, packet, parent)

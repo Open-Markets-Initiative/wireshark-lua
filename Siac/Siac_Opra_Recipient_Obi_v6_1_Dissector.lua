@@ -125,103 +125,28 @@ omi_siac_opra_recipient_obi_v6_1.fields.message_index = ProtoField.new("Message 
 local show = {}
 
 -- Siac Opra Recipient Obi 6.1 Element Dissection Options
-show.administrative_category = true
+show.structs = true
 show.application_messages = true
-show.best_bid_and_offer_appendage = true
-show.best_bid_appendage = true
-show.best_offer_appendage = true
-show.block_header = true
-show.block_timestamp = true
-show.control_category = true
-show.equity_and_index_end_of_day_summary_category = true
-show.equity_and_index_last_sale_category = true
-show.expiration_block = true
-show.long_equity_and_index_quote_category = true
-show.message = true
-show.open_interest_category = true
-show.packet = true
-show.short_equity_and_index_quote_category = true
-show.underlying_value_category = true
-show.message_index = true
+show.indexes = true
 
 -- Register Siac Opra Recipient Obi 6.1 Show Options
-omi_siac_opra_recipient_obi_v6_1.prefs.show_administrative_category = Pref.bool("Show Administrative Category", show.administrative_category, "Parse and add Administrative Category to protocol tree")
+omi_siac_opra_recipient_obi_v6_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage = Pref.bool("Show Best Bid And Offer Appendage", show.best_bid_and_offer_appendage, "Parse and add Best Bid And Offer Appendage to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp = Pref.bool("Show Block Timestamp", show.block_timestamp, "Parse and add Block Timestamp to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_control_category = Pref.bool("Show Control Category", show.control_category, "Parse and add Control Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_end_of_day_summary_category = Pref.bool("Show Equity And Index End Of Day Summary Category", show.equity_and_index_end_of_day_summary_category, "Parse and add Equity And Index End Of Day Summary Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_last_sale_category = Pref.bool("Show Equity And Index Last Sale Category", show.equity_and_index_last_sale_category, "Parse and add Equity And Index Last Sale Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block = Pref.bool("Show Expiration Block", show.expiration_block, "Parse and add Expiration Block to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_long_equity_and_index_quote_category = Pref.bool("Show Long Equity And Index Quote Category", show.long_equity_and_index_quote_category, "Parse and add Long Equity And Index Quote Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_open_interest_category = Pref.bool("Show Open Interest Category", show.open_interest_category, "Parse and add Open Interest Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_short_equity_and_index_quote_category = Pref.bool("Show Short Equity And Index Quote Category", show.short_equity_and_index_quote_category, "Parse and add Short Equity And Index Quote Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_underlying_value_category = Pref.bool("Show Underlying Value Category", show.underlying_value_category, "Parse and add Underlying Value Category to protocol tree")
-omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_siac_opra_recipient_obi_v6_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_1.prefs_changed()
 
   -- Check if preferences have changed
-  if show.administrative_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_administrative_category then
-    show.administrative_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_administrative_category
-  end
   if show.application_messages ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages then
     show.application_messages = omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages
   end
-  if show.best_bid_and_offer_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage then
-    show.best_bid_and_offer_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage
+  if show.structs ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_structs then
+    show.structs = omi_siac_opra_recipient_obi_v6_1.prefs.show_structs
   end
-  if show.best_bid_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage then
-    show.best_bid_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage
-  end
-  if show.best_offer_appendage ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage then
-    show.best_offer_appendage = omi_siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage
-  end
-  if show.block_header ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_block_header then
-    show.block_header = omi_siac_opra_recipient_obi_v6_1.prefs.show_block_header
-  end
-  if show.block_timestamp ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp then
-    show.block_timestamp = omi_siac_opra_recipient_obi_v6_1.prefs.show_block_timestamp
-  end
-  if show.control_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_control_category then
-    show.control_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_control_category
-  end
-  if show.equity_and_index_end_of_day_summary_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_end_of_day_summary_category then
-    show.equity_and_index_end_of_day_summary_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_end_of_day_summary_category
-  end
-  if show.equity_and_index_last_sale_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_last_sale_category then
-    show.equity_and_index_last_sale_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_equity_and_index_last_sale_category
-  end
-  if show.expiration_block ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block then
-    show.expiration_block = omi_siac_opra_recipient_obi_v6_1.prefs.show_expiration_block
-  end
-  if show.long_equity_and_index_quote_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_long_equity_and_index_quote_category then
-    show.long_equity_and_index_quote_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_long_equity_and_index_quote_category
-  end
-  if show.message ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_message then
-    show.message = omi_siac_opra_recipient_obi_v6_1.prefs.show_message
-  end
-  if show.open_interest_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_open_interest_category then
-    show.open_interest_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_open_interest_category
-  end
-  if show.packet ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_packet then
-    show.packet = omi_siac_opra_recipient_obi_v6_1.prefs.show_packet
-  end
-  if show.short_equity_and_index_quote_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_short_equity_and_index_quote_category then
-    show.short_equity_and_index_quote_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_short_equity_and_index_quote_category
-  end
-  if show.underlying_value_category ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_underlying_value_category then
-    show.underlying_value_category = omi_siac_opra_recipient_obi_v6_1.prefs.show_underlying_value_category
-  end
-  if show.message_index ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index then
-    show.message_index = omi_siac_opra_recipient_obi_v6_1.prefs.show_message_index
+  if show.indexes ~= omi_siac_opra_recipient_obi_v6_1.prefs.show_indexes then
+    show.indexes = omi_siac_opra_recipient_obi_v6_1.prefs.show_indexes
   end
 end
 
@@ -2768,7 +2693,7 @@ end
 
 -- Dissect: Underlying Value Category
 siac_opra_recipient_obi_v6_1.underlying_value_category.dissect = function(buffer, offset, packet, parent)
-  if show.underlying_value_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.underlying_value_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.underlying_value_category.fields(buffer, offset, packet, parent)
@@ -2913,7 +2838,7 @@ end
 
 -- Dissect: Control Category
 siac_opra_recipient_obi_v6_1.control_category.dissect = function(buffer, offset, packet, parent)
-  if show.control_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.control_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.control_category.fields(buffer, offset, packet, parent)
@@ -3049,7 +2974,7 @@ end
 
 -- Dissect: Administrative Category
 siac_opra_recipient_obi_v6_1.administrative_category.dissect = function(buffer, offset, packet, parent)
-  if show.administrative_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.administrative_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.administrative_category.fields(buffer, offset, packet, parent)
@@ -3101,7 +3026,7 @@ end
 
 -- Dissect: Best Offer Appendage
 siac_opra_recipient_obi_v6_1.best_offer_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.best_offer_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.best_offer_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.best_offer_appendage.fields(buffer, offset, packet, parent)
@@ -3153,7 +3078,7 @@ end
 
 -- Dissect: Best Bid Appendage
 siac_opra_recipient_obi_v6_1.best_bid_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.best_bid_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.best_bid_appendage.fields(buffer, offset, packet, parent)
@@ -3201,7 +3126,7 @@ end
 
 -- Dissect: Expiration Block
 siac_opra_recipient_obi_v6_1.expiration_block.dissect = function(buffer, offset, packet, parent)
-  if show.expiration_block then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.expiration_block, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.expiration_block.fields(buffer, offset, packet, parent)
@@ -3389,7 +3314,7 @@ end
 
 -- Dissect: Short Equity And Index Quote Category
 siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_category.dissect = function(buffer, offset, packet, parent)
-  if show.short_equity_and_index_quote_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.short_equity_and_index_quote_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_category.fields(buffer, offset, packet, parent)
@@ -3457,7 +3382,7 @@ end
 
 -- Dissect: Best Bid And Offer Appendage
 siac_opra_recipient_obi_v6_1.best_bid_and_offer_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.best_bid_and_offer_appendage then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.best_bid_and_offer_appendage, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.best_bid_and_offer_appendage.fields(buffer, offset, packet, parent)
@@ -3676,7 +3601,7 @@ end
 
 -- Dissect: Long Equity And Index Quote Category
 siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_category.dissect = function(buffer, offset, packet, parent)
-  if show.long_equity_and_index_quote_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.long_equity_and_index_quote_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_category.fields(buffer, offset, packet, parent)
@@ -3858,7 +3783,7 @@ end
 
 -- Dissect: Equity And Index End Of Day Summary Category
 siac_opra_recipient_obi_v6_1.equity_and_index_end_of_day_summary_category.dissect = function(buffer, offset, packet, parent)
-  if show.equity_and_index_end_of_day_summary_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.equity_and_index_end_of_day_summary_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.equity_and_index_end_of_day_summary_category.fields(buffer, offset, packet, parent)
@@ -3996,7 +3921,7 @@ end
 
 -- Dissect: Open Interest Category
 siac_opra_recipient_obi_v6_1.open_interest_category.dissect = function(buffer, offset, packet, parent)
-  if show.open_interest_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.open_interest_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.open_interest_category.fields(buffer, offset, packet, parent)
@@ -4150,7 +4075,7 @@ end
 
 -- Dissect: Equity And Index Last Sale Category
 siac_opra_recipient_obi_v6_1.equity_and_index_last_sale_category.dissect = function(buffer, offset, packet, parent)
-  if show.equity_and_index_last_sale_category then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.equity_and_index_last_sale_category, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.equity_and_index_last_sale_category.fields(buffer, offset, packet, parent)
@@ -4236,7 +4161,7 @@ siac_opra_recipient_obi_v6_1.message.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4255,7 +4180,7 @@ end
 
 -- Dissect: Message
 siac_opra_recipient_obi_v6_1.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.message, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.message.fields(buffer, offset, packet, parent, message_index)
@@ -4299,7 +4224,7 @@ end
 
 -- Dissect: Block Timestamp
 siac_opra_recipient_obi_v6_1.block_timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.block_timestamp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.block_timestamp, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.block_timestamp.fields(buffer, offset, packet, parent)
@@ -4371,7 +4296,7 @@ end
 
 -- Dissect: Block Header
 siac_opra_recipient_obi_v6_1.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.block_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_recipient_obi_v6_1.fields.block_header, buffer(offset, 0))
     local index = siac_opra_recipient_obi_v6_1.block_header.fields(buffer, offset, packet, parent)

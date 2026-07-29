@@ -146,48 +146,28 @@ omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_index = ProtoField.new("Messag
 local show = {}
 
 -- Lseg TradeEcho Mifid Gtp 24.4 Element Dissection Options
-show.allowed_book_types = true
+show.structs = true
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.unit_header = true
-show.message_index = true
+show.indexes = true
 
 -- Register Lseg TradeEcho Mifid Gtp 24.4 Show Options
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types = Pref.bool("Show Allowed Book Types", show.allowed_book_types, "Parse and add Allowed Book Types to protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header = Pref.bool("Show Unit Header", show.unit_header, "Parse and add Unit Header to protocol tree")
-omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_mifid_gtp_v24_4.prefs_changed()
 
   -- Check if preferences have changed
-  if show.allowed_book_types ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types then
-    show.allowed_book_types = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_allowed_book_types
-  end
   if show.application_messages ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_application_messages then
     show.application_messages = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_application_messages
   end
-  if show.message ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message then
-    show.message = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message
+  if show.structs ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_structs then
+    show.structs = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_structs
   end
-  if show.message_header ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header then
-    show.message_header = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_header
-  end
-  if show.packet ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet then
-    show.packet = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_packet
-  end
-  if show.unit_header ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header then
-    show.unit_header = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_unit_header
-  end
-  if show.message_index ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_index then
-    show.message_index = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_message_index
+  if show.indexes ~= omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_indexes then
+    show.indexes = omi_lseg_tradeecho_mifid_gtp_v24_4.prefs.show_indexes
   end
 end
 
@@ -3364,7 +3344,7 @@ lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types.dissect = function(buffer, off
   local display = lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types.display(range, value, packet, parent)
   local element = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.allowed_book_types, range, display)
 
-  if show.allowed_book_types then
+  if show.structs then
     lseg_tradeecho_mifid_gtp_v24_4.allowed_book_types.bits(range, value, packet, element)
   end
 
@@ -3576,7 +3556,7 @@ end
 
 -- Dissect: Message Header
 lseg_tradeecho_mifid_gtp_v24_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4.message_header.fields(buffer, offset, packet, parent)
@@ -3619,7 +3599,7 @@ lseg_tradeecho_mifid_gtp_v24_4.message.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -3638,7 +3618,7 @@ end
 
 -- Dissect: Message
 lseg_tradeecho_mifid_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.message, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4.message.fields(buffer, offset, packet, parent, message_index)
@@ -3690,7 +3670,7 @@ end
 
 -- Dissect: Unit Header
 lseg_tradeecho_mifid_gtp_v24_4.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.unit_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_tradeecho_mifid_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_tradeecho_mifid_gtp_v24_4.unit_header.fields(buffer, offset, packet, parent)

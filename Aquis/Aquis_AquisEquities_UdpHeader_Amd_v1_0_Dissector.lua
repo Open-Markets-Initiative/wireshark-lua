@@ -35,38 +35,23 @@ omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index = ProtoField.new
 local show = {}
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 Element Dissection Options
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Aquis AquisEquities UdpHeader Amd 1.0 Show Options
-omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_udpheader_amd_v1_0.prefs_changed()
 
   -- Check if preferences have changed
-  if show.message ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message then
-    show.message = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message
+  if show.structs ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_structs then
+    show.structs = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_structs
   end
-  if show.message_header ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header then
-    show.message_header = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_header
-  end
-  if show.packet ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet then
-    show.packet = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header then
-    show.packet_header = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index then
-    show.message_index = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_message_index
+  if show.indexes ~= omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_indexes then
+    show.indexes = omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_indexes
   end
 end
 
@@ -227,7 +212,7 @@ end
 
 -- Dissect: Message Header
 aquis_aquisequities_udpheader_amd_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header, buffer(offset, 0))
     local index = aquis_aquisequities_udpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -256,7 +241,7 @@ aquis_aquisequities_udpheader_amd_v1_0.message.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -275,7 +260,7 @@ aquis_aquisequities_udpheader_amd_v1_0.message.dissect = function(buffer, offset
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message, buffer(offset, 0))
     local current = aquis_aquisequities_udpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -315,7 +300,7 @@ end
 
 -- Dissect: Packet Header
 aquis_aquisequities_udpheader_amd_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header, buffer(offset, 0))
     local index = aquis_aquisequities_udpheader_amd_v1_0.packet_header.fields(buffer, offset, packet, parent)

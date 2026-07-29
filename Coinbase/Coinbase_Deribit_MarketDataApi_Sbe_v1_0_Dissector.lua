@@ -140,43 +140,15 @@ local show = {}
 
 -- Coinbase Deribit MarketDataApi Sbe 1.0 Element Dissection Options
 show.application_messages = true
-show.flags = true
-show.group_size_encoding = true
-show.instrument_definition_message_large_tick_sizes_group = true
-show.instrument_definition_message_large_tick_sizes_groups = true
-show.instrument_definition_message_legs_group = true
-show.instrument_definition_message_legs_groups = true
-show.maker_flags = true
-show.md_message = true
-show.md_message_header = true
-show.message_flags = true
-show.packet = true
-show.packet_header = true
-show.packet_type = true
-show.taker_flags = true
-show.md_message_index = true
-show.instrument_definition_message_large_tick_sizes_group_index = true
-show.instrument_definition_message_legs_group_index = true
+show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Coinbase Deribit MarketDataApi Sbe 1.0 Show Options
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_flags = Pref.bool("Show Flags", show.flags, "Parse and add Flags to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group = Pref.bool("Show Instrument Definition Message large Tick Sizes Group", show.instrument_definition_message_large_tick_sizes_group, "Parse and add Instrument Definition Message large Tick Sizes Group to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_groups = Pref.bool("Show Instrument Definition Message large Tick Sizes Groups", show.instrument_definition_message_large_tick_sizes_groups, "Parse and add Instrument Definition Message large Tick Sizes Groups to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group = Pref.bool("Show Instrument Definition Message legs Group", show.instrument_definition_message_legs_group, "Parse and add Instrument Definition Message legs Group to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_groups = Pref.bool("Show Instrument Definition Message legs Groups", show.instrument_definition_message_legs_groups, "Parse and add Instrument Definition Message legs Groups to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_maker_flags = Pref.bool("Show Maker Flags", show.maker_flags, "Parse and add Maker Flags to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message = Pref.bool("Show Md Message", show.md_message, "Parse and add Md Message to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_header = Pref.bool("Show Md Message Header", show.md_message_header, "Parse and add Md Message Header to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_message_flags = Pref.bool("Show Message Flags", show.message_flags, "Parse and add Message Flags to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_type = Pref.bool("Show Packet Type", show.packet_type, "Parse and add Packet Type to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_taker_flags = Pref.bool("Show Taker Flags", show.taker_flags, "Parse and add Taker Flags to protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_index = Pref.bool("Show Md Message Index", show.md_message_index, "Show generated md message index in protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group_index = Pref.bool("Show Instrument Definition Message large Tick Sizes Group Index", show.instrument_definition_message_large_tick_sizes_group_index, "Show generated instrument definition message large tick sizes group index in protocol tree")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group_index = Pref.bool("Show Instrument Definition Message legs Group Index", show.instrument_definition_message_legs_group_index, "Show generated instrument definition message legs group index in protocol tree")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -186,56 +158,14 @@ function omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs_changed()
   if show.application_messages ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages
   end
-  if show.flags ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_flags then
-    show.flags = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_flags
+  if show.repeating_groups ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups
   end
-  if show.group_size_encoding ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_group_size_encoding
+  if show.structs ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_structs then
+    show.structs = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_structs
   end
-  if show.instrument_definition_message_large_tick_sizes_group ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group then
-    show.instrument_definition_message_large_tick_sizes_group = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group
-  end
-  if show.instrument_definition_message_large_tick_sizes_groups ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_groups then
-    show.instrument_definition_message_large_tick_sizes_groups = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_groups
-  end
-  if show.instrument_definition_message_legs_group ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group then
-    show.instrument_definition_message_legs_group = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group
-  end
-  if show.instrument_definition_message_legs_groups ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_groups then
-    show.instrument_definition_message_legs_groups = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_groups
-  end
-  if show.maker_flags ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_maker_flags then
-    show.maker_flags = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_maker_flags
-  end
-  if show.md_message ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message then
-    show.md_message = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message
-  end
-  if show.md_message_header ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_header then
-    show.md_message_header = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_header
-  end
-  if show.message_flags ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_message_flags then
-    show.message_flags = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_message_flags
-  end
-  if show.packet ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet then
-    show.packet = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet
-  end
-  if show.packet_header ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_header then
-    show.packet_header = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_header
-  end
-  if show.packet_type ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_type then
-    show.packet_type = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_packet_type
-  end
-  if show.taker_flags ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_taker_flags then
-    show.taker_flags = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_taker_flags
-  end
-  if show.md_message_index ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_index then
-    show.md_message_index = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_md_message_index
-  end
-  if show.instrument_definition_message_large_tick_sizes_group_index ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group_index then
-    show.instrument_definition_message_large_tick_sizes_group_index = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_large_tick_sizes_group_index
-  end
-  if show.instrument_definition_message_legs_group_index ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group_index then
-    show.instrument_definition_message_legs_group_index = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_instrument_definition_message_legs_group_index
+  if show.indexes ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_indexes then
+    show.indexes = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_indexes
   end
 end
 
@@ -2330,7 +2260,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.dissect = function(buffer, o
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.taker_flags, range, display)
 
-  if show.taker_flags then
+  if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.bits(range, value, packet, element)
   end
 
@@ -2460,7 +2390,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.dissect = function(buffer, o
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.maker_flags, range, display)
 
-  if show.maker_flags then
+  if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.bits(range, value, packet, element)
   end
 
@@ -3113,7 +3043,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   local index = offset
 
   -- Implicit Instrument Definition Message legs Group Index
-  if instrument_definition_message_legs_group_index ~= nil and show.instrument_definition_message_legs_group_index then
+  if instrument_definition_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group_index, instrument_definition_message_legs_group_index)
     iteration:set_generated()
   end
@@ -3129,7 +3059,7 @@ end
 
 -- Dissect: Instrument Definition Message legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.dissect = function(buffer, offset, packet, parent, instrument_definition_message_legs_group_index)
-  if show.instrument_definition_message_legs_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.fields(buffer, offset, packet, parent, instrument_definition_message_legs_group_index)
@@ -3173,7 +3103,7 @@ end
 
 -- Dissect: Group Size Encoding
 coinbase_deribit_marketdataapi_sbe_v1_0.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.group_size_encoding, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -3230,7 +3160,7 @@ end
 
 -- Dissect: Instrument Definition Message legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_definition_message_legs_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -3264,7 +3194,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   local index = offset
 
   -- Implicit Instrument Definition Message large Tick Sizes Group Index
-  if instrument_definition_message_large_tick_sizes_group_index ~= nil and show.instrument_definition_message_large_tick_sizes_group_index then
+  if instrument_definition_message_large_tick_sizes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group_index, instrument_definition_message_large_tick_sizes_group_index)
     iteration:set_generated()
   end
@@ -3280,7 +3210,7 @@ end
 
 -- Dissect: Instrument Definition Message large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.dissect = function(buffer, offset, packet, parent, instrument_definition_message_large_tick_sizes_group_index)
-  if show.instrument_definition_message_large_tick_sizes_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.fields(buffer, offset, packet, parent, instrument_definition_message_large_tick_sizes_group_index)
@@ -3337,7 +3267,7 @@ end
 
 -- Dissect: Instrument Definition Message large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.instrument_definition_message_large_tick_sizes_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_groups, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.fields(buffer, offset, packet, parent)
@@ -3403,7 +3333,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.flags.dissect = function(buffer, offset,
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.flags.display(range, value, packet, parent)
   local element = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.flags, range, display)
 
-  if show.flags then
+  if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.flags.bits(range, value, packet, element)
   end
 
@@ -3658,7 +3588,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.message_flags.dissect = function(buffer,
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.message_flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.message_flags, range, display)
 
-  if show.message_flags then
+  if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.message_flags.bits(range, value, packet, element)
   end
 
@@ -3705,7 +3635,7 @@ end
 
 -- Dissect: Md Message Header
 coinbase_deribit_marketdataapi_sbe_v1_0.md_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.md_message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message_header, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.md_message_header.fields(buffer, offset, packet, parent)
@@ -3734,7 +3664,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_message.fields = function(buffer, off
   local index = offset
 
   -- Implicit Md Message Index
-  if md_message_index ~= nil and show.md_message_index then
+  if md_message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message_index, md_message_index)
     iteration:set_generated()
   end
@@ -3756,7 +3686,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_message.dissect = function(buffer, of
   local index = offset + size_of_md_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.md_message then
+  if show.structs then
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message, buffer(offset, 0))
     local current = coinbase_deribit_marketdataapi_sbe_v1_0.md_message.fields(buffer, offset, packet, parent, size_of_md_message, md_message_index)
     parent:set_len(size_of_md_message)
@@ -3822,7 +3752,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.packet_type.dissect = function(buffer, o
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.packet_type.display(range, value, packet, parent)
   local element = parent:add_le(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_type, range, display)
 
-  if show.packet_type then
+  if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.packet_type.bits(range, value, packet, element)
   end
 
@@ -3869,7 +3799,7 @@ end
 
 -- Dissect: Packet Header
 coinbase_deribit_marketdataapi_sbe_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_header, buffer(offset, 0))
     local index = coinbase_deribit_marketdataapi_sbe_v1_0.packet_header.fields(buffer, offset, packet, parent)

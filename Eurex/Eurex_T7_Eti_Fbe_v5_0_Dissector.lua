@@ -481,111 +481,15 @@ local show = {}
 
 -- Eurex T7 Eti Fbe 5.0 Element Dissection Options
 show.application_messages = true
-show.enrichment_rules_grp_comp = true
-show.fills_grp_comp = true
-show.instrmnt_leg_exec_grp_comp = true
-show.instrmt_leg_grp_comp = true
-show.instrument_attribute_grp_comp = true
-show.instrument_event_grp_comp = true
-show.leg_ord_grp_comp = true
-show.message = true
-show.message_header = true
-show.mm_parameter_grp_comp = true
-show.not_affected_orders_grp_comp = true
-show.not_affected_securities_grp_comp = true
-show.notif_header_comp = true
-show.nr_response_header_me_comp = true
-show.nrbc_header_comp = true
-show.packet = true
-show.party_details_grp_comp = true
-show.quote_entry_ack_grp_comp = true
-show.quote_entry_grp_comp = true
-show.quote_event_grp_comp = true
-show.quote_leg_exec_grp_comp = true
-show.rbc_header_comp = true
-show.rbc_header_me_comp = true
-show.request_header_comp = true
-show.response_header_comp = true
-show.response_header_me_comp = true
-show.sessions_grp_comp = true
-show.side_alloc_ext_grp_comp = true
-show.side_alloc_grp_bc_comp = true
-show.side_alloc_grp_comp = true
-show.underlying_stip_grp_comp = true
-show.instrmt_leg_grp_comp_index = true
-show.not_affected_orders_grp_comp_index = true
-show.not_affected_securities_grp_comp_index = true
-show.side_alloc_grp_comp_index = true
-show.instrument_event_grp_comp_index = true
-show.instrument_attribute_grp_comp_index = true
-show.underlying_stip_grp_comp_index = true
-show.enrichment_rules_grp_comp_index = true
-show.mm_parameter_grp_comp_index = true
-show.sessions_grp_comp_index = true
-show.party_details_grp_comp_index = true
-show.quote_entry_grp_comp_index = true
-show.quote_entry_ack_grp_comp_index = true
-show.leg_ord_grp_comp_index = true
-show.fills_grp_comp_index = true
-show.instrmnt_leg_exec_grp_comp_index = true
-show.quote_event_grp_comp_index = true
-show.quote_leg_exec_grp_comp_index = true
-show.side_alloc_grp_bc_comp_index = true
-show.side_alloc_ext_grp_comp_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Eurex T7 Eti Fbe 5.0 Show Options
 omi_eurex_t7_eti_fbe_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp = Pref.bool("Show Enrichment Rules Grp Comp", show.enrichment_rules_grp_comp, "Parse and add Enrichment Rules Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp = Pref.bool("Show Fills Grp Comp", show.fills_grp_comp, "Parse and add Fills Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp = Pref.bool("Show Instrmnt Leg Exec Grp Comp", show.instrmnt_leg_exec_grp_comp, "Parse and add Instrmnt Leg Exec Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp = Pref.bool("Show Instrmt Leg Grp Comp", show.instrmt_leg_grp_comp, "Parse and add Instrmt Leg Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp = Pref.bool("Show Instrument Attribute Grp Comp", show.instrument_attribute_grp_comp, "Parse and add Instrument Attribute Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp = Pref.bool("Show Instrument Event Grp Comp", show.instrument_event_grp_comp, "Parse and add Instrument Event Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp = Pref.bool("Show Leg Ord Grp Comp", show.leg_ord_grp_comp, "Parse and add Leg Ord Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp = Pref.bool("Show Mm Parameter Grp Comp", show.mm_parameter_grp_comp, "Parse and add Mm Parameter Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp = Pref.bool("Show Not Affected Orders Grp Comp", show.not_affected_orders_grp_comp, "Parse and add Not Affected Orders Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp = Pref.bool("Show Not Affected Securities Grp Comp", show.not_affected_securities_grp_comp, "Parse and add Not Affected Securities Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_notif_header_comp = Pref.bool("Show Notif Header Comp", show.notif_header_comp, "Parse and add Notif Header Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_nr_response_header_me_comp = Pref.bool("Show Nr Response Header Me Comp", show.nr_response_header_me_comp, "Parse and add Nr Response Header Me Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_nrbc_header_comp = Pref.bool("Show Nrbc Header Comp", show.nrbc_header_comp, "Parse and add Nrbc Header Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp = Pref.bool("Show Party Details Grp Comp", show.party_details_grp_comp, "Parse and add Party Details Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp = Pref.bool("Show Quote Entry Ack Grp Comp", show.quote_entry_ack_grp_comp, "Parse and add Quote Entry Ack Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp = Pref.bool("Show Quote Entry Grp Comp", show.quote_entry_grp_comp, "Parse and add Quote Entry Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp = Pref.bool("Show Quote Event Grp Comp", show.quote_event_grp_comp, "Parse and add Quote Event Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp = Pref.bool("Show Quote Leg Exec Grp Comp", show.quote_leg_exec_grp_comp, "Parse and add Quote Leg Exec Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_comp = Pref.bool("Show Rbc Header Comp", show.rbc_header_comp, "Parse and add Rbc Header Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_me_comp = Pref.bool("Show Rbc Header Me Comp", show.rbc_header_me_comp, "Parse and add Rbc Header Me Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_request_header_comp = Pref.bool("Show Request Header Comp", show.request_header_comp, "Parse and add Request Header Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_comp = Pref.bool("Show Response Header Comp", show.response_header_comp, "Parse and add Response Header Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_me_comp = Pref.bool("Show Response Header Me Comp", show.response_header_me_comp, "Parse and add Response Header Me Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp = Pref.bool("Show Sessions Grp Comp", show.sessions_grp_comp, "Parse and add Sessions Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp = Pref.bool("Show Side Alloc Ext Grp Comp", show.side_alloc_ext_grp_comp, "Parse and add Side Alloc Ext Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp = Pref.bool("Show Side Alloc Grp Bc Comp", show.side_alloc_grp_bc_comp, "Parse and add Side Alloc Grp Bc Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp = Pref.bool("Show Side Alloc Grp Comp", show.side_alloc_grp_comp, "Parse and add Side Alloc Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp = Pref.bool("Show Underlying Stip Grp Comp", show.underlying_stip_grp_comp, "Parse and add Underlying Stip Grp Comp to protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp_index = Pref.bool("Show Instrmt Leg Grp Comp Index", show.instrmt_leg_grp_comp_index, "Show generated instrmt leg grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp_index = Pref.bool("Show Not Affected Orders Grp Comp Index", show.not_affected_orders_grp_comp_index, "Show generated not affected orders grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp_index = Pref.bool("Show Not Affected Securities Grp Comp Index", show.not_affected_securities_grp_comp_index, "Show generated not affected securities grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp_index = Pref.bool("Show Side Alloc Grp Comp Index", show.side_alloc_grp_comp_index, "Show generated side alloc grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp_index = Pref.bool("Show Instrument Event Grp Comp Index", show.instrument_event_grp_comp_index, "Show generated instrument event grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp_index = Pref.bool("Show Instrument Attribute Grp Comp Index", show.instrument_attribute_grp_comp_index, "Show generated instrument attribute grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp_index = Pref.bool("Show Underlying Stip Grp Comp Index", show.underlying_stip_grp_comp_index, "Show generated underlying stip grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp_index = Pref.bool("Show Enrichment Rules Grp Comp Index", show.enrichment_rules_grp_comp_index, "Show generated enrichment rules grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp_index = Pref.bool("Show Mm Parameter Grp Comp Index", show.mm_parameter_grp_comp_index, "Show generated mm parameter grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp_index = Pref.bool("Show Sessions Grp Comp Index", show.sessions_grp_comp_index, "Show generated sessions grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp_index = Pref.bool("Show Party Details Grp Comp Index", show.party_details_grp_comp_index, "Show generated party details grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp_index = Pref.bool("Show Quote Entry Grp Comp Index", show.quote_entry_grp_comp_index, "Show generated quote entry grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp_index = Pref.bool("Show Quote Entry Ack Grp Comp Index", show.quote_entry_ack_grp_comp_index, "Show generated quote entry ack grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp_index = Pref.bool("Show Leg Ord Grp Comp Index", show.leg_ord_grp_comp_index, "Show generated leg ord grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp_index = Pref.bool("Show Fills Grp Comp Index", show.fills_grp_comp_index, "Show generated fills grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index = Pref.bool("Show Instrmnt Leg Exec Grp Comp Index", show.instrmnt_leg_exec_grp_comp_index, "Show generated instrmnt leg exec grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp_index = Pref.bool("Show Quote Event Grp Comp Index", show.quote_event_grp_comp_index, "Show generated quote event grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp_index = Pref.bool("Show Quote Leg Exec Grp Comp Index", show.quote_leg_exec_grp_comp_index, "Show generated quote leg exec grp comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp_index = Pref.bool("Show Side Alloc Grp Bc Comp Index", show.side_alloc_grp_bc_comp_index, "Show generated side alloc grp bc comp index in protocol tree")
-omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp_index = Pref.bool("Show Side Alloc Ext Grp Comp Index", show.side_alloc_ext_grp_comp_index, "Show generated side alloc ext grp comp index in protocol tree")
+omi_eurex_t7_eti_fbe_v5_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_eurex_t7_eti_fbe_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_eti_fbe_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -595,158 +499,14 @@ function omi_eurex_t7_eti_fbe_v5_0.prefs_changed()
   if show.application_messages ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_t7_eti_fbe_v5_0.prefs.show_application_messages
   end
-  if show.enrichment_rules_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp then
-    show.enrichment_rules_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp
+  if show.repeating_groups ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_eurex_t7_eti_fbe_v5_0.prefs.show_repeating_groups
   end
-  if show.fills_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp then
-    show.fills_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp
+  if show.structs ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_structs then
+    show.structs = omi_eurex_t7_eti_fbe_v5_0.prefs.show_structs
   end
-  if show.instrmnt_leg_exec_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp then
-    show.instrmnt_leg_exec_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp
-  end
-  if show.instrmt_leg_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp then
-    show.instrmt_leg_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp
-  end
-  if show.instrument_attribute_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp then
-    show.instrument_attribute_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp
-  end
-  if show.instrument_event_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp then
-    show.instrument_event_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp
-  end
-  if show.leg_ord_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp then
-    show.leg_ord_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp
-  end
-  if show.message ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_message then
-    show.message = omi_eurex_t7_eti_fbe_v5_0.prefs.show_message
-  end
-  if show.message_header ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_message_header then
-    show.message_header = omi_eurex_t7_eti_fbe_v5_0.prefs.show_message_header
-  end
-  if show.mm_parameter_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp then
-    show.mm_parameter_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp
-  end
-  if show.not_affected_orders_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp then
-    show.not_affected_orders_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp
-  end
-  if show.not_affected_securities_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp then
-    show.not_affected_securities_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp
-  end
-  if show.notif_header_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_notif_header_comp then
-    show.notif_header_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_notif_header_comp
-  end
-  if show.nr_response_header_me_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_nr_response_header_me_comp then
-    show.nr_response_header_me_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_nr_response_header_me_comp
-  end
-  if show.nrbc_header_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_nrbc_header_comp then
-    show.nrbc_header_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_nrbc_header_comp
-  end
-  if show.packet ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_packet then
-    show.packet = omi_eurex_t7_eti_fbe_v5_0.prefs.show_packet
-  end
-  if show.party_details_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp then
-    show.party_details_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp
-  end
-  if show.quote_entry_ack_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp then
-    show.quote_entry_ack_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp
-  end
-  if show.quote_entry_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp then
-    show.quote_entry_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp
-  end
-  if show.quote_event_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp then
-    show.quote_event_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp
-  end
-  if show.quote_leg_exec_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp then
-    show.quote_leg_exec_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp
-  end
-  if show.rbc_header_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_comp then
-    show.rbc_header_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_comp
-  end
-  if show.rbc_header_me_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_me_comp then
-    show.rbc_header_me_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_rbc_header_me_comp
-  end
-  if show.request_header_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_request_header_comp then
-    show.request_header_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_request_header_comp
-  end
-  if show.response_header_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_comp then
-    show.response_header_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_comp
-  end
-  if show.response_header_me_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_me_comp then
-    show.response_header_me_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_response_header_me_comp
-  end
-  if show.sessions_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp then
-    show.sessions_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp
-  end
-  if show.side_alloc_ext_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp then
-    show.side_alloc_ext_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp
-  end
-  if show.side_alloc_grp_bc_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp then
-    show.side_alloc_grp_bc_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp
-  end
-  if show.side_alloc_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp then
-    show.side_alloc_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp
-  end
-  if show.underlying_stip_grp_comp ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp then
-    show.underlying_stip_grp_comp = omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp
-  end
-  if show.instrmt_leg_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp_index then
-    show.instrmt_leg_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmt_leg_grp_comp_index
-  end
-  if show.not_affected_orders_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp_index then
-    show.not_affected_orders_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_orders_grp_comp_index
-  end
-  if show.not_affected_securities_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp_index then
-    show.not_affected_securities_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_not_affected_securities_grp_comp_index
-  end
-  if show.side_alloc_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp_index then
-    show.side_alloc_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_comp_index
-  end
-  if show.instrument_event_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp_index then
-    show.instrument_event_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_event_grp_comp_index
-  end
-  if show.instrument_attribute_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp_index then
-    show.instrument_attribute_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrument_attribute_grp_comp_index
-  end
-  if show.underlying_stip_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp_index then
-    show.underlying_stip_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_underlying_stip_grp_comp_index
-  end
-  if show.enrichment_rules_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp_index then
-    show.enrichment_rules_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_enrichment_rules_grp_comp_index
-  end
-  if show.mm_parameter_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp_index then
-    show.mm_parameter_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_mm_parameter_grp_comp_index
-  end
-  if show.sessions_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp_index then
-    show.sessions_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_sessions_grp_comp_index
-  end
-  if show.party_details_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp_index then
-    show.party_details_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_party_details_grp_comp_index
-  end
-  if show.quote_entry_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp_index then
-    show.quote_entry_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_grp_comp_index
-  end
-  if show.quote_entry_ack_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp_index then
-    show.quote_entry_ack_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_entry_ack_grp_comp_index
-  end
-  if show.leg_ord_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp_index then
-    show.leg_ord_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_leg_ord_grp_comp_index
-  end
-  if show.fills_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp_index then
-    show.fills_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_fills_grp_comp_index
-  end
-  if show.instrmnt_leg_exec_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index then
-    show.instrmnt_leg_exec_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_instrmnt_leg_exec_grp_comp_index
-  end
-  if show.quote_event_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp_index then
-    show.quote_event_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_event_grp_comp_index
-  end
-  if show.quote_leg_exec_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp_index then
-    show.quote_leg_exec_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_quote_leg_exec_grp_comp_index
-  end
-  if show.side_alloc_grp_bc_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp_index then
-    show.side_alloc_grp_bc_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_grp_bc_comp_index
-  end
-  if show.side_alloc_ext_grp_comp_index ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp_index then
-    show.side_alloc_ext_grp_comp_index = omi_eurex_t7_eti_fbe_v5_0.prefs.show_side_alloc_ext_grp_comp_index
+  if show.indexes ~= omi_eurex_t7_eti_fbe_v5_0.prefs.show_indexes then
+    show.indexes = omi_eurex_t7_eti_fbe_v5_0.prefs.show_indexes
   end
 end
 
@@ -10964,7 +10724,7 @@ end
 
 -- Dissect: Response Header Comp
 eurex_t7_eti_fbe_v5_0.response_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.response_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.response_header_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.response_header_comp.fields(buffer, offset, packet, parent)
@@ -11061,7 +10821,7 @@ end
 
 -- Dissect: Request Header Comp
 eurex_t7_eti_fbe_v5_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.request_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.request_header_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.request_header_comp.fields(buffer, offset, packet, parent)
@@ -11276,7 +11036,7 @@ eurex_t7_eti_fbe_v5_0.underlying_stip_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Underlying Stip Grp Comp Index
-  if underlying_stip_grp_comp_index ~= nil and show.underlying_stip_grp_comp_index then
+  if underlying_stip_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
     iteration:set_generated()
   end
@@ -11295,7 +11055,7 @@ end
 
 -- Dissect: Underlying Stip Grp Comp
 eurex_t7_eti_fbe_v5_0.underlying_stip_grp_comp.dissect = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
-  if show.underlying_stip_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.underlying_stip_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.underlying_stip_grp_comp.fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
@@ -11330,7 +11090,7 @@ eurex_t7_eti_fbe_v5_0.instrument_attribute_grp_comp.fields = function(buffer, of
   local index = offset
 
   -- Implicit Instrument Attribute Grp Comp Index
-  if instrument_attribute_grp_comp_index ~= nil and show.instrument_attribute_grp_comp_index then
+  if instrument_attribute_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
     iteration:set_generated()
   end
@@ -11349,7 +11109,7 @@ end
 
 -- Dissect: Instrument Attribute Grp Comp
 eurex_t7_eti_fbe_v5_0.instrument_attribute_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
-  if show.instrument_attribute_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrument_attribute_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.instrument_attribute_grp_comp.fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
@@ -11384,7 +11144,7 @@ eurex_t7_eti_fbe_v5_0.instrument_event_grp_comp.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Instrument Event Grp Comp Index
-  if instrument_event_grp_comp_index ~= nil and show.instrument_event_grp_comp_index then
+  if instrument_event_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -11403,7 +11163,7 @@ end
 
 -- Dissect: Instrument Event Grp Comp
 eurex_t7_eti_fbe_v5_0.instrument_event_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
-  if show.instrument_event_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrument_event_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.instrument_event_grp_comp.fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
@@ -11456,7 +11216,7 @@ eurex_t7_eti_fbe_v5_0.side_alloc_ext_grp_comp.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Side Alloc Ext Grp Comp Index
-  if side_alloc_ext_grp_comp_index ~= nil and show.side_alloc_ext_grp_comp_index then
+  if side_alloc_ext_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
     iteration:set_generated()
   end
@@ -11529,7 +11289,7 @@ end
 
 -- Dissect: Side Alloc Ext Grp Comp
 eurex_t7_eti_fbe_v5_0.side_alloc_ext_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
-  if show.side_alloc_ext_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_ext_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.side_alloc_ext_grp_comp.fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
@@ -11886,7 +11646,7 @@ end
 
 -- Dissect: Rbc Header Me Comp
 eurex_t7_eti_fbe_v5_0.rbc_header_me_comp.dissect = function(buffer, offset, packet, parent)
-  if show.rbc_header_me_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.rbc_header_me_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.rbc_header_me_comp.fields(buffer, offset, packet, parent)
@@ -12022,7 +11782,7 @@ end
 
 -- Dissect: Rbc Header Comp
 eurex_t7_eti_fbe_v5_0.rbc_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.rbc_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.rbc_header_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.rbc_header_comp.fields(buffer, offset, packet, parent)
@@ -12277,7 +12037,7 @@ end
 
 -- Dissect: Notif Header Comp
 eurex_t7_eti_fbe_v5_0.notif_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.notif_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.notif_header_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.notif_header_comp.fields(buffer, offset, packet, parent)
@@ -13078,7 +12838,7 @@ eurex_t7_eti_fbe_v5_0.side_alloc_grp_bc_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Side Alloc Grp Bc Comp Index
-  if side_alloc_grp_bc_comp_index ~= nil and show.side_alloc_grp_bc_comp_index then
+  if side_alloc_grp_bc_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_grp_bc_comp_index, side_alloc_grp_bc_comp_index)
     iteration:set_generated()
   end
@@ -13109,7 +12869,7 @@ end
 
 -- Dissect: Side Alloc Grp Bc Comp
 eurex_t7_eti_fbe_v5_0.side_alloc_grp_bc_comp.dissect = function(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
-  if show.side_alloc_grp_bc_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_grp_bc_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.side_alloc_grp_bc_comp.fields(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
@@ -13697,7 +13457,7 @@ end
 
 -- Dissect: Nrbc Header Comp
 eurex_t7_eti_fbe_v5_0.nrbc_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.nrbc_header_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.nrbc_header_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.nrbc_header_comp.fields(buffer, offset, packet, parent)
@@ -14216,7 +13976,7 @@ end
 
 -- Dissect: Nr Response Header Me Comp
 eurex_t7_eti_fbe_v5_0.nr_response_header_me_comp.dissect = function(buffer, offset, packet, parent)
-  if show.nr_response_header_me_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.nr_response_header_me_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.nr_response_header_me_comp.fields(buffer, offset, packet, parent)
@@ -14473,7 +14233,7 @@ eurex_t7_eti_fbe_v5_0.quote_leg_exec_grp_comp.fields = function(buffer, offset, 
   local index = offset
 
   -- Implicit Quote Leg Exec Grp Comp Index
-  if quote_leg_exec_grp_comp_index ~= nil and show.quote_leg_exec_grp_comp_index then
+  if quote_leg_exec_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_leg_exec_grp_comp_index, quote_leg_exec_grp_comp_index)
     iteration:set_generated()
   end
@@ -14504,7 +14264,7 @@ end
 
 -- Dissect: Quote Leg Exec Grp Comp
 eurex_t7_eti_fbe_v5_0.quote_leg_exec_grp_comp.dissect = function(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
-  if show.quote_leg_exec_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_leg_exec_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.quote_leg_exec_grp_comp.fields(buffer, offset, packet, parent, quote_leg_exec_grp_comp_index)
@@ -14546,7 +14306,7 @@ eurex_t7_eti_fbe_v5_0.quote_event_grp_comp.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Quote Event Grp Comp Index
-  if quote_event_grp_comp_index ~= nil and show.quote_event_grp_comp_index then
+  if quote_event_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_event_grp_comp_index, quote_event_grp_comp_index)
     iteration:set_generated()
   end
@@ -14586,7 +14346,7 @@ end
 
 -- Dissect: Quote Event Grp Comp
 eurex_t7_eti_fbe_v5_0.quote_event_grp_comp.dissect = function(buffer, offset, packet, parent, quote_event_grp_comp_index)
-  if show.quote_event_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_event_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.quote_event_grp_comp.fields(buffer, offset, packet, parent, quote_event_grp_comp_index)
@@ -14697,7 +14457,7 @@ eurex_t7_eti_fbe_v5_0.not_affected_securities_grp_comp.fields = function(buffer,
   local index = offset
 
   -- Implicit Not Affected Securities Grp Comp Index
-  if not_affected_securities_grp_comp_index ~= nil and show.not_affected_securities_grp_comp_index then
+  if not_affected_securities_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.not_affected_securities_grp_comp_index, not_affected_securities_grp_comp_index)
     iteration:set_generated()
   end
@@ -14710,7 +14470,7 @@ end
 
 -- Dissect: Not Affected Securities Grp Comp
 eurex_t7_eti_fbe_v5_0.not_affected_securities_grp_comp.dissect = function(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
-  if show.not_affected_securities_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.not_affected_securities_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.not_affected_securities_grp_comp.fields(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
@@ -15138,7 +14898,7 @@ eurex_t7_eti_fbe_v5_0.instrmnt_leg_exec_grp_comp.fields = function(buffer, offse
   local index = offset
 
   -- Implicit Instrmnt Leg Exec Grp Comp Index
-  if instrmnt_leg_exec_grp_comp_index ~= nil and show.instrmnt_leg_exec_grp_comp_index then
+  if instrmnt_leg_exec_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrmnt_leg_exec_grp_comp_index, instrmnt_leg_exec_grp_comp_index)
     iteration:set_generated()
   end
@@ -15169,7 +14929,7 @@ end
 
 -- Dissect: Instrmnt Leg Exec Grp Comp
 eurex_t7_eti_fbe_v5_0.instrmnt_leg_exec_grp_comp.dissect = function(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
-  if show.instrmnt_leg_exec_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrmnt_leg_exec_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.instrmnt_leg_exec_grp_comp.fields(buffer, offset, packet, parent, instrmnt_leg_exec_grp_comp_index)
@@ -15207,7 +14967,7 @@ eurex_t7_eti_fbe_v5_0.fills_grp_comp.fields = function(buffer, offset, packet, p
   local index = offset
 
   -- Implicit Fills Grp Comp Index
-  if fills_grp_comp_index ~= nil and show.fills_grp_comp_index then
+  if fills_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.fills_grp_comp_index, fills_grp_comp_index)
     iteration:set_generated()
   end
@@ -15235,7 +14995,7 @@ end
 
 -- Dissect: Fills Grp Comp
 eurex_t7_eti_fbe_v5_0.fills_grp_comp.dissect = function(buffer, offset, packet, parent, fills_grp_comp_index)
-  if show.fills_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.fills_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.fills_grp_comp.fields(buffer, offset, packet, parent, fills_grp_comp_index)
@@ -15315,7 +15075,7 @@ end
 
 -- Dissect: Response Header Me Comp
 eurex_t7_eti_fbe_v5_0.response_header_me_comp.dissect = function(buffer, offset, packet, parent)
-  if show.response_header_me_comp then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.response_header_me_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.response_header_me_comp.fields(buffer, offset, packet, parent)
@@ -15476,7 +15236,7 @@ eurex_t7_eti_fbe_v5_0.leg_ord_grp_comp.fields = function(buffer, offset, packet,
   local index = offset
 
   -- Implicit Leg Ord Grp Comp Index
-  if leg_ord_grp_comp_index ~= nil and show.leg_ord_grp_comp_index then
+  if leg_ord_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.leg_ord_grp_comp_index, leg_ord_grp_comp_index)
     iteration:set_generated()
   end
@@ -15495,7 +15255,7 @@ end
 
 -- Dissect: Leg Ord Grp Comp
 eurex_t7_eti_fbe_v5_0.leg_ord_grp_comp.dissect = function(buffer, offset, packet, parent, leg_ord_grp_comp_index)
-  if show.leg_ord_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.leg_ord_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.leg_ord_grp_comp.fields(buffer, offset, packet, parent, leg_ord_grp_comp_index)
@@ -16520,7 +16280,7 @@ eurex_t7_eti_fbe_v5_0.side_alloc_grp_comp.fields = function(buffer, offset, pack
   local index = offset
 
   -- Implicit Side Alloc Grp Comp Index
-  if side_alloc_grp_comp_index ~= nil and show.side_alloc_grp_comp_index then
+  if side_alloc_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
     iteration:set_generated()
   end
@@ -16548,7 +16308,7 @@ end
 
 -- Dissect: Side Alloc Grp Comp
 eurex_t7_eti_fbe_v5_0.side_alloc_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
-  if show.side_alloc_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.side_alloc_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.side_alloc_grp_comp.fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
@@ -17298,7 +17058,7 @@ eurex_t7_eti_fbe_v5_0.quote_entry_ack_grp_comp.fields = function(buffer, offset,
   local index = offset
 
   -- Implicit Quote Entry Ack Grp Comp Index
-  if quote_entry_ack_grp_comp_index ~= nil and show.quote_entry_ack_grp_comp_index then
+  if quote_entry_ack_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
     iteration:set_generated()
   end
@@ -17326,7 +17086,7 @@ end
 
 -- Dissect: Quote Entry Ack Grp Comp
 eurex_t7_eti_fbe_v5_0.quote_entry_ack_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
-  if show.quote_entry_ack_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
@@ -17436,7 +17196,7 @@ eurex_t7_eti_fbe_v5_0.quote_entry_grp_comp.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Quote Entry Grp Comp Index
-  if quote_entry_grp_comp_index ~= nil and show.quote_entry_grp_comp_index then
+  if quote_entry_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
     iteration:set_generated()
   end
@@ -17461,7 +17221,7 @@ end
 
 -- Dissect: Quote Entry Grp Comp
 eurex_t7_eti_fbe_v5_0.quote_entry_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
-  if show.quote_entry_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.quote_entry_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.quote_entry_grp_comp.fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
@@ -18098,7 +17858,7 @@ eurex_t7_eti_fbe_v5_0.party_details_grp_comp.fields = function(buffer, offset, p
   local index = offset
 
   -- Implicit Party Details Grp Comp Index
-  if party_details_grp_comp_index ~= nil and show.party_details_grp_comp_index then
+  if party_details_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.party_details_grp_comp_index, party_details_grp_comp_index)
     iteration:set_generated()
   end
@@ -18126,7 +17886,7 @@ end
 
 -- Dissect: Party Details Grp Comp
 eurex_t7_eti_fbe_v5_0.party_details_grp_comp.dissect = function(buffer, offset, packet, parent, party_details_grp_comp_index)
-  if show.party_details_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.party_details_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
@@ -18288,7 +18048,7 @@ eurex_t7_eti_fbe_v5_0.sessions_grp_comp.fields = function(buffer, offset, packet
   local index = offset
 
   -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil and show.sessions_grp_comp_index then
+  if sessions_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.sessions_grp_comp_index, sessions_grp_comp_index)
     iteration:set_generated()
   end
@@ -18310,7 +18070,7 @@ end
 
 -- Dissect: Sessions Grp Comp
 eurex_t7_eti_fbe_v5_0.sessions_grp_comp.dissect = function(buffer, offset, packet, parent, sessions_grp_comp_index)
-  if show.sessions_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.sessions_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
@@ -18469,7 +18229,7 @@ eurex_t7_eti_fbe_v5_0.mm_parameter_grp_comp.fields = function(buffer, offset, pa
   local index = offset
 
   -- Implicit Mm Parameter Grp Comp Index
-  if mm_parameter_grp_comp_index ~= nil and show.mm_parameter_grp_comp_index then
+  if mm_parameter_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
     iteration:set_generated()
   end
@@ -18500,7 +18260,7 @@ end
 
 -- Dissect: Mm Parameter Grp Comp
 eurex_t7_eti_fbe_v5_0.mm_parameter_grp_comp.dissect = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
-  if show.mm_parameter_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.mm_parameter_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.mm_parameter_grp_comp.fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
@@ -18675,7 +18435,7 @@ eurex_t7_eti_fbe_v5_0.enrichment_rules_grp_comp.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Enrichment Rules Grp Comp Index
-  if enrichment_rules_grp_comp_index ~= nil and show.enrichment_rules_grp_comp_index then
+  if enrichment_rules_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
     iteration:set_generated()
   end
@@ -18718,7 +18478,7 @@ end
 
 -- Dissect: Enrichment Rules Grp Comp
 eurex_t7_eti_fbe_v5_0.enrichment_rules_grp_comp.dissect = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
-  if show.enrichment_rules_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.enrichment_rules_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
@@ -20195,7 +19955,7 @@ eurex_t7_eti_fbe_v5_0.not_affected_orders_grp_comp.fields = function(buffer, off
   local index = offset
 
   -- Implicit Not Affected Orders Grp Comp Index
-  if not_affected_orders_grp_comp_index ~= nil and show.not_affected_orders_grp_comp_index then
+  if not_affected_orders_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
     iteration:set_generated()
   end
@@ -20211,7 +19971,7 @@ end
 
 -- Dissect: Not Affected Orders Grp Comp
 eurex_t7_eti_fbe_v5_0.not_affected_orders_grp_comp.dissect = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
-  if show.not_affected_orders_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.not_affected_orders_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.not_affected_orders_grp_comp.fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
@@ -21151,7 +20911,7 @@ eurex_t7_eti_fbe_v5_0.instrmt_leg_grp_comp.fields = function(buffer, offset, pac
   local index = offset
 
   -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil and show.instrmt_leg_grp_comp_index then
+  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
   end
@@ -21182,7 +20942,7 @@ end
 
 -- Dissect: Instrmt Leg Grp Comp
 eurex_t7_eti_fbe_v5_0.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  if show.instrmt_leg_grp_comp then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
@@ -21799,7 +21559,7 @@ end
 
 -- Dissect: Message Header
 eurex_t7_eti_fbe_v5_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.message_header, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v5_0.message_header.fields(buffer, offset, packet, parent)
@@ -21844,7 +21604,7 @@ eurex_t7_eti_fbe_v5_0.message.dissect = function(buffer, offset, packet, parent,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_eurex_t7_eti_fbe_v5_0.fields.message, buffer(offset, 0))
     local current = eurex_t7_eti_fbe_v5_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

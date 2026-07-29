@@ -175,27 +175,13 @@ local show = {}
 
 -- Hkex HkexDerivatives FullTick Omd 1.49 Element Dissection Options
 show.application_messages = true
-show.deal_type = true
-show.message = true
-show.msg_header = true
-show.order_type = true
-show.packet = true
-show.packet_header = true
-show.trade_condition = true
-show.message_index = true
-show.content_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Hkex HkexDerivatives FullTick Omd 1.49 Show Options
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_deal_type = Pref.bool("Show Deal Type", show.deal_type, "Parse and add Deal Type to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_order_type = Pref.bool("Show Order Type", show.order_type, "Parse and add Order Type to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_trade_condition = Pref.bool("Show Trade Condition", show.trade_condition, "Parse and add Trade Condition to protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_content_index = Pref.bool("Show Content Index", show.content_index, "Show generated content index in protocol tree")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -205,32 +191,11 @@ function omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs_changed()
   if show.application_messages ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_application_messages then
     show.application_messages = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_application_messages
   end
-  if show.deal_type ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_deal_type then
-    show.deal_type = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_deal_type
+  if show.structs ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_structs then
+    show.structs = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_structs
   end
-  if show.message ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message then
-    show.message = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message
-  end
-  if show.msg_header ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_msg_header then
-    show.msg_header = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_msg_header
-  end
-  if show.order_type ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_order_type then
-    show.order_type = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_order_type
-  end
-  if show.packet ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet then
-    show.packet = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet
-  end
-  if show.packet_header ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet_header then
-    show.packet_header = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_packet_header
-  end
-  if show.trade_condition ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_trade_condition then
-    show.trade_condition = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_trade_condition
-  end
-  if show.message_index ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message_index then
-    show.message_index = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_message_index
-  end
-  if show.content_index ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_content_index then
-    show.content_index = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_content_index
+  if show.indexes ~= omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes then
+    show.indexes = omi_hkex_hkexderivatives_fulltick_omd_v1_49.prefs.show_indexes
   end
 end
 
@@ -3337,7 +3302,7 @@ hkex_hkexderivatives_fulltick_omd_v1_49.trade_condition.dissect = function(buffe
   local display = hkex_hkexderivatives_fulltick_omd_v1_49.trade_condition.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.trade_condition, range, display)
 
-  if show.trade_condition then
+  if show.structs then
     hkex_hkexderivatives_fulltick_omd_v1_49.trade_condition.bits(range, value, packet, element)
   end
 
@@ -3394,7 +3359,7 @@ hkex_hkexderivatives_fulltick_omd_v1_49.deal_type.dissect = function(buffer, off
   local display = hkex_hkexderivatives_fulltick_omd_v1_49.deal_type.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.deal_type, range, display)
 
-  if show.deal_type then
+  if show.structs then
     hkex_hkexderivatives_fulltick_omd_v1_49.deal_type.bits(range, value, packet, element)
   end
 
@@ -4407,7 +4372,7 @@ hkex_hkexderivatives_fulltick_omd_v1_49.order_type.dissect = function(buffer, of
   local display = hkex_hkexderivatives_fulltick_omd_v1_49.order_type.display(range, value, packet, parent)
   local element = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.order_type, range, display)
 
-  if show.order_type then
+  if show.structs then
     hkex_hkexderivatives_fulltick_omd_v1_49.order_type.bits(range, value, packet, element)
   end
 
@@ -4880,7 +4845,7 @@ end
 
 -- Dissect: Msg Header
 hkex_hkexderivatives_fulltick_omd_v1_49.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.msg_header, buffer(offset, 0))
     local index = hkex_hkexderivatives_fulltick_omd_v1_49.msg_header.fields(buffer, offset, packet, parent)
@@ -4909,7 +4874,7 @@ hkex_hkexderivatives_fulltick_omd_v1_49.message.fields = function(buffer, offset
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -4931,7 +4896,7 @@ hkex_hkexderivatives_fulltick_omd_v1_49.message.dissect = function(buffer, offse
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message, buffer(offset, 0))
     local current = hkex_hkexderivatives_fulltick_omd_v1_49.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -4987,7 +4952,7 @@ end
 
 -- Dissect: Packet Header
 hkex_hkexderivatives_fulltick_omd_v1_49.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.packet_header, buffer(offset, 0))
     local index = hkex_hkexderivatives_fulltick_omd_v1_49.packet_header.fields(buffer, offset, packet, parent)

@@ -177,43 +177,15 @@ local show = {}
 
 -- Hkex HkexSecurities PremiumRefresh Omd 1.44 Element Dissection Options
 show.application_messages = true
-show.book_entry = true
-show.liquidity_provider = true
-show.message = true
-show.msg_header = true
-show.news_line_item = true
-show.news_market = true
-show.news_security = true
-show.packet = true
-show.packet_header = true
-show.underlying_security = true
-show.message_index = true
-show.book_entry_index = true
-show.news_market_index = true
-show.news_security_index = true
-show.news_line_item_index = true
-show.underlying_security_index = true
-show.liquidity_provider_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Hkex HkexSecurities PremiumRefresh Omd 1.44 Show Options
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry = Pref.bool("Show Book Entry", show.book_entry, "Parse and add Book Entry to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider = Pref.bool("Show Liquidity Provider", show.liquidity_provider, "Parse and add Liquidity Provider to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_msg_header = Pref.bool("Show Msg Header", show.msg_header, "Parse and add Msg Header to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item = Pref.bool("Show News Line Item", show.news_line_item, "Parse and add News Line Item to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market = Pref.bool("Show News Market", show.news_market, "Parse and add News Market to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security = Pref.bool("Show News Security", show.news_security, "Parse and add News Security to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security = Pref.bool("Show Underlying Security", show.underlying_security, "Parse and add Underlying Security to protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry_index = Pref.bool("Show Book Entry Index", show.book_entry_index, "Show generated book entry index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market_index = Pref.bool("Show News Market Index", show.news_market_index, "Show generated news market index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security_index = Pref.bool("Show News Security Index", show.news_security_index, "Show generated news security index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item_index = Pref.bool("Show News Line Item Index", show.news_line_item_index, "Show generated news line item index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security_index = Pref.bool("Show Underlying Security Index", show.underlying_security_index, "Show generated underlying security index in protocol tree")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider_index = Pref.bool("Show Liquidity Provider Index", show.liquidity_provider_index, "Show generated liquidity provider index in protocol tree")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -223,56 +195,14 @@ function omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs_changed()
   if show.application_messages ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_application_messages then
     show.application_messages = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_application_messages
   end
-  if show.book_entry ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry then
-    show.book_entry = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry
+  if show.repeating_groups ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_repeating_groups then
+    show.repeating_groups = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_repeating_groups
   end
-  if show.liquidity_provider ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider then
-    show.liquidity_provider = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider
+  if show.structs ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_structs then
+    show.structs = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_structs
   end
-  if show.message ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message then
-    show.message = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message
-  end
-  if show.msg_header ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_msg_header then
-    show.msg_header = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_msg_header
-  end
-  if show.news_line_item ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item then
-    show.news_line_item = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item
-  end
-  if show.news_market ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market then
-    show.news_market = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market
-  end
-  if show.news_security ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security then
-    show.news_security = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security
-  end
-  if show.packet ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet then
-    show.packet = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet
-  end
-  if show.packet_header ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet_header then
-    show.packet_header = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_packet_header
-  end
-  if show.underlying_security ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security then
-    show.underlying_security = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security
-  end
-  if show.message_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message_index then
-    show.message_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_message_index
-  end
-  if show.book_entry_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry_index then
-    show.book_entry_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_book_entry_index
-  end
-  if show.news_market_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market_index then
-    show.news_market_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_market_index
-  end
-  if show.news_security_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security_index then
-    show.news_security_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_security_index
-  end
-  if show.news_line_item_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item_index then
-    show.news_line_item_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_news_line_item_index
-  end
-  if show.underlying_security_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security_index then
-    show.underlying_security_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_underlying_security_index
-  end
-  if show.liquidity_provider_index ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider_index then
-    show.liquidity_provider_index = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_liquidity_provider_index
+  if show.indexes ~= omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_indexes then
+    show.indexes = omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.prefs.show_indexes
   end
 end
 
@@ -3955,7 +3885,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.liquidity_provider.fields = functio
   local index = offset
 
   -- Implicit Liquidity Provider Index
-  if liquidity_provider_index ~= nil and show.liquidity_provider_index then
+  if liquidity_provider_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.liquidity_provider_index, liquidity_provider_index)
     iteration:set_generated()
   end
@@ -3968,7 +3898,7 @@ end
 
 -- Dissect: Liquidity Provider
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.liquidity_provider.dissect = function(buffer, offset, packet, parent, liquidity_provider_index)
-  if show.liquidity_provider then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.liquidity_provider, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.liquidity_provider.fields(buffer, offset, packet, parent, liquidity_provider_index)
@@ -4061,7 +3991,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.underlying_security.fields = functi
   local index = offset
 
   -- Implicit Underlying Security Index
-  if underlying_security_index ~= nil and show.underlying_security_index then
+  if underlying_security_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.underlying_security_index, underlying_security_index)
     iteration:set_generated()
   end
@@ -4077,7 +4007,7 @@ end
 
 -- Dissect: Underlying Security
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.underlying_security.dissect = function(buffer, offset, packet, parent, underlying_security_index)
-  if show.underlying_security then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.underlying_security, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.underlying_security.fields(buffer, offset, packet, parent, underlying_security_index)
@@ -4591,7 +4521,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_line_item.fields = function(bu
   local index = offset
 
   -- Implicit News Line Item Index
-  if news_line_item_index ~= nil and show.news_line_item_index then
+  if news_line_item_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_line_item_index, news_line_item_index)
     iteration:set_generated()
   end
@@ -4604,7 +4534,7 @@ end
 
 -- Dissect: News Line Item
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_line_item.dissect = function(buffer, offset, packet, parent, news_line_item_index)
-  if show.news_line_item then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_line_item, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_line_item.fields(buffer, offset, packet, parent, news_line_item_index)
@@ -4637,7 +4567,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_security.fields = function(buf
   local index = offset
 
   -- Implicit News Security Index
-  if news_security_index ~= nil and show.news_security_index then
+  if news_security_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_security_index, news_security_index)
     iteration:set_generated()
   end
@@ -4650,7 +4580,7 @@ end
 
 -- Dissect: News Security
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_security.dissect = function(buffer, offset, packet, parent, news_security_index)
-  if show.news_security then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_security, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_security.fields(buffer, offset, packet, parent, news_security_index)
@@ -4683,7 +4613,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_market.fields = function(buffe
   local index = offset
 
   -- Implicit News Market Index
-  if news_market_index ~= nil and show.news_market_index then
+  if news_market_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_market_index, news_market_index)
     iteration:set_generated()
   end
@@ -4696,7 +4626,7 @@ end
 
 -- Dissect: News Market
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_market.dissect = function(buffer, offset, packet, parent, news_market_index)
-  if show.news_market then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_market, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.news_market.fields(buffer, offset, packet, parent, news_market_index)
@@ -4963,7 +4893,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.book_entry.fields = function(buffer
   local index = offset
 
   -- Implicit Book Entry Index
-  if book_entry_index ~= nil and show.book_entry_index then
+  if book_entry_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.book_entry_index, book_entry_index)
     iteration:set_generated()
   end
@@ -4994,7 +4924,7 @@ end
 
 -- Dissect: Book Entry
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.book_entry.dissect = function(buffer, offset, packet, parent, book_entry_index)
-  if show.book_entry then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.book_entry, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.book_entry.fields(buffer, offset, packet, parent, book_entry_index)
@@ -5183,7 +5113,7 @@ end
 
 -- Dissect: Msg Header
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.msg_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_header, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.msg_header.fields(buffer, offset, packet, parent)
@@ -5212,7 +5142,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.message.fields = function(buffer, o
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -5234,7 +5164,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_44.message.dissect = function(buffer, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.message, buffer(offset, 0))
     local current = hkex_hkexsecurities_premiumrefresh_omd_v1_44.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -5290,7 +5220,7 @@ end
 
 -- Dissect: Packet Header
 hkex_hkexsecurities_premiumrefresh_omd_v1_44.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.packet_header, buffer(offset, 0))
     local index = hkex_hkexsecurities_premiumrefresh_omd_v1_44.packet_header.fields(buffer, offset, packet, parent)

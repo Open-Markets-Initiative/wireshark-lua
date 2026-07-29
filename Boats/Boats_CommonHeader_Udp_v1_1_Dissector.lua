@@ -43,48 +43,23 @@ omi_boats_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message I
 local show = {}
 
 -- Boats CommonHeader Udp 1.1 Element Dissection Options
-show.common_header = true
-show.message = true
-show.packet = true
-show.sbe_header = true
-show.sbe_message = true
-show.sequenced_message = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Boats CommonHeader Udp 1.1 Show Options
-omi_boats_commonheader_udp_v1_1.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_sbe_header = Pref.bool("Show Sbe Header", show.sbe_header, "Parse and add Sbe Header to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message = Pref.bool("Show Sequenced Message", show.sequenced_message, "Parse and add Sequenced Message to protocol tree")
-omi_boats_commonheader_udp_v1_1.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_boats_commonheader_udp_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_boats_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
 function omi_boats_commonheader_udp_v1_1.prefs_changed()
 
   -- Check if preferences have changed
-  if show.common_header ~= omi_boats_commonheader_udp_v1_1.prefs.show_common_header then
-    show.common_header = omi_boats_commonheader_udp_v1_1.prefs.show_common_header
+  if show.structs ~= omi_boats_commonheader_udp_v1_1.prefs.show_structs then
+    show.structs = omi_boats_commonheader_udp_v1_1.prefs.show_structs
   end
-  if show.message ~= omi_boats_commonheader_udp_v1_1.prefs.show_message then
-    show.message = omi_boats_commonheader_udp_v1_1.prefs.show_message
-  end
-  if show.packet ~= omi_boats_commonheader_udp_v1_1.prefs.show_packet then
-    show.packet = omi_boats_commonheader_udp_v1_1.prefs.show_packet
-  end
-  if show.sbe_header ~= omi_boats_commonheader_udp_v1_1.prefs.show_sbe_header then
-    show.sbe_header = omi_boats_commonheader_udp_v1_1.prefs.show_sbe_header
-  end
-  if show.sbe_message ~= omi_boats_commonheader_udp_v1_1.prefs.show_sbe_message then
-    show.sbe_message = omi_boats_commonheader_udp_v1_1.prefs.show_sbe_message
-  end
-  if show.sequenced_message ~= omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message then
-    show.sequenced_message = omi_boats_commonheader_udp_v1_1.prefs.show_sequenced_message
-  end
-  if show.message_index ~= omi_boats_commonheader_udp_v1_1.prefs.show_message_index then
-    show.message_index = omi_boats_commonheader_udp_v1_1.prefs.show_message_index
+  if show.indexes ~= omi_boats_commonheader_udp_v1_1.prefs.show_indexes then
+    show.indexes = omi_boats_commonheader_udp_v1_1.prefs.show_indexes
   end
 end
 
@@ -393,7 +368,7 @@ end
 
 -- Dissect: Sbe Header
 boats_commonheader_udp_v1_1.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.sbe_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_commonheader_udp_v1_1.fields.sbe_header, buffer(offset, 0))
     local index = boats_commonheader_udp_v1_1.sbe_header.fields(buffer, offset, packet, parent)
@@ -438,7 +413,7 @@ boats_commonheader_udp_v1_1.sbe_message.dissect = function(buffer, offset, packe
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_boats_commonheader_udp_v1_1.fields.sbe_message, buffer(offset, 0))
     local current = boats_commonheader_udp_v1_1.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)
@@ -467,7 +442,7 @@ boats_commonheader_udp_v1_1.message.fields = function(buffer, offset, packet, pa
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_boats_commonheader_udp_v1_1.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -492,7 +467,7 @@ boats_commonheader_udp_v1_1.message.dissect = function(buffer, offset, packet, p
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.message then
+  if show.structs then
     parent = parent:add(omi_boats_commonheader_udp_v1_1.fields.message, buffer(offset, 0))
     local current = boats_commonheader_udp_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
     parent:set_len(size_of_message)
@@ -553,7 +528,7 @@ end
 
 -- Dissect: Sequenced Message
 boats_commonheader_udp_v1_1.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_commonheader_udp_v1_1.fields.sequenced_message, buffer(offset, 0))
     local index = boats_commonheader_udp_v1_1.sequenced_message.fields(buffer, offset, packet, parent)
@@ -618,7 +593,7 @@ end
 
 -- Dissect: Common Header
 boats_commonheader_udp_v1_1.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.common_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_boats_commonheader_udp_v1_1.fields.common_header, buffer(offset, 0))
     local index = boats_commonheader_udp_v1_1.common_header.fields(buffer, offset, packet, parent)

@@ -92,25 +92,11 @@ local show = {}
 
 -- Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13 Element Dissection Options
 show.application_messages = true
-show.debug_packet = true
-show.login_accepted_packet = true
-show.login_rejected_packet = true
-show.login_request_packet = true
-show.packet = true
-show.sequenced_data_packet = true
-show.sequenced_message_header = true
-show.unsequenced_data_packet = true
+show.structs = true
 
 -- Register Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13 Show Options
 omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_debug_packet = Pref.bool("Show Debug Packet", show.debug_packet, "Parse and add Debug Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_message_header = Pref.bool("Show Sequenced Message Header", show.sequenced_message_header, "Parse and add Sequenced Message Header to protocol tree")
-omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
+omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
 -- Handle changed preferences
@@ -120,29 +106,8 @@ function omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs_changed(
   if show.application_messages ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_application_messages
   end
-  if show.debug_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_debug_packet then
-    show.debug_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_debug_packet
-  end
-  if show.login_accepted_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_accepted_packet then
-    show.login_accepted_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_accepted_packet
-  end
-  if show.login_rejected_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_rejected_packet then
-    show.login_rejected_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_rejected_packet
-  end
-  if show.login_request_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_request_packet then
-    show.login_request_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_login_request_packet
-  end
-  if show.packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_packet then
-    show.packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_packet
-  end
-  if show.sequenced_data_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_data_packet then
-    show.sequenced_data_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_data_packet
-  end
-  if show.sequenced_message_header ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_message_header then
-    show.sequenced_message_header = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_sequenced_message_header
-  end
-  if show.unsequenced_data_packet ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_unsequenced_data_packet then
-    show.unsequenced_data_packet = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_unsequenced_data_packet
+  if show.structs ~= omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_structs then
+    show.structs = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_structs
   end
 end
 
@@ -1391,7 +1356,7 @@ end
 
 -- Dissect: Unsequenced Data Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.unsequenced_data_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.unsequenced_data_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.unsequenced_data_packet.fields(buffer, offset, packet, parent)
@@ -1443,7 +1408,7 @@ end
 
 -- Dissect: Login Request Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_request_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.login_request_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_request_packet.fields(buffer, offset, packet, parent)
@@ -2440,7 +2405,7 @@ end
 
 -- Dissect: Sequenced Message Header
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.sequenced_message_header, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_header.fields(buffer, offset, packet, parent)
@@ -2496,7 +2461,7 @@ end
 
 -- Dissect: Sequenced Data Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.sequenced_data_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.sequenced_data_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_data_packet.fields(buffer, offset, packet, parent)
@@ -2536,7 +2501,7 @@ end
 
 -- Dissect: Login Rejected Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_rejected_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.login_rejected_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -2580,7 +2545,7 @@ end
 
 -- Dissect: Login Accepted Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.login_accepted_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.login_accepted_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -2620,7 +2585,7 @@ end
 
 -- Dissect: Debug Packet
 cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.debug_packet then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.fields.debug_packet, buffer(offset, 0))
     local index = cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.debug_packet.fields(buffer, offset, packet, parent)

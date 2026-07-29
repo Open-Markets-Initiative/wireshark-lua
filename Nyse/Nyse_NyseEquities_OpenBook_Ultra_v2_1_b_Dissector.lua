@@ -67,22 +67,12 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message
 local show = {}
 
 -- Nyse NyseEquities OpenBook Ultra 2.1.b Element Dissection Options
-show.delta_price_point = true
+show.structs = true
 show.application_messages = true
-show.delta_update_messages = true
-show.full_price_point = true
-show.full_update_messages = true
-show.packet = true
-show.packet_header = true
 
 -- Register Nyse NyseEquities OpenBook Ultra 2.1.b Show Options
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_price_point = Pref.bool("Show Delta Price Point", show.delta_price_point, "Parse and add Delta Price Point to protocol tree")
+omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages = Pref.bool("Show Delta Update Messages", show.delta_update_messages, "Parse and add Delta Update Messages to protocol tree")
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_price_point = Pref.bool("Show Full Price Point", show.full_price_point, "Parse and add Full Price Point to protocol tree")
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_update_messages = Pref.bool("Show Full Update Messages", show.full_update_messages, "Parse and add Full Update Messages to protocol tree")
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 
 
 -- Handle changed preferences
@@ -92,23 +82,8 @@ function omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs_changed()
   if show.application_messages ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_application_messages
   end
-  if show.delta_price_point ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_price_point then
-    show.delta_price_point = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_price_point
-  end
-  if show.delta_update_messages ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages then
-    show.delta_update_messages = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_delta_update_messages
-  end
-  if show.full_price_point ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_price_point then
-    show.full_price_point = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_price_point
-  end
-  if show.full_update_messages ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_update_messages then
-    show.full_update_messages = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_full_update_messages
-  end
-  if show.packet ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet then
-    show.packet = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet
-  end
-  if show.packet_header ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet_header then
-    show.packet_header = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_packet_header
+  if show.structs ~= omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_structs then
+    show.structs = omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_structs
   end
 end
 
@@ -1011,7 +986,7 @@ end
 
 -- Dissect: Delta Price Point
 nyse_nyseequities_openbook_ultra_v2_1_b.delta_price_point.dissect = function(buffer, offset, packet, parent)
-  if show.delta_price_point then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_price_point, buffer(offset, 0))
     local index = nyse_nyseequities_openbook_ultra_v2_1_b.delta_price_point.fields(buffer, offset, packet, parent)
@@ -1137,7 +1112,7 @@ end
 
 -- Dissect: Delta Update Messages
 nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_messages.dissect = function(buffer, offset, packet, parent)
-  if show.delta_update_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_update_messages, buffer(offset, 0))
     local index = nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_messages.fields(buffer, offset, packet, parent)
@@ -1193,7 +1168,7 @@ end
 
 -- Dissect: Full Price Point
 nyse_nyseequities_openbook_ultra_v2_1_b.full_price_point.dissect = function(buffer, offset, packet, parent)
-  if show.full_price_point then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_price_point, buffer(offset, 0))
     local index = nyse_nyseequities_openbook_ultra_v2_1_b.full_price_point.fields(buffer, offset, packet, parent)
@@ -1328,7 +1303,7 @@ end
 
 -- Dissect: Full Update Messages
 nyse_nyseequities_openbook_ultra_v2_1_b.full_update_messages.dissect = function(buffer, offset, packet, parent)
-  if show.full_update_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_messages, buffer(offset, 0))
     local index = nyse_nyseequities_openbook_ultra_v2_1_b.full_update_messages.fields(buffer, offset, packet, parent)
@@ -1421,7 +1396,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_openbook_ultra_v2_1_b.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_openbook_ultra_v2_1_b.packet_header.fields(buffer, offset, packet, parent)

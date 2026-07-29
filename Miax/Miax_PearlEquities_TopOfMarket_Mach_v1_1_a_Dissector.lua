@@ -69,33 +69,23 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new
 local show = {}
 
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Element Dissection Options
-show.application_message = true
+show.structs = true
 show.application_messages = true
-show.mach_message = true
-show.packet = true
 
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.a Show Options
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message = Pref.bool("Show Application Message", show.application_message, "Parse and add Application Message to protocol tree")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_mach_message = Pref.bool("Show Mach Message", show.mach_message, "Parse and add Mach Message to protocol tree")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
 
   -- Check if preferences have changed
-  if show.application_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message then
-    show.application_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_message
-  end
   if show.application_messages ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages
   end
-  if show.mach_message ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_mach_message then
-    show.mach_message = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_mach_message
-  end
-  if show.packet ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet then
-    show.packet = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_packet
+  if show.structs ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs then
+    show.structs = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs
   end
 end
 
@@ -1619,7 +1609,7 @@ miax_pearlequities_topofmarket_mach_v1_1_a.application_message.dissect = functio
   local index = offset + size_of_application_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.application_message then
+  if show.structs then
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.application_message, buffer(offset, 0))
     local current = miax_pearlequities_topofmarket_mach_v1_1_a.application_message.fields(buffer, offset, packet, parent, size_of_application_message)
     parent:set_len(size_of_application_message)
@@ -1763,7 +1753,7 @@ end
 
 -- Dissect: Mach Message
 miax_pearlequities_topofmarket_mach_v1_1_a.mach_message.dissect = function(buffer, offset, packet, parent)
-  if show.mach_message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message, buffer(offset, 0))
     local index = miax_pearlequities_topofmarket_mach_v1_1_a.mach_message.fields(buffer, offset, packet, parent)

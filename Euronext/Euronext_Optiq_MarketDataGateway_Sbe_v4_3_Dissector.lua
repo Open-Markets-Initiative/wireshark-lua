@@ -489,113 +489,15 @@ local show = {}
 
 -- Euronext Optiq MarketDataGateway Sbe 4.3 Element Dissection Options
 show.application_messages = true
-show.contract_emm_properties_group = true
-show.contract_emm_properties_groups = true
-show.emm_pattern_rep_group = true
-show.emm_pattern_rep_groups = true
-show.group_size_encoding = true
-show.interest_payment_date_rep_group = true
-show.interest_payment_date_rep_groups = true
-show.long_order_updates_group = true
-show.long_order_updates_groups = true
-show.market_data_packet_header = true
-show.market_states_group = true
-show.market_states_groups = true
-show.market_updates_group = true
-show.market_updates_groups = true
-show.message_header = true
-show.mm_protections = true
-show.new_stats_group = true
-show.new_stats_groups = true
-show.not_used_groups = true
-show.optiq_message = true
-show.order_type_rules = true
-show.order_updates_group = true
-show.order_updates_groups = true
-show.outright_rep_group = true
-show.outright_rep_groups = true
-show.package_components_group = true
-show.package_components_groups = true
-show.packet = true
-show.packet_flags = true
-show.phase_qualifier = true
-show.price_updates_group = true
-show.price_updates_groups = true
-show.strategy_authorized = true
-show.strategy_standing_data_group = true
-show.strategy_standing_data_groups = true
-show.timetables_group = true
-show.timetables_groups = true
-show.trade_qualifier = true
-show.market_updates_group_index = true
-show.order_updates_group_index = true
-show.price_updates_group_index = true
-show.not_used_group_index = true
-show.market_states_group_index = true
-show.timetables_group_index = true
-show.emm_pattern_rep_group_index = true
-show.new_stats_group_index = true
-show.strategy_standing_data_group_index = true
-show.contract_emm_properties_group_index = true
-show.outright_rep_group_index = true
-show.long_order_updates_group_index = true
-show.package_components_group_index = true
-show.interest_payment_date_rep_group_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Euronext Optiq MarketDataGateway Sbe 4.3 Show Options
 omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group = Pref.bool("Show Contract Emm Properties Group", show.contract_emm_properties_group, "Parse and add Contract Emm Properties Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_groups = Pref.bool("Show Contract Emm Properties Groups", show.contract_emm_properties_groups, "Parse and add Contract Emm Properties Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group = Pref.bool("Show Emm Pattern Rep Group", show.emm_pattern_rep_group, "Parse and add Emm Pattern Rep Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_groups = Pref.bool("Show Emm Pattern Rep Groups", show.emm_pattern_rep_groups, "Parse and add Emm Pattern Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_group_size_encoding = Pref.bool("Show Group Size Encoding", show.group_size_encoding, "Parse and add Group Size Encoding to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group = Pref.bool("Show Interest Payment Date Rep Group", show.interest_payment_date_rep_group, "Parse and add Interest Payment Date Rep Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_groups = Pref.bool("Show Interest Payment Date Rep Groups", show.interest_payment_date_rep_groups, "Parse and add Interest Payment Date Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group = Pref.bool("Show Long Order Updates Group", show.long_order_updates_group, "Parse and add Long Order Updates Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_groups = Pref.bool("Show Long Order Updates Groups", show.long_order_updates_groups, "Parse and add Long Order Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_data_packet_header = Pref.bool("Show Market Data Packet Header", show.market_data_packet_header, "Parse and add Market Data Packet Header to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group = Pref.bool("Show Market States Group", show.market_states_group, "Parse and add Market States Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_groups = Pref.bool("Show Market States Groups", show.market_states_groups, "Parse and add Market States Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group = Pref.bool("Show Market Updates Group", show.market_updates_group, "Parse and add Market Updates Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_groups = Pref.bool("Show Market Updates Groups", show.market_updates_groups, "Parse and add Market Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_mm_protections = Pref.bool("Show Mm Protections", show.mm_protections, "Parse and add Mm Protections to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group = Pref.bool("Show New Stats Group", show.new_stats_group, "Parse and add New Stats Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_groups = Pref.bool("Show New Stats Groups", show.new_stats_groups, "Parse and add New Stats Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_groups = Pref.bool("Show Not Used Groups", show.not_used_groups, "Parse and add Not Used Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_optiq_message = Pref.bool("Show Optiq Message", show.optiq_message, "Parse and add Optiq Message to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_type_rules = Pref.bool("Show Order Type Rules", show.order_type_rules, "Parse and add Order Type Rules to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group = Pref.bool("Show Order Updates Group", show.order_updates_group, "Parse and add Order Updates Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_groups = Pref.bool("Show Order Updates Groups", show.order_updates_groups, "Parse and add Order Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group = Pref.bool("Show Outright Rep Group", show.outright_rep_group, "Parse and add Outright Rep Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_groups = Pref.bool("Show Outright Rep Groups", show.outright_rep_groups, "Parse and add Outright Rep Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group = Pref.bool("Show Package Components Group", show.package_components_group, "Parse and add Package Components Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_groups = Pref.bool("Show Package Components Groups", show.package_components_groups, "Parse and add Package Components Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet_flags = Pref.bool("Show Packet Flags", show.packet_flags, "Parse and add Packet Flags to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_phase_qualifier = Pref.bool("Show Phase Qualifier", show.phase_qualifier, "Parse and add Phase Qualifier to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group = Pref.bool("Show Price Updates Group", show.price_updates_group, "Parse and add Price Updates Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_groups = Pref.bool("Show Price Updates Groups", show.price_updates_groups, "Parse and add Price Updates Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_authorized = Pref.bool("Show Strategy Authorized", show.strategy_authorized, "Parse and add Strategy Authorized to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group = Pref.bool("Show Strategy Standing Data Group", show.strategy_standing_data_group, "Parse and add Strategy Standing Data Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_groups = Pref.bool("Show Strategy Standing Data Groups", show.strategy_standing_data_groups, "Parse and add Strategy Standing Data Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group = Pref.bool("Show Timetables Group", show.timetables_group, "Parse and add Timetables Group to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_groups = Pref.bool("Show Timetables Groups", show.timetables_groups, "Parse and add Timetables Groups to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_trade_qualifier = Pref.bool("Show Trade Qualifier", show.trade_qualifier, "Parse and add Trade Qualifier to protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group_index = Pref.bool("Show Market Updates Group Index", show.market_updates_group_index, "Show generated market updates group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group_index = Pref.bool("Show Order Updates Group Index", show.order_updates_group_index, "Show generated order updates group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group_index = Pref.bool("Show Price Updates Group Index", show.price_updates_group_index, "Show generated price updates group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_group_index = Pref.bool("Show Not Used Group Index", show.not_used_group_index, "Show generated not used group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group_index = Pref.bool("Show Market States Group Index", show.market_states_group_index, "Show generated market states group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group_index = Pref.bool("Show Timetables Group Index", show.timetables_group_index, "Show generated timetables group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group_index = Pref.bool("Show Emm Pattern Rep Group Index", show.emm_pattern_rep_group_index, "Show generated emm pattern rep group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group_index = Pref.bool("Show New Stats Group Index", show.new_stats_group_index, "Show generated new stats group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group_index = Pref.bool("Show Strategy Standing Data Group Index", show.strategy_standing_data_group_index, "Show generated strategy standing data group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group_index = Pref.bool("Show Contract Emm Properties Group Index", show.contract_emm_properties_group_index, "Show generated contract emm properties group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group_index = Pref.bool("Show Outright Rep Group Index", show.outright_rep_group_index, "Show generated outright rep group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group_index = Pref.bool("Show Long Order Updates Group Index", show.long_order_updates_group_index, "Show generated long order updates group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group_index = Pref.bool("Show Package Components Group Index", show.package_components_group_index, "Show generated package components group index in protocol tree")
-omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group_index = Pref.bool("Show Interest Payment Date Rep Group Index", show.interest_payment_date_rep_group_index, "Show generated interest payment date rep group index in protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -605,161 +507,14 @@ function omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs_changed()
   if show.application_messages ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_application_messages then
     show.application_messages = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_application_messages
   end
-  if show.contract_emm_properties_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group then
-    show.contract_emm_properties_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group
+  if show.repeating_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_repeating_groups then
+    show.repeating_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_repeating_groups
   end
-  if show.contract_emm_properties_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_groups then
-    show.contract_emm_properties_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_groups
+  if show.structs ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_structs then
+    show.structs = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_structs
   end
-  if show.emm_pattern_rep_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group then
-    show.emm_pattern_rep_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group
-  end
-  if show.emm_pattern_rep_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_groups then
-    show.emm_pattern_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_groups
-  end
-  if show.group_size_encoding ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_group_size_encoding then
-    show.group_size_encoding = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_group_size_encoding
-  end
-  if show.interest_payment_date_rep_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group then
-    show.interest_payment_date_rep_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group
-  end
-  if show.interest_payment_date_rep_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_groups then
-    show.interest_payment_date_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_groups
-  end
-  if show.long_order_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group then
-    show.long_order_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group
-  end
-  if show.long_order_updates_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_groups then
-    show.long_order_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_groups
-  end
-  if show.market_data_packet_header ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_data_packet_header then
-    show.market_data_packet_header = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_data_packet_header
-  end
-  if show.market_states_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group then
-    show.market_states_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group
-  end
-  if show.market_states_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_groups then
-    show.market_states_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_groups
-  end
-  if show.market_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group then
-    show.market_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group
-  end
-  if show.market_updates_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_groups then
-    show.market_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_groups
-  end
-  if show.message_header ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_message_header then
-    show.message_header = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_message_header
-  end
-  if show.mm_protections ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_mm_protections then
-    show.mm_protections = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_mm_protections
-  end
-  if show.new_stats_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group then
-    show.new_stats_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group
-  end
-  if show.new_stats_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_groups then
-    show.new_stats_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_groups
-  end
-  if show.not_used_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_groups then
-    show.not_used_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_groups
-  end
-  if show.optiq_message ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_optiq_message then
-    show.optiq_message = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_optiq_message
-  end
-  if show.order_type_rules ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_type_rules then
-    show.order_type_rules = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_type_rules
-  end
-  if show.order_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group then
-    show.order_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group
-  end
-  if show.order_updates_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_groups then
-    show.order_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_groups
-  end
-  if show.outright_rep_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group then
-    show.outright_rep_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group
-  end
-  if show.outright_rep_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_groups then
-    show.outright_rep_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_groups
-  end
-  if show.package_components_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group then
-    show.package_components_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group
-  end
-  if show.package_components_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_groups then
-    show.package_components_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_groups
-  end
-  if show.packet ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet then
-    show.packet = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet
-  end
-  if show.packet_flags ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet_flags then
-    show.packet_flags = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_packet_flags
-  end
-  if show.phase_qualifier ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_phase_qualifier then
-    show.phase_qualifier = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_phase_qualifier
-  end
-  if show.price_updates_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group then
-    show.price_updates_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group
-  end
-  if show.price_updates_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_groups then
-    show.price_updates_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_groups
-  end
-  if show.strategy_authorized ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_authorized then
-    show.strategy_authorized = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_authorized
-  end
-  if show.strategy_standing_data_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group then
-    show.strategy_standing_data_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group
-  end
-  if show.strategy_standing_data_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_groups then
-    show.strategy_standing_data_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_groups
-  end
-  if show.timetables_group ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group then
-    show.timetables_group = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group
-  end
-  if show.timetables_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_groups then
-    show.timetables_groups = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_groups
-  end
-  if show.trade_qualifier ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_trade_qualifier then
-    show.trade_qualifier = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_trade_qualifier
-  end
-  if show.market_updates_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group_index then
-    show.market_updates_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_updates_group_index
-  end
-  if show.order_updates_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group_index then
-    show.order_updates_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_order_updates_group_index
-  end
-  if show.price_updates_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group_index then
-    show.price_updates_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_price_updates_group_index
-  end
-  if show.not_used_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_group_index then
-    show.not_used_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_not_used_group_index
-  end
-  if show.market_states_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group_index then
-    show.market_states_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_market_states_group_index
-  end
-  if show.timetables_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group_index then
-    show.timetables_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_timetables_group_index
-  end
-  if show.emm_pattern_rep_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group_index then
-    show.emm_pattern_rep_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_emm_pattern_rep_group_index
-  end
-  if show.new_stats_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group_index then
-    show.new_stats_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_new_stats_group_index
-  end
-  if show.strategy_standing_data_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group_index then
-    show.strategy_standing_data_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_strategy_standing_data_group_index
-  end
-  if show.contract_emm_properties_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group_index then
-    show.contract_emm_properties_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_contract_emm_properties_group_index
-  end
-  if show.outright_rep_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group_index then
-    show.outright_rep_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_outright_rep_group_index
-  end
-  if show.long_order_updates_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group_index then
-    show.long_order_updates_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_long_order_updates_group_index
-  end
-  if show.package_components_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group_index then
-    show.package_components_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_package_components_group_index
-  end
-  if show.interest_payment_date_rep_group_index ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group_index then
-    show.interest_payment_date_rep_group_index = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_interest_payment_date_rep_group_index
+  if show.indexes ~= omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_indexes then
+    show.indexes = omi_euronext_optiq_marketdatagateway_sbe_v4_3.prefs.show_indexes
   end
 end
 
@@ -12809,7 +12564,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.interest_payment_date_rep_group.fields
   local index = offset
 
   -- Implicit Interest Payment Date Rep Group Index
-  if interest_payment_date_rep_group_index ~= nil and show.interest_payment_date_rep_group_index then
+  if interest_payment_date_rep_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.interest_payment_date_rep_group_index, interest_payment_date_rep_group_index)
     iteration:set_generated()
   end
@@ -12822,7 +12577,7 @@ end
 
 -- Dissect: Interest Payment Date Rep Group
 euronext_optiq_marketdatagateway_sbe_v4_3.interest_payment_date_rep_group.dissect = function(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
-  if show.interest_payment_date_rep_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.interest_payment_date_rep_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.interest_payment_date_rep_group.fields(buffer, offset, packet, parent, interest_payment_date_rep_group_index)
@@ -12866,7 +12621,7 @@ end
 
 -- Dissect: Group Size Encoding
 euronext_optiq_marketdatagateway_sbe_v4_3.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.group_size_encoding, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.group_size_encoding.fields(buffer, offset, packet, parent)
@@ -12923,7 +12678,7 @@ end
 
 -- Dissect: Interest Payment Date Rep Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.interest_payment_date_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.interest_payment_date_rep_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.interest_payment_date_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.interest_payment_date_rep_groups.fields(buffer, offset, packet, parent)
@@ -13591,7 +13346,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.package_components_group.fields = func
   local index = offset
 
   -- Implicit Package Components Group Index
-  if package_components_group_index ~= nil and show.package_components_group_index then
+  if package_components_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.package_components_group_index, package_components_group_index)
     iteration:set_generated()
   end
@@ -13613,7 +13368,7 @@ end
 
 -- Dissect: Package Components Group
 euronext_optiq_marketdatagateway_sbe_v4_3.package_components_group.dissect = function(buffer, offset, packet, parent, package_components_group_index)
-  if show.package_components_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.package_components_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.package_components_group.fields(buffer, offset, packet, parent, package_components_group_index)
@@ -13670,7 +13425,7 @@ end
 
 -- Dissect: Package Components Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.package_components_groups.dissect = function(buffer, offset, packet, parent)
-  if show.package_components_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.package_components_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.package_components_groups.fields(buffer, offset, packet, parent)
@@ -13793,7 +13548,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.long_order_updates_group.fields = func
   local index = offset
 
   -- Implicit Long Order Updates Group Index
-  if long_order_updates_group_index ~= nil and show.long_order_updates_group_index then
+  if long_order_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.long_order_updates_group_index, long_order_updates_group_index)
     iteration:set_generated()
   end
@@ -13836,7 +13591,7 @@ end
 
 -- Dissect: Long Order Updates Group
 euronext_optiq_marketdatagateway_sbe_v4_3.long_order_updates_group.dissect = function(buffer, offset, packet, parent, long_order_updates_group_index)
-  if show.long_order_updates_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.long_order_updates_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.long_order_updates_group.fields(buffer, offset, packet, parent, long_order_updates_group_index)
@@ -13893,7 +13648,7 @@ end
 
 -- Dissect: Long Order Updates Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.long_order_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.long_order_updates_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.long_order_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.long_order_updates_groups.fields(buffer, offset, packet, parent)
@@ -13991,7 +13746,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.outright_rep_group.fields = function(b
   local index = offset
 
   -- Implicit Outright Rep Group Index
-  if outright_rep_group_index ~= nil and show.outright_rep_group_index then
+  if outright_rep_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.outright_rep_group_index, outright_rep_group_index)
     iteration:set_generated()
   end
@@ -14004,7 +13759,7 @@ end
 
 -- Dissect: Outright Rep Group
 euronext_optiq_marketdatagateway_sbe_v4_3.outright_rep_group.dissect = function(buffer, offset, packet, parent, outright_rep_group_index)
-  if show.outright_rep_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.outright_rep_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.outright_rep_group.fields(buffer, offset, packet, parent, outright_rep_group_index)
@@ -14061,7 +13816,7 @@ end
 
 -- Dissect: Outright Rep Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.outright_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.outright_rep_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.outright_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.outright_rep_groups.fields(buffer, offset, packet, parent)
@@ -14577,7 +14332,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.strategy_authorized.dissect = function
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.strategy_authorized.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.strategy_authorized, range, display)
 
-  if show.strategy_authorized then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.strategy_authorized.bits(range, value, packet, element)
   end
 
@@ -14608,7 +14363,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.contract_emm_properties_group.fields =
   local index = offset
 
   -- Implicit Contract Emm Properties Group Index
-  if contract_emm_properties_group_index ~= nil and show.contract_emm_properties_group_index then
+  if contract_emm_properties_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.contract_emm_properties_group_index, contract_emm_properties_group_index)
     iteration:set_generated()
   end
@@ -14642,7 +14397,7 @@ end
 
 -- Dissect: Contract Emm Properties Group
 euronext_optiq_marketdatagateway_sbe_v4_3.contract_emm_properties_group.dissect = function(buffer, offset, packet, parent, contract_emm_properties_group_index)
-  if show.contract_emm_properties_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.contract_emm_properties_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.contract_emm_properties_group.fields(buffer, offset, packet, parent, contract_emm_properties_group_index)
@@ -14699,7 +14454,7 @@ end
 
 -- Dissect: Contract Emm Properties Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.contract_emm_properties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.contract_emm_properties_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.contract_emm_properties_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.contract_emm_properties_groups.fields(buffer, offset, packet, parent)
@@ -14758,7 +14513,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.mm_protections.dissect = function(buff
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.mm_protections.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.mm_protections, range, display)
 
-  if show.mm_protections then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.mm_protections.bits(range, value, packet, element)
   end
 
@@ -14836,7 +14591,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.order_type_rules.dissect = function(bu
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.order_type_rules.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.order_type_rules, range, display)
 
-  if show.order_type_rules then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.order_type_rules.bits(range, value, packet, element)
   end
 
@@ -15128,7 +14883,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.strategy_standing_data_group.fields = 
   local index = offset
 
   -- Implicit Strategy Standing Data Group Index
-  if strategy_standing_data_group_index ~= nil and show.strategy_standing_data_group_index then
+  if strategy_standing_data_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.strategy_standing_data_group_index, strategy_standing_data_group_index)
     iteration:set_generated()
   end
@@ -15150,7 +14905,7 @@ end
 
 -- Dissect: Strategy Standing Data Group
 euronext_optiq_marketdatagateway_sbe_v4_3.strategy_standing_data_group.dissect = function(buffer, offset, packet, parent, strategy_standing_data_group_index)
-  if show.strategy_standing_data_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.strategy_standing_data_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.strategy_standing_data_group.fields(buffer, offset, packet, parent, strategy_standing_data_group_index)
@@ -15207,7 +14962,7 @@ end
 
 -- Dissect: Strategy Standing Data Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.strategy_standing_data_groups.dissect = function(buffer, offset, packet, parent)
-  if show.strategy_standing_data_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.strategy_standing_data_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.strategy_standing_data_groups.fields(buffer, offset, packet, parent)
@@ -15444,7 +15199,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.new_stats_group.fields = function(buff
   local index = offset
 
   -- Implicit New Stats Group Index
-  if new_stats_group_index ~= nil and show.new_stats_group_index then
+  if new_stats_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.new_stats_group_index, new_stats_group_index)
     iteration:set_generated()
   end
@@ -15460,7 +15215,7 @@ end
 
 -- Dissect: New Stats Group
 euronext_optiq_marketdatagateway_sbe_v4_3.new_stats_group.dissect = function(buffer, offset, packet, parent, new_stats_group_index)
-  if show.new_stats_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.new_stats_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.new_stats_group.fields(buffer, offset, packet, parent, new_stats_group_index)
@@ -15517,7 +15272,7 @@ end
 
 -- Dissect: New Stats Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.new_stats_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_stats_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.new_stats_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.new_stats_groups.fields(buffer, offset, packet, parent)
@@ -15696,7 +15451,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.emm_pattern_rep_group.fields = functio
   local index = offset
 
   -- Implicit Emm Pattern Rep Group Index
-  if emm_pattern_rep_group_index ~= nil and show.emm_pattern_rep_group_index then
+  if emm_pattern_rep_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.emm_pattern_rep_group_index, emm_pattern_rep_group_index)
     iteration:set_generated()
   end
@@ -15727,7 +15482,7 @@ end
 
 -- Dissect: Emm Pattern Rep Group
 euronext_optiq_marketdatagateway_sbe_v4_3.emm_pattern_rep_group.dissect = function(buffer, offset, packet, parent, emm_pattern_rep_group_index)
-  if show.emm_pattern_rep_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.emm_pattern_rep_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.emm_pattern_rep_group.fields(buffer, offset, packet, parent, emm_pattern_rep_group_index)
@@ -15784,7 +15539,7 @@ end
 
 -- Dissect: Emm Pattern Rep Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.emm_pattern_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.emm_pattern_rep_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.emm_pattern_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.emm_pattern_rep_groups.fields(buffer, offset, packet, parent)
@@ -16221,7 +15976,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.phase_qualifier.dissect = function(buf
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.phase_qualifier.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.phase_qualifier, range, display)
 
-  if show.phase_qualifier then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.phase_qualifier.bits(range, value, packet, element)
   end
 
@@ -16251,7 +16006,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.timetables_group.fields = function(buf
   local index = offset
 
   -- Implicit Timetables Group Index
-  if timetables_group_index ~= nil and show.timetables_group_index then
+  if timetables_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.timetables_group_index, timetables_group_index)
     iteration:set_generated()
   end
@@ -16282,7 +16037,7 @@ end
 
 -- Dissect: Timetables Group
 euronext_optiq_marketdatagateway_sbe_v4_3.timetables_group.dissect = function(buffer, offset, packet, parent, timetables_group_index)
-  if show.timetables_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.timetables_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.timetables_group.fields(buffer, offset, packet, parent, timetables_group_index)
@@ -16339,7 +16094,7 @@ end
 
 -- Dissect: Timetables Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.timetables_groups.dissect = function(buffer, offset, packet, parent)
-  if show.timetables_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.timetables_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.timetables_groups.fields(buffer, offset, packet, parent)
@@ -16456,7 +16211,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.market_states_group.fields = function(
   local index = offset
 
   -- Implicit Market States Group Index
-  if market_states_group_index ~= nil and show.market_states_group_index then
+  if market_states_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_states_group_index, market_states_group_index)
     iteration:set_generated()
   end
@@ -16511,7 +16266,7 @@ end
 
 -- Dissect: Market States Group
 euronext_optiq_marketdatagateway_sbe_v4_3.market_states_group.dissect = function(buffer, offset, packet, parent, market_states_group_index)
-  if show.market_states_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_states_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.market_states_group.fields(buffer, offset, packet, parent, market_states_group_index)
@@ -16568,7 +16323,7 @@ end
 
 -- Dissect: Market States Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.market_states_groups.dissect = function(buffer, offset, packet, parent)
-  if show.market_states_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_states_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.market_states_groups.fields(buffer, offset, packet, parent)
@@ -16685,7 +16440,7 @@ end
 
 -- Dissect: Not Used Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.not_used_groups.dissect = function(buffer, offset, packet, parent)
-  if show.not_used_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.not_used_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.not_used_groups.fields(buffer, offset, packet, parent)
@@ -16783,7 +16538,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.trade_qualifier.dissect = function(buf
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.trade_qualifier.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.trade_qualifier, range, display)
 
-  if show.trade_qualifier then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.trade_qualifier.bits(range, value, packet, element)
   end
 
@@ -17122,7 +16877,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.price_updates_group.fields = function(
   local index = offset
 
   -- Implicit Price Updates Group Index
-  if price_updates_group_index ~= nil and show.price_updates_group_index then
+  if price_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.price_updates_group_index, price_updates_group_index)
     iteration:set_generated()
   end
@@ -17150,7 +16905,7 @@ end
 
 -- Dissect: Price Updates Group
 euronext_optiq_marketdatagateway_sbe_v4_3.price_updates_group.dissect = function(buffer, offset, packet, parent, price_updates_group_index)
-  if show.price_updates_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.price_updates_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.price_updates_group.fields(buffer, offset, packet, parent, price_updates_group_index)
@@ -17207,7 +16962,7 @@ end
 
 -- Dissect: Price Updates Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.price_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.price_updates_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.price_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.price_updates_groups.fields(buffer, offset, packet, parent)
@@ -17313,7 +17068,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.order_updates_group.fields = function(
   local index = offset
 
   -- Implicit Order Updates Group Index
-  if order_updates_group_index ~= nil and show.order_updates_group_index then
+  if order_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.order_updates_group_index, order_updates_group_index)
     iteration:set_generated()
   end
@@ -17350,7 +17105,7 @@ end
 
 -- Dissect: Order Updates Group
 euronext_optiq_marketdatagateway_sbe_v4_3.order_updates_group.dissect = function(buffer, offset, packet, parent, order_updates_group_index)
-  if show.order_updates_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.order_updates_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.order_updates_group.fields(buffer, offset, packet, parent, order_updates_group_index)
@@ -17407,7 +17162,7 @@ end
 
 -- Dissect: Order Updates Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.order_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.order_updates_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.order_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.order_updates_groups.fields(buffer, offset, packet, parent)
@@ -17509,7 +17264,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.market_updates_group.fields = function
   local index = offset
 
   -- Implicit Market Updates Group Index
-  if market_updates_group_index ~= nil and show.market_updates_group_index then
+  if market_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_updates_group_index, market_updates_group_index)
     iteration:set_generated()
   end
@@ -17534,7 +17289,7 @@ end
 
 -- Dissect: Market Updates Group
 euronext_optiq_marketdatagateway_sbe_v4_3.market_updates_group.dissect = function(buffer, offset, packet, parent, market_updates_group_index)
-  if show.market_updates_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_updates_group, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.market_updates_group.fields(buffer, offset, packet, parent, market_updates_group_index)
@@ -17591,7 +17346,7 @@ end
 
 -- Dissect: Market Updates Groups
 euronext_optiq_marketdatagateway_sbe_v4_3.market_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.market_updates_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.market_updates_groups.fields(buffer, offset, packet, parent)
@@ -18021,7 +17776,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_marketdatagateway_sbe_v4_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.message_header.fields(buffer, offset, packet, parent)
@@ -18069,7 +17824,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.optiq_message.dissect = function(buffe
   local index = offset + size_of_optiq_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.optiq_message then
+  if show.structs then
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.optiq_message, buffer(offset, 0))
     local current = euronext_optiq_marketdatagateway_sbe_v4_3.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
     parent:set_len(size_of_optiq_message)
@@ -18148,7 +17903,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.dissect = function(buffer
   local display = euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.display(range, value, packet, parent)
   local element = parent:add_le(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.packet_flags, range, display)
 
-  if show.packet_flags then
+  if show.structs then
     euronext_optiq_marketdatagateway_sbe_v4_3.packet_flags.bits(range, value, packet, element)
   end
 
@@ -18191,7 +17946,7 @@ end
 
 -- Dissect: Market Data Packet Header
 euronext_optiq_marketdatagateway_sbe_v4_3.market_data_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.market_data_packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_3.fields.market_data_packet_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v4_3.market_data_packet_header.fields(buffer, offset, packet, parent)

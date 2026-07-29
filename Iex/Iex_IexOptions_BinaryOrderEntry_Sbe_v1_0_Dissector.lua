@@ -226,53 +226,15 @@ local show = {}
 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.0 Element Dissection Options
 show.application_messages = true
-show.bulk_quote_ack_message_quote_acks_group = true
-show.bulk_quote_ack_message_quote_acks_groups = true
-show.custom_group_ids_group_encoding = true
-show.gateway_heartbeat_message_sub_sessions_group = true
-show.gateway_heartbeat_message_sub_sessions_groups = true
-show.message_header = true
-show.new_bulk_quote_message_quote_updates_group = true
-show.new_bulk_quote_message_quote_updates_groups = true
-show.packet = true
-show.purge_ack_message_custom_group_ids_group = true
-show.purge_ack_message_custom_group_ids_groups = true
-show.purge_request_message_custom_group_ids_group = true
-show.purge_request_message_custom_group_ids_groups = true
-show.quote_acks_group_encoding = true
-show.quote_updates_group_encoding = true
-show.sbe_message = true
-show.session_info_group_encoding = true
-show.new_bulk_quote_message_quote_updates_group_index = true
-show.purge_request_message_custom_group_ids_group_index = true
-show.bulk_quote_ack_message_quote_acks_group_index = true
-show.purge_ack_message_custom_group_ids_group_index = true
-show.gateway_heartbeat_message_sub_sessions_group_index = true
+show.repeating_groups = true
+show.structs = true
+show.indexes = true
 
 -- Register Iex IexOptions BinaryOrderEntry Sbe 1.0 Show Options
 omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group = Pref.bool("Show Bulk Quote Ack Message quote Acks Group", show.bulk_quote_ack_message_quote_acks_group, "Parse and add Bulk Quote Ack Message quote Acks Group to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_groups = Pref.bool("Show Bulk Quote Ack Message quote Acks Groups", show.bulk_quote_ack_message_quote_acks_groups, "Parse and add Bulk Quote Ack Message quote Acks Groups to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_custom_group_ids_group_encoding = Pref.bool("Show Custom Group Ids Group Encoding", show.custom_group_ids_group_encoding, "Parse and add Custom Group Ids Group Encoding to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group = Pref.bool("Show Gateway Heartbeat Message Sub Sessions Group", show.gateway_heartbeat_message_sub_sessions_group, "Parse and add Gateway Heartbeat Message Sub Sessions Group to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_groups = Pref.bool("Show Gateway Heartbeat Message Sub Sessions Groups", show.gateway_heartbeat_message_sub_sessions_groups, "Parse and add Gateway Heartbeat Message Sub Sessions Groups to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group = Pref.bool("Show New Bulk Quote Message quote Updates Group", show.new_bulk_quote_message_quote_updates_group, "Parse and add New Bulk Quote Message quote Updates Group to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_groups = Pref.bool("Show New Bulk Quote Message quote Updates Groups", show.new_bulk_quote_message_quote_updates_groups, "Parse and add New Bulk Quote Message quote Updates Groups to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group = Pref.bool("Show Purge Ack Message custom Group Ids Group", show.purge_ack_message_custom_group_ids_group, "Parse and add Purge Ack Message custom Group Ids Group to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_groups = Pref.bool("Show Purge Ack Message custom Group Ids Groups", show.purge_ack_message_custom_group_ids_groups, "Parse and add Purge Ack Message custom Group Ids Groups to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group = Pref.bool("Show Purge Request Message custom Group Ids Group", show.purge_request_message_custom_group_ids_group, "Parse and add Purge Request Message custom Group Ids Group to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_groups = Pref.bool("Show Purge Request Message custom Group Ids Groups", show.purge_request_message_custom_group_ids_groups, "Parse and add Purge Request Message custom Group Ids Groups to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_acks_group_encoding = Pref.bool("Show Quote Acks Group Encoding", show.quote_acks_group_encoding, "Parse and add Quote Acks Group Encoding to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_updates_group_encoding = Pref.bool("Show Quote Updates Group Encoding", show.quote_updates_group_encoding, "Parse and add Quote Updates Group Encoding to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_session_info_group_encoding = Pref.bool("Show Session Info Group Encoding", show.session_info_group_encoding, "Parse and add Session Info Group Encoding to protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group_index = Pref.bool("Show New Bulk Quote Message quote Updates Group Index", show.new_bulk_quote_message_quote_updates_group_index, "Show generated new bulk quote message quote updates group index in protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group_index = Pref.bool("Show Purge Request Message custom Group Ids Group Index", show.purge_request_message_custom_group_ids_group_index, "Show generated purge request message custom group ids group index in protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group_index = Pref.bool("Show Bulk Quote Ack Message quote Acks Group Index", show.bulk_quote_ack_message_quote_acks_group_index, "Show generated bulk quote ack message quote acks group index in protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group_index = Pref.bool("Show Purge Ack Message custom Group Ids Group Index", show.purge_ack_message_custom_group_ids_group_index, "Show generated purge ack message custom group ids group index in protocol tree")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group_index = Pref.bool("Show Gateway Heartbeat Message Sub Sessions Group Index", show.gateway_heartbeat_message_sub_sessions_group_index, "Show generated gateway heartbeat message sub sessions group index in protocol tree")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -282,71 +244,14 @@ function omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs_changed()
   if show.application_messages ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages
   end
-  if show.bulk_quote_ack_message_quote_acks_group ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group then
-    show.bulk_quote_ack_message_quote_acks_group = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group
+  if show.repeating_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups
   end
-  if show.bulk_quote_ack_message_quote_acks_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_groups then
-    show.bulk_quote_ack_message_quote_acks_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_groups
+  if show.structs ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_structs then
+    show.structs = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_structs
   end
-  if show.custom_group_ids_group_encoding ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_custom_group_ids_group_encoding then
-    show.custom_group_ids_group_encoding = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_custom_group_ids_group_encoding
-  end
-  if show.gateway_heartbeat_message_sub_sessions_group ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group then
-    show.gateway_heartbeat_message_sub_sessions_group = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group
-  end
-  if show.gateway_heartbeat_message_sub_sessions_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_groups then
-    show.gateway_heartbeat_message_sub_sessions_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_groups
-  end
-  if show.message_header ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_message_header then
-    show.message_header = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_message_header
-  end
-  if show.new_bulk_quote_message_quote_updates_group ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group then
-    show.new_bulk_quote_message_quote_updates_group = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group
-  end
-  if show.new_bulk_quote_message_quote_updates_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_groups then
-    show.new_bulk_quote_message_quote_updates_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_groups
-  end
-  if show.packet ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_packet then
-    show.packet = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_packet
-  end
-  if show.purge_ack_message_custom_group_ids_group ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group then
-    show.purge_ack_message_custom_group_ids_group = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group
-  end
-  if show.purge_ack_message_custom_group_ids_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_groups then
-    show.purge_ack_message_custom_group_ids_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_groups
-  end
-  if show.purge_request_message_custom_group_ids_group ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group then
-    show.purge_request_message_custom_group_ids_group = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group
-  end
-  if show.purge_request_message_custom_group_ids_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_groups then
-    show.purge_request_message_custom_group_ids_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_groups
-  end
-  if show.quote_acks_group_encoding ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_acks_group_encoding then
-    show.quote_acks_group_encoding = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_acks_group_encoding
-  end
-  if show.quote_updates_group_encoding ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_updates_group_encoding then
-    show.quote_updates_group_encoding = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_quote_updates_group_encoding
-  end
-  if show.sbe_message ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_sbe_message then
-    show.sbe_message = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_sbe_message
-  end
-  if show.session_info_group_encoding ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_session_info_group_encoding then
-    show.session_info_group_encoding = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_session_info_group_encoding
-  end
-  if show.new_bulk_quote_message_quote_updates_group_index ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group_index then
-    show.new_bulk_quote_message_quote_updates_group_index = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_new_bulk_quote_message_quote_updates_group_index
-  end
-  if show.purge_request_message_custom_group_ids_group_index ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group_index then
-    show.purge_request_message_custom_group_ids_group_index = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_request_message_custom_group_ids_group_index
-  end
-  if show.bulk_quote_ack_message_quote_acks_group_index ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group_index then
-    show.bulk_quote_ack_message_quote_acks_group_index = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_bulk_quote_ack_message_quote_acks_group_index
-  end
-  if show.purge_ack_message_custom_group_ids_group_index ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group_index then
-    show.purge_ack_message_custom_group_ids_group_index = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_purge_ack_message_custom_group_ids_group_index
-  end
-  if show.gateway_heartbeat_message_sub_sessions_group_index ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group_index then
-    show.gateway_heartbeat_message_sub_sessions_group_index = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_gateway_heartbeat_message_sub_sessions_group_index
+  if show.indexes ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_indexes then
+    show.indexes = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_indexes
   end
 end
 
@@ -5478,7 +5383,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_
   local index = offset
 
   -- Implicit Gateway Heartbeat Message Sub Sessions Group Index
-  if gateway_heartbeat_message_sub_sessions_group_index ~= nil and show.gateway_heartbeat_message_sub_sessions_group_index then
+  if gateway_heartbeat_message_sub_sessions_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group_index, gateway_heartbeat_message_sub_sessions_group_index)
     iteration:set_generated()
   end
@@ -5500,7 +5405,7 @@ end
 
 -- Dissect: Gateway Heartbeat Message Sub Sessions Group
 iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.dissect = function(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
-  if show.gateway_heartbeat_message_sub_sessions_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.fields(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
@@ -5544,7 +5449,7 @@ end
 
 -- Dissect: Session Info Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_0.session_info_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.session_info_group_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.session_info_group_encoding, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.session_info_group_encoding.fields(buffer, offset, packet, parent)
@@ -5601,7 +5506,7 @@ end
 
 -- Dissect: Gateway Heartbeat Message Sub Sessions Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.gateway_heartbeat_message_sub_sessions_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
@@ -6776,7 +6681,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_grou
   local index = offset
 
   -- Implicit Purge Ack Message custom Group Ids Group Index
-  if purge_ack_message_custom_group_ids_group_index ~= nil and show.purge_ack_message_custom_group_ids_group_index then
+  if purge_ack_message_custom_group_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_ack_message_custom_group_ids_group_index, purge_ack_message_custom_group_ids_group_index)
     iteration:set_generated()
   end
@@ -6789,7 +6694,7 @@ end
 
 -- Dissect: Purge Ack Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_group.dissect = function(buffer, offset, packet, parent, purge_ack_message_custom_group_ids_group_index)
-  if show.purge_ack_message_custom_group_ids_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_ack_message_custom_group_ids_group, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_group.fields(buffer, offset, packet, parent, purge_ack_message_custom_group_ids_group_index)
@@ -6833,7 +6738,7 @@ end
 
 -- Dissect: Custom Group Ids Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_0.custom_group_ids_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.custom_group_ids_group_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.custom_group_ids_group_encoding, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.custom_group_ids_group_encoding.fields(buffer, offset, packet, parent)
@@ -6890,7 +6795,7 @@ end
 
 -- Dissect: Purge Ack Message custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.purge_ack_message_custom_group_ids_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_ack_message_custom_group_ids_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_groups.fields(buffer, offset, packet, parent)
@@ -7250,7 +7155,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_group
   local index = offset
 
   -- Implicit Bulk Quote Ack Message quote Acks Group Index
-  if bulk_quote_ack_message_quote_acks_group_index ~= nil and show.bulk_quote_ack_message_quote_acks_group_index then
+  if bulk_quote_ack_message_quote_acks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.bulk_quote_ack_message_quote_acks_group_index, bulk_quote_ack_message_quote_acks_group_index)
     iteration:set_generated()
   end
@@ -7281,7 +7186,7 @@ end
 
 -- Dissect: Bulk Quote Ack Message quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_group.dissect = function(buffer, offset, packet, parent, bulk_quote_ack_message_quote_acks_group_index)
-  if show.bulk_quote_ack_message_quote_acks_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.bulk_quote_ack_message_quote_acks_group, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_group.fields(buffer, offset, packet, parent, bulk_quote_ack_message_quote_acks_group_index)
@@ -7325,7 +7230,7 @@ end
 
 -- Dissect: Quote Acks Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_0.quote_acks_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.quote_acks_group_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.quote_acks_group_encoding, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.quote_acks_group_encoding.fields(buffer, offset, packet, parent)
@@ -7382,7 +7287,7 @@ end
 
 -- Dissect: Bulk Quote Ack Message quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_groups.dissect = function(buffer, offset, packet, parent)
-  if show.bulk_quote_ack_message_quote_acks_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.bulk_quote_ack_message_quote_acks_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_groups.fields(buffer, offset, packet, parent)
@@ -7899,7 +7804,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_
   local index = offset
 
   -- Implicit Purge Request Message custom Group Ids Group Index
-  if purge_request_message_custom_group_ids_group_index ~= nil and show.purge_request_message_custom_group_ids_group_index then
+  if purge_request_message_custom_group_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_request_message_custom_group_ids_group_index, purge_request_message_custom_group_ids_group_index)
     iteration:set_generated()
   end
@@ -7912,7 +7817,7 @@ end
 
 -- Dissect: Purge Request Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_group.dissect = function(buffer, offset, packet, parent, purge_request_message_custom_group_ids_group_index)
-  if show.purge_request_message_custom_group_ids_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_request_message_custom_group_ids_group, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_group.fields(buffer, offset, packet, parent, purge_request_message_custom_group_ids_group_index)
@@ -7969,7 +7874,7 @@ end
 
 -- Dissect: Purge Request Message custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.purge_request_message_custom_group_ids_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_request_message_custom_group_ids_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_groups.fields(buffer, offset, packet, parent)
@@ -8146,7 +8051,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_gr
   local index = offset
 
   -- Implicit New Bulk Quote Message quote Updates Group Index
-  if new_bulk_quote_message_quote_updates_group_index ~= nil and show.new_bulk_quote_message_quote_updates_group_index then
+  if new_bulk_quote_message_quote_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.new_bulk_quote_message_quote_updates_group_index, new_bulk_quote_message_quote_updates_group_index)
     iteration:set_generated()
   end
@@ -8174,7 +8079,7 @@ end
 
 -- Dissect: New Bulk Quote Message quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_group.dissect = function(buffer, offset, packet, parent, new_bulk_quote_message_quote_updates_group_index)
-  if show.new_bulk_quote_message_quote_updates_group then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.new_bulk_quote_message_quote_updates_group, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_group.fields(buffer, offset, packet, parent, new_bulk_quote_message_quote_updates_group_index)
@@ -8218,7 +8123,7 @@ end
 
 -- Dissect: Quote Updates Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_0.quote_updates_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.quote_updates_group_encoding then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.quote_updates_group_encoding, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.quote_updates_group_encoding.fields(buffer, offset, packet, parent)
@@ -8275,7 +8180,7 @@ end
 
 -- Dissect: New Bulk Quote Message quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.new_bulk_quote_message_quote_updates_groups then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.new_bulk_quote_message_quote_updates_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_groups.fields(buffer, offset, packet, parent)
@@ -8877,7 +8782,7 @@ end
 
 -- Dissect: Message Header
 iex_iexoptions_binaryorderentry_sbe_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.message_header, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -8925,7 +8830,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_0.sbe_message.dissect = function(buffer, 
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.sbe_message then
+  if show.structs then
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.sbe_message, buffer(offset, 0))
     local current = iex_iexoptions_binaryorderentry_sbe_v1_0.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
     parent:set_len(size_of_sbe_message)

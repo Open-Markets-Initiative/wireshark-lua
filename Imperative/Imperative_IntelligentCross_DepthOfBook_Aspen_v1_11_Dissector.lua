@@ -67,19 +67,13 @@ local show = {}
 
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Element Dissection Options
 show.application_messages = true
-show.message = true
-show.message_header = true
-show.packet = true
-show.packet_header = true
-show.message_index = true
+show.structs = true
+show.indexes = true
 
 -- Register Imperative IntelligentCross DepthOfBook Aspen 1.11 Show Options
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_index = Pref.bool("Show Message Index", show.message_index, "Show generated message index in protocol tree")
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
 -- Handle changed preferences
@@ -89,20 +83,11 @@ function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs_changed()
   if show.application_messages ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_application_messages then
     show.application_messages = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_application_messages
   end
-  if show.message ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message then
-    show.message = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message
+  if show.structs ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs then
+    show.structs = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs
   end
-  if show.message_header ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_header then
-    show.message_header = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_header
-  end
-  if show.packet ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet then
-    show.packet = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet
-  end
-  if show.packet_header ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet_header then
-    show.packet_header = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_packet_header
-  end
-  if show.message_index ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_index then
-    show.message_index = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_message_index
+  if show.indexes ~= omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes then
+    show.indexes = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes
   end
 end
 
@@ -1439,7 +1424,7 @@ end
 
 -- Dissect: Message Header
 imperative_intelligentcross_depthofbook_aspen_v1_11.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.message_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_header, buffer(offset, 0))
     local index = imperative_intelligentcross_depthofbook_aspen_v1_11.message_header.fields(buffer, offset, packet, parent)
@@ -1482,7 +1467,7 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields = function(bu
   local index = offset
 
   -- Implicit Message Index
-  if message_index ~= nil and show.message_index then
+  if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_index, message_index)
     iteration:set_generated()
   end
@@ -1501,7 +1486,7 @@ end
 
 -- Dissect: Message
 imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.message then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message, buffer(offset, 0))
     local index = imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, message_index)
@@ -1553,7 +1538,7 @@ end
 
 -- Dissect: Packet Header
 imperative_intelligentcross_depthofbook_aspen_v1_11.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.packet_header then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet_header, buffer(offset, 0))
     local index = imperative_intelligentcross_depthofbook_aspen_v1_11.packet_header.fields(buffer, offset, packet, parent)
