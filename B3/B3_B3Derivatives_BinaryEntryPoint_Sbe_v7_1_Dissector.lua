@@ -300,12 +300,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register B3 B3Derivatives BinaryEntryPoint Sbe 7.1 Show Options
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -315,6 +317,9 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages then
     show.application_messages = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_headers then
+    show.headers = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_headers
   end
   if show.repeating_groups ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.prefs.show_repeating_groups
@@ -8157,7 +8162,7 @@ end
 
 -- Dissect: Comp Ids Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.comp_ids_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.comp_ids_groups.fields(buffer, offset, packet, parent)
@@ -8952,7 +8957,7 @@ end
 
 -- Dissect: Positions Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.positions_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.positions_groups.fields(buffer, offset, packet, parent)
@@ -9437,7 +9442,7 @@ end
 
 -- Dissect: Sides Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.sides_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.sides_groups.fields(buffer, offset, packet, parent)
@@ -10343,7 +10348,7 @@ end
 
 -- Dissect: Legs Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.legs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.legs_groups.fields(buffer, offset, packet, parent)
@@ -11667,7 +11672,7 @@ end
 
 -- Dissect: Cross Sides Groups
 b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_1.fields.cross_sides_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v7_1.cross_sides_groups.fields(buffer, offset, packet, parent)

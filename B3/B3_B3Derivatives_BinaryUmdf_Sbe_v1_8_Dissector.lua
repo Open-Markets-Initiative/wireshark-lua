@@ -295,12 +295,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register B3 B3Derivatives BinaryUmdf Sbe 1.8 Show Options
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -310,6 +312,9 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_application_messages then
     show.application_messages = omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_application_messages
+  end
+  if show.headers ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_headers then
+    show.headers = omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_headers
   end
   if show.repeating_groups ~= omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_repeating_groups then
     show.repeating_groups = omi_b3_b3derivatives_binaryumdf_sbe_v1_8.prefs.show_repeating_groups
@@ -5533,7 +5538,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
@@ -7993,7 +7998,7 @@ end
 
 -- Dissect: Instr Attribs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.instr_attribs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attribs_groups.fields(buffer, offset, packet, parent)
@@ -8112,7 +8117,7 @@ end
 
 -- Dissect: Legs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.legs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.legs_groups.fields(buffer, offset, packet, parent)
@@ -8219,7 +8224,7 @@ end
 
 -- Dissect: Underlyings Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.underlyings_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.underlyings_groups.fields(buffer, offset, packet, parent)
@@ -8745,7 +8750,7 @@ end
 
 -- Dissect: Deprecated Instr Attribs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_instr_attribs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.deprecated_instr_attribs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_instr_attribs_groups.fields(buffer, offset, packet, parent)
@@ -8864,7 +8869,7 @@ end
 
 -- Dissect: Deprecated Legs Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.deprecated_legs_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_legs_groups.fields(buffer, offset, packet, parent)
@@ -8979,7 +8984,7 @@ end
 
 -- Dissect: Deprecated Underlyings Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.deprecated_underlyings_groups, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -9919,7 +9924,7 @@ end
 
 -- Dissect: Packet Header
 b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.fields(buffer, offset, packet, parent)

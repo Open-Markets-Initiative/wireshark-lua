@@ -227,12 +227,14 @@ local show = {}
 -- Iex IexOptions BinaryOrderEntry Sbe 1.0 Element Dissection Options
 show.application_messages = true
 show.repeating_groups = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Iex IexOptions BinaryOrderEntry Sbe 1.0 Show Options
 omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -243,6 +245,9 @@ function omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages then
     show.application_messages = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_headers then
+    show.headers = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_headers
   end
   if show.repeating_groups ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_iex_iexoptions_binaryorderentry_sbe_v1_0.prefs.show_repeating_groups
@@ -5506,7 +5511,7 @@ end
 
 -- Dissect: Gateway Heartbeat Message Sub Sessions Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
@@ -6795,7 +6800,7 @@ end
 
 -- Dissect: Purge Ack Message custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_ack_message_custom_group_ids_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_ack_message_custom_group_ids_groups.fields(buffer, offset, packet, parent)
@@ -7287,7 +7292,7 @@ end
 
 -- Dissect: Bulk Quote Ack Message quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.bulk_quote_ack_message_quote_acks_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.bulk_quote_ack_message_quote_acks_groups.fields(buffer, offset, packet, parent)
@@ -7874,7 +7879,7 @@ end
 
 -- Dissect: Purge Request Message custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.purge_request_message_custom_group_ids_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.purge_request_message_custom_group_ids_groups.fields(buffer, offset, packet, parent)
@@ -8180,7 +8185,7 @@ end
 
 -- Dissect: New Bulk Quote Message quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_0.fields.new_bulk_quote_message_quote_updates_groups, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_0.new_bulk_quote_message_quote_updates_groups.fields(buffer, offset, packet, parent)

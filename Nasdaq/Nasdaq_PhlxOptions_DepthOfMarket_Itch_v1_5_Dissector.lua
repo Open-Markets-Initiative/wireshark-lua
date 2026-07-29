@@ -144,11 +144,13 @@ local show = {}
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Show Options
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
@@ -160,6 +162,9 @@ function omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_headers then
+    show.headers = omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_headers
   end
   if show.structs ~= omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_structs then
     show.structs = omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.prefs.show_structs
@@ -3754,7 +3759,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.message_header, buffer(offset, 0))
     local index = nasdaq_phlxoptions_depthofmarket_itch_v1_5.message_header.fields(buffer, offset, packet, parent)
@@ -3927,7 +3932,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_phlxoptions_depthofmarket_itch_v1_5.packet_header.fields(buffer, offset, packet, parent)

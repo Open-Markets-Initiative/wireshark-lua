@@ -150,12 +150,14 @@ local show = {}
 show.application_messages = true
 show.repeating_groups = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Hkex HkexDerivatives LiteRefresh Omd 1.47 Show Options
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -165,6 +167,9 @@ function omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_application_messages then
     show.application_messages = omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_application_messages
+  end
+  if show.headers ~= omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_headers then
+    show.headers = omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_headers
   end
   if show.repeating_groups ~= omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_repeating_groups then
     show.repeating_groups = omi_hkex_hkexderivatives_literefresh_omd_v1_47.prefs.show_repeating_groups
@@ -4389,7 +4394,7 @@ end
 
 -- Dissect: Msg Header
 hkex_hkexderivatives_literefresh_omd_v1_47.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.msg_header, buffer(offset, 0))
     local index = hkex_hkexderivatives_literefresh_omd_v1_47.msg_header.fields(buffer, offset, packet, parent)
@@ -4496,7 +4501,7 @@ end
 
 -- Dissect: Packet Header
 hkex_hkexderivatives_literefresh_omd_v1_47.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.packet_header, buffer(offset, 0))
     local index = hkex_hkexderivatives_literefresh_omd_v1_47.packet_header.fields(buffer, offset, packet, parent)

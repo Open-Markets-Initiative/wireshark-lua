@@ -394,12 +394,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Cme CmeFutures iLink3 Sbe 8.4 Show Options
 omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -409,6 +411,9 @@ function omi_cme_cmefutures_ilink3_sbe_v8_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_headers then
+    show.headers = omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_cmefutures_ilink3_sbe_v8_4.prefs.show_repeating_groups
@@ -7691,7 +7696,7 @@ end
 
 -- Dissect: Response Legs Groups
 cme_cmefutures_ilink3_sbe_v8_4.response_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.response_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.response_legs_groups.fields(buffer, offset, packet, parent)
@@ -8047,7 +8052,7 @@ end
 
 -- Dissect: Request Legs Groups
 cme_cmefutures_ilink3_sbe_v8_4.request_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.request_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.request_legs_groups.fields(buffer, offset, packet, parent)
@@ -8263,7 +8268,7 @@ end
 
 -- Dissect: Order Mass Action Report 558 No Affected Orders Groups
 cme_cmefutures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
@@ -8570,7 +8575,7 @@ end
 
 -- Dissect: Spread Trade Events Groups
 cme_cmefutures_ilink3_sbe_v8_4.spread_trade_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.spread_trade_events_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.spread_trade_events_groups.fields(buffer, offset, packet, parent)
@@ -8685,7 +8690,7 @@ end
 
 -- Dissect: Fills Groups
 cme_cmefutures_ilink3_sbe_v8_4.fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.fills_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.fills_groups.fields(buffer, offset, packet, parent)
@@ -8976,7 +8981,7 @@ end
 
 -- Dissect: Trade Addendum Legs Groups
 cme_cmefutures_ilink3_sbe_v8_4.trade_addendum_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.trade_addendum_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.trade_addendum_legs_groups.fields(buffer, offset, packet, parent)
@@ -9402,7 +9407,7 @@ end
 
 -- Dissect: Outright Trade Events Groups
 cme_cmefutures_ilink3_sbe_v8_4.outright_trade_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.outright_trade_events_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.outright_trade_events_groups.fields(buffer, offset, packet, parent)
@@ -9699,7 +9704,7 @@ end
 
 -- Dissect: Quote Cancel Ack 547 No Quote Sets Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
@@ -9810,7 +9815,7 @@ end
 
 -- Dissect: Quote Cancel Ack 547 No Quote Entries Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
@@ -10189,7 +10194,7 @@ end
 
 -- Dissect: Quote Ack Entries Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_ack_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_ack_entries_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_ack_entries_groups.fields(buffer, offset, packet, parent)
@@ -10463,7 +10468,7 @@ end
 
 -- Dissect: Sides Groups
 cme_cmefutures_ilink3_sbe_v8_4.sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.sides_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.sides_groups.fields(buffer, offset, packet, parent)
@@ -10669,7 +10674,7 @@ end
 
 -- Dissect: Related Sym Groups
 cme_cmefutures_ilink3_sbe_v8_4.related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.related_sym_groups.fields(buffer, offset, packet, parent)
@@ -10945,7 +10950,7 @@ end
 
 -- Dissect: Trd Reg Publications Groups
 cme_cmefutures_ilink3_sbe_v8_4.trd_reg_publications_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.trd_reg_publications_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.trd_reg_publications_groups.fields(buffer, offset, packet, parent)
@@ -11052,7 +11057,7 @@ end
 
 -- Dissect: Party Details Groups
 cme_cmefutures_ilink3_sbe_v8_4.party_details_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.party_details_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.party_details_groups.fields(buffer, offset, packet, parent)
@@ -11318,7 +11323,7 @@ end
 
 -- Dissect: Party Ids Groups
 cme_cmefutures_ilink3_sbe_v8_4.party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.party_ids_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.party_ids_groups.fields(buffer, offset, packet, parent)
@@ -11429,7 +11434,7 @@ end
 
 -- Dissect: Requesting Party Ids Groups
 cme_cmefutures_ilink3_sbe_v8_4.requesting_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.requesting_party_ids_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
@@ -12633,7 +12638,7 @@ end
 
 -- Dissect: Quote Cancel Sets Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_cancel_sets_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
@@ -12740,7 +12745,7 @@ end
 
 -- Dissect: Quote Cancel Entries Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_cancel_entries_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
@@ -12958,7 +12963,7 @@ end
 
 -- Dissect: Spread Leg Order Events Groups
 cme_cmefutures_ilink3_sbe_v8_4.spread_leg_order_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.spread_leg_order_events_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.spread_leg_order_events_groups.fields(buffer, offset, packet, parent)
@@ -13477,7 +13482,7 @@ end
 
 -- Dissect: Spread Order Events Groups
 cme_cmefutures_ilink3_sbe_v8_4.spread_order_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.spread_order_events_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.spread_order_events_groups.fields(buffer, offset, packet, parent)
@@ -13600,7 +13605,7 @@ end
 
 -- Dissect: Trade Legs Groups
 cme_cmefutures_ilink3_sbe_v8_4.trade_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.trade_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.trade_legs_groups.fields(buffer, offset, packet, parent)
@@ -13973,7 +13978,7 @@ end
 
 -- Dissect: Outright Order Events Groups
 cme_cmefutures_ilink3_sbe_v8_4.outright_order_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.outright_order_events_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.outright_order_events_groups.fields(buffer, offset, packet, parent)
@@ -15256,7 +15261,7 @@ end
 
 -- Dissect: Quote Entries Groups
 cme_cmefutures_ilink3_sbe_v8_4.quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.quote_entries_groups, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.quote_entries_groups.fields(buffer, offset, packet, parent)
@@ -16820,7 +16825,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_ilink3_sbe_v8_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_ilink3_sbe_v8_4.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_ilink3_sbe_v8_4.message_header.fields(buffer, offset, packet, parent)

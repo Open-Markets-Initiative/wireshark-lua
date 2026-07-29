@@ -352,14 +352,16 @@ local show = {}
 
 -- Cme CmeFutures Mdp3 Sbe 1.11 Element Dissection Options
 show.application_messages = true
-show.structs = true
+show.headers = true
 show.repeating_groups = true
+show.structs = true
 show.indexes = true
 
 -- Register Cme CmeFutures Mdp3 Sbe 1.11 Show Options
 omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -369,6 +371,9 @@ function omi_cme_cmefutures_mdp3_sbe_v1_11.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_headers then
+    show.headers = omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_cmefutures_mdp3_sbe_v1_11.prefs.show_repeating_groups
@@ -6140,7 +6145,7 @@ end
 
 -- Dissect: Collateral Market Value Groups
 cme_cmefutures_mdp3_sbe_v1_11.collateral_market_value_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.collateral_market_value_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.collateral_market_value_groups.fields(buffer, offset, packet, parent)
@@ -6513,7 +6518,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Tcp Groups
 cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_tcp_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_tcp_groups.fields(buffer, offset, packet, parent)
@@ -6699,7 +6704,7 @@ end
 
 -- Dissect: Security Status Workup Groups
 cme_cmefutures_mdp3_sbe_v1_11.security_status_workup_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.security_status_workup_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.security_status_workup_groups.fields(buffer, offset, packet, parent)
@@ -6908,7 +6913,7 @@ end
 
 -- Dissect: Snapshot Refresh Top Orders Groups
 cme_cmefutures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.snapshot_refresh_top_orders_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.snapshot_refresh_top_orders_groups.fields(buffer, offset, packet, parent)
@@ -7079,7 +7084,7 @@ end
 
 -- Dissect: Repo Related Instruments Groups
 cme_cmefutures_mdp3_sbe_v1_11.repo_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.repo_related_instruments_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.repo_related_instruments_groups.fields(buffer, offset, packet, parent)
@@ -7226,7 +7231,7 @@ end
 
 -- Dissect: Repo Underlyings Groups
 cme_cmefutures_mdp3_sbe_v1_11.repo_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.repo_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.repo_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -7583,7 +7588,7 @@ end
 
 -- Dissect: Inst Attrib Groups
 cme_cmefutures_mdp3_sbe_v1_11.inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.inst_attrib_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.inst_attrib_groups.fields(buffer, offset, packet, parent)
@@ -7690,7 +7695,7 @@ end
 
 -- Dissect: Feed Types Groups
 cme_cmefutures_mdp3_sbe_v1_11.feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.feed_types_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.feed_types_groups.fields(buffer, offset, packet, parent)
@@ -7797,7 +7802,7 @@ end
 
 -- Dissect: Events Groups
 cme_cmefutures_mdp3_sbe_v1_11.events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.events_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.events_groups.fields(buffer, offset, packet, parent)
@@ -8535,7 +8540,7 @@ end
 
 -- Dissect: Legs Groups
 cme_cmefutures_mdp3_sbe_v1_11.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.legs_groups.fields(buffer, offset, packet, parent)
@@ -8981,7 +8986,7 @@ end
 
 -- Dissect: Option Related Instruments Groups
 cme_cmefutures_mdp3_sbe_v1_11.option_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.option_related_instruments_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.option_related_instruments_groups.fields(buffer, offset, packet, parent)
@@ -9088,7 +9093,7 @@ end
 
 -- Dissect: Option Underlyings Groups
 cme_cmefutures_mdp3_sbe_v1_11.option_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.option_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.option_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -9791,7 +9796,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Order Book Groups
 cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_order_book_groups.fields(buffer, offset, packet, parent)
@@ -9997,7 +10002,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Groups
 cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.snapshot_full_refresh_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.snapshot_full_refresh_groups.fields(buffer, offset, packet, parent)
@@ -10228,7 +10233,7 @@ end
 
 -- Dissect: Incremental Refresh Session Statistics Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_session_statistics_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_session_statistics_groups.fields(buffer, offset, packet, parent)
@@ -10407,7 +10412,7 @@ end
 
 -- Dissect: Incremental Refresh Limits Banding Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_limits_banding_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_limits_banding_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_limits_banding_groups.fields(buffer, offset, packet, parent)
@@ -10602,7 +10607,7 @@ end
 
 -- Dissect: Incremental Refresh Daily Statistics Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_daily_statistics_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_daily_statistics_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_daily_statistics_groups.fields(buffer, offset, packet, parent)
@@ -10821,7 +10826,7 @@ end
 
 -- Dissect: Incremental Refresh Trade Summary Order Id Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_order_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_trade_summary_order_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_order_id_groups.fields(buffer, offset, packet, parent)
@@ -10956,7 +10961,7 @@ end
 
 -- Dissect: Incremental Refresh Trade Summary Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_trade_summary_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_trade_summary_groups.fields(buffer, offset, packet, parent)
@@ -11152,7 +11157,7 @@ end
 
 -- Dissect: Incremental Refresh Order Book Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_order_book_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_order_book_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_order_book_groups.fields(buffer, offset, packet, parent)
@@ -11335,7 +11340,7 @@ end
 
 -- Dissect: Incremental Refresh Book Order Id Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_book_order_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_book_order_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_book_order_id_groups.fields(buffer, offset, packet, parent)
@@ -11474,7 +11479,7 @@ end
 
 -- Dissect: Incremental Refresh Book Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_book_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_book_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_book_groups.fields(buffer, offset, packet, parent)
@@ -11662,7 +11667,7 @@ end
 
 -- Dissect: Related Sym Groups
 cme_cmefutures_mdp3_sbe_v1_11.related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.related_sym_groups.fields(buffer, offset, packet, parent)
@@ -11846,7 +11851,7 @@ end
 
 -- Dissect: Incremental Refresh Volume Groups
 cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_volume_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.incremental_refresh_volume_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.incremental_refresh_volume_groups.fields(buffer, offset, packet, parent)
@@ -12161,7 +12166,7 @@ end
 
 -- Dissect: Channel Reset Groups
 cme_cmefutures_mdp3_sbe_v1_11.channel_reset_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.channel_reset_groups, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.channel_reset_groups.fields(buffer, offset, packet, parent)
@@ -12373,7 +12378,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_mdp3_sbe_v1_11.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.message_header.fields(buffer, offset, packet, parent)
@@ -12465,7 +12470,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_mdp3_sbe_v1_11.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_mdp3_sbe_v1_11.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_mdp3_sbe_v1_11.binary_packet_header.fields(buffer, offset, packet, parent)

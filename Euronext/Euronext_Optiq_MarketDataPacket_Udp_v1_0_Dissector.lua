@@ -44,9 +44,11 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.version = ProtoField.new("Ve
 local show = {}
 
 -- Euronext Optiq MarketDataPacket Udp 1.0 Element Dissection Options
+show.headers = true
 show.structs = true
 
 -- Register Euronext Optiq MarketDataPacket Udp 1.0 Show Options
+omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 
@@ -54,6 +56,9 @@ omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs = Pref.bool("Sho
 function omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_headers then
+    show.headers = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_headers
+  end
   if show.structs ~= omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs then
     show.structs = omi_euronext_optiq_marketdatapacket_udp_v1_0.prefs.show_structs
   end
@@ -559,7 +564,7 @@ end
 
 -- Dissect: Market Data Packet Header
 euronext_optiq_marketdatapacket_udp_v1_0.market_data_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.market_data_packet_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatapacket_udp_v1_0.market_data_packet_header.fields(buffer, offset, packet, parent)

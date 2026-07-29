@@ -41,10 +41,12 @@ local show = {}
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse NyseOptions CommonClient Pillar 2.6 Show Options
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -52,6 +54,9 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_indexes = Pref.bool("Sh
 function omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_headers then
+    show.headers = omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_headers
+  end
   if show.structs ~= omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_structs then
     show.structs = omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_structs
   end
@@ -335,7 +340,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseoptions_commonclient_pillar_v2_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseoptions_commonclient_pillar_v2_6.message_header.fields(buffer, offset, packet, parent)
@@ -502,7 +507,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseoptions_commonclient_pillar_v2_6.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseoptions_commonclient_pillar_v2_6.packet_header.fields(buffer, offset, packet, parent)

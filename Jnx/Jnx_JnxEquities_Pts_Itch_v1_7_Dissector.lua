@@ -117,12 +117,14 @@ local show = {}
 -- Jnx JnxEquities Pts Itch 1.7 Element Dissection Options
 show.session_messages = true
 show.structs = true
+show.headers = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Jnx JnxEquities Pts Itch 1.7 Show Options
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -135,6 +137,9 @@ function omi_jnx_jnxequities_pts_itch_v1_7.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages
+  end
+  if show.headers ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers then
+    show.headers = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers
   end
   if show.session_messages ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages then
     show.session_messages = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages
@@ -2131,7 +2136,7 @@ end
 
 -- Dissect: Message Header
 jnx_jnxequities_pts_itch_v1_7.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.message_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_itch_v1_7.message_header.fields(buffer, offset, packet, parent)
@@ -2304,7 +2309,7 @@ end
 
 -- Dissect: Udp Packet Header
 jnx_jnxequities_pts_itch_v1_7.udp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_itch_v1_7.udp_packet_header.fields(buffer, offset, packet, parent)

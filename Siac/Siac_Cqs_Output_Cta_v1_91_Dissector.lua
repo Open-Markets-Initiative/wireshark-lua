@@ -139,11 +139,13 @@ local show = {}
 -- Siac Cqs Output Cta 1.91 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Siac Cqs Output Cta 1.91 Show Options
 omi_siac_cqs_output_cta_v1_91.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_siac_cqs_output_cta_v1_91.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -153,6 +155,9 @@ function omi_siac_cqs_output_cta_v1_91.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages then
     show.application_messages = omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages
+  end
+  if show.headers ~= omi_siac_cqs_output_cta_v1_91.prefs.show_headers then
+    show.headers = omi_siac_cqs_output_cta_v1_91.prefs.show_headers
   end
   if show.structs ~= omi_siac_cqs_output_cta_v1_91.prefs.show_structs then
     show.structs = omi_siac_cqs_output_cta_v1_91.prefs.show_structs
@@ -4900,7 +4905,7 @@ end
 
 -- Dissect: Message
 siac_cqs_output_cta_v1_91.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.message, buffer(offset, 0))
     local index = siac_cqs_output_cta_v1_91.message.fields(buffer, offset, packet, parent, message_index)

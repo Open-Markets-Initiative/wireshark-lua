@@ -37,10 +37,12 @@ local show = {}
 
 -- Nasdaq Common Mold64 Udp 1.0 Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nasdaq Common Mold64 Udp 1.0 Show Options
 omi_nasdaq_common_mold64_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_common_mold64_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_common_mold64_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -48,6 +50,9 @@ omi_nasdaq_common_mold64_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes",
 function omi_nasdaq_common_mold64_udp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_headers then
+    show.headers = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_headers
+  end
   if show.structs ~= omi_nasdaq_common_mold64_udp_v1_0.prefs.show_structs then
     show.structs = omi_nasdaq_common_mold64_udp_v1_0.prefs.show_structs
   end
@@ -244,7 +249,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_common_mold64_udp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_common_mold64_udp_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -420,7 +425,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_common_mold64_udp_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_common_mold64_udp_v1_0.packet_header.fields(buffer, offset, packet, parent)

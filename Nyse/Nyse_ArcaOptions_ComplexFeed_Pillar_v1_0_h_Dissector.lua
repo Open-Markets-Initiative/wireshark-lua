@@ -142,12 +142,14 @@ local show = {}
 show.repeating_groups = true
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaOptions ComplexFeed Pillar 1.0.h Show Options
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -157,6 +159,9 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_headers then
+    show.headers = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_headers
   end
   if show.repeating_groups ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups
@@ -4258,7 +4263,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_h.message_header.fields(buffer, offset, packet, parent)
@@ -4422,7 +4427,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_h.packet_header.fields(buffer, offset, packet, parent)

@@ -507,12 +507,14 @@ local show = {}
 -- Euronext Optiq MarketDataGateway Sbe 5.28 Element Dissection Options
 show.application_messages = true
 show.repeating_groups = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Euronext Optiq MarketDataGateway Sbe 5.28 Show Options
 omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -523,6 +525,9 @@ function omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_application_messages then
     show.application_messages = omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_application_messages
+  end
+  if show.headers ~= omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_headers then
+    show.headers = omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_headers
   end
   if show.repeating_groups ~= omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_repeating_groups then
     show.repeating_groups = omi_euronext_optiq_marketdatagateway_sbe_v5_28.prefs.show_repeating_groups
@@ -13188,7 +13193,7 @@ end
 
 -- Dissect: Interest Payment Date Rep Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.interest_payment_date_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.interest_payment_date_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.interest_payment_date_rep_groups.fields(buffer, offset, packet, parent)
@@ -13947,7 +13952,7 @@ end
 
 -- Dissect: Package Components Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.package_components_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.package_components_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.package_components_groups.fields(buffer, offset, packet, parent)
@@ -14170,7 +14175,7 @@ end
 
 -- Dissect: Long Order Updates Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.long_order_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.long_order_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.long_order_updates_groups.fields(buffer, offset, packet, parent)
@@ -14338,7 +14343,7 @@ end
 
 -- Dissect: Outright Rep Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.outright_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.outright_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.outright_rep_groups.fields(buffer, offset, packet, parent)
@@ -14986,7 +14991,7 @@ end
 
 -- Dissect: Contract Emm Properties Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.contract_emm_properties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.contract_emm_properties_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.contract_emm_properties_groups.fields(buffer, offset, packet, parent)
@@ -15499,7 +15504,7 @@ end
 
 -- Dissect: Strategy Standing Data Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.strategy_standing_data_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.strategy_standing_data_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.strategy_standing_data_groups.fields(buffer, offset, packet, parent)
@@ -15809,7 +15814,7 @@ end
 
 -- Dissect: New Stats Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.new_stats_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.new_stats_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.new_stats_groups.fields(buffer, offset, packet, parent)
@@ -16076,7 +16081,7 @@ end
 
 -- Dissect: Emm Pattern Rep Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.emm_pattern_rep_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.emm_pattern_rep_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.emm_pattern_rep_groups.fields(buffer, offset, packet, parent)
@@ -16696,7 +16701,7 @@ end
 
 -- Dissect: Timetables Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.timetables_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.timetables_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.timetables_groups.fields(buffer, offset, packet, parent)
@@ -16925,7 +16930,7 @@ end
 
 -- Dissect: Market States Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.market_states_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.market_states_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.market_states_groups.fields(buffer, offset, packet, parent)
@@ -17042,7 +17047,7 @@ end
 
 -- Dissect: Not Used Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.not_used_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.not_used_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.not_used_groups.fields(buffer, offset, packet, parent)
@@ -17573,7 +17578,7 @@ end
 
 -- Dissect: Price Updates Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.price_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.price_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.price_updates_groups.fields(buffer, offset, packet, parent)
@@ -17773,7 +17778,7 @@ end
 
 -- Dissect: Order Updates Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.order_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.order_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.order_updates_groups.fields(buffer, offset, packet, parent)
@@ -17957,7 +17962,7 @@ end
 
 -- Dissect: Market Updates Groups
 euronext_optiq_marketdatagateway_sbe_v5_28.market_updates_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.market_updates_groups, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.market_updates_groups.fields(buffer, offset, packet, parent)
@@ -18557,7 +18562,7 @@ end
 
 -- Dissect: Market Data Packet Header
 euronext_optiq_marketdatagateway_sbe_v5_28.market_data_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_28.fields.market_data_packet_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v5_28.market_data_packet_header.fields(buffer, offset, packet, parent)

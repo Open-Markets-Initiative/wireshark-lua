@@ -211,12 +211,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Memx MemxOptions Memo Sbe 1.6.a Show Options
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -226,6 +228,9 @@ function omi_memx_memxoptions_memo_sbe_v1_6_a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_headers then
+    show.headers = omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_headers
   end
   if show.repeating_groups ~= omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_repeating_groups then
     show.repeating_groups = omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_repeating_groups
@@ -4567,7 +4572,7 @@ end
 
 -- Dissect: Nested Parties Groups
 memx_memxoptions_memo_sbe_v1_6_a.nested_parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.nested_parties_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.nested_parties_groups.fields(buffer, offset, packet, parent)
@@ -4691,7 +4696,7 @@ end
 
 -- Dissect: Reported Allocations Groups
 memx_memxoptions_memo_sbe_v1_6_a.reported_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.reported_allocations_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.reported_allocations_groups.fields(buffer, offset, packet, parent)
@@ -4802,7 +4807,7 @@ end
 
 -- Dissect: Execution Allocations Groups
 memx_memxoptions_memo_sbe_v1_6_a.execution_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.execution_allocations_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.execution_allocations_groups.fields(buffer, offset, packet, parent)
@@ -6022,7 +6027,7 @@ end
 
 -- Dissect: Parties Groups
 memx_memxoptions_memo_sbe_v1_6_a.parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.parties_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.parties_groups.fields(buffer, offset, packet, parent)
@@ -6772,7 +6777,7 @@ end
 
 -- Dissect: Requested Allocations Groups
 memx_memxoptions_memo_sbe_v1_6_a.requested_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.requested_allocations_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.requested_allocations_groups.fields(buffer, offset, packet, parent)
@@ -7232,7 +7237,7 @@ end
 
 -- Dissect: One Sided Quotes Groups
 memx_memxoptions_memo_sbe_v1_6_a.one_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.one_sided_quotes_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.one_sided_quotes_groups.fields(buffer, offset, packet, parent)
@@ -7545,7 +7550,7 @@ end
 
 -- Dissect: Two Sided Quotes Groups
 memx_memxoptions_memo_sbe_v1_6_a.two_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.two_sided_quotes_groups, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_6_a.two_sided_quotes_groups.fields(buffer, offset, packet, parent)

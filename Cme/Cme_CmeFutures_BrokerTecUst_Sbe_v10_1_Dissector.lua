@@ -63,12 +63,14 @@ omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.incremental_refresh_btec_group_
 local show = {}
 
 -- Cme CmeFutures BrokerTecUst Sbe 10.1 Element Dissection Options
+show.headers = true
 show.structs = true
 show.repeating_groups = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Cme CmeFutures BrokerTecUst Sbe 10.1 Show Options
+omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -81,6 +83,9 @@ function omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_headers then
+    show.headers = omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_cmefutures_brokertecust_sbe_v10_1.prefs.show_repeating_groups
@@ -1125,7 +1130,7 @@ end
 
 -- Dissect: Incremental Refresh Btec Groups
 cme_cmefutures_brokertecust_sbe_v10_1.incremental_refresh_btec_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.incremental_refresh_btec_groups, buffer(offset, 0))
     local index = cme_cmefutures_brokertecust_sbe_v10_1.incremental_refresh_btec_groups.fields(buffer, offset, packet, parent)
@@ -1249,7 +1254,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_brokertecust_sbe_v10_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_brokertecust_sbe_v10_1.message_header.fields(buffer, offset, packet, parent)
@@ -1341,7 +1346,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_brokertecust_sbe_v10_1.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_brokertecust_sbe_v10_1.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_brokertecust_sbe_v10_1.binary_packet_header.fields(buffer, offset, packet, parent)

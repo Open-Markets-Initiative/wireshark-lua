@@ -321,12 +321,14 @@ local show = {}
 -- Cme CmeFutures Streamlined Sbe 5.9 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Cme CmeFutures Streamlined Sbe 5.9 Show Options
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -337,6 +339,9 @@ function omi_cme_cmefutures_streamlined_sbe_v5_9.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_headers then
+    show.headers = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_cmefutures_streamlined_sbe_v5_9.prefs.show_repeating_groups
@@ -5186,7 +5191,7 @@ end
 
 -- Dissect: Otc Security Alt Id Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_security_alt_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_security_alt_id_groups.fields(buffer, offset, packet, parent)
@@ -5353,7 +5358,7 @@ end
 
 -- Dissect: Otc Underlyings Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -5841,7 +5846,7 @@ end
 
 -- Dissect: Otc Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_groups.fields(buffer, offset, packet, parent)
@@ -6314,7 +6319,7 @@ end
 
 -- Dissect: Trade Blocks Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legs_groups.fields(buffer, offset, packet, parent)
@@ -6421,7 +6426,7 @@ end
 
 -- Dissect: Trade Blocks Party Ids Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
@@ -6536,7 +6541,7 @@ end
 
 -- Dissect: Trade Blocks Underlyings Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
@@ -6800,7 +6805,7 @@ end
 
 -- Dissect: Trade Blocks Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_groups.fields(buffer, offset, packet, parent)
@@ -6972,7 +6977,7 @@ end
 
 -- Dissect: Eris Security Alt Id Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
@@ -7254,7 +7259,7 @@ end
 
 -- Dissect: Eris Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
@@ -7361,7 +7366,7 @@ end
 
 -- Dissect: Events Groups
 cme_cmefutures_streamlined_sbe_v5_9.events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.events_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
@@ -7468,7 +7473,7 @@ end
 
 -- Dissect: Eris Feed Types Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_feed_types_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_feed_types_groups.fields(buffer, offset, packet, parent)
@@ -8029,7 +8034,7 @@ end
 
 -- Dissect: Otc Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.otc_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.otc_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.otc_original_groups.fields(buffer, offset, packet, parent)
@@ -8406,7 +8411,7 @@ end
 
 -- Dissect: Eris Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_groups.fields(buffer, offset, packet, parent)
@@ -8665,7 +8670,7 @@ end
 
 -- Dissect: Eris Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_original_groups.fields(buffer, offset, packet, parent)
@@ -8884,7 +8889,7 @@ end
 
 -- Dissect: Trade Blocks Original Legs Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
@@ -9148,7 +9153,7 @@ end
 
 -- Dissect: Trade Blocks Legacy Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_legacy_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_legacy_groups.fields(buffer, offset, packet, parent)
@@ -9588,7 +9593,7 @@ end
 
 -- Dissect: Incremental Refresh Indices Groups
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_indices_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.fields(buffer, offset, packet, parent)
@@ -9804,7 +9809,7 @@ end
 
 -- Dissect: Inst Attrib Groups
 cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.inst_attrib_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.inst_attrib_groups.fields(buffer, offset, packet, parent)
@@ -10043,7 +10048,7 @@ end
 
 -- Dissect: Quote Request Related Sym Groups
 cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.quote_request_related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
@@ -10367,7 +10372,7 @@ end
 
 -- Dissect: Trade Blocks Original Groups
 cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.trade_blocks_original_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.trade_blocks_original_groups.fields(buffer, offset, packet, parent)
@@ -10530,7 +10535,7 @@ end
 
 -- Dissect: Lines Of Text Groups
 cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.lines_of_text_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.lines_of_text_groups.fields(buffer, offset, packet, parent)
@@ -10633,7 +10638,7 @@ end
 
 -- Dissect: News Indices Related Sym Groups
 cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.news_indices_related_sym_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.news_indices_related_sym_groups.fields(buffer, offset, packet, parent)
@@ -10809,7 +10814,7 @@ end
 
 -- Dissect: Incremental Refresh Eris Related Instruments Groups
 cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
@@ -12484,7 +12489,7 @@ end
 
 -- Dissect: Eris Reference Data Groups
 cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.eris_reference_data_groups, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.eris_reference_data_groups.fields(buffer, offset, packet, parent)
@@ -12749,7 +12754,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_streamlined_sbe_v5_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.message_header.fields(buffer, offset, packet, parent)
@@ -12841,7 +12846,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_streamlined_sbe_v5_9.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_streamlined_sbe_v5_9.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_streamlined_sbe_v5_9.binary_packet_header.fields(buffer, offset, packet, parent)

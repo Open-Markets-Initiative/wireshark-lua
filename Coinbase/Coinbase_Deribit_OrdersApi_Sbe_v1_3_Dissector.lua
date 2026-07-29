@@ -234,12 +234,14 @@ local show = {}
 -- Coinbase Deribit OrdersApi Sbe 1.3 Element Dissection Options
 show.application_messages = true
 show.repeating_groups = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Coinbase Deribit OrdersApi Sbe 1.3 Show Options
 omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -250,6 +252,9 @@ function omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_headers then
+    show.headers = omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_headers
   end
   if show.repeating_groups ~= omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_repeating_groups then
     show.repeating_groups = omi_coinbase_deribit_ordersapi_sbe_v1_3.prefs.show_repeating_groups
@@ -3207,7 +3212,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_orders_placed_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -3322,7 +3327,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_orders_placed_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -3614,7 +3619,7 @@ end
 
 -- Dissect: Mass Quote Orders Placed Message orders Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_orders_placed_message_orders_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_orders_placed_message_orders_groups.fields(buffer, offset, packet, parent)
@@ -3803,7 +3808,7 @@ end
 
 -- Dissect: Order Placed Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.order_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.order_placed_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.order_placed_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -3914,7 +3919,7 @@ end
 
 -- Dissect: Order Placed Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.order_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.order_placed_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.order_placed_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -4195,7 +4200,7 @@ end
 
 -- Dissect: Orders Canceled Message orders Groups
 coinbase_deribit_ordersapi_sbe_v1_3.orders_canceled_message_orders_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.orders_canceled_message_orders_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.orders_canceled_message_orders_groups.fields(buffer, offset, packet, parent)
@@ -4417,7 +4422,7 @@ end
 
 -- Dissect: Order Filled Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.order_filled_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.order_filled_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.order_filled_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -4602,7 +4607,7 @@ end
 
 -- Dissect: Order Filled Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.order_filled_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.order_filled_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.order_filled_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -5248,7 +5253,7 @@ end
 
 -- Dissect: Mass Quote Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -5363,7 +5368,7 @@ end
 
 -- Dissect: Mass Quote Response Message ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_ask_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_response_message_ask_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_ask_fills_groups.fields(buffer, offset, packet, parent)
@@ -5478,7 +5483,7 @@ end
 
 -- Dissect: Mass Quote Response Message bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_bid_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_response_message_bid_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_bid_fills_groups.fields(buffer, offset, packet, parent)
@@ -5833,7 +5838,7 @@ end
 
 -- Dissect: Mass Quote Response Message quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_response_message_quotes_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_response_message_quotes_groups.fields(buffer, offset, packet, parent)
@@ -6266,7 +6271,7 @@ end
 
 -- Dissect: Amend Order Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.amend_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.amend_order_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -6377,7 +6382,7 @@ end
 
 -- Dissect: Amend Order Response Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.amend_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_response_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.amend_order_response_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -6691,7 +6696,7 @@ end
 
 -- Dissect: New Order Response Message legs Groups
 coinbase_deribit_ordersapi_sbe_v1_3.new_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.new_order_response_message_legs_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.new_order_response_message_legs_groups.fields(buffer, offset, packet, parent)
@@ -6802,7 +6807,7 @@ end
 
 -- Dissect: New Order Response Message fills Groups
 coinbase_deribit_ordersapi_sbe_v1_3.new_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.new_order_response_message_fills_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.new_order_response_message_fills_groups.fields(buffer, offset, packet, parent)
@@ -7397,7 +7402,7 @@ end
 
 -- Dissect: Mass Quote Request Message quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_request_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_request_message_quotes_groups, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.mass_quote_request_message_quotes_groups.fields(buffer, offset, packet, parent)
@@ -8684,7 +8689,7 @@ end
 
 -- Dissect: Message Header
 coinbase_deribit_ordersapi_sbe_v1_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.message_header, buffer(offset, 0))
     local index = coinbase_deribit_ordersapi_sbe_v1_3.message_header.fields(buffer, offset, packet, parent)

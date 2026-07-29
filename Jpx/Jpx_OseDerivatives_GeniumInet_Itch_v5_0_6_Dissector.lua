@@ -113,11 +113,13 @@ local show = {}
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Jpx OseDerivatives GeniumInet Itch 5.0.6 Show Options
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -127,6 +129,9 @@ function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages then
     show.application_messages = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages
+  end
+  if show.headers ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers then
+    show.headers = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers
   end
   if show.structs ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs then
     show.structs = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs
@@ -2795,7 +2800,7 @@ end
 
 -- Dissect: Message Header
 jpx_osederivatives_geniuminet_itch_v5_0_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_header, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v5_0_6.message_header.fields(buffer, offset, packet, parent)
@@ -2968,7 +2973,7 @@ end
 
 -- Dissect: Packet Header
 jpx_osederivatives_geniuminet_itch_v5_0_6.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header, buffer(offset, 0))
     local index = jpx_osederivatives_geniuminet_itch_v5_0_6.packet_header.fields(buffer, offset, packet, parent)

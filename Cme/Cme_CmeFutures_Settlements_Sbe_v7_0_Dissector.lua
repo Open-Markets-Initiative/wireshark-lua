@@ -97,12 +97,14 @@ omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_ind
 local show = {}
 
 -- Cme CmeFutures Settlements Sbe 7.0 Element Dissection Options
+show.headers = true
 show.structs = true
 show.repeating_groups = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Cme CmeFutures Settlements Sbe 7.0 Show Options
+omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -115,6 +117,9 @@ function omi_cme_cmefutures_settlements_sbe_v7_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_headers then
+    show.headers = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_cme_cmefutures_settlements_sbe_v7_0.prefs.show_repeating_groups
@@ -1785,7 +1790,7 @@ end
 
 -- Dissect: Incremental Refresh High Low Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_high_low_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields(buffer, offset, packet, parent)
@@ -2010,7 +2015,7 @@ end
 
 -- Dissect: Incremental Refresh Voi Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_voi_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields(buffer, offset, packet, parent)
@@ -2390,7 +2395,7 @@ end
 
 -- Dissect: Incremental Refresh Settle Groups
 cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.incremental_refresh_settle_groups, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields(buffer, offset, packet, parent)
@@ -2517,7 +2522,7 @@ end
 
 -- Dissect: Message Header
 cme_cmefutures_settlements_sbe_v7_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.message_header, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.message_header.fields(buffer, offset, packet, parent)
@@ -2609,7 +2614,7 @@ end
 
 -- Dissect: Binary Packet Header
 cme_cmefutures_settlements_sbe_v7_0.binary_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_cmefutures_settlements_sbe_v7_0.fields.binary_packet_header, buffer(offset, 0))
     local index = cme_cmefutures_settlements_sbe_v7_0.binary_packet_header.fields(buffer, offset, packet, parent)

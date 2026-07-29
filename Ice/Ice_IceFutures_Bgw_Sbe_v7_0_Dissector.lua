@@ -436,12 +436,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Ice IceFutures Bgw Sbe 7.0 Show Options
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -451,6 +453,9 @@ function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages then
     show.application_messages = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers then
+    show.headers = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers
   end
   if show.repeating_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups
@@ -8944,7 +8949,7 @@ end
 
 -- Dissect: Mass Quote Report Message no Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.fields(buffer, offset, packet, parent)
@@ -10507,7 +10512,7 @@ end
 
 -- Dissect: Security Definition Request Create Strategy Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -10703,7 +10708,7 @@ end
 
 -- Dissect: Quote Cancel Request Message no Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.fields(buffer, offset, packet, parent)
@@ -10894,7 +10899,7 @@ end
 
 -- Dissect: Mass Quote Request Message no Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.fields(buffer, offset, packet, parent)
@@ -11211,7 +11216,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -11410,7 +11415,7 @@ end
 
 -- Dissect: New Order Cross Request Message no Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.fields(buffer, offset, packet, parent)
@@ -12383,7 +12388,7 @@ end
 
 -- Dissect: I P Report Message no Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.fields(buffer, offset, packet, parent)
@@ -12541,7 +12546,7 @@ end
 
 -- Dissect: I P Request Message no Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.fields(buffer, offset, packet, parent)
@@ -14041,7 +14046,7 @@ end
 
 -- Dissect: Security Definition Report Message no Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.fields(buffer, offset, packet, parent)
@@ -14152,7 +14157,7 @@ end
 
 -- Dissect: Security Definition Report Message no Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.fields(buffer, offset, packet, parent)
@@ -14787,7 +14792,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.fields(buffer, offset, packet, parent)
@@ -14894,7 +14899,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.fields(buffer, offset, packet, parent)
@@ -15005,7 +15010,7 @@ end
 
 -- Dissect: Security Definition Report Strategy Message no Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_groups, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.fields(buffer, offset, packet, parent)
@@ -16038,7 +16043,7 @@ end
 
 -- Dissect: Message Header
 ice_icefutures_bgw_sbe_v7_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.message_header.fields(buffer, offset, packet, parent)

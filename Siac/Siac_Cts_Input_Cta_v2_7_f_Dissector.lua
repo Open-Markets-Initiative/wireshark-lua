@@ -154,11 +154,13 @@ local show = {}
 -- Siac Cts Input Cta 2.7.f Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Siac Cts Input Cta 2.7.f Show Options
 omi_siac_cts_input_cta_v2_7_f.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_siac_cts_input_cta_v2_7_f.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -168,6 +170,9 @@ function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages then
     show.application_messages = omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages
+  end
+  if show.headers ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_headers then
+    show.headers = omi_siac_cts_input_cta_v2_7_f.prefs.show_headers
   end
   if show.structs ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_structs then
     show.structs = omi_siac_cts_input_cta_v2_7_f.prefs.show_structs
@@ -4696,7 +4701,7 @@ end
 
 -- Dissect: Message Header
 siac_cts_input_cta_v2_7_f.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.message_header, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.message_header.fields(buffer, offset, packet, parent)
@@ -4812,7 +4817,7 @@ end
 
 -- Dissect: Block Header
 siac_cts_input_cta_v2_7_f.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.block_header, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.block_header.fields(buffer, offset, packet, parent)

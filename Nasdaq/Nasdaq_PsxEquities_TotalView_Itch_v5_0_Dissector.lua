@@ -137,12 +137,14 @@ local show = {}
 show.records = true
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nasdaq PsxEquities TotalView Itch 5.0 Show Options
 omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.resolve_records = Pref.bool("Stock Directory Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -157,6 +159,9 @@ function omi_nasdaq_psxequities_totalview_itch_v5_0.prefs_changed()
   end
   if show.application_messages ~= omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_headers then
+    show.headers = omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_headers
   end
   if show.structs ~= omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_structs then
     show.structs = omi_nasdaq_psxequities_totalview_itch_v5_0.prefs.show_structs
@@ -3787,7 +3792,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_psxequities_totalview_itch_v5_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_psxequities_totalview_itch_v5_0.message_header.fields(buffer, offset, packet, parent)
@@ -3960,7 +3965,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_psxequities_totalview_itch_v5_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_psxequities_totalview_itch_v5_0.packet_header.fields(buffer, offset, packet, parent)

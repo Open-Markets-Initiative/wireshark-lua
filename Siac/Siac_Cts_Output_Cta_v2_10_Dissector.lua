@@ -190,12 +190,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Siac Cts Output Cta 2.10 Show Options
 omi_siac_cts_output_cta_v2_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -205,6 +207,9 @@ function omi_siac_cts_output_cta_v2_10.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_siac_cts_output_cta_v2_10.prefs.show_application_messages then
     show.application_messages = omi_siac_cts_output_cta_v2_10.prefs.show_application_messages
+  end
+  if show.headers ~= omi_siac_cts_output_cta_v2_10.prefs.show_headers then
+    show.headers = omi_siac_cts_output_cta_v2_10.prefs.show_headers
   end
   if show.repeating_groups ~= omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups then
     show.repeating_groups = omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups
@@ -8115,7 +8120,7 @@ end
 
 -- Dissect: Message
 siac_cts_output_cta_v2_10.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.message, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10.message.fields(buffer, offset, packet, parent, message_index)
