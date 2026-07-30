@@ -286,7 +286,7 @@ omi_eurex_t7_eti_fbe_v12_0.fields.ownership_indicator = ProtoField.new("Ownershi
 omi_eurex_t7_eti_fbe_v12_0.fields.package_id = ProtoField.new("Package Id", "eurex.t7.eti.fbe.v12.0.packageid", ftypes.UINT32)
 omi_eurex_t7_eti_fbe_v12_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v12.0.packet", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v12_0.fields.pad_1 = ProtoField.new("Pad 1", "eurex.t7.eti.fbe.v12.0.pad1", ftypes.BYTES)
-omi_eurex_t7_eti_fbe_v12_0.fields.pad_11 = ProtoField.new("Pad 11", "eurex.t7.eti.fbe.v12.0.pad11", ftypes.BYTES)
+omi_eurex_t7_eti_fbe_v12_0.fields.pad_1v_1 = ProtoField.new("Pad 1v 1", "eurex.t7.eti.fbe.v12.0.pad1v1", ftypes.BYTES)
 omi_eurex_t7_eti_fbe_v12_0.fields.pad_2 = ProtoField.new("Pad 2", "eurex.t7.eti.fbe.v12.0.pad2", ftypes.BYTES)
 omi_eurex_t7_eti_fbe_v12_0.fields.pad_3 = ProtoField.new("Pad 3", "eurex.t7.eti.fbe.v12.0.pad3", ftypes.BYTES)
 omi_eurex_t7_eti_fbe_v12_0.fields.pad_4 = ProtoField.new("Pad 4", "eurex.t7.eti.fbe.v12.0.pad4", ftypes.BYTES)
@@ -8889,25 +8889,25 @@ eurex_t7_eti_fbe_v12_0.pad_1.dissect = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Pad 11
-eurex_t7_eti_fbe_v12_0.pad_11 = {}
+-- Pad 1v 1
+eurex_t7_eti_fbe_v12_0.pad_1v_1 = {}
 
--- Size: Pad 11
-eurex_t7_eti_fbe_v12_0.pad_11.size = 1
+-- Size: Pad 1v 1
+eurex_t7_eti_fbe_v12_0.pad_1v_1.size = 1
 
--- Display: Pad 11
-eurex_t7_eti_fbe_v12_0.pad_11.display = function(value)
-  return "Pad 11: "..value
+-- Display: Pad 1v 1
+eurex_t7_eti_fbe_v12_0.pad_1v_1.display = function(value)
+  return "Pad 1v 1: "..value
 end
 
--- Dissect: Pad 11
-eurex_t7_eti_fbe_v12_0.pad_11.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_eti_fbe_v12_0.pad_11.size
+-- Dissect: Pad 1v 1
+eurex_t7_eti_fbe_v12_0.pad_1v_1.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_eti_fbe_v12_0.pad_1v_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_eti_fbe_v12_0.pad_11.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_eti_fbe_v12_0.pad_1v_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v12_0.fields.pad_11, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v12_0.fields.pad_1v_1, range, value, display)
 
   return offset + length, value
 end
@@ -18069,7 +18069,7 @@ eurex_t7_eti_fbe_v12_0.side_alloc_ext_grp_comp.size =
   eurex_t7_eti_fbe_v12_0.party_id_location_id.size + 
   eurex_t7_eti_fbe_v12_0.cust_order_handling_inst.size + 
   eurex_t7_eti_fbe_v12_0.compliance_text.size + 
-  eurex_t7_eti_fbe_v12_0.pad_11.size
+  eurex_t7_eti_fbe_v12_0.pad_1v_1.size
 
 -- Display: Side Alloc Ext Grp Comp
 eurex_t7_eti_fbe_v12_0.side_alloc_ext_grp_comp.display = function(packet, parent, length)
@@ -18173,8 +18173,8 @@ eurex_t7_eti_fbe_v12_0.side_alloc_ext_grp_comp.fields = function(buffer, offset,
   -- Compliance Text: 20 Byte Ascii String Nullable
   index, compliance_text = eurex_t7_eti_fbe_v12_0.compliance_text.dissect(buffer, index, packet, parent)
 
-  -- Pad 11: 1 Byte
-  index, pad_11 = eurex_t7_eti_fbe_v12_0.pad_11.dissect(buffer, index, packet, parent)
+  -- Pad 1v 1: 1 Byte
+  index, pad_1v_1 = eurex_t7_eti_fbe_v12_0.pad_1v_1.dissect(buffer, index, packet, parent)
 
   return index
 end
