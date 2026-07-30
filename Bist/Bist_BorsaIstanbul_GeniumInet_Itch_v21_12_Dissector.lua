@@ -53,7 +53,6 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.occurred_at_cross = ProtoFi
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.odd_lot_size = ProtoField.new("Odd Lot Size", "bist.borsaistanbul.geniuminet.itch.v21.12.oddlotsize", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_attributes = ProtoField.new("Order Attributes", "bist.borsaistanbul.geniuminet.itch.v21.12.orderattributes", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_book_id = ProtoField.new("Order Book Id", "bist.borsaistanbul.geniuminet.itch.v21.12.orderbookid", ftypes.UINT32)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_book_position = ProtoField.new("Order Book Position", "bist.borsaistanbul.geniuminet.itch.v21.12.orderbookposition", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_id = ProtoField.new("Order Id", "bist.borsaistanbul.geniuminet.itch.v21.12.orderid", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
@@ -68,8 +67,9 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_sequence_number = P
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtime", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_type = ProtoField.new("Ranking Type", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtype", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_13 = ProtoField.new("Reserved 13", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved13", ftypes.UINT16, nil, base.DEC, 0x1FFF)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_14 = ProtoField.new("Reserved 14", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved14", ftypes.BYTES)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_2 = ProtoField.new("Reserved 2", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved2", ftypes.UINT16, nil, base.DEC, 0xC000)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_7 = ProtoField.new("Reserved 7", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved7", ftypes.BYTES)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_4 = ProtoField.new("Reserved 4", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved4", ftypes.BYTES)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.round_lot_size = ProtoField.new("Round Lot Size", "bist.borsaistanbul.geniuminet.itch.v21.12.roundlotsize", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.itch.v21.12.second", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.sequence_number = ProtoField.new("Sequence Number", "bist.borsaistanbul.geniuminet.itch.v21.12.sequencenumber", ftypes.UINT64)
@@ -1101,29 +1101,6 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_book_id.dissect = function(buffe
   return offset + length, value
 end
 
--- Order Book Position
-bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position = {}
-
--- Size: Order Book Position
-bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.size = 4
-
--- Display: Order Book Position
-bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.display = function(value)
-  return "Order Book Position: "..value
-end
-
--- Dissect: Order Book Position
-bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_book_position, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Id
 bist_borsaistanbul_geniuminet_itch_v21_12.order_id = {}
 
@@ -1356,7 +1333,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.ranking_time.size = 8
 
 -- Display: Ranking Time
 bist_borsaistanbul_geniuminet_itch_v21_12.ranking_time.display = function(value)
-  return "Ranking Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Ranking Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Ranking Time
@@ -1398,25 +1379,48 @@ bist_borsaistanbul_geniuminet_itch_v21_12.ranking_type.dissect = function(buffer
   return offset + length, value
 end
 
--- Reserved 7
-bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7 = {}
+-- Reserved 14
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14 = {}
 
--- Size: Reserved 7
-bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size = 7
+-- Size: Reserved 14
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size = 14
 
--- Display: Reserved 7
-bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.display = function(value)
-  return "Reserved 7: "..value
+-- Display: Reserved 14
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.display = function(value)
+  return "Reserved 14: "..value
 end
 
--- Dissect: Reserved 7
-bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size
+-- Dissect: Reserved 14
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.display(value, buffer, offset, packet, parent)
+  local display = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_7, range, value, display)
+  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_14, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4 = {}
+
+-- Size: Reserved 4
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.size = 4
+
+-- Display: Reserved 4
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -1894,8 +1898,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.trade_message.size =
   bist_borsaistanbul_geniuminet_itch_v21_12.quantity.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.order_book_id.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size + 
+  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.printable.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.occurred_at_cross.size
 
@@ -1929,11 +1932,8 @@ bist_borsaistanbul_geniuminet_itch_v21_12.trade_message.fields = function(buffer
   -- Trade Price: Price
   index, trade_price = bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
-
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
+  -- Reserved 14: Reserved
+  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
 
   -- Printable: Alpha
   index, printable = bist_borsaistanbul_geniuminet_itch_v21_12.printable.dissect(buffer, index, packet, parent)
@@ -2184,8 +2184,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_with_price_message.size
   bist_borsaistanbul_geniuminet_itch_v21_12.executed_quantity.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.match_id.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size + 
+  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.occurred_at_cross.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.printable.size
@@ -2220,11 +2219,8 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_with_price_message.fiel
   -- Combo Group Id: Numeric
   index, combo_group_id = bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
-
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
+  -- Reserved 14: Reserved
+  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
 
   -- Trade Price: Price
   index, trade_price = bist_borsaistanbul_geniuminet_itch_v21_12.trade_price.dissect(buffer, index, packet, parent)
@@ -2268,8 +2264,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_message.size =
   bist_borsaistanbul_geniuminet_itch_v21_12.executed_quantity.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.match_id.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.size
+  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.size
 
 -- Display: Order Executed Message
 bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_message.display = function(packet, parent, length)
@@ -2301,11 +2296,8 @@ bist_borsaistanbul_geniuminet_itch_v21_12.order_executed_message.fields = functi
   -- Combo Group Id: Numeric
   index, combo_group_id = bist_borsaistanbul_geniuminet_itch_v21_12.combo_group_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
-
-  -- Reserved 7: Reserved
-  index, reserved_7 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_7.dissect(buffer, index, packet, parent)
+  -- Reserved 14: Reserved
+  index, reserved_14 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2337,7 +2329,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.add_order_with_mpid_attribution.size =
   bist_borsaistanbul_geniuminet_itch_v21_12.order_id.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.order_book_id.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.side.size + 
-  bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.size + 
+  bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.quantity.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.price.size + 
   bist_borsaistanbul_geniuminet_itch_v21_12.order_attributes.size + 
@@ -2365,8 +2357,8 @@ bist_borsaistanbul_geniuminet_itch_v21_12.add_order_with_mpid_attribution.fields
   -- Side: Alpha
   index, side = bist_borsaistanbul_geniuminet_itch_v21_12.side.dissect(buffer, index, packet, parent)
 
-  -- Order Book Position: Numeric
-  index, order_book_position = bist_borsaistanbul_geniuminet_itch_v21_12.order_book_position.dissect(buffer, index, packet, parent)
+  -- Reserved 4: Reserved
+  index, reserved_4 = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Quantity: Numeric
   index, quantity = bist_borsaistanbul_geniuminet_itch_v21_12.quantity.dissect(buffer, index, packet, parent)

@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Bist.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bist.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Itch][Omi.Encoding.Itch] | [21.12][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector] | 2/28/2025 | 3297 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] |
+| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Itch][Omi.Encoding.Itch] | [21.12][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector] | 2/28/2025 | 3289 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] |
 
 
 Bist: [website](https://www.borsaistanbul.com/en "Go to Borsa İstanbul A.Ş.")
