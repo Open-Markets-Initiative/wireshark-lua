@@ -20,8 +20,8 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.currency_code = ProtoField
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.eas_value = ProtoField.new("Eas Value", "hkex.hkexsecurities.indexrefresh.omd.v1.45.easvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.exception = ProtoField.new("Exception", "hkex.hkexsecurities.indexrefresh.omd.v1.45.exception", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.indexrefresh.omd.v1.45.filler", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_string_1 = ProtoField.new("Filler String 1", "hkex.hkexsecurities.indexrefresh.omd.v1.45.fillerstring1", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_string_3 = ProtoField.new("Filler String 3", "hkex.hkexsecurities.indexrefresh.omd.v1.45.fillerstring3", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.indexrefresh.omd.v1.45.filler1", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.indexrefresh.omd.v1.45.filler3", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.high_value = ProtoField.new("High Value", "hkex.hkexsecurities.indexrefresh.omd.v1.45.highvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexcode", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexsource", ftypes.STRING)
@@ -30,6 +30,7 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_time = ProtoField.ne
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_turnover = ProtoField.new("Index Turnover", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexturnover", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexvolume", ftypes.INT64)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexsecurities.indexrefresh.omd.v1.45.lastseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.low_value = ProtoField.new("Low Value", "hkex.hkexsecurities.indexrefresh.omd.v1.45.lowvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.message", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.indexrefresh.omd.v1.45.msgcount", ftypes.UINT8)
@@ -49,6 +50,7 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.seq_num = ProtoField.new("
 -- Hkex HkexSecurities Omd IndexRefresh 1.45 Application Messages
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexdefinitionmessage", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.refreshcompletemessage", ftypes.STRING)
 
 -- Hkex HkexSecurities IndexRefresh Omd 1.45 generated fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.indexrefresh.omd.v1.45.messageindex", ftypes.UINT16)
@@ -229,48 +231,48 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.filler.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Filler String 1
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1 = {}
+-- Filler 1
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1 = {}
 
--- Size: Filler String 1
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.size = 1
+-- Size: Filler 1
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.size = 1
 
--- Display: Filler String 1
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.display = function(value)
-  return "Filler String 1: "..value
+-- Display: Filler 1
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.display = function(value)
+  return "Filler 1: "..value
 end
 
--- Dissect: Filler String 1
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.size
+-- Dissect: Filler 1
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_string_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_1, range, value, display)
 
   return offset + length, value
 end
 
--- Filler String 3
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3 = {}
+-- Filler 3
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3 = {}
 
--- Size: Filler String 3
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.size = 3
+-- Size: Filler 3
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.size = 3
 
--- Display: Filler String 3
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.display = function(value)
-  return "Filler String 3: "..value
+-- Display: Filler 3
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.display = function(value)
+  return "Filler 3: "..value
 end
 
--- Dissect: Filler String 3
-hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.size
+-- Dissect: Filler 3
+hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_string_3, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_3, range, value, display)
 
   return offset + length, value
 end
@@ -509,6 +511,29 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.index_volume.dissect = function(buffe
   return offset + length, value
 end
 
+-- Last Seq Num
+hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num = {}
+
+-- Size: Last Seq Num
+hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
 -- Low Value
 hkex_hkexsecurities_indexrefresh_omd_v1_45.low_value = {}
 
@@ -597,6 +622,9 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.msg_type.display = function(value)
   end
   if value == 71 then
     return "Msg Type: Index Data Message (71)"
+  end
+  if value == 203 then
+    return "Msg Type: Refresh Complete Message (203)"
   end
 
   return "Msg Type: Unknown("..value..")"
@@ -808,6 +836,46 @@ end
 -- Dissect Hkex HkexSecurities IndexRefresh Omd 1.45
 -----------------------------------------------------------------------
 
+-- Refresh Complete Message
+hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message = {}
+
+-- Size: Refresh Complete Message
+hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.size =
+  hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.size
+
+-- Display: Refresh Complete Message
+hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Complete Message
+hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Uint32
+  index, last_seq_num = hkex_hkexsecurities_indexrefresh_omd_v1_45.last_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Complete Message
+hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.refresh_complete_message, buffer(offset, 0))
+    local index = hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Index Data Message
 hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message = {}
 
@@ -828,7 +896,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message.size =
   hkex_hkexsecurities_indexrefresh_omd_v1_45.index_volume.size + 
   hkex_hkexsecurities_indexrefresh_omd_v1_45.net_chg_prev_day_pct.size + 
   hkex_hkexsecurities_indexrefresh_omd_v1_45.exception.size + 
-  hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.size
+  hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.size
 
 -- Display: Index Data Message
 hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message.display = function(packet, parent, length)
@@ -884,8 +952,8 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message.fields = function(
   -- Exception: String
   index, exception = hkex_hkexsecurities_indexrefresh_omd_v1_45.exception.dissect(buffer, index, packet, parent)
 
-  -- Filler String 3: String
-  index, filler_string_3 = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_3.dissect(buffer, index, packet, parent)
+  -- Filler 3: String
+  index, filler_3 = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -916,7 +984,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.index_definition_message.size =
   hkex_hkexsecurities_indexrefresh_omd_v1_45.index_code.size + 
   hkex_hkexsecurities_indexrefresh_omd_v1_45.index_source.size + 
   hkex_hkexsecurities_indexrefresh_omd_v1_45.currency_code.size + 
-  hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.size
+  hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.size
 
 -- Display: Index Definition Message
 hkex_hkexsecurities_indexrefresh_omd_v1_45.index_definition_message.display = function(packet, parent, length)
@@ -936,8 +1004,8 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.index_definition_message.fields = fun
   -- Currency Code: String
   index, currency_code = hkex_hkexsecurities_indexrefresh_omd_v1_45.currency_code.dissect(buffer, index, packet, parent)
 
-  -- Filler String 1: String
-  index, filler_string_1 = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_string_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -973,6 +1041,10 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.payload.dissect = function(buffer, of
   if msg_type == 71 then
     return hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Refresh Complete Message
+  if msg_type == 203 then
+    return hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -997,7 +1069,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.msg_header.fields = function(buffer, 
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_hkexsecurities_indexrefresh_omd_v1_45.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, msg_type = hkex_hkexsecurities_indexrefresh_omd_v1_45.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1045,7 +1117,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_45.message.fields = function(buffer, off
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 2 branches
+  -- Payload: Runtime Type with 3 branches
   index = hkex_hkexsecurities_indexrefresh_omd_v1_45.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index
