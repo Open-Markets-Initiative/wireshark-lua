@@ -42,6 +42,7 @@ omi_currenex_currenexforex_esp_cbp_v9_0.fields.side = ProtoField.new("Side", "cu
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.subscribe_to_ticker = ProtoField.new("Subscribe To Ticker", "currenex.currenexforex.esp.cbp.v9.0.subscribetoticker", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.subscription_type = ProtoField.new("Subscription Type", "currenex.currenexforex.esp.cbp.v9.0.subscriptiontype", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.ticker_type = ProtoField.new("Ticker Type", "currenex.currenexforex.esp.cbp.v9.0.tickertype", ftypes.STRING)
+omi_currenex_currenexforex_esp_cbp_v9_0.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.esp.cbp.v9.0.timestamp", ftypes.UINT32)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.0.transacttime", ftypes.INT64)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.esp.cbp.v9.0.userid", ftypes.STRING)
 
@@ -873,6 +874,29 @@ currenex_currenexforex_esp_cbp_v9_0.ticker_type.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Timestamp
+currenex_currenexforex_esp_cbp_v9_0.timestamp = {}
+
+-- Size: Timestamp
+currenex_currenexforex_esp_cbp_v9_0.timestamp.size = 4
+
+-- Display: Timestamp
+currenex_currenexforex_esp_cbp_v9_0.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+currenex_currenexforex_esp_cbp_v9_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_esp_cbp_v9_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = currenex_currenexforex_esp_cbp_v9_0.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_currenexforex_esp_cbp_v9_0.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- Transact Time
 currenex_currenexforex_esp_cbp_v9_0.transact_time = {}
 
@@ -1487,7 +1511,7 @@ currenex_currenexforex_esp_cbp_v9_0.message_header = {}
 -- Size: Message Header
 currenex_currenexforex_esp_cbp_v9_0.message_header.size =
   currenex_currenexforex_esp_cbp_v9_0.sequence_number.size + 
-  currenex_currenexforex_esp_cbp_v9_0.sequence_number.size + 
+  currenex_currenexforex_esp_cbp_v9_0.timestamp.size + 
   currenex_currenexforex_esp_cbp_v9_0.message_type.size
 
 -- Display: Message Header
@@ -1502,8 +1526,8 @@ currenex_currenexforex_esp_cbp_v9_0.message_header.fields = function(buffer, off
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = currenex_currenexforex_esp_cbp_v9_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = currenex_currenexforex_esp_cbp_v9_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = currenex_currenexforex_esp_cbp_v9_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 10 values
   index, message_type = currenex_currenexforex_esp_cbp_v9_0.message_type.dissect(buffer, index, packet, parent)

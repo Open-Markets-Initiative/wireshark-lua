@@ -53,6 +53,7 @@ omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.show_amt = ProtoField.n
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.side = ProtoField.new("Side", "currenex.currenexforex.orderservice.cbp.v26.0.side", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.soh = ProtoField.new("Soh", "currenex.currenexforex.orderservice.cbp.v26.0.soh", ftypes.INT8)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.status = ProtoField.new("Status", "currenex.currenexforex.orderservice.cbp.v26.0.status", ftypes.STRING)
+omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.orderservice.cbp.v26.0.timestamp", ftypes.UINT32)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.trade_date = ProtoField.new("Trade Date", "currenex.currenexforex.orderservice.cbp.v26.0.tradedate", ftypes.INT64)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.trade_link_id = ProtoField.new("Trade Link Id", "currenex.currenexforex.orderservice.cbp.v26.0.tradelinkid", ftypes.INT32)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.orderservice.cbp.v26.0.transacttime", ftypes.INT64)
@@ -1181,6 +1182,29 @@ currenex_currenexforex_orderservice_cbp_v26_0.status.dissect = function(buffer, 
   local display = currenex_currenexforex_orderservice_cbp_v26_0.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+currenex_currenexforex_orderservice_cbp_v26_0.timestamp = {}
+
+-- Size: Timestamp
+currenex_currenexforex_orderservice_cbp_v26_0.timestamp.size = 4
+
+-- Display: Timestamp
+currenex_currenexforex_orderservice_cbp_v26_0.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+currenex_currenexforex_orderservice_cbp_v26_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_orderservice_cbp_v26_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = currenex_currenexforex_orderservice_cbp_v26_0.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2362,7 +2386,7 @@ currenex_currenexforex_orderservice_cbp_v26_0.message_header = {}
 -- Size: Message Header
 currenex_currenexforex_orderservice_cbp_v26_0.message_header.size =
   currenex_currenexforex_orderservice_cbp_v26_0.sequence_number.size + 
-  currenex_currenexforex_orderservice_cbp_v26_0.sequence_number.size + 
+  currenex_currenexforex_orderservice_cbp_v26_0.timestamp.size + 
   currenex_currenexforex_orderservice_cbp_v26_0.message_type.size
 
 -- Display: Message Header
@@ -2377,8 +2401,8 @@ currenex_currenexforex_orderservice_cbp_v26_0.message_header.fields = function(b
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = currenex_currenexforex_orderservice_cbp_v26_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = currenex_currenexforex_orderservice_cbp_v26_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = currenex_currenexforex_orderservice_cbp_v26_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 18 values
   index, message_type = currenex_currenexforex_orderservice_cbp_v26_0.message_type.dissect(buffer, index, packet, parent)

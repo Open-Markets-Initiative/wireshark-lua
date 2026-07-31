@@ -2103,7 +2103,7 @@ currenex_currenexforex_now_cbp_v10_0.message_header = {}
 -- Size: Message Header
 currenex_currenexforex_now_cbp_v10_0.message_header.size =
   currenex_currenexforex_now_cbp_v10_0.sequence_number.size + 
-  currenex_currenexforex_now_cbp_v10_0.sequence_number.size + 
+  currenex_currenexforex_now_cbp_v10_0.timestamp.size + 
   currenex_currenexforex_now_cbp_v10_0.message_type.size
 
 -- Display: Message Header
@@ -2118,8 +2118,8 @@ currenex_currenexforex_now_cbp_v10_0.message_header.fields = function(buffer, of
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = currenex_currenexforex_now_cbp_v10_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = currenex_currenexforex_now_cbp_v10_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Timestamp: Long
+  index, timestamp = currenex_currenexforex_now_cbp_v10_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 14 values
   index, message_type = currenex_currenexforex_now_cbp_v10_0.message_type.dissect(buffer, index, packet, parent)
