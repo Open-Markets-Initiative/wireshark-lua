@@ -117,6 +117,7 @@ omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail = ProtoField.new("Sro Trad
 omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.10.stopstockindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.summary_message = ProtoField.new("Summary Message", "siac.cts.output.cta.v2.10.summarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.10.summarymessagetype", ftypes.STRING)
+omi_siac_cts_output_cta_v2_10.fields.summary_participant_id = ProtoField.new("Summary Participant Id", "siac.cts.output.cta.v2.10.summaryparticipantid", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.10.tick", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.10.timestamp1", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.10.timestamp2", ftypes.STRING)
@@ -2870,6 +2871,29 @@ siac_cts_output_cta_v2_10.summary_message_type.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Summary Participant Id
+siac_cts_output_cta_v2_10.summary_participant_id = {}
+
+-- Size: Summary Participant Id
+siac_cts_output_cta_v2_10.summary_participant_id.size = 1
+
+-- Display: Summary Participant Id
+siac_cts_output_cta_v2_10.summary_participant_id.display = function(value)
+  return "Summary Participant Id: "..value
+end
+
+-- Dissect: Summary Participant Id
+siac_cts_output_cta_v2_10.summary_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.summary_participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.summary_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Tick
 siac_cts_output_cta_v2_10.tick = {}
 
@@ -5561,7 +5585,7 @@ siac_cts_output_cta_v2_10.participant_start_of_day_summary_message.size =
   siac_cts_output_cta_v2_10.participant_reference_number.size + 
   siac_cts_output_cta_v2_10.security_symbol.size + 
   siac_cts_output_cta_v2_10.instrument_type.size + 
-  siac_cts_output_cta_v2_10.participant_id.size + 
+  siac_cts_output_cta_v2_10.summary_participant_id.size + 
   siac_cts_output_cta_v2_10.previous_close_price_date.size + 
   siac_cts_output_cta_v2_10.previous_close_price.size
 
@@ -5595,8 +5619,8 @@ siac_cts_output_cta_v2_10.participant_start_of_day_summary_message.fields = func
   -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_10.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_10.participant_id.dissect(buffer, index, packet, parent)
+  -- Summary Participant Id: Char
+  index, summary_participant_id = siac_cts_output_cta_v2_10.summary_participant_id.dissect(buffer, index, packet, parent)
 
   -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
@@ -5637,7 +5661,7 @@ siac_cts_output_cta_v2_10.consolidated_start_of_day_summary_message.size =
   siac_cts_output_cta_v2_10.participant_reference_number.size + 
   siac_cts_output_cta_v2_10.security_symbol.size + 
   siac_cts_output_cta_v2_10.instrument_type.size + 
-  siac_cts_output_cta_v2_10.participant_id.size + 
+  siac_cts_output_cta_v2_10.summary_participant_id.size + 
   siac_cts_output_cta_v2_10.previous_close_price_date.size + 
   siac_cts_output_cta_v2_10.previous_close_price.size + 
   siac_cts_output_cta_v2_10.short_sale_restriction_indicator.size + 
@@ -5675,8 +5699,8 @@ siac_cts_output_cta_v2_10.consolidated_start_of_day_summary_message.fields = fun
   -- Instrument Type: Char
   index, instrument_type = siac_cts_output_cta_v2_10.instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: Char
-  index, participant_id = siac_cts_output_cta_v2_10.participant_id.dissect(buffer, index, packet, parent)
+  -- Summary Participant Id: Char
+  index, summary_participant_id = siac_cts_output_cta_v2_10.summary_participant_id.dissect(buffer, index, packet, parent)
 
   -- Previous Close Price Date: Integer
   index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
