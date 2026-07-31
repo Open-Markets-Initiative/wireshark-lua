@@ -68,11 +68,12 @@ omi_eurex_t7_edci_fbe_v13_1.fields.order_id = ProtoField.new("Order Id", "eurex.
 omi_eurex_t7_edci_fbe_v13_1.fields.order_qty = ProtoField.new("Order Qty", "eurex.t7.edci.fbe.v13.1.orderqty", ftypes.DOUBLE)
 omi_eurex_t7_edci_fbe_v13_1.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "eurex.t7.edci.fbe.v13.1.origclordid", ftypes.UINT64)
 omi_eurex_t7_edci_fbe_v13_1.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v13.1.packet", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.pad_2 = ProtoField.new("Pad 2", "eurex.t7.edci.fbe.v13.1.pad2", ftypes.BYTES)
-omi_eurex_t7_edci_fbe_v13_1.fields.pad_3 = ProtoField.new("Pad 3", "eurex.t7.edci.fbe.v13.1.pad3", ftypes.BYTES)
-omi_eurex_t7_edci_fbe_v13_1.fields.pad_4 = ProtoField.new("Pad 4", "eurex.t7.edci.fbe.v13.1.pad4", ftypes.BYTES)
-omi_eurex_t7_edci_fbe_v13_1.fields.pad_6 = ProtoField.new("Pad 6", "eurex.t7.edci.fbe.v13.1.pad6", ftypes.BYTES)
-omi_eurex_t7_edci_fbe_v13_1.fields.pad_7 = ProtoField.new("Pad 7", "eurex.t7.edci.fbe.v13.1.pad7", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.edci.fbe.v13.1.pad2", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad2v2 = ProtoField.new("Pad2v2", "eurex.t7.edci.fbe.v13.1.pad2v2", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad3 = ProtoField.new("Pad3", "eurex.t7.edci.fbe.v13.1.pad3", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad4 = ProtoField.new("Pad4", "eurex.t7.edci.fbe.v13.1.pad4", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad6 = ProtoField.new("Pad6", "eurex.t7.edci.fbe.v13.1.pad6", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.pad7 = ProtoField.new("Pad7", "eurex.t7.edci.fbe.v13.1.pad7", ftypes.BYTES)
 omi_eurex_t7_edci_fbe_v13_1.fields.partition_grp_comp = ProtoField.new("Partition Grp Comp", "eurex.t7.edci.fbe.v13.1.partitiongrpcomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v13_1.fields.partition_id = ProtoField.new("Partition Id", "eurex.t7.edci.fbe.v13.1.partitionid", ftypes.UINT16)
 omi_eurex_t7_edci_fbe_v13_1.fields.party_end_client_identification = ProtoField.new("Party End Client Identification", "eurex.t7.edci.fbe.v13.1.partyendclientidentification", ftypes.STRING)
@@ -1732,117 +1733,140 @@ eurex_t7_edci_fbe_v13_1.orig_cl_ord_id.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Pad 2
-eurex_t7_edci_fbe_v13_1.pad_2 = {}
+-- Pad2
+eurex_t7_edci_fbe_v13_1.pad2 = {}
 
--- Size: Pad 2
-eurex_t7_edci_fbe_v13_1.pad_2.size = 2
+-- Size: Pad2
+eurex_t7_edci_fbe_v13_1.pad2.size = 2
 
--- Display: Pad 2
-eurex_t7_edci_fbe_v13_1.pad_2.display = function(value)
-  return "Pad 2: "..value
+-- Display: Pad2
+eurex_t7_edci_fbe_v13_1.pad2.display = function(value)
+  return "Pad2: "..value
 end
 
--- Dissect: Pad 2
-eurex_t7_edci_fbe_v13_1.pad_2.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_edci_fbe_v13_1.pad_2.size
+-- Dissect: Pad2
+eurex_t7_edci_fbe_v13_1.pad2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad2.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_edci_fbe_v13_1.pad_2.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_edci_fbe_v13_1.pad2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad_2, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2, range, value, display)
 
   return offset + length, value
 end
 
--- Pad 3
-eurex_t7_edci_fbe_v13_1.pad_3 = {}
+-- Pad2v2
+eurex_t7_edci_fbe_v13_1.pad2v2 = {}
 
--- Size: Pad 3
-eurex_t7_edci_fbe_v13_1.pad_3.size = 3
+-- Size: Pad2v2
+eurex_t7_edci_fbe_v13_1.pad2v2.size = 2
 
--- Display: Pad 3
-eurex_t7_edci_fbe_v13_1.pad_3.display = function(value)
-  return "Pad 3: "..value
+-- Display: Pad2v2
+eurex_t7_edci_fbe_v13_1.pad2v2.display = function(value)
+  return "Pad2v2: "..value
 end
 
--- Dissect: Pad 3
-eurex_t7_edci_fbe_v13_1.pad_3.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_edci_fbe_v13_1.pad_3.size
+-- Dissect: Pad2v2
+eurex_t7_edci_fbe_v13_1.pad2v2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad2v2.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_edci_fbe_v13_1.pad_3.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_edci_fbe_v13_1.pad2v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad_3, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2v2, range, value, display)
 
   return offset + length, value
 end
 
--- Pad 4
-eurex_t7_edci_fbe_v13_1.pad_4 = {}
+-- Pad3
+eurex_t7_edci_fbe_v13_1.pad3 = {}
 
--- Size: Pad 4
-eurex_t7_edci_fbe_v13_1.pad_4.size = 4
+-- Size: Pad3
+eurex_t7_edci_fbe_v13_1.pad3.size = 3
 
--- Display: Pad 4
-eurex_t7_edci_fbe_v13_1.pad_4.display = function(value)
-  return "Pad 4: "..value
+-- Display: Pad3
+eurex_t7_edci_fbe_v13_1.pad3.display = function(value)
+  return "Pad3: "..value
 end
 
--- Dissect: Pad 4
-eurex_t7_edci_fbe_v13_1.pad_4.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_edci_fbe_v13_1.pad_4.size
+-- Dissect: Pad3
+eurex_t7_edci_fbe_v13_1.pad3.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad3.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_edci_fbe_v13_1.pad_4.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_edci_fbe_v13_1.pad3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad_4, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad3, range, value, display)
 
   return offset + length, value
 end
 
--- Pad 6
-eurex_t7_edci_fbe_v13_1.pad_6 = {}
+-- Pad4
+eurex_t7_edci_fbe_v13_1.pad4 = {}
 
--- Size: Pad 6
-eurex_t7_edci_fbe_v13_1.pad_6.size = 6
+-- Size: Pad4
+eurex_t7_edci_fbe_v13_1.pad4.size = 4
 
--- Display: Pad 6
-eurex_t7_edci_fbe_v13_1.pad_6.display = function(value)
-  return "Pad 6: "..value
+-- Display: Pad4
+eurex_t7_edci_fbe_v13_1.pad4.display = function(value)
+  return "Pad4: "..value
 end
 
--- Dissect: Pad 6
-eurex_t7_edci_fbe_v13_1.pad_6.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_edci_fbe_v13_1.pad_6.size
+-- Dissect: Pad4
+eurex_t7_edci_fbe_v13_1.pad4.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_edci_fbe_v13_1.pad_6.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_edci_fbe_v13_1.pad4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad_6, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad4, range, value, display)
 
   return offset + length, value
 end
 
--- Pad 7
-eurex_t7_edci_fbe_v13_1.pad_7 = {}
+-- Pad6
+eurex_t7_edci_fbe_v13_1.pad6 = {}
 
--- Size: Pad 7
-eurex_t7_edci_fbe_v13_1.pad_7.size = 7
+-- Size: Pad6
+eurex_t7_edci_fbe_v13_1.pad6.size = 6
 
--- Display: Pad 7
-eurex_t7_edci_fbe_v13_1.pad_7.display = function(value)
-  return "Pad 7: "..value
+-- Display: Pad6
+eurex_t7_edci_fbe_v13_1.pad6.display = function(value)
+  return "Pad6: "..value
 end
 
--- Dissect: Pad 7
-eurex_t7_edci_fbe_v13_1.pad_7.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_edci_fbe_v13_1.pad_7.size
+-- Dissect: Pad6
+eurex_t7_edci_fbe_v13_1.pad6.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad6.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_edci_fbe_v13_1.pad_7.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_edci_fbe_v13_1.pad6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad_7, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad7
+eurex_t7_edci_fbe_v13_1.pad7 = {}
+
+-- Size: Pad7
+eurex_t7_edci_fbe_v13_1.pad7.size = 7
+
+-- Display: Pad7
+eurex_t7_edci_fbe_v13_1.pad7.display = function(value)
+  return "Pad7: "..value
+end
+
+-- Dissect: Pad7
+eurex_t7_edci_fbe_v13_1.pad7.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_edci_fbe_v13_1.pad7.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_t7_edci_fbe_v13_1.pad7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad7, range, value, display)
 
   return offset + length, value
 end
@@ -3038,8 +3062,8 @@ end
 eurex_t7_edci_fbe_v13_1.session_status_broadcast.fields = function(buffer, offset, packet, parent, size_of_session_status_broadcast)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
   index, rbc_header_comp = eurex_t7_edci_fbe_v13_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -3053,8 +3077,8 @@ eurex_t7_edci_fbe_v13_1.session_status_broadcast.fields = function(buffer, offse
   -- Trad Ses Event: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, trad_ses_event = eurex_t7_edci_fbe_v13_1.trad_ses_event.dissect(buffer, index, packet, parent)
 
-  -- Pad 7: 7 Byte
-  index, pad_7 = eurex_t7_edci_fbe_v13_1.pad_7.dissect(buffer, index, packet, parent)
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_edci_fbe_v13_1.pad7.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3089,7 +3113,7 @@ eurex_t7_edci_fbe_v13_1.sessions_grp_comp.size =
   eurex_t7_edci_fbe_v13_1.party_id_session_id.size + 
   eurex_t7_edci_fbe_v13_1.session_mode.size + 
   eurex_t7_edci_fbe_v13_1.party_executing_firm.size + 
-  eurex_t7_edci_fbe_v13_1.pad_6.size
+  eurex_t7_edci_fbe_v13_1.pad6.size
 
 -- Display: Sessions Grp Comp
 eurex_t7_edci_fbe_v13_1.sessions_grp_comp.display = function(packet, parent, length)
@@ -3115,8 +3139,8 @@ eurex_t7_edci_fbe_v13_1.sessions_grp_comp.fields = function(buffer, offset, pack
   -- Party Executing Firm: 5 Byte Ascii String Nullable
   index, party_executing_firm = eurex_t7_edci_fbe_v13_1.party_executing_firm.dissect(buffer, index, packet, parent)
 
-  -- Pad 6: 6 Byte
-  index, pad_6 = eurex_t7_edci_fbe_v13_1.pad_6.dissect(buffer, index, packet, parent)
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_edci_fbe_v13_1.pad6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3201,8 +3225,8 @@ end
 eurex_t7_edci_fbe_v13_1.session_list_notification.fields = function(buffer, offset, packet, parent, size_of_session_list_notification)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_edci_fbe_v13_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -3210,8 +3234,8 @@ eurex_t7_edci_fbe_v13_1.session_list_notification.fields = function(buffer, offs
   -- No Sessions: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_sessions = eurex_t7_edci_fbe_v13_1.no_sessions.dissect(buffer, index, packet, parent)
 
-  -- Pad 6: 6 Byte
-  index, pad_6 = eurex_t7_edci_fbe_v13_1.pad_6.dissect(buffer, index, packet, parent)
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_edci_fbe_v13_1.pad6.dissect(buffer, index, packet, parent)
 
   -- Repeating: Sessions Grp Comp
   for sessions_grp_comp_index = 1, no_sessions do
@@ -3252,7 +3276,7 @@ eurex_t7_edci_fbe_v13_1.response_header_comp.size =
   eurex_t7_edci_fbe_v13_1.sending_time.size + 
   eurex_t7_edci_fbe_v13_1.msg_seq_num.size + 
   eurex_t7_edci_fbe_v13_1.last_fragment.size + 
-  eurex_t7_edci_fbe_v13_1.pad_3.size
+  eurex_t7_edci_fbe_v13_1.pad3.size
 
 -- Display: Response Header Comp
 eurex_t7_edci_fbe_v13_1.response_header_comp.display = function(packet, parent, length)
@@ -3275,8 +3299,8 @@ eurex_t7_edci_fbe_v13_1.response_header_comp.fields = function(buffer, offset, p
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_t7_edci_fbe_v13_1.last_fragment.dissect(buffer, index, packet, parent)
 
-  -- Pad 3: 3 Byte
-  index, pad_3 = eurex_t7_edci_fbe_v13_1.pad_3.dissect(buffer, index, packet, parent)
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_edci_fbe_v13_1.pad3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3321,8 +3345,8 @@ end
 eurex_t7_edci_fbe_v13_1.reject.fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
   index, response_header_comp = eurex_t7_edci_fbe_v13_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -3387,7 +3411,7 @@ eurex_t7_edci_fbe_v13_1.partition_grp_comp = {}
 -- Size: Partition Grp Comp
 eurex_t7_edci_fbe_v13_1.partition_grp_comp.size =
   eurex_t7_edci_fbe_v13_1.partition_id.size + 
-  eurex_t7_edci_fbe_v13_1.pad_6.size
+  eurex_t7_edci_fbe_v13_1.pad6.size
 
 -- Display: Partition Grp Comp
 eurex_t7_edci_fbe_v13_1.partition_grp_comp.display = function(packet, parent, length)
@@ -3407,8 +3431,8 @@ eurex_t7_edci_fbe_v13_1.partition_grp_comp.fields = function(buffer, offset, pac
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, partition_id = eurex_t7_edci_fbe_v13_1.partition_id.dissect(buffer, index, packet, parent)
 
-  -- Pad 6: 6 Byte
-  index, pad_6 = eurex_t7_edci_fbe_v13_1.pad_6.dissect(buffer, index, packet, parent)
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_edci_fbe_v13_1.pad6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3453,8 +3477,8 @@ end
 eurex_t7_edci_fbe_v13_1.partition_list_notification.fields = function(buffer, offset, packet, parent, size_of_partition_list_notification)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_edci_fbe_v13_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -3462,8 +3486,8 @@ eurex_t7_edci_fbe_v13_1.partition_list_notification.fields = function(buffer, of
   -- No Partitions: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_partitions = eurex_t7_edci_fbe_v13_1.no_partitions.dissect(buffer, index, packet, parent)
 
-  -- Pad 7: 7 Byte
-  index, pad_7 = eurex_t7_edci_fbe_v13_1.pad_7.dissect(buffer, index, packet, parent)
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_edci_fbe_v13_1.pad7.dissect(buffer, index, packet, parent)
 
   -- Repeating: Partition Grp Comp
   for partition_grp_comp_index = 1, no_partitions do
@@ -3575,8 +3599,8 @@ end
 eurex_t7_edci_fbe_v13_1.order_exec_report_broadcast.fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
   index, rbc_header_comp = eurex_t7_edci_fbe_v13_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -3704,8 +3728,8 @@ eurex_t7_edci_fbe_v13_1.order_exec_report_broadcast.fields = function(buffer, of
   -- Party End Client Identification: 20 Byte Ascii String Nullable
   index, party_end_client_identification = eurex_t7_edci_fbe_v13_1.party_end_client_identification.dissect(buffer, index, packet, parent)
 
-  -- Pad 7: 7 Byte
-  index, pad_7 = eurex_t7_edci_fbe_v13_1.pad_7.dissect(buffer, index, packet, parent)
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_edci_fbe_v13_1.pad7.dissect(buffer, index, packet, parent)
 
   -- Repeating: Fills Grp Comp
   for fills_grp_comp_index = 1, no_fills do
@@ -3759,8 +3783,8 @@ end
 eurex_t7_edci_fbe_v13_1.logout_response.fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
   index, response_header_comp = eurex_t7_edci_fbe_v13_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -3796,7 +3820,7 @@ eurex_t7_edci_fbe_v13_1.request_header_comp = {}
 -- Size: Request Header Comp
 eurex_t7_edci_fbe_v13_1.request_header_comp.size =
   eurex_t7_edci_fbe_v13_1.msg_seq_num.size + 
-  eurex_t7_edci_fbe_v13_1.pad_4.size
+  eurex_t7_edci_fbe_v13_1.pad4.size
 
 -- Display: Request Header Comp
 eurex_t7_edci_fbe_v13_1.request_header_comp.display = function(packet, parent, length)
@@ -3810,8 +3834,8 @@ eurex_t7_edci_fbe_v13_1.request_header_comp.fields = function(buffer, offset, pa
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_t7_edci_fbe_v13_1.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Pad 4: 4 Byte
-  index, pad_4 = eurex_t7_edci_fbe_v13_1.pad_4.dissect(buffer, index, packet, parent)
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_edci_fbe_v13_1.pad4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3856,8 +3880,8 @@ end
 eurex_t7_edci_fbe_v13_1.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_edci_fbe_v13_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -3909,8 +3933,8 @@ end
 eurex_t7_edci_fbe_v13_1.logon_response.fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 5 fields
   index, response_header_comp = eurex_t7_edci_fbe_v13_1.response_header_comp.dissect(buffer, index, packet, parent)
@@ -3933,8 +3957,8 @@ eurex_t7_edci_fbe_v13_1.logon_response.fields = function(buffer, offset, packet,
   -- Default Cstm Appl Ver Sub Id: 5 Byte Ascii String Enum with 1 values
   index, default_cstm_appl_ver_sub_id = eurex_t7_edci_fbe_v13_1.default_cstm_appl_ver_sub_id.dissect(buffer, index, packet, parent)
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_edci_fbe_v13_1.pad2v2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3983,8 +4007,8 @@ end
 eurex_t7_edci_fbe_v13_1.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_edci_fbe_v13_1.request_header_comp.dissect(buffer, index, packet, parent)
@@ -4001,8 +4025,8 @@ eurex_t7_edci_fbe_v13_1.logon_request.fields = function(buffer, offset, packet, 
   -- Password: 32 Byte Ascii String Nullable
   index, password = eurex_t7_edci_fbe_v13_1.password.dissect(buffer, index, packet, parent)
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_edci_fbe_v13_1.pad2v2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4051,8 +4075,8 @@ end
 eurex_t7_edci_fbe_v13_1.heartbeat_notification.fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_edci_fbe_v13_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -4104,8 +4128,8 @@ end
 eurex_t7_edci_fbe_v13_1.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4154,8 +4178,8 @@ end
 eurex_t7_edci_fbe_v13_1.forced_logout_notification.fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_t7_edci_fbe_v13_1.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -4223,7 +4247,7 @@ eurex_t7_edci_fbe_v13_1.affected_ord_grp_comp.size =
   eurex_t7_edci_fbe_v13_1.exec_type.size + 
   eurex_t7_edci_fbe_v13_1.affected_fix_cl_ord_id.size + 
   eurex_t7_edci_fbe_v13_1.affected_fix_orig_cl_ord_id.size + 
-  eurex_t7_edci_fbe_v13_1.pad_6.size
+  eurex_t7_edci_fbe_v13_1.pad6.size
 
 -- Display: Affected Ord Grp Comp
 eurex_t7_edci_fbe_v13_1.affected_ord_grp_comp.display = function(packet, parent, length)
@@ -4270,8 +4294,8 @@ eurex_t7_edci_fbe_v13_1.affected_ord_grp_comp.fields = function(buffer, offset, 
   -- Affected Fix Orig Cl Ord Id: 20 Byte Ascii String Nullable
   index, affected_fix_orig_cl_ord_id = eurex_t7_edci_fbe_v13_1.affected_fix_orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Pad 6: 6 Byte
-  index, pad_6 = eurex_t7_edci_fbe_v13_1.pad_6.dissect(buffer, index, packet, parent)
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_edci_fbe_v13_1.pad6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4316,8 +4340,8 @@ end
 eurex_t7_edci_fbe_v13_1.delete_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v13_1.pad2.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 5 fields
   index, rbc_header_comp = eurex_t7_edci_fbe_v13_1.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -4331,8 +4355,8 @@ eurex_t7_edci_fbe_v13_1.delete_order_broadcast.fields = function(buffer, offset,
   -- No Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_affected_orders = eurex_t7_edci_fbe_v13_1.no_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_t7_edci_fbe_v13_1.pad_2.dissect(buffer, index, packet, parent)
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_edci_fbe_v13_1.pad2v2.dissect(buffer, index, packet, parent)
 
   -- Repeating: Affected Ord Grp Comp
   for affected_ord_grp_comp_index = 1, no_affected_orders do
