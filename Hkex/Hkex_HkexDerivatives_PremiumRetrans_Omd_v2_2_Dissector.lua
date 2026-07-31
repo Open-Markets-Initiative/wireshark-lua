@@ -111,6 +111,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.quantity_int_324 = Proto
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.hkexderivatives.premiumretrans.omd.v2.2.quantityuint324", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.hkexderivatives.premiumretrans.omd.v2.2.quantityuint648", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.premiumretrans.omd.v2.2.retransstatus", ftypes.UINT8)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.premiumretrans.omd.v2.2.secondfiller3", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.premiumretrans.omd.v2.2.sendtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.premiumretrans.omd.v2.2.seqnum", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.premiumretrans.omd.v2.2.session", ftypes.UINT8)
@@ -220,6 +221,21 @@ function omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
+local function zlib_decompress(range)
+  local ok, decompressed = pcall(function() return range:uncompress_zlib("Decompressed") end)
+
+  if ok then
+    return decompressed
+  end
+
+  return range:uncompress("Decompressed")
+end
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives PremiumRetrans Omd 2.2 Fields
 -----------------------------------------------------------------------
@@ -2500,6 +2516,29 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.retrans_status.dissect = function(b
   return offset + length, value
 end
 
+-- Second Filler 3
+hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3 = {}
+
+-- Size: Second Filler 3
+hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.size = 3
+
+-- Display: Second Filler 3
+hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.display = function(value)
+  return "Second Filler 3: "..value
+end
+
+-- Dissect: Second Filler 3
+hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.second_filler_3, range, value, display)
+
+  return offset + length, value
+end
+
 -- Send Time
 hkex_hkexderivatives_premiumretrans_omd_v2_2.send_time = {}
 
@@ -4226,7 +4265,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.instrument_definition.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_2.vcm_flag.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_2.isin_code.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_2.effective_tomorrow.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.filler_3.size
+  hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.size
 
 -- Display: Instrument Definition
 hkex_hkexderivatives_premiumretrans_omd_v2_2.instrument_definition.display = function(packet, parent, length)
@@ -4306,8 +4345,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.instrument_definition.fields = func
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_premiumretrans_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_premiumretrans_omd_v2_2.filler_3.dissect(buffer, index, packet, parent)
+  -- Second Filler 3: String
+  index, second_filler_3 = hkex_hkexderivatives_premiumretrans_omd_v2_2.second_filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5374,6 +5413,16 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.packet.dissect = function(buffer, p
 
   -- Packet Header: Struct of 5 fields
   index, packet_header = hkex_hkexderivatives_premiumretrans_omd_v2_2.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Compression Mode
+  local compression_mode = buffer(index - 13, 1):uint()
+
+  local message_conversion = compression_mode == 1
+
+  if message_conversion then
+    buffer = zlib_decompress(buffer(index, buffer:len() - index))
+    index = 0
+  end
 
   -- Dependency element: Msg Count
   local msg_count = buffer(index - 14, 1):uint()

@@ -223,6 +223,21 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
+local function zlib_decompress(range)
+  local ok, decompressed = pcall(function() return range:uncompress_zlib("Decompressed") end)
+
+  if ok then
+    return decompressed
+  end
+
+  return range:uncompress("Decompressed")
+end
+-----------------------------------------------------------------------
 -- Hkex HkexDerivatives PremiumRetrans Omd 1.47 Fields
 -----------------------------------------------------------------------
 
@@ -5747,6 +5762,16 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.packet.dissect = function(buffer, 
 
   -- Packet Header: Struct of 5 fields
   index, packet_header = hkex_hkexderivatives_premiumretrans_omd_v1_47.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Compression Mode
+  local compression_mode = buffer(index - 13, 1):uint()
+
+  local message_conversion = compression_mode == 1
+
+  if message_conversion then
+    buffer = zlib_decompress(buffer(index, buffer:len() - index))
+    index = 0
+  end
 
   -- Dependency element: Msg Count
   local msg_count = buffer(index - 14, 1):uint()

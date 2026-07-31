@@ -97,6 +97,7 @@ omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.price_quotation_factor_i
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.price_quotation_factor_uint_324 = ProtoField.new("Price Quotation Factor Uint 324", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.pricequotationfactoruint324", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.quantity", ftypes.UINT64)
+omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.secondfiller3", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.sendtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.seqnum", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.session", ftypes.UINT8)
@@ -190,6 +191,21 @@ function omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
+local function zlib_decompress(range)
+  local ok, decompressed = pcall(function() return range:uncompress_zlib("Decompressed") end)
+
+  if ok then
+    return decompressed
+  end
+
+  return range:uncompress("Decompressed")
+end
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives PremiumRefresh Omd 2.0 Fields
 -----------------------------------------------------------------------
@@ -2065,6 +2081,29 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.quantity.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Second Filler 3
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3 = {}
+
+-- Size: Second Filler 3
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.size = 3
+
+-- Display: Second Filler 3
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.display = function(value)
+  return "Second Filler 3: "..value
+end
+
+-- Dissect: Second Filler 3
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.second_filler_3, range, value, display)
+
+  return offset + length, value
+end
+
 -- Send Time
 hkex_hkexderivatives_premiumrefresh_omd_v2_0.send_time = {}
 
@@ -3279,7 +3318,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.instrument_definition.size =
   hkex_hkexderivatives_premiumrefresh_omd_v2_0.vcm_flag.size + 
   hkex_hkexderivatives_premiumrefresh_omd_v2_0.isin_code.size + 
   hkex_hkexderivatives_premiumrefresh_omd_v2_0.effective_tomorrow.size + 
-  hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_3.size
+  hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.size
 
 -- Display: Instrument Definition
 hkex_hkexderivatives_premiumrefresh_omd_v2_0.instrument_definition.display = function(packet, parent, length)
@@ -3359,8 +3398,8 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.instrument_definition.fields = func
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_premiumrefresh_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Filler 3: String
-  index, filler_3 = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
+  -- Second Filler 3: String
+  index, second_filler_3 = hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4258,6 +4297,16 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.packet.dissect = function(buffer, p
 
   -- Packet Header: Struct of 5 fields
   index, packet_header = hkex_hkexderivatives_premiumrefresh_omd_v2_0.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Compression Mode
+  local compression_mode = buffer(index - 13, 1):uint()
+
+  local message_conversion = compression_mode == 1
+
+  if message_conversion then
+    buffer = zlib_decompress(buffer(index, buffer:len() - index))
+    index = 0
+  end
 
   -- Dependency element: Msg Count
   local msg_count = buffer(index - 14, 1):uint()

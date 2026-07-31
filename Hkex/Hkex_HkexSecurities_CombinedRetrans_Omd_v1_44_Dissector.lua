@@ -66,6 +66,7 @@ omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.filler_4 = ProtoField.n
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.filler_44 = ProtoField.new("Filler 44", "hkex.hkexsecurities.combinedretrans.omd.v1.44.filler44", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.filler_62 = ProtoField.new("Filler 62", "hkex.hkexsecurities.combinedretrans.omd.v1.44.filler62", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.combinedretrans.omd.v1.44.filler63", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.combinedretrans.omd.v1.44.fourthfiller1", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.free_text = ProtoField.new("Free Text", "hkex.hkexsecurities.combinedretrans.omd.v1.44.freetext", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.headline = ProtoField.new("Headline", "hkex.hkexsecurities.combinedretrans.omd.v1.44.headline", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.high_price = ProtoField.new("High Price", "hkex.hkexsecurities.combinedretrans.omd.v1.44.highprice", ftypes.DOUBLE)
@@ -141,6 +142,8 @@ omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.quantity = ProtoField.n
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.reference_price = ProtoField.new("Reference Price", "hkex.hkexsecurities.combinedretrans.omd.v1.44.referenceprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.release_time = ProtoField.new("Release Time", "hkex.hkexsecurities.combinedretrans.omd.v1.44.releasetime", ftypes.UINT64)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexsecurities.combinedretrans.omd.v1.44.retransstatus", ftypes.UINT8)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.combinedretrans.omd.v1.44.secondfiller1", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.second_filler_2 = ProtoField.new("Second Filler 2", "hkex.hkexsecurities.combinedretrans.omd.v1.44.secondfiller2", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.combinedretrans.omd.v1.44.securitycode", ftypes.UINT32)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.combinedretrans.omd.v1.44.securitynamegb", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.combinedretrans.omd.v1.44.securitynamegccs", ftypes.STRING)
@@ -162,6 +165,8 @@ omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.strike_price_1 = ProtoF
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.strike_price_2 = ProtoField.new("Strike Price 2", "hkex.hkexsecurities.combinedretrans.omd.v1.44.strikeprice2", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.style = ProtoField.new("Style", "hkex.hkexsecurities.combinedretrans.omd.v1.44.style", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexsecurities.combinedretrans.omd.v1.44.suspensionindicator", ftypes.UINT8)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.combinedretrans.omd.v1.44.thirdfiller1", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.third_filler_2 = ProtoField.new("Third Filler 2", "hkex.hkexsecurities.combinedretrans.omd.v1.44.thirdfiller2", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.ticker_id = ProtoField.new("Ticker Id", "hkex.hkexsecurities.combinedretrans.omd.v1.44.tickerid", ftypes.UINT32)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexsecurities.combinedretrans.omd.v1.44.tradeid", ftypes.UINT32)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexsecurities.combinedretrans.omd.v1.44.tradetime", ftypes.UINT64)
@@ -1515,6 +1520,29 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_63.dissect = function(buffe
   local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_63.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.filler_63, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fourth Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1 = {}
+
+-- Size: Fourth Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.size = 1
+
+-- Display: Fourth Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.display = function(value)
+  return "Fourth Filler 1: "..value
+end
+
+-- Dissect: Fourth Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.fourth_filler_1, range, value, display)
 
   return offset + length, value
 end
@@ -3463,6 +3491,52 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.retrans_status.dissect = function(
   return offset + length, value
 end
 
+-- Second Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1 = {}
+
+-- Size: Second Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.size = 1
+
+-- Display: Second Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.display = function(value)
+  return "Second Filler 1: "..value
+end
+
+-- Dissect: Second Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.second_filler_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2 = {}
+
+-- Size: Second Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.size = 2
+
+-- Display: Second Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.display = function(value)
+  return "Second Filler 2: "..value
+end
+
+-- Dissect: Second Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.second_filler_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Code
 hkex_hkexsecurities_combinedretrans_omd_v1_44.security_code = {}
 
@@ -4035,6 +4109,52 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.suspension_indicator.dissect = fun
   local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.suspension_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.suspension_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1 = {}
+
+-- Size: Third Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.size = 1
+
+-- Display: Third Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.display = function(value)
+  return "Third Filler 1: "..value
+end
+
+-- Dissect: Third Filler 1
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.third_filler_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2 = {}
+
+-- Size: Third Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.size = 2
+
+-- Display: Third Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.display = function(value)
+  return "Third Filler 2: "..value
+end
+
+-- Dissect: Third Filler 2
+hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedretrans_omd_v1_44.fields.third_filler_2, range, value, display)
 
   return offset + length, value
 end
@@ -5937,11 +6057,11 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.security_definition_message.size =
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.dummy_security_flag.size
 
-  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.size
+  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.size
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.stamp_duty_flag.size
 
-  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.size
+  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.size
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.listing_date.size
 
@@ -5967,7 +6087,7 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.security_definition_message.size =
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.coupon_rate.size
 
-  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.size
+  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.size
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.face_value.size
 
@@ -6084,14 +6204,14 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.security_definition_message.fields
   -- Dummy Security Flag: String
   index, dummy_security_flag = hkex_hkexsecurities_combinedretrans_omd_v1_44.dummy_security_flag.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: String
+  index, second_filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- Stamp Duty Flag: String
   index, stamp_duty_flag = hkex_hkexsecurities_combinedretrans_omd_v1_44.stamp_duty_flag.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  -- Third Filler 1: String
+  index, third_filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_1.dissect(buffer, index, packet, parent)
 
   -- Listing Date: Uint32
   index, listing_date = hkex_hkexsecurities_combinedretrans_omd_v1_44.listing_date.dissect(buffer, index, packet, parent)
@@ -6129,8 +6249,8 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.security_definition_message.fields
   -- Coupon Rate: Uint32
   index, coupon_rate = hkex_hkexsecurities_combinedretrans_omd_v1_44.coupon_rate.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: String
-  index, filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_1.dissect(buffer, index, packet, parent)
+  -- Fourth Filler 1: String
+  index, fourth_filler_1 = hkex_hkexsecurities_combinedretrans_omd_v1_44.fourth_filler_1.dissect(buffer, index, packet, parent)
 
   -- Face Value: Uint64
   index, face_value = hkex_hkexsecurities_combinedretrans_omd_v1_44.face_value.dissect(buffer, index, packet, parent)
@@ -6540,7 +6660,7 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.news_message.size = function(buffe
   local news_market_count = buffer(offset + index - 2, 2):le_uint()
   index = index + news_market_count * 4
 
-  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_2.size
+  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.size
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.no_security_codes.size
 
@@ -6548,7 +6668,7 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.news_message.size = function(buffe
   local news_security_count = buffer(offset + index - 2, 2):le_uint()
   index = index + news_security_count * 4
 
-  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_2.size
+  index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.size
 
   index = index + hkex_hkexsecurities_combinedretrans_omd_v1_44.no_news_lines.size
 
@@ -6600,8 +6720,8 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.news_message.fields = function(buf
     index, news_market = hkex_hkexsecurities_combinedretrans_omd_v1_44.news_market.dissect(buffer, index, packet, parent, news_market_index)
   end
 
-  -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  -- Second Filler 2: String
+  index, second_filler_2 = hkex_hkexsecurities_combinedretrans_omd_v1_44.second_filler_2.dissect(buffer, index, packet, parent)
 
   -- No Security Codes: Uint16
   index, no_security_codes = hkex_hkexsecurities_combinedretrans_omd_v1_44.no_security_codes.dissect(buffer, index, packet, parent)
@@ -6611,8 +6731,8 @@ hkex_hkexsecurities_combinedretrans_omd_v1_44.news_message.fields = function(buf
     index, news_security = hkex_hkexsecurities_combinedretrans_omd_v1_44.news_security.dissect(buffer, index, packet, parent, news_security_index)
   end
 
-  -- Filler 2: String
-  index, filler_2 = hkex_hkexsecurities_combinedretrans_omd_v1_44.filler_2.dissect(buffer, index, packet, parent)
+  -- Third Filler 2: String
+  index, third_filler_2 = hkex_hkexsecurities_combinedretrans_omd_v1_44.third_filler_2.dissect(buffer, index, packet, parent)
 
   -- No News Lines: Uint16
   index, no_news_lines = hkex_hkexsecurities_combinedretrans_omd_v1_44.no_news_lines.dissect(buffer, index, packet, parent)
