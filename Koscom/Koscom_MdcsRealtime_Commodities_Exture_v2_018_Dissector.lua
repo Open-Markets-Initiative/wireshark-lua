@@ -191,6 +191,7 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.processing_time_of_trad
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.product_id = ProtoField.new("Product Id", "koscom.mdcsrealtime.commodities.exture.v2.018.productid", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.random_end_trigger_code = ProtoField.new("Random End Trigger Code", "koscom.mdcsrealtime.commodities.exture.v2.018.randomendtriggercode", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.commodities.exture.v2.018.reinvestcallcash", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.commodities.exture.v2.018.secondfiller11", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.commodities.exture.v2.018.securitygroupid", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.commodities.exture.v2.018.sessionid", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_start_end_code = ProtoField.new("Session Start End Code", "koscom.mdcsrealtime.commodities.exture.v2.018.sessionstartendcode", ftypes.STRING)
@@ -5496,6 +5497,34 @@ koscom_mdcsrealtime_commodities_exture_v2_018.reinvest_call_cash.dissect = funct
   return offset + length, value
 end
 
+-- Second Filler 11
+koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11 = {}
+
+-- Size: Second Filler 11
+koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size = 11
+
+-- Display: Second Filler 11
+koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.display = function(value)
+  return "Second Filler 11: "..value
+end
+
+-- Dissect: Second Filler 11
+koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.second_filler_11, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Group Id
 koscom_mdcsrealtime_commodities_exture_v2_018.security_group_id = {}
 
@@ -6654,7 +6683,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_issue_closing_message.si
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price_average.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_upper_limit_of_buy_in.size + 
@@ -6691,8 +6720,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_issue_closing_message.fi
   -- Filler 11: Double
   index, filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
 
-  -- Filler 11: Double
-  index, filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
+  -- Second Filler 11: Double
+  index, second_filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.dissect(buffer, index, packet, parent)
 
   -- Closing Price Weighted Stock Price Average: Double
   index, closing_price_weighted_stock_price_average = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price_average.dissect(buffer, index, packet, parent)
@@ -6922,7 +6951,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_issue_closing_message.si
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price_average.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_upper_limit_of_buy_in.size + 
@@ -6959,8 +6988,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_issue_closing_message.fi
   -- Filler 11: Double
   index, filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
 
-  -- Filler 11: Double
-  index, filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
+  -- Second Filler 11: Double
+  index, second_filler_11 = koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.dissect(buffer, index, packet, parent)
 
   -- Closing Price Weighted Stock Price Average: Double
   index, closing_price_weighted_stock_price_average = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price_average.dissect(buffer, index, packet, parent)

@@ -483,6 +483,7 @@ omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.retail_bond_type_code =
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.rights_execution_type_code = ProtoField.new("Rights Execution Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.rightsexecutiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.rights_type_code = ProtoField.new("Rights Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.rightstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.sale_date = ProtoField.new("Sale Date", "koscom.mdcsrealtime.securitiesb.exture.v2.018.saledate", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.securitiesb.exture.v2.018.secondfiller11", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.section_type_code = ProtoField.new("Section Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.sectiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.securitiesb.exture.v2.018.securitygroupid", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.segment_type_code = ProtoField.new("Segment Type Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.segmenttypecode", ftypes.STRING)
@@ -551,6 +552,7 @@ omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_asset_type_c
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_asset_type_code_3 = ProtoField.new("Underlying Asset Type Code 3", "koscom.mdcsrealtime.securitiesb.exture.v2.018.underlyingassettypecode3", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_asset_type_code_4 = ProtoField.new("Underlying Asset Type Code 4", "koscom.mdcsrealtime.securitiesb.exture.v2.018.underlyingassettypecode4", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_asset_type_code_5 = ProtoField.new("Underlying Asset Type Code 5", "koscom.mdcsrealtime.securitiesb.exture.v2.018.underlyingassettypecode5", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_isin_code = ProtoField.new("Underlying ISIN Code", "koscom.mdcsrealtime.securitiesb.exture.v2.018.underlyingisincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.unfaithful_disclosure = ProtoField.new("Unfaithful Disclosure", "koscom.mdcsrealtime.securitiesb.exture.v2.018.unfaithfuldisclosure", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.securitiesb.exture.v2.018.unitofvolumeinmainboard", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.upper_limit_of_base_price = ProtoField.new("Upper Limit Of Base Price", "koscom.mdcsrealtime.securitiesb.exture.v2.018.upperlimitofbaseprice", ftypes.STRING)
@@ -13641,6 +13643,34 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.sale_date.dissect = function(buffe
   return offset + length, value
 end
 
+-- Second Filler 11
+koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11 = {}
+
+-- Size: Second Filler 11
+koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.size = 11
+
+-- Display: Second Filler 11
+koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.display = function(value)
+  return "Second Filler 11: "..value
+end
+
+-- Dissect: Second Filler 11
+koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.second_filler_11, range, value, display)
+
+  return offset + length, value
+end
+
 -- Section Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_018.section_type_code = {}
 
@@ -15351,6 +15381,29 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_asset_type_code_5.disse
   local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_asset_type_code_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_asset_type_code_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying ISIN Code
+koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code = {}
+
+-- Size: Underlying ISIN Code
+koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.size = 12
+
+-- Display: Underlying ISIN Code
+koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.display = function(value)
+  return "Underlying ISIN Code: "..value
+end
+
+-- Dissect: Underlying ISIN Code
+koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_securitiesb_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesb_exture_v2_018.fields.underlying_isin_code, range, value, display)
 
   return offset + length, value
 end
@@ -17891,7 +17944,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_me
   koscom_mdcsrealtime_securitiesb_exture_v2_018.trading_date_of_underlying_asset.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.the_date_knockout_occurred.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.ampm_type_code.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.isin_code.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.todays_low.size + 
@@ -17925,8 +17978,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_me
   -- Ampm Type Code: String
   index, ampm_type_code = koscom_mdcsrealtime_securitiesb_exture_v2_018.ampm_type_code.dissect(buffer, index, packet, parent)
 
-  -- Isin Code: String
-  index, isin_code = koscom_mdcsrealtime_securitiesb_exture_v2_018.isin_code.dissect(buffer, index, packet, parent)
+  -- Underlying ISIN Code: String
+  index, underlying_isin_code = koscom_mdcsrealtime_securitiesb_exture_v2_018.underlying_isin_code.dissect(buffer, index, packet, parent)
 
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_securitiesb_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
@@ -20472,7 +20525,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.s
   koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price_type_code.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_11.size + 
-  koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_11.size + 
+  koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price_weighted_stock_price_average.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price_base_price_of_buy_in.size + 
   koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price_upper_limit_of_buy_in.size + 
@@ -20509,8 +20562,8 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.f
   -- Filler 11: Double
   index, filler_11 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
 
-  -- Filler 11: Double
-  index, filler_11 = koscom_mdcsrealtime_securitiesb_exture_v2_018.filler_11.dissect(buffer, index, packet, parent)
+  -- Second Filler 11: Double
+  index, second_filler_11 = koscom_mdcsrealtime_securitiesb_exture_v2_018.second_filler_11.dissect(buffer, index, packet, parent)
 
   -- Closing Price Weighted Stock Price Average: Double
   index, closing_price_weighted_stock_price_average = koscom_mdcsrealtime_securitiesb_exture_v2_018.closing_price_weighted_stock_price_average.dissect(buffer, index, packet, parent)
