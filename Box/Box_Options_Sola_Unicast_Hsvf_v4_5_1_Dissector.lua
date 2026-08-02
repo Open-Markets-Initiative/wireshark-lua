@@ -130,6 +130,7 @@ omi_box_options_sola_unicast_hsvf_v4_5_1.fields.reserved = ProtoField.new("Reser
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.options.sola.unicast.hsvf.v4.5.1.resetsequence", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.options.sola.unicast.hsvf.v4.5.1.rootsymbol", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.options.sola.unicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING)
+omi_box_options_sola_unicast_hsvf_v4_5_1.fields.second_filler_1 = ProtoField.new("Second Filler 1", "box.options.sola.unicast.hsvf.v4.5.1.secondfiller1", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING)
 omi_box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.options.sola.unicast.hsvf.v4.5.1.strikeprice", ftypes.STRING)
@@ -3367,6 +3368,29 @@ box_options_sola_unicast_hsvf_v4_5_1.scheduled_time.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Second Filler 1
+box_options_sola_unicast_hsvf_v4_5_1.second_filler_1 = {}
+
+-- Size: Second Filler 1
+box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.size = 1
+
+-- Display: Second Filler 1
+box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.display = function(value)
+  return "Second Filler 1: "..value
+end
+
+-- Dissect: Second Filler 1
+box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_options_sola_unicast_hsvf_v4_5_1.fields.second_filler_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence Number
 box_options_sola_unicast_hsvf_v4_5_1.sequence_number = {}
 
@@ -4295,7 +4319,7 @@ box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_impr
   box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
   box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
   box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size + 
-  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.size + 
   box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size + 
   box_options_sola_unicast_hsvf_v4_5_1.auction_type.size + 
   box_options_sola_unicast_hsvf_v4_5_1.firm_id.size + 
@@ -4343,8 +4367,8 @@ box_options_sola_unicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_impr
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
-  index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: 1 Byte Ascii String
+  index, second_filler_1 = box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
@@ -4394,7 +4418,7 @@ box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_
   box_options_sola_unicast_hsvf_v4_5_1.order_sequence_number.size + 
   box_options_sola_unicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
   box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.size + 
-  box_options_sola_unicast_hsvf_v4_5_1.filler_1.size + 
+  box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.size + 
   box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.size + 
   box_options_sola_unicast_hsvf_v4_5_1.auction_type.size + 
   box_options_sola_unicast_hsvf_v4_5_1.firm_id.size + 
@@ -4439,8 +4463,8 @@ box_options_sola_unicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_order_
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_unicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
-  index, filler_1 = box_options_sola_unicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: 1 Byte Ascii String
+  index, second_filler_1 = box_options_sola_unicast_hsvf_v4_5_1.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_options_sola_unicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
