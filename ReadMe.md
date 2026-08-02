@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 779 | 5,860,778 |
+| 779 | 5,861,038 |
 
 ## Testing
 
@@ -60,6 +60,9 @@ If these dissectors are useful to you, please consider supporting the foundation
 For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects")
 
 For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
+
+Useful? A star helps others find OMI.
+
 ## Protocols
 
 Dissectors by Organization: [24X][24X.Directory], [A2X][A2X.Directory], [Aquis][Aquis.Directory], [Asx][Asx.Directory], [B3][B3.Directory], [Bist][Bist.Directory], [Boats][Boats.Directory], [Box][Box.Directory], [BruceAts][BruceAts.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Currenex][Currenex.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Hkex][Hkex.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Imperative][Imperative.Directory], [Jnx][Jnx.Directory], [Jpx][Jpx.Directory], [Koscom][Koscom.Directory], [Lseg][Lseg.Directory], [Ltse][Ltse.Directory], [Memx][Memx.Directory], [Miax][Miax.Directory], [Nasdaq][Nasdaq.Directory], [NsxAustralia][NsxAustralia.Directory], [Nyse][Nyse.Directory], [Odx][Odx.Directory], [OtcMarkets][OtcMarkets.Directory], [Siac][Siac.Directory], [SmallX][SmallX.Directory], [Tmx][Tmx.Directory], [Txse][Txse.Directory]

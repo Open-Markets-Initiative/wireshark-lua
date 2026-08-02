@@ -49,7 +49,7 @@ omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.security_directory_flags = Prot
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.security_event = ProtoField.new("Security Event", "iex.iexequities.deepplus.iextp.v1.0.2.securityevent", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deepplus.iextp.v1.0.2.sendtime", ftypes.UINT64)
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.deepplus.iextp.v1.0.2.sessionid", ftypes.UINT32)
-omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.deepplus.iextp.v1.0.2.shortsalepriceteststatus", ftypes.STRING)
+omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.deepplus.iextp.v1.0.2.shortsalepriceteststatus", ftypes.UINT8)
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.side = ProtoField.new("Side", "iex.iexequities.deepplus.iextp.v1.0.2.side", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.singleprice_cross_trade = ProtoField.new("Singleprice Cross Trade", "iex.iexequities.deepplus.iextp.v1.0.2.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.size = ProtoField.new("Size", "iex.iexequities.deepplus.iextp.v1.0.2.size", ftypes.UINT32)
@@ -776,10 +776,10 @@ iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.size = 1
 
 -- Display: Short Sale Price Test Status
 iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Short Sale Price Test Status: Not In Effect (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Short Sale Price Test Status: In Effect (1)"
   end
 
@@ -790,7 +790,7 @@ end
 iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_iextp_v1_0_2.fields.short_sale_price_test_status, range, value, display)
@@ -1638,7 +1638,7 @@ end
 iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Short Sale Price Test Status: Byte
+  -- Short Sale Price Test Status: Byte (int)
   index, short_sale_price_test_status = iex_iexequities_deepplus_iextp_v1_0_2.short_sale_price_test_status.dissect(buffer, index, packet, parent)
 
   -- Timestamp: Timestamp
