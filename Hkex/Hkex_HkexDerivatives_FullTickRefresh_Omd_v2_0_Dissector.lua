@@ -92,7 +92,7 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.price_quotation_factor_
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.quantityuint324", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.quantityuint648", ftypes.UINT64)
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.secondfiller3", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.secondfiller3", ftypes.BYTES)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.sendtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.seqnum", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.settlementcurrencyid", ftypes.STRING)
@@ -1995,7 +1995,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3, range, value, display)
@@ -3101,7 +3101,7 @@ hkex_hkexderivatives_fulltickrefresh_omd_v2_0.instrument_definition.fields = fun
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Second Filler 3: String
+  -- Second Filler 3: Uint8
   index, second_filler_3 = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.dissect(buffer, index, packet, parent)
 
   return index
