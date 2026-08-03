@@ -28,6 +28,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.corrected_quantity = ProtoField
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.memxoptions.memoirtop.sbe.v1.6.a.custbidsize", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_bid_size_short = ProtoField.new("Cust Bid Size Short", "memx.memxoptions.memoirtop.sbe.v1.6.a.custbidsizeshort", ftypes.UINT16)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_offer_size = ProtoField.new("Cust Offer Size", "memx.memxoptions.memoirtop.sbe.v1.6.a.custoffersize", ftypes.UINT32)
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_offer_size_short = ProtoField.new("Cust Offer Size Short", "memx.memxoptions.memoirtop.sbe.v1.6.a.custoffersizeshort", ftypes.UINT16)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_quantity = ProtoField.new("Cust Quantity", "memx.memxoptions.memoirtop.sbe.v1.6.a.custquantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.header_length = ProtoField.new("Header Length", "memx.memxoptions.memoirtop.sbe.v1.6.a.headerlength", ftypes.UINT8)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.instrument_trading_status = ProtoField.new("Instrument Trading Status", "memx.memxoptions.memoirtop.sbe.v1.6.a.instrumenttradingstatus", ftypes.STRING)
@@ -64,6 +65,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.timestamp = ProtoField.new("Tim
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.total_bid_size = ProtoField.new("Total Bid Size", "memx.memxoptions.memoirtop.sbe.v1.6.a.totalbidsize", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.total_bid_size_short = ProtoField.new("Total Bid Size Short", "memx.memxoptions.memoirtop.sbe.v1.6.a.totalbidsizeshort", ftypes.UINT16)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.total_offer_size = ProtoField.new("Total Offer Size", "memx.memxoptions.memoirtop.sbe.v1.6.a.totaloffersize", ftypes.UINT32)
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.total_offer_size_short = ProtoField.new("Total Offer Size Short", "memx.memxoptions.memoirtop.sbe.v1.6.a.totaloffersizeshort", ftypes.UINT16)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.trade_conditions = ProtoField.new("Trade Conditions", "memx.memxoptions.memoirtop.sbe.v1.6.a.tradeconditions", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.trade_id = ProtoField.new("Trade Id", "memx.memxoptions.memoirtop.sbe.v1.6.a.tradeid", ftypes.UINT64)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.trading_session = ProtoField.new("Trading Session", "memx.memxoptions.memoirtop.sbe.v1.6.a.tradingsession", ftypes.STRING)
@@ -442,6 +444,29 @@ memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size.dissect = function(buffer,
   local display = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short = {}
+
+-- Size: Cust Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.size = 2
+
+-- Display: Cust Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.display = function(value)
+  return "Cust Offer Size Short: "..value
+end
+
+-- Dissect: Cust Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_offer_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1330,6 +1355,29 @@ memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size.dissect = function(buffer
   return offset + length, value
 end
 
+-- Total Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short = {}
+
+-- Size: Total Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.size = 2
+
+-- Display: Total Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.display = function(value)
+  return "Total Offer Size Short: "..value
+end
+
+-- Dissect: Total Offer Size Short
+memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.total_offer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Id
 memx_memxoptions_memoirtop_sbe_v1_6_a.trade_id = {}
 
@@ -1633,8 +1681,8 @@ memx_memxoptions_memoirtop_sbe_v1_6_a.best_offer_short_message = {}
 memx_memxoptions_memoirtop_sbe_v1_6_a.best_offer_short_message.size =
   memx_memxoptions_memoirtop_sbe_v1_6_a.timestamp.size + 
   memx_memxoptions_memoirtop_sbe_v1_6_a.symbol.size + 
-  memx_memxoptions_memoirtop_sbe_v1_6_a.cust_bid_size_short.size + 
-  memx_memxoptions_memoirtop_sbe_v1_6_a.cust_bid_size_short.size + 
+  memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.size + 
+  memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.size + 
   memx_memxoptions_memoirtop_sbe_v1_6_a.offer_price_short.size
 
 -- Display: Best Offer Short Message
@@ -1652,11 +1700,11 @@ memx_memxoptions_memoirtop_sbe_v1_6_a.best_offer_short_message.fields = function
   -- Symbol: BestBidSymbol
   index, symbol = memx_memxoptions_memoirtop_sbe_v1_6_a.symbol.dissect(buffer, index, packet, parent)
 
-  -- Cust Bid Size Short: uint16
-  index, cust_bid_size_short = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_bid_size_short.dissect(buffer, index, packet, parent)
+  -- Total Offer Size Short: uint16
+  index, total_offer_size_short = memx_memxoptions_memoirtop_sbe_v1_6_a.total_offer_size_short.dissect(buffer, index, packet, parent)
 
-  -- Cust Bid Size Short: uint16
-  index, cust_bid_size_short = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_bid_size_short.dissect(buffer, index, packet, parent)
+  -- Cust Offer Size Short: uint16
+  index, cust_offer_size_short = memx_memxoptions_memoirtop_sbe_v1_6_a.cust_offer_size_short.dissect(buffer, index, packet, parent)
 
   -- Offer Price Short: ShortPriceType
   index, offer_price_short = memx_memxoptions_memoirtop_sbe_v1_6_a.offer_price_short.dissect(buffer, index, packet, parent)
