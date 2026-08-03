@@ -3657,7 +3657,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.size 
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
@@ -3689,9 +3688,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.field
 
   -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.dissect(buffer, index, packet, parent)
-
-  -- Operator Id: String
-  index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.dissect(buffer, index, packet, parent)
 
   -- Operator Id: String
   index, operator_id = miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.dissect(buffer, index, packet, parent)

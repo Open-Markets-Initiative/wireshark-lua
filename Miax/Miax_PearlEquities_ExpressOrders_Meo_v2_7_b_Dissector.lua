@@ -111,6 +111,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing = ProtoField.new(
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing_instruction = ProtoField.new("Routing Instruction", "miax.pearlequities.expressorders.meo.v2.7.b.routinginstruction", ftypes.UINT8, {[0]="Route Once", [1]="Reroutable", [2]="Do Not Route"}, base.DEC, 0x07)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing_strategy = ProtoField.new("Routing Strategy", "miax.pearlequities.expressorders.meo.v2.7.b.routingstrategy", ftypes.UINT8, {[0]="Not Applicable", [1]="Order Protection", [2]="Primary Auction"}, base.DEC, 0xF8)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.scope = ProtoField.new("Scope", "miax.pearlequities.expressorders.meo.v2.7.b.scope", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.b.secondreserved1", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "miax.pearlequities.expressorders.meo.v2.7.b.secondaryorderid", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.pearlequities.expressorders.meo.v2.7.b.selftradeprotection", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.pearlequities.expressorders.meo.v2.7.b.selftradeprotectiongroup", ftypes.STRING)
@@ -2850,6 +2851,29 @@ miax_pearlequities_expressorders_meo_v2_7_b.scope.dissect = function(buffer, off
   local display = miax_pearlequities_expressorders_meo_v2_7_b.scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.second_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -5846,7 +5870,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.size =
   miax_pearlequities_expressorders_meo_v2_7_b.ticker_symbol.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.size + 
-  miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.size + 
+  miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.lot_size.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.opening_time.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.closing_time.size + 
@@ -5877,8 +5901,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.fields = funct
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: BinaryU
+  index, second_reserved_1 = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_expressorders_meo_v2_7_b.lot_size.dissect(buffer, index, packet, parent)

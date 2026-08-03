@@ -61,6 +61,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_6 = ProtoField.
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.pearlequities.depthofmarket.mach.v1.3.d.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retail_trade_indicator = ProtoField.new("Retail Trade Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.d.retailtradeindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.retransmissionrequest", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.d.secondreserved1", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.sequenceddatapacket", ftypes.STRING)
@@ -1127,6 +1128,29 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.dissect = function(buffe
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -3140,7 +3164,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.symbol_update_message.size =
   miax_pearlequities_depthofmarket_mach_v1_3_d.ticker_symbol.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.test_security_indicator.size + 
-  miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.size + 
+  miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.lot_size.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.opening_time.size + 
   miax_pearlequities_depthofmarket_mach_v1_3_d.closing_time.size + 
@@ -3170,8 +3194,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.symbol_update_message.fields = func
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_depthofmarket_mach_v1_3_d.test_security_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: BinaryU
+  index, second_reserved_1 = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_depthofmarket_mach_v1_3_d.lot_size.dissect(buffer, index, packet, parent)

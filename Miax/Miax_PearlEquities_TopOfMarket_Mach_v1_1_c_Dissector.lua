@@ -62,6 +62,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.requested_trading_session_
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved1", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.topofmarket.mach.v1.1.c.retransmissionrequest", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.secondreserved1", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.c.seconds", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.c.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.sequenceddatapacket", ftypes.STRING)
@@ -1223,6 +1224,29 @@ miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.dissect = function(buffer,
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -2999,7 +3023,7 @@ miax_pearlequities_topofmarket_mach_v1_1_c.symbol_update_message.size =
   miax_pearlequities_topofmarket_mach_v1_1_c.ticker_symbol.size + 
   miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.size + 
   miax_pearlequities_topofmarket_mach_v1_1_c.test_security_indicator.size + 
-  miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.size + 
   miax_pearlequities_topofmarket_mach_v1_1_c.lot_size.size + 
   miax_pearlequities_topofmarket_mach_v1_1_c.opening_time.size + 
   miax_pearlequities_topofmarket_mach_v1_1_c.closing_time.size + 
@@ -3029,8 +3053,8 @@ miax_pearlequities_topofmarket_mach_v1_1_c.symbol_update_message.fields = functi
   -- Test Security Indicator: Alphanumeric
   index, test_security_indicator = miax_pearlequities_topofmarket_mach_v1_1_c.test_security_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: BinaryU
-  index, reserved_1 = miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: BinaryU
+  index, second_reserved_1 = miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Lot Size: BinaryU
   index, lot_size = miax_pearlequities_topofmarket_mach_v1_1_c.lot_size.dissect(buffer, index, packet, parent)
