@@ -62,6 +62,7 @@ omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.reporting_status
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.reserved_1 = ProtoField.new("Reserved 1", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.reserved_4 = ProtoField.new("Reserved 4", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.saturationeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.secondreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.security_action = ProtoField.new("Security Action", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.securityaction", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.security_flags = ProtoField.new("Security Flags", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.securityflags", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.security_id = ProtoField.new("Security Id", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.securityid", ftypes.UINT32)
@@ -1217,9 +1218,9 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.quote_flags.display = funct
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Ask Size Overflow"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Second Reserved 1 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Second Reserved 1"
   end
   -- Is Bid Priced flag set?
   if bit.band(value, 0x40) ~= 0 then
@@ -1251,8 +1252,8 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.quote_flags.bits = function
   -- Ask Size Overflow: 1 Bit
   parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.ask_size_overflow, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.reserved_1, range, value)
+  -- Second Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.second_reserved_1, range, value)
 
   -- Bid Priced: 1 Bit
   parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.bid_priced, range, value)

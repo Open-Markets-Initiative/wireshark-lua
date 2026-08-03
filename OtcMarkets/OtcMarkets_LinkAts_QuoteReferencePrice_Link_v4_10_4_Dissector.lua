@@ -27,6 +27,7 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_size = ProtoF
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidtimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.caveatemptorwarning", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.channelseqnum", ftypes.UINT32)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.fourthreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.lastupdatemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.market_close = ProtoField.new("Market Close", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.marketclose", ftypes.UINT64)
@@ -56,6 +57,7 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reporting_status 
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1 = ProtoField.new("Reserved 1", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_4 = ProtoField.new("Reserved 4", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.saturationeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.secondreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.security_action = ProtoField.new("Security Action", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.securityaction", ftypes.UINT8)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.security_flags = ProtoField.new("Security Flags", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.securityflags", ftypes.STRING)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.security_id = ProtoField.new("Security Id", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.securityid", ftypes.UINT32)
@@ -71,6 +73,7 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.spin_type = Proto
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.state = ProtoField.new("State", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.state", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.symbol = ProtoField.new("Symbol", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.symbol", ftypes.STRING)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.test = ProtoField.new("Test", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.thirdreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.tier = ProtoField.new("Tier", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.tier", ftypes.UINT8)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.time_milli = ProtoField.new("Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.timemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -1139,21 +1142,21 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.display = functi
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Ask Priced"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Second Reserved 1 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Second Reserved 1"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Third Reserved 1 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Third Reserved 1"
   end
   -- Is Bid Priced flag set?
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Bid Priced"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Fourth Reserved 1 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Fourth Reserved 1"
   end
 
   return table.concat(flags, "|")
@@ -1174,17 +1177,17 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.bits = function(
   -- Ask Priced: 1 Bit
   parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_priced, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+  -- Second Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.second_reserved_1, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+  -- Third Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.third_reserved_1, range, value)
 
   -- Bid Priced: 1 Bit
   parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_priced, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.reserved_1, range, value)
+  -- Fourth Reserved 1: 1 Bit
+  parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.fourth_reserved_1, range, value)
 end
 
 -- Dissect: Quote Flags
