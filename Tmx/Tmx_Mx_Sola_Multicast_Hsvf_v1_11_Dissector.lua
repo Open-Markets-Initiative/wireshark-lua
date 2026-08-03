@@ -20,6 +20,10 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_n_6 = ProtoField.new("Ask 
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.askpricesign", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_x_6 = ProtoField.new("Ask Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.askpricex6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_size = ProtoField.new("Ask Size", "tmx.mx.sola.multicast.hsvf.v1.11.asksize", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_month = ProtoField.new("Associated Product Delivery Month", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductdeliverymonth", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_year = ProtoField.new("Associated Product Delivery Year", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductdeliveryyear", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_expiry_day = ProtoField.new("Associated Product Expiry Day", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductexpiryday", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_root_symbol = ProtoField.new("Associated Product Root Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductrootsymbol", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_n_6 = ProtoField.new("Bid Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricen6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricesign", ftypes.STRING)
@@ -149,6 +153,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.reset_frequency = ProtoField.new("Re
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_a_6 = ProtoField.new("Root Symbol A 6", "tmx.mx.sola.multicast.hsvf.v1.11.rootsymbola6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_x_6 = ProtoField.new("Root Symbol X 6", "tmx.mx.sola.multicast.hsvf.v1.11.rootsymbolx6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.scheduled_status_change_time = ProtoField.new("Scheduled Status Change Time", "tmx.mx.sola.multicast.hsvf.v1.11.scheduledstatuschangetime", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.second_filler_1 = ProtoField.new("Second Filler 1", "tmx.mx.sola.multicast.hsvf.v1.11.secondfiller1", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.sola.multicast.hsvf.v1.11.sequencenumber", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.series_status = ProtoField.new("Series Status", "tmx.mx.sola.multicast.hsvf.v1.11.seriesstatus", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.sola.multicast.hsvf.v1.11.settlementprice", ftypes.STRING)
@@ -433,6 +438,108 @@ tmx_mx_sola_multicast_hsvf_v1_11.ask_size.dissect = function(buffer, offset, pac
   local display = tmx_mx_sola_multicast_hsvf_v1_11.ask_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Associated Product Delivery Month
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month = {}
+
+-- Size: Associated Product Delivery Month
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.size = 1
+
+-- Display: Associated Product Delivery Month
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.display = function(value)
+  return "Associated Product Delivery Month: "..value
+end
+
+-- Dissect: Associated Product Delivery Month
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Associated Product Delivery Year
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year = {}
+
+-- Size: Associated Product Delivery Year
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.size = 2
+
+-- Display: Associated Product Delivery Year
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.display = function(value)
+  return "Associated Product Delivery Year: "..value
+end
+
+-- Dissect: Associated Product Delivery Year
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Associated Product Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day = {}
+
+-- Size: Associated Product Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.size = 2
+
+-- Display: Associated Product Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.display = function(value)
+  return "Associated Product Expiry Day: "..value
+end
+
+-- Dissect: Associated Product Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_expiry_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Associated Product Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol = {}
+
+-- Size: Associated Product Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.size = 6
+
+-- Display: Associated Product Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.display = function(value)
+  return "Associated Product Root Symbol: "..value
+end
+
+-- Dissect: Associated Product Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_root_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3677,6 +3784,29 @@ tmx_mx_sola_multicast_hsvf_v1_11.scheduled_status_change_time.dissect = function
   return offset + length, value
 end
 
+-- Second Filler 1
+tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1 = {}
+
+-- Size: Second Filler 1
+tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size = 1
+
+-- Display: Second Filler 1
+tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.display = function(value)
+  return "Second Filler 1: "..value
+end
+
+-- Dissect: Second Filler 1
+tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.second_filler_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence Number
 tmx_mx_sola_multicast_hsvf_v1_11.sequence_number = {}
 
@@ -5459,7 +5589,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.filler_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.timestamp.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.open_interest.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_number.size
 
@@ -5523,8 +5653,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message.fields = functi
   -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: A
-  index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: A
+  index, second_filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
@@ -6372,7 +6502,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.last_price.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.last_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.open_interest.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
@@ -6449,8 +6579,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.fields = functio
   -- Last Price: N
   index, last_price = tmx_mx_sola_multicast_hsvf_v1_11.last_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator X 1: X
-  index, settlement_price_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Last Price Fraction Indicator: X
+  index, last_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
@@ -7036,10 +7166,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.currency.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_type.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size
+  tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.size
 
 -- Display: Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.display = function(packet, parent, length)
@@ -7119,17 +7249,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.fields = functi
   -- Delivery Type: X
   index, delivery_type = tmx_mx_sola_multicast_hsvf_v1_11.delivery_type.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Associated Product Root Symbol: A
+  index, associated_product_root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_root_symbol.dissect(buffer, index, packet, parent)
 
-  -- Delivery Month: A
-  index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
+  -- Associated Product Delivery Month: A
+  index, associated_product_delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Associated Product Delivery Year: N
+  index, associated_product_delivery_year = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_delivery_year.dissect(buffer, index, packet, parent)
 
-  -- Expiry Day: N
-  index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.dissect(buffer, index, packet, parent)
+  -- Associated Product Expiry Day: N
+  index, associated_product_expiry_day = tmx_mx_sola_multicast_hsvf_v1_11.associated_product_expiry_day.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7871,7 +8001,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.filler_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.timestamp.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.open_interest.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_number.size
 
@@ -7926,8 +8056,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message.fields = func
   -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: A
-  index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: A
+  index, second_filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
@@ -9183,7 +9313,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker_a_1.size
 
 -- Display: Option Quote Message
@@ -9237,8 +9367,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.fields = function(buffer, 
   -- Ask Size: X
   index, ask_size = tmx_mx_sola_multicast_hsvf_v1_11.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: A
-  index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: A
+  index, second_filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker A 1: A
   index, instrument_status_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker_a_1.dissect(buffer, index, packet, parent)
@@ -10378,7 +10508,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.filler_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.timestamp.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.open_interest.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_number.size
 
@@ -10442,8 +10572,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message.fields = function(buffer, 
   -- Open Interest: N
   index, open_interest = tmx_mx_sola_multicast_hsvf_v1_11.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: A
-  index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
+  -- Second Filler 1: A
+  index, second_filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker A 1: A
   index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_11.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
