@@ -3918,7 +3918,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_67.message.fields = function(buff
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 25 branches
+  -- Payload: Runtime Type with 24 branches
   index = cboe_bxeequities_multicastdepthofbook_pitch_v6_67.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

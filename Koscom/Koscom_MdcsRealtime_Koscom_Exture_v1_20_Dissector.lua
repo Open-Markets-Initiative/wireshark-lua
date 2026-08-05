@@ -8584,7 +8584,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.packet.dissect = function(buffer, packet
     -- Message Code: String
     index, message_code = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 36 branches
+    -- Payload: Runtime Type with 32 branches
     index = koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect(buffer, index, packet, parent, message_code)
   end
 

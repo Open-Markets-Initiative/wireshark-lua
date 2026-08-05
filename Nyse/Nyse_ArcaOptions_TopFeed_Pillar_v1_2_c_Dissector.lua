@@ -87,6 +87,7 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.reserved_6 = ProtoField.new("R
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaoptions.topfeed.pillar.v1.2.c.retransmitmethod", ftypes.UINT8)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.arcaoptions.topfeed.pillar.v1.2.c.rfqstatus", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaoptions.topfeed.pillar.v1.2.c.roundlot", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.arcaoptions.topfeed.pillar.v1.2.c.secondreserved4", ftypes.BYTES)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitystatus", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitytype", ftypes.STRING)
@@ -2058,6 +2059,29 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Second Reserved 4
+nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4 = {}
+
+-- Size: Second Reserved 4
+nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.size = 4
+
+-- Display: Second Reserved 4
+nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.display = function(value)
+  return "Second Reserved 4: "..value
+end
+
+-- Dissect: Second Reserved 4
+nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.second_reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Seconds
 nyse_arcaoptions_topfeed_pillar_v1_2_c.seconds = {}
 
@@ -3369,7 +3393,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_imbalance_message.size =
   nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.size + 
   nyse_arcaoptions_topfeed_pillar_v1_2_c.continuous_book_clearing_price.size + 
   nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_interest_clearing_price.size + 
-  nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.size + 
+  nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.size + 
   nyse_arcaoptions_topfeed_pillar_v1_2_c.indicative_match_price.size + 
   nyse_arcaoptions_topfeed_pillar_v1_2_c.upper_collar.size + 
   nyse_arcaoptions_topfeed_pillar_v1_2_c.lower_collar.size + 
@@ -3423,8 +3447,8 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_imbalance_message.fields = functi
   -- Auction Interest Clearing Price: 4 Byte Signed Fixed Width Integer
   index, auction_interest_clearing_price = nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_4.dissect(buffer, index, packet, parent)
+  -- Second Reserved 4: 4 Byte
+  index, second_reserved_4 = nyse_arcaoptions_topfeed_pillar_v1_2_c.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: 4 Byte Signed Fixed Width Integer
   index, indicative_match_price = nyse_arcaoptions_topfeed_pillar_v1_2_c.indicative_match_price.dissect(buffer, index, packet, parent)

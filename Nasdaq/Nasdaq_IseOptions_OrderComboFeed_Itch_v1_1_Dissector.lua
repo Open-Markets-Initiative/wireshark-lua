@@ -2353,7 +2353,7 @@ udp_table:add_for_decode_as(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.1
 --   Date: Tuesday, June 13, 2017
---   Specification: ISE-GEMX-MRX-Order-Feed-Specification_tcm5044-42717.pdf
+--   Specification: ISEOrderComboFeedSpecification_tcm5044-41354.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

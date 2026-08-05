@@ -82,6 +82,7 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_priority_update_message = P
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_message = ProtoField.new("Rejected Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.rejectedordermessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replace_order_message = ProtoField.new("Replace Order Message", "nasdaq.nsmequities.orders.ouch.v4.2.replaceordermessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.nsmequities.orders.ouch.v4.2.replacedmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_trade_now_message = ProtoField.new("Sequenced Trade Now Message", "nasdaq.nsmequities.orders.ouch.v4.2.sequencedtradenowmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradecorrectionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new("Trade Now Message", "nasdaq.nsmequities.orders.ouch.v4.2.tradenowmessage", ftypes.STRING)
@@ -1358,11 +1359,11 @@ nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.display = function(va
   if value == "T" then
     return "Sequenced Message Type: Order Priority Update Message (T)"
   end
-  if value == "U" then
-    return "Sequenced Message Type: Order Modified Message (U)"
+  if value == "M" then
+    return "Sequenced Message Type: Order Modified Message (M)"
   end
   if value == "N" then
-    return "Sequenced Message Type: Trade Now Message (N)"
+    return "Sequenced Message Type: Sequenced Trade Now Message (N)"
   end
 
   return "Sequenced Message Type: Unknown("..value..")"
@@ -2073,6 +2074,50 @@ nasdaq_nsmequities_orders_ouch_v4_2.server_heartbeat.dissect = function(buffer, 
   packet.cols.info = display
 
   return offset
+end
+
+-- Sequenced Trade Now Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message = {}
+
+-- Size: Sequenced Trade Now Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.size =
+  nasdaq_nsmequities_orders_ouch_v4_2.timestamp.size + 
+  nasdaq_nsmequities_orders_ouch_v4_2.order_token.size
+
+-- Display: Sequenced Trade Now Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Trade Now Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_nsmequities_orders_ouch_v4_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Token: 14 Byte Ascii String
+  index, order_token = nasdaq_nsmequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Trade Now Message
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_trade_now_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Order Modified Message
@@ -2985,12 +3030,12 @@ nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.dissect = function(buffer,
     return nasdaq_nsmequities_orders_ouch_v4_2.order_priority_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Modified Message
-  if sequenced_message_type == "U" then
+  if sequenced_message_type == "M" then
     return nasdaq_nsmequities_orders_ouch_v4_2.order_modified_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Now Message
+  -- Dissect Sequenced Trade Now Message
   if sequenced_message_type == "N" then
-    return nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message.dissect(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_orders_ouch_v4_2.sequenced_trade_now_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -57,6 +57,7 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserve
 omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.level1.gtp.v24.4.reserved38", ftypes.BYTES)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.level1.gtp.v24.4.reserved8", ftypes.BYTES)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.retail_lp = ProtoField.new("Retail Lp", "lseg.turquoise.level1.gtp.v24.4.retaillp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.turquoise.level1.gtp.v24.4.secondreserved8", ftypes.BYTES)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.level1.gtp.v24.4.segment", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.level1.gtp.v24.4.sequencenumber", ftypes.UINT32)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.level1.gtp.v24.4.sessionchangereason", ftypes.UINT8)
@@ -1041,6 +1042,29 @@ lseg_turquoise_level1_gtp_v24_4.reserved_8.dissect = function(buffer, offset, pa
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_turquoise_level1_gtp_v24_4.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_turquoise_level1_gtp_v24_4.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_turquoise_level1_gtp_v24_4.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_turquoise_level1_gtp_v24_4.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_level1_gtp_v24_4.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_level1_gtp_v24_4.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -2221,7 +2245,7 @@ lseg_turquoise_level1_gtp_v24_4.top_of_book_message.size =
   lseg_turquoise_level1_gtp_v24_4.bid_limit_size.size + 
   lseg_turquoise_level1_gtp_v24_4.offer_market_size.size + 
   lseg_turquoise_level1_gtp_v24_4.offer_limit_price.size + 
-  lseg_turquoise_level1_gtp_v24_4.reserved_8.size + 
+  lseg_turquoise_level1_gtp_v24_4.second_reserved_8.size + 
   lseg_turquoise_level1_gtp_v24_4.offer_limit_size.size + 
   lseg_turquoise_level1_gtp_v24_4.order_book_type.size + 
   lseg_turquoise_level1_gtp_v24_4.top_of_book_flags.size
@@ -2262,8 +2286,8 @@ lseg_turquoise_level1_gtp_v24_4.top_of_book_message.fields = function(buffer, of
   -- Offer Limit Price: Price
   index, offer_limit_price = lseg_turquoise_level1_gtp_v24_4.offer_limit_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_level1_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+  -- Second Reserved 8: Price
+  index, second_reserved_8 = lseg_turquoise_level1_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
 
   -- Offer Limit Size: Size
   index, offer_limit_size = lseg_turquoise_level1_gtp_v24_4.offer_limit_size.dissect(buffer, index, packet, parent)

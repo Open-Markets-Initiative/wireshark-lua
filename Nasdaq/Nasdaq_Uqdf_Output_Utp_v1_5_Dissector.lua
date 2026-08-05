@@ -3908,7 +3908,7 @@ nasdaq_uqdf_output_utp_v1_5.administrative.fields = function(buffer, offset, pac
   -- Administrative Message Type: 1 Byte Ascii String Enum with 10 values
   index, administrative_message_type = nasdaq_uqdf_output_utp_v1_5.administrative_message_type.dissect(buffer, index, packet, parent)
 
-  -- Administrative Payload: Runtime Type with 10 branches
+  -- Administrative Payload: Runtime Type with 9 branches
   index = nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
 
   return index

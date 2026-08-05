@@ -35,6 +35,7 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.password = ProtoFiel
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.price = ProtoField.new("Price", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.price", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.quantity = ProtoField.new("Quantity", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.quantity", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.reserved1", ftypes.UINT8)
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.secondreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.sequence = ProtoField.new("Sequence", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.sequence", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.sessionsubid", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.side = ProtoField.new("Side", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.side", ftypes.STRING)
@@ -564,6 +565,29 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.reserved_1.dissect = function(b
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.sequence = {}
 
@@ -977,7 +1001,7 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.two_side_update_message.size =
   cboe_cxaequities_multicasttopofbook_spin_v1_0_10.reserved_1.size + 
   cboe_cxaequities_multicasttopofbook_spin_v1_0_10.ask_price.size + 
   cboe_cxaequities_multicasttopofbook_spin_v1_0_10.ask_quantity.size + 
-  cboe_cxaequities_multicasttopofbook_spin_v1_0_10.reserved_1.size
+  cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.size
 
 -- Display: Two Side Update Message
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.two_side_update_message.display = function(packet, parent, length)
@@ -1009,8 +1033,8 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.two_side_update_message.fields 
   -- Ask Quantity: Binary
   index, ask_quantity = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.ask_quantity.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Binary
-  index, reserved_1 = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Binary
+  index, second_reserved_1 = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

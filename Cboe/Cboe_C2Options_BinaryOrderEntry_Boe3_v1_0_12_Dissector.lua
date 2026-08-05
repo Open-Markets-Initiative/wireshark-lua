@@ -8622,7 +8622,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.packet.dissect = function(buffer, p
   -- Dependency element: Message Type
   local message_type = buffer(index - 8, 2):le_uint()
 
-  -- Message: Runtime Type with 43 branches
+  -- Message: Runtime Type with 42 branches
   index = cboe_c2options_binaryorderentry_boe3_v1_0_12.message.dissect(buffer, index, packet, parent, message_type)
 
   return index

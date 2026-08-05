@@ -17307,7 +17307,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.packet.dissect = function(buffer, packet
     -- Message Code: String
     index, message_code = koscom_mdcsrealtime_bonda_exture_v2_018.message_code.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 129 branches
+    -- Payload: Runtime Type with 39 branches
     index = koscom_mdcsrealtime_bonda_exture_v2_018.payload.dissect(buffer, index, packet, parent, message_code)
   end
 

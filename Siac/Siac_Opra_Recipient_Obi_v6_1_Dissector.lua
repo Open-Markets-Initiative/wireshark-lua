@@ -2667,7 +2667,7 @@ siac_opra_recipient_obi_v6_1.underlying_value_category.size = function(buffer, o
 
   -- Calculate runtime size of Underlying Value Message Payload field
   local underlying_value_message_payload_offset = offset + index
-  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 78, 1):string()
+  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.underlying_value_message_payload.size(buffer, underlying_value_message_payload_offset, underlying_value_message_payload_type)
 
   return index
@@ -2724,11 +2724,11 @@ siac_opra_recipient_obi_v6_1.control_message.size = function(buffer, offset)
 
   index = index + siac_opra_recipient_obi_v6_1.message_data_length.size
 
-  local message_data_length = buffer(offset + index - 92, 2):uint()
+  local message_data_length = buffer(offset + index - 2, 2):uint()
 
   if message_data_length > 0 then
     -- Parse runtime size of: Message Data
-    index = index + buffer(offset + index - 92, 2):uint()
+    index = index + buffer(offset + index - 2, 2):uint()
 
   end
 
@@ -2812,7 +2812,7 @@ siac_opra_recipient_obi_v6_1.control_category.size = function(buffer, offset)
 
   -- Calculate runtime size of Control Message Payload field
   local control_message_payload_offset = offset + index
-  local control_message_payload_type = buffer(control_message_payload_offset - 91, 1):string()
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
 
   return index
@@ -2862,7 +2862,7 @@ siac_opra_recipient_obi_v6_1.administrative_message.size = function(buffer, offs
   local index = offset
 
   -- Dependency element: Message Data Length
-  local message_data_length = buffer(offset - 94, 2):uint()
+  local message_data_length = buffer(offset + 9, 2):uint()
 
   return message_data_length + 12
 end
@@ -2948,7 +2948,7 @@ siac_opra_recipient_obi_v6_1.administrative_category.size = function(buffer, off
 
   -- Calculate runtime size of Administrative Message Payload field
   local administrative_message_payload_offset = offset + index
-  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 104, 1):string()
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
 
   return index
@@ -3169,14 +3169,14 @@ siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_message.size = functio
 
   index = index + siac_opra_recipient_obi_v6_1.offer_size_short.size
 
-  local bbo_indicator = buffer(offset + index - 176, 1):string()
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_1.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 186, 1):string()
+  local bbo_indicator = buffer(offset + index - 36, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1.best_offer_appendage.size
@@ -3288,7 +3288,7 @@ siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_category.size = functi
 
   -- Calculate runtime size of Short Equity And Index Quote Message Payload field
   local short_equity_and_index_quote_message_payload_offset = offset + index
-  local short_equity_and_index_quote_message_payload_type = buffer(short_equity_and_index_quote_message_payload_offset - 151, 1):string()
+  local short_equity_and_index_quote_message_payload_type = buffer(short_equity_and_index_quote_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.short_equity_and_index_quote_message_payload.size(buffer, short_equity_and_index_quote_message_payload_offset, short_equity_and_index_quote_message_payload_type)
 
   return index
@@ -3431,21 +3431,21 @@ siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_message.size = function
 
   index = index + siac_opra_recipient_obi_v6_1.offer_size.size
 
-  local bbo_indicator = buffer(offset + index - 271, 1):string()
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_1.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 281, 1):string()
+  local bbo_indicator = buffer(offset + index - 50, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1.best_offer_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 291, 1):string()
+  local bbo_indicator = buffer(offset + index - 60, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_recipient_obi_v6_1.best_bid_and_offer_appendage.size
@@ -3575,7 +3575,7 @@ siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_category.size = functio
 
   -- Calculate runtime size of Long Equity And Index Quote Message Payload field
   local long_equity_and_index_quote_message_payload_offset = offset + index
-  local long_equity_and_index_quote_message_payload_type = buffer(long_equity_and_index_quote_message_payload_offset - 232, 1):string()
+  local long_equity_and_index_quote_message_payload_type = buffer(long_equity_and_index_quote_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.long_equity_and_index_quote_message_payload.size(buffer, long_equity_and_index_quote_message_payload_offset, long_equity_and_index_quote_message_payload_type)
 
   return index
@@ -3757,7 +3757,7 @@ siac_opra_recipient_obi_v6_1.equity_and_index_end_of_day_summary_category.size =
 
   -- Calculate runtime size of Equity And Index End Of Day Summary Message Payload field
   local equity_and_index_end_of_day_summary_message_payload_offset = offset + index
-  local equity_and_index_end_of_day_summary_message_payload_type = buffer(equity_and_index_end_of_day_summary_message_payload_offset - 302, 1):string()
+  local equity_and_index_end_of_day_summary_message_payload_type = buffer(equity_and_index_end_of_day_summary_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.equity_and_index_end_of_day_summary_message_payload.size(buffer, equity_and_index_end_of_day_summary_message_payload_offset, equity_and_index_end_of_day_summary_message_payload_type)
 
   return index
@@ -3895,7 +3895,7 @@ siac_opra_recipient_obi_v6_1.open_interest_category.size = function(buffer, offs
 
   -- Calculate runtime size of Open Interest Message Payload field
   local open_interest_message_payload_offset = offset + index
-  local open_interest_message_payload_type = buffer(open_interest_message_payload_offset - 330, 1):string()
+  local open_interest_message_payload_type = buffer(open_interest_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.open_interest_message_payload.size(buffer, open_interest_message_payload_offset, open_interest_message_payload_type)
 
   return index
@@ -4049,7 +4049,7 @@ siac_opra_recipient_obi_v6_1.equity_and_index_last_sale_category.size = function
 
   -- Calculate runtime size of Equity And Index Last Sale Message Payload field
   local equity_and_index_last_sale_message_payload_offset = offset + index
-  local equity_and_index_last_sale_message_payload_type = buffer(equity_and_index_last_sale_message_payload_offset - 371, 1):string()
+  local equity_and_index_last_sale_message_payload_type = buffer(equity_and_index_last_sale_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.equity_and_index_last_sale_message_payload.size(buffer, equity_and_index_last_sale_message_payload_offset, equity_and_index_last_sale_message_payload_type)
 
   return index
@@ -4145,7 +4145,7 @@ siac_opra_recipient_obi_v6_1.message.size = function(buffer, offset)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 371, 1):string()
+  local payload_type = buffer(payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v6_1.payload.size(buffer, payload_offset, payload_type)
 
   return index
@@ -4344,26 +4344,6 @@ siac_opra_recipient_obi_v6_1.packet.dissect = function(buffer, packet, parent)
     index, block_pad_byte = siac_opra_recipient_obi_v6_1.block_pad_byte.dissect(buffer, index, packet, parent)
   end
 
-  -- Block Header: Struct of 9 fields
-  index, block_header = siac_opra_recipient_obi_v6_1.block_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Messages In Block
-  local messages_in_block = buffer(index - 381, 1):uint()
-
-  -- Repeating: Message
-  for message_index = 1, messages_in_block do
-    index, message = siac_opra_recipient_obi_v6_1.message.dissect(buffer, index, packet, parent, message_index)
-  end
-
-  -- Runtime optional field: Block Pad Byte
-  local block_pad_byte = nil
-
-  local block_pad_byte_exists = uneven( index )
-
-  if block_pad_byte_exists then
-    index, block_pad_byte = siac_opra_recipient_obi_v6_1.block_pad_byte.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -4404,25 +4384,10 @@ siac_opra_recipient_obi_v6_1.version.verify = function(buffer)
   return false
 end
 
--- Verify Version Field
-siac_opra_recipient_obi_v6_1.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(370, 1):uint()
-
-  if value == 6 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Siac Opra Recipient Obi 6.1 (Udp)
 local function omi_siac_opra_recipient_obi_v6_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_opra_recipient_obi_v6_1.packet.requiredsize(buffer) then return false end
-
-  -- Verify Version
-  if not siac_opra_recipient_obi_v6_1.version.verify(buffer) then return false end
 
   -- Verify Version
   if not siac_opra_recipient_obi_v6_1.version.verify(buffer) then return false end

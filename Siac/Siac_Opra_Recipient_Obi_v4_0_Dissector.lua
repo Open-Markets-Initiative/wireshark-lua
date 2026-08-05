@@ -63,6 +63,7 @@ omi_siac_opra_recipient_obi_v4_0.fields.message = ProtoField.new("Message", "sia
 omi_siac_opra_recipient_obi_v4_0.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v4.0.messagecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v4.0.messagedata", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v4.0.messagedatalength", ftypes.UINT16)
+omi_siac_opra_recipient_obi_v4_0.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v4.0.messageheader", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v4.0.messageindicator", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v4.0.messagesinblock", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v4_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v4.0.nanoseconds", ftypes.UINT32)
@@ -126,11 +127,13 @@ local show = {}
 -- Siac Opra Recipient Obi 4.0 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Siac Opra Recipient Obi 4.0 Show Options
 omi_siac_opra_recipient_obi_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_opra_recipient_obi_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_siac_opra_recipient_obi_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_opra_recipient_obi_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -140,6 +143,9 @@ function omi_siac_opra_recipient_obi_v4_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_application_messages then
     show.application_messages = omi_siac_opra_recipient_obi_v4_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_headers then
+    show.headers = omi_siac_opra_recipient_obi_v4_0.prefs.show_headers
   end
   if show.structs ~= omi_siac_opra_recipient_obi_v4_0.prefs.show_structs then
     show.structs = omi_siac_opra_recipient_obi_v4_0.prefs.show_structs
@@ -2635,7 +2641,7 @@ siac_opra_recipient_obi_v4_0.underlying_value_category.size = function(buffer, o
 
   -- Calculate runtime size of Underlying Value Message Payload field
   local underlying_value_message_payload_offset = offset + index
-  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 78, 1):string()
+  local underlying_value_message_payload_type = buffer(underlying_value_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.underlying_value_message_payload.size(buffer, underlying_value_message_payload_offset, underlying_value_message_payload_type)
 
   return index
@@ -2691,7 +2697,7 @@ siac_opra_recipient_obi_v4_0.control_message.size = function(buffer, offset)
   index = index + siac_opra_recipient_obi_v4_0.message_data_length.size
 
   -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 92, 2):uint()
+  index = index + buffer(offset + index - 2, 2):uint()
 
   return index
 end
@@ -2762,7 +2768,7 @@ siac_opra_recipient_obi_v4_0.control_category.size = function(buffer, offset)
 
   -- Calculate runtime size of Control Message Payload field
   local control_message_payload_offset = offset + index
-  local control_message_payload_type = buffer(control_message_payload_offset - 91, 1):string()
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
 
   return index
@@ -2818,7 +2824,7 @@ siac_opra_recipient_obi_v4_0.administrative_message.size = function(buffer, offs
   index = index + siac_opra_recipient_obi_v4_0.message_data_length.size
 
   -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 105, 2):uint()
+  index = index + buffer(offset + index - 2, 2):uint()
 
   return index
 end
@@ -2889,7 +2895,7 @@ siac_opra_recipient_obi_v4_0.administrative_category.size = function(buffer, off
 
   -- Calculate runtime size of Administrative Message Payload field
   local administrative_message_payload_offset = offset + index
-  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 104, 1):string()
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
 
   return index
@@ -3108,14 +3114,14 @@ siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_message.size = functio
 
   index = index + siac_opra_recipient_obi_v4_0.offer_size_short.size
 
-  local bbo_indicator = buffer(offset + index - 176, 1):string()
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 186, 1):string()
+  local bbo_indicator = buffer(offset + index - 36, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size
@@ -3224,7 +3230,7 @@ siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_category.size = functi
 
   -- Calculate runtime size of Short Equity And Index Quote Message Payload field
   local short_equity_and_index_quote_message_payload_offset = offset + index
-  local short_equity_and_index_quote_message_payload_type = buffer(short_equity_and_index_quote_message_payload_offset - 151, 1):string()
+  local short_equity_and_index_quote_message_payload_type = buffer(short_equity_and_index_quote_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.short_equity_and_index_quote_message_payload.size(buffer, short_equity_and_index_quote_message_payload_offset, short_equity_and_index_quote_message_payload_type)
 
   return index
@@ -3365,21 +3371,21 @@ siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_message.size = function
 
   index = index + siac_opra_recipient_obi_v4_0.offer_size.size
 
-  local bbo_indicator = buffer(offset + index - 271, 1):string()
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v4_0.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 281, 1):string()
+  local bbo_indicator = buffer(offset + index - 50, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v4_0.best_offer_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 291, 1):string()
+  local bbo_indicator = buffer(offset + index - 60, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_recipient_obi_v4_0.best_bid_and_offer_appendage.size
@@ -3506,7 +3512,7 @@ siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_category.size = functio
 
   -- Calculate runtime size of Long Equity And Index Quote Message Payload field
   local long_equity_and_index_quote_message_payload_offset = offset + index
-  local long_equity_and_index_quote_message_payload_type = buffer(long_equity_and_index_quote_message_payload_offset - 232, 1):string()
+  local long_equity_and_index_quote_message_payload_type = buffer(long_equity_and_index_quote_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.long_equity_and_index_quote_message_payload.size(buffer, long_equity_and_index_quote_message_payload_offset, long_equity_and_index_quote_message_payload_type)
 
   return index
@@ -3684,7 +3690,7 @@ siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_category.size =
 
   -- Calculate runtime size of Equity And Index End Of Day Summary Message Payload field
   local equity_and_index_end_of_day_summary_message_payload_offset = offset + index
-  local equity_and_index_end_of_day_summary_message_payload_type = buffer(equity_and_index_end_of_day_summary_message_payload_offset - 302, 1):string()
+  local equity_and_index_end_of_day_summary_message_payload_type = buffer(equity_and_index_end_of_day_summary_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.equity_and_index_end_of_day_summary_message_payload.size(buffer, equity_and_index_end_of_day_summary_message_payload_offset, equity_and_index_end_of_day_summary_message_payload_type)
 
   return index
@@ -3818,7 +3824,7 @@ siac_opra_recipient_obi_v4_0.open_interest_category.size = function(buffer, offs
 
   -- Calculate runtime size of Open Interest Message Payload field
   local open_interest_message_payload_offset = offset + index
-  local open_interest_message_payload_type = buffer(open_interest_message_payload_offset - 330, 1):string()
+  local open_interest_message_payload_type = buffer(open_interest_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.open_interest_message_payload.size(buffer, open_interest_message_payload_offset, open_interest_message_payload_type)
 
   return index
@@ -3968,7 +3974,7 @@ siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_category.size = function
 
   -- Calculate runtime size of Equity And Index Last Sale Message Payload field
   local equity_and_index_last_sale_message_payload_offset = offset + index
-  local equity_and_index_last_sale_message_payload_type = buffer(equity_and_index_last_sale_message_payload_offset - 371, 1):string()
+  local equity_and_index_last_sale_message_payload_type = buffer(equity_and_index_last_sale_message_payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.equity_and_index_last_sale_message_payload.size(buffer, equity_and_index_last_sale_message_payload_offset, equity_and_index_last_sale_message_payload_type)
 
   return index
@@ -4051,6 +4057,50 @@ siac_opra_recipient_obi_v4_0.payload.dissect = function(buffer, offset, packet, 
   return offset
 end
 
+-- Message Header
+siac_opra_recipient_obi_v4_0.message_header = {}
+
+-- Size: Message Header
+siac_opra_recipient_obi_v4_0.message_header.size =
+  siac_opra_recipient_obi_v4_0.participant_id.size + 
+  siac_opra_recipient_obi_v4_0.message_category.size
+
+-- Display: Message Header
+siac_opra_recipient_obi_v4_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+siac_opra_recipient_obi_v4_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Id: ASCII character
+  index, participant_id = siac_opra_recipient_obi_v4_0.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Message Category: ASCII character
+  index, message_category = siac_opra_recipient_obi_v4_0.message_category.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+siac_opra_recipient_obi_v4_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_opra_recipient_obi_v4_0.fields.message_header, buffer(offset, 0))
+    local index = siac_opra_recipient_obi_v4_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_opra_recipient_obi_v4_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_opra_recipient_obi_v4_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Message
 siac_opra_recipient_obi_v4_0.message = {}
 
@@ -4058,13 +4108,11 @@ siac_opra_recipient_obi_v4_0.message = {}
 siac_opra_recipient_obi_v4_0.message.size = function(buffer, offset)
   local index = 0
 
-  index = index + siac_opra_recipient_obi_v4_0.participant_id.size
-
-  index = index + siac_opra_recipient_obi_v4_0.message_category.size
+  index = index + siac_opra_recipient_obi_v4_0.message_header.size
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 371, 1):string()
+  local payload_type = buffer(payload_offset - 1, 1):string()
   index = index + siac_opra_recipient_obi_v4_0.payload.size(buffer, payload_offset, payload_type)
 
   return index
@@ -4085,11 +4133,11 @@ siac_opra_recipient_obi_v4_0.message.fields = function(buffer, offset, packet, p
     iteration:set_generated()
   end
 
-  -- Participant Id: ASCII character
-  index, participant_id = siac_opra_recipient_obi_v4_0.participant_id.dissect(buffer, index, packet, parent)
+  -- Message Header: Struct of 2 fields
+  index, message_header = siac_opra_recipient_obi_v4_0.message_header.dissect(buffer, index, packet, parent)
 
-  -- Message Category: ASCII character
-  index, message_category = siac_opra_recipient_obi_v4_0.message_category.dissect(buffer, index, packet, parent)
+  -- Dependency element: Message Category
+  local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 8 branches
   index = siac_opra_recipient_obi_v4_0.payload.dissect(buffer, index, packet, parent, message_category)
@@ -4263,26 +4311,6 @@ siac_opra_recipient_obi_v4_0.packet.dissect = function(buffer, packet, parent)
     index, block_pad_byte = siac_opra_recipient_obi_v4_0.block_pad_byte.dissect(buffer, index, packet, parent)
   end
 
-  -- Block Header: Struct of 9 fields
-  index, block_header = siac_opra_recipient_obi_v4_0.block_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Messages In Block
-  local messages_in_block = buffer(index - 381, 1):uint()
-
-  -- Repeating: Message
-  for message_index = 1, messages_in_block do
-    index, message = siac_opra_recipient_obi_v4_0.message.dissect(buffer, index, packet, parent, message_index)
-  end
-
-  -- Runtime optional field: Block Pad Byte
-  local block_pad_byte = nil
-
-  local block_pad_byte_exists = uneven( index )
-
-  if block_pad_byte_exists then
-    index, block_pad_byte = siac_opra_recipient_obi_v4_0.block_pad_byte.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -4323,25 +4351,10 @@ siac_opra_recipient_obi_v4_0.version.verify = function(buffer)
   return false
 end
 
--- Verify Version Field
-siac_opra_recipient_obi_v4_0.version.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(370, 1):uint()
-
-  if value == 5 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Siac Opra Recipient Obi 4.0 (Udp)
 local function omi_siac_opra_recipient_obi_v4_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_opra_recipient_obi_v4_0.packet.requiredsize(buffer) then return false end
-
-  -- Verify Version
-  if not siac_opra_recipient_obi_v4_0.version.verify(buffer) then return false end
 
   -- Verify Version
   if not siac_opra_recipient_obi_v4_0.version.verify(buffer) then return false end

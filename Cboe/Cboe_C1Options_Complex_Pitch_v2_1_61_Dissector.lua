@@ -68,6 +68,7 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.remaining_quantity = ProtoField.
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.complex.pitch.v2.1.61.reserved1", ftypes.BYTES)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.complex.pitch.v2.1.61.reserved2", ftypes.BYTES)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.c1options.complex.pitch.v2.1.61.reserved5", ftypes.BYTES)
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.c1options.complex.pitch.v2.1.61.secondreserved1", ftypes.BYTES)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c1options.complex.pitch.v2.1.61.sellcontracts", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.complex.pitch.v2.1.61.sequence", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.side = ProtoField.new("Side", "cboe.c1options.complex.pitch.v2.1.61.side", ftypes.STRING)
@@ -1469,6 +1470,29 @@ cboe_c1options_complex_pitch_v2_1_61.reserved_5.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_c1options_complex_pitch_v2_1_61.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_61.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sell Contracts
 cboe_c1options_complex_pitch_v2_1_61.sell_contracts = {}
 
@@ -2063,7 +2087,7 @@ cboe_c1options_complex_pitch_v2_1_61.trading_status_message.size =
   cboe_c1options_complex_pitch_v2_1_61.trading_status.size + 
   cboe_c1options_complex_pitch_v2_1_61.reserved_1.size + 
   cboe_c1options_complex_pitch_v2_1_61.gth_trading_status.size + 
-  cboe_c1options_complex_pitch_v2_1_61.reserved_1.size
+  cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.size
 
 -- Display: Trading Status Message
 cboe_c1options_complex_pitch_v2_1_61.trading_status_message.display = function(packet, parent, length)
@@ -2092,8 +2116,8 @@ cboe_c1options_complex_pitch_v2_1_61.trading_status_message.fields = function(bu
   -- Gth Trading Status: Alpha
   index, gth_trading_status = cboe_c1options_complex_pitch_v2_1_61.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c1options_complex_pitch_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Reserved
+  index, second_reserved_1 = cboe_c1options_complex_pitch_v2_1_61.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

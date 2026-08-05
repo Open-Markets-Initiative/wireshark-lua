@@ -92,6 +92,8 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.retransmit_method = ProtoFiel
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.rfq_side = ProtoField.new("Rfq Side", "nyse.amexoptions.deepfeed.pillar.v1.2.l.rfqside", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.amexoptions.deepfeed.pillar.v1.2.l.rfqstatus", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexoptions.deepfeed.pillar.v1.2.l.roundlot", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.deepfeed.pillar.v1.2.l.secondreserved2", ftypes.UINT16)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.amexoptions.deepfeed.pillar.v1.2.l.secondreserved4", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.deepfeed.pillar.v1.2.l.seconds", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.deepfeed.pillar.v1.2.l.securitystatus", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.deepfeed.pillar.v1.2.l.securitytype", ftypes.STRING)
@@ -115,6 +117,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol = ProtoField.new("Symb
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexoptions.deepfeed.pillar.v1.2.l.symbolindex", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexoptions.deepfeed.pillar.v1.2.l.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.system_id = ProtoField.new("System Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.systemid", ftypes.UINT8)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.third_reserved_2 = ProtoField.new("Third Reserved 2", "nyse.amexoptions.deepfeed.pillar.v1.2.l.thirdreserved2", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.time = ProtoField.new("Time", "nyse.amexoptions.deepfeed.pillar.v1.2.l.time", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.amexoptions.deepfeed.pillar.v1.2.l.totalimbalanceqty", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.total_quantity = ProtoField.new("Total Quantity", "nyse.amexoptions.deepfeed.pillar.v1.2.l.totalquantity", ftypes.UINT32)
@@ -2416,6 +2419,52 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.round_lot.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Second Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2 = {}
+
+-- Size: Second Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.size = 2
+
+-- Display: Second Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.display = function(value)
+  return "Second Reserved 2: "..value
+end
+
+-- Dissect: Second Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.second_reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 4
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4 = {}
+
+-- Size: Second Reserved 4
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.size = 4
+
+-- Display: Second Reserved 4
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.display = function(value)
+  return "Second Reserved 4: "..value
+end
+
+-- Dissect: Second Reserved 4
+nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.second_reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Seconds
 nyse_amexoptions_deepfeed_pillar_v1_2_l.seconds = {}
 
@@ -3202,6 +3251,29 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.system_id.dissect = function(buffer, off
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2 = {}
+
+-- Size: Third Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.size = 2
+
+-- Display: Third Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.display = function(value)
+  return "Third Reserved 2: "..value
+end
+
+-- Dissect: Third Reserved 2
+nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.third_reserved_2, range, value, display)
 
   return offset + length, value
 end
@@ -4036,7 +4108,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.size =
   nyse_amexoptions_deepfeed_pillar_v1_2_l.imbalance_side.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.size + 
-  nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_4.size + 
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.upper_collar.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.lower_collar.size + 
@@ -4090,8 +4162,8 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   -- Auction Interest Clearing Price: Signed Binary
   index, auction_interest_clearing_price = nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: Binary
-  index, reserved_4 = nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_4.dissect(buffer, index, packet, parent)
+  -- Second Reserved 4: Binary
+  index, second_reserved_4 = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Signed Binary
   index, indicative_match_price = nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.dissect(buffer, index, packet, parent)
@@ -5308,8 +5380,8 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_index_mapping_message.size =
   nyse_amexoptions_deepfeed_pillar_v1_2_l.price_resolution.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.round_lot.size + 
   nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.size + 
-  nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.size + 
-  nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.size
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.size + 
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.size
 
 -- Display: Symbol Index Mapping Message
 nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -5362,11 +5434,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_index_mapping_message.fields = fu
   -- Reserved 2: Binary
   index, reserved_2 = nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  -- Second Reserved 2: Binary
+  index, second_reserved_2 = nyse_amexoptions_deepfeed_pillar_v1_2_l.second_reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexoptions_deepfeed_pillar_v1_2_l.reserved_2.dissect(buffer, index, packet, parent)
+  -- Third Reserved 2: Binary
+  index, third_reserved_2 = nyse_amexoptions_deepfeed_pillar_v1_2_l.third_reserved_2.dissect(buffer, index, packet, parent)
 
   return index
 end

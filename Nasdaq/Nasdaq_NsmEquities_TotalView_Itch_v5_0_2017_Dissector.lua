@@ -1149,9 +1149,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
   if value == "L" then
     return "Issue Sub Type: Contingent (L)"
   end
-  if value == "W" then
-    return "Issue Sub Type: Warrant (W)"
-  end
   if value == "LL" then
     return "Issue Sub Type: Identifies Securities (LL)"
   end
@@ -3706,7 +3703,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_directory_message.fields = fun
   -- Issue Classification: 1 Byte Ascii String Enum with 16 values
   index, issue_classification = nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Sub Type: 2 Byte Ascii String Enum with 59 values
+  -- Issue Sub Type: 2 Byte Ascii String Enum with 58 values
   index, issue_sub_type = nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.dissect(buffer, index, packet, parent)
 
   -- Authenticity: 1 Byte Ascii String Enum with 2 values

@@ -91,6 +91,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.quantity_short =
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reference_price = ProtoField.new("Reference Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.referenceprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.remainingquantity", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.reserved3", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.second_unused_1 = ProtoField.new("Second Unused 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sellcontracts", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.sequence = ProtoField.new("Sequence", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.sequence", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.settlementprice", ftypes.DOUBLE)
@@ -2811,9 +2812,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.summary_flags.display = fun
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Unused 1"
   end
-  -- Is Unused 1 flag set?
+  -- Is Second Unused 1 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
+    flags[#flags + 1] = "Second Unused 1"
   end
 
   return table.concat(flags, "|")
@@ -2837,8 +2838,8 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.summary_flags.bits = functi
   -- Unused 1: 1 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1, range, value)
+  -- Second Unused 1: 1 Bit
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.second_unused_1, range, value)
 end
 
 -- Dissect: Summary Flags
@@ -3040,58 +3041,6 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect
   end
 end
 
--- Width Update Message
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message = {}
-
--- Size: Width Update Message
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.size =
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.product_code_alphanumeric_8.size + 
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_type.size + 
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.multiplier.size
-
--- Display: Width Update Message
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Width Update Message
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Time Offset: Binary
-  index, time_offset = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Product Code Alphanumeric 8: Alphanumeric
-  index, product_code_alphanumeric_8 = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
-
-  -- Width Type: Binary
-  index, width_type = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_type.dissect(buffer, index, packet, parent)
-
-  -- Multiplier: Multiplier
-  index, multiplier = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.multiplier.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Width Update Message
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
-    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Options Instrument Definition Message
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message = {}
 
@@ -3225,6 +3174,58 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definiti
   else
     -- Skip element, add fields directly
     return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Width Update Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message = {}
+
+-- Size: Width Update Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.size =
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.product_code_alphanumeric_8.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_type.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.multiplier.size
+
+-- Display: Width Update Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Width Update Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Product Code Alphanumeric 8: Alphanumeric
+  index, product_code_alphanumeric_8 = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.product_code_alphanumeric_8.dissect(buffer, index, packet, parent)
+
+  -- Width Type: Binary
+  index, width_type = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_type.dissect(buffer, index, packet, parent)
+
+  -- Multiplier: Multiplier
+  index, multiplier = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.multiplier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Width Update Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_update_message, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5036,7 +5037,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message.fields = function(b
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 32 branches
+  -- Payload: Runtime Type with 30 branches
   index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

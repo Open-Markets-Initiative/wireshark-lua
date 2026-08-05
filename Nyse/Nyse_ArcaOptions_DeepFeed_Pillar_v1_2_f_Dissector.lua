@@ -85,6 +85,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.reserved_6 = ProtoField.new("
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.retransmitmethod", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.rfqstatus", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.roundlot", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.secondreserved4", ftypes.BYTES)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.securitystatus", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.securitytype", ftypes.STRING)
@@ -127,13 +128,13 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_unavailable_message =
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_add_order_message = ProtoField.new("Options Add Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsaddordermessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_add_order_refresh_message = ProtoField.new("Options Add Order Refresh Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsaddorderrefreshmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_cross_trade_message = ProtoField.new("Options Cross Trade Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionscrosstrademessage", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_delete_order_message_message = ProtoField.new("Options Delete Order Message Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsdeleteordermessagemessage", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_imbalance_message_message = ProtoField.new("Options Imbalance Message Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsimbalancemessagemessage", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_delete_order_message = ProtoField.new("Options Delete Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsdeleteordermessage", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_imbalance_message = ProtoField.new("Options Imbalance Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsimbalancemessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_modify_order_message = ProtoField.new("Options Modify Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsmodifyordermessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_non_displayed_trade_message = ProtoField.new("Options Non Displayed Trade Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsnondisplayedtrademessage", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_order_execution_message_message = ProtoField.new("Options Order Execution Message Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsorderexecutionmessagemessage", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_order_execution_message = ProtoField.new("Options Order Execution Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsorderexecutionmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_outright_series_summary_message = ProtoField.new("Options Outright Series Summary Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsoutrightseriessummarymessage", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_replace_order_message_message = ProtoField.new("Options Replace Order Message Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsreplaceordermessagemessage", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_replace_order_message = ProtoField.new("Options Replace Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsreplaceordermessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_series_rfq_message = ProtoField.new("Options Series Rfq Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsseriesrfqmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_trade_cancel_message = ProtoField.new("Options Trade Cancel Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionstradecancelmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.outright_series_index_mapping = ProtoField.new("Outright Series Index Mapping", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.outrightseriesindexmapping", ftypes.STRING)
@@ -1226,16 +1227,16 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.message_type.display = function(value)
     return "Message Type: Options Modify Order Message (301)"
   end
   if value == 302 then
-    return "Message Type: Options Delete Order Message Message (302)"
+    return "Message Type: Options Delete Order Message (302)"
   end
   if value == 303 then
-    return "Message Type: Options Order Execution Message Message (303)"
+    return "Message Type: Options Order Execution Message (303)"
   end
   if value == 304 then
-    return "Message Type: Options Replace Order Message Message (304)"
+    return "Message Type: Options Replace Order Message (304)"
   end
   if value == 305 then
-    return "Message Type: Options Imbalance Message Message (305)"
+    return "Message Type: Options Imbalance Message (305)"
   end
   if value == 306 then
     return "Message Type: Options Add Order Refresh Message (306)"
@@ -2035,6 +2036,29 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.round_lot.dissect = function(buffer, off
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 4
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4 = {}
+
+-- Size: Second Reserved 4
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.size = 4
+
+-- Display: Second Reserved 4
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.display = function(value)
+  return "Second Reserved 4: "..value
+end
+
+-- Dissect: Second Reserved 4
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.second_reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -3465,11 +3489,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_add_order_refresh_message.dissec
   end
 end
 
--- Options Imbalance Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message = {}
+-- Options Imbalance Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message = {}
 
--- Size: Options Imbalance Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.size =
+-- Size: Options Imbalance Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.size =
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time_ns.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.size + 
@@ -3482,19 +3506,19 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.size =
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.imbalance_side.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.continuous_book_clearing_price.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_interest_clearing_price.size + 
-  nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_4.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.indicative_match_price.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.upper_collar.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.lower_collar.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_status.size
 
--- Display: Options Imbalance Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.display = function(packet, parent, length)
+-- Display: Options Imbalance Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Options Imbalance Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Options Imbalance Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
@@ -3533,8 +3557,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.fields
   -- Auction Interest Clearing Price: 4 Byte Signed Fixed Width Integer
   index, auction_interest_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
-  index, reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_4.dissect(buffer, index, packet, parent)
+  -- Second Reserved 4: 4 Byte
+  index, second_reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_f.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: 4 Byte Signed Fixed Width Integer
   index, indicative_match_price = nyse_arcaoptions_deepfeed_pillar_v1_2_f.indicative_match_price.dissect(buffer, index, packet, parent)
@@ -3551,29 +3575,29 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.fields
   return index
 end
 
--- Dissect: Options Imbalance Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Options Imbalance Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_imbalance_message_message, buffer(offset, 0))
-    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_imbalance_message, buffer(offset, 0))
+    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.display(packet, parent, length)
+    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.fields(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Options Replace Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message = {}
+-- Options Replace Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message = {}
 
--- Size: Options Replace Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.size =
+-- Size: Options Replace Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.size =
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time_ns.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.size + 
@@ -3585,13 +3609,13 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.si
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_1.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.cust_indicator.size
 
--- Display: Options Replace Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.display = function(packet, parent, length)
+-- Display: Options Replace Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Options Replace Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Options Replace Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
@@ -3627,41 +3651,41 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.fi
   return index
 end
 
--- Dissect: Options Replace Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Options Replace Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_replace_order_message_message, buffer(offset, 0))
-    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_replace_order_message, buffer(offset, 0))
+    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.display(packet, parent, length)
+    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.fields(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Options Order Execution Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message = {}
+-- Options Order Execution Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message = {}
 
--- Size: Options Order Execution Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.size =
+-- Size: Options Order Execution Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.size =
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.order_id.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_1.size
 
--- Display: Options Order Execution Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.display = function(packet, parent, length)
+-- Display: Options Order Execution Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Options Order Execution Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Options Order Execution Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
@@ -3679,42 +3703,42 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.
   return index
 end
 
--- Dissect: Options Order Execution Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Options Order Execution Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_order_execution_message_message, buffer(offset, 0))
-    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_order_execution_message, buffer(offset, 0))
+    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.display(packet, parent, length)
+    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.fields(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Options Delete Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message = {}
+-- Options Delete Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message = {}
 
--- Size: Options Delete Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.size =
+-- Size: Options Delete Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.size =
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time_ns.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.order_id.size + 
   nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_1.size
 
--- Display: Options Delete Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.display = function(packet, parent, length)
+-- Display: Options Delete Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Options Delete Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Options Delete Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
@@ -3735,21 +3759,21 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.fie
   return index
 end
 
--- Dissect: Options Delete Order Message Message
-nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Options Delete Order Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_delete_order_message_message, buffer(offset, 0))
-    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_delete_order_message, buffer(offset, 0))
+    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.display(packet, parent, length)
+    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.fields(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4774,21 +4798,21 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.payload.dissect = function(buffer, offse
   if message_type == 301 then
     return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_modify_order_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Options Delete Order Message Message
+  -- Dissect Options Delete Order Message
   if message_type == 302 then
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message_message.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_delete_order_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Options Order Execution Message Message
+  -- Dissect Options Order Execution Message
   if message_type == 303 then
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message_message.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_order_execution_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Options Replace Order Message Message
+  -- Dissect Options Replace Order Message
   if message_type == 304 then
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message_message.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_replace_order_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Options Imbalance Message Message
+  -- Dissect Options Imbalance Message
   if message_type == 305 then
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message_message.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_imbalance_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Add Order Refresh Message
   if message_type == 306 then
@@ -4886,7 +4910,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.message.fields = function(buffer, offset
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 26 branches
+  -- Payload: Runtime Type with 25 branches
   index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

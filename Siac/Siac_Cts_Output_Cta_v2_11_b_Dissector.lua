@@ -137,6 +137,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.round_lot_size = ProtoField.new("Round Lo
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "siac.cts.output.cta.v2.11.b.salecondition1", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "siac.cts.output.cta.v2.11.b.salecondition4", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.11.b.saleconditioncategory", ftypes.STRING)
+omi_siac_cts_output_cta_v2_11_b.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cts.output.cta.v2.11.b.secondreserved", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.11.b.securitystatus", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.output.cta.v2.11.b.securitysymbol", ftypes.STRING)
@@ -3645,6 +3646,29 @@ siac_cts_output_cta_v2_11_b.sale_condition_category.dissect = function(buffer, o
   local display = siac_cts_output_cta_v2_11_b.sale_condition_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved
+siac_cts_output_cta_v2_11_b.second_reserved = {}
+
+-- Size: Second Reserved
+siac_cts_output_cta_v2_11_b.second_reserved.size = 1
+
+-- Display: Second Reserved
+siac_cts_output_cta_v2_11_b.second_reserved.display = function(value)
+  return "Second Reserved: "..value
+end
+
+-- Dissect: Second Reserved
+siac_cts_output_cta_v2_11_b.second_reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_11_b.second_reserved.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_11_b.second_reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.second_reserved, range, value, display)
 
   return offset + length, value
 end
@@ -8628,7 +8652,7 @@ siac_cts_output_cta_v2_11_b.symbol_reference_data_message.size =
   siac_cts_output_cta_v2_11_b.halt_reason.size + 
   siac_cts_output_cta_v2_11_b.instrument_type.size + 
   siac_cts_output_cta_v2_11_b.reserved.size + 
-  siac_cts_output_cta_v2_11_b.reserved.size + 
+  siac_cts_output_cta_v2_11_b.second_reserved.size + 
   siac_cts_output_cta_v2_11_b.reserved_128.size
 
 -- Display: Symbol Reference Data Message
@@ -8703,8 +8727,8 @@ siac_cts_output_cta_v2_11_b.symbol_reference_data_message.fields = function(buff
   -- Reserved: Char
   index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
 
-  -- Reserved: Char
-  index, reserved = siac_cts_output_cta_v2_11_b.reserved.dissect(buffer, index, packet, parent)
+  -- Second Reserved: Char
+  index, second_reserved = siac_cts_output_cta_v2_11_b.second_reserved.dissect(buffer, index, packet, parent)
 
   -- Reserved 128: Char[]
   index, reserved_128 = siac_cts_output_cta_v2_11_b.reserved_128.dissect(buffer, index, packet, parent)

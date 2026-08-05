@@ -66,6 +66,7 @@ omi_cboe_c2options_complextop_pitch_v1_1_54.fields.reference_price = ProtoField.
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c2options.complextop.pitch.v1.1.54.reserved1", ftypes.BYTES)
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c2options.complextop.pitch.v1.1.54.reserved2", ftypes.BYTES)
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.reserved_bits = ProtoField.new("Reserved Bits", "cboe.c2options.complextop.pitch.v1.1.54.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFF)
+omi_cboe_c2options_complextop_pitch_v1_1_54.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.c2options.complextop.pitch.v1.1.54.secondreserved1", ftypes.BYTES)
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c2options.complextop.pitch.v1.1.54.sellcontracts", ftypes.UINT32)
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.sequence = ProtoField.new("Sequence", "cboe.c2options.complextop.pitch.v1.1.54.sequence", ftypes.UINT32)
 omi_cboe_c2options_complextop_pitch_v1_1_54.fields.side = ProtoField.new("Side", "cboe.c2options.complextop.pitch.v1.1.54.side", ftypes.STRING)
@@ -1350,6 +1351,29 @@ cboe_c2options_complextop_pitch_v1_1_54.reserved_2.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2options_complextop_pitch_v1_1_54.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sell Contracts
 cboe_c2options_complextop_pitch_v1_1_54.sell_contracts = {}
 
@@ -1816,7 +1840,7 @@ cboe_c2options_complextop_pitch_v1_1_54.trading_status_message.size =
   cboe_c2options_complextop_pitch_v1_1_54.trading_status.size + 
   cboe_c2options_complextop_pitch_v1_1_54.reserved_1.size + 
   cboe_c2options_complextop_pitch_v1_1_54.gth_trading_status.size + 
-  cboe_c2options_complextop_pitch_v1_1_54.reserved_1.size
+  cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.size
 
 -- Display: Trading Status Message
 cboe_c2options_complextop_pitch_v1_1_54.trading_status_message.display = function(packet, parent, length)
@@ -1845,8 +1869,8 @@ cboe_c2options_complextop_pitch_v1_1_54.trading_status_message.fields = function
   -- Gth Trading Status: Reserved
   index, gth_trading_status = cboe_c2options_complextop_pitch_v1_1_54.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c2options_complextop_pitch_v1_1_54.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Reserved
+  index, second_reserved_1 = cboe_c2options_complextop_pitch_v1_1_54.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

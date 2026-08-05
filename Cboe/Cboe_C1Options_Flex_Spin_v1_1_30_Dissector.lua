@@ -59,6 +59,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_1 = ProtoField.new("Reserve
 omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.flex.spin.v1.1.30.reserved2", ftypes.BYTES)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.reserved_7 = ProtoField.new("Reserved 7", "cboe.c1options.flex.spin.v1.1.30.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.return_cap_percentage = ProtoField.new("Return Cap Percentage", "cboe.c1options.flex.spin.v1.1.30.returncappercentage", ftypes.UINT32)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.c1options.flex.spin.v1.1.30.secondreserved1", ftypes.BYTES)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.flex.spin.v1.1.30.sequence", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c1options.flex.spin.v1.1.30.sessionsubid", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.settlement_type = ProtoField.new("Settlement Type", "cboe.c1options.flex.spin.v1.1.30.settlementtype", ftypes.STRING)
@@ -1082,6 +1083,29 @@ cboe_c1options_flex_spin_v1_1_30.return_cap_percentage.dissect = function(buffer
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_c1options_flex_spin_v1_1_30.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_c1options_flex_spin_v1_1_30.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_c1options_flex_spin_v1_1_30.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_c1options_flex_spin_v1_1_30.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_flex_spin_v1_1_30.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_c1options_flex_spin_v1_1_30.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence
 cboe_c1options_flex_spin_v1_1_30.sequence = {}
 
@@ -1463,7 +1487,7 @@ cboe_c1options_flex_spin_v1_1_30.trading_status_message.size =
   cboe_c1options_flex_spin_v1_1_30.trading_status.size + 
   cboe_c1options_flex_spin_v1_1_30.reserved_1.size + 
   cboe_c1options_flex_spin_v1_1_30.gth_trading_status.size + 
-  cboe_c1options_flex_spin_v1_1_30.reserved_1.size
+  cboe_c1options_flex_spin_v1_1_30.second_reserved_1.size
 
 -- Display: Trading Status Message
 cboe_c1options_flex_spin_v1_1_30.trading_status_message.display = function(packet, parent, length)
@@ -1492,8 +1516,8 @@ cboe_c1options_flex_spin_v1_1_30.trading_status_message.fields = function(buffer
   -- Gth Trading Status: Alpha
   index, gth_trading_status = cboe_c1options_flex_spin_v1_1_30.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Reserved
-  index, reserved_1 = cboe_c1options_flex_spin_v1_1_30.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Reserved
+  index, second_reserved_1 = cboe_c1options_flex_spin_v1_1_30.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

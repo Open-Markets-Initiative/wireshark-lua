@@ -66,6 +66,7 @@ omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_28 = ProtoField.new("Reserved 28", "lseg.turquoise.mifid.gtp.v24.4.reserved28", ftypes.BYTES)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.mifid.gtp.v24.4.reserved38", ftypes.BYTES)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.mifid.gtp.v24.4.reserved4", ftypes.BYTES)
+omi_lseg_turquoise_mifid_gtp_v24_4.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "lseg.turquoise.mifid.gtp.v24.4.secondreserved4", ftypes.BYTES)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.turquoise.mifid.gtp.v24.4.segment", ftypes.STRING)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.mifid.gtp.v24.4.sequencenumber", ftypes.UINT32)
 omi_lseg_turquoise_mifid_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.mifid.gtp.v24.4.sessionchangereason", ftypes.UINT8)
@@ -1324,6 +1325,29 @@ lseg_turquoise_mifid_gtp_v24_4.reserved_4.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Second Reserved 4
+lseg_turquoise_mifid_gtp_v24_4.second_reserved_4 = {}
+
+-- Size: Second Reserved 4
+lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.size = 4
+
+-- Display: Second Reserved 4
+lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.display = function(value)
+  return "Second Reserved 4: "..value
+end
+
+-- Dissect: Second Reserved 4
+lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_mifid_gtp_v24_4.fields.second_reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Segment
 lseg_turquoise_mifid_gtp_v24_4.segment = {}
 
@@ -1865,7 +1889,7 @@ lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message.size =
   lseg_turquoise_mifid_gtp_v24_4.reserved_4.size + 
   lseg_turquoise_mifid_gtp_v24_4.nt_pre_trade_waiver_flag.size + 
   lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.size + 
-  lseg_turquoise_mifid_gtp_v24_4.reserved_4.size + 
+  lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.size + 
   lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.size + 
   lseg_turquoise_mifid_gtp_v24_4.pt_amendment_flag.size + 
   lseg_turquoise_mifid_gtp_v24_4.reserved_28.size + 
@@ -1953,8 +1977,8 @@ lseg_turquoise_mifid_gtp_v24_4.mi_fid_ii_trade_cross_message.fields = function(b
   -- Pt Algo Trade: Alpha
   index, pt_algo_trade = lseg_turquoise_mifid_gtp_v24_4.pt_algo_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: Alpha
-  index, reserved_4 = lseg_turquoise_mifid_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
+  -- Second Reserved 4: Alpha
+  index, second_reserved_4 = lseg_turquoise_mifid_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Pt Cancellation Flag: Alpha
   index, pt_cancellation_flag = lseg_turquoise_mifid_gtp_v24_4.pt_cancellation_flag.dissect(buffer, index, packet, parent)

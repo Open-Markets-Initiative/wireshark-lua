@@ -233,6 +233,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_acknowledgment_
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_account_exists = ProtoField.new("Cross Order Cancelled Account Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledaccountexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_alloc_qty_exists = ProtoField.new("Cross Order Cancelled Alloc Qty Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledallocqtyexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_attributed_quote_exists = ProtoField.new("Cross Order Cancelled Attributed Quote Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledattributedquoteexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_auction_id_exists = ProtoField.new("Cross Order Cancelled Auction Id Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledauctionidexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_bitfield_count = ProtoField.new("Cross Order Cancelled Bitfield Count", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledbitfieldcount", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_1 = ProtoField.new("Cross Order Cancelled Byte 1", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledbyte1", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_byte_10 = ProtoField.new("Cross Order Cancelled Byte 10", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledbyte10", ftypes.STRING)
@@ -280,7 +281,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_retur
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_routing_firm_id_exists = ProtoField.new("Cross Order Cancelled Routing Firm Id Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledroutingfirmidexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_strike_price_exists = ProtoField.new("Cross Order Cancelled Strike Price Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledstrikepriceexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_symbol_exists = ProtoField.new("Cross Order Cancelled Symbol Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledsymbolexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_target_party_id_exists = ProtoField.new("Cross Order Cancelled Target Party Id Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledtargetpartyidexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_target_party_id_exists = ProtoField.new("Cross Order Cancelled Target Party Id Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossordercancelledtargetpartyidexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_attributed_quote_exists = ProtoField.new("Cross Order Rejected Attributed Quote Exists", "cboe.c1options.binaryorderentry.boe.v2.10.crossorderrejectedattributedquoteexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_bitfield_count = ProtoField.new("Cross Order Rejected Bitfield Count", "cboe.c1options.binaryorderentry.boe.v2.10.crossorderrejectedbitfieldcount", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_rejected_byte_1 = ProtoField.new("Cross Order Rejected Byte 1", "cboe.c1options.binaryorderentry.boe.v2.10.crossorderrejectedbyte1", ftypes.STRING)
@@ -17600,9 +17601,9 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_9.display =
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Cross Order Cancelled Reserved Bit 4 Exists"
   end
-  -- Is Cross Order Cancelled Target Party Id Exists flag set?
+  -- Is Cross Order Cancelled Auction Id Exists flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Cross Order Cancelled Target Party Id Exists"
+    flags[#flags + 1] = "Cross Order Cancelled Auction Id Exists"
   end
   -- Is Cross Order Cancelled Target Party Id Exists flag set?
   if bit.band(value, 0x40) ~= 0 then
@@ -17634,8 +17635,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_byte_9.bits = fu
   -- Cross Order Cancelled Reserved Bit 4 Exists: 1 Bit
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_reserved_bit_4_exists, range, value)
 
-  -- Cross Order Cancelled Target Party Id Exists: 1 Bit
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_target_party_id_exists, range, value)
+  -- Cross Order Cancelled Auction Id Exists: 1 Bit
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_auction_id_exists, range, value)
 
   -- Cross Order Cancelled Target Party Id Exists: 1 Bit
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_order_cancelled_target_party_id_exists, range, value)
@@ -18684,22 +18685,19 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_optional_fields.
   -- Runtime optional field: Target Party Id
   local target_party_id = nil
 
-  local target_party_id_exists = cross_order_cancelled_bitfield_count >= 9 and bit.band(cross_order_cancelled_byte_9, 0x20) > 0
+  local target_party_id_exists = cross_order_cancelled_bitfield_count >= 9 and bit.band(cross_order_cancelled_byte_9, 0x40) > 0
 
   if target_party_id_exists then
     index, target_party_id = cboe_c1options_binaryorderentry_boe_v2_10.target_party_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Cross Order Cancelled Bitfield Count
-  local cross_order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
+  -- Runtime optional field: Auction Id
+  local auction_id = nil
 
-  -- Runtime optional field: Target Party Id
-  local target_party_id = nil
+  local auction_id_exists = cross_order_cancelled_bitfield_count >= 9 and bit.band(cross_order_cancelled_byte_9, 0x20) > 0
 
-  local target_party_id_exists = cross_order_cancelled_bitfield_count >= 9 and bit.band(cross_order_cancelled_byte_9, 0x20) > 0
-
-  if target_party_id_exists then
-    index, target_party_id = cboe_c1options_binaryorderentry_boe_v2_10.target_party_id.dissect(buffer, index, packet, parent)
+  if auction_id_exists then
+    index, auction_id = cboe_c1options_binaryorderentry_boe_v2_10.auction_id.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Cmta Number

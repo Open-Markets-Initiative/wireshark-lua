@@ -47,6 +47,7 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reg_sho_action =
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.remainingquantity", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.reserved1", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.retailpriceimprovement", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.secondreserved1", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.sellshares", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.sequence = ProtoField.new("Sequence", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.sequence", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.shares_contracts = ProtoField.new("Shares Contracts", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.64.sharescontracts", ftypes.UINT32)
@@ -880,6 +881,29 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.di
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sell Shares
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.sell_shares = {}
 
@@ -1433,7 +1457,7 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.s
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.trading_status.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.size + 
-  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.size
+  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.size
 
 -- Display: Eq Trading Status Message
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.display = function(packet, parent, length)
@@ -1459,8 +1483,8 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.f
   -- Reserved 1: Alpha
   index, reserved_1 = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Alpha
-  index, reserved_1 = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Alpha
+  index, second_reserved_1 = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_64.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

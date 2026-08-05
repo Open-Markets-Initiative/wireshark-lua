@@ -71,6 +71,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.reserved = ProtoField.new("Reserved", "sia
 omi_siac_opra_input_obi_v5_0_i.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.input.obi.v5.0.i.reserved1", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.input.obi.v5.0.i.reserved4", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.opra.input.obi.v5.0.i.reserved8", ftypes.UINT64)
+omi_siac_opra_input_obi_v5_0_i.fields.second_reserved = ProtoField.new("Second Reserved", "siac.opra.input.obi.v5.0.i.secondreserved", ftypes.UINT8)
+omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "siac.opra.input.obi.v5.0.i.secondreserved4", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.seconds = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.input.obi.v5.0.i.securitysymbol", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.input.obi.v5.0.i.securitysymbolshort", ftypes.STRING)
@@ -82,6 +84,7 @@ omi_siac_opra_input_obi_v5_0_i.fields.short_equity_and_index_quote_message_type 
 omi_siac_opra_input_obi_v5_0_i.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.input.obi.v5.0.i.strikeprice", ftypes.INT32)
 omi_siac_opra_input_obi_v5_0_i.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.input.obi.v5.0.i.strikepricedenominatorcode", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.input.obi.v5.0.i.strikepriceshort", ftypes.UINT16)
+omi_siac_opra_input_obi_v5_0_i.fields.third_reserved = ProtoField.new("Third Reserved", "siac.opra.input.obi.v5.0.i.thirdreserved", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.input.obi.v5.0.i.tradeidentifier", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.underlying_price = ProtoField.new("Underlying Price", "siac.opra.input.obi.v5.0.i.underlyingprice", ftypes.INT64)
 omi_siac_opra_input_obi_v5_0_i.fields.underlying_price_denominator_code = ProtoField.new("Underlying Price Denominator Code", "siac.opra.input.obi.v5.0.i.underlyingpricedenominatorcode", ftypes.STRING)
@@ -1560,6 +1563,52 @@ siac_opra_input_obi_v5_0_i.reserved_8.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Second Reserved
+siac_opra_input_obi_v5_0_i.second_reserved = {}
+
+-- Size: Second Reserved
+siac_opra_input_obi_v5_0_i.second_reserved.size = 1
+
+-- Display: Second Reserved
+siac_opra_input_obi_v5_0_i.second_reserved.display = function(value)
+  return "Second Reserved: "..value
+end
+
+-- Dissect: Second Reserved
+siac_opra_input_obi_v5_0_i.second_reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_input_obi_v5_0_i.second_reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_input_obi_v5_0_i.second_reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.second_reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 4
+siac_opra_input_obi_v5_0_i.second_reserved_4 = {}
+
+-- Size: Second Reserved 4
+siac_opra_input_obi_v5_0_i.second_reserved_4.size = 4
+
+-- Display: Second Reserved 4
+siac_opra_input_obi_v5_0_i.second_reserved_4.display = function(value)
+  return "Second Reserved 4: "..value
+end
+
+-- Dissect: Second Reserved 4
+siac_opra_input_obi_v5_0_i.second_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_input_obi_v5_0_i.second_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_input_obi_v5_0_i.second_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Seconds
 siac_opra_input_obi_v5_0_i.seconds = {}
 
@@ -1835,6 +1884,29 @@ siac_opra_input_obi_v5_0_i.strike_price_short.dissect = function(buffer, offset,
   local display = siac_opra_input_obi_v5_0_i.strike_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_input_obi_v5_0_i.fields.strike_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved
+siac_opra_input_obi_v5_0_i.third_reserved = {}
+
+-- Size: Third Reserved
+siac_opra_input_obi_v5_0_i.third_reserved.size = 1
+
+-- Display: Third Reserved
+siac_opra_input_obi_v5_0_i.third_reserved.display = function(value)
+  return "Third Reserved: "..value
+end
+
+-- Dissect: Third Reserved
+siac_opra_input_obi_v5_0_i.third_reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_opra_input_obi_v5_0_i.third_reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_input_obi_v5_0_i.third_reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.third_reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2368,7 +2440,7 @@ siac_opra_input_obi_v5_0_i.block_sequence_number_status_inquiry_request_message.
   siac_opra_input_obi_v5_0_i.session_indicator.size + 
   siac_opra_input_obi_v5_0_i.participant_reference_number.size + 
   siac_opra_input_obi_v5_0_i.reserved_4.size + 
-  siac_opra_input_obi_v5_0_i.reserved_4.size
+  siac_opra_input_obi_v5_0_i.second_reserved_4.size
 
 -- Display: Block Sequence Number Status Inquiry Request Message
 siac_opra_input_obi_v5_0_i.block_sequence_number_status_inquiry_request_message.display = function(packet, parent, length)
@@ -2388,8 +2460,8 @@ siac_opra_input_obi_v5_0_i.block_sequence_number_status_inquiry_request_message.
   -- Reserved 4: unsigned integer
   index, reserved_4 = siac_opra_input_obi_v5_0_i.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: unsigned integer
-  index, reserved_4 = siac_opra_input_obi_v5_0_i.reserved_4.dissect(buffer, index, packet, parent)
+  -- Second Reserved 4: unsigned integer
+  index, second_reserved_4 = siac_opra_input_obi_v5_0_i.second_reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3609,8 +3681,8 @@ siac_opra_input_obi_v5_0_i.block_header.size =
   siac_opra_input_obi_v5_0_i.version.size + 
   siac_opra_input_obi_v5_0_i.block_size.size + 
   siac_opra_input_obi_v5_0_i.reserved.size + 
-  siac_opra_input_obi_v5_0_i.reserved.size + 
-  siac_opra_input_obi_v5_0_i.reserved.size + 
+  siac_opra_input_obi_v5_0_i.second_reserved.size + 
+  siac_opra_input_obi_v5_0_i.third_reserved.size + 
   siac_opra_input_obi_v5_0_i.block_sequence_number.size + 
   siac_opra_input_obi_v5_0_i.messages_in_block.size + 
   siac_opra_input_obi_v5_0_i.block_timestamp.size + 
@@ -3634,11 +3706,11 @@ siac_opra_input_obi_v5_0_i.block_header.fields = function(buffer, offset, packet
   -- Reserved: unsigned integer
   index, reserved = siac_opra_input_obi_v5_0_i.reserved.dissect(buffer, index, packet, parent)
 
-  -- Reserved: unsigned integer
-  index, reserved = siac_opra_input_obi_v5_0_i.reserved.dissect(buffer, index, packet, parent)
+  -- Second Reserved: unsigned integer
+  index, second_reserved = siac_opra_input_obi_v5_0_i.second_reserved.dissect(buffer, index, packet, parent)
 
-  -- Reserved: unsigned integer
-  index, reserved = siac_opra_input_obi_v5_0_i.reserved.dissect(buffer, index, packet, parent)
+  -- Third Reserved: unsigned integer
+  index, third_reserved = siac_opra_input_obi_v5_0_i.third_reserved.dissect(buffer, index, packet, parent)
 
   -- Block Sequence Number: unsigned integer
   index, block_sequence_number = siac_opra_input_obi_v5_0_i.block_sequence_number.dissect(buffer, index, packet, parent)

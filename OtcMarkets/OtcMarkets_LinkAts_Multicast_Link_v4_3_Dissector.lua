@@ -18,6 +18,7 @@ local otcmarkets_linkats_multicast_link_v4_3 = {}
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.multicast.link.v4.3.adrlevel", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.multicast.link.v4.3.adrratio", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_bid_wanted = ProtoField.new("Ask Bid Wanted", "otcmarkets.linkats.multicast.link.v4.3.askbidwanted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_num_priced_mp = ProtoField.new("Ask Num Priced Mp", "otcmarkets.linkats.multicast.link.v4.3.asknumpricedmp", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.multicast.link.v4.3.askprice", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_priced = ProtoField.new("Ask Priced", "otcmarkets.linkats.multicast.link.v4.3.askpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_qap = ProtoField.new("Ask Qap", "otcmarkets.linkats.multicast.link.v4.3.askqap", ftypes.INT8)
@@ -28,6 +29,7 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.asset_class = ProtoField.new("
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bb_quoted = ProtoField.new("Bb Quoted", "otcmarkets.linkats.multicast.link.v4.3.bbquoted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_ask_wanted = ProtoField.new("Bid Ask Wanted", "otcmarkets.linkats.multicast.link.v4.3.bidaskwanted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_auto_ex = ProtoField.new("Bid Auto Ex", "otcmarkets.linkats.multicast.link.v4.3.bidautoex", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_num_priced_mp = ProtoField.new("Bid Num Priced Mp", "otcmarkets.linkats.multicast.link.v4.3.bidnumpricedmp", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.multicast.link.v4.3.bidprice", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_priced = ProtoField.new("Bid Priced", "otcmarkets.linkats.multicast.link.v4.3.bidpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_qap = ProtoField.new("Bid Qap", "otcmarkets.linkats.multicast.link.v4.3.bidqap", ftypes.INT8)
@@ -45,6 +47,7 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.disclosure_status = ProtoField
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otcmarkets.linkats.multicast.link.v4.3.extendedquoteflags", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otcmarkets.linkats.multicast.link.v4.3.extendedsecurityflags", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.multicast.link.v4.3.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_action = ProtoField.new("Inside Action", "otcmarkets.linkats.multicast.link.v4.3.insideaction", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_id = ProtoField.new("Inside Id", "otcmarkets.linkats.multicast.link.v4.3.insideid", ftypes.UINT32)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_time_milli = ProtoField.new("Inside Time Milli", "otcmarkets.linkats.multicast.link.v4.3.insidetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.investment_grade = ProtoField.new("Investment Grade", "otcmarkets.linkats.multicast.link.v4.3.investmentgrade", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
@@ -134,6 +137,7 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.update_side = ProtoField.new("
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.multicast.link.v4.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_message = ProtoField.new("Extended Security Message", "otcmarkets.linkats.multicast.link.v4.3.extendedsecuritymessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otcmarkets.linkats.multicast.link.v4.3.extendedsecuritynocusipmessage", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_message = ProtoField.new("Inside Message", "otcmarkets.linkats.multicast.link.v4.3.insidemessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_update_message = ProtoField.new("Inside Update Message", "otcmarkets.linkats.multicast.link.v4.3.insideupdatemessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.market_close_message = ProtoField.new("Market Close Message", "otcmarkets.linkats.multicast.link.v4.3.marketclosemessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.market_open_message = ProtoField.new("Market Open Message", "otcmarkets.linkats.multicast.link.v4.3.marketopenmessage", ftypes.STRING)
@@ -227,6 +231,29 @@ otcmarkets_linkats_multicast_link_v4_3.adr_ratio.dissect = function(buffer, offs
   local display = otcmarkets_linkats_multicast_link_v4_3.adr_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.adr_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp = {}
+
+-- Size: Ask Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.size = 1
+
+-- Display: Ask Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.display = function(value)
+  return "Ask Num Priced Mp: "..value
+end
+
+-- Dissect: Ask Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.ask_num_priced_mp, range, value, display)
 
   return offset + length, value
 end
@@ -349,6 +376,29 @@ otcmarkets_linkats_multicast_link_v4_3.asset_class.dissect = function(buffer, of
   local display = otcmarkets_linkats_multicast_link_v4_3.asset_class.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.asset_class, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp = {}
+
+-- Size: Bid Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.size = 1
+
+-- Display: Bid Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.display = function(value)
+  return "Bid Num Priced Mp: "..value
+end
+
+-- Dissect: Bid Num Priced Mp
+otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.bid_num_priced_mp, range, value, display)
 
   return offset + length, value
 end
@@ -592,6 +642,39 @@ otcmarkets_linkats_multicast_link_v4_3.disclosure_status.dissect = function(buff
   local display = otcmarkets_linkats_multicast_link_v4_3.disclosure_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.disclosure_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Action
+otcmarkets_linkats_multicast_link_v4_3.inside_action = {}
+
+-- Size: Inside Action
+otcmarkets_linkats_multicast_link_v4_3.inside_action.size = 1
+
+-- Display: Inside Action
+otcmarkets_linkats_multicast_link_v4_3.inside_action.display = function(value)
+  if value == 2 then
+    return "Inside Action: Add (2)"
+  end
+  if value == 3 then
+    return "Inside Action: Delete (3)"
+  end
+  if value == 4 then
+    return "Inside Action: Spin (4)"
+  end
+
+  return "Inside Action: Unknown("..value..")"
+end
+
+-- Dissect: Inside Action
+otcmarkets_linkats_multicast_link_v4_3.inside_action.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_multicast_link_v4_3.inside_action.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_multicast_link_v4_3.inside_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_action, range, value, display)
 
   return offset + length, value
 end
@@ -879,7 +962,7 @@ otcmarkets_linkats_multicast_link_v4_3.message_type.display = function(value)
     return "Message Type: Quote Update Message (2)"
   end
   if value == 3 then
-    return "Message Type: Market Open Message (3)"
+    return "Message Type: Inside Message (3)"
   end
   if value == 4 then
     return "Message Type: Inside Update Message (4)"
@@ -3076,51 +3159,91 @@ otcmarkets_linkats_multicast_link_v4_3.inside_update_message.dissect = function(
   end
 end
 
--- Market Open Message
-otcmarkets_linkats_multicast_link_v4_3.market_open_message = {}
+-- Inside Message
+otcmarkets_linkats_multicast_link_v4_3.inside_message = {}
 
--- Size: Market Open Message
-otcmarkets_linkats_multicast_link_v4_3.market_open_message.size =
+-- Size: Inside Message
+otcmarkets_linkats_multicast_link_v4_3.inside_message.size =
   otcmarkets_linkats_multicast_link_v4_3.channel_seq_num.size + 
-  otcmarkets_linkats_multicast_link_v4_3.market_open.size + 
-  otcmarkets_linkats_multicast_link_v4_3.market_close.size
+  otcmarkets_linkats_multicast_link_v4_3.inside_id.size + 
+  otcmarkets_linkats_multicast_link_v4_3.inside_action.size + 
+  otcmarkets_linkats_multicast_link_v4_3.quote_flags.size + 
+  otcmarkets_linkats_multicast_link_v4_3.security_id.size + 
+  otcmarkets_linkats_multicast_link_v4_3.ask_price.size + 
+  otcmarkets_linkats_multicast_link_v4_3.ask_size.size + 
+  otcmarkets_linkats_multicast_link_v4_3.ask_time_milli.size + 
+  otcmarkets_linkats_multicast_link_v4_3.bid_price.size + 
+  otcmarkets_linkats_multicast_link_v4_3.bid_size.size + 
+  otcmarkets_linkats_multicast_link_v4_3.bid_time_milli.size + 
+  otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.size + 
+  otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.size
 
--- Display: Market Open Message
-otcmarkets_linkats_multicast_link_v4_3.market_open_message.display = function(packet, parent, length)
+-- Display: Inside Message
+otcmarkets_linkats_multicast_link_v4_3.inside_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Market Open Message
-otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Inside Message
+otcmarkets_linkats_multicast_link_v4_3.inside_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: Unsigned Integer
   index, channel_seq_num = otcmarkets_linkats_multicast_link_v4_3.channel_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Market Open: Unsigned Integer
-  index, market_open = otcmarkets_linkats_multicast_link_v4_3.market_open.dissect(buffer, index, packet, parent)
+  -- Inside Id: Unsigned Integer
+  index, inside_id = otcmarkets_linkats_multicast_link_v4_3.inside_id.dissect(buffer, index, packet, parent)
 
-  -- Market Close: Unsigned Integer
-  index, market_close = otcmarkets_linkats_multicast_link_v4_3.market_close.dissect(buffer, index, packet, parent)
+  -- Inside Action: Unsigned Integer
+  index, inside_action = otcmarkets_linkats_multicast_link_v4_3.inside_action.dissect(buffer, index, packet, parent)
+
+  -- Quote Flags: Struct of 8 fields
+  index, quote_flags = otcmarkets_linkats_multicast_link_v4_3.quote_flags.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Unsigned Integer
+  index, security_id = otcmarkets_linkats_multicast_link_v4_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Ask Price: Unsigned Integer
+  index, ask_price = otcmarkets_linkats_multicast_link_v4_3.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Size: Unsigned Integer
+  index, ask_size = otcmarkets_linkats_multicast_link_v4_3.ask_size.dissect(buffer, index, packet, parent)
+
+  -- Ask Time Milli: Unsigned Integer
+  index, ask_time_milli = otcmarkets_linkats_multicast_link_v4_3.ask_time_milli.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Unsigned Integer
+  index, bid_price = otcmarkets_linkats_multicast_link_v4_3.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Size: Unsigned Integer
+  index, bid_size = otcmarkets_linkats_multicast_link_v4_3.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Bid Time Milli: Unsigned Integer
+  index, bid_time_milli = otcmarkets_linkats_multicast_link_v4_3.bid_time_milli.dissect(buffer, index, packet, parent)
+
+  -- Ask Num Priced Mp: Unsigned Integer
+  index, ask_num_priced_mp = otcmarkets_linkats_multicast_link_v4_3.ask_num_priced_mp.dissect(buffer, index, packet, parent)
+
+  -- Bid Num Priced Mp: Unsigned Integer
+  index, bid_num_priced_mp = otcmarkets_linkats_multicast_link_v4_3.bid_num_priced_mp.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Market Open Message
-otcmarkets_linkats_multicast_link_v4_3.market_open_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Inside Message
+otcmarkets_linkats_multicast_link_v4_3.inside_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.market_open_message, buffer(offset, 0))
-    local index = otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.inside_message, buffer(offset, 0))
+    local index = otcmarkets_linkats_multicast_link_v4_3.inside_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = otcmarkets_linkats_multicast_link_v4_3.market_open_message.display(packet, parent, length)
+    local display = otcmarkets_linkats_multicast_link_v4_3.inside_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields(buffer, offset, packet, parent)
+    return otcmarkets_linkats_multicast_link_v4_3.inside_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3484,6 +3607,54 @@ otcmarkets_linkats_multicast_link_v4_3.market_close_message.dissect = function(b
   end
 end
 
+-- Market Open Message
+otcmarkets_linkats_multicast_link_v4_3.market_open_message = {}
+
+-- Size: Market Open Message
+otcmarkets_linkats_multicast_link_v4_3.market_open_message.size =
+  otcmarkets_linkats_multicast_link_v4_3.channel_seq_num.size + 
+  otcmarkets_linkats_multicast_link_v4_3.market_open.size + 
+  otcmarkets_linkats_multicast_link_v4_3.market_close.size
+
+-- Display: Market Open Message
+otcmarkets_linkats_multicast_link_v4_3.market_open_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Open Message
+otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Channel Seq Num: Unsigned Integer
+  index, channel_seq_num = otcmarkets_linkats_multicast_link_v4_3.channel_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Market Open: Unsigned Integer
+  index, market_open = otcmarkets_linkats_multicast_link_v4_3.market_open.dissect(buffer, index, packet, parent)
+
+  -- Market Close: Unsigned Integer
+  index, market_close = otcmarkets_linkats_multicast_link_v4_3.market_close.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Open Message
+otcmarkets_linkats_multicast_link_v4_3.market_open_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_otcmarkets_linkats_multicast_link_v4_3.fields.market_open_message, buffer(offset, 0))
+    local index = otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = otcmarkets_linkats_multicast_link_v4_3.market_open_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return otcmarkets_linkats_multicast_link_v4_3.market_open_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- End Of Spin Message
 otcmarkets_linkats_multicast_link_v4_3.end_of_spin_message = {}
 
@@ -3625,9 +3796,9 @@ otcmarkets_linkats_multicast_link_v4_3.payload.dissect = function(buffer, offset
   if message_type == 2 then
     return otcmarkets_linkats_multicast_link_v4_3.quote_update_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Market Open Message
+  -- Dissect Inside Message
   if message_type == 3 then
-    return otcmarkets_linkats_multicast_link_v4_3.market_open_message.dissect(buffer, offset, packet, parent)
+    return otcmarkets_linkats_multicast_link_v4_3.inside_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Inside Update Message
   if message_type == 4 then

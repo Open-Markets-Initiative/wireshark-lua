@@ -33,6 +33,7 @@ omi_lseg_tradeecho_level2_gtp_v24_4.fields.new_end_time = ProtoField.new("New En
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.level2.gtp.v24.4.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2.gtp.v24.4.orderbooktype", ftypes.UINT8)
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2.gtp.v24.4.orderid", ftypes.UINT64)
+omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_type = ProtoField.new("Order Type", "lseg.tradeecho.level2.gtp.v24.4.ordertype", ftypes.UINT8)
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2.gtp.v24.4.packet", ftypes.STRING)
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2.gtp.v24.4.participant", ftypes.STRING)
 omi_lseg_tradeecho_level2_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.tradeecho.level2.gtp.v24.4.previousprice", ftypes.DOUBLE)
@@ -494,6 +495,33 @@ lseg_tradeecho_level2_gtp_v24_4.order_id.dissect = function(buffer, offset, pack
   local display = lseg_tradeecho_level2_gtp_v24_4.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+lseg_tradeecho_level2_gtp_v24_4.order_type = {}
+
+-- Size: Order Type
+lseg_tradeecho_level2_gtp_v24_4.order_type.size = 1
+
+-- Display: Order Type
+lseg_tradeecho_level2_gtp_v24_4.order_type.display = function(value)
+  if value == 0 then
+    return "Order Type: Si Quote (0)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+lseg_tradeecho_level2_gtp_v24_4.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2_gtp_v24_4.order_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2_gtp_v24_4.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2_gtp_v24_4.fields.order_type, range, value, display)
 
   return offset + length, value
 end
@@ -1128,7 +1156,7 @@ lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes_message.size =
   lseg_tradeecho_level2_gtp_v24_4.source_venue.size + 
   lseg_tradeecho_level2_gtp_v24_4.order_book_type.size + 
   lseg_tradeecho_level2_gtp_v24_4.participant.size + 
-  lseg_tradeecho_level2_gtp_v24_4.order_book_type.size + 
+  lseg_tradeecho_level2_gtp_v24_4.order_type.size + 
   lseg_tradeecho_level2_gtp_v24_4.reserved_10.size + 
   lseg_tradeecho_level2_gtp_v24_4.currency.size + 
   lseg_tradeecho_level2_gtp_v24_4.venue_of_publication.size
@@ -1172,8 +1200,8 @@ lseg_tradeecho_level2_gtp_v24_4.systematic_internaliser_quotes_message.fields = 
   -- Participant: Alpha
   index, participant = lseg_tradeecho_level2_gtp_v24_4.participant.dissect(buffer, index, packet, parent)
 
-  -- Order Book Type: UInt8
-  index, order_book_type = lseg_tradeecho_level2_gtp_v24_4.order_book_type.dissect(buffer, index, packet, parent)
+  -- Order Type: UInt8
+  index, order_type = lseg_tradeecho_level2_gtp_v24_4.order_type.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: Alpha
   index, reserved_10 = lseg_tradeecho_level2_gtp_v24_4.reserved_10.dissect(buffer, index, packet, parent)

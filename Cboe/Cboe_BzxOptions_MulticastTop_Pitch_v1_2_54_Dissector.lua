@@ -60,6 +60,7 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.reserved_1 = ProtoField.ne
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.reserved2", ftypes.BYTES)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.reserved_high = ProtoField.new("Reserved High", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.reservedhigh", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.reserved_low = ProtoField.new("Reserved Low", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.reservedlow", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.secondreserved1", ftypes.BYTES)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.sellcontracts", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.sequence = ProtoField.new("Sequence", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.sequence", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.side = ProtoField.new("Side", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.side", ftypes.STRING)
@@ -1178,6 +1179,29 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_2.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Second Reserved 1
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sell Contracts
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.sell_contracts = {}
 
@@ -1746,7 +1770,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_1.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_1.size
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.size
 
 -- Display: Trading Status Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message.display = function(packet, parent, length)
@@ -1775,8 +1799,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message.fields = funct
   -- Gth Trading Status: Alpha
   index, gth_trading_status = cboe_bzxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Reserved
-  index, reserved_1 = cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_1.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: Reserved
+  index, second_reserved_1 = cboe_bzxoptions_multicasttop_pitch_v1_2_54.second_reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end

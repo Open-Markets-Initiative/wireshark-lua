@@ -3950,7 +3950,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.packet.dissect
     -- Message Code: String
     index, message_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_code.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 38 branches
+    -- Payload: Runtime Type with 14 branches
     index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.payload.dissect(buffer, index, packet, parent, message_code)
   end
 

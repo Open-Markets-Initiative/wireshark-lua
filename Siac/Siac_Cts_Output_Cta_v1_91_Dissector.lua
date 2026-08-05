@@ -5037,7 +5037,7 @@ siac_cts_output_cta_v1_91.prior_day_message.fields = function(buffer, offset, pa
   -- Prior Day Message Type: 1 Byte Ascii String Enum with 3 values
   index, prior_day_message_type = siac_cts_output_cta_v1_91.prior_day_message_type.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Message Payload: Runtime Type with 3 branches
+  -- Prior Day Message Payload: Runtime Type with 2 branches
   index = siac_cts_output_cta_v1_91.prior_day_message_payload.dissect(buffer, index, packet, parent, prior_day_message_type)
 
   return index

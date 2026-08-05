@@ -63,6 +63,10 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", 
 omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.millennium.level2.mitch.v11.9.reserved1", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.millennium.level2.mitch.v11.9.reserved10", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.millennium.level2.mitch.v11.9.reserved4", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lseg.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lseg.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.second_unused_1 = ProtoField.new("Second Unused 1", "lseg.millennium.level2.mitch.v11.9.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_lseg_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
 omi_lseg_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lseg.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.segment = ProtoField.new("Segment", "lseg.millennium.level2.mitch.v11.9.segment", ftypes.STRING)
@@ -72,6 +76,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.sequence_number = ProtoField.new("
 omi_lseg_millennium_level2_mitch_v11_9.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.millennium.level2.mitch.v11.9.sessionchangereason", ftypes.UINT8)
 omi_lseg_millennium_level2_mitch_v11_9.fields.side = ProtoField.new("Side", "lseg.millennium.level2.mitch.v11.9.side", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.millennium.level2.mitch.v11.9.statistictype", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.statistics_reserved = ProtoField.new("Statistics Reserved", "lseg.millennium.level2.mitch.v11.9.statisticsreserved", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.sub_book = ProtoField.new("Sub Book", "lseg.millennium.level2.mitch.v11.9.subbook", ftypes.UINT8)
 omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status = ProtoField.new("Symbol Status", "lseg.millennium.level2.mitch.v11.9.symbolstatus", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status_flags = ProtoField.new("Symbol Status Flags", "lseg.millennium.level2.mitch.v11.9.symbolstatusflags", ftypes.STRING)
@@ -84,6 +89,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2 = ProtoField.new("Unused 
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4 = ProtoField.new("Unused 4", "lseg.millennium.level2.mitch.v11.9.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5 = ProtoField.new("Unused 5", "lseg.millennium.level2.mitch.v11.9.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8 = ProtoField.new("Unused 8", "lseg.millennium.level2.mitch.v11.9.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
 -- Lseg Millennium Mitch Level2 11.9 Application Messages
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lseg.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
@@ -1015,6 +1021,75 @@ lseg_millennium_level2_mitch_v11_9.reserved_4.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Reserved A
+lseg_millennium_level2_mitch_v11_9.reserved_a = {}
+
+-- Size: Reserved A
+lseg_millennium_level2_mitch_v11_9.reserved_a.size = 1
+
+-- Display: Reserved A
+lseg_millennium_level2_mitch_v11_9.reserved_a.display = function(value)
+  return "Reserved A: "..value
+end
+
+-- Dissect: Reserved A
+lseg_millennium_level2_mitch_v11_9.reserved_a.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_millennium_level2_mitch_v11_9.reserved_a.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_millennium_level2_mitch_v11_9.reserved_a.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved B
+lseg_millennium_level2_mitch_v11_9.reserved_b = {}
+
+-- Size: Reserved B
+lseg_millennium_level2_mitch_v11_9.reserved_b.size = 1
+
+-- Display: Reserved B
+lseg_millennium_level2_mitch_v11_9.reserved_b.display = function(value)
+  return "Reserved B: "..value
+end
+
+-- Dissect: Reserved B
+lseg_millennium_level2_mitch_v11_9.reserved_b.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_millennium_level2_mitch_v11_9.reserved_b.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_millennium_level2_mitch_v11_9.reserved_b.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved Byte
+lseg_millennium_level2_mitch_v11_9.reserved_byte = {}
+
+-- Size: Reserved Byte
+lseg_millennium_level2_mitch_v11_9.reserved_byte.size = 1
+
+-- Display: Reserved Byte
+lseg_millennium_level2_mitch_v11_9.reserved_byte.display = function(value)
+  return "Reserved Byte: "..value
+end
+
+-- Dissect: Reserved Byte
+lseg_millennium_level2_mitch_v11_9.reserved_byte.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_millennium_level2_mitch_v11_9.reserved_byte.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_millennium_level2_mitch_v11_9.reserved_byte.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
+
+  return offset + length, value
+end
+
 -- Seconds
 lseg_millennium_level2_mitch_v11_9.seconds = {}
 
@@ -1519,6 +1594,42 @@ lseg_millennium_level2_mitch_v11_9.top_of_book_message.dissect = function(buffer
   end
 end
 
+-- Statistics Reserved
+lseg_millennium_level2_mitch_v11_9.statistics_reserved = {}
+
+-- Size: Statistics Reserved
+lseg_millennium_level2_mitch_v11_9.statistics_reserved.size = 1
+
+-- Display: Statistics Reserved
+lseg_millennium_level2_mitch_v11_9.statistics_reserved.display = function(range, value, packet, parent)
+  local flags = {}
+
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Statistics Reserved
+lseg_millennium_level2_mitch_v11_9.statistics_reserved.bits = function(range, value, packet, parent)
+
+  -- Unused 8: 8 Bit
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8, range, value)
+end
+
+-- Dissect: Statistics Reserved
+lseg_millennium_level2_mitch_v11_9.statistics_reserved.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_millennium_level2_mitch_v11_9.statistics_reserved.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_millennium_level2_mitch_v11_9.statistics_reserved.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.statistics_reserved, range, display)
+
+  if show.structs then
+    lseg_millennium_level2_mitch_v11_9.statistics_reserved.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Statistics Message
 lseg_millennium_level2_mitch_v11_9.statistics_message = {}
 
@@ -1526,12 +1637,12 @@ lseg_millennium_level2_mitch_v11_9.statistics_message = {}
 lseg_millennium_level2_mitch_v11_9.statistics_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.statistic_type.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size
+  lseg_millennium_level2_mitch_v11_9.statistics_reserved.size
 
 -- Display: Statistics Message
 lseg_millennium_level2_mitch_v11_9.statistics_message.display = function(packet, parent, length)
@@ -1548,11 +1659,11 @@ lseg_millennium_level2_mitch_v11_9.statistics_message.fields = function(buffer, 
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Statistic Type: Alpha
   index, statistic_type = lseg_millennium_level2_mitch_v11_9.statistic_type.dissect(buffer, index, packet, parent)
@@ -1563,8 +1674,8 @@ lseg_millennium_level2_mitch_v11_9.statistics_message.fields = function(buffer, 
   -- Open Close Price Indicator: Alpha
   index, open_close_price_indicator = lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Statistics Reserved: Struct of 1 fields
+  index, statistics_reserved = lseg_millennium_level2_mitch_v11_9.statistics_reserved.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1597,8 +1708,8 @@ lseg_millennium_level2_mitch_v11_9.auction_info_message.size =
   lseg_millennium_level2_mitch_v11_9.reserved_4.size + 
   lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.auction_type.size
 
@@ -1626,11 +1737,11 @@ lseg_millennium_level2_mitch_v11_9.auction_info_message.fields = function(buffer
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = lseg_millennium_level2_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -1717,8 +1828,8 @@ lseg_millennium_level2_mitch_v11_9.auction_trade_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.quantity.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.trade_match_id.size + 
   lseg_millennium_level2_mitch_v11_9.auction_type.size + 
@@ -1742,11 +1853,11 @@ lseg_millennium_level2_mitch_v11_9.auction_trade_message.fields = function(buffe
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = lseg_millennium_level2_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -1789,8 +1900,8 @@ lseg_millennium_level2_mitch_v11_9.trade_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.executed_quantity.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.trade_match_id.size + 
   lseg_millennium_level2_mitch_v11_9.cross_type.size + 
@@ -1815,11 +1926,11 @@ lseg_millennium_level2_mitch_v11_9.trade_message.fields = function(buffer, offse
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = lseg_millennium_level2_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -2037,8 +2148,8 @@ lseg_millennium_level2_mitch_v11_9.order_book_clear_message = {}
 lseg_millennium_level2_mitch_v11_9.order_book_clear_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.size
 
 -- Display: Order Book Clear Message
@@ -2056,11 +2167,11 @@ lseg_millennium_level2_mitch_v11_9.order_book_clear_message.fields = function(bu
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Order Book Clear Flags: Struct of 4 fields
   index, order_book_clear_flags = lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.dissect(buffer, index, packet, parent)
@@ -2356,8 +2467,8 @@ lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.size =
   lseg_millennium_level2_mitch_v11_9.side.size + 
   lseg_millennium_level2_mitch_v11_9.quantity.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.attribution.size + 
   lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.size
@@ -2386,11 +2497,11 @@ lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.fields = functio
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = lseg_millennium_level2_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -2444,9 +2555,9 @@ lseg_millennium_level2_mitch_v11_9.add_order_flags.display = function(range, val
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Private Rfq"
   end
-  -- Is Unused 1 flag set?
+  -- Is Second Unused 1 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
+    flags[#flags + 1] = "Second Unused 1"
   end
 
   return table.concat(flags, "|")
@@ -2467,8 +2578,8 @@ lseg_millennium_level2_mitch_v11_9.add_order_flags.bits = function(range, value,
   -- Private Rfq: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.private_rfq, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_1, range, value)
+  -- Second Unused 1: 1 Bit
+  parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.second_unused_1, range, value)
 end
 
 -- Dissect: Add Order Flags
@@ -2496,8 +2607,8 @@ lseg_millennium_level2_mitch_v11_9.add_order_message.size =
   lseg_millennium_level2_mitch_v11_9.side.size + 
   lseg_millennium_level2_mitch_v11_9.quantity.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.price.size + 
   lseg_millennium_level2_mitch_v11_9.add_order_flags.size + 
   lseg_millennium_level2_mitch_v11_9.reserved_10.size
@@ -2526,11 +2637,11 @@ lseg_millennium_level2_mitch_v11_9.add_order_message.fields = function(buffer, o
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = lseg_millennium_level2_mitch_v11_9.price.dissect(buffer, index, packet, parent)
@@ -2615,8 +2726,8 @@ lseg_millennium_level2_mitch_v11_9.symbol_status_message = {}
 lseg_millennium_level2_mitch_v11_9.symbol_status_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.trading_status.size + 
   lseg_millennium_level2_mitch_v11_9.symbol_status_flags.size + 
   lseg_millennium_level2_mitch_v11_9.reason.size + 
@@ -2639,11 +2750,11 @@ lseg_millennium_level2_mitch_v11_9.symbol_status_message.fields = function(buffe
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Trading Status: Byte
   index, trading_status = lseg_millennium_level2_mitch_v11_9.trading_status.dissect(buffer, index, packet, parent)
@@ -2691,15 +2802,15 @@ lseg_millennium_level2_mitch_v11_9.symbol_directory_message = {}
 lseg_millennium_level2_mitch_v11_9.symbol_directory_message.size =
   lseg_millennium_level2_mitch_v11_9.nanosecond.size + 
   lseg_millennium_level2_mitch_v11_9.instrument_id.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_a.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_b.size + 
   lseg_millennium_level2_mitch_v11_9.symbol_status.size + 
   lseg_millennium_level2_mitch_v11_9.isin.size + 
   lseg_millennium_level2_mitch_v11_9.sedol.size + 
   lseg_millennium_level2_mitch_v11_9.segment.size + 
   lseg_millennium_level2_mitch_v11_9.underlying.size + 
   lseg_millennium_level2_mitch_v11_9.currency.size + 
-  lseg_millennium_level2_mitch_v11_9.reserved_1.size + 
+  lseg_millennium_level2_mitch_v11_9.reserved_byte.size + 
   lseg_millennium_level2_mitch_v11_9.reserved_4.size + 
   lseg_millennium_level2_mitch_v11_9.previous_close_price.size
 
@@ -2718,11 +2829,11 @@ lseg_millennium_level2_mitch_v11_9.symbol_directory_message.fields = function(bu
   -- Instrument Id: UInt32
   index, instrument_id = lseg_millennium_level2_mitch_v11_9.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved A: Byte
+  index, reserved_a = lseg_millennium_level2_mitch_v11_9.reserved_a.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved B: Byte
+  index, reserved_b = lseg_millennium_level2_mitch_v11_9.reserved_b.dissect(buffer, index, packet, parent)
 
   -- Symbol Status: Alpha
   index, symbol_status = lseg_millennium_level2_mitch_v11_9.symbol_status.dissect(buffer, index, packet, parent)
@@ -2742,8 +2853,8 @@ lseg_millennium_level2_mitch_v11_9.symbol_directory_message.fields = function(bu
   -- Currency: Alpha
   index, currency = lseg_millennium_level2_mitch_v11_9.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
-  index, reserved_1 = lseg_millennium_level2_mitch_v11_9.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved Byte: Byte
+  index, reserved_byte = lseg_millennium_level2_mitch_v11_9.reserved_byte.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: Alpha
   index, reserved_4 = lseg_millennium_level2_mitch_v11_9.reserved_4.dissect(buffer, index, packet, parent)

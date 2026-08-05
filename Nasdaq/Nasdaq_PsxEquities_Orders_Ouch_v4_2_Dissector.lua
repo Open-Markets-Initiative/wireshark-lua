@@ -1437,8 +1437,8 @@ nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message_type.display = function(
   if value == "U" then
     return "Unsequenced Message Type: Replace Order Message (U)"
   end
-  if value == "U" then
-    return "Unsequenced Message Type: Cancel Order Message (U)"
+  if value == "X" then
+    return "Unsequenced Message Type: Cancel Order Message (X)"
   end
   if value == "M" then
     return "Unsequenced Message Type: Modify Order Message (M)"
@@ -1779,7 +1779,7 @@ nasdaq_psxequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffe
     return nasdaq_psxequities_orders_ouch_v4_2.replace_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Message
-  if unsequenced_message_type == "U" then
+  if unsequenced_message_type == "X" then
     return nasdaq_psxequities_orders_ouch_v4_2.cancel_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message

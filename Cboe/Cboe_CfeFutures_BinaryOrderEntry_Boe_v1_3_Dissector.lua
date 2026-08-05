@@ -26759,9 +26759,6 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.reset_risk_message.fields = function(b
   -- Risk Reset: 8 Byte Ascii String Enum with 3 values
   index, risk_reset = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.dissect(buffer, index, packet, parent)
 
-  -- Risk Reset: 8 Byte Ascii String Enum with 3 values
-  index, risk_reset = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.dissect(buffer, index, packet, parent)
-
   -- Reserved 4: 4 Byte
   index, reserved_4 = cboe_cfefutures_binaryorderentry_boe_v1_3.reserved_4.dissect(buffer, index, packet, parent)
 

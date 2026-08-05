@@ -2839,7 +2839,6 @@ lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report_message.size =
   lseg_tradeecho_mifid_gtp_v24_4.notional_amount.size + 
   lseg_tradeecho_mifid_gtp_v24_4.notional_currency.size + 
   lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size + 
-  lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.size + 
   lseg_tradeecho_mifid_gtp_v24_4.publication_date_and_time.size + 
   lseg_tradeecho_mifid_gtp_v24_4.benchmark_transaction_flag.size + 
   lseg_tradeecho_mifid_gtp_v24_4.agency_cross_trade_flag.size + 
@@ -2951,9 +2950,6 @@ lseg_tradeecho_mifid_gtp_v24_4.mifid_ii_trade_report_message.fields = function(b
 
   -- Notional Currency: Alpha
   index, notional_currency = lseg_tradeecho_mifid_gtp_v24_4.notional_currency.dissect(buffer, index, packet, parent)
-
-  -- Venue Of Execution: Alpha
-  index, venue_of_execution = lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.dissect(buffer, index, packet, parent)
 
   -- Venue Of Execution: Alpha
   index, venue_of_execution = lseg_tradeecho_mifid_gtp_v24_4.venue_of_execution.dissect(buffer, index, packet, parent)
