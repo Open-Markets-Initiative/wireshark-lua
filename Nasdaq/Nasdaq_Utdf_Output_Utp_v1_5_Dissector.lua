@@ -75,6 +75,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message 
 omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utdf.output.utp.v1.5.mwcblevel2", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.utdf.output.utp.v1.5.mwcblevel3", ftypes.UINT64)
+omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_status_level_indicator = ProtoField.new("Mwcb Status Level Indicator", "nasdaq.utdf.output.utp.v1.5.mwcbstatuslevelindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries = ProtoField.new("Number Of Market Center Summaries", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentersummaries", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes = ProtoField.new("Number Of Market Center Volumes", "nasdaq.utdf.output.utp.v1.5.numberofmarketcentervolumes", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
@@ -135,6 +136,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message = Pr
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "nasdaq.utdf.output.utp.v1.5.marketsessionclosemessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "nasdaq.utdf.output.utp.v1.5.marketsessionopenmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Message", "nasdaq.utdf.output.utp.v1.5.marketwidecircuitbreakerdeclinelevelmessage", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "nasdaq.utdf.output.utp.v1.5.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.prior_day_as_of_trade_message = ProtoField.new("Prior Day As Of Trade Message", "nasdaq.utdf.output.utp.v1.5.priordayasoftrademessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Regulation Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.utdf.output.utp.v1.5.regulationshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.utdf.output.utp.v1.5.startofdaymessage", ftypes.STRING)
@@ -239,7 +241,7 @@ nasdaq_utdf_output_utp_v1_5.administrative_message_type.display = function(value
     return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (C)"
   end
   if value == "D" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (D)"
+    return "Administrative Message Type: Market Wide Circuit Breaker Status Message (D)"
   end
   if value == "E" then
     return "Administrative Message Type: Auction Collar Message (E)"
@@ -1860,6 +1862,39 @@ nasdaq_utdf_output_utp_v1_5.mwcb_level_3.dissect = function(buffer, offset, pack
   local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Status Level Indicator
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator = {}
+
+-- Size: Mwcb Status Level Indicator
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.size = 1
+
+-- Display: Mwcb Status Level Indicator
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.display = function(value)
+  if value == "1" then
+    return "Mwcb Status Level Indicator: Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Mwcb Status Level Indicator: Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Mwcb Status Level Indicator: Level 3 Breached (3)"
+  end
+
+  return "Mwcb Status Level Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Mwcb Status Level Indicator
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_status_level_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3741,6 +3776,59 @@ nasdaq_utdf_output_utp_v1_5.auction_collar_message.dissect = function(buffer, of
   end
 end
 
+-- Market Wide Circuit Breaker Status Message
+nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message = {}
+
+-- Read runtime size of: Market Wide Circuit Breaker Status Message
+nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
+-- Display: Market Wide Circuit Breaker Status Message
+nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Wide Circuit Breaker Status Message
+nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  local index = offset
+
+  -- Message Info: Struct of 5 fields
+  index, message_info = nasdaq_utdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
+
+  -- Mwcb Status Level Indicator: 1 Byte Ascii String Enum with 3 values
+  index, mwcb_status_level_indicator = nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Wide Circuit Breaker Status Message
+nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  local size_of_market_wide_circuit_breaker_status_message = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.size(buffer, offset)
+  local index = offset + size_of_market_wide_circuit_breaker_status_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
+    local current = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+    parent:set_len(size_of_market_wide_circuit_breaker_status_message)
+    local display = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+
+    return index
+  end
+end
+
 -- Market Wide Circuit Breaker Decline Level Message
 nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message = {}
 
@@ -4217,9 +4305,9 @@ nasdaq_utdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, of
   if administrative_message_type == "C" then
     return nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Market Wide Circuit Breaker Decline Level Message
+  -- Dissect Market Wide Circuit Breaker Status Message
   if administrative_message_type == "D" then
-    return nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect(buffer, offset, packet, parent)
+    return nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Auction Collar Message
   if administrative_message_type == "E" then
@@ -4258,7 +4346,7 @@ nasdaq_utdf_output_utp_v1_5.administrative.fields = function(buffer, offset, pac
   -- Administrative Message Type: 1 Byte Ascii String Enum with 10 values
   index, administrative_message_type = nasdaq_utdf_output_utp_v1_5.administrative_message_type.dissect(buffer, index, packet, parent)
 
-  -- Administrative Payload: Runtime Type with 9 branches
+  -- Administrative Payload: Runtime Type with 10 branches
   index = nasdaq_utdf_output_utp_v1_5.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
 
   return index
