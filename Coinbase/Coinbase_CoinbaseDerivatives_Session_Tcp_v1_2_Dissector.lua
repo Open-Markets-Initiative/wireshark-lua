@@ -1247,7 +1247,6 @@ coinbase_coinbasederivatives_session_tcp_v1_2.message_header = {}
 coinbase_coinbasederivatives_session_tcp_v1_2.message_header.size =
   coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.flags.size + 
-  coinbase_coinbasederivatives_session_tcp_v1_2.flags.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.message_length.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.sequence_number.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.last_processed_seq_no.size + 
@@ -1269,9 +1268,6 @@ coinbase_coinbasederivatives_session_tcp_v1_2.message_header.fields = function(b
 
   -- Protocol Id: uint8
   index, protocol_id = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.dissect(buffer, index, packet, parent)
-
-  -- Flags: Struct of 2 fields
-  index, flags = coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
 
   -- Flags: Struct of 2 fields
   index, flags = coinbase_coinbasederivatives_session_tcp_v1_2.flags.dissect(buffer, index, packet, parent)
@@ -1336,7 +1332,7 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset
 
-  -- Message Header: Struct of 12 fields
+  -- Message Header: Struct of 11 fields
   index, message_header = coinbase_coinbasederivatives_session_tcp_v1_2.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1346,7 +1342,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields = function(buff
   index = coinbase_coinbasederivatives_session_tcp_v1_2.payload.dissect(buffer, index, packet, parent, template_id)
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset + 3, 2):le_uint()
+  local message_length = buffer(offset + 2, 2):le_uint()
 
   -- Runtime optional field: Padding
   local padding = nil
@@ -1397,7 +1393,7 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   end
 
   -- Parse runtime size
-  local current = buffer(index + 3, 2):le_uint()
+  local current = buffer(index + 2, 2):le_uint()
 
   -- Check if enough bytes remain
   if remaining < current then
@@ -1470,7 +1466,7 @@ end
 -- Verify Schema Id Field
 coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(29, 2):le_uint()
+  local value = buffer(28, 2):le_uint()
 
   if value == 1100 then
     return true
@@ -1482,7 +1478,7 @@ end
 -- Verify Version Field
 coinbase_coinbasederivatives_session_tcp_v1_2.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(31, 2):le_uint()
+  local value = buffer(30, 2):le_uint()
 
   if value == 2 then
     return true
