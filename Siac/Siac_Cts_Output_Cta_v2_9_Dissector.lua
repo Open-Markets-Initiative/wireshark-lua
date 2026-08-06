@@ -143,6 +143,7 @@ omi_siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_decline_level_st
 omi_siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cts.output.cta.v2.9.marketwidecircuitbreakerstatusmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.participant_end_of_day_summary_message = ProtoField.new("Participant End Of Day Summary Message", "siac.cts.output.cta.v2.9.participantendofdaysummarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.participant_start_of_day_summary_message = ProtoField.new("Participant Start Of Day Summary Message", "siac.cts.output.cta.v2.9.participantstartofdaysummarymessage", ftypes.STRING)
+omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_cancel_error_message = ProtoField.new("Prior Day Trade Cancel Error Message", "siac.cts.output.cta.v2.9.priordaytradecancelerrormessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_correction_message = ProtoField.new("Prior Day Trade Correction Message", "siac.cts.output.cta.v2.9.priordaytradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_message = ProtoField.new("Prior Day Trade Message", "siac.cts.output.cta.v2.9.priordaytrademessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cts.output.cta.v2.9.resetblocksequencenumbermessage", ftypes.STRING)
@@ -4822,6 +4823,110 @@ siac_cts_output_cta_v2_9.summary_message.dissect = function(buffer, offset, pack
   end
 end
 
+-- Prior Day Trade Cancel Error Message
+siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message = {}
+
+-- Size: Prior Day Trade Cancel Error Message
+siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.size =
+  siac_cts_output_cta_v2_9.participant_id.size + 
+  siac_cts_output_cta_v2_9.timestamp_1.size + 
+  siac_cts_output_cta_v2_9.message_id.size + 
+  siac_cts_output_cta_v2_9.transaction_id.size + 
+  siac_cts_output_cta_v2_9.participant_reference_number.size + 
+  siac_cts_output_cta_v2_9.security_symbol.size + 
+  siac_cts_output_cta_v2_9.instrument_type.size + 
+  siac_cts_output_cta_v2_9.sale_conditions.size + 
+  siac_cts_output_cta_v2_9.trade_price.size + 
+  siac_cts_output_cta_v2_9.trade_volume.size + 
+  siac_cts_output_cta_v2_9.sellers_sale_days.size + 
+  siac_cts_output_cta_v2_9.stop_stock_indicator.size + 
+  siac_cts_output_cta_v2_9.trade_through_exempt_indicator.size + 
+  siac_cts_output_cta_v2_9.short_sale_restriction_indicator.size + 
+  siac_cts_output_cta_v2_9.trade_reporting_facility_id.size + 
+  siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.size + 
+  siac_cts_output_cta_v2_9.cancel_error_action.size
+
+-- Display: Prior Day Trade Cancel Error Message
+siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Prior Day Trade Cancel Error Message
+siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Id: Char
+  index, participant_id = siac_cts_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Timestamp 1: Struct of 2 fields
+  index, timestamp_1 = siac_cts_output_cta_v2_9.timestamp_1.dissect(buffer, index, packet, parent)
+
+  -- Message Id: Byte
+  index, message_id = siac_cts_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
+
+  -- Transaction Id: Integer
+  index, transaction_id = siac_cts_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
+
+  -- Participant Reference Number: Signed Long
+  index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Char[]
+  index, security_symbol = siac_cts_output_cta_v2_9.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Instrument Type: Char
+  index, instrument_type = siac_cts_output_cta_v2_9.instrument_type.dissect(buffer, index, packet, parent)
+
+  -- Sale Conditions: Struct of 4 fields
+  index, sale_conditions = siac_cts_output_cta_v2_9.sale_conditions.dissect(buffer, index, packet, parent)
+
+  -- Trade Price: Long
+  index, trade_price = siac_cts_output_cta_v2_9.trade_price.dissect(buffer, index, packet, parent)
+
+  -- Trade Volume: Integer
+  index, trade_volume = siac_cts_output_cta_v2_9.trade_volume.dissect(buffer, index, packet, parent)
+
+  -- Sellers Sale Days: Byte
+  index, sellers_sale_days = siac_cts_output_cta_v2_9.sellers_sale_days.dissect(buffer, index, packet, parent)
+
+  -- Stop Stock Indicator: Char
+  index, stop_stock_indicator = siac_cts_output_cta_v2_9.stop_stock_indicator.dissect(buffer, index, packet, parent)
+
+  -- Trade Through Exempt Indicator: Char
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v2_9.trade_through_exempt_indicator.dissect(buffer, index, packet, parent)
+
+  -- Short Sale Restriction Indicator: Char
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v2_9.short_sale_restriction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Trade Reporting Facility Id: Char
+  index, trade_reporting_facility_id = siac_cts_output_cta_v2_9.trade_reporting_facility_id.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Trade Date And Time: Struct of 2 fields
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v2_9.prior_day_trade_date_and_time.dissect(buffer, index, packet, parent)
+
+  -- Cancel Error Action: Char
+  index, cancel_error_action = siac_cts_output_cta_v2_9.cancel_error_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Prior Day Trade Cancel Error Message
+siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.prior_day_trade_cancel_error_message, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Prior Day Trade Message
 siac_cts_output_cta_v2_9.prior_day_trade_message = {}
 
@@ -5008,12 +5113,12 @@ siac_cts_output_cta_v2_9.prior_day_message_payload.dissect = function(buffer, of
     return siac_cts_output_cta_v2_9.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Prior Day Trade Message
-  if prior_day_message_type == "L" then
+  if prior_day_message_type == "T" then
     return siac_cts_output_cta_v2_9.prior_day_trade_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Prior Day Trade Message
+  -- Dissect Prior Day Trade Cancel Error Message
   if prior_day_message_type == "X" then
-    return siac_cts_output_cta_v2_9.prior_day_trade_message.dissect(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v2_9.prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5048,7 +5153,7 @@ siac_cts_output_cta_v2_9.prior_day_message.fields = function(buffer, offset, pac
   -- Prior Day Message Type: 1 Byte Ascii String Enum with 3 values
   index, prior_day_message_type = siac_cts_output_cta_v2_9.prior_day_message_type.dissect(buffer, index, packet, parent)
 
-  -- Prior Day Message Payload: Runtime Type with 2 branches
+  -- Prior Day Message Payload: Runtime Type with 3 branches
   index = siac_cts_output_cta_v2_9.prior_day_message_payload.dissect(buffer, index, packet, parent, prior_day_message_type)
 
   return index
