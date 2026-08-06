@@ -30,6 +30,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.canceled_contrac
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.canceled_contracts_binary_4 = ProtoField.new("Canceled Contracts Binary 4", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.canceledcontractsbinary4", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.cboe_trade_flags = ProtoField.new("Cboe Trade Flags", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.cboetradeflags", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.close_price = ProtoField.new("Close Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.closeprice", ftypes.DOUBLE)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.complexinstrumentid", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.compositemarketofferprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.contract_size = ProtoField.new("Contract Size", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.contractsize", ftypes.UINT16)
@@ -55,6 +56,10 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.high_price_binar
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.indicativeprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.is_fast = ProtoField.new("Is Fast", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.isfast", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.issue = ProtoField.new("Issue", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.issue", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_count = ProtoField.new("Leg Count", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.legcount", ftypes.UINT8)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group = ProtoField.new("Leg Group", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.leggroup", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.legratio", ftypes.INT32)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.legsymbol", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.length = ProtoField.new("Length", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.length", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.listing_state = ProtoField.new("Listing State", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.listingstate", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -128,6 +133,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.auction_liquidit
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.auctionsummarymessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.auctiontrademessage", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.complexinstrumentdefinitionmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.deleteordermessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.endofdaysummarymessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.end_of_session = ProtoField.new("End Of Session", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.endofsession", ftypes.STRING)
@@ -149,10 +155,12 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.trade_long_messa
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.tradeshortmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.tradingstatusmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.transaction_begin_message = ProtoField.new("Transaction Begin Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.transactionbeginmessage", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.transactionendmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unitclearmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthupdatemessage", ftypes.STRING)
 
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 generated fields
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group_index = ProtoField.new("Leg Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.leggroupindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_index = ProtoField.new("Message Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.price_level_group_index = ProtoField.new("Price Level Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.pricelevelgroupindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.timestamp = ProtoField.new("Timestamp", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.timestamp", ftypes.UINT64)
@@ -650,6 +658,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.dissect = funct
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Instrument Id
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id = {}
+
+-- Size: Complex Instrument Id
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.size = 6
+
+-- Display: Complex Instrument Id
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.display = function(value)
+  return "Complex Instrument Id: "..value
+end
+
+-- Dissect: Complex Instrument Id
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.complex_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -1205,6 +1236,75 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.issue.dissect = function(bu
   return offset + length, value
 end
 
+-- Leg Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count = {}
+
+-- Size: Leg Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.size = 1
+
+-- Display: Leg Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.display = function(value)
+  return "Leg Count: "..value
+end
+
+-- Dissect: Leg Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio = {}
+
+-- Size: Leg Ratio
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol = {}
+
+-- Size: Leg Symbol
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.size = 6
+
+-- Display: Leg Symbol
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.display = function(value)
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Length
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.length = {}
 
@@ -1415,7 +1515,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_type.display = func
     return "Message Type: Transaction Begin Message (0xBC)"
   end
   if value == 0xBD then
-    return "Message Type: Transaction Begin Message (0xBD)"
+    return "Message Type: Transaction End Message (0xBD)"
   end
   if value == 0x31 then
     return "Message Type: Trading Status Message (0x31)"
@@ -1451,7 +1551,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_type.display = func
     return "Message Type: Options Instrument Definition Message (0xDB)"
   end
   if value == 0xDC then
-    return "Message Type: Width Update Message (0xDC)"
+    return "Message Type: Complex Instrument Definition Message (0xDC)"
   end
   if value == 0x2C then
     return "Message Type: Trade Break Message (0x2C)"
@@ -3041,6 +3141,125 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect
   end
 end
 
+-- Leg Group
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group = {}
+
+-- Size: Leg Group
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.size =
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.size
+
+-- Display: Leg Group
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Leg Group
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.fields = function(buffer, offset, packet, parent, leg_group_index)
+  local index = offset
+
+  -- Implicit Leg Group Index
+  if leg_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group_index, leg_group_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Symbol: Printable ASCII
+  index, leg_symbol = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Signed Binary
+  index, leg_ratio = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Group
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.dissect = function(buffer, offset, packet, parent, leg_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
+  end
+end
+
+-- Complex Instrument Definition Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message = {}
+
+-- Calculate size of: Complex Instrument Definition Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.time_offset.size
+
+  index = index + cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.size
+
+  index = index + cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reference_price.size
+
+  index = index + cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.size
+
+  -- Calculate field size from count
+  local leg_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + leg_group_count * 10
+
+  return index
+end
+
+-- Display: Complex Instrument Definition Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Instrument Definition Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Complex Instrument Id: Printable ASCII
+  index, complex_instrument_id = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Reference Price: Binary Long Price
+  index, reference_price = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.reference_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Count: Binary
+  index, leg_count = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_count.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Leg Group
+  for leg_group_index = 1, leg_count do
+    index, leg_group = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.leg_group.dissect(buffer, index, packet, parent, leg_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Complex Instrument Definition Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.complex_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Options Instrument Definition Message
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message = {}
 
@@ -3808,6 +4027,46 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.diss
   else
     -- Skip element, add fields directly
     return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message = {}
+
+-- Size: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.size =
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.time_offset.size
+
+-- Display: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.transaction_end_message, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4891,9 +5150,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.payload.dissect = function(
   if message_type == 0xBC then
     return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Transaction Begin Message
+  -- Dissect Transaction End Message
   if message_type == 0xBD then
-    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect(buffer, offset, packet, parent)
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
@@ -4939,9 +5198,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.payload.dissect = function(
   if message_type == 0xDB then
     return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Width Update Message
+  -- Dissect Complex Instrument Definition Message
   if message_type == 0xDC then
-    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect(buffer, offset, packet, parent)
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
   if message_type == 0x2C then
@@ -5037,7 +5296,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message.fields = function(b
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 30 branches
+  -- Payload: Runtime Type with 32 branches
   index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

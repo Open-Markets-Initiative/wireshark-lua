@@ -97,6 +97,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_notificati
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctiontrademessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctionupdatemessage", ftypes.STRING)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.constituentsymbolmappingmessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.deleteordermessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.end_of_session = ProtoField.new("End Of Session", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.endofsession", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.modifyorderlongmessage", ftypes.STRING)
@@ -930,6 +931,9 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.message_type.display = functi
   end
   if value == 0x9D then
     return "Message Type: Soq Strike Range Update Message (0x9D)"
+  end
+  if value == 0x9E then
+    return "Message Type: Constituent Symbol Mapping Message (0x9E)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -1914,6 +1918,62 @@ end
 -----------------------------------------------------------------------
 -- Dissect Cboe C1Options MulticastDepthOfBook Pitch 2.41.29
 -----------------------------------------------------------------------
+
+-- Constituent Symbol Mapping Message
+cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message = {}
+
+-- Size: Constituent Symbol Mapping Message
+cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.size =
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.feed_symbol.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.osi_symbol.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_condition.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.underlying.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_identifier.size
+
+-- Display: Constituent Symbol Mapping Message
+cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Constituent Symbol Mapping Message
+cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Feed Symbol: 6 Byte Ascii String
+  index, feed_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.feed_symbol.dissect(buffer, index, packet, parent)
+
+  -- Osi Symbol: 21 Byte Ascii String
+  index, osi_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.osi_symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  index, symbol_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_condition.dissect(buffer, index, packet, parent)
+
+  -- Underlying: 8 Byte Ascii String
+  index, underlying = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.underlying.dissect(buffer, index, packet, parent)
+
+  -- Soq Identifier: 20 Byte Ascii String
+  index, soq_identifier = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_identifier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Constituent Symbol Mapping Message
+cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.constituent_symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Soq Strike Range Update Message
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_strike_range_update_message = {}
@@ -3776,6 +3836,10 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.payload.dissect = function(bu
   if message_type == 0x9D then
     return cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_strike_range_update_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Constituent Symbol Mapping Message
+  if message_type == 0x9E then
+    return cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -3800,7 +3864,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.message_header.fields = funct
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 29 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 30 values
   index, message_type = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3858,7 +3922,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.message.fields = function(buf
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 29 branches
+  -- Payload: Runtime Type with 30 branches
   index = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

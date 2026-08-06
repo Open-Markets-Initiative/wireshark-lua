@@ -114,6 +114,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.trade_short_mess
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.trade_unknown_symbol_message = ProtoField.new("Trade Unknown Symbol Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.tradeunknownsymbolmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.tradingstatusmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.transaction_begin_message = ProtoField.new("Transaction Begin Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.transactionbeginmessage", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.transactionendmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.unitclearmessage", ftypes.STRING)
 
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 generated fields
@@ -1011,7 +1012,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.message_type.display = func
     return "Message Type: Transaction Begin Message (0xBC)"
   end
   if value == 0xBD then
-    return "Message Type: Transaction Begin Message (0xBD)"
+    return "Message Type: Transaction End Message (0xBD)"
   end
   if value == 0x31 then
     return "Message Type: Trading Status Message (0x31)"
@@ -2474,6 +2475,46 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.trading_status_message.diss
   end
 end
 
+-- Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message = {}
+
+-- Size: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.size =
+  cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.time_offset.size
+
+-- Display: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Transaction End Message
+cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.transaction_end_message, buffer(offset, 0))
+    local index = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Transaction Begin Message
 cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_begin_message = {}
 
@@ -3808,9 +3849,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.payload.dissect = function(
   if message_type == 0xBC then
     return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_begin_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Transaction Begin Message
+  -- Dissect Transaction End Message
   if message_type == 0xBD then
-    return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_begin_message.dissect(buffer, offset, packet, parent)
+    return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.transaction_end_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
@@ -3918,7 +3959,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.message.fields = function(b
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 24 branches
+  -- Payload: Runtime Type with 25 branches
   index = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

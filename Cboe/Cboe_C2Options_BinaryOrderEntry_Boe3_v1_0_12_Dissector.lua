@@ -8126,6 +8126,23 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.new_order_message.dissect = functio
   end
 end
 
+-- Server Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Response Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message = {}
 
@@ -8168,6 +8185,23 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect = f
     -- Skip element, add fields directly
     return cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Replay Complete
+cboe_c2options_binaryorderentry_boe3_v1_0_12.replay_complete = {}
+
+-- Display: Replay Complete
+cboe_c2options_binaryorderentry_boe3_v1_0_12.replay_complete.display = function(packet, parent, length)
+  return "Replay Complete"
+end
+
+
+-- Dissect: Replay Complete
+cboe_c2options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_binaryorderentry_boe3_v1_0_12.replay_complete.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Unit Sequence
@@ -8289,6 +8323,40 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect = fu
   end
 end
 
+-- Client Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+cboe_c2options_binaryorderentry_boe3_v1_0_12.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_binaryorderentry_boe3_v1_0_12.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Request
+cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_request = {}
+
+-- Display: Logout Request
+cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Request Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.login_request_message = {}
 
@@ -8372,29 +8440,29 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.message.dissect = function(buffer, 
   if message_type == 1 then
     return cboe_c2options_binaryorderentry_boe3_v1_0_12.login_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Request Message
+  -- Dissect Logout Request
   if message_type == 2 then
-    return offset
+    return cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Client Heartbeat Message
+  -- Dissect Client Heartbeat
   if message_type == 3 then
-    return offset
+    return cboe_c2options_binaryorderentry_boe3_v1_0_12.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response Message
   if message_type == 501 then
     return cboe_c2options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Replay Complete Message
+  -- Dissect Replay Complete
   if message_type == 502 then
-    return offset
+    return cboe_c2options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Response Message
   if message_type == 503 then
     return cboe_c2options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Replay Complete Message
+  -- Dissect Server Heartbeat
   if message_type == 504 then
-    return offset
+    return cboe_c2options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Message
   if message_type == 0x07D1 then
@@ -8622,7 +8690,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.packet.dissect = function(buffer, p
   -- Dependency element: Message Type
   local message_type = buffer(index - 8, 2):le_uint()
 
-  -- Message: Runtime Type with 42 branches
+  -- Message: Runtime Type with 43 branches
   index = cboe_c2options_binaryorderentry_boe3_v1_0_12.message.dissect(buffer, index, packet, parent, message_type)
 
   return index
