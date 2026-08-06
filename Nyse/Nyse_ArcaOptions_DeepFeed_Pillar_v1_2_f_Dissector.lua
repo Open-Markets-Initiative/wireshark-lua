@@ -93,6 +93,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.send_time = ProtoField.new("S
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriesindex", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriesseqnum", ftypes.UINT32)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_status = ProtoField.new("Series Status", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriesstatus", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_type = ProtoField.new("Series Type", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriestype", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.session_state = ProtoField.new("Session State", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.sessionstate", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.side = ProtoField.new("Side", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.side", ftypes.STRING)
@@ -136,6 +137,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_order_execution_messa
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_outright_series_summary_message = ProtoField.new("Options Outright Series Summary Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsoutrightseriessummarymessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_replace_order_message = ProtoField.new("Options Replace Order Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsreplaceordermessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_series_rfq_message = ProtoField.new("Options Series Rfq Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsseriesrfqmessage", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_status_message = ProtoField.new("Options Status Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsstatusmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_trade_cancel_message = ProtoField.new("Options Trade Cancel Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionstradecancelmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.outright_series_index_mapping = ProtoField.new("Outright Series Index Mapping", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.outrightseriesindexmapping", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.refreshheadermessage", ftypes.STRING)
@@ -1218,7 +1220,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.message_type.display = function(value)
     return "Message Type: Outright Series Index Mapping (50)"
   end
   if value == 51 then
-    return "Message Type: Outright Series Index Mapping (51)"
+    return "Message Type: Options Status Message (51)"
   end
   if value == 300 then
     return "Message Type: Options Add Order Message (300)"
@@ -2289,6 +2291,51 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.dissect = function(buffer
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Status
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status = {}
+
+-- Size: Series Status
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.size = 1
+
+-- Display: Series Status
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.display = function(value)
+  if value == "4" then
+    return "Series Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Series Status: Resume (5)"
+  end
+  if value == "6" then
+    return "Series Status: Suspend (6)"
+  end
+  if value == "P" then
+    return "Series Status: Preopening (P)"
+  end
+  if value == "B" then
+    return "Series Status: Begin Accepting Orders (B)"
+  end
+  if value == "O" then
+    return "Series Status: Core Session (O)"
+  end
+  if value == "X" then
+    return "Series Status: Closed (X)"
+  end
+
+  return "Series Status: Unknown("..value..")"
+end
+
+-- Dissect: Series Status
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_status, range, value, display)
 
   return offset + length, value
 end
@@ -3925,6 +3972,70 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_add_order_message.dissect = func
   end
 end
 
+-- Options Status Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message = {}
+
+-- Size: Options Status Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.size =
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time_ns.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_state.size + 
+  nyse_arcaoptions_deepfeed_pillar_v1_2_f.halt_condition.size
+
+-- Display: Options Status Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Options Status Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  index, source_time = nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_f.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_index.dissect(buffer, index, packet, parent)
+
+  -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Series Status: 1 Byte Ascii String Enum with 7 values
+  index, series_status = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_status.dissect(buffer, index, packet, parent)
+
+  -- Market State: 1 Byte Ascii String Enum with 5 values
+  index, market_state = nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_state.dissect(buffer, index, packet, parent)
+
+  -- Halt Condition: 1 Byte Ascii String Enum with 16 values
+  index, halt_condition = nyse_arcaoptions_deepfeed_pillar_v1_2_f.halt_condition.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Options Status Message
+nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.options_status_message, buffer(offset, 0))
+    local index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Outright Series Index Mapping
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.outright_series_index_mapping = {}
 
@@ -4786,9 +4897,9 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.payload.dissect = function(buffer, offse
   if message_type == 50 then
     return nyse_arcaoptions_deepfeed_pillar_v1_2_f.outright_series_index_mapping.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Outright Series Index Mapping
+  -- Dissect Options Status Message
   if message_type == 51 then
-    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.outright_series_index_mapping.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_deepfeed_pillar_v1_2_f.options_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Add Order Message
   if message_type == 300 then
@@ -4910,7 +5021,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.message.fields = function(buffer, offset
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 25 branches
+  -- Payload: Runtime Type with 26 branches
   index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
