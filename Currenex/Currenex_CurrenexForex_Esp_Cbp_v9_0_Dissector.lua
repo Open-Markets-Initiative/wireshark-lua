@@ -49,6 +49,7 @@ omi_currenex_currenexforex_esp_cbp_v9_0.fields.user_id = ProtoField.new("User Id
 -- Currenex CurrenexForex Cbp Esp 9.0 Application Messages
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.esp.cbp.v9.0.heartbeat", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.esp.cbp.v9.0.instrumentinfo", ftypes.STRING)
+omi_currenex_currenexforex_esp_cbp_v9_0.fields.instrument_info_ack = ProtoField.new("Instrument Info Ack", "currenex.currenexforex.esp.cbp.v9.0.instrumentinfoack", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.logon = ProtoField.new("Logon", "currenex.currenexforex.esp.cbp.v9.0.logon", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.logout = ProtoField.new("Logout", "currenex.currenexforex.esp.cbp.v9.0.logout", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9_0.fields.price_cancel_message = ProtoField.new("Price Cancel Message", "currenex.currenexforex.esp.cbp.v9.0.pricecancelmessage", ftypes.STRING)
@@ -333,6 +334,9 @@ currenex_currenexforex_esp_cbp_v9_0.message_type.display = function(value)
   if value == "D" then
     return "Message Type: Instrument Info (D)"
   end
+  if value == "E" then
+    return "Message Type: Instrument Info Ack (E)"
+  end
   if value == "F" then
     return "Message Type: Subscription Request (F)"
   end
@@ -342,14 +346,14 @@ currenex_currenexforex_esp_cbp_v9_0.message_type.display = function(value)
   if value == "H" then
     return "Message Type: Price Message (H)"
   end
-  if value == "H" then
-    return "Message Type: Price Cancel Message (H)"
+  if value == "I" then
+    return "Message Type: Price Cancel Message (I)"
   end
   if value == "J" then
     return "Message Type: Trade Ticker Message (J)"
   end
-  if value == "J" then
-    return "Message Type: Reject Message (J)"
+  if value == "K" then
+    return "Message Type: Reject Message (K)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -1264,6 +1268,50 @@ currenex_currenexforex_esp_cbp_v9_0.subscription_request.dissect = function(buff
   end
 end
 
+-- Instrument Info Ack
+currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack = {}
+
+-- Size: Instrument Info Ack
+currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.size =
+  currenex_currenexforex_esp_cbp_v9_0.session_id.size + 
+  currenex_currenexforex_esp_cbp_v9_0.instrument_index.size
+
+-- Display: Instrument Info Ack
+currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Info Ack
+currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: Integer
+  index, session_id = currenex_currenexforex_esp_cbp_v9_0.session_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Index: Short
+  index, instrument_index = currenex_currenexforex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Info Ack
+currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_currenexforex_esp_cbp_v9_0.fields.instrument_info_ack, buffer(offset, 0))
+    local index = currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Instrument Info
 currenex_currenexforex_esp_cbp_v9_0.instrument_info = {}
 
@@ -1477,6 +1525,10 @@ currenex_currenexforex_esp_cbp_v9_0.message_body.dissect = function(buffer, offs
   if message_type == "D" then
     return currenex_currenexforex_esp_cbp_v9_0.instrument_info.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Instrument Info Ack
+  if message_type == "E" then
+    return currenex_currenexforex_esp_cbp_v9_0.instrument_info_ack.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Subscription Request
   if message_type == "F" then
     return currenex_currenexforex_esp_cbp_v9_0.subscription_request.dissect(buffer, offset, packet, parent)
@@ -1490,7 +1542,7 @@ currenex_currenexforex_esp_cbp_v9_0.message_body.dissect = function(buffer, offs
     return currenex_currenexforex_esp_cbp_v9_0.price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Price Cancel Message
-  if message_type == "H" then
+  if message_type == "I" then
     return currenex_currenexforex_esp_cbp_v9_0.price_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Ticker Message
@@ -1498,7 +1550,7 @@ currenex_currenexforex_esp_cbp_v9_0.message_body.dissect = function(buffer, offs
     return currenex_currenexforex_esp_cbp_v9_0.trade_ticker_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
-  if message_type == "J" then
+  if message_type == "K" then
     return currenex_currenexforex_esp_cbp_v9_0.reject_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -1529,7 +1581,7 @@ currenex_currenexforex_esp_cbp_v9_0.message_header.fields = function(buffer, off
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index, timestamp = currenex_currenexforex_esp_cbp_v9_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Ascii String Enum with 10 values
+  -- Message Type: 1 Byte Ascii String Enum with 11 values
   index, message_type = currenex_currenexforex_esp_cbp_v9_0.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1579,7 +1631,7 @@ currenex_currenexforex_esp_cbp_v9_0.packet.dissect = function(buffer, packet, pa
     -- Dependency element: Message Type
     local message_type = buffer(index - 1, 1):string()
 
-    -- Message Body: Runtime Type with 10 branches
+    -- Message Body: Runtime Type with 11 branches
     index = currenex_currenexforex_esp_cbp_v9_0.message_body.dissect(buffer, index, packet, parent, message_type)
 
     -- Itch Etx: 1 Byte Fixed Width Integer
