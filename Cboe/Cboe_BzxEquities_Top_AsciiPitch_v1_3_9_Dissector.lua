@@ -37,21 +37,16 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_10 = Pr
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_14 = ProtoField.new("Last Trade Price Price 14", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradepriceprice14", ftypes.DOUBLE)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradesize", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradetime", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.logon_rejected_packet = ProtoField.new("Logon Rejected Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.logonrejectedpacket", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.logon_request_packet = ProtoField.new("Logon Request Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.logonrequestpacket", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.top.asciipitch.v1.3.9.messagetype", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.bzxequities.top.asciipitch.v1.3.9.milliseconds", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.milliseconds_packet = ProtoField.new("Milliseconds Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.millisecondspacket", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.password = ProtoField.new("Password", "cboe.bzxequities.top.asciipitch.v1.3.9.password", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alpha_1 = ProtoField.new("Reg Sho Action Alpha 1", "cboe.bzxequities.top.asciipitch.v1.3.9.regshoactionalpha1", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alphanumeric_1 = ProtoField.new("Reg Sho Action Alphanumeric 1", "cboe.bzxequities.top.asciipitch.v1.3.9.regshoactionalphanumeric1", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.bzxequities.top.asciipitch.v1.3.9.rejectreason", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.bzxequities.top.asciipitch.v1.3.9.rejectreasoncode", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.top.asciipitch.v1.3.9.reserved1", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bzxequities.top.asciipitch.v1.3.9.reserved2", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds = ProtoField.new("Seconds", "cboe.bzxequities.top.asciipitch.v1.3.9.seconds", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds_packet = ProtoField.new("Seconds Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.secondspacket", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.spin_flag = ProtoField.new("Spin Flag", "cboe.bzxequities.top.asciipitch.v1.3.9.spinflag", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_4 = ProtoField.new("Symbol Alpha 4", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolalpha4", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_6 = ProtoField.new("Symbol Alpha 6", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolalpha6", ftypes.STRING)
@@ -759,13 +754,13 @@ cboe_bzxequities_top_asciipitch_v1_3_9.message_type.size = 1
 -- Display: Message Type
 cboe_bzxequities_top_asciipitch_v1_3_9.message_type.display = function(value)
   if value == "L" then
-    return "Message Type: Logon Request Packet (L)"
+    return "Message Type: Logon Message (L)"
   end
   if value == "C" then
     return "Message Type: Logon Accepted Packet (C)"
   end
   if value == "J" then
-    return "Message Type: Logon Rejected Packet (J)"
+    return "Message Type: Logon Rejected Message (J)"
   end
   if value == "D" then
     return "Message Type: Spin Done Packet (D)"
@@ -777,19 +772,13 @@ cboe_bzxequities_top_asciipitch_v1_3_9.message_type.display = function(value)
     return "Message Type: Client Heartbeat Packet (R)"
   end
   if value == "T" then
-    return "Message Type: Seconds Packet (T)"
+    return "Message Type: Seconds Message (T)"
   end
   if value == "M" then
-    return "Message Type: Milliseconds Packet (M)"
-  end
-  if value == "L" then
-    return "Message Type: Logon Message (L)"
+    return "Message Type: Milliseconds Message (M)"
   end
   if value == "C" then
     return "Message Type: Logon Accepted Message (C)"
-  end
-  if value == "J" then
-    return "Message Type: Logon Rejected Message (J)"
   end
   if value == "s" then
     return "Message Type: Expanded Spin Message (s)"
@@ -805,12 +794,6 @@ cboe_bzxequities_top_asciipitch_v1_3_9.message_type.display = function(value)
   end
   if value == "R" then
     return "Message Type: Client Heartbeat Message (R)"
-  end
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "M" then
-    return "Message Type: Milliseconds Message (M)"
   end
   if value == "E" then
     return "Message Type: Expanded Bid Update Message (E)"
@@ -995,29 +978,6 @@ cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason.dissect = function(buffer, 
   local display = cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reject Reason Code
-cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code = {}
-
--- Size: Reject Reason Code
-cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.size = 1
-
--- Display: Reject Reason Code
-cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
-end
-
--- Dissect: Reject Reason Code
-cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2143,86 +2103,6 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_bid_update_message.dissect = fun
   end
 end
 
--- Milliseconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message = {}
-
--- Size: Milliseconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.size
-
--- Display: Milliseconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Milliseconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Milliseconds: Numeric
-  index, milliseconds = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Milliseconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.milliseconds_message, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message = {}
-
--- Size: Seconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.seconds.size
-
--- Display: Seconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: Numeric
-  index, seconds = cboe_bzxequities_top_asciipitch_v1_3_9.seconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seconds Message
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds_message, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Extended Spin Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_spin_message = {}
 
@@ -2407,6 +2287,86 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_spin_message.dissect = function(
   end
 end
 
+-- Milliseconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message = {}
+
+-- Size: Milliseconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.size =
+  cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.size
+
+-- Display: Milliseconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Milliseconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Milliseconds: Numeric
+  index, milliseconds = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Milliseconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.milliseconds_message, buffer(offset, 0))
+    local index = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message = {}
+
+-- Size: Seconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.size =
+  cboe_bzxequities_top_asciipitch_v1_3_9.seconds.size
+
+-- Display: Seconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Numeric
+  index, seconds = cboe_bzxequities_top_asciipitch_v1_3_9.seconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seconds Message
+cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds_message, buffer(offset, 0))
+    local index = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Logon Rejected Message
 cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_message = {}
 
@@ -2495,206 +2455,30 @@ cboe_bzxequities_top_asciipitch_v1_3_9.logon_message.dissect = function(buffer, 
   end
 end
 
--- Milliseconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet = {}
-
--- Size: Milliseconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.size
-
--- Display: Milliseconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Milliseconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Milliseconds: Numeric
-  index, milliseconds = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Milliseconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.milliseconds_packet, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet = {}
-
--- Size: Seconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.seconds.size
-
--- Display: Seconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: Numeric
-  index, seconds = cboe_bzxequities_top_asciipitch_v1_3_9.seconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seconds Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds_packet, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Logon Rejected Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet = {}
-
--- Size: Logon Rejected Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.size
-
--- Display: Logon Rejected Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Rejected Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reject Reason Code: 1 Byte Ascii String
-  index, reject_reason_code = cboe_bzxequities_top_asciipitch_v1_3_9.reject_reason_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Rejected Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.logon_rejected_packet, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Logon Request Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet = {}
-
--- Size: Logon Request Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.username.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.password.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.spin_flag.size
-
--- Display: Logon Request Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Request Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: Alphanumeric
-  index, username = cboe_bzxequities_top_asciipitch_v1_3_9.username.dissect(buffer, index, packet, parent)
-
-  -- Password: Alphanumeric
-  index, password = cboe_bzxequities_top_asciipitch_v1_3_9.password.dissect(buffer, index, packet, parent)
-
-  -- Spin Flag: Boolean
-  index, spin_flag = cboe_bzxequities_top_asciipitch_v1_3_9.spin_flag.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Request Packet
-cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.logon_request_packet, buffer(offset, 0))
-    local index = cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Payload
 cboe_bzxequities_top_asciipitch_v1_3_9.payload = {}
 
 -- Dissect: Payload
 cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Request Packet
-  if message_type == "L" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.logon_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Rejected Packet
-  if message_type == "J" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seconds Packet
-  if message_type == "T" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Milliseconds Packet
-  if message_type == "M" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_packet.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Logon Message
   if message_type == "L" then
     return cboe_bzxequities_top_asciipitch_v1_3_9.logon_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logon Accepted Message
-  if message_type == "C" then
-    return offset
-  end
   -- Dissect Logon Rejected Message
   if message_type == "J" then
     return cboe_bzxequities_top_asciipitch_v1_3_9.logon_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Seconds Message
+  if message_type == "T" then
+    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Milliseconds Message
+  if message_type == "M" then
+    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Accepted Message
+  if message_type == "C" then
+    return offset
   end
   -- Dissect Expanded Spin Message
   if message_type == "s" then
@@ -2715,14 +2499,6 @@ cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect = function(buffer, offset
   -- Dissect Client Heartbeat Message
   if message_type == "R" then
     return offset
-  end
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Milliseconds Message
-  if message_type == "M" then
-    return cboe_bzxequities_top_asciipitch_v1_3_9.milliseconds_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Expanded Bid Update Message
   if message_type == "E" then
@@ -2813,10 +2589,10 @@ cboe_bzxequities_top_asciipitch_v1_3_9.packet.dissect = function(buffer, packet,
 
   while index < end_of_payload do
 
-    -- Message Type: 1 Byte Ascii String Enum with 35 values
+    -- Message Type: 1 Byte Ascii String Enum with 31 values
     index, message_type = cboe_bzxequities_top_asciipitch_v1_3_9.message_type.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 31 branches
+    -- Payload: Runtime Type with 27 branches
     index = cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect(buffer, index, packet, parent, message_type)
 
     -- Top Lf: 1 Byte Fixed Width Integer Static
@@ -2854,7 +2630,7 @@ end
 -- Verify Top Lf Field
 cboe_bzxequities_top_asciipitch_v1_3_9.top_lf.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(695, 1):int()
+  local value = buffer(669, 1):int()
 
   if value == 10 then
     return true
