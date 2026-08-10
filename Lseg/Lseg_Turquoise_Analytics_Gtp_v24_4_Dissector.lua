@@ -34,7 +34,7 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.market_data_group = ProtoField.new
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.analytics.gtp.v24.4.messagecount", ftypes.UINT8)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v24.4.messageheader", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.analytics.gtp.v24.4.messagelength", ftypes.UINT8)
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.analytics.gtp.v24.4.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.analytics.gtp.v24.4.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.analytics.gtp.v24.4.newendtime", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.analytics.gtp.v24.4.orderbooktype", ftypes.UINT8)
@@ -505,7 +505,7 @@ end
 lseg_turquoise_analytics_gtp_v24_4.message_length = {}
 
 -- Size: Message Length
-lseg_turquoise_analytics_gtp_v24_4.message_length.size = 1
+lseg_turquoise_analytics_gtp_v24_4.message_length.size = 2
 
 -- Display: Message Length
 lseg_turquoise_analytics_gtp_v24_4.message_length.display = function(value)
@@ -1582,7 +1582,7 @@ end
 lseg_turquoise_analytics_gtp_v24_4.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Length: 1 Byte Unsigned Fixed Width Integer
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = lseg_turquoise_analytics_gtp_v24_4.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -1612,27 +1612,13 @@ end
 -- Message
 lseg_turquoise_analytics_gtp_v24_4.message = {}
 
--- Calculate size of: Message
-lseg_turquoise_analytics_gtp_v24_4.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_turquoise_analytics_gtp_v24_4.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):uint()
-  index = index + lseg_turquoise_analytics_gtp_v24_4.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 lseg_turquoise_analytics_gtp_v24_4.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-lseg_turquoise_analytics_gtp_v24_4.message.fields = function(buffer, offset, packet, parent, message_index)
+lseg_turquoise_analytics_gtp_v24_4.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -1654,20 +1640,23 @@ lseg_turquoise_analytics_gtp_v24_4.message.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Message
-lseg_turquoise_analytics_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent, message_index)
+lseg_turquoise_analytics_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_turquoise_analytics_gtp_v24_4.fields.message, buffer(offset, 0))
-    local index = lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_turquoise_analytics_gtp_v24_4.message.display(packet, parent, length)
+    local current = lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = lseg_turquoise_analytics_gtp_v24_4.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, message_index)
+    lseg_turquoise_analytics_gtp_v24_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -1745,7 +1734,12 @@ lseg_turquoise_analytics_gtp_v24_4.packet.dissect = function(buffer, packet, par
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = lseg_turquoise_analytics_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_turquoise_analytics_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

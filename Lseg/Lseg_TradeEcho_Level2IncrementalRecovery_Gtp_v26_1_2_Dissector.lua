@@ -1,0 +1,2274 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 Protocol
+local omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2 = Proto("Omi.Lseg.TradeEcho.Level2IncrementalRecovery.Gtp.v26.1.2", "Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2")
+
+-- Protocol table
+local lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 Fields
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.allowedbooktypes", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.averagedailyturnoveradt", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.count = ProtoField.new("Count", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.count", ftypes.UINT32)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.currency = ProtoField.new("Currency", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.currency", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.dynamiccircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.event_code = ProtoField.new("Event Code", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.eventcode", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.group_id = ProtoField.new("Group Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.groupid", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument = ProtoField.new("Instrument", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.instrument", ftypes.UINT64)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.internal_id = ProtoField.new("Internal Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.internalid", ftypes.UINT64)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.isin", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.length = ProtoField.new("Length", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.length", ftypes.UINT16)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_status = ProtoField.new("Login Status", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.loginstatus", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.marketdatagroup", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.message", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.messagecount", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.messagelength", ftypes.UINT16)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.messagetype", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.newendtime", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.orderbooktype", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.orderid", ftypes.UINT64)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_type = ProtoField.new("Order Type", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.ordertype", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.packet", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.participant", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.price = ProtoField.new("Price", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.price", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_status = ProtoField.new("Recovery Status", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.recoverystatus", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_type = ProtoField.new("Recovery Type", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.recoverytype", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_id = ProtoField.new("Request Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.requestid", ftypes.UINT32)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_level = ProtoField.new("Request Level", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.requestlevel", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_0 = ProtoField.new("Reserved 0", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved10", ftypes.BYTES)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved12", ftypes.BYTES)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved25", ftypes.BYTES)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_27 = ProtoField.new("Reserved 27", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved5", ftypes.BYTES)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.securityexchange", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.segment", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.sequencenumber", ftypes.UINT32)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.sessionchangereason", ftypes.UINT8)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.si_quote_book = ProtoField.new("Si Quote Book", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.siquotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.side = ProtoField.new("Side", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.side", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.size", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.sourcevenue", ftypes.UINT16)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.tickid", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.timestamp", ftypes.UINT64)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.tradingstatus", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.unitheader", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.username", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.venueinstrumentid", ftypes.STRING)
+
+-- Lseg TradeEcho Gtp Level2IncrementalRecovery 26.1.2 Application Messages
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.instrumentdirectorymessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.instrumentstatusmessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.loginrequestmessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_response_message = ProtoField.new("Login Response Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.loginresponsemessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.orderbookclearmessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_request_message = ProtoField.new("Recovery Request Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.recoveryrequestmessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_response_message = ProtoField.new("Recovery Response Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.recoveryresponsemessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.replay_and_recovery_complete_message = ProtoField.new("Replay And Recovery Complete Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.replayandrecoverycompletemessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.si_quote_message = ProtoField.new("Si Quote Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.siquotemessage", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.system_event_message = ProtoField.new("System Event Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.systemeventmessage", ftypes.STRING)
+
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 generated fields
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.indexes = true
+
+-- Register Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 Show Options
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+
+-- Handle changed preferences
+function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_application_messages then
+    show.application_messages = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_application_messages
+  end
+  if show.structs ~= omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_structs then
+    show.structs = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_structs
+  end
+  if show.indexes ~= omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_indexes then
+    show.indexes = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.prefs.show_indexes
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 Fields
+-----------------------------------------------------------------------
+
+-- Average Daily Turnover Adt
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt = {}
+
+-- Size: Average Daily Turnover Adt
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.size = 8
+
+-- Display: Average Daily Turnover Adt
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.display = function(value)
+  return "Average Daily Turnover Adt: "..value
+end
+
+-- Translate: Average Daily Turnover Adt
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Average Daily Turnover Adt
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.average_daily_turnover_adt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count = {}
+
+-- Size: Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.size = 4
+
+-- Display: Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency = {}
+
+-- Size: Currency
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.size = 3
+
+-- Display: Currency
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.display = function(value)
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances = {}
+
+-- Size: Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.size = 8
+
+-- Display: Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.display = function(value)
+  return "Dynamic Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Dynamic Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code = {}
+
+-- Size: Event Code
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.size = 1
+
+-- Display: Event Code
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Day (O)"
+  end
+  if value == "T" then
+    return "Event Code: Start Of Open (T)"
+  end
+  if value == "P" then
+    return "Event Code: Start Of Pre Close (P)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Day (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id = {}
+
+-- Size: Group Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.size = 6
+
+-- Display: Group Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.display = function(value)
+  return "Group Id: "..value
+end
+
+-- Dissect: Group Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument = {}
+
+-- Size: Instrument
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size = 8
+
+-- Display: Instrument
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Internal Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id = {}
+
+-- Size: Internal Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.size = 8
+
+-- Display: Internal Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.display = function(value)
+  return "Internal Id: "..value
+end
+
+-- Dissect: Internal Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.internal_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin = {}
+
+-- Size: Isin
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.size = 12
+
+-- Display: Isin
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.display = function(value)
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length = {}
+
+-- Size: Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.size = 2
+
+-- Display: Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status = {}
+
+-- Size: Login Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.size = 1
+
+-- Display: Login Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.display = function(value)
+  if value == "A" then
+    return "Login Status: Login Accepted (A)"
+  end
+  if value == "a" then
+    return "Login Status: Comp Id Inactive Or Suspended (a)"
+  end
+  if value == "b" then
+    return "Login Status: Login Limit Reached (b)"
+  end
+  if value == "c" then
+    return "Login Status: Service Unavailable (c)"
+  end
+  if value == "d" then
+    return "Login Status: Maximum Connections Limit Reached (d)"
+  end
+  if value == "e" then
+    return "Login Status: Failed Other (e)"
+  end
+  if value == "f" then
+    return "Login Status: Invalid Comp Id Or Ip Address (f)"
+  end
+
+  return "Login Status: Unknown("..value..")"
+end
+
+-- Dissect: Login Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Data Group
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group = {}
+
+-- Size: Market Data Group
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.size = 1
+
+-- Display: Market Data Group
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.display = function(value)
+  return "Market Data Group: "..value
+end
+
+-- Dissect: Market Data Group
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.market_data_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count = {}
+
+-- Size: Message Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.size = 1
+
+-- Display: Message Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length = {}
+
+-- Size: Message Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.size = 2
+
+-- Display: Message Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type = {}
+
+-- Size: Message Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.size = 1
+
+-- Display: Message Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.display = function(value)
+  if value == 0x01 then
+    return "Message Type: Login Request Message (0x01)"
+  end
+  if value == 0x81 then
+    return "Message Type: Recovery Request Message (0x81)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x82 then
+    return "Message Type: Recovery Response Message (0x82)"
+  end
+  if value == 0x83 then
+    return "Message Type: Replay And Recovery Complete Message (0x83)"
+  end
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x79 then
+    return "Message Type: Order Book Clear Message (0x79)"
+  end
+  if value == 0x47 then
+    return "Message Type: Si Quote Message (0x47)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New End Time
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time = {}
+
+-- Size: New End Time
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.size = 6
+
+-- Display: New End Time
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.display = function(value)
+  return "New End Time: "..value
+end
+
+-- Dissect: New End Time
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.new_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type = {}
+
+-- Size: Order Book Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size = 1
+
+-- Display: Order Book Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.display = function(value)
+  if value == 1 then
+    return "Order Book Type: Si Quote Book (1)"
+  end
+
+  return "Order Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Book Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id = {}
+
+-- Size: Order Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.size = 8
+
+-- Display: Order Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type = {}
+
+-- Size: Order Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.size = 1
+
+-- Display: Order Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.display = function(value)
+  if value == 0 then
+    return "Order Type: Si Quote (0)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant = {}
+
+-- Size: Participant
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.size = 11
+
+-- Display: Participant
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.display = function(value)
+  return "Participant: "..value
+end
+
+-- Dissect: Participant
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.participant, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price = {}
+
+-- Size: Price
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.size = 8
+
+-- Display: Price
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Band Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances = {}
+
+-- Size: Price Band Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.size = 8
+
+-- Display: Price Band Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.display = function(value)
+  return "Price Band Tolerances: "..value
+end
+
+-- Translate: Price Band Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price Band Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.price_band_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Recovery Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status = {}
+
+-- Size: Recovery Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.size = 1
+
+-- Display: Recovery Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.display = function(value)
+  if value == "A" then
+    return "Recovery Status: Request Accepted (A)"
+  end
+  if value == "O" then
+    return "Recovery Status: Out Of Range (O)"
+  end
+  if value == "a" then
+    return "Recovery Status: Invalid Group Or Instrument (a)"
+  end
+  if value == "b" then
+    return "Recovery Status: Request Limit Reached (b)"
+  end
+  if value == "c" then
+    return "Recovery Status: Concurrent Limit Reached (c)"
+  end
+  if value == "d" then
+    return "Recovery Status: Invalid Recovery Type Or Request Level (d)"
+  end
+  if value == "e" then
+    return "Recovery Status: Failed Other (e)"
+  end
+
+  return "Recovery Status: Unknown("..value..")"
+end
+
+-- Dissect: Recovery Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Recovery Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type = {}
+
+-- Size: Recovery Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.size = 1
+
+-- Display: Recovery Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.display = function(value)
+  if value == 0 then
+    return "Recovery Type: Instrument Directory (0)"
+  end
+  if value == 1 then
+    return "Recovery Type: Order Book (1)"
+  end
+  if value == 4 then
+    return "Recovery Type: Instrument Status (4)"
+  end
+  if value == 6 then
+    return "Recovery Type: System Event (6)"
+  end
+
+  return "Recovery Type: Unknown("..value..")"
+end
+
+-- Dissect: Recovery Type
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id = {}
+
+-- Size: Request Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.size = 4
+
+-- Display: Request Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.display = function(value)
+  return "Request Id: "..value
+end
+
+-- Dissect: Request Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Level
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level = {}
+
+-- Size: Request Level
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.size = 1
+
+-- Display: Request Level
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.display = function(value)
+  if value == 0 then
+    return "Request Level: Instrument (0)"
+  end
+  if value == 1 then
+    return "Request Level: Group Segment (1)"
+  end
+  if value == 2 then
+    return "Request Level: Multicast Channel (2)"
+  end
+
+  return "Request Level: Unknown("..value..")"
+end
+
+-- Dissect: Request Level
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 10
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10 = {}
+
+-- Size: Reserved 10
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.size = 10
+
+-- Display: Reserved 10
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.display = function(value)
+  return "Reserved 10: "..value
+end
+
+-- Dissect: Reserved 10
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_10, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 12
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12 = {}
+
+-- Size: Reserved 12
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.size = 12
+
+-- Display: Reserved 12
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.display = function(value)
+  return "Reserved 12: "..value
+end
+
+-- Dissect: Reserved 12
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_12, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 25
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25 = {}
+
+-- Size: Reserved 25
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.size = 25
+
+-- Display: Reserved 25
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.display = function(value)
+  return "Reserved 25: "..value
+end
+
+-- Dissect: Reserved 25
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_25, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 5
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5 = {}
+
+-- Size: Reserved 5
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.size = 5
+
+-- Display: Reserved 5
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.display = function(value)
+  return "Reserved 5: "..value
+end
+
+-- Dissect: Reserved 5
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Exchange
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange = {}
+
+-- Size: Security Exchange
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.size = 11
+
+-- Display: Security Exchange
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.display = function(value)
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Segment
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment = {}
+
+-- Size: Segment
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.size = 6
+
+-- Display: Segment
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.display = function(value)
+  return "Segment: "..value
+end
+
+-- Dissect: Segment
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.segment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number = {}
+
+-- Size: Sequence Number
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.size = 4
+
+-- Display: Sequence Number
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Change Reason
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason = {}
+
+-- Size: Session Change Reason
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.size = 1
+
+-- Display: Session Change Reason
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.display = function(value)
+  if value == 0 then
+    return "Session Change Reason: Scheduled Transition (0)"
+  end
+
+  return "Session Change Reason: Unknown("..value..")"
+end
+
+-- Dissect: Session Change Reason
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.session_change_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side = {}
+
+-- Size: Side
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.size = 1
+
+-- Display: Side
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy Order (B)"
+  end
+  if value == "S" then
+    return "Side: Sell Order (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size = {}
+
+-- Size: Size
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.size = 8
+
+-- Display: Size
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Translate: Size
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Size
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Venue
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue = {}
+
+-- Size: Source Venue
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size = 2
+
+-- Display: Source Venue
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.display = function(value)
+  if value == 11 then
+    return "Source Venue: Trad Echo (11)"
+  end
+
+  return "Source Venue: Unknown("..value..")"
+end
+
+-- Dissect: Source Venue
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.source_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Static Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances = {}
+
+-- Size: Static Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.size = 8
+
+-- Display: Static Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.display = function(value)
+  return "Static Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Static Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Static Circuit Breaker Tolerances
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id = {}
+
+-- Size: Tick Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.size = 2
+
+-- Display: Tick Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.display = function(value)
+  return "Tick Id: "..value
+end
+
+-- Dissect: Tick Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.tick_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp = {}
+
+-- Size: Timestamp
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size = 8
+
+-- Display: Timestamp
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status = {}
+
+-- Size: Trading Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size = 1
+
+-- Display: Trading Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.display = function(value)
+  if value == "1" then
+    return "Trading Status: Inactive (1)"
+  end
+  if value == "2" then
+    return "Trading Status: Suspended (2)"
+  end
+  if value == "3" then
+    return "Trading Status: Active (3)"
+  end
+  if value == "P" then
+    return "Trading Status: Regulatory Halt (P)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username = {}
+
+-- Size: Username
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.size = 8
+
+-- Display: Username
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Instrument Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id = {}
+
+-- Size: Venue Instrument Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.size = 11
+
+-- Display: Venue Instrument Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.display = function(value)
+  return "Venue Instrument Id: "..value
+end
+
+-- Dissect: Venue Instrument Id
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.venue_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2
+-----------------------------------------------------------------------
+
+-- Si Quote Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message = {}
+
+-- Size: Si Quote Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.size
+
+-- Display: Si Quote Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Si Quote Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: UInt64
+  index, order_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Byte
+  index, side = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.dissect(buffer, index, packet, parent)
+
+  -- Size: Size
+  index, size = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.size.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price.dissect(buffer, index, packet, parent)
+
+  -- Internal Id: UInt64
+  index, internal_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.internal_id.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.dissect(buffer, index, packet, parent)
+
+  -- Participant: Alpha
+  index, participant = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.dissect(buffer, index, packet, parent)
+
+  -- Order Type: UInt8
+  index, order_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_type.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: Alpha
+  index, reserved_10 = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_10.dissect(buffer, index, packet, parent)
+
+  -- Currency: Alpha
+  index, currency = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Si Quote Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.si_quote_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Book Clear Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message = {}
+
+-- Size: Order Book Clear Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size
+
+-- Display: Order Book Clear Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Book Clear Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Book Clear Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.order_book_clear_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Status Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message = {}
+
+-- Size: Instrument Status Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size
+
+-- Display: Instrument Status Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Status Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Byte
+  index, trading_status = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Session Change Reason: UInt8
+  index, session_change_reason = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.session_change_reason.dissect(buffer, index, packet, parent)
+
+  -- New End Time: Time
+  index, new_end_time = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Status Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allowed Book Types
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types = {}
+
+-- Size: Allowed Book Types
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.size = 1
+
+-- Display: Allowed Book Types
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Reserved 0 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Reserved 0"
+  end
+  -- Is Si Quote Book flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Si Quote Book"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Allowed Book Types
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.bits = function(range, value, packet, parent)
+
+  -- Reserved 0: 1 Bit
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_0, range, value)
+
+  -- Si Quote Book: 1 Bit
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.si_quote_book, range, value)
+
+  -- Reserved 27: 6 Bit
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_27, range, value)
+end
+
+-- Dissect: Allowed Book Types
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.allowed_book_types, range, display)
+
+  if show.structs then
+    lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Instrument Directory Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message = {}
+
+-- Size: Instrument Directory Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.size
+
+-- Display: Instrument Directory Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Directory Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect(buffer, index, packet, parent)
+
+  -- Isin: Alpha
+  index, isin = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.dissect(buffer, index, packet, parent)
+
+  -- Allowed Book Types: Struct of 3 fields
+  index, allowed_book_types = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Venue Instrument Id: Alpha
+  index, venue_instrument_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Tick Id: Alpha
+  index, tick_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.dissect(buffer, index, packet, parent)
+
+  -- Price Band Tolerances: Price
+  index, price_band_tolerances = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.price_band_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Dynamic Circuit Breaker Tolerances: Price
+  index, dynamic_circuit_breaker_tolerances = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Static Circuit Breaker Tolerances: Price
+  index, static_circuit_breaker_tolerances = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Segment: Alpha
+  index, segment = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.dissect(buffer, index, packet, parent)
+
+  -- Reserved 12: Alpha
+  index, reserved_12 = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_12.dissect(buffer, index, packet, parent)
+
+  -- Security Exchange: Alpha
+  index, security_exchange = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.dissect(buffer, index, packet, parent)
+
+  -- Currency: Alpha
+  index, currency = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.dissect(buffer, index, packet, parent)
+
+  -- Reserved 5: Alpha
+  index, reserved_5 = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_5.dissect(buffer, index, packet, parent)
+
+  -- Average Daily Turnover Adt: Price4
+  index, average_daily_turnover_adt = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
+
+  -- Reserved 25: Alpha
+  index, reserved_25 = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.reserved_25.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Directory Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message = {}
+
+-- Size: System Event Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size
+
+-- Display: System Event Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Byte
+  index, event_code = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay And Recovery Complete Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message = {}
+
+-- Size: Replay And Recovery Complete Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size
+
+-- Display: Replay And Recovery Complete Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay And Recovery Complete Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Id: UInt32
+  index, request_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Byte
+  index, trading_status = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay And Recovery Complete Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.replay_and_recovery_complete_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Recovery Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message = {}
+
+-- Size: Recovery Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.size
+
+-- Display: Recovery Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Recovery Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequence Number: UInt32
+  index, sequence_number = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Count: UInt32
+  index, count = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.count.dissect(buffer, index, packet, parent)
+
+  -- Recovery Status: Byte
+  index, recovery_status = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.dissect(buffer, index, packet, parent)
+
+  -- Request Id: UInt32
+  index, request_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Recovery Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_response_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message = {}
+
+-- Size: Login Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.size
+
+-- Display: Login Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Status: Byte
+  index, login_status = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_response_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Recovery Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message = {}
+
+-- Size: Recovery Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.size
+
+-- Display: Recovery Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Recovery Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Level: UInt8
+  index, request_level = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_level.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument.dissect(buffer, index, packet, parent)
+
+  -- Group Id: Alpha
+  index, group_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_type.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Recovery Type: UInt8
+  index, recovery_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_type.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: UInt32
+  index, sequence_number = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Request Id: UInt32
+  index, request_id = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.request_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Recovery Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_request_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message = {}
+
+-- Size: Login Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.size
+
+-- Display: Login Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: Alpha
+  index, username = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_request_message, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.payload = {}
+
+-- Dissect: Payload
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Request Message
+  if message_type == 0x01 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Request Message
+  if message_type == 0x81 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Response Message
+  if message_type == 0x82 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x79 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Si Quote Message
+  if message_type == 0x47 then
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.si_quote_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header = {}
+
+-- Size: Message Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.size
+
+-- Display: Message Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, message_type = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_header, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message = {}
+
+-- Display: Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):uint()
+
+  -- Payload: Runtime Type with 10 branches
+  index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.message, buffer(offset, 0))
+    local current = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Unit Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header = {}
+
+-- Size: Unit Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.size =
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.size + 
+  lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.size
+
+-- Display: Unit Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message_count.dissect(buffer, index, packet, parent)
+
+  -- Market Data Group: 1 Byte Ascii String
+  index, market_data_group = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.market_data_group.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: UInt32
+  index, sequence_number = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Header
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unit_header, buffer(offset, 0))
+    local index = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet = {}
+
+-- Verify required size of Tcp packet
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet.requiredsize = function(buffer)
+  return buffer:len() >= lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.size
+end
+
+-- Dissect Packet
+lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Unit Header: Struct of 4 fields
+  index, unit_header = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.unit_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.message.dissect(buffer, index, packet, parent, message_length, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.init()
+end
+
+-- Dissector for Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2
+function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2, buffer(), omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.description, "("..buffer:len().." Bytes)")
+  return lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 (Tcp)
+local function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2
+  omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2:register_heuristic("tcp", omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2_tcp_heuristic)
+
+-- Register Lseg TradeEcho Level2IncrementalRecovery Gtp 26.1.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: London Stock Exchange
+--   Version: 26.1.2
+--   Date: Tuesday, January 27, 2026
+--   Specification: gtp-002-technical-guide-tradecho-pre-trade-si-quote-issue-26-1-2_0.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--
+-- The Binary Data Compiler technologies used to produce this file
+-- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-- For full Omi information:
+--   https://github.com/Open-Markets-Initiative/Directory
+-----------------------------------------------------------------------
