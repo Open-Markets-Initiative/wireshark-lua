@@ -289,6 +289,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.best_ask_implied_qty.size = 
 
 -- Display: Best Ask Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.best_ask_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Best Ask Implied Qty: No Value"
+  end
+
   return "Best Ask Implied Qty: "..value
 end
 
@@ -351,6 +356,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.best_bid_implied_qty.size = 
 
 -- Display: Best Bid Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.best_bid_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Best Bid Implied Qty: No Value"
+  end
+
   return "Best Bid Implied Qty: "..value
 end
 
@@ -1132,6 +1142,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.last_trade_qty.size = 4
 
 -- Display: Last Trade Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.last_trade_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Last Trade Qty: No Value"
+  end
+
   return "Last Trade Qty: "..value
 end
 
@@ -1521,6 +1536,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.next_ask_implied_qty.size = 
 
 -- Display: Next Ask Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.next_ask_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Next Ask Implied Qty: No Value"
+  end
+
   return "Next Ask Implied Qty: "..value
 end
 
@@ -1583,6 +1603,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.next_bid_implied_qty.size = 
 
 -- Display: Next Bid Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.next_bid_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Next Bid Implied Qty: No Value"
+  end
+
   return "Next Bid Implied Qty: "..value
 end
 
@@ -1755,6 +1780,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.open_interest.size = 4
 
 -- Display: Open Interest
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.open_interest.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Open Interest: No Value"
+  end
+
   return "Open Interest: "..value
 end
 

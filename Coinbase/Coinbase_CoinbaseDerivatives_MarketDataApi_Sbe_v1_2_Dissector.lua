@@ -18,9 +18,9 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = {}
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressororderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressorreceivetime", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.beginseqnum", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedqty", ftypes.INT32)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestbidimpliedprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestbidimpliedprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestbidimpliedqty", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_price = ProtoField.new("Best Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestprice", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_qty = ProtoField.new("Best Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestqty", ftypes.INT32)
@@ -28,18 +28,18 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.block_length = Pr
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.buy_order_id = ProtoField.new("Buy Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.buyorderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.cfi_code = ProtoField.new("Cfi Code", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.cficode", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.channel_id = ProtoField.new("Channel Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.channelid", ftypes.UINT16)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.close_price = ProtoField.new("Close Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.closeprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.close_price = ProtoField.new("Close Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.closeprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.contract_size = ProtoField.new("Contract Size", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.contractsize", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.currency = ProtoField.new("Currency", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.currency", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.dayopenprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.dayopenprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.deepest_price = ProtoField.new("Deepest Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.deepestprice", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.definition_flags = ProtoField.new("Definition Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.definitionflags", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.description = ProtoField.new("Description", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.description", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.details", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.firsttradingsessiondate", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.frame_length = ProtoField.new("Frame Length", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.framelength", ftypes.UINT16)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.high_price = ProtoField.new("High Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.highprice", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.indicativeopenprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.high_price = ProtoField.new("High Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.highprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.indicativeopenprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instr_header = ProtoField.new("Instr Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrseqnum", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instrument_flags = ProtoField.new("Instrument Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentflags", ftypes.UINT8)
@@ -47,24 +47,24 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instrument_id = P
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instrument_side = ProtoField.new("Instrument Side", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentside", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.ispriorsettlementtheoretical", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lastinstrseqnum", ftypes.UINT32)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeqty", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradingsessiondate", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg1instrumentid", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg2instrumentid", ftypes.INT32)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_down_price = ProtoField.new("Limit Down Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitdownprice", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_up_price = ProtoField.new("Limit Up Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitupprice", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.low_price = ProtoField.new("Low Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lowprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_down_price = ProtoField.new("Limit Down Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitdownprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_up_price = ProtoField.new("Limit Up Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitupprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.low_price = ProtoField.new("Low Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lowprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.match_id = ProtoField.new("Match Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.matchid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_count = ProtoField.new("Message Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.messagecount", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.newleg1price", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.newleg2price", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.new_price = ProtoField.new("New Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.newprice", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextaskimpliedprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextaskimpliedprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextaskimpliedqty", ftypes.INT32)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextbidimpliedprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextbidimpliedprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextbidimpliedqty", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_price = ProtoField.new("Next Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextprice", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_qty = ProtoField.new("Next Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextqty", ftypes.INT32)
@@ -79,8 +79,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = Pr
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price", ftypes.DOUBLE)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price_increment = ProtoField.new("Price Increment", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priceincrement", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priorsettlementprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price_increment = ProtoField.new("Price Increment", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priceincrement", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priorsettlementprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.product_code = ProtoField.new("Product Code", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.productcode", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.product_group = ProtoField.new("Product Group", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.productgroup", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.product_id = ProtoField.new("Product Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.productid", ftypes.INT32)
@@ -94,7 +94,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.schema_id = Proto
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sellorderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.seq_num = ProtoField.new("Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.seqnum", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotinstrumentid", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.spreadbuyconvention", ftypes.INT8)
@@ -106,8 +106,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_session_d
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_status = ProtoField.new("Trading Status", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.version", ftypes.UINT16)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE)
 
 -- Coinbase CoinbaseDerivatives Sbe MarketDataApi 1.2 Application Messages
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.endofsnapshotmessage", ftypes.STRING)
@@ -239,21 +239,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size = 8
 
 -- Display: Best Ask Implied Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Ask Implied Price: No Value"
   end
 
   return "Best Ask Implied Price: "..value
 end
 
+-- Translate: Best Ask Implied Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Best Ask Implied Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price, range, value, display)
 
@@ -268,6 +279,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size = 
 
 -- Display: Best Ask Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Best Ask Implied Qty: No Value"
+  end
+
   return "Best Ask Implied Qty: "..value
 end
 
@@ -290,21 +306,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size = 8
 
 -- Display: Best Bid Implied Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Bid Implied Price: No Value"
   end
 
   return "Best Bid Implied Price: "..value
 end
 
+-- Translate: Best Bid Implied Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Best Bid Implied Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_price, range, value, display)
 
@@ -319,6 +346,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size = 
 
 -- Display: Best Bid Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Best Bid Implied Qty: No Value"
+  end
+
   return "Best Bid Implied Qty: "..value
 end
 
@@ -505,21 +537,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.size = 8
 
 -- Display: Close Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Close Price: No Value"
   end
 
   return "Close Price: "..value
 end
 
+-- Translate: Close Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Close Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.close_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.close_price, range, value, display)
 
@@ -595,21 +638,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.size = 8
 
 -- Display: Day Open Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Day Open Price: No Value"
   end
 
   return "Day Open Price: "..value
 end
 
+-- Translate: Day Open Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Day Open Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.day_open_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.day_open_price, range, value, display)
 
@@ -770,21 +824,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.size = 8
 
 -- Display: High Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "High Price: No Value"
   end
 
   return "High Price: "..value
 end
 
+-- Translate: High Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: High Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.high_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.high_price, range, value, display)
 
@@ -798,21 +863,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.size = 8
 
 -- Display: Indicative Open Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Indicative Open Price: No Value"
   end
 
   return "Indicative Open Price: "..value
 end
 
+-- Translate: Indicative Open Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Indicative Open Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.indicative_open_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price, range, value, display)
 
@@ -941,21 +1017,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.size = 8
 
 -- Display: Last Trade Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Trade Price: No Value"
   end
 
   return "Last Trade Price: "..value
 end
 
+-- Translate: Last Trade Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Last Trade Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_price, range, value, display)
 
@@ -970,6 +1057,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_qty.size = 4
 
 -- Display: Last Trade Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Last Trade Qty: No Value"
+  end
+
   return "Last Trade Qty: "..value
 end
 
@@ -1093,11 +1185,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.display = f
   return "Limit Down Price: "..value
 end
 
+-- Translate: Limit Down Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Limit Down Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.translate(raw)
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_down_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_down_price, range, value, display)
@@ -1116,11 +1214,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.display = fun
   return "Limit Up Price: "..value
 end
 
+-- Translate: Limit Up Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Limit Up Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.translate(raw)
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.limit_up_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.limit_up_price, range, value, display)
@@ -1135,21 +1239,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.size = 8
 
 -- Display: Low Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Low Price: No Value"
   end
 
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Low Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.low_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.low_price, range, value, display)
 
@@ -1278,21 +1393,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size = 8
 
 -- Display: Next Ask Implied Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Ask Implied Price: No Value"
   end
 
   return "Next Ask Implied Price: "..value
 end
 
+-- Translate: Next Ask Implied Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Next Ask Implied Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_price, range, value, display)
 
@@ -1307,6 +1433,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size = 
 
 -- Display: Next Ask Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Next Ask Implied Qty: No Value"
+  end
+
   return "Next Ask Implied Qty: "..value
 end
 
@@ -1329,21 +1460,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size = 8
 
 -- Display: Next Bid Implied Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Bid Implied Price: No Value"
   end
 
   return "Next Bid Implied Price: "..value
 end
 
+-- Translate: Next Bid Implied Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Next Bid Implied Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_price, range, value, display)
 
@@ -1358,6 +1500,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size = 
 
 -- Display: Next Bid Implied Qty
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Next Bid Implied Qty: No Value"
+  end
+
   return "Next Bid Implied Qty: "..value
 end
 
@@ -1501,6 +1648,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.open_interest.size = 4
 
 -- Display: Open Interest
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.open_interest.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Open Interest: No Value"
+  end
+
   return "Open Interest: "..value
 end
 
@@ -1644,11 +1796,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.display = fu
   return "Price Increment: "..value
 end
 
+-- Translate: Price Increment
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Price Increment
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.translate(raw)
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price_increment, range, value, display)
@@ -1663,21 +1821,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size = 8
 
 -- Display: Prior Settlement Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Prior Settlement Price: No Value"
   end
 
   return "Prior Settlement Price: "..value
 end
 
+-- Translate: Prior Settlement Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Prior Settlement Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price, range, value, display)
 
@@ -2005,21 +2174,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.size = 8
 
 -- Display: Settlement Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Settlement Price: No Value"
   end
 
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Settlement Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.settlement_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price, range, value, display)
 
@@ -2439,11 +2619,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.display = functio
   return "Vwap Price: "..value
 end
 
+-- Translate: Vwap Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Vwap Price
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.translate(raw)
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
@@ -2458,21 +2644,32 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size = 8
 
 -- Display: Vwap Price Optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Vwap Price Optional: No Value"
   end
 
   return "Vwap Price Optional: "..value
 end
 
+-- Translate: Vwap Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Vwap Price Optional
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional, range, value, display)
 
