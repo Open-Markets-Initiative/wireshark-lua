@@ -38,10 +38,12 @@ local show = {}
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Lseg Millennium UdpUnitHeader Mitch 1.0 Show Options
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -49,6 +51,9 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes = Pref.bool("Sho
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_headers then
+    show.headers = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_headers
+  end
   if show.structs ~= omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs then
     show.structs = omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs
   end
@@ -180,24 +185,20 @@ end
 -- Payload
 lseg_millennium_udpunitheader_mitch_v1_0.payload = {}
 
--- Size: Payload
-lseg_millennium_udpunitheader_mitch_v1_0.payload.size = 0
-
 -- Display: Payload
 lseg_millennium_udpunitheader_mitch_v1_0.payload.display = function(value)
   return "Payload: "..value
 end
 
--- Dissect: Payload
-lseg_millennium_udpunitheader_mitch_v1_0.payload.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_millennium_udpunitheader_mitch_v1_0.payload.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Payload
+lseg_millennium_udpunitheader_mitch_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_millennium_udpunitheader_mitch_v1_0.payload.display(value, buffer, offset, packet, parent)
+  local display = lseg_millennium_udpunitheader_mitch_v1_0.payload.display(value, packet, parent, size)
 
   parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Sequence Number
@@ -256,7 +257,7 @@ end
 
 -- Dissect: Message Header
 lseg_millennium_udpunitheader_mitch_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -275,18 +276,13 @@ end
 -- Message
 lseg_millennium_udpunitheader_mitch_v1_0.message = {}
 
--- Size: Message
-lseg_millennium_udpunitheader_mitch_v1_0.message.size =
-  lseg_millennium_udpunitheader_mitch_v1_0.message_header.size + 
-  lseg_millennium_udpunitheader_mitch_v1_0.payload.size
-
 -- Display: Message
 lseg_millennium_udpunitheader_mitch_v1_0.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-lseg_millennium_udpunitheader_mitch_v1_0.message.fields = function(buffer, offset, packet, parent, message_index)
+lseg_millennium_udpunitheader_mitch_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -298,27 +294,36 @@ lseg_millennium_udpunitheader_mitch_v1_0.message.fields = function(buffer, offse
   -- Message Header: Struct of 2 fields
   index, message_header = lseg_millennium_udpunitheader_mitch_v1_0.message_header.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(index - 2, 1):le_uint()
+
+  -- Runtime Size Of: Payload
+  local size_of_payload = message_length - 2
+
   -- Payload: 0 Byte
-  index, payload = lseg_millennium_udpunitheader_mitch_v1_0.payload.dissect(buffer, index, packet, parent)
+  index, payload = lseg_millennium_udpunitheader_mitch_v1_0.payload.dissect(buffer, index, packet, parent, size_of_payload)
 
   return index
 end
 
 -- Dissect: Message
-lseg_millennium_udpunitheader_mitch_v1_0.message.dissect = function(buffer, offset, packet, parent, message_index)
+lseg_millennium_udpunitheader_mitch_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
-    local index = lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_millennium_udpunitheader_mitch_v1_0.message.display(packet, parent, length)
+    local current = lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = lseg_millennium_udpunitheader_mitch_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, message_index)
+    lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -358,7 +363,7 @@ end
 
 -- Dissect: Unit Header
 lseg_millennium_udpunitheader_mitch_v1_0.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_udpunitheader_mitch_v1_0.unit_header.fields(buffer, offset, packet, parent)
@@ -396,7 +401,12 @@ lseg_millennium_udpunitheader_mitch_v1_0.packet.dissect = function(buffer, packe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = lseg_millennium_udpunitheader_mitch_v1_0.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 1):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_millennium_udpunitheader_mitch_v1_0.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index

@@ -121,11 +121,13 @@ local show = {}
 -- Lseg Millennium Level2 Mitch 11.9 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Lseg Millennium Level2 Mitch 11.9 Show Options
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_millennium_level2_mitch_v11_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -135,6 +137,9 @@ function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages then
     show.application_messages = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages
+  end
+  if show.headers ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_headers then
+    show.headers = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_headers
   end
   if show.structs ~= omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs then
     show.structs = omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs
@@ -3068,7 +3073,7 @@ end
 
 -- Dissect: Message Header
 lseg_millennium_level2_mitch_v11_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9.message_header.fields(buffer, offset, packet, parent)
@@ -3087,27 +3092,13 @@ end
 -- Message
 lseg_millennium_level2_mitch_v11_9.message = {}
 
--- Calculate size of: Message
-lseg_millennium_level2_mitch_v11_9.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + lseg_millennium_level2_mitch_v11_9.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):uint()
-  index = index + lseg_millennium_level2_mitch_v11_9.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 lseg_millennium_level2_mitch_v11_9.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-lseg_millennium_level2_mitch_v11_9.message.fields = function(buffer, offset, packet, parent, message_index)
+lseg_millennium_level2_mitch_v11_9.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -3129,20 +3120,23 @@ lseg_millennium_level2_mitch_v11_9.message.fields = function(buffer, offset, pac
 end
 
 -- Dissect: Message
-lseg_millennium_level2_mitch_v11_9.message.dissect = function(buffer, offset, packet, parent, message_index)
+lseg_millennium_level2_mitch_v11_9.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.message, buffer(offset, 0))
-    local index = lseg_millennium_level2_mitch_v11_9.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_millennium_level2_mitch_v11_9.message.display(packet, parent, length)
+    local current = lseg_millennium_level2_mitch_v11_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = lseg_millennium_level2_mitch_v11_9.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lseg_millennium_level2_mitch_v11_9.message.fields(buffer, offset, packet, parent, message_index)
+    lseg_millennium_level2_mitch_v11_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -3182,7 +3176,7 @@ end
 
 -- Dissect: Unit Header
 lseg_millennium_level2_mitch_v11_9.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header, buffer(offset, 0))
     local index = lseg_millennium_level2_mitch_v11_9.unit_header.fields(buffer, offset, packet, parent)
@@ -3220,7 +3214,12 @@ lseg_millennium_level2_mitch_v11_9.packet.dissect = function(buffer, packet, par
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, message = lseg_millennium_level2_mitch_v11_9.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 1):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_millennium_level2_mitch_v11_9.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   return index
