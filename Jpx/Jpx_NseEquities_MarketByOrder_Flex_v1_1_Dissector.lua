@@ -2372,7 +2372,10 @@ jpx_nseequities_marketbyorder_flex_v1_1.udp_packet.dissect = function(buffer, pa
     local tag_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Message
-    index, message = jpx_nseequities_marketbyorder_flex_v1_1.message.dissect(buffer, index, packet, parent, tag_length, message_index)
+    local size_of_message = tag_length + 1
+
+    -- Message: Struct of 2 fields
+    index, message = jpx_nseequities_marketbyorder_flex_v1_1.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
