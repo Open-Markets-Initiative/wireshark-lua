@@ -1226,12 +1226,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.last_trade_time.size = 8
 
 -- Display: Last Trade Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.last_trade_time.display = function(value)
-  -- Check if field has value
+  -- Check null value
   if value == Int64(0x00000000, 0x80000000) then
     return "Last Trade Time: No Value"
+
   end
 
-  return "Last Trade Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Last Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Trade Time
