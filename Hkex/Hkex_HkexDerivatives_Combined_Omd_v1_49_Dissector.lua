@@ -162,7 +162,7 @@ omi_hkex_hkexderivatives_combined_omd_v1_49.fields.unused_order_type_bit_8 = Pro
 omi_hkex_hkexderivatives_combined_omd_v1_49.fields.unused_order_type_bit_9 = ProtoField.new("Unused Order Type Bit 9", "hkex.hkexderivatives.combined.omd.v1.49.unusedordertypebit9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_hkex_hkexderivatives_combined_omd_v1_49.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.combined.omd.v1.49.updateaction", ftypes.UINT8)
 
--- Hkex HkexDerivatives Omd Combined 1.49 Application Messages
+-- Hkex HkexDerivatives Combined 1.49 Application Messages
 omi_hkex_hkexderivatives_combined_omd_v1_49.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.hkexderivatives.combined.omd.v1.49.addordermessage", ftypes.STRING)
 omi_hkex_hkexderivatives_combined_omd_v1_49.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.combined.omd.v1.49.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_combined_omd_v1_49.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.combined.omd.v1.49.calculatedopeningpricemessage", ftypes.STRING)

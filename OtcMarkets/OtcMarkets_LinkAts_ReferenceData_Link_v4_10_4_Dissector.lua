@@ -82,7 +82,7 @@ omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.tier = ProtoField.new("
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.trading_flat = ProtoField.new("Trading Flat", "otcmarkets.linkats.referencedata.link.v4.10.4.tradingflat", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.referencedata.link.v4.10.4.unsolicitedonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets LinkAts Link ReferenceData 4.10.4 Application Messages
+-- OtcMarkets LinkAts ReferenceData 4.10.4 Application Messages
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.referencedata.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.extended_security_message = ProtoField.new("Extended Security Message", "otcmarkets.linkats.referencedata.link.v4.10.4.extendedsecuritymessage", ftypes.STRING)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.market_close_message = ProtoField.new("Market Close Message", "otcmarkets.linkats.referencedata.link.v4.10.4.marketclosemessage", ftypes.STRING)

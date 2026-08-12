@@ -376,7 +376,7 @@ omi_eurex_t7_xti_fbe_v8_1.fields.var_text_len = ProtoField.new("Var Text Len", "
 omi_eurex_t7_xti_fbe_v8_1.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.t7.xti.fbe.v8.1.volumediscoveryprice", ftypes.DOUBLE)
 omi_eurex_t7_xti_fbe_v8_1.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.t7.xti.fbe.v8.1.xetraenlighttargetpartiescomp", ftypes.STRING)
 
--- Eurex T7 Fbe Xti 8.1 Application Messages
+-- Eurex T7 Xti 8.1 Application Messages
 omi_eurex_t7_xti_fbe_v8_1.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.t7.xti.fbe.v8.1.approvetestraderequest", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v8_1.fields.best_quote_execution_report = ProtoField.new("Best Quote Execution Report", "eurex.t7.xti.fbe.v8.1.bestquoteexecutionreport", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v8_1.fields.best_quote_response = ProtoField.new("Best Quote Response", "eurex.t7.xti.fbe.v8.1.bestquoteresponse", ftypes.STRING)

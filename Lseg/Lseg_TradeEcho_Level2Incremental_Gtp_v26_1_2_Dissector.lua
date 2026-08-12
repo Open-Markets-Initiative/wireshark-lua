@@ -61,7 +61,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.trading_status = ProtoFi
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incremental.gtp.v26.1.2.unitheader", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incremental.gtp.v26.1.2.venueinstrumentid", ftypes.STRING)
 
--- Lseg TradeEcho Gtp Level2Incremental 26.1.2 Application Messages
+-- Lseg TradeEcho Level2Incremental 26.1.2 Application Messages
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.delete_order_message = ProtoField.new("Delete Order Message", "lseg.tradeecho.level2incremental.gtp.v26.1.2.deleteordermessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.level2incremental.gtp.v26.1.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.level2incremental.gtp.v26.1.2.instrumentstatusmessage", ftypes.STRING)

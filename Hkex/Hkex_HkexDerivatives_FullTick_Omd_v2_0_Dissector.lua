@@ -124,7 +124,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.vcm_lower_price = ProtoField.n
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.fulltick.omd.v2.0.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.fulltick.omd.v2.0.vcmupperprice", ftypes.INT64)
 
--- Hkex HkexDerivatives Omd FullTick 2.0 Application Messages
+-- Hkex HkexDerivatives FullTick 2.0 Application Messages
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.add_order = ProtoField.new("Add Order", "hkex.hkexderivatives.fulltick.omd.v2.0.addorder", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.fulltick.omd.v2.0.aggregateimpliedorder", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.fulltick.omd.v2.0.calculatedopeningpricemessage", ftypes.STRING)

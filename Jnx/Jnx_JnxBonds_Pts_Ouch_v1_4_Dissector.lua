@@ -61,7 +61,7 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "j
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxbonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.jnxbonds.pts.ouch.v1.4.username", ftypes.STRING)
 
--- Jnx JnxBonds Ouch Pts 1.4 Application Messages
+-- Jnx JnxBonds Pts 1.4 Application Messages
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.jnxbonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.jnxbonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.order_accepted_message = ProtoField.new("Order Accepted Message", "jnx.jnxbonds.pts.ouch.v1.4.orderacceptedmessage", ftypes.STRING)
@@ -73,7 +73,7 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.order_replaced_message = ProtoField.new("O
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "jnx.jnxbonds.pts.ouch.v1.4.replaceordermessage", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxbonds.pts.ouch.v1.4.systemeventmessage", ftypes.STRING)
 
--- Jnx JnxBonds Ouch Pts 1.4 Session Messages
+-- Jnx JnxBonds Pts 1.4 Session Messages
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxbonds.pts.ouch.v1.4.debugpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxbonds.pts.ouch.v1.4.loginrejectedpacket", ftypes.STRING)

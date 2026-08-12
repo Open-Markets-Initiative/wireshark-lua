@@ -117,7 +117,7 @@ omi_eurex_t7_edci_fbe_v14_1.fields.triggered = ProtoField.new("Triggered", "eure
 omi_eurex_t7_edci_fbe_v14_1.fields.var_text = ProtoField.new("Var Text", "eurex.t7.edci.fbe.v14.1.vartext", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.edci.fbe.v14.1.vartextlen", ftypes.UINT16)
 
--- Eurex T7 Fbe Edci 14.1 Application Messages
+-- Eurex T7 Edci 14.1 Application Messages
 omi_eurex_t7_edci_fbe_v14_1.fields.delete_order_broadcast = ProtoField.new("Delete Order Broadcast", "eurex.t7.edci.fbe.v14.1.deleteorderbroadcast", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.forced_logout_notification = ProtoField.new("Forced Logout Notification", "eurex.t7.edci.fbe.v14.1.forcedlogoutnotification", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.t7.edci.fbe.v14.1.heartbeat", ftypes.STRING)

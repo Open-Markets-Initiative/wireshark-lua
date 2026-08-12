@@ -162,7 +162,7 @@ omi_memx_memxoptions_memo_sbe_v1_8.fields.unsequenced_message = ProtoField.new("
 omi_memx_memxoptions_memo_sbe_v1_8.fields.user_status = ProtoField.new("User Status", "memx.memxoptions.memo.sbe.v1.8.userstatus", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_8.fields.version = ProtoField.new("Version", "memx.memxoptions.memo.sbe.v1.8.version", ftypes.UINT16)
 
--- Memx MemxOptions Sbe Memo 1.8 Application Messages
+-- Memx MemxOptions Memo 1.8 Application Messages
 omi_memx_memxoptions_memo_sbe_v1_8.fields.allocation_instruction_ack_message = ProtoField.new("Allocation Instruction Ack Message", "memx.memxoptions.memo.sbe.v1.8.allocationinstructionackmessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_8.fields.allocation_instruction_alert_message = ProtoField.new("Allocation Instruction Alert Message", "memx.memxoptions.memo.sbe.v1.8.allocationinstructionalertmessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_8.fields.allocation_instruction_message = ProtoField.new("Allocation Instruction Message", "memx.memxoptions.memo.sbe.v1.8.allocationinstructionmessage", ftypes.STRING)

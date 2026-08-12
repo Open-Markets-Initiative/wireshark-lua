@@ -77,7 +77,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoFie
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused = ProtoField.new("Unused", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax OnyxFutures Mach DepthOfMarket 1.0.b Application Messages
+-- Miax OnyxFutures DepthOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message = ProtoField.new("Add Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.addordermessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price_message = ProtoField.new("Anticipated Opening Price Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.anticipatedopeningpricemessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)

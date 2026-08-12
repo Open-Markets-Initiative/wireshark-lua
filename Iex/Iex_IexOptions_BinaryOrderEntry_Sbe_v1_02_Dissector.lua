@@ -171,7 +171,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_status = Proto
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_type = ProtoField.new("User Session Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.usersessiontype", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.version = ProtoField.new("Version", "iex.iexoptions.binaryorderentry.sbe.v1.02.version", ftypes.UINT16)
 
--- Iex IexOptions Sbe BinaryOrderEntry 1.02 Application Messages
+-- Iex IexOptions BinaryOrderEntry 1.02 Application Messages
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.applicationlayerrejectmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message = ProtoField.new("Bulk Quote Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientheartbeatmessage", ftypes.BYTES)

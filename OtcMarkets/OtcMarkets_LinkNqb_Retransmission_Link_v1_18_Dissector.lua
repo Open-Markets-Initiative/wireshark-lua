@@ -81,7 +81,7 @@ omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited = ProtoField
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.linknqb.retransmission.link.v1.18.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.user_id = ProtoField.new("User Id", "otcmarkets.linknqb.retransmission.link.v1.18.userid", ftypes.STRING)
 
--- OtcMarkets LinkNqb Link Retransmission 1.18 Application Messages
+-- OtcMarkets LinkNqb Retransmission 1.18 Application Messages
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linknqb.retransmission.link.v1.18.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.enhanced_spin_request_message = ProtoField.new("Enhanced Spin Request Message", "otcmarkets.linknqb.retransmission.link.v1.18.enhancedspinrequestmessage", ftypes.STRING)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.enhanced_spin_response_message = ProtoField.new("Enhanced Spin Response Message", "otcmarkets.linknqb.retransmission.link.v1.18.enhancedspinresponsemessage", ftypes.STRING)

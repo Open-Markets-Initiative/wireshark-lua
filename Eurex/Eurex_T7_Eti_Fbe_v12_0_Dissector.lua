@@ -560,7 +560,7 @@ omi_eurex_t7_eti_fbe_v12_0.fields.var_text = ProtoField.new("Var Text", "eurex.t
 omi_eurex_t7_eti_fbe_v12_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.eti.fbe.v12.0.vartextlen", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v12_0.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v12.0.vega", ftypes.DOUBLE)
 
--- Eurex T7 Fbe Eti 12.0 Application Messages
+-- Eurex T7 Eti 12.0 Application Messages
 omi_eurex_t7_eti_fbe_v12_0.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v12.0.addcomplexinstrumentrequest", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v12_0.fields.add_complex_instrument_response = ProtoField.new("Add Complex Instrument Response", "eurex.t7.eti.fbe.v12.0.addcomplexinstrumentresponse", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v12_0.fields.add_flexible_instrument_request = ProtoField.new("Add Flexible Instrument Request", "eurex.t7.eti.fbe.v12.0.addflexibleinstrumentrequest", ftypes.STRING)

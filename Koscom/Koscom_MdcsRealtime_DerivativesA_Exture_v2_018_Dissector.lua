@@ -303,7 +303,7 @@ omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_accumulated
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.derivativesa.exture.v2.018.yesterdaysclosingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_closing_price_type_code = ProtoField.new("Yesterdays Closing Price Type Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.yesterdaysclosingpricetypecode", ftypes.STRING)
 
--- Koscom MdcsRealtime Exture DerivativesA 2.018 Application Messages
+-- Koscom MdcsRealtime DerivativesA 2.018 Application Messages
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.commodity_futures_settlement_reference_ktb_message = ProtoField.new("Commodity Futures Settlement Reference Ktb Message", "koscom.mdcsrealtime.derivativesa.exture.v2.018.commodityfuturessettlementreferencektbmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.commodity_futures_spot_settlement_reference_message = ProtoField.new("Commodity Futures Spot Settlement Reference Message", "koscom.mdcsrealtime.derivativesa.exture.v2.018.commodityfuturesspotsettlementreferencemessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.daily_disclosed_rfr_message = ProtoField.new("Daily Disclosed Rfr Message", "koscom.mdcsrealtime.derivativesa.exture.v2.018.dailydisclosedrfrmessage", ftypes.STRING)

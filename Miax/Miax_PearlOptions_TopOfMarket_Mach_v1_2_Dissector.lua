@@ -109,7 +109,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_2.fields.unsequenced_data_packet = Pro
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearloptions.topofmarket.mach.v1.2.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.username = ProtoField.new("Username", "miax.pearloptions.topofmarket.mach.v1.2.username", ftypes.STRING)
 
--- Miax PearlOptions Mach TopOfMarket 1.2 Application Messages
+-- Miax PearlOptions TopOfMarket 1.2 Application Messages
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.double_sided_top_of_market_best_bid_or_offer_compact_format_message = ProtoField.new("Double Sided Top Of Market Best Bid Or Offer Compact Format Message", "miax.pearloptions.topofmarket.mach.v1.2.doublesidedtopofmarketbestbidoroffercompactformatmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.double_sided_top_of_market_best_bid_or_offer_wide_format_message = ProtoField.new("Double Sided Top Of Market Best Bid Or Offer Wide Format Message", "miax.pearloptions.topofmarket.mach.v1.2.doublesidedtopofmarketbestbidorofferwideformatmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearloptions.topofmarket.mach.v1.2.endofrefreshnotificationmessage", ftypes.STRING)

@@ -48,7 +48,7 @@ omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.system_event = ProtoField.new("Sys
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "odx.odxsecuritytoken.pts.itch.v2.2.tradingstate", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxsecuritytoken.pts.itch.v2.2.upperpricelimit", ftypes.DOUBLE)
 
--- Odx OdxSecurityToken Itch Pts 2.2 Application Messages
+-- Odx OdxSecurityToken Pts 2.2 Application Messages
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.order_added_message = ProtoField.new("Order Added Message", "odx.odxsecuritytoken.pts.itch.v2.2.orderaddedmessage", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "odx.odxsecuritytoken.pts.itch.v2.2.orderdeletedmessage", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v2_2.fields.order_executed_message = ProtoField.new("Order Executed Message", "odx.odxsecuritytoken.pts.itch.v2.2.orderexecutedmessage", ftypes.STRING)

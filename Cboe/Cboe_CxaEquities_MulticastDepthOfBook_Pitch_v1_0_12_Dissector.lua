@@ -63,7 +63,7 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value = ProtoFiel
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuetimestamp", ftypes.UINT64)
 
--- Cboe CxaEquities Pitch MulticastDepthOfBook 1.0.12 Application Messages
+-- Cboe CxaEquities MulticastDepthOfBook 1.0.12 Application Messages
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.addordermessage", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.auctionsummarymessage", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.auctionupdatemessage", ftypes.STRING)

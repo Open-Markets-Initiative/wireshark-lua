@@ -120,7 +120,7 @@ omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.vcm_upper_price = Proto
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.warrant_maturity_date = ProtoField.new("Warrant Maturity Date", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.warrantmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.warranttype", ftypes.STRING)
 
--- Hkex HkexSecurities Omd FullTickRefresh 1.45 Application Messages
+-- Hkex HkexSecurities FullTickRefresh 1.45 Application Messages
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.addordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.currency_rate_message = ProtoField.new("Currency Rate Message", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.currencyratemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.indicative_equilibrium_price_message = ProtoField.new("Indicative Equilibrium Price Message", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.indicativeequilibriumpricemessage", ftypes.STRING)

@@ -40,7 +40,7 @@ omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading = ProtoField.new("Trading
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v1.3.2.tradingstatus", ftypes.UINT8)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused = ProtoField.new("Unused", "a2x.a2xequities.snapshot.amd.v1.3.2.unused", ftypes.UINT8, nil, base.DEC, 0x1F)
 
--- A2X A2XEquities Amd Snapshot 1.3.2 Application Messages
+-- A2X A2XEquities Snapshot 1.3.2 Application Messages
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.snapshot.amd.v1.3.2.heartbeatmessage", ftypes.BYTES)

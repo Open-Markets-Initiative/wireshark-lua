@@ -50,7 +50,7 @@ omi_jnx_jnxequities_pts_itch_v2_0.fields.timestamp_seconds = ProtoField.new("Tim
 omi_jnx_jnxequities_pts_itch_v2_0.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v2.0.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v2.0.upperpricelimit", ftypes.DOUBLE)
 
--- Jnx JnxEquities Itch Pts 2.0 Application Messages
+-- Jnx JnxEquities Pts 2.0 Application Messages
 omi_jnx_jnxequities_pts_itch_v2_0.fields.order_added_message_no_attributes = ProtoField.new("Order Added Message No Attributes", "jnx.jnxequities.pts.itch.v2.0.orderaddedmessagenoattributes", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.order_added_with_attributes_message = ProtoField.new("Order Added With Attributes Message", "jnx.jnxequities.pts.itch.v2.0.orderaddedwithattributesmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.jnxequities.pts.itch.v2.0.orderdeletedmessage", ftypes.STRING)

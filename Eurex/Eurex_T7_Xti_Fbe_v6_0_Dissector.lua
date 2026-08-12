@@ -286,7 +286,7 @@ omi_eurex_t7_xti_fbe_v6_0.fields.var_text = ProtoField.new("Var Text", "eurex.t7
 omi_eurex_t7_xti_fbe_v6_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v6.0.vartextlen", ftypes.UINT16)
 omi_eurex_t7_xti_fbe_v6_0.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.t7.xti.fbe.v6.0.volumediscoveryprice", ftypes.DOUBLE)
 
--- Eurex T7 Fbe Xti 6.0 Application Messages
+-- Eurex T7 Xti 6.0 Application Messages
 omi_eurex_t7_xti_fbe_v6_0.fields.best_quote_execution_report = ProtoField.new("Best Quote Execution Report", "eurex.t7.xti.fbe.v6.0.bestquoteexecutionreport", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v6_0.fields.best_quote_response = ProtoField.new("Best Quote Response", "eurex.t7.xti.fbe.v6.0.bestquoteresponse", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v6_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.xti.fbe.v6.0.broadcasterrornotification", ftypes.STRING)

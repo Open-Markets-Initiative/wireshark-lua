@@ -71,7 +71,7 @@ omi_otcmarkets_moonats_topofbook_link_v1_3.fields.trading_session = ProtoField.n
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.moonats.topofbook.link.v1.3.unsolicited", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.moonats.topofbook.link.v1.3.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets MoonAts Link TopOfBook 1.3 Application Messages
+-- OtcMarkets MoonAts TopOfBook 1.3 Application Messages
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.moonats.topofbook.link.v1.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.imbalance_message = ProtoField.new("Imbalance Message", "otcmarkets.moonats.topofbook.link.v1.3.imbalancemessage", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.security_message = ProtoField.new("Security Message", "otcmarkets.moonats.topofbook.link.v1.3.securitymessage", ftypes.STRING)

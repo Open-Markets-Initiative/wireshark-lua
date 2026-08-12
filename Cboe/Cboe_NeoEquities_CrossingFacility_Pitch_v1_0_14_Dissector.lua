@@ -71,7 +71,7 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unit = ProtoField.new
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.crossingfacility.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.crossingfacility.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe NeoEquities Pitch CrossingFacility 1.0.14 Application Messages
+-- Cboe NeoEquities CrossingFacility 1.0.14 Application Messages
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.neoequities.crossingfacility.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "cboe.neoequities.crossingfacility.pitch.v1.0.14.instrumentdirectorymessage", ftypes.STRING)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.neoequities.crossingfacility.pitch.v1.0.14.tradebreakmessage", ftypes.STRING)

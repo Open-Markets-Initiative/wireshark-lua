@@ -84,7 +84,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.unit_of_trade = Proto
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.update_count = ProtoField.new("Update Count", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.updatecount", ftypes.UINT8)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.volume", ftypes.UINT32)
 
--- Nyse NyseEquities Xdp OpenBook.Aggregated 2.1.d Application Messages
+-- Nyse NyseEquities OpenBook.Aggregated 2.1.d Application Messages
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messageunavailablemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.orderbook_delta_update_message = ProtoField.new("Orderbook Delta Update Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.orderbookdeltaupdatemessage", ftypes.STRING)

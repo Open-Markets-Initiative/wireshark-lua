@@ -110,7 +110,7 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_data_packet = P
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.unsequencedmessagetype", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.username = ProtoField.new("Username", "miax.emeraldoptions.topofmarket.mach.v1.3.username", ftypes.STRING)
 
--- Miax EmeraldOptions Mach TopOfMarket 1.3 Application Messages
+-- Miax EmeraldOptions TopOfMarket 1.3 Application Messages
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.emeraldoptions.topofmarket.mach.v1.3.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.emeraldoptions.topofmarket.mach.v1.3.lastsalemessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.emeraldoptions.topofmarket.mach.v1.3.refreshrequestmessage", ftypes.STRING)

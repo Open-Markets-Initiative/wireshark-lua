@@ -80,7 +80,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_id = ProtoField.new("U
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "iex.iexoptions.marketdata.sbe.v1.03.underlyingsymbol", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.version = ProtoField.new("Version", "iex.iexoptions.marketdata.sbe.v1.03.version", ftypes.UINT16)
 
--- Iex IexOptions Sbe MarketData 1.03 Application Messages
+-- Iex IexOptions MarketData 1.03 Application Messages
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_customer_message = ProtoField.new("Add Order Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordercustomermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_non_customer_message = ProtoField.new("Add Order Non Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordernoncustomermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.clientheartbeatmessage", ftypes.BYTES)

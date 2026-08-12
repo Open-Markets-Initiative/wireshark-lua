@@ -48,7 +48,7 @@ omi_hkex_hkexsecurities_index_omd_v1_44.fields.previous_ses_close = ProtoField.n
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.44.sendtime", ftypes.UINT64)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.index.omd.v1.44.seqnum", ftypes.UINT32)
 
--- Hkex HkexSecurities Omd Index 1.44 Application Messages
+-- Hkex HkexSecurities Index 1.44 Application Messages
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.hkexsecurities.index.omd.v1.44.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.index.omd.v1.44.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.index.omd.v1.44.indexdefinitionmessage", ftypes.STRING)

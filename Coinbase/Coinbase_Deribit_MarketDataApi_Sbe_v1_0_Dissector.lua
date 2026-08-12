@@ -106,7 +106,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time = ProtoField.ne
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.type = ProtoField.new("Type", "coinbase.deribit.marketdataapi.sbe.v1.0.type", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.underlying = ProtoField.new("Underlying", "coinbase.deribit.marketdataapi.sbe.v1.0.underlying", ftypes.STRING)
 
--- Coinbase Deribit Sbe MarketDataApi 1.0 Application Messages
+-- Coinbase Deribit MarketDataApi 1.0 Application Messages
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.ask_delete_message = ProtoField.new("Ask Delete Message", "coinbase.deribit.marketdataapi.sbe.v1.0.askdeletemessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.ask_put_message = ProtoField.new("Ask Put Message", "coinbase.deribit.marketdataapi.sbe.v1.0.askputmessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.ask_qty_reduced_message = ProtoField.new("Ask Qty Reduced Message", "coinbase.deribit.marketdataapi.sbe.v1.0.askqtyreducedmessage", ftypes.STRING)

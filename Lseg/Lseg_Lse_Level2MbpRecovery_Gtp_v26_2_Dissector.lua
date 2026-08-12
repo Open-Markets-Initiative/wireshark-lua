@@ -139,7 +139,7 @@ omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.volume_onbook_only = ProtoField.
 omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.level2mbprecovery.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.level2mbprecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Lse Gtp Level2MbpRecovery 26.2 Application Messages
+-- Lseg Lse Level2MbpRecovery 26.2 Application Messages
 omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.add_order_mbp_message = ProtoField.new("Add Order Mbp Message", "lseg.lse.level2mbprecovery.gtp.v26.2.addordermbpmessage", ftypes.STRING)
 omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.add_order_short_mbp_message = ProtoField.new("Add Order Short Mbp Message", "lseg.lse.level2mbprecovery.gtp.v26.2.addordershortmbpmessage", ftypes.STRING)
 omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.instrument_directory_equities_message = ProtoField.new("Instrument Directory Equities Message", "lseg.lse.level2mbprecovery.gtp.v26.2.instrumentdirectoryequitiesmessage", ftypes.STRING)

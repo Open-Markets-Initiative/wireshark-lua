@@ -104,7 +104,7 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.unsequenced_message_ty
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.update_reason = ProtoField.new("Update Reason", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.updatereason", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.username = ProtoField.new("Username", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.username", ftypes.STRING)
 
--- Miax SapphireOptions Mach LiquidityFeed 1.0.a Application Messages
+-- Miax SapphireOptions LiquidityFeed 1.0.a Application Messages
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.complex_order_message = ProtoField.new("Complex Order Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.complexordermessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.complexstrategydefinitionupdatemessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.endofrefreshnotificationmessage", ftypes.STRING)

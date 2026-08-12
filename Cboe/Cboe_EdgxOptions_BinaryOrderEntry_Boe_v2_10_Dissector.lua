@@ -1229,7 +1229,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.user_modify_rejected_rout
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.username = ProtoField.new("Username", "cboe.edgxoptions.binaryorderentry.boe.v2.10.username", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.edgxoptions.binaryorderentry.boe.v2.10.workingprice", ftypes.UINT64)
 
--- Cboe EdgxOptions Boe BinaryOrderEntry 2.10 Application Messages
+-- Cboe EdgxOptions BinaryOrderEntry 2.10 Application Messages
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.cancelordermessage", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.clientheartbeatmessage", ftypes.BYTES)

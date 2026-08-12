@@ -63,7 +63,7 @@ omi_lseg_turquoise_analytics_gtp_v26_3.fields.venue_instrument_id = ProtoField.n
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.turquoise.analytics.gtp.v26.3.vwapbuy", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.analytics.gtp.v26.3.vwapsell", ftypes.DOUBLE)
 
--- Lseg Turquoise Gtp Analytics 26.3 Application Messages
+-- Lseg Turquoise Analytics 26.3 Application Messages
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.turquoise.analytics.gtp.v26.3.analyticsmessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.analytics.gtp.v26.3.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v26.3.instrumentstatusmessage", ftypes.STRING)

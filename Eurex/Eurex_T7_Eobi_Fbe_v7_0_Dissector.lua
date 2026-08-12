@@ -97,7 +97,7 @@ omi_eurex_t7_eobi_fbe_v7_0.fields.trd_reg_ts_prev_time_priority = ProtoField.new
 omi_eurex_t7_eobi_fbe_v7_0.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.t7.eobi.fbe.v7.0.trdregtstimein", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v7_0.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v7.0.trdregtstimepriority", ftypes.UINT64)
 
--- Eurex T7 Fbe Eobi 7.0 Application Messages
+-- Eurex T7 Eobi 7.0 Application Messages
 omi_eurex_t7_eobi_fbe_v7_0.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.t7.eobi.fbe.v7.0.addcomplexinstrument", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v7_0.fields.auction_bbo = ProtoField.new("Auction Bbo", "eurex.t7.eobi.fbe.v7.0.auctionbbo", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v7_0.fields.auction_clearing_price = ProtoField.new("Auction Clearing Price", "eurex.t7.eobi.fbe.v7.0.auctionclearingprice", ftypes.STRING)

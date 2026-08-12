@@ -742,7 +742,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_time_i
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_trade_date_exists = ProtoField.new("Variance Restatement Trade Date Exists", "cboe.cfefutures.binaryorderentry.boe.v1.3.variancerestatementtradedateexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.workingprice", ftypes.UINT64)
 
--- Cboe CfeFutures Boe BinaryOrderEntry 1.3 Application Messages
+-- Cboe CfeFutures BinaryOrderEntry 1.3 Application Messages
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.cancelordermessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.clientheartbeatmessage", ftypes.BYTES)

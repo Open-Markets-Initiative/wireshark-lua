@@ -77,7 +77,7 @@ omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.trading_status = ProtoField.new
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.underlying = ProtoField.new("Underlying", "cboe.bzxoptions.complex.pitch.v2.1.61.underlying", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.complex.pitch.v2.1.61.unit", ftypes.UINT8)
 
--- Cboe BzxOptions Pitch Complex 2.1.61 Application Messages
+-- Cboe BzxOptions Complex 2.1.61 Application Messages
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzxoptions.complex.pitch.v2.1.61.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzxoptions.complex.pitch.v2.1.61.addorderlongmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzxoptions.complex.pitch.v2.1.61.addordershortmessage", ftypes.STRING)

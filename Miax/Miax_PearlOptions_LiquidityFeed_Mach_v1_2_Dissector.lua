@@ -93,7 +93,7 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_data_packet = P
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.username = ProtoField.new("Username", "miax.pearloptions.liquidityfeed.mach.v1.2.username", ftypes.STRING)
 
--- Miax PearlOptions Mach LiquidityFeed 1.2 Application Messages
+-- Miax PearlOptions LiquidityFeed 1.2 Application Messages
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_close_message = ProtoField.new("Order Close Message", "miax.pearloptions.liquidityfeed.mach.v1.2.orderclosemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_message = ProtoField.new("Order Message", "miax.pearloptions.liquidityfeed.mach.v1.2.ordermessage", ftypes.STRING)

@@ -37,7 +37,7 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.stock_locate = ProtoField.n
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.lastsale.itch.v1.0.timestamp", ftypes.UINT64)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.lastsale.itch.v1.0.tradingstate", ftypes.STRING)
 
--- BruceAts BruceEquities Itch LastSale 1.0 Application Messages
+-- BruceAts BruceEquities LastSale 1.0 Application Messages
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.reg_sho_short_sale_price_test_restricted_indicator = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator", "bruceats.bruceequities.lastsale.itch.v1.0.regshoshortsalepricetestrestrictedindicator", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.stock_directory = ProtoField.new("Stock Directory", "bruceats.bruceequities.lastsale.itch.v1.0.stockdirectory", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "bruceats.bruceequities.lastsale.itch.v1.0.stocktradingaction", ftypes.STRING)

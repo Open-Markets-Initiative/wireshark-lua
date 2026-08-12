@@ -61,7 +61,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.unit = ProtoField.new("Unit"
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.auctionfeed.pitch.v1.1.39.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.auctionfeed.pitch.v1.1.39.widthtype", ftypes.STRING)
 
--- Cboe C1Options Pitch AuctionFeed 1.1.39 Application Messages
+-- Cboe C1Options AuctionFeed 1.1.39 Application Messages
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctionsummarymessage", ftypes.STRING)

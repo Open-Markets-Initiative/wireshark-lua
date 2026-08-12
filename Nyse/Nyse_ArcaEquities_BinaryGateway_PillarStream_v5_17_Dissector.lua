@@ -204,7 +204,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.version = ProtoFie
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arcaequities.binarygateway.pillarstream.v5.17.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.working_price = ProtoField.new("Working Price", "nyse.arcaequities.binarygateway.pillarstream.v5.17.workingprice", ftypes.DOUBLE)
 
--- Nyse ArcaEquities PillarStream BinaryGateway 5.17 Application Messages
+-- Nyse ArcaEquities BinaryGateway 5.17 Application Messages
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.arcaequities.binarygateway.pillarstream.v5.17.applicationlayerrejectmessage", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.auction_price_data_message = ProtoField.new("Auction Price Data Message", "nyse.arcaequities.binarygateway.pillarstream.v5.17.auctionpricedatamessage", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.auction_request_message = ProtoField.new("Auction Request Message", "nyse.arcaequities.binarygateway.pillarstream.v5.17.auctionrequestmessage", ftypes.STRING)
@@ -239,7 +239,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.tg_begin_message =
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.tg_end_message = ProtoField.new("Tg End Message", "nyse.arcaequities.binarygateway.pillarstream.v5.17.tgendmessage", ftypes.BYTES)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.trade_bust_correct_message = ProtoField.new("Trade Bust Correct Message", "nyse.arcaequities.binarygateway.pillarstream.v5.17.tradebustcorrectmessage", ftypes.STRING)
 
--- Nyse ArcaEquities PillarStream BinaryGateway 5.17 Session Messages
+-- Nyse ArcaEquities BinaryGateway 5.17 Session Messages
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.close = ProtoField.new("Close", "nyse.arcaequities.binarygateway.pillarstream.v5.17.close", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.close_response = ProtoField.new("Close Response", "nyse.arcaequities.binarygateway.pillarstream.v5.17.closeresponse", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v5_17.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.binarygateway.pillarstream.v5.17.heartbeat", ftypes.STRING)

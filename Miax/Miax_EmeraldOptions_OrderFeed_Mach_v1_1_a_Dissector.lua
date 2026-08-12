@@ -106,7 +106,7 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.unsequenced_message_type = 
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.update_reason = ProtoField.new("Update Reason", "miax.emeraldoptions.orderfeed.mach.v1.1.a.updatereason", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.username = ProtoField.new("Username", "miax.emeraldoptions.orderfeed.mach.v1.1.a.username", ftypes.STRING)
 
--- Miax EmeraldOptions Mach OrderFeed 1.1.a Application Messages
+-- Miax EmeraldOptions OrderFeed 1.1.a Application Messages
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.complex_order_message = ProtoField.new("Complex Order Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.complexordermessage", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.complexstrategydefinitionupdatemessage", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.endofrefreshnotificationmessage", ftypes.STRING)

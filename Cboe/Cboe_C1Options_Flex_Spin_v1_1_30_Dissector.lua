@@ -75,7 +75,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.unit = ProtoField.new("Unit", "cboe.
 omi_cboe_c1options_flex_spin_v1_1_30.fields.username = ProtoField.new("Username", "cboe.c1options.flex.spin.v1.1.30.username", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.year = ProtoField.new("Year", "cboe.c1options.flex.spin.v1.1.30.year", ftypes.STRING)
 
--- Cboe C1Options Spin Flex 1.1.30 Application Messages
+-- Cboe C1Options Flex 1.1.30 Application Messages
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_flex_instrument_definition_message = ProtoField.new("Complex Flex Instrument Definition Message", "cboe.c1options.flex.spin.v1.1.30.complexflexinstrumentdefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.flex_instrument_definition_message = ProtoField.new("Flex Instrument Definition Message", "cboe.c1options.flex.spin.v1.1.30.flexinstrumentdefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.c1options.flex.spin.v1.1.30.instrumentdefinitionfinishedmessage", ftypes.BYTES)

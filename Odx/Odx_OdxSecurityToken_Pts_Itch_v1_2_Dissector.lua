@@ -61,7 +61,7 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_message_type = ProtoFi
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxsecuritytoken.pts.itch.v1.2.upperpricelimit", ftypes.DOUBLE)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.username = ProtoField.new("Username", "odx.odxsecuritytoken.pts.itch.v1.2.username", ftypes.STRING)
 
--- Odx OdxSecurityToken Itch Pts 1.2 Session Messages
+-- Odx OdxSecurityToken Pts 1.2 Session Messages
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxsecuritytoken.pts.itch.v1.2.debugpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginacceptedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrejectedpacket", ftypes.STRING)
@@ -69,7 +69,7 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_request_packet = ProtoField.
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.sequenceddatapacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.unsequenceddatapacket", ftypes.STRING)
 
--- Odx OdxSecurityToken Itch Pts 1.2 Application Messages
+-- Odx OdxSecurityToken Pts 1.2 Application Messages
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.equilibrium_price_update_message = ProtoField.new("Equilibrium Price Update Message", "odx.odxsecuritytoken.pts.itch.v1.2.equilibriumpriceupdatemessage", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.order_added_message = ProtoField.new("Order Added Message", "odx.odxsecuritytoken.pts.itch.v1.2.orderaddedmessage", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.order_book_state_message = ProtoField.new("Order Book State Message", "odx.odxsecuritytoken.pts.itch.v1.2.orderbookstatemessage", ftypes.STRING)

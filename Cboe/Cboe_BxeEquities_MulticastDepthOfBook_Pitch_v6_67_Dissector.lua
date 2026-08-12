@@ -90,7 +90,7 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unit = ProtoField.n
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1 = ProtoField.new("Unused 1", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe BxeEquities Pitch MulticastDepthOfBook 6.67 Application Messages
+-- Cboe BxeEquities MulticastDepthOfBook 6.67 Application Messages
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.addorderlongmessage", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bxeequities.multicastdepthofbook.pitch.v6.67.addordershortmessage", ftypes.STRING)

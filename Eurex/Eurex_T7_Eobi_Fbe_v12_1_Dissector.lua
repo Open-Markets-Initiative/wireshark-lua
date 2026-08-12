@@ -137,7 +137,7 @@ omi_eurex_t7_eobi_fbe_v12_1.fields.trd_reg_ts_prev_time_priority = ProtoField.ne
 omi_eurex_t7_eobi_fbe_v12_1.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v12.1.trdregtstimepriority", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v12_1.fields.trd_type = ProtoField.new("Trd Type", "eurex.t7.eobi.fbe.v12.1.trdtype", ftypes.UINT16)
 
--- Eurex T7 Fbe Eobi 12.1 Application Messages
+-- Eurex T7 Eobi 12.1 Application Messages
 omi_eurex_t7_eobi_fbe_v12_1.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.t7.eobi.fbe.v12.1.addcomplexinstrument", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v12_1.fields.add_flexible_instrument = ProtoField.new("Add Flexible Instrument", "eurex.t7.eobi.fbe.v12.1.addflexibleinstrument", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v12_1.fields.add_scaled_simple_instrument = ProtoField.new("Add Scaled Simple Instrument", "eurex.t7.eobi.fbe.v12.1.addscaledsimpleinstrument", ftypes.STRING)

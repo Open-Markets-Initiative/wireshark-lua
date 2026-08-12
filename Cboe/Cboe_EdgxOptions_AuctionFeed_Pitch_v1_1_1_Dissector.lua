@@ -42,7 +42,7 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time_offset = ProtoField.ne
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
 
--- Cboe EdgxOptions Pitch AuctionFeed 1.1.1 Application Messages
+-- Cboe EdgxOptions AuctionFeed 1.1.1 Application Messages
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctiontrademessage", ftypes.STRING)

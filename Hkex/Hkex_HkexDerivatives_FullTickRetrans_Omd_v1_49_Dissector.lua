@@ -149,7 +149,7 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_order_type_bit_
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_order_type_bit_9 = ProtoField.new("Unused Order Type Bit 9", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unusedordertypebit9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.username = ProtoField.new("Username", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.username", ftypes.STRING)
 
--- Hkex HkexDerivatives Omd FullTickRetrans 1.49 Application Messages
+-- Hkex HkexDerivatives FullTickRetrans 1.49 Application Messages
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.addordermessage", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.calculatedopeningpricemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.class_definition_message = ProtoField.new("Class Definition Message", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.classdefinitionmessage", ftypes.STRING)

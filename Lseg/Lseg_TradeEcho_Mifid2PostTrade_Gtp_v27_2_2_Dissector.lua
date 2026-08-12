@@ -139,7 +139,7 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.volume_onbook_only = Proto
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg TradeEcho Gtp Mifid2PostTrade 27.2.2 Application Messages
+-- Lseg TradeEcho Mifid2PostTrade 27.2.2 Application Messages
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.mifid_ii_trade_report_message = ProtoField.new("Mifid Ii Trade Report Message", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.mifidiitradereportmessage", ftypes.STRING)

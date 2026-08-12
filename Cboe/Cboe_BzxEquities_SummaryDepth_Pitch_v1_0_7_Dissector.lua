@@ -61,7 +61,7 @@ omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.unused_1 = ProtoField.new(
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bzxequities.summarydepth.pitch.v1.0.7.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.unused_8 = ProtoField.new("Unused 8", "cboe.bzxequities.summarydepth.pitch.v1.0.7.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
--- Cboe BzxEquities Pitch SummaryDepth 1.0.7 Application Messages
+-- Cboe BzxEquities SummaryDepth 1.0.7 Application Messages
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.adap_message = ProtoField.new("Adap Message", "cboe.bzxequities.summarydepth.pitch.v1.0.7.adapmessage", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.bzxequities.summarydepth.pitch.v1.0.7.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.bzxequities.summarydepth.pitch.v1.0.7.clearquotemessage", ftypes.STRING)

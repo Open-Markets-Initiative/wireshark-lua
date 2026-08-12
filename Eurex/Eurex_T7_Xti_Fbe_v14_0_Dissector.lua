@@ -425,7 +425,7 @@ omi_eurex_t7_xti_fbe_v14_0.fields.var_text = ProtoField.new("Var Text", "eurex.t
 omi_eurex_t7_xti_fbe_v14_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v14.0.vartextlen", ftypes.UINT16)
 omi_eurex_t7_xti_fbe_v14_0.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.t7.xti.fbe.v14.0.xetraenlighttargetpartiescomp", ftypes.STRING)
 
--- Eurex T7 Fbe Xti 14.0 Application Messages
+-- Eurex T7 Xti 14.0 Application Messages
 omi_eurex_t7_xti_fbe_v14_0.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.t7.xti.fbe.v14.0.approvetestraderequest", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v14_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.xti.fbe.v14.0.broadcasterrornotification", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v14_0.fields.cross_request = ProtoField.new("Cross Request", "eurex.t7.xti.fbe.v14.0.crossrequest", ftypes.STRING)

@@ -47,7 +47,7 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.previous_ses_close = Proto
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.45.sendtime", ftypes.UINT64)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.indexrefresh.omd.v1.45.seqnum", ftypes.UINT32)
 
--- Hkex HkexSecurities Omd IndexRefresh 1.45 Application Messages
+-- Hkex HkexSecurities IndexRefresh 1.45 Application Messages
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.indexdefinitionmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.indexrefresh.omd.v1.45.refreshcompletemessage", ftypes.STRING)

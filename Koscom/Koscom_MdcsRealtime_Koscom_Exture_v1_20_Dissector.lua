@@ -220,7 +220,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.volume = ProtoField.new("Volu
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.weighted_average_stock_price = ProtoField.new("Weighted Average Stock Price", "koscom.mdcsrealtime.koscom.exture.v1.20.weightedaveragestockprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.zero_re_investment_index = ProtoField.new("Zero Re Investment Index", "koscom.mdcsrealtime.koscom.exture.v1.20.zeroreinvestmentindex", ftypes.DOUBLE)
 
--- Koscom MdcsRealtime Exture Koscom 1.20 Application Messages
+-- Koscom MdcsRealtime Koscom 1.20 Application Messages
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.domestic_etf_estimated_inav_message = ProtoField.new("Domestic Etf Estimated Inav Message", "koscom.mdcsrealtime.koscom.exture.v1.20.domesticetfestimatedinavmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.domestic_etf_inav_message = ProtoField.new("Domestic Etf Inav Message", "koscom.mdcsrealtime.koscom.exture.v1.20.domesticetfinavmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.elw_investment_indicator_sensitivity_message = ProtoField.new("Elw Investment Indicator Sensitivity Message", "koscom.mdcsrealtime.koscom.exture.v1.20.elwinvestmentindicatorsensitivitymessage", ftypes.STRING)

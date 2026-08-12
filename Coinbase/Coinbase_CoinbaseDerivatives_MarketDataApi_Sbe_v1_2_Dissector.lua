@@ -39,6 +39,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.details = ProtoFi
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.firsttradingsessiondate", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.frame_length = ProtoField.new("Frame Length", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.framelength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.high_price = ProtoField.new("High Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.highprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.incremental_update = ProtoField.new("Incremental Update", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.incrementalupdate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.indicativeopenprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instr_header = ProtoField.new("Instr Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrseqnum", ftypes.UINT32)
@@ -75,7 +76,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.open_interest = P
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.order_count = ProtoField.new("Order Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.ordercount", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.order_id = ProtoField.new("Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packet", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.UINT8)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price", ftypes.DOUBLE)
@@ -88,6 +89,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.quantity = ProtoF
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.reason = ProtoField.new("Reason", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reason", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reserved", ftypes.INT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.reserved_15 = ProtoField.new("Reserved 15", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reserved15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retransmit = ProtoField.new("Retransmit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.retransmit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.retrydelaynanos", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sbemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.schemaid", ftypes.UINT16)
@@ -95,6 +98,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sell_order_id = P
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.seq_num = ProtoField.new("Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.seqnum", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot = ProtoField.new("Snapshot", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotinstrumentid", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.spreadbuyconvention", ftypes.INT8)
@@ -109,7 +113,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoFi
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE)
 
--- Coinbase CoinbaseDerivatives Sbe MarketDataApi 1.2 Application Messages
+-- Coinbase CoinbaseDerivatives MarketDataApi 1.2 Application Messages
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.endofsnapshotmessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.impliedorderupdatemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.market_stat_message = ProtoField.new("Market Stat Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.marketstatmessage", ftypes.STRING)
@@ -779,7 +783,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.first_trading_session_date.s
 
 -- Display: First Trading Session Date
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.first_trading_session_date.display = function(value)
-  return "First Trading Session Date: "..value
+  return string.format("First Trading Session Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: First Trading Session Date
@@ -1118,7 +1122,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trading_session_date.si
 
 -- Display: Last Trading Session Date
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trading_session_date.display = function(value)
-  return "Last Trading Session Date: "..value
+  return string.format("Last Trading Session Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Trading Session Date
@@ -1715,29 +1719,6 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.order_id.dissect = function(
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Flags
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags = {}
-
--- Size: Packet Flags
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.size = 1
-
--- Display: Packet Flags
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.display = function(value)
-  return "Packet Flags: "..value
-end
-
--- Dissect: Packet Flags
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags, range, value, display)
 
   return offset + length, value
 end
@@ -2499,7 +2480,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.trading_session_date.size = 
 
 -- Display: Trading Session Date
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.trading_session_date.display = function(value)
-  return "Trading Session Date: "..value
+  return string.format("Trading Session Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Session Date
@@ -4368,6 +4349,63 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sbe_message.dissect = functi
   end
 end
 
+-- Packet Flags
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags = {}
+
+-- Size: Packet Flags
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.size = 1
+
+-- Display: Packet Flags
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Incremental Update flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Incremental Update"
+  end
+  -- Is Snapshot flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Snapshot"
+  end
+  -- Is Retransmit flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Retransmit"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Packet Flags
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.bits = function(range, value, packet, parent)
+
+  -- Incremental Update: 1 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.incremental_update, range, value)
+
+  -- Snapshot: 1 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot, range, value)
+
+  -- Retransmit: 1 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retransmit, range, value)
+
+  -- Reserved Bits: 5 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.reserved_bits, range, value)
+end
+
+-- Dissect: Packet Flags
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.dissect = function(buffer, offset, packet, parent)
+  local size = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.display(range, value, packet, parent)
+  local element = parent:add_le(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags, range, display)
+
+  if show.structs then
+    coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Packet Header
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_header = {}
 
@@ -4398,7 +4436,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_header.fields = funct
   -- Channel Id: 2 Byte Unsigned Fixed Width Integer
   index, channel_id = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Packet Flags: 1 Byte Unsigned Fixed Width Integer
+  -- Packet Flags: Struct of 4 fields
   index, packet_flags = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.packet_flags.dissect(buffer, index, packet, parent)
 
   -- Message Count: uint8

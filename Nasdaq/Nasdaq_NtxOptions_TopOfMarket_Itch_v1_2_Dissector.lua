@@ -63,7 +63,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoFiel
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.version = ProtoField.new("Version", "nasdaq.ntxoptions.topofmarket.itch.v1.2.version", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.topofmarket.itch.v1.2.volume", ftypes.UINT32)
 
--- Nasdaq NtxOptions Itch TopOfMarket 1.2 Application Messages
+-- Nasdaq NtxOptions TopOfMarket 1.2 Application Messages
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.bestaskupdatelongformmessage", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.best_ask_update_short_form_message = ProtoField.new("Best Ask Update Short Form Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.bestaskupdateshortformmessage", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form_message = ProtoField.new("Best Bid And Ask Update Long Form Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.bestbidandaskupdatelongformmessage", ftypes.STRING)

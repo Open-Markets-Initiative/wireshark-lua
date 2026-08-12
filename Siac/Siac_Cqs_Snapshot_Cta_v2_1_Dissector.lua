@@ -92,7 +92,7 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.totpubseqrollover = ProtoField.new("Totpub
 omi_siac_cqs_snapshot_cta_v2_1.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v2.1.upperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v2.1.version", ftypes.UINT8)
 
--- Siac Cqs Cta Snapshot 2.1 Application Messages
+-- Siac Cqs Snapshot 2.1 Application Messages
 omi_siac_cqs_snapshot_cta_v2_1.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v2.1.consolidatedsnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v2.1.finrasnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.snapshot.cta.v2.1.lineintegritymessage", ftypes.STRING)

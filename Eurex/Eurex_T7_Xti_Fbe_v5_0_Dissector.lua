@@ -263,7 +263,7 @@ omi_eurex_t7_xti_fbe_v5_0.fields.username = ProtoField.new("Username", "eurex.t7
 omi_eurex_t7_xti_fbe_v5_0.fields.var_text = ProtoField.new("Var Text", "eurex.t7.xti.fbe.v5.0.vartext", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v5.0.vartextlen", ftypes.UINT16)
 
--- Eurex T7 Fbe Xti 5.0 Application Messages
+-- Eurex T7 Xti 5.0 Application Messages
 omi_eurex_t7_xti_fbe_v5_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.xti.fbe.v5.0.broadcasterrornotification", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.cross_request = ProtoField.new("Cross Request", "eurex.t7.xti.fbe.v5.0.crossrequest", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.cross_request_response = ProtoField.new("Cross Request Response", "eurex.t7.xti.fbe.v5.0.crossrequestresponse", ftypes.STRING)

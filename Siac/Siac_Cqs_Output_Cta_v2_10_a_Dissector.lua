@@ -121,7 +121,7 @@ omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_2 = ProtoField.new("Timestamp 2
 omi_siac_cqs_output_cta_v2_10_a.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v2.10.a.transactionid", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_10_a.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v2.10.a.version", ftypes.UINT8)
 
--- Siac Cqs Cta Output 2.10.a Application Messages
+-- Siac Cqs Output 2.10.a Application Messages
 omi_siac_cqs_output_cta_v2_10_a.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v2.10.a.auctionstatusmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cqs.output.cta.v2.10.a.disasterrecoverydatacenteractivationmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cqs.output.cta.v2.10.a.endofdaymessage", ftypes.STRING)

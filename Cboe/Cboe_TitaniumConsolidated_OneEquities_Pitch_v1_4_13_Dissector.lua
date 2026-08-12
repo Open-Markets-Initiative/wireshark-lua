@@ -77,7 +77,7 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_5 = ProtoF
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7 = ProtoField.new("Unused 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Cboe TitaniumConsolidated Pitch OneEquities 1.4.13 Application Messages
+-- Cboe TitaniumConsolidated OneEquities 1.4.13 Application Messages
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.bestquoteupdatemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.cboemarketstatusmessage", ftypes.STRING)

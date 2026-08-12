@@ -125,7 +125,7 @@ omi_siac_cqs_input_cta_v2_9_b.fields.trade_message_type = ProtoField.new("Trade 
 omi_siac_cqs_input_cta_v2_9_b.fields.trading_status_id = ProtoField.new("Trading Status Id", "siac.cqs.input.cta.v2.9.b.tradingstatusid", ftypes.UINT32)
 omi_siac_cqs_input_cta_v2_9_b.fields.version = ProtoField.new("Version", "siac.cqs.input.cta.v2.9.b.version", ftypes.UINT8)
 
--- Siac Cqs Cta Input 2.9.b Application Messages
+-- Siac Cqs Input 2.9.b Application Messages
 omi_siac_cqs_input_cta_v2_9_b.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.input.cta.v2.9.b.auctionstatusmessage", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cqs.input.cta.v2.9.b.endofdaymessage", ftypes.BYTES)
 omi_siac_cqs_input_cta_v2_9_b.fields.finra_close_message = ProtoField.new("Finra Close Message", "siac.cqs.input.cta.v2.9.b.finraclosemessage", ftypes.BYTES)

@@ -5,8 +5,6 @@
 
 | Division | [Protocol][Omi.Nasdaq.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nasdaq.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Common][Common] | [SoupBin][Nasdaq.Common.SoupBin] | [Tcp][Omi.Encoding.Tcp] | [3.0][Nasdaq.Common.SoupBin.Tcp.v3.0.Dissector] | 2/22/2017 | 1061 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.Common.SoupBin.Tcp.v3.0.Url] - [pdf][Nasdaq.Common.SoupBin.Tcp.v3.0.Pdf] |
-| [Common][Common] | [Mold64][Nasdaq.Common.Mold64] | [Udp][Omi.Encoding.Udp] | [1.0][Nasdaq.Common.Mold64.Udp.v1.0.Dissector] | 2/22/2017 | 542 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nasdaq.Common.Mold64.Udp.v1.0.Url] - [pdf][Nasdaq.Common.Mold64.Udp.v1.0.Pdf] |
 | [GemxOptions][GemxOptions.Exchange] | [DepthOfMarket][Nasdaq.GemxOptions.DepthOfMarket] | [Itch][Omi.Encoding.Itch] | [2.1][Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Dissector] | 2/13/2026 | 3499 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Url] - [pdf][Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Pdf] |
 | [GemxOptions][GemxOptions.Exchange] | [OrderFeed][Nasdaq.GemxOptions.OrderFeed] | [Itch][Omi.Encoding.Itch] | [2.1][Nasdaq.GemxOptions.OrderFeed.Itch.v2.1.Dissector] | 2/13/2026 | 2146 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.GemxOptions.OrderFeed.Itch.v2.1.Url] - [pdf][Nasdaq.GemxOptions.OrderFeed.Itch.v2.1.Pdf] |
 | [GemxOptions][GemxOptions.Exchange] | [TopOfMarket][Nasdaq.GemxOptions.TopOfMarket] | [Itch][Omi.Encoding.Itch] | [2.1][Nasdaq.GemxOptions.TopOfMarket.Itch.v2.1.Dissector] | 2/13/2026 | 2515 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.GemxOptions.TopOfMarket.Itch.v2.1.Url] - [pdf][Nasdaq.GemxOptions.TopOfMarket.Itch.v2.1.Pdf] |
@@ -98,8 +96,6 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Itch.md "Itch Encoding"
 [Omi.Encoding.Ouch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ouch.md "Ouch Encoding"
 [Omi.Encoding.Utp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Utp.md "Utp Encoding"
-[Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
-[Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [GemxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/GemxOptions "Nasdaq GemxOptions"
 [IseOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/IseOptions "Nasdaq IseOptions"
 [MrxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/MrxOptions "Nasdaq MrxOptions"
@@ -112,7 +108,6 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Uqdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Uqdf "Nasdaq Uqdf"
 [Utdf.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utdf "Nasdaq Utdf"
 [Utp.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Utp "Nasdaq Utp"
-[Common]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/Common "Nasdaq Common"
 [Nasdaq.GemxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/DepthOfMarket.md "Depth Of Market"
 [Nasdaq.GemxOptions.OrderFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/OrderFeed.md "Order Feed"
 [Nasdaq.GemxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/GemxOptions/TopOfMarket.md "Top Of Market"
@@ -165,8 +160,6 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Utdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Utdf/Output.md "Output"
 [Nasdaq.Utp.Input]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Utp/Input.md ""
 [Nasdaq.Utp.Snapshot]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Utp/Snapshot.md "Snapshot"
-[Nasdaq.Common.SoupBin]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Common/SoupBin.md "SoupBin"
-[Nasdaq.Common.Mold64]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Common/Mold64.md "MoldUdp64"
 
 [Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq_GemxOptions_DepthOfMarket_Itch_v2_1_Dissector.lua "Nasdaq GemxOptions DepthOfMarket Itch v2.1 Wireshark Dissector"
 [Nasdaq.GemxOptions.DepthOfMarket.Itch.v2.1.Url]: https://data.nasdaq.com/market-data-specifications "National Association of Securities Dealers Automated Quotations (Nasdaq) 2.1 Url"
@@ -372,9 +365,3 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Utp.Snapshot.Utp.v3.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq_Utp_Snapshot_Utp_v3_0_Dissector.lua "Nasdaq Utp Snapshot Utp v3.0 Wireshark Dissector"
 [Nasdaq.Utp.Snapshot.Utp.v3.0.Url]: https://www.utpplan.com/technical "National Association of Securities Dealers Automated Quotations (Nasdaq) 3.0 Url"
 [Nasdaq.Utp.Snapshot.Utp.v3.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Specifications/Utp/Snapshot/UTPSnapShotSpec.pdf "National Association of Securities Dealers Automated Quotations (Nasdaq) 3.0 Pdf"
-[Nasdaq.Common.SoupBin.Tcp.v3.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq_Common_SoupBin_Tcp_v3_0_Dissector.lua "Nasdaq Common SoupBin Tcp v3.0 Wireshark Dissector"
-[Nasdaq.Common.SoupBin.Tcp.v3.0.Url]: https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/soupbintcp.pdf "National Association of Securities Dealers Automated Quotations (Nasdaq) 3.0 Url"
-[Nasdaq.Common.SoupBin.Tcp.v3.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Specifications/Common/soupbintcp.pdf "National Association of Securities Dealers Automated Quotations (Nasdaq) 3.0 Pdf"
-[Nasdaq.Common.Mold64.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq_Common_Mold64_Udp_v1_0_Dissector.lua "Nasdaq Common Mold64 Udp v1.0 Wireshark Dissector"
-[Nasdaq.Common.Mold64.Udp.v1.0.Url]: https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/moldudp64.pdf "National Association of Securities Dealers Automated Quotations (Nasdaq) 1.0 Url"
-[Nasdaq.Common.Mold64.Udp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Specifications/Common/Mold.Udp64.v1.0.pdf "National Association of Securities Dealers Automated Quotations (Nasdaq) 1.0 Pdf"

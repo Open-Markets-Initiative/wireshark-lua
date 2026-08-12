@@ -61,7 +61,7 @@ omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.underlying = ProtoField.new("Un
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.complex.spin.v2.1.61.unit", ftypes.UINT8)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.username = ProtoField.new("Username", "cboe.edgxoptions.complex.spin.v2.1.61.username", ftypes.STRING)
 
--- Cboe EdgxOptions Spin Complex 2.1.61 Application Messages
+-- Cboe EdgxOptions Complex 2.1.61 Application Messages
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.edgxoptions.complex.spin.v2.1.61.addorderlongmessage", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.edgxoptions.complex.spin.v2.1.61.addordershortmessage", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.edgxoptions.complex.spin.v2.1.61.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)

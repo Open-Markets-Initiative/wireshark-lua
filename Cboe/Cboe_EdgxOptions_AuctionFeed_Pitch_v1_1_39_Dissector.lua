@@ -56,7 +56,7 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.underlying = ProtoField.ne
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.unit", ftypes.UINT8)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.width_type = ProtoField.new("Width Type", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.widthtype", ftypes.STRING)
 
--- Cboe EdgxOptions Pitch AuctionFeed 1.1.39 Application Messages
+-- Cboe EdgxOptions AuctionFeed 1.1.39 Application Messages
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctioncancelmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionsummarymessage", ftypes.STRING)

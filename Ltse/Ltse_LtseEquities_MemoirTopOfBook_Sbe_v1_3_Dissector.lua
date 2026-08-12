@@ -52,7 +52,7 @@ omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
--- Ltse LtseEquities Sbe MemoirTopOfBook 1.3 Application Messages
+-- Ltse LtseEquities MemoirTopOfBook 1.3 Application Messages
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.bestbidshortmessage", ftypes.STRING)

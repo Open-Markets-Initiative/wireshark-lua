@@ -49,7 +49,7 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trad
 omi_cme_globex_brokertecust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.brokertecust.sbe.v10.1.transacttime", ftypes.UINT64)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.globex.brokertecust.sbe.v10.1.version", ftypes.UINT16)
 
--- Cme Globex Sbe BrokerTecUst 10.1 Application Messages
+-- Cme Globex BrokerTecUst 10.1 Application Messages
 omi_cme_globex_brokertecust_sbe_v10_1.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.brokertecust.sbe.v10.1.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.globex.brokertecust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 

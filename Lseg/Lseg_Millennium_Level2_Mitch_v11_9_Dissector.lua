@@ -91,7 +91,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5 = ProtoField.new("Unused 
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8 = ProtoField.new("Unused 8", "lseg.millennium.level2.mitch.v11.9.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
--- Lseg Millennium Mitch Level2 11.9 Application Messages
+-- Lseg Millennium Level2 11.9 Application Messages
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lseg.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lseg.millennium.level2.mitch.v11.9.addordermessage", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.auction_info_message = ProtoField.new("Auction Info Message", "lseg.millennium.level2.mitch.v11.9.auctioninfomessage", ftypes.STRING)

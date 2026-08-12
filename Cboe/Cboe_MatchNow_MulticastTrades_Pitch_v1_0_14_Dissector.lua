@@ -44,7 +44,7 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trading_status = ProtoFie
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unit", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe MatchNow Pitch MulticastTrades 1.0.14 Application Messages
+-- Cboe MatchNow MulticastTrades 1.0.14 Application Messages
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trade_message = ProtoField.new("Trade Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.trademessage", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.tradingstatusmessage", ftypes.STRING)

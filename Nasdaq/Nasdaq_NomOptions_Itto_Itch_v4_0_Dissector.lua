@@ -96,7 +96,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.username = ProtoField.new("Username"
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.nomoptions.itto.itch.v4.0.volumeshort", ftypes.UINT16)
 
--- Nasdaq NomOptions Itch Itto 4.0 Application Messages
+-- Nasdaq NomOptions Itto 4.0 Application Messages
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message = ProtoField.new("Add Order Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addordermessagelongformmessage", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_short_message_form = ProtoField.new("Add Order Message Short Message Form", "nasdaq.nomoptions.itto.itch.v4.0.addordermessageshortmessageform", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoField.new("Add Quote Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addquotemessagelongformmessage", ftypes.STRING)
@@ -120,7 +120,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.single_side_replace_message_short_fo
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nomoptions.itto.itch.v4.0.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
 
--- Nasdaq NomOptions Itch Itto 4.0 Session Messages
+-- Nasdaq NomOptions Itto 4.0 Session Messages
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nomoptions.itto.itch.v4.0.debugpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginrejectedpacket", ftypes.STRING)

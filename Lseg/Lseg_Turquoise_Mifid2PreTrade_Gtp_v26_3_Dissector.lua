@@ -98,7 +98,7 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.update_date_and_time = ProtoF
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue = ProtoField.new("Venue", "lseg.turquoise.mifid2pretrade.gtp.v26.3.venue", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid2pretrade.gtp.v26.3.venueinstrumentid", ftypes.STRING)
 
--- Lseg Turquoise Gtp Mifid2PreTrade 26.3 Application Messages
+-- Lseg Turquoise Mifid2PreTrade 26.3 Application Messages
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.instrument_directory_extended_message = ProtoField.new("Instrument Directory Extended Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.instrumentdirectoryextendedmessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.instrumentstatusmessage", ftypes.STRING)

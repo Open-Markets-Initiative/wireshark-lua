@@ -148,7 +148,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.unused_5 = ProtoField.n
 omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.premiumretrans.omd.v1.47.updateaction", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.username = ProtoField.new("Username", "hkex.hkexderivatives.premiumretrans.omd.v1.47.username", ftypes.STRING)
 
--- Hkex HkexDerivatives Omd PremiumRetrans 1.47 Application Messages
+-- Hkex HkexDerivatives PremiumRetrans 1.47 Application Messages
 omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.premiumretrans.omd.v1.47.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.premiumretrans.omd.v1.47.calculatedopeningpricemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v1_47.fields.class_definition_message = ProtoField.new("Class Definition Message", "hkex.hkexderivatives.premiumretrans.omd.v1.47.classdefinitionmessage", ftypes.STRING)

@@ -197,7 +197,7 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.volume_onbook_only = ProtoField.new
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.recovery.gtp.v26.3.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.recovery.gtp.v26.3.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Turquoise Gtp Recovery 26.3 Application Messages
+-- Lseg Turquoise Recovery 26.3 Application Messages
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.recovery.gtp.v26.3.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.instrument_directory_extended_message = ProtoField.new("Instrument Directory Extended Message", "lseg.turquoise.recovery.gtp.v26.3.instrumentdirectoryextendedmessage", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.recovery.gtp.v26.3.instrumentstatusmessage", ftypes.STRING)

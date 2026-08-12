@@ -163,7 +163,7 @@ omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.warrant_maturity_date =
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.standardretrans.omd.v1.44.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.standardretrans.omd.v1.44.yield", ftypes.DOUBLE)
 
--- Hkex HkexSecurities Omd StandardRetrans 1.44 Application Messages
+-- Hkex HkexSecurities StandardRetrans 1.44 Application Messages
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexsecurities.standardretrans.omd.v1.44.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.broker_queue_message = ProtoField.new("Broker Queue Message", "hkex.hkexsecurities.standardretrans.omd.v1.44.brokerqueuemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_standardretrans_omd_v1_44.fields.closing_price_message = ProtoField.new("Closing Price Message", "hkex.hkexsecurities.standardretrans.omd.v1.44.closingpricemessage", ftypes.STRING)

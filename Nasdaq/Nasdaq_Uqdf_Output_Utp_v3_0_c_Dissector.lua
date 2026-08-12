@@ -135,7 +135,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("U
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.uqdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.uqdf.output.utp.v3.0.c.version", ftypes.STRING)
 
--- Nasdaq Uqdf Utp Output 3.0.c Application Messages
+-- Nasdaq Uqdf Output 3.0.c Application Messages
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.uqdf.output.utp.v3.0.c.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.combined_quote_message_long_form_message = ProtoField.new("Combined Quote Message Long Form Message", "nasdaq.uqdf.output.utp.v3.0.c.combinedquotemessagelongformmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.combined_quote_message_short_form_message = ProtoField.new("Combined Quote Message Short Form Message", "nasdaq.uqdf.output.utp.v3.0.c.combinedquotemessageshortformmessage", ftypes.STRING)

@@ -54,7 +54,7 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new(
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
--- Ltse LtseEquities Sbe MemoirDepthFeed 1.3 Application Messages
+-- Ltse LtseEquities MemoirDepthFeed 1.3 Application Messages
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)

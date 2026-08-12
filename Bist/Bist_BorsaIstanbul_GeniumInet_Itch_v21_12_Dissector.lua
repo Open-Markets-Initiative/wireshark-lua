@@ -84,7 +84,7 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trade_price = ProtoField.ne
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trading_currency = ProtoField.new("Trading Currency", "bist.borsaistanbul.geniuminet.itch.v21.12.tradingcurrency", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.underlying_order_book_id = ProtoField.new("Underlying Order Book Id", "bist.borsaistanbul.geniuminet.itch.v21.12.underlyingorderbookid", ftypes.UINT32)
 
--- Bist BorsaIstanbul Itch GeniumInet 21.12 Application Messages
+-- Bist BorsaIstanbul GeniumInet 21.12 Application Messages
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.add_order_no_mpid_attribution = ProtoField.new("Add Order No Mpid Attribution", "bist.borsaistanbul.geniuminet.itch.v21.12.addordernompidattribution", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.add_order_with_mpid_attribution = ProtoField.new("Add Order With Mpid Attribution", "bist.borsaistanbul.geniuminet.itch.v21.12.addorderwithmpidattribution", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.combination_order_book_leg = ProtoField.new("Combination Order Book Leg", "bist.borsaistanbul.geniuminet.itch.v21.12.combinationorderbookleg", ftypes.STRING)

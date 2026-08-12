@@ -67,7 +67,7 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unit_header = Pr
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.username", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.venueinstrumentid", ftypes.STRING)
 
--- Lseg TradeEcho Gtp Level2IncrementalRecovery 26.1.2 Application Messages
+-- Lseg TradeEcho Level2IncrementalRecovery 26.1.2 Application Messages
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.loginrequestmessage", ftypes.STRING)

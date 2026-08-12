@@ -44,7 +44,7 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol = ProtoFie
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.depthofbook.aspen.v1.11.symbolid", ftypes.UINT16)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.depthofbook.aspen.v1.11.timestamp", ftypes.UINT64)
 
--- Imperative IntelligentCross Aspen DepthOfBook 1.11 Application Messages
+-- Imperative IntelligentCross DepthOfBook 1.11 Application Messages
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_event_message = ProtoField.new("Market Event Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.marketeventmessage", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.new_order_add_message = ProtoField.new("New Order Add Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.neworderaddmessage", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.order_cancel_all_message = ProtoField.new("Order Cancel All Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.ordercancelallmessage", ftypes.STRING)

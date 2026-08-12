@@ -56,7 +56,7 @@ omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.seq_num = ProtoField.new("
 omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.session_status = ProtoField.new("Session Status", "hkex.hkexsecurities.indexretrans.omd.v1.45.sessionstatus", ftypes.UINT8)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.username = ProtoField.new("Username", "hkex.hkexsecurities.indexretrans.omd.v1.45.username", ftypes.STRING)
 
--- Hkex HkexSecurities Omd IndexRetrans 1.45 Application Messages
+-- Hkex HkexSecurities IndexRetrans 1.45 Application Messages
 omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.hkexsecurities.indexretrans.omd.v1.45.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.indexretrans.omd.v1.45.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.indexretrans.omd.v1.45.indexdefinitionmessage", ftypes.STRING)

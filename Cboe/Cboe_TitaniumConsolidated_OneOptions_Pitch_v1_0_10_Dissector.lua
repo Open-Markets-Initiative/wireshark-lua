@@ -54,7 +54,7 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_condition = 
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.transactiontime", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.unit", ftypes.UINT8)
 
--- Cboe TitaniumConsolidated Pitch OneOptions 1.0.10 Application Messages
+-- Cboe TitaniumConsolidated OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.bestquoteupdatemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.long_symbol_summary_message = ProtoField.new("Long Symbol Summary Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.longsymbolsummarymessage", ftypes.STRING)

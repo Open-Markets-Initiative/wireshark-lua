@@ -97,7 +97,7 @@ omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.username = ProtoFiel
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumelong", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.volumeshort", ftypes.UINT16)
 
--- Nasdaq PhlxOptions Itch SpreadDepthOfMarket 2.1 Application Messages
+-- Nasdaq PhlxOptions SpreadDepthOfMarket 2.1 Application Messages
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.addorderlongformmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.add_order_short_form_message = ProtoField.new("Add Order Short Form Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.addordershortformmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.complexstrategyauctionmessage", ftypes.STRING)
@@ -113,7 +113,7 @@ omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.single_side_update_m
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.systemeventmessage", ftypes.STRING)
 
--- Nasdaq PhlxOptions Itch SpreadDepthOfMarket 2.1 Session Messages
+-- Nasdaq PhlxOptions SpreadDepthOfMarket 2.1 Session Messages
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.debugpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.phlxoptions.spreaddepthofmarket.itch.v2.1.loginrejectedpacket", ftypes.STRING)

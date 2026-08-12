@@ -68,7 +68,7 @@ omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.trading_phase_code = ProtoFiel
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.turnover = ProtoField.new("Turnover", "hkex.szse.chinaconnectretrans.omd.v1.4.turnover", ftypes.DOUBLE)
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.username = ProtoField.new("Username", "hkex.szse.chinaconnectretrans.omd.v1.4.username", ftypes.STRING)
 
--- Hkex Szse Omd ChinaConnectRetrans 1.4 Application Messages
+-- Hkex Szse ChinaConnectRetrans 1.4 Application Messages
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.szse.chinaconnectretrans.omd.v1.4.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.logon_message = ProtoField.new("Logon Message", "hkex.szse.chinaconnectretrans.omd.v1.4.logonmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.logon_response_message = ProtoField.new("Logon Response Message", "hkex.szse.chinaconnectretrans.omd.v1.4.logonresponsemessage", ftypes.STRING)

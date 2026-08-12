@@ -75,7 +75,7 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.underlying = Proto
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.c2options.multicastdepthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.width_type = ProtoField.new("Width Type", "cboe.c2options.multicastdepthofbook.pitch.v2.41.29.widthtype", ftypes.STRING)
 
--- Cboe C2Options Pitch MulticastDepthOfBook 2.41.29 Application Messages
+-- Cboe C2Options MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c2options.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c2options.multicastdepthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.c2options.multicastdepthofbook.pitch.v2.41.29.addordershortmessage", ftypes.STRING)

@@ -62,7 +62,7 @@ omi_hkex_sse_chinaconnect_omd_v1_4.fields.shortsell_flag = ProtoField.new("Short
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.trading_phase_code = ProtoField.new("Trading Phase Code", "hkex.sse.chinaconnect.omd.v1.4.tradingphasecode", ftypes.STRING)
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.turnover = ProtoField.new("Turnover", "hkex.sse.chinaconnect.omd.v1.4.turnover", ftypes.DOUBLE)
 
--- Hkex Sse Omd ChinaConnect 1.4 Application Messages
+-- Hkex Sse ChinaConnect 1.4 Application Messages
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.sse.chinaconnect.omd.v1.4.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.market_definition_message = ProtoField.new("Market Definition Message", "hkex.sse.chinaconnect.omd.v1.4.marketdefinitionmessage", ftypes.STRING)
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "hkex.sse.chinaconnect.omd.v1.4.securitydefinitionmessage", ftypes.STRING)

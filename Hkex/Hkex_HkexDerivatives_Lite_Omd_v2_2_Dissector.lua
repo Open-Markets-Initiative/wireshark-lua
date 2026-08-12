@@ -141,7 +141,7 @@ omi_hkex_hkexderivatives_lite_omd_v2_2.fields.vcm_lower_price = ProtoField.new("
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.lite.omd.v2.2.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.lite.omd.v2.2.vcmupperprice", ftypes.INT64)
 
--- Hkex HkexDerivatives Omd Lite 2.2 Application Messages
+-- Hkex HkexDerivatives Lite 2.2 Application Messages
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.add_order = ProtoField.new("Add Order", "hkex.hkexderivatives.lite.omd.v2.2.addorder", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.lite.omd.v2.2.aggregateimpliedorder", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.lite.omd.v2.2.aggregateorderbookupdatemessage", ftypes.STRING)

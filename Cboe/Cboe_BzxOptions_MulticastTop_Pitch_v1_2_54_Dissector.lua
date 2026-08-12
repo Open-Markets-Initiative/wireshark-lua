@@ -77,7 +77,7 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.trading_status = ProtoFiel
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.underlying = ProtoField.new("Underlying", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.underlying", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.unit", ftypes.UINT8)
 
--- Cboe BzxOptions Pitch MulticastTop 1.2.54 Application Messages
+-- Cboe BzxOptions MulticastTop 1.2.54 Application Messages
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.endofsessionmessage", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.options_auction_update_message = ProtoField.new("Options Auction Update Message", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.optionsauctionupdatemessage", ftypes.STRING)

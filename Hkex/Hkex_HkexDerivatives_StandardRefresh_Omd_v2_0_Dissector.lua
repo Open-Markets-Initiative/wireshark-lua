@@ -122,7 +122,7 @@ omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.vcm_lower_price = Proto
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.standardrefresh.omd.v2.0.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.standardrefresh.omd.v2.0.vcmupperprice", ftypes.INT64)
 
--- Hkex HkexDerivatives Omd StandardRefresh 2.0 Application Messages
+-- Hkex HkexDerivatives StandardRefresh 2.0 Application Messages
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.standardrefresh.omd.v2.0.aggregateimpliedorder", ftypes.STRING)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.standardrefresh.omd.v2.0.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_0.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.standardrefresh.omd.v2.0.calculatedopeningpricemessage", ftypes.STRING)

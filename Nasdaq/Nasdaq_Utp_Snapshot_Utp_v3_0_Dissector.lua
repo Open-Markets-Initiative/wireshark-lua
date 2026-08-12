@@ -113,7 +113,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_state = ProtoField.new("Trading 
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.utp.snapshot.utp.v3.0.username", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.version = ProtoField.new("Version", "nasdaq.utp.snapshot.utp.v3.0.version", ftypes.UINT8)
 
--- Nasdaq Utp Utp Snapshot 3.0 Application Messages
+-- Nasdaq Utp Snapshot 3.0 Application Messages
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utp.snapshot.utp.v3.0.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utp.snapshot.utp.v3.0.crosssrotradingactionmessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.utp.snapshot.utp.v3.0.endofdaymessage", ftypes.STRING)
@@ -132,7 +132,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.snapshot_sequence_message = ProtoField.n
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.utp.snapshot.utp.v3.0.startofdaymessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_combined_quote_message_long_form = ProtoField.new("Utp Combined Quote Message Long Form", "nasdaq.utp.snapshot.utp.v3.0.utpcombinedquotemessagelongform", ftypes.STRING)
 
--- Nasdaq Utp Utp Snapshot 3.0 Session Messages
+-- Nasdaq Utp Snapshot 3.0 Session Messages
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.utp.snapshot.utp.v3.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.utp.snapshot.utp.v3.0.debugpacket", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.utp.snapshot.utp.v3.0.endofsessionpacket", ftypes.BYTES)

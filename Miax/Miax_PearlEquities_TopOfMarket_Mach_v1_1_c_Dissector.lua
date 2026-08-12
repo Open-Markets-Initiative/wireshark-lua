@@ -89,7 +89,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_data_packet = 
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.topofmarket.mach.v1.1.c.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.username = ProtoField.new("Username", "miax.pearlequities.topofmarket.mach.v1.1.c.username", ftypes.STRING)
 
--- Miax PearlEquities Mach TopOfMarket 1.1.c Application Messages
+-- Miax PearlEquities TopOfMarket 1.1.c Application Messages
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.compact_top_of_market_best_bid_and_offer_message = ProtoField.new("Compact Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.c.compacttopofmarketbestbidandoffermessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearlequities.topofmarket.mach.v1.1.c.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.pearlequities.topofmarket.mach.v1.1.c.lastsalemessage", ftypes.STRING)

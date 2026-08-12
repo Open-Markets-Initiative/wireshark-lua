@@ -96,7 +96,7 @@ omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.volume_onbook_only = Proto
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level2incremental.gtp.v26.3.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level2incremental.gtp.v26.3.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Turquoise Gtp Level2Incremental 26.3 Application Messages
+-- Lseg Turquoise Level2Incremental 26.3 Application Messages
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.level2incremental.gtp.v26.3.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.delete_order_message = ProtoField.new("Delete Order Message", "lseg.turquoise.level2incremental.gtp.v26.3.deleteordermessage", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.level2incremental.gtp.v26.3.instrumentdirectorymessage", ftypes.STRING)

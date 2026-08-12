@@ -109,7 +109,7 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_data_packet = 
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.username = ProtoField.new("Username", "miax.sapphireoptions.topofmarket.mach.v2.0.username", ftypes.STRING)
 
--- Miax SapphireOptions Mach TopOfMarket 2.0 Application Messages
+-- Miax SapphireOptions TopOfMarket 2.0 Application Messages
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.sapphireoptions.topofmarket.mach.v2.0.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.sapphireoptions.topofmarket.mach.v2.0.lastsalemessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.sapphireoptions.topofmarket.mach.v2.0.refreshrequestmessage", ftypes.STRING)

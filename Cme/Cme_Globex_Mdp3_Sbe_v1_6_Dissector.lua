@@ -127,7 +127,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_px = ProtoField.new("Md Entry Px", 
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.globex.mdp3.sbe.v1.6.mdentrypxoptional", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.globex.mdp3.sbe.v1.6.mdentrysize", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.globex.mdp3.sbe.v1.6.mdentrysizeoptional", ftypes.INT32)
-omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_type = ProtoField.new("Md Entry Type ", "cme.globex.mdp3.sbe.v1.6.mdentrytype", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.globex.mdp3.sbe.v1.6.mdentrytype", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.globex.mdp3.sbe.v1.6.mdentrytypebook", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.globex.mdp3.sbe.v1.6.mdentrytypedailystatistics", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_entry_type_statistics = ProtoField.new("Md Entry Type Statistics", "cme.globex.mdp3.sbe.v1.6.mdentrytypestatistics", ftypes.STRING)
@@ -226,7 +226,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.week = ProtoField.new("Week", "cme.globex.md
 omi_cme_globex_mdp3_sbe_v1_6.fields.year = ProtoField.new("Year", "cme.globex.mdp3.sbe.v1.6.year", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.globex.mdp3.sbe.v1.6.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
--- Cme Globex Sbe Mdp3 1.6 Application Messages
+-- Cme Globex Mdp3 1.6 Application Messages
 omi_cme_globex_mdp3_sbe_v1_6.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.6.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_6.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.6.adminlogin", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.6.adminlogout", ftypes.STRING)
@@ -1497,62 +1497,62 @@ cme_globex_mdp3_sbe_v1_6.md_entry_type.size = 1
 cme_globex_mdp3_sbe_v1_6.md_entry_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Md Entry Type : No Value"
+    return "Md Entry Type: No Value"
   end
 
   if value == "0" then
-    return "Md Entry Type : Bid (0)"
+    return "Md Entry Type: Bid (0)"
   end
   if value == "1" then
-    return "Md Entry Type : Offer (1)"
+    return "Md Entry Type: Offer (1)"
   end
   if value == "2" then
-    return "Md Entry Type : Trade (2)"
+    return "Md Entry Type: Trade (2)"
   end
   if value == "4" then
-    return "Md Entry Type : Open Price (4)"
+    return "Md Entry Type: Open Price (4)"
   end
   if value == "6" then
-    return "Md Entry Type : Settlement Price (6)"
+    return "Md Entry Type: Settlement Price (6)"
   end
   if value == "7" then
-    return "Md Entry Type : Trading Session High Price (7)"
+    return "Md Entry Type: Trading Session High Price (7)"
   end
   if value == "8" then
-    return "Md Entry Type : Trading Session Low Price (8)"
+    return "Md Entry Type: Trading Session Low Price (8)"
   end
   if value == "B" then
-    return "Md Entry Type : Cleared Volume (B)"
+    return "Md Entry Type: Cleared Volume (B)"
   end
   if value == "C" then
-    return "Md Entry Type : Open Interest (C)"
+    return "Md Entry Type: Open Interest (C)"
   end
   if value == "E" then
-    return "Md Entry Type : Implied Bid (E)"
+    return "Md Entry Type: Implied Bid (E)"
   end
   if value == "F" then
-    return "Md Entry Type : Implied Offer (F)"
+    return "Md Entry Type: Implied Offer (F)"
   end
   if value == "J" then
-    return "Md Entry Type : Book Reset (J)"
+    return "Md Entry Type: Book Reset (J)"
   end
   if value == "N" then
-    return "Md Entry Type : Session High Bid (N)"
+    return "Md Entry Type: Session High Bid (N)"
   end
   if value == "O" then
-    return "Md Entry Type : Session Low Offer (O)"
+    return "Md Entry Type: Session Low Offer (O)"
   end
   if value == "W" then
-    return "Md Entry Type : Fixing Price (W)"
+    return "Md Entry Type: Fixing Price (W)"
   end
   if value == "e" then
-    return "Md Entry Type : Electronic Volume (e)"
+    return "Md Entry Type: Electronic Volume (e)"
   end
   if value == "g" then
-    return "Md Entry Type : Threshold Limitsand Price Band Variation (g)"
+    return "Md Entry Type: Threshold Limitsand Price Band Variation (g)"
   end
 
-  return "Md Entry Type : Unknown("..value..")"
+  return "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -5833,7 +5833,7 @@ cme_globex_mdp3_sbe_v1_6.snapshot_full_refresh_38_no_m_d_entries_group.fields = 
   -- Settl Price Type: Struct of 8 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_6.settl_price_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type : MDEntryType
+  -- Md Entry Type: MDEntryType
   index, md_entry_type = cme_globex_mdp3_sbe_v1_6.md_entry_type.dissect(buffer, index, packet, parent)
 
   return index

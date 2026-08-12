@@ -65,7 +65,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message_type = ProtoField.n
 omi_jnx_jnxequities_pts_itch_v1_7.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v1.7.upperpricelimit", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.itch.v1.7.username", ftypes.STRING)
 
--- Jnx JnxEquities Itch Pts 1.7 Session Messages
+-- Jnx JnxEquities Pts 1.7 Session Messages
 omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.itch.v1.7.debugpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.itch.v1.7.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.itch.v1.7.loginrejectedpacket", ftypes.STRING)
@@ -73,7 +73,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet = ProtoField.new("
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.unsequenceddatapacket", ftypes.STRING)
 
--- Jnx JnxEquities Itch Pts 1.7 Application Messages
+-- Jnx JnxEquities Pts 1.7 Application Messages
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_added_with_attributes_message = ProtoField.new("Order Added With Attributes Message", "jnx.jnxequities.pts.itch.v1.7.orderaddedwithattributesmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_added_without_attributes_message = ProtoField.new("Order Added Without Attributes Message", "jnx.jnxequities.pts.itch.v1.7.orderaddedwithoutattributesmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.jnxequities.pts.itch.v1.7.orderdeletedmessage", ftypes.STRING)

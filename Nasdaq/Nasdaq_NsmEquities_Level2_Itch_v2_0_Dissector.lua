@@ -62,7 +62,7 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.stock = ProtoField.new("Stock", "
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.level2.itch.v2.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.level2.itch.v2.0.trackingnumber", ftypes.UINT16)
 
--- Nasdaq NsmEquities Itch Level2 2.0 Application Messages
+-- Nasdaq NsmEquities Level2 2.0 Application Messages
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.level2.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.market_participant_bid_ask_update_message = ProtoField.new("Market Participant Bid Ask Update Message", "nasdaq.nsmequities.level2.itch.v2.0.marketparticipantbidaskupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.market_participant_position_message = ProtoField.new("Market Participant Position Message", "nasdaq.nsmequities.level2.itch.v2.0.marketparticipantpositionmessage", ftypes.STRING)

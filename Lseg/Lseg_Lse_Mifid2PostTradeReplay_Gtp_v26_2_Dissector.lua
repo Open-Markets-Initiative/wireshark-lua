@@ -102,7 +102,7 @@ omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.username = ProtoField.new("U
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttradereplay.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttradereplay.gtp.v26.2.venueofexecution", ftypes.STRING)
 
--- Lseg Lse Gtp Mifid2PostTradeReplay 26.2 Application Messages
+-- Lseg Lse Mifid2PostTradeReplay 26.2 Application Messages
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.mifid2posttradereplay.gtp.v26.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.mifid2posttradereplay.gtp.v26.2.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.lse.mifid2posttradereplay.gtp.v26.2.loginrequestmessage", ftypes.STRING)

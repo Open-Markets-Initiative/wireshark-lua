@@ -164,7 +164,7 @@ omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_buy = ProtoField.new("Vwap Buy",
 omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.replay.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.replay.gtp.v24.4.vwapsell", ftypes.DOUBLE)
 
--- Lseg Turquoise Gtp Replay 24.4 Application Messages
+-- Lseg Turquoise Replay 24.4 Application Messages
 omi_lseg_turquoise_replay_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.replay.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.turquoise.replay.gtp.v24.4.analyticsmessage", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.replay.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)

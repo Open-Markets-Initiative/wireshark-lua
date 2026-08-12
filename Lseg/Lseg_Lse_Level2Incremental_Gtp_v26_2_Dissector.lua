@@ -107,7 +107,7 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.volume_onbook_only = ProtoField.
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.level2incremental.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.level2incremental.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Lse Gtp Level2Incremental 26.2 Application Messages
+-- Lseg Lse Level2Incremental 26.2 Application Messages
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.lse.level2incremental.gtp.v26.2.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.level2incremental.gtp.v26.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.level2incremental.gtp.v26.2.instrumentstatusmessage", ftypes.STRING)

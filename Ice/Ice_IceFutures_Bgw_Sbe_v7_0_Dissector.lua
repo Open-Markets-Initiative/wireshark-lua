@@ -367,7 +367,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.user_id = ProtoField.new("User Id", "ice.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.version = ProtoField.new("Version", "ice.icefutures.bgw.sbe.v7.0.version", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "ice.icefutures.bgw.sbe.v7.0.waiverindicator", ftypes.UINT8)
 
--- Ice IceFutures Sbe Bgw 7.0 Application Messages
+-- Ice IceFutures Bgw 7.0 Application Messages
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_replace_request_message = ProtoField.new("Cancel Replace Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelreplacerequestmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_request_message = ProtoField.new("Cancel Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelrequestmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.error_message = ProtoField.new("Error Message", "ice.icefutures.bgw.sbe.v7.0.errormessage", ftypes.STRING)

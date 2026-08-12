@@ -197,7 +197,7 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_maturity_date = ProtoField.
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.mmdh.omd.v2.1.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.mmdh.omd.v2.1.yield", ftypes.DOUBLE)
 
--- Hkex HkexSecurities Omd Mmdh 2.1 Application Messages
+-- Hkex HkexSecurities Mmdh 2.1 Application Messages
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.add_odd_lot_order_message = ProtoField.new("Add Odd Lot Order Message", "hkex.hkexsecurities.mmdh.omd.v2.1.addoddlotordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexsecurities.mmdh.omd.v2.1.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.broker_queue_message = ProtoField.new("Broker Queue Message", "hkex.hkexsecurities.mmdh.omd.v2.1.brokerqueuemessage", ftypes.STRING)

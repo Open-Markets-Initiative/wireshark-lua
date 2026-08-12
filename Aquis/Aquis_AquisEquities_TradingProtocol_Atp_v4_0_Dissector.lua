@@ -92,7 +92,7 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_ref = ProtoField.n
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradedquantity", ftypes.UINT32)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.user_tag = ProtoField.new("User Tag", "aquis.aquisequities.tradingprotocol.atp.v4.0.usertag", ftypes.UINT64)
 
--- Aquis AquisEquities Atp TradingProtocol 4.0 Application Messages
+-- Aquis AquisEquities TradingProtocol 4.0 Application Messages
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "aquis.aquisequities.tradingprotocol.atp.v4.0.heartbeat", ftypes.BYTES)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.iceberg_order_refresh_message = ProtoField.new("Iceberg Order Refresh Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.icebergorderrefreshmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.ioi_add_message = ProtoField.new("Ioi Add Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.ioiaddmessage", ftypes.STRING)

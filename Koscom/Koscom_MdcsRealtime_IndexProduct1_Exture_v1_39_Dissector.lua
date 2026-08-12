@@ -83,7 +83,7 @@ omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_ind
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.zeroreinvestmentindexweight", ftypes.STRING)
 
--- Koscom MdcsRealtime Exture IndexProduct1 1.39 Application Messages
+-- Koscom MdcsRealtime IndexProduct1 1.39 Application Messages
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_index_krx_message = ProtoField.new("Bond Index Krx Message", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.bondindexkrxmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_ktb_index_message = ProtoField.new("Bond Ktb Index Message", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.bondktbindexmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_ktb_index_term_structure_message = ProtoField.new("Bond Ktb Index Term Structure Message", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.bondktbindextermstructuremessage", ftypes.STRING)

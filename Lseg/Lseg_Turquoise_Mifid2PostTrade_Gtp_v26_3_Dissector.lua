@@ -91,7 +91,7 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.unused_4 = ProtoField.new("U
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid2posttrade.gtp.v26.3.venueinstrumentid", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid2posttrade.gtp.v26.3.venueofexecution", ftypes.STRING)
 
--- Lseg Turquoise Gtp Mifid2PostTrade 26.3 Application Messages
+-- Lseg Turquoise Mifid2PostTrade 26.3 Application Messages
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid2posttrade.gtp.v26.3.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid2posttrade.gtp.v26.3.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.mifid_ii_trade_cross_message = ProtoField.new("Mifid Ii Trade Cross Message", "lseg.turquoise.mifid2posttrade.gtp.v26.3.mifidiitradecrossmessage", ftypes.STRING)

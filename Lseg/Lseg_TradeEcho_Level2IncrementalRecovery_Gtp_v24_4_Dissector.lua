@@ -69,7 +69,7 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.venue_instrument_i
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.venueofpublication", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.yield", ftypes.DOUBLE)
 
--- Lseg TradeEcho Gtp Level2IncrementalRecovery 24.4 Application Messages
+-- Lseg TradeEcho Level2IncrementalRecovery 24.4 Application Messages
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.loginrequestmessage", ftypes.STRING)

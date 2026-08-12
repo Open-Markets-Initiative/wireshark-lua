@@ -81,7 +81,7 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.unsolicited = ProtoFiel
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.overnight.retransmission.link.v1.0.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.user_id = ProtoField.new("User Id", "otcmarkets.overnight.retransmission.link.v1.0.userid", ftypes.STRING)
 
--- OtcMarkets Overnight Link Retransmission 1.0 Application Messages
+-- OtcMarkets Overnight Retransmission 1.0 Application Messages
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.overnight.retransmission.link.v1.0.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.enhanced_spin_request_message = ProtoField.new("Enhanced Spin Request Message", "otcmarkets.overnight.retransmission.link.v1.0.enhancedspinrequestmessage", ftypes.STRING)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.enhanced_spin_response_message = ProtoField.new("Enhanced Spin Response Message", "otcmarkets.overnight.retransmission.link.v1.0.enhancedspinresponsemessage", ftypes.STRING)

@@ -164,7 +164,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.unused_replace_order_flags_0 = Pr
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.3.vegalevel", ftypes.DOUBLE)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.3.visibleqty", ftypes.STRING)
 
--- Coinbase Deribit Sbe OrdersApi 1.3 Application Messages
+-- Coinbase Deribit OrdersApi 1.3 Application Messages
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_reject_message = ProtoField.new("Amend Order Reject Message", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderrejectmessage", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_request_message = ProtoField.new("Amend Order Request Message", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderrequestmessage", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_response_message = ProtoField.new("Amend Order Response Message", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderresponsemessage", ftypes.STRING)

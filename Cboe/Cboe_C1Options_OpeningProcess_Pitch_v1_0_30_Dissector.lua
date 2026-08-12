@@ -53,7 +53,7 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.unit = ProtoField.new("Un
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.openingprocess.pitch.v1.0.30.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.openingprocess.pitch.v1.0.30.widthtype", ftypes.STRING)
 
--- Cboe C1Options Pitch OpeningProcess 1.0.30 Application Messages
+-- Cboe C1Options OpeningProcess 1.0.30 Application Messages
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.openingprocess.pitch.v1.0.30.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.c1options.openingprocess.pitch.v1.0.30.constituentsymbolmappingmessage", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.c1options.openingprocess.pitch.v1.0.30.endofsessionmessage", ftypes.STRING)

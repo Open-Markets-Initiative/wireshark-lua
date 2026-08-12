@@ -67,7 +67,7 @@ omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_5 = ProtoField.new("Unused
 omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_7 = ProtoField.new("Unused 7", "iex.iexequities.deepplus.snap.v1.05.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deepplus.snap.v1.05.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities Snap DeepPlus 1.05 Application Messages
+-- Iex IexEquities DeepPlus 1.05 Application Messages
 omi_iex_iexequities_deepplus_snap_v1_05.fields.add_order_message = ProtoField.new("Add Order Message", "iex.iexequities.deepplus.snap.v1.05.addordermessage", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.iexequities.deepplus.snap.v1.05.clearbookmessage", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.error_response_message = ProtoField.new("Error Response Message", "iex.iexequities.deepplus.snap.v1.05.errorresponsemessage", ftypes.STRING)

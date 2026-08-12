@@ -90,7 +90,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_data_packet 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.username = ProtoField.new("Username", "miax.pearlequities.depthofmarket.mach.v1.3.d.username", ftypes.STRING)
 
--- Miax PearlEquities Mach DepthOfMarket 1.3.d Application Messages
+-- Miax PearlEquities DepthOfMarket 1.3.d Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.addordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.deleteordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.endofrefreshnotificationmessage", ftypes.STRING)

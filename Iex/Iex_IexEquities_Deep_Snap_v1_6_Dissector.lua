@@ -75,7 +75,7 @@ omi_iex_iexequities_deep_snap_v1_6.fields.unused_5 = ProtoField.new("Unused 5", 
 omi_iex_iexequities_deep_snap_v1_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.iexequities.deep.snap.v1.6.upperauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_deep_snap_v1_6.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deep.snap.v1.6.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities Snap Deep 1.6 Application Messages
+-- Iex IexEquities Deep 1.6 Application Messages
 omi_iex_iexequities_deep_snap_v1_6.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.deep.snap.v1.6.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.error_response_message = ProtoField.new("Error Response Message", "iex.iexequities.deep.snap.v1.6.errorresponsemessage", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.official_price_message = ProtoField.new("Official Price Message", "iex.iexequities.deep.snap.v1.6.officialpricemessage", ftypes.STRING)

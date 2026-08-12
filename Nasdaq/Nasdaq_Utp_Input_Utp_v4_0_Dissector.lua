@@ -128,7 +128,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.volume_int_4 = ProtoField.new("Volume Int 4
 omi_nasdaq_utp_input_utp_v4_0.fields.volume_long_8 = ProtoField.new("Volume Long 8", "nasdaq.utp.input.utp.v4.0.volumelong8", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.warning_code = ProtoField.new("Warning Code", "nasdaq.utp.input.utp.v4.0.warningcode", ftypes.UINT16)
 
--- Nasdaq Utp Utp Input 4.0 Application Messages
+-- Nasdaq Utp Input 4.0 Application Messages
 omi_nasdaq_utp_input_utp_v4_0.fields.as_of_trade_report_message = ProtoField.new("As Of Trade Report Message", "nasdaq.utp.input.utp.v4.0.asoftradereportmessage", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utp.input.utp.v4.0.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.utp.input.utp.v4.0.endofdaymessage", ftypes.STRING)
@@ -174,7 +174,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.trade_correction_message = ProtoField.new("
 omi_nasdaq_utp_input_utp_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.utp.input.utp.v4.0.tradingactionmessage", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.utp.input.utp.v4.0.unsequenceddatapacket", ftypes.STRING)
 
--- Nasdaq Utp Utp Input 4.0 Session Messages
+-- Nasdaq Utp Input 4.0 Session Messages
 omi_nasdaq_utp_input_utp_v4_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.utp.input.utp.v4.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_utp_input_utp_v4_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.utp.input.utp.v4.0.debugpacket", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.utp.input.utp.v4.0.endofsessionpacket", ftypes.BYTES)

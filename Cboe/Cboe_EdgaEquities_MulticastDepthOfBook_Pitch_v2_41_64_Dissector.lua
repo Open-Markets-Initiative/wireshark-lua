@@ -63,7 +63,7 @@ omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.unit = ProtoFie
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.64.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.unused_7 = ProtoField.new("Unused 7", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.64.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Cboe EdgaEquities Pitch MulticastDepthOfBook 2.41.64 Application Messages
+-- Cboe EdgaEquities MulticastDepthOfBook 2.41.64 Application Messages
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.eq_add_order_expanded_message = ProtoField.new("Eq Add Order Expanded Message", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.64.eqaddorderexpandedmessage", ftypes.STRING)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.eq_add_order_long_message = ProtoField.new("Eq Add Order Long Message", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.64.eqaddorderlongmessage", ftypes.STRING)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.fields.eq_add_order_short_message = ProtoField.new("Eq Add Order Short Message", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.64.eqaddordershortmessage", ftypes.STRING)

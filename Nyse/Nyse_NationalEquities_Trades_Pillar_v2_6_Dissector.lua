@@ -91,7 +91,7 @@ omi_nyse_nationalequities_trades_pillar_v2_6.fields.trade_id = ProtoField.new("T
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nationalequities.trades.pillar.v2.6.unitoftrade", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.volume = ProtoField.new("Volume", "nyse.nationalequities.trades.pillar.v2.6.volume", ftypes.UINT32)
 
--- Nyse NationalEquities Pillar Trades 2.6 Application Messages
+-- Nyse NationalEquities Trades 2.6 Application Messages
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nationalequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nationalequities.trades.pillar.v2.6.messageunavailablemessage", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.nationalequities.trades.pillar.v2.6.refreshheadermessage", ftypes.STRING)

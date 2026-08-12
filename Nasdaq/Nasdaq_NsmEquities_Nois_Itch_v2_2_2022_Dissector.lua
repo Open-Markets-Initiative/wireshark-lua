@@ -41,7 +41,7 @@ omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.symbol = ProtoField.new("Symbo
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.2022.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.2022.tradingstate", ftypes.STRING)
 
--- Nasdaq NsmEquities Itch Nois 2.2.2022 Application Messages
+-- Nasdaq NsmEquities Nois 2.2.2022 Application Messages
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.2022.noismessage", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.stock_directory = ProtoField.new("Stock Directory", "nasdaq.nsmequities.nois.itch.v2.2.2022.stockdirectory", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "nasdaq.nsmequities.nois.itch.v2.2.2022.stocktradingaction", ftypes.STRING)

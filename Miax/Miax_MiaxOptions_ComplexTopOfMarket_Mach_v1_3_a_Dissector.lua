@@ -114,7 +114,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.unsequenced_message_t
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.username = ProtoField.new("Username", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.username", ftypes.STRING)
 
--- Miax MiaxOptions Mach ComplexTopOfMarket 1.3.a Application Messages
+-- Miax MiaxOptions ComplexTopOfMarket 1.3.a Application Messages
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.complex_double_sided_top_of_market_best_bid_and_offer_compact_format_message = ProtoField.new("Complex Double Sided Top Of Market Best Bid And Offer Compact Format Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.complexdoublesidedtopofmarketbestbidandoffercompactformatmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.complex_double_sided_top_of_market_best_bid_and_offer_wide_format_message = ProtoField.new("Complex Double Sided Top Of Market Best Bid And Offer Wide Format Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.complexdoublesidedtopofmarketbestbidandofferwideformatmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.complex_strategy_definition_message = ProtoField.new("Complex Strategy Definition Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.complexstrategydefinitionmessage", ftypes.STRING)

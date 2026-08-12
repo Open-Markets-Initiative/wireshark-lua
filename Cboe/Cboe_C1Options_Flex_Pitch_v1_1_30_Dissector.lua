@@ -90,7 +90,7 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.underlying = ProtoField.new("Underl
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.unit = ProtoField.new("Unit", "cboe.c1options.flex.pitch.v1.1.30.unit", ftypes.UINT8)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.year = ProtoField.new("Year", "cboe.c1options.flex.pitch.v1.1.30.year", ftypes.STRING)
 
--- Cboe C1Options Pitch Flex 1.1.30 Application Messages
+-- Cboe C1Options Flex 1.1.30 Application Messages
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.flex.pitch.v1.1.30.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1options.flex.pitch.v1.1.30.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.c1options.flex.pitch.v1.1.30.auctiontrademessage", ftypes.STRING)

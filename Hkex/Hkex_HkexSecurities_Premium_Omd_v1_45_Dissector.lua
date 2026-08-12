@@ -153,7 +153,7 @@ omi_hkex_hkexsecurities_premium_omd_v1_45.fields.warrant_maturity_date = ProtoFi
 omi_hkex_hkexsecurities_premium_omd_v1_45.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.premium.omd.v1.45.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_45.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.premium.omd.v1.45.yield", ftypes.DOUBLE)
 
--- Hkex HkexSecurities Omd Premium 1.45 Application Messages
+-- Hkex HkexSecurities Premium 1.45 Application Messages
 omi_hkex_hkexsecurities_premium_omd_v1_45.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexsecurities.premium.omd.v1.45.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_45.fields.closing_price_message = ProtoField.new("Closing Price Message", "hkex.hkexsecurities.premium.omd.v1.45.closingpricemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_45.fields.currency_rate_message = ProtoField.new("Currency Rate Message", "hkex.hkexsecurities.premium.omd.v1.45.currencyratemessage", ftypes.STRING)

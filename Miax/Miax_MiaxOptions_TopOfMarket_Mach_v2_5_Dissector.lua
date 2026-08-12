@@ -110,7 +110,7 @@ omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.unsequenced_data_packet = Prot
 omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.miaxoptions.topofmarket.mach.v2.5.unsequencedmessagetype", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.username = ProtoField.new("Username", "miax.miaxoptions.topofmarket.mach.v2.5.username", ftypes.STRING)
 
--- Miax MiaxOptions Mach TopOfMarket 2.5 Application Messages
+-- Miax MiaxOptions TopOfMarket 2.5 Application Messages
 omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.miaxoptions.topofmarket.mach.v2.5.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.miaxoptions.topofmarket.mach.v2.5.lastsalemessage", ftypes.STRING)
 omi_miax_miaxoptions_topofmarket_mach_v2_5.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "miax.miaxoptions.topofmarket.mach.v2.5.refreshrequestmessage", ftypes.STRING)

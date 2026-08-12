@@ -63,7 +63,7 @@ omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new(
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "ltse.ltseequities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.version = ProtoField.new("Version", "ltse.ltseequities.memoirlastsale.sbe.v1.3.version", ftypes.UINT16)
 
--- Ltse LtseEquities Sbe MemoirLastSale 1.3 Application Messages
+-- Ltse LtseEquities MemoirLastSale 1.3 Application Messages
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "ltse.ltseequities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "ltse.ltseequities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "ltse.ltseequities.memoirlastsale.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)

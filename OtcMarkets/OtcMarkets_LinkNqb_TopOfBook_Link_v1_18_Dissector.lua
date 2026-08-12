@@ -71,7 +71,7 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.trading_session = ProtoField.
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.linknqb.topofbook.link.v1.18.unsolicited", ftypes.STRING)
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.linknqb.topofbook.link.v1.18.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets LinkNqb Link TopOfBook 1.18 Application Messages
+-- OtcMarkets LinkNqb TopOfBook 1.18 Application Messages
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linknqb.topofbook.link.v1.18.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.imbalance_message = ProtoField.new("Imbalance Message", "otcmarkets.linknqb.topofbook.link.v1.18.imbalancemessage", ftypes.STRING)
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.security_message = ProtoField.new("Security Message", "otcmarkets.linknqb.topofbook.link.v1.18.securitymessage", ftypes.STRING)

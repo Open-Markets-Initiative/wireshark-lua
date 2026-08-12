@@ -64,7 +64,7 @@ omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.tracking_number = ProtoField.new(
 omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.phlxoptions.orders.itch.v2.1.tradable", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.orders.itch.v2.1.underlyingsymbol", ftypes.STRING)
 
--- Nasdaq PhlxOptions Itch Orders 2.1 Application Messages
+-- Nasdaq PhlxOptions Orders 2.1 Application Messages
 omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.phlxoptions.orders.itch.v2.1.addordermessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.auction_message = ProtoField.new("Auction Message", "nasdaq.phlxoptions.orders.itch.v2.1.auctionmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v2_1.fields.derivative_directory_message = ProtoField.new("Derivative Directory Message", "nasdaq.phlxoptions.orders.itch.v2.1.derivativedirectorymessage", ftypes.STRING)

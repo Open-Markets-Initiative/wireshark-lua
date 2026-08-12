@@ -82,7 +82,7 @@ omi_cboe_c1options_complextop_spin_v1_1_54.fields.underlying = ProtoField.new("U
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.unit = ProtoField.new("Unit", "cboe.c1options.complextop.spin.v1.1.54.unit", ftypes.UINT8)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.username = ProtoField.new("Username", "cboe.c1options.complextop.spin.v1.1.54.username", ftypes.STRING)
 
--- Cboe C1Options Spin ComplexTop 1.1.54 Application Messages
+-- Cboe C1Options ComplexTop 1.1.54 Application Messages
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.c1options.complextop.spin.v1.1.54.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.exchange_designated_complex_instrument_definition_message = ProtoField.new("Exchange Designated Complex Instrument Definition Message", "cboe.c1options.complextop.spin.v1.1.54.exchangedesignatedcomplexinstrumentdefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.c1options.complextop.spin.v1.1.54.instrumentdefinitionfinishedmessage", ftypes.BYTES)

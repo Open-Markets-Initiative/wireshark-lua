@@ -160,7 +160,7 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_onbook_only = Proto
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Lse Gtp Mifid2PostTradeRecovery 26.2 Application Messages
+-- Lseg Lse Mifid2PostTradeRecovery 26.2 Application Messages
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.instrument_directory_equities_message = ProtoField.new("Instrument Directory Equities Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.instrumentdirectoryequitiesmessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.loginrequestmessage", ftypes.STRING)

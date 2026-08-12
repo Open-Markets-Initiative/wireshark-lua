@@ -81,7 +81,7 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited = ProtoField.
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.moonats.retransmission.link.v1.3.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.user_id = ProtoField.new("User Id", "otcmarkets.moonats.retransmission.link.v1.3.userid", ftypes.STRING)
 
--- OtcMarkets MoonAts Link Retransmission 1.3 Application Messages
+-- OtcMarkets MoonAts Retransmission 1.3 Application Messages
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.moonats.retransmission.link.v1.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.enhanced_spin_request_message = ProtoField.new("Enhanced Spin Request Message", "otcmarkets.moonats.retransmission.link.v1.3.enhancedspinrequestmessage", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.enhanced_spin_response_message = ProtoField.new("Enhanced Spin Response Message", "otcmarkets.moonats.retransmission.link.v1.3.enhancedspinresponsemessage", ftypes.STRING)

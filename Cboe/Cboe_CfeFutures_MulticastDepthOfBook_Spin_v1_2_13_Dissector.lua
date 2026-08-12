@@ -88,7 +88,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.upper_price_limit =
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.username", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Cboe CfeFutures Spin MulticastDepthOfBook 1.2.13 Application Messages
+-- Cboe CfeFutures MulticastDepthOfBook 1.2.13 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.addorderlongmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.addordershortmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.endofdaysummarymessage", ftypes.STRING)

@@ -86,7 +86,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.unused_3 = ProtoFie
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.variance", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.variance_block_offset = ProtoField.new("Variance Block Offset", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.varianceblockoffset", ftypes.UINT8)
 
--- Cboe CfeFutures Pitch MulticastDepthOfBook 1.1.6 Application Messages
+-- Cboe CfeFutures MulticastDepthOfBook 1.1.6 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.addorderlongmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.addordershortmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.deleteordermessage", ftypes.STRING)

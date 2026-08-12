@@ -72,7 +72,7 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unit = ProtoFie
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe NeoEquities Pitch MulticastMarketByPrice 1.0.14 Application Messages
+-- Cboe NeoEquities MulticastMarketByPrice 1.0.14 Application Messages
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.instrumentdirectorymessage", ftypes.STRING)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.single_side_update_message = ProtoField.new("Single Side Update Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.singlesideupdatemessage", ftypes.STRING)

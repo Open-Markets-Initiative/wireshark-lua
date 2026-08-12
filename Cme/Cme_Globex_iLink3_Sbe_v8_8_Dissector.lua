@@ -338,7 +338,7 @@ omi_cme_globex_ilink3_sbe_v8_8.fields.volatility = ProtoField.new("Volatility", 
 omi_cme_globex_ilink3_sbe_v8_8.fields.week = ProtoField.new("Week", "cme.globex.ilink3.sbe.v8.8.week", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_8.fields.year = ProtoField.new("Year", "cme.globex.ilink3.sbe.v8.8.year", ftypes.UINT16)
 
--- Cme Globex Sbe iLink3 8.8 Application Messages
+-- Cme Globex iLink3 8.8 Application Messages
 omi_cme_globex_ilink3_sbe_v8_8.fields.business_reject = ProtoField.new("Business Reject", "cme.globex.ilink3.sbe.v8.8.businessreject", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_8.fields.establish = ProtoField.new("Establish", "cme.globex.ilink3.sbe.v8.8.establish", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_8.fields.establishment_ack = ProtoField.new("Establishment Ack", "cme.globex.ilink3.sbe.v8.8.establishmentack", ftypes.STRING)

@@ -67,7 +67,7 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_timestamp_6 = Pro
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noiview.itch.v3.0.2026.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.noiview.itch.v3.0.2026.upperpricerangecollar", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities Itch NoiView 3.0.2026 Application Messages
+-- Nasdaq NsmEquities NoiView 3.0.2026 Application Messages
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noiview.itch.v3.0.2026.crosstrademessage", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.direct_listing_with_capital_raise_price_discovery_message = ProtoField.new("Direct Listing With Capital Raise Price Discovery Message", "nasdaq.nsmequities.noiview.itch.v3.0.2026.directlistingwithcapitalraisepricediscoverymessage", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noiview.itch.v3.0.2026.ipoquotingperiodupdatemessage", ftypes.STRING)

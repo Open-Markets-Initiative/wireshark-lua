@@ -125,7 +125,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3 = Proto
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.volume = ProtoField.new("Volume", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.volume", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthtype", ftypes.UINT8)
 
--- Cboe DxeDerivatives Pitch MulticastDepthOfBook 1.11 Application Messages
+-- Cboe DxeDerivatives MulticastDepthOfBook 1.11 Application Messages
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.addorderlongmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.addordershortmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.auctioncancelmessage", ftypes.STRING)

@@ -59,7 +59,7 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_1 = ProtoField.new
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_5 = ProtoField.new("Unused 5", "cboe.edgaequities.summarydepth.pitch.v1.0.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgaequities.summarydepth.pitch.v1.0.4.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe EdgaEquities Pitch SummaryDepth 1.0.4 Application Messages
+-- Cboe EdgaEquities SummaryDepth 1.0.4 Application Messages
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.adap_message = ProtoField.new("Adap Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.adapmessage", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.cboemarketstatusmessage", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.clearquotemessage", ftypes.STRING)

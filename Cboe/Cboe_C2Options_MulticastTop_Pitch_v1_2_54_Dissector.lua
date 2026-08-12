@@ -80,7 +80,7 @@ omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying_printable_ascii_
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.c2options.multicasttop.pitch.v1.2.54.unit", ftypes.UINT8)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.width_type = ProtoField.new("Width Type", "cboe.c2options.multicasttop.pitch.v1.2.54.widthtype", ftypes.STRING)
 
--- Cboe C2Options Pitch MulticastTop 1.2.54 Application Messages
+-- Cboe C2Options MulticastTop 1.2.54 Application Messages
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c2options.multicasttop.pitch.v1.2.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.c2options.multicasttop.pitch.v1.2.54.endofsessionmessage", ftypes.STRING)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.options_auction_update_message = ProtoField.new("Options Auction Update Message", "cboe.c2options.multicasttop.pitch.v1.2.54.optionsauctionupdatemessage", ftypes.STRING)

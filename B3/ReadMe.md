@@ -18,7 +18,6 @@
 | [B3Derivatives][B3Derivatives.Exchange] | [BinaryUmdf][B3.B3Derivatives.BinaryUmdf] | [Sbe][Omi.Encoding.Sbe] | [1.8][B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.Dissector] | 4/1/2024 | 10080 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.Url] - [pdf][B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.Pdf] - [xml][B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.Xml] |
 | [B3Derivatives][B3Derivatives.Exchange] | [BinaryUmdf][B3.B3Derivatives.BinaryUmdf] | [Sbe][Omi.Encoding.Sbe] | [1.7][B3.B3Derivatives.BinaryUmdf.Sbe.v1.7.Dissector] | 6/13/2023 | 9825 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.B3Derivatives.BinaryUmdf.Sbe.v1.7.Pdf] - [xml][B3.B3Derivatives.BinaryUmdf.Sbe.v1.7.Xml] |
 | [B3Derivatives][B3Derivatives.Exchange] | [BinaryUmdf][B3.B3Derivatives.BinaryUmdf] | [Sbe][Omi.Encoding.Sbe] | [1.6][B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Dissector] | 6/13/2023 | 8996 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Pdf] - [xml][B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Xml] |
-| [Securities][Securities] | [BinaryPacketHeader][B3.Securities.BinaryPacketHeader] | [Udp][Omi.Encoding.Udp] | [1.0][B3.Securities.BinaryPacketHeader.Udp.v1.0.Dissector] | 9/20/2015 | 658 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][B3.Securities.BinaryPacketHeader.Udp.v1.0.Url] |
 
 
 B3: [website](https://www.b3.com.br/en_us "Go to Brasil, Bolsa, Balcão")
@@ -39,16 +38,11 @@ B3: [website](https://www.b3.com.br/en_us "Go to Brasil, Bolsa, Balcão")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.B3.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols "B3 Protocol Directory"
 [Omi.B3.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Specifications "B3 Specifications Directory"
-[Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[Securities]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols/Securities "B3 Securities"
 [B3Derivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols/B3Derivatives "B3 B3Derivatives"
-[B3.Securities.BinaryPacketHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Securities/BinaryPacketHeader.md "Binary Packet Header"
 [B3.B3Derivatives.BinaryUmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/B3Derivatives/BinaryUmdf.md "Binary Unified Market Data Feed"
 [B3.B3Derivatives.BinaryEntryPoint]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/B3Derivatives/BinaryEntryPoint.md "Binary Entry Point"
 
-[B3.Securities.BinaryPacketHeader.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_Securities_BinaryPacketHeader_Udp_v1_0_Dissector.lua "B3 Securities BinaryPacketHeader Udp v1.0 Wireshark Dissector"
-[B3.Securities.BinaryPacketHeader.Udp.v1.0.Url]: https://www.b3.com.br/en_us/solutions/platforms/puma-trading-system/for-developers-and-vendors/binary-umdf "Brasil, Bolsa, Balcão 1.0 Url"
 [B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3_B3Derivatives_BinaryUmdf_Sbe_v1_6_Dissector.lua "B3 B3Derivatives BinaryUmdf Sbe v1.6 Wireshark Dissector"
 [B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Specifications/BinaryUmdf/B3.Equities.BinaryUmdf.Sbe.v1.6.pdf "Brasil, Bolsa, Balcão 1.6 Pdf"
 [B3.B3Derivatives.BinaryUmdf.Sbe.v1.6.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Specifications/BinaryUmdf/B3.Equities.BinaryUmdf.Sbe.v1.6.xml "Brasil, Bolsa, Balcão 1.6 Xml"

@@ -64,14 +64,14 @@ omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_message_type
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.username", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.volume", ftypes.UINT32)
 
--- Nasdaq PhlxOptions Itch SpreadTradeFeed 2.1 Application Messages
+-- Nasdaq PhlxOptions SpreadTradeFeed 2.1 Application Messages
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.complexstrategydirectorymessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.complex_strategy_trade_report = ProtoField.new("Complex Strategy Trade Report", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.complexstrategytradereport", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.systemeventmessage", ftypes.STRING)
 
--- Nasdaq PhlxOptions Itch SpreadTradeFeed 2.1 Session Messages
+-- Nasdaq PhlxOptions SpreadTradeFeed 2.1 Session Messages
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.debugpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtradefeed_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.phlxoptions.spreadtradefeed.itch.v2.1.loginrejectedpacket", ftypes.STRING)

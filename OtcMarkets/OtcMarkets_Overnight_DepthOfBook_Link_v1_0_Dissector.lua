@@ -77,7 +77,7 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.trading_session = ProtoFie
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicited", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets Overnight Link DepthOfBook 1.0 Application Messages
+-- OtcMarkets Overnight DepthOfBook 1.0 Application Messages
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.overnight.depthofbook.link.v1.0.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.imbalance_message = ProtoField.new("Imbalance Message", "otcmarkets.overnight.depthofbook.link.v1.0.imbalancemessage", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.order_add_message = ProtoField.new("Order Add Message", "otcmarkets.overnight.depthofbook.link.v1.0.orderaddmessage", ftypes.STRING)

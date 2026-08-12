@@ -49,7 +49,7 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value = ProtoField.n
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp", ftypes.UINT64)
 
--- Cboe CxaEquities Spin MulticastTopOfBook 1.0.10 Application Messages
+-- Cboe CxaEquities MulticastTopOfBook 1.0.10 Application Messages
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.calculated_value_message = ProtoField.new("Calculated Value Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.calculatedvaluemessage", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.login_message = ProtoField.new("Login Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.loginmessage", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.loginresponsemessage", ftypes.STRING)

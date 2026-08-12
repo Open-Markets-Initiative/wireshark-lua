@@ -79,7 +79,7 @@ omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.time = ProtoField.new("Time", "n
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.texasequities.bbo.pillar.v2.5.d.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.texasequities.bbo.pillar.v2.5.d.unitoftrade", ftypes.UINT16)
 
--- Nyse TexasEquities Pillar Bbo 2.5.d Application Messages
+-- Nyse TexasEquities Bbo 2.5.d Application Messages
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.bbo.pillar.v2.5.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.texasequities.bbo.pillar.v2.5.d.messageunavailablemessage", ftypes.STRING)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.quote_message = ProtoField.new("Quote Message", "nyse.texasequities.bbo.pillar.v2.5.d.quotemessage", ftypes.STRING)

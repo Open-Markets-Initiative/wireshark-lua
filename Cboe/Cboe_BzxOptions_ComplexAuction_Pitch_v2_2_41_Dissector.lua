@@ -62,7 +62,7 @@ omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.timestamp = ProtoField.n
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.underlying = ProtoField.new("Underlying", "cboe.bzxoptions.complexauction.pitch.v2.2.41.underlying", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.complexauction.pitch.v2.2.41.unit", ftypes.UINT8)
 
--- Cboe BzxOptions Pitch ComplexAuction 2.2.41 Application Messages
+-- Cboe BzxOptions ComplexAuction 2.2.41 Application Messages
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.bzxoptions.complexauction.pitch.v2.2.41.auctioncancelmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.bzxoptions.complexauction.pitch.v2.2.41.auctionnotificationmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzxoptions.complexauction.pitch.v2.2.41.auctionsummarymessage", ftypes.STRING)

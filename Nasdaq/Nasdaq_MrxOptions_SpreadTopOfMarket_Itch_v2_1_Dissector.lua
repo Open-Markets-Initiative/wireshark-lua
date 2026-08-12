@@ -82,7 +82,7 @@ omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.underlying_symbol = Pro
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.username", ftypes.STRING)
 
--- Nasdaq MrxOptions Itch SpreadTopOfMarket 2.1 Application Messages
+-- Nasdaq MrxOptions SpreadTopOfMarket 2.1 Application Messages
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.complexstrategydirectorymessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_best_ask_update_message = ProtoField.new("Strategy Best Ask Update Message", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.strategybestaskupdatemessage", ftypes.STRING)
@@ -91,7 +91,7 @@ omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_best_bid_updat
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.systemeventmessage", ftypes.STRING)
 
--- Nasdaq MrxOptions Itch SpreadTopOfMarket 2.1 Session Messages
+-- Nasdaq MrxOptions SpreadTopOfMarket 2.1 Session Messages
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.debugpacket", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.mrxoptions.spreadtopofmarket.itch.v2.1.loginrejectedpacket", ftypes.STRING)

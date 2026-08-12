@@ -54,7 +54,7 @@ omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.trade_status = ProtoFie
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otcmarkets.linkats.extendedtrade.link.v4.10.4.tradetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.venue = ProtoField.new("Venue", "otcmarkets.linkats.extendedtrade.link.v4.10.4.venue", ftypes.STRING)
 
--- OtcMarkets LinkAts Link ExtendedTrade 4.10.4 Application Messages
+-- OtcMarkets LinkAts ExtendedTrade 4.10.4 Application Messages
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.extended_trade_message = ProtoField.new("Extended Trade Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.extendedtrademessage", ftypes.STRING)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.market_close_message = ProtoField.new("Market Close Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.marketclosemessage", ftypes.STRING)

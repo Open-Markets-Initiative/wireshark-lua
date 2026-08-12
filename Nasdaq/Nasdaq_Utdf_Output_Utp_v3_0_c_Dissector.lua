@@ -119,7 +119,7 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("U
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.utdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v3.0.c.version", ftypes.STRING)
 
--- Nasdaq Utdf Utp Output 3.0.c Application Messages
+-- Nasdaq Utdf Output 3.0.c Application Messages
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v3.0.c.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v3.0.c.closingtradesummaryreportmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utdf.output.utp.v3.0.c.crosssrotradingactionmessage", ftypes.STRING)

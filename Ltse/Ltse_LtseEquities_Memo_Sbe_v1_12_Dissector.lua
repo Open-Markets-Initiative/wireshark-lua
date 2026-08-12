@@ -118,7 +118,7 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_matching_id = ProtoField.new("Tr
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v1.12.unsequencedmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.version = ProtoField.new("Version", "ltse.ltseequities.memo.sbe.v1.12.version", ftypes.UINT16)
 
--- Ltse LtseEquities Sbe Memo 1.12 Application Messages
+-- Ltse LtseEquities Memo 1.12 Application Messages
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "ltse.ltseequities.memo.sbe.v1.12.executionreportcanceledmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "ltse.ltseequities.memo.sbe.v1.12.executionreportnewmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.execution_report_pending_cancel_message = ProtoField.new("Execution Report Pending Cancel Message", "ltse.ltseequities.memo.sbe.v1.12.executionreportpendingcancelmessage", ftypes.STRING)

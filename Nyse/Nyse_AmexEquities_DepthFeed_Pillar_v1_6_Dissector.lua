@@ -98,7 +98,7 @@ omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.new
 omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexequities.depthfeed.pillar.v1.6.uppercollar", ftypes.UINT32)
 omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.amexequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
--- Nyse AmexEquities Pillar DepthFeed 1.6 Application Messages
+-- Nyse AmexEquities DepthFeed 1.6 Application Messages
 omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.amexequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)
 omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.depthfeed.pillar.v1.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_depthfeed_pillar_v1_6.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.amexequities.depthfeed.pillar.v1.6.imbalancemessage", ftypes.STRING)

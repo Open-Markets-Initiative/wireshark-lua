@@ -80,7 +80,7 @@ omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.venue_instrument_id = ProtoField.n
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.lse.analyticsreplay.gtp.v26.2.vwapbuy", ftypes.DOUBLE)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.lse.analyticsreplay.gtp.v26.2.vwapsell", ftypes.DOUBLE)
 
--- Lseg Lse Gtp AnalyticsReplay 26.2 Application Messages
+-- Lseg Lse AnalyticsReplay 26.2 Application Messages
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.lse.analyticsreplay.gtp.v26.2.analyticsmessage", ftypes.STRING)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.analyticsreplay.gtp.v26.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.analyticsreplay.gtp.v26.2.instrumentstatusmessage", ftypes.STRING)

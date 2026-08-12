@@ -113,7 +113,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.trade_volume = ProtoField.new("Trade Volume
 omi_siac_cts_input_cta_v2_7_f.fields.trading_status_id = ProtoField.new("Trading Status Id", "siac.cts.input.cta.v2.7.f.tradingstatusid", ftypes.UINT32)
 omi_siac_cts_input_cta_v2_7_f.fields.version = ProtoField.new("Version", "siac.cts.input.cta.v2.7.f.version", ftypes.UINT8)
 
--- Siac Cts Cta Input 2.7.f Application Messages
+-- Siac Cts Input 2.7.f Application Messages
 omi_siac_cts_input_cta_v2_7_f.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.input.cta.v2.7.f.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.input.cta.v2.7.f.auctionstatusmessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.bid_and_offer_index_message = ProtoField.new("Bid And Offer Index Message", "siac.cts.input.cta.v2.7.f.bidandofferindexmessage", ftypes.STRING)

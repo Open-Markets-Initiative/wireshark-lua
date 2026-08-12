@@ -334,7 +334,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_presence_bits
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.INT64)
 
--- Txse TxseEquities Rake Seed 1.0 Application Messages
+-- Txse TxseEquities Seed 1.0 Application Messages
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "txse.txseequities.seed.rake.v1.0.cancelordermessage", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "txse.txseequities.seed.rake.v1.0.cancelrejectedmessage", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.define_symbol_message = ProtoField.new("Define Symbol Message", "txse.txseequities.seed.rake.v1.0.definesymbolmessage", ftypes.STRING)

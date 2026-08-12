@@ -74,7 +74,7 @@ omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.underlying = ProtoField.ne
 omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.multicasttop.spin.v1.2.54.unit", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.username = ProtoField.new("Username", "cboe.edgxoptions.multicasttop.spin.v1.2.54.username", ftypes.STRING)
 
--- Cboe EdgxOptions Spin MulticastTop 1.2.54 Application Messages
+-- Cboe EdgxOptions MulticastTop 1.2.54 Application Messages
 omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.edgxoptions.multicasttop.spin.v1.2.54.instrumentdefinitionfinishedmessage", ftypes.BYTES)
 omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.instrument_definition_request_message = ProtoField.new("Instrument Definition Request Message", "cboe.edgxoptions.multicasttop.spin.v1.2.54.instrumentdefinitionrequestmessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicasttop_spin_v1_2_54.fields.instrument_definition_response_message = ProtoField.new("Instrument Definition Response Message", "cboe.edgxoptions.multicasttop.spin.v1.2.54.instrumentdefinitionresponsemessage", ftypes.STRING)

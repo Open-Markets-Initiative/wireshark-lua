@@ -75,7 +75,7 @@ omi_iex_iexequities_deep_iextp_v1_08.fields.upper_auction_collar = ProtoField.ne
 omi_iex_iexequities_deep_iextp_v1_08.fields.version = ProtoField.new("Version", "iex.iexequities.deep.iextp.v1.08.version", ftypes.UINT8)
 omi_iex_iexequities_deep_iextp_v1_08.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deep.iextp.v1.08.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities IexTp Deep 1.08 Application Messages
+-- Iex IexEquities Deep 1.08 Application Messages
 omi_iex_iexequities_deep_iextp_v1_08.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.deep.iextp.v1.08.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.official_price_message = ProtoField.new("Official Price Message", "iex.iexequities.deep.iextp.v1.08.officialpricemessage", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.iexequities.deep.iextp.v1.08.operationalhaltstatusmessage", ftypes.STRING)

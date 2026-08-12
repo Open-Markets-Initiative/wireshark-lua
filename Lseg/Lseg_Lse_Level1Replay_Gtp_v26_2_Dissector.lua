@@ -100,7 +100,7 @@ omi_lseg_lse_level1replay_gtp_v26_2.fields.volume_onbook_only = ProtoField.new("
 omi_lseg_lse_level1replay_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.level1replay.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_level1replay_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.level1replay.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Lse Gtp Level1Replay 26.2 Application Messages
+-- Lseg Lse Level1Replay 26.2 Application Messages
 omi_lseg_lse_level1replay_gtp_v26_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.level1replay.gtp.v26.2.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_lse_level1replay_gtp_v26_2.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.level1replay.gtp.v26.2.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_lse_level1replay_gtp_v26_2.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.lse.level1replay.gtp.v26.2.loginrequestmessage", ftypes.STRING)

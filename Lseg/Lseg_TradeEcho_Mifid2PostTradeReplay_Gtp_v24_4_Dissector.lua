@@ -135,7 +135,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.volume_onbook_only = P
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg TradeEcho Gtp Mifid2PostTradeReplay 24.4 Application Messages
+-- Lseg TradeEcho Mifid2PostTradeReplay 24.4 Application Messages
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.loginrequestmessage", ftypes.STRING)

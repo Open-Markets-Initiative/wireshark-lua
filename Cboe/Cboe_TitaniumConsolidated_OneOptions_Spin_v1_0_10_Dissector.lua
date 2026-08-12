@@ -41,7 +41,7 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.underlying = ProtoF
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.unit", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.username = ProtoField.new("Username", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.username", ftypes.STRING)
 
--- Cboe TitaniumConsolidated Spin OneOptions 1.0.10 Application Messages
+-- Cboe TitaniumConsolidated OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionfinishedmessage", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_request_message = ProtoField.new("Instrument Definition Request Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionrequestmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_response_message = ProtoField.new("Instrument Definition Response Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionresponsemessage", ftypes.STRING)

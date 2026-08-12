@@ -133,7 +133,7 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.trading_flat = ProtoField.new(
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.multicast.link.v4.3.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.multicast.link.v4.3.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- OtcMarkets LinkAts Link Multicast 4.3 Application Messages
+-- OtcMarkets LinkAts Multicast 4.3 Application Messages
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.multicast.link.v4.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_message = ProtoField.new("Extended Security Message", "otcmarkets.linkats.multicast.link.v4.3.extendedsecuritymessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otcmarkets.linkats.multicast.link.v4.3.extendedsecuritynocusipmessage", ftypes.STRING)

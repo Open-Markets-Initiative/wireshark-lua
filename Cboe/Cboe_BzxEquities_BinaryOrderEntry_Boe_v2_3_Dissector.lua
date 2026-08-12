@@ -375,7 +375,7 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.unit_sequence = ProtoField
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.username = ProtoField.new("Username", "cboe.bzxequities.binaryorderentry.boe.v2.3.username", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.working_price = ProtoField.new("Working Price", "cboe.bzxequities.binaryorderentry.boe.v2.3.workingprice", ftypes.DOUBLE)
 
--- Cboe BzxEquities Boe BinaryOrderEntry 2.3 Application Messages
+-- Cboe BzxEquities BinaryOrderEntry 2.3 Application Messages
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.bzxequities.binaryorderentry.boe.v2.3.cancelordermessage", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.bzxequities.binaryorderentry.boe.v2.3.cancelrejectedmessage", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.bzxequities.binaryorderentry.boe.v2.3.clientheartbeatmessage", ftypes.BYTES)

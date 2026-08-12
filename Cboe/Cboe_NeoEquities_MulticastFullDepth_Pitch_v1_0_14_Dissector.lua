@@ -86,7 +86,7 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_1 = ProtoFie
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe NeoEquities Pitch MulticastFullDepth 1.0.14 Application Messages
+-- Cboe NeoEquities MulticastFullDepth 1.0.14 Application Messages
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.addordermessage", ftypes.STRING)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.auctionsummarymessage", ftypes.STRING)
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.auctionupdatemessage", ftypes.STRING)

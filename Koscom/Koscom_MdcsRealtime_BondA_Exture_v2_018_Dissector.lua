@@ -427,7 +427,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_doub
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
 
--- Koscom MdcsRealtime Exture BondA 2.018 Application Messages
+-- Koscom MdcsRealtime BondA 2.018 Application Messages
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_order_filled_plus_quote_message = ProtoField.new("Baby Bonds Order Filled Plus Quote Message", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondsorderfilledplusquotemessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_quote_message = ProtoField.new("Baby Bonds Quote Message", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondsquotemessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_reporting_market_yield_message = ProtoField.new("Baby Bonds Reporting Market Yield Message", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondsreportingmarketyieldmessage", ftypes.STRING)

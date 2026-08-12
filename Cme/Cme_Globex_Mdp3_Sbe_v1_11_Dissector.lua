@@ -290,7 +290,7 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.workup_trading_status = ProtoField.new("Wor
 omi_cme_globex_mdp3_sbe_v1_11.fields.year = ProtoField.new("Year", "cme.globex.mdp3.sbe.v1.11.year", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_11.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.globex.mdp3.sbe.v1.11.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
--- Cme Globex Sbe Mdp3 1.11 Application Messages
+-- Cme Globex Mdp3 1.11 Application Messages
 omi_cme_globex_mdp3_sbe_v1_11.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.11.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_11.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.11.adminlogin", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_11.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.11.adminlogout", ftypes.STRING)

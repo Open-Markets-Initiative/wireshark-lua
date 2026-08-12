@@ -589,7 +589,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_inde
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.securitiesa.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
 
--- Koscom MdcsRealtime Exture SecuritiesA 2.018 Application Messages
+-- Koscom MdcsRealtime SecuritiesA 2.018 Application Messages
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_all_market_message = ProtoField.new("Announcement All Market Message", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementallmarketmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_konex_message = ProtoField.new("Announcement Konex Message", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementkonexmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_kosdaq_message = ProtoField.new("Announcement Kosdaq Message", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementkosdaqmessage", ftypes.STRING)

@@ -102,7 +102,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.type = ProtoField.new("Type",
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.deribit.marketdataapi.sbe.v0.1.weekofmonth", ftypes.INT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.year = ProtoField.new("Year", "coinbase.deribit.marketdataapi.sbe.v0.1.year", ftypes.INT16)
 
--- Coinbase Deribit Sbe MarketDataApi 0.1 Application Messages
+-- Coinbase Deribit MarketDataApi 0.1 Application Messages
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_delete_message = ProtoField.new("Ask Delete Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askdeletemessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_put_message = ProtoField.new("Ask Put Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askputmessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_qty_reduced_message = ProtoField.new("Ask Qty Reduced Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askqtyreducedmessage", ftypes.STRING)

@@ -89,7 +89,7 @@ omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.tier = ProtoField.
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- OtcMarkets LinkAts Link QuoteBookGlobalOtc 4.10.4 Application Messages
+-- OtcMarkets LinkAts QuoteBookGlobalOtc 4.10.4 Application Messages
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close_message = ProtoField.new("Market Close Message", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclosemessage", ftypes.STRING)
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_open_message = ProtoField.new("Market Open Message", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketopenmessage", ftypes.STRING)

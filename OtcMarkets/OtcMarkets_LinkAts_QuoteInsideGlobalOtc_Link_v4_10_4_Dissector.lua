@@ -82,7 +82,7 @@ omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.tier = ProtoFiel
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- OtcMarkets LinkAts Link QuoteInsideGlobalOtc 4.10.4 Application Messages
+-- OtcMarkets LinkAts QuoteInsideGlobalOtc 4.10.4 Application Messages
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.inside_message = ProtoField.new("Inside Message", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.insidemessage", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.inside_update_message = ProtoField.new("Inside Update Message", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.insideupdatemessage", ftypes.STRING)

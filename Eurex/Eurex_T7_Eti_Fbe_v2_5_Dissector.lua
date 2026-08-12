@@ -293,7 +293,7 @@ omi_eurex_t7_eti_fbe_v2_5.fields.var_text = ProtoField.new("Var Text", "eurex.t7
 omi_eurex_t7_eti_fbe_v2_5.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.eti.fbe.v2.5.vartextlen", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v2_5.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v2.5.vega", ftypes.INT32)
 
--- Eurex T7 Fbe Eti 2.5 Application Messages
+-- Eurex T7 Eti 2.5 Application Messages
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentrequest", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_response = ProtoField.new("Add Complex Instrument Response", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentresponse", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.eti.fbe.v2.5.broadcasterrornotification", ftypes.STRING)

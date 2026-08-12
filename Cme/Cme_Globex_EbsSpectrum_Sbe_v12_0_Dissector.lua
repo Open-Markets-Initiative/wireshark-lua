@@ -51,7 +51,7 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new(
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.ebsspectrum.sbe.v12.0.transacttime", ftypes.UINT64)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.ebsspectrum.sbe.v12.0.version", ftypes.UINT16)
 
--- Cme Globex Sbe EbsSpectrum 12.0 Application Messages
+-- Cme Globex EbsSpectrum 12.0 Application Messages
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.ebsspectrum.sbe.v12.0.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.globex.ebsspectrum.sbe.v12.0.globaldayroll", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.globex.ebsspectrum.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING)
