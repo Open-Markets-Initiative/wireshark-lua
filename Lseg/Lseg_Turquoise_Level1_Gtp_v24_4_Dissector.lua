@@ -111,11 +111,13 @@ local show = {}
 -- Lseg Turquoise Level1 Gtp 24.4 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Lseg Turquoise Level1 Gtp 24.4 Show Options
 omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 
@@ -125,6 +127,9 @@ function omi_lseg_turquoise_level1_gtp_v24_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_application_messages then
     show.application_messages = omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_headers then
+    show.headers = omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_headers
   end
   if show.structs ~= omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_structs then
     show.structs = omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_structs
@@ -2642,7 +2647,7 @@ end
 
 -- Dissect: Message Header
 lseg_turquoise_level1_gtp_v24_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.message_header, buffer(offset, 0))
     local index = lseg_turquoise_level1_gtp_v24_4.message_header.fields(buffer, offset, packet, parent)
@@ -2745,7 +2750,7 @@ end
 
 -- Dissect: Unit Header
 lseg_turquoise_level1_gtp_v24_4.unit_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.unit_header, buffer(offset, 0))
     local index = lseg_turquoise_level1_gtp_v24_4.unit_header.fields(buffer, offset, packet, parent)
