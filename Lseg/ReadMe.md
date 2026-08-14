@@ -162,7 +162,7 @@ Lseg: [website](https://www.lseg.com "Go to London Stock Exchange")
 [Lseg.Lse.AnalyticsReplay.Gtp.v26.2.Url]: https://www.lseg.com/areas-expertise/technology/group-technology/group-ticker-plant "London Stock Exchange 26.2 Url"
 [Lseg.Lse.AnalyticsReplay.Gtp.v26.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Organizations/Lseg/Specifications/Lseg.Lse.Gtp.v26.2.pdf "London Stock Exchange 26.2 Pdf"
 [Lseg.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_Level2_Mitch_v11_9_Dissector.lua "Lseg Millennium Level2 Mitch v11.9 Wireshark Dissector"
-[Lseg.Millennium.Level2.Mitch.v11.9.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange 11.9 Url"
+[Lseg.Millennium.Level2.Mitch.v11.9.Url]: https://docs.londonstockexchange.com/sites/default/files/documents/mit303issue119.pdf "London Stock Exchange 11.9 Url"
 [Lseg.Millennium.Level2.Mitch.v11.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Specifications/Organizations/Lseg/Specifications/Lseg.Millennium.Level2.Mitch.v11.9.pdf "London Stock Exchange 11.9 Pdf"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lseg/Lseg_Millennium_UdpUnitHeader_Mitch_v1_0_Dissector.lua "Lseg Millennium UdpUnitHeader Mitch v1.0 Wireshark Dissector"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange 1.0 Url"
