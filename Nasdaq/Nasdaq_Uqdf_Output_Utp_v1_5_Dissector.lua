@@ -889,11 +889,11 @@ nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.display = function(value)
   if value == "Q" then
     return "Financial Status Indicator: Bankrupt (Q)"
   end
-  if value == "Q" then
-    return "Financial Status Indicator: Normal (Q)"
+  if value == "N" then
+    return "Financial Status Indicator: Normal (N)"
   end
   if value == "G" then
-    return "Financial Status Indicator: Normal (G)"
+    return "Financial Status Indicator: Deficient And Bankrupt (G)"
   end
   if value == "H" then
     return "Financial Status Indicator: Deficient And Delinquent (H)"

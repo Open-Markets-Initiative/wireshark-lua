@@ -1049,7 +1049,29 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_id.size = 2
 
 -- Display: Market Id
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_id.display = function(value)
-  return "Market Id: "..value
+  if value == 1 then
+    return "Market Id: Nyse Equities (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American Equities (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National Equities (10)"
+  end
+  if value == 11 then
+    return "Market Id: Nyse Chicago (11)"
+  end
+
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -4071,7 +4093,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.outright_series_index_mapping.fields = f
   -- Series Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, series_type = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_type.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, market_id = nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
@@ -4686,7 +4708,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.symbol_index_mapping_message.fields = fu
   -- Reserved 1: 1 Byte
   index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_f.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, market_id = nyse_arcaoptions_deepfeed_pillar_v1_2_f.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer

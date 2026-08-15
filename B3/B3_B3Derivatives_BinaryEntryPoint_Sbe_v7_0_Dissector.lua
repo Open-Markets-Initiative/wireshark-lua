@@ -3485,9 +3485,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.size = 4
 
 -- Display: Ord Rej Reason
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(value)
-  if value == 009999 then
-    return "Ord Rej Reason: Unable to create FIX from VolatilityUpdate message (009999)"
-  end
   if value == 000908 then
     return "Ord Rej Reason: Unable to send FIX from VolatilityUpdate message (000908)"
   end
@@ -3530,9 +3527,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   if value == 002045 then
     return "Ord Rej Reason: Cannot modify order because order does not exist (002045)"
   end
-  if value == 002045 then
-    return "Ord Rej Reason: Order not in book (002045)"
-  end
   if value == 002046 then
     return "Ord Rej Reason: Disclosed Quantity cannot be greater than total or remaining quantity (002046)"
   end
@@ -3572,9 +3566,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   if value == 002058 then
     return "Ord Rej Reason: Attempt to cancel an order with a different SenderLocationID than the original order (002058)"
   end
-  if value == 002058 then
-    return "Ord Rej Reason: Stop price maxi-mini must be greater than or equal to trigger price (002058)"
-  end
   if value == 002059 then
     return "Ord Rej Reason: Stop price maxi-mini must be smaller than or equal to trigger price (002059)"
   end
@@ -3589,9 +3580,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   end
   if value == 002101 then
     return "Ord Rej Reason: Attempt to modify an order with a different in-flight-fill mitigation status than first modification (002101)"
-  end
-  if value == 002101 then
-    return "Ord Rej Reason: Attempt to modify an order currently taking part in an RFC process (002101)"
   end
   if value == 002102 then
     return "Ord Rej Reason: Attempt to modify an order with a different SenderCompID than the original order (002102)"
@@ -3649,9 +3637,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   end
   if value == 002130 then
     return "Ord Rej Reason: Order type not permitted while the market is in pre open (002130)"
-  end
-  if value == 002130 then
-    return "Ord Rej Reason: Order type not permitted while the market is in PCP (002130)"
   end
   if value == 002137 then
     return "Ord Rej Reason: Order price is outside limits (002137)"
@@ -3914,9 +3899,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   if value == 007009 then
     return "Ord Rej Reason: Contract for this order contract is past expiration date and may no longer be traded (007009)"
   end
-  if value == 007009 then
-    return "Ord Rej Reason: Contract for this order has a future activation date and cannot yet be traded (007009)"
-  end
   if value == 007010 then
     return "Ord Rej Reason: Invalid spread price (007010)"
   end
@@ -4084,9 +4066,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.ord_rej_reason.display = function(val
   end
   if value == 007118 then
     return "Ord Rej Reason: Quote rejected: Exchange (security) is in pre open (007118)"
-  end
-  if value == 007118 then
-    return "Ord Rej Reason: Group state does not allow this function (007118)"
   end
   if value == 007119 then
     return "Ord Rej Reason: Quote rejected: Exchange (security) is in no cancel (007119)"

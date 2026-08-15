@@ -902,6 +902,11 @@ nasdaq_ntxequities_orders_ouch_v4_2.password.size = 10
 
 -- Display: Password
 nasdaq_ntxequities_orders_ouch_v4_2.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -909,7 +914,18 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.password.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nasdaq_ntxequities_orders_ouch_v4_2.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.password, range, value, display)
@@ -1209,7 +1225,12 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = nasdaq_ntxequities_orders_ouch_v4_2.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
@@ -1462,6 +1483,11 @@ nasdaq_ntxequities_orders_ouch_v4_2.username.size = 6
 
 -- Display: Username
 nasdaq_ntxequities_orders_ouch_v4_2.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1469,7 +1495,18 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.username.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nasdaq_ntxequities_orders_ouch_v4_2.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.username, range, value, display)

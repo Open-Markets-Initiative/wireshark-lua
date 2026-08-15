@@ -1077,7 +1077,29 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.market_id.size = 2
 
 -- Display: Market Id
 nyse_arcaoptions_topfeed_pillar_v1_2_c.market_id.display = function(value)
-  return "Market Id: "..value
+  if value == 1 then
+    return "Market Id: Nyse Equities (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American Equities (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National Equities (10)"
+  end
+  if value == 11 then
+    return "Market Id: Nyse Chicago (11)"
+  end
+
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1792,27 +1814,6 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.display = function(value)
-  if value == "1" then
-    return "Quote Condition: Nyse Equities (1)"
-  end
-  if value == "3" then
-    return "Quote Condition: Nyse Arca Equities (3)"
-  end
-  if value == "4" then
-    return "Quote Condition: Nyse Arca Options (4)"
-  end
-  if value == "8" then
-    return "Quote Condition: Nyse American Options (8)"
-  end
-  if value == "9" then
-    return "Quote Condition: Nyse American Equities (9)"
-  end
-  if value == "10" then
-    return "Quote Condition: Nyse National Equities (10)"
-  end
-  if value == "11" then
-    return "Quote Condition: Nyse Chicago (11)"
-  end
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -3822,7 +3823,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.options_quote_message.fields = function(b
   -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
   index, bid_volume = nyse_arcaoptions_topfeed_pillar_v1_2_c.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 10 values
+  -- Quote Condition: 1 Byte Ascii String Enum with 3 values
   index, quote_condition = nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
@@ -3954,7 +3955,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.outright_series_index_mapping_message.fie
   -- Series Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, series_type = nyse_arcaoptions_topfeed_pillar_v1_2_c.series_type.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, market_id = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
@@ -4569,7 +4570,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol_index_mapping_message.fields = fun
   -- Reserved 1: 1 Byte
   index, reserved_1 = nyse_arcaoptions_topfeed_pillar_v1_2_c.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, market_id = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_id.dissect(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer

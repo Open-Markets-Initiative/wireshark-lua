@@ -588,6 +588,11 @@ jpx_osederivatives_geniuminet_ouch_v5_0.password.size = 10
 
 -- Display: Password
 jpx_osederivatives_geniuminet_ouch_v5_0.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -595,7 +600,18 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.password.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.password, range, value, display)
@@ -1360,7 +1376,12 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number, range, value, display)
@@ -1694,6 +1715,11 @@ jpx_osederivatives_geniuminet_ouch_v5_0.username.size = 6
 
 -- Display: Username
 jpx_osederivatives_geniuminet_ouch_v5_0.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1701,7 +1727,18 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.username.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username, range, value, display)
