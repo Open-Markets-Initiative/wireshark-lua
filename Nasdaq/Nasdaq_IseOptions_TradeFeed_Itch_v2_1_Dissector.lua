@@ -15,9 +15,12 @@ local nasdaq_iseoptions_tradefeed_itch_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions TradeFeed Itch 2.1 Fields
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.acceptedsession", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.closingtype", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.iseoptions.tradefeed.itch.v2.1.crossid", ftypes.UINT32)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.iseoptions.tradefeed.itch.v2.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.iseoptions.tradefeed.itch.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.iseoptions.tradefeed.itch.v2.1.expirationday", ftypes.UINT8)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.iseoptions.tradefeed.itch.v2.1.expirationmonth", ftypes.UINT8)
@@ -29,31 +32,53 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_count = ProtoField.new(
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.tradefeed.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.tradefeed.itch.v2.1.messagelength", ftypes.UINT16)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.messagetype", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.moldudp64packet", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.tradefeed.itch.v2.1.mpv", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.optiontype", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalcrossid", ftypes.UINT32)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_price = ProtoField.new("Original Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalprice", ftypes.UINT32)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalvolume", ftypes.UINT32)
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.packet", ftypes.STRING)
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.tradefeed.itch.v2.1.packetheader", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.iseoptions.tradefeed.itch.v2.1.packetlength", ftypes.UINT16)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.packettype", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.iseoptions.tradefeed.itch.v2.1.password", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.price", ftypes.UINT32)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.tradefeed.itch.v2.1.rejectreasoncode", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.requestedsequencenumber", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.requestedsession", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.tradefeed.itch.v2.1.reserved16", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.tradefeed.itch.v2.1.securitysymbol", ftypes.STRING)
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.sequencenumber", ftypes.UINT64)
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.session", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.sequencedmessagetype", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.soupbintcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.tcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.tradefeed.itch.v2.1.tcppacketheader", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.iseoptions.tradefeed.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.tradefeed.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.trackingnumber", ftypes.UINT16)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.tradefeed.itch.v2.1.tradable", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.iseoptions.tradefeed.itch.v2.1.tradecondition", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.iseoptions.tradefeed.itch.v2.1.udppacketheader", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.udpsequencenumber", ftypes.UINT64)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.udpsession", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.tradefeed.itch.v2.1.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.iseoptions.tradefeed.itch.v2.1.username", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.volume = ProtoField.new("Volume", "nasdaq.iseoptions.tradefeed.itch.v2.1.volume", ftypes.UINT32)
 
 -- Nasdaq IseOptions TradeFeed 2.1 Application Messages
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.brokentradereportmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.derivative_directory_message = ProtoField.new("Derivative Directory Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.derivativedirectorymessage", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.systemeventmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.trademessage", ftypes.STRING)
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.tradefeed.itch.v2.1.tradingactionmessage", ftypes.STRING)
+
+-- Nasdaq IseOptions TradeFeed 2.1 Session Messages
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.tradefeed.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq IseOptions TradeFeed Itch 2.1 generated fields
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.tradefeed.itch.v2.1.messageindex", ftypes.UINT16)
@@ -66,12 +91,14 @@ local show = {}
 
 -- Nasdaq IseOptions TradeFeed Itch 2.1 Element Dissection Options
 show.application_messages = true
+show.session_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Nasdaq IseOptions TradeFeed Itch 2.1 Show Options
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -86,6 +113,9 @@ function omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_headers
+  end
+  if show.session_messages ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_session_messages
   end
   if show.structs ~= omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_structs then
     show.structs = omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_structs
@@ -117,6 +147,52 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq IseOptions TradeFeed Itch 2.1 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Closing Type
 nasdaq_iseoptions_tradefeed_itch_v2_1.closing_type = {}
@@ -218,6 +294,29 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.current_trading_state.dissect = function(b
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.current_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Of Replay Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number = {}
+
+-- Size: End Of Replay Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.size = 20
+
+-- Display: End Of Replay Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.display = function(value)
+  return "End Of Replay Sequence Number: "..value
+end
+
+-- Dissect: End Of Replay Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.end_of_replay_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -605,6 +704,106 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.original_volume.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Packet Length
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length = {}
+
+-- Size: Packet Length
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.size = 2
+
+-- Display: Packet Length
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type = {}
+
+-- Size: Packet Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.size = 1
+
+-- Display: Packet Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nasdaq_iseoptions_tradefeed_itch_v2_1.password = {}
+
+-- Size: Password
+nasdaq_iseoptions_tradefeed_itch_v2_1.password.size = 10
+
+-- Display: Password
+nasdaq_iseoptions_tradefeed_itch_v2_1.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nasdaq_iseoptions_tradefeed_itch_v2_1.password.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price
 nasdaq_iseoptions_tradefeed_itch_v2_1.price = {}
 
@@ -624,6 +823,75 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.price.dissect = function(buffer, offset, p
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session = {}
+
+-- Size: Requested Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.size = 10
+
+-- Display: Requested Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_session, range, value, display)
 
   return offset + length, value
 end
@@ -674,64 +942,67 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.security_symbol.dissect = function(buffer,
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number = {}
+-- Sequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type = {}
 
--- Size: Sequence Number
-nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size = 8
+-- Size: Sequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.size = 1
 
--- Display: Sequence Number
-nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
+-- Display: Sequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.display = function(value)
+  if value == "S" then
+    return "Sequenced Message Type: System Event Message (S)"
+  end
+  if value == "m" then
+    return "Sequenced Message Type: Derivative Directory Message (m)"
+  end
+  if value == "H" then
+    return "Sequenced Message Type: Trading Action Message (H)"
+  end
+  if value == "R" then
+    return "Sequenced Message Type: Trade Message (R)"
+  end
+  if value == "X" then
+    return "Sequenced Message Type: Broken Trade Report Message (X)"
+  end
+  if value == "M" then
+    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
 end
 
--- Dissect: Sequence Number
-nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size
+-- Dissect: Sequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequence_number, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequenced_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.session = {}
+-- Text
+nasdaq_iseoptions_tradefeed_itch_v2_1.text = {}
 
--- Size: Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.session.size = 10
+-- Size: Text
+nasdaq_iseoptions_tradefeed_itch_v2_1.text.size = 1
 
--- Display: Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
+-- Display: Text
+nasdaq_iseoptions_tradefeed_itch_v2_1.text.display = function(value)
+  return "Text: "..value
 end
 
--- Dissect: Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.session.size
+-- Dissect: Text
+nasdaq_iseoptions_tradefeed_itch_v2_1.text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.text.size
   local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.text.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.session, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -835,6 +1106,68 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.trade_condition.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Udp Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number = {}
+
+-- Size: Udp Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.size = 8
+
+-- Display: Udp Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.display = function(value)
+  return "Udp Sequence Number: "..value
+end
+
+-- Dissect: Udp Sequence Number
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Udp Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session = {}
+
+-- Size: Udp Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.size = 10
+
+-- Display: Udp Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Udp Session: No Value"
+  end
+
+  return "Udp Session: "..value
+end
+
+-- Dissect: Udp Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_session, range, value, display)
+
+  return offset + length, value
+end
+
 -- Underlying Symbol
 nasdaq_iseoptions_tradefeed_itch_v2_1.underlying_symbol = {}
 
@@ -854,6 +1187,52 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.underlying_symbol.dissect = function(buffe
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.display = function(value)
+  return "Unsequenced Message Type: "..value
+end
+
+-- Dissect: Unsequenced Message Type
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+nasdaq_iseoptions_tradefeed_itch_v2_1.username = {}
+
+-- Size: Username
+nasdaq_iseoptions_tradefeed_itch_v2_1.username.size = 6
+
+-- Display: Username
+nasdaq_iseoptions_tradefeed_itch_v2_1.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nasdaq_iseoptions_tradefeed_itch_v2_1.username.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_tradefeed_itch_v2_1.username.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -885,6 +1264,401 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nasdaq IseOptions TradeFeed Itch 2.1
 -----------------------------------------------------------------------
+
+-- Message Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.message_header = {}
+
+-- Size: Message Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.message_length.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.message_type.size
+
+-- Display: Message Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_iseoptions_tradefeed_itch_v2_1.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Ascii String Enum with 5 values
+  index, message_type = nasdaq_iseoptions_tradefeed_itch_v2_1.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.message = {}
+
+-- Read runtime size of: Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
+
+  return message_length + 2
+end
+
+-- Display: Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(index - 3, 2):uint()
+
+  -- Runtime Size Of: Udp Payload
+  local size_of_udp_payload = message_length - 1
+
+  -- Udp Payload
+  index, udp_payload = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_payload.dissect(buffer, index, packet, parent, size_of_udp_payload)
+
+  return index
+end
+
+-- Dissect: Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nasdaq_iseoptions_tradefeed_itch_v2_1.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message, buffer(offset, 0))
+    local current = nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- End Of Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat = {}
+
+-- Display: Heartbeat
+nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nasdaq_iseoptions_tradefeed_itch_v2_1.messages = {}
+
+-- Dissect: Messages
+nasdaq_iseoptions_tradefeed_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Heartbeat
+  if message_count == 0 then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session
+  if message_count == 65535 then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = message_length + 2
+
+    -- Message: Struct of 2 fields
+    offset = nasdaq_iseoptions_tradefeed_itch_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
+end
+
+-- Udp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header = {}
+
+-- Size: Udp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.message_count.size
+
+-- Display: Udp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Udp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Udp Session: 10 Byte Ascii String
+  index, udp_session = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_session.dissect(buffer, index, packet, parent)
+
+  -- Udp Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, udp_sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_iseoptions_tradefeed_itch_v2_1.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Udp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.udp_packet_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mold Udp 64 Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.mold_udp_64_packet = {}
+
+-- Verify required size of Udp packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.mold_udp_64_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.size
+end
+
+-- Dissect Mold Udp 64 Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.mold_udp_64_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Udp Packet Header: Struct of 3 fields
+  index, udp_packet_header = nasdaq_iseoptions_tradefeed_itch_v2_1.udp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
+
+  -- Messages: Runtime Type with 3 branches
+  index = nasdaq_iseoptions_tradefeed_itch_v2_1.messages.dissect(buffer, index, packet, parent, message_count)
+
+  return index
+end
+
+-- Unsequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message
+  index, unsequenced_message = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.username.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.password.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_iseoptions_tradefeed_itch_v2_1.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_iseoptions_tradefeed_itch_v2_1.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- End Of Replay Sequence Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message = {}
+
+-- Size: End Of Replay Sequence Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.size
+
+-- Display: End Of Replay Sequence Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Replay Sequence Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- End Of Replay Sequence Number: Alphanumeric
+  index, end_of_replay_sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Replay Sequence Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.end_of_replay_sequence_message, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Broken Trade Report Message
 nasdaq_iseoptions_tradefeed_itch_v2_1.broken_trade_report_message = {}
@@ -1206,272 +1980,390 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.system_event_message.dissect = function(bu
   end
 end
 
--- Payload
-nasdaq_iseoptions_tradefeed_itch_v2_1.payload = {}
+-- Sequenced Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message = {}
 
--- Dissect: Payload
-nasdaq_iseoptions_tradefeed_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Sequenced Message
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   -- Dissect System Event Message
-  if message_type == "S" then
+  if sequenced_message_type == "S" then
     return nasdaq_iseoptions_tradefeed_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivative Directory Message
-  if message_type == "m" then
+  if sequenced_message_type == "m" then
     return nasdaq_iseoptions_tradefeed_itch_v2_1.derivative_directory_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
-  if message_type == "H" then
+  if sequenced_message_type == "H" then
     return nasdaq_iseoptions_tradefeed_itch_v2_1.trading_action_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
-  if message_type == "R" then
+  if sequenced_message_type == "R" then
     return nasdaq_iseoptions_tradefeed_itch_v2_1.trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Report Message
-  if message_type == "X" then
+  if sequenced_message_type == "X" then
     return nasdaq_iseoptions_tradefeed_itch_v2_1.broken_trade_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Replay Sequence Message
+  if sequenced_message_type == "M" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.message_header = {}
+-- Sequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet = {}
 
--- Size: Message Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.size =
-  nasdaq_iseoptions_tradefeed_itch_v2_1.message_length.size + 
-  nasdaq_iseoptions_tradefeed_itch_v2_1.message_type.size
+-- Read runtime size of: Sequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.size = function(buffer, offset)
+  local index = offset
 
--- Display: Message Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.display = function(packet, parent, length)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Sequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = nasdaq_iseoptions_tradefeed_itch_v2_1.message_length.dissect(buffer, index, packet, parent)
+  -- Sequenced Message Type: 1 Byte Ascii String Enum with 6 values
+  index, sequenced_message_type = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Ascii String Enum with 5 values
-  index, message_type = nasdaq_iseoptions_tradefeed_itch_v2_1.message_type.dissect(buffer, index, packet, parent)
+  -- Sequenced Message: Runtime Type with 6 branches
+  index = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
 end
 
--- Dissect: Message Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_header, buffer(offset, 0))
-    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-nasdaq_iseoptions_tradefeed_itch_v2_1.message = {}
-
--- Read runtime size of: Message
-nasdaq_iseoptions_tradefeed_itch_v2_1.message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset, 2):uint()
-
-  return message_length + 2
-end
-
--- Display: Message
-nasdaq_iseoptions_tradefeed_itch_v2_1.message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message
-nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset
-
-  -- Implicit Message Index
-  if message_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_index, message_index)
-    iteration:set_generated()
-  end
-
-  -- Message Header: Struct of 2 fields
-  index, message_header = nasdaq_iseoptions_tradefeed_itch_v2_1.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):string()
-
-  -- Payload: Runtime Type with 5 branches
-  index = nasdaq_iseoptions_tradefeed_itch_v2_1.payload.dissect(buffer, index, packet, parent, message_type)
-
-  return index
-end
-
--- Dissect: Message
-nasdaq_iseoptions_tradefeed_itch_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local size_of_message = nasdaq_iseoptions_tradefeed_itch_v2_1.message.size(buffer, offset)
-  local index = offset + size_of_message
+-- Dissect: Sequenced Data Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local size_of_sequenced_data_packet = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
-    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message, buffer(offset, 0))
-    local current = nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
-    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.message.display(buffer, packet, parent)
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_iseoptions_tradefeed_itch_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
 
     return index
   end
 end
 
--- End Of Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session = {}
+-- Login Rejected Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet = {}
 
--- Display: End Of Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.display = function(packet, parent, length)
-  return "End Of Session"
-end
+-- Size: Login Rejected Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.size
 
-
--- Dissect: End Of Session
-nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.dissect = function(buffer, offset, packet, parent)
-  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Heartbeat
-nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat = {}
-
--- Display: Heartbeat
-nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.display = function(packet, parent, length)
-  return "Heartbeat"
-end
-
-
--- Dissect: Heartbeat
-nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Messages
-nasdaq_iseoptions_tradefeed_itch_v2_1.messages = {}
-
--- Dissect: Messages
-nasdaq_iseoptions_tradefeed_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_iseoptions_tradefeed_itch_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_iseoptions_tradefeed_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Repeating: Message
-  for message_index = 1, message_count do
-
-    -- Dependency element: Message Length
-    local message_length = buffer(offset, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = message_length + 2
-
-    -- Message: Struct of 2 fields
-    offset = nasdaq_iseoptions_tradefeed_itch_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
-  end
-
-  return offset
-end
-
--- Packet Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header = {}
-
--- Size: Packet Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.size =
-  nasdaq_iseoptions_tradefeed_itch_v2_1.session.size + 
-  nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.size + 
-  nasdaq_iseoptions_tradefeed_itch_v2_1.message_count.size
-
--- Display: Packet Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.display = function(packet, parent, length)
+-- Display: Login Rejected Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Login Rejected Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_iseoptions_tradefeed_itch_v2_1.session.dissect(buffer, index, packet, parent)
-
-  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Message Count: 2 Byte Unsigned Fixed Width Integer
-  index, message_count = nasdaq_iseoptions_tradefeed_itch_v2_1.message_count.dissect(buffer, index, packet, parent)
+  -- Reject Reason Code: 1 Byte Ascii String
+  index, reject_reason_code = nasdaq_iseoptions_tradefeed_itch_v2_1.reject_reason_code.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
+-- Dissect: Login Rejected Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_rejected_packet, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.display(packet, parent, length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.fields(buffer, offset, packet, parent)
   end
 end
 
--- Packet
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet = {}
+-- Login Accepted Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet = {}
 
--- Verify required size of Udp packet
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.size
+-- Size: Login Accepted Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.size
+
+-- Display: Login Accepted Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect Packet
-nasdaq_iseoptions_tradefeed_itch_v2_1.packet.dissect = function(buffer, packet, parent)
+-- Dissect Fields: Login Accepted Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_session.dissect(buffer, index, packet, parent)
+
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_iseoptions_tradefeed_itch_v2_1.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.login_accepted_packet, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Debug Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet = {}
+
+-- Size: Debug Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.text.size
+
+-- Display: Debug Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Debug Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Text: 1 Byte Ascii String
+  index, text = nasdaq_iseoptions_tradefeed_itch_v2_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Debug Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.debug_packet, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Tcp Payload
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_payload = {}
+
+-- Dissect: Tcp Payload
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Debug Packet
+  if packet_type == "+" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Accepted Packet
+  if packet_type == "A" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Packet
+  if packet_type == "J" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Data Packet
+  if packet_type == "S" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if packet_type == "L" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if packet_type == "U" then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Tcp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header = {}
+
+-- Size: Tcp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.size =
+  nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.size + 
+  nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.size
+
+-- Display: Tcp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tcp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Packet Type: 1 Byte Ascii String Enum with 10 values
+  index, packet_type = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tcp Packet Header
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.tcp_packet_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Soup Bin Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet = {}
+
+-- Display: Soup Bin Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Soup Bin Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Tcp Packet Header: Struct of 2 fields
+  index, tcp_packet_header = nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Type
+  local packet_type = buffer(index - 1, 1):string()
+
+  -- Tcp Payload: Runtime Type with 6 branches
+  index = nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
+
+  return index
+end
+
+-- Dissect: Soup Bin Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+  local index = offset + size_of_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    parent:set_len(size_of_soup_bin_tcp_packet)
+    local display = nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Soup Bin Tcp Packet
+local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet_header.size
+end
+
+-- Dissect Tcp Packet
+nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 3 fields
-  index, packet_header = nasdaq_iseoptions_tradefeed_itch_v2_1.packet_header.dissect(buffer, index, packet, parent)
+  -- Dependency for Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 2, 2):uint()
+  -- Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
 
-  -- Messages: Runtime Type with 3 branches
-  index = nasdaq_iseoptions_tradefeed_itch_v2_1.messages.dissect(buffer, index, packet, parent, message_count)
+    -- Are minimum number of bytes are available?
+    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nasdaq_iseoptions_tradefeed_itch_v2_1.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
 
   return index
 end
@@ -1493,7 +2385,12 @@ function omi_nasdaq_iseoptions_tradefeed_itch_v2_1.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1, buffer(), omi_nasdaq_iseoptions_tradefeed_itch_v2_1.description, "("..buffer:len().." Bytes)")
-  return nasdaq_iseoptions_tradefeed_itch_v2_1.packet.dissect(buffer, packet, protocol)
+  if packet.port_type == 2 then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 3 then
+    return nasdaq_iseoptions_tradefeed_itch_v2_1.mold_udp_64_packet.dissect(buffer, packet, protocol)
+  end
 end
 
 
@@ -1501,10 +2398,10 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Nasdaq IseOptions TradeFeed Itch 2.1 (Udp)
-local function omi_nasdaq_iseoptions_tradefeed_itch_v2_1_udp_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Nasdaq IseOptions TradeFeed Itch 2.1 (Tcp)
+local function omi_nasdaq_iseoptions_tradefeed_itch_v2_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_iseoptions_tradefeed_itch_v2_1.packet.requiredsize(buffer) then return false end
+  if not nasdaq_iseoptions_tradefeed_itch_v2_1.tcp_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_iseoptions_tradefeed_itch_v2_1
@@ -1513,12 +2410,21 @@ local function omi_nasdaq_iseoptions_tradefeed_itch_v2_1_udp_heuristic(buffer, p
   return true
 end
 
--- Register Heuristic for Nasdaq IseOptions TradeFeed Itch 2.1
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_iseoptions_tradefeed_itch_v2_1_udp_heuristic)
+-- Dissector Heuristic for Nasdaq IseOptions TradeFeed Itch 2.1 (Udp)
+local function omi_nasdaq_iseoptions_tradefeed_itch_v2_1_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_iseoptions_tradefeed_itch_v2_1.mold_udp_64_packet.requiredsize(buffer) then return false end
 
--- Register Nasdaq IseOptions TradeFeed Itch 2.1 for Decode As
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add_for_decode_as(omi_nasdaq_iseoptions_tradefeed_itch_v2_1)
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_iseoptions_tradefeed_itch_v2_1
+  omi_nasdaq_iseoptions_tradefeed_itch_v2_1.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristics for Nasdaq IseOptions TradeFeed Itch 2.1
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1:register_heuristic("tcp", omi_nasdaq_iseoptions_tradefeed_itch_v2_1_tcp_heuristic)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1:register_heuristic("udp", omi_nasdaq_iseoptions_tradefeed_itch_v2_1_udp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
