@@ -2979,8 +2979,8 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.side.display = function(value)
   if value == "5" then
     return "Side: Short Sell (5)"
   end
-  if value == "5" then
-    return "Side: Short Sell Exempt (5)"
+  if value == "6" then
+    return "Side: Short Sell Exempt (6)"
   end
 
   return "Side: Unknown("..value..")"
@@ -3077,13 +3077,10 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.display = fu
     return "Sub Liquidity Indicator: Execution From First Order That Set The Nbbo (S)"
   end
   if value == "V" then
-    return "Sub Liquidity Indicator: Visisble Liquidity Add Trade That Was Price Improved (V)"
+    return "Sub Liquidity Indicator: Visible Liquidity Add Trade That Was Price Improved (V)"
   end
   if value == "S" then
     return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
-  end
-  if value == "V" then
-    return "Sub Liquidity Indicator: Visible Liquidity Add Trade That Was Price Improved (V)"
   end
   if value == "m" then
     return "Sub Liquidity Indicator: Midpoint Peg Order (m)"
