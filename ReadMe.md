@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 786 | 5,940,781 |
+| 788 | 5,972,761 |
 
 ## Testing
 
@@ -75,7 +75,7 @@ Useful? A star helps others find OMI.
 
 ## Platforms
 
-> [Cme Globex][Globex.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
+> [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
 
 ## Disclaimer
 
@@ -85,6 +85,7 @@ Enjoy.
 
 [Omi Projects]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects"
 [Omi Rules and Regulations]: https://github.com/Open-Markets-Initiative/Directory/tree/main/License "Open Markets Initiative Rules and Regulations"
+[Omi Video]: https://www.youtube.com/watch?v=_hE-xw4wofw "Open Markets Initiative Video"
 
 [Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Protocol Testing Status"
 [Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data"
@@ -118,6 +119,7 @@ Enjoy.
 [Omi.Encoding.Exture]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Exture.md "Exture Encoding"
 [Omi.Encoding.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Encoding"
 [Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Encoding"
+[Omi.Encoding.Native]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Native.md "Native Encoding"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Mach]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mach.md "Mach Encoding"
 [Omi.Encoding.ESesM]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ESesM.md "ESesM Encoding"
@@ -326,6 +328,8 @@ Enjoy.
 [Lseg.Lse.AnalyticsReplay]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Lse/AnalyticsReplay.md "Analytics Replay"
 [Lseg.Millennium.Level2]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/Level2.md "Level 2"
 [Lseg.Millennium.UdpUnitHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/UdpUnitHeader.md "Udp Unit Header"
+[Lseg.Millennium.Trading]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/Trading.md "Native Trading Gateway"
+[Lseg.Millennium.TradingRecovery]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/Millennium/TradingRecovery.md "Native Trading Gateway Recovery"
 [Lseg.TradeEcho.Level2Incremental]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/TradeEcho/Level2Incremental.md "Level 2 Incremental"
 [Lseg.TradeEcho.Level2IncrementalReplay]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/TradeEcho/Level2IncrementalReplay.md "Level 2 Incremental Replay"
 [Lseg.TradeEcho.Level2IncrementalRecovery]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Lseg/Protocols/TradeEcho/Level2IncrementalRecovery.md "Level 2 Incremental Recovery"
@@ -600,6 +604,7 @@ Enjoy.
 [MemxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxEquities "Memx Equities"
 [MemxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Memx/Protocols/MemxOptions "Memx Options"
 [MiaxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Miax/Protocols/MiaxOptions "MIAX Options"
+[Millennium.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Lseg/Protocols/Millennium "Millennium Exchange"
 [MoonAts.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/MoonAts "MOON ATS"
 [MrxOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/MrxOptions "Nasdaq MRX"
 [NationalEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/NationalEquities "Nyse National Equities"
