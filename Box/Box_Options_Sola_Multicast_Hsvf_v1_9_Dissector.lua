@@ -1159,8 +1159,8 @@ box_options_sola_multicast_hsvf_v1_9.group_status.display = function(value)
   if value == "C" then
     return "Group Status: Closed (C)"
   end
-  if value == "C" then
-    return "Group Status: Beginning Of Day Inquiries (C)"
+  if value == "B" then
+    return "Group Status: Beginning Of Day Inquiries (B)"
   end
 
   return "Group Status: Unknown("..value..")"
@@ -1639,8 +1639,8 @@ box_options_sola_multicast_hsvf_v1_9.instrument_status_marker.display = function
   if value == "C" then
     return "Instrument Status Marker: Closed (C)"
   end
-  if value == "C" then
-    return "Instrument Status Marker: Beginning Of Day Inquiries (C)"
+  if value == "B" then
+    return "Instrument Status Marker: Beginning Of Day Inquiries (B)"
   end
 
   return "Instrument Status Marker: Unknown("..value..")"
@@ -6611,7 +6611,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Hsvf Stx Field
-box_options_sola_multicast_hsvf_v1_9.hsvf_stx.verify = function(buffer)
+box_options_sola_multicast_hsvf_v1_9.hsvf_stx.packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -6628,7 +6628,7 @@ local function omi_box_options_sola_multicast_hsvf_v1_9_udp_heuristic(buffer, pa
   if not box_options_sola_multicast_hsvf_v1_9.packet.requiredsize(buffer) then return false end
 
   -- Verify Hsvf Stx
-  if not box_options_sola_multicast_hsvf_v1_9.hsvf_stx.verify(buffer) then return false end
+  if not box_options_sola_multicast_hsvf_v1_9.hsvf_stx.packet_verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_box_options_sola_multicast_hsvf_v1_9
