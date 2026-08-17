@@ -285,9 +285,6 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_29.auction_type.display = functi
   if value == "C" then
     return "Auction Type: Closing Auction (C)"
   end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
   if value == "I" then
     return "Auction Type: Ipo Auction (I)"
   end
@@ -1669,7 +1666,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_29.auction_update_message.fields
   -- Symbol Extended: 8 Byte Ascii String
   index, symbol_extended = cboe_c2options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 6 values
+  -- Auction Type: 1 Byte Ascii String Enum with 5 values
   index, auction_type = cboe_c2options_multicastdepthofbook_pitch_v2_41_29.auction_type.dissect(buffer, index, packet, parent)
 
   -- Reference Price: 8 Byte Unsigned Fixed Width Integer

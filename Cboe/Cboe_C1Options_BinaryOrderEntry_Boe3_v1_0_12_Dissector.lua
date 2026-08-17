@@ -980,9 +980,6 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.compression.display = function(valu
   if value == "Y" then
     return "Compression: Yes (Y)"
   end
-  if value == "When CrossType (549)" then
-    return "Compression: 4 This Field Should Not Be Specified (When CrossType (549))"
-  end
 
   return "Compression: Unknown("..value..")"
 end
@@ -3385,44 +3382,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.posting_instruction.display = funct
   if value == "N" then
     return "Posting Instruction: Book Only No Slide (N)"
   end
-  if value == "P" then
-    return "Posting Instruction: Post Only No Slide (P)"
+  if value == "R" then
+    return "Posting Instruction: Post Only No Slide (R)"
   end
   if value == "I" then
     return "Posting Instruction: Book Only Ioc (I)"
-  end
-  if value == "R" then
-    return "Posting Instruction: Reroute (R)"
-  end
-  if value == "S" then
-    return "Posting Instruction: Ship And Post Swp (S)"
-  end
-  if value == "W" then
-    return "Posting Instruction: Wash (W)"
-  end
-  if value == "f" then
-    return "Posting Instruction: Unsolicited Floor Action C 1 Only (f)"
-  end
-  if value == "E" then
-    return "Posting Instruction: Reduction Of Ord Qty Due To Equity Leg Reject C 1 Only (E)"
-  end
-  if value == "F" then
-    return "Posting Instruction: Represented On Floor C 1 Only (F)"
-  end
-  if value == "L" then
-    return "Posting Instruction: Reload (L)"
-  end
-  if value == "P" then
-    return "Posting Instruction: Price Sliding Reprice (P)"
-  end
-  if value == "Q" then
-    return "Posting Instruction: Liquidity Updated (Q)"
-  end
-  if value == "Required for limit orders (OrdType" then
-    return "Posting Instruction: 2 If Specified On Market Orders (Required for limit orders (OrdType)"
-  end
-  if value == "(OrdType" then
-    return "Posting Instruction: 1 The Order Will Be Rejected ((OrdType)"
   end
 
   return "Posting Instruction: Unknown("..value..")"

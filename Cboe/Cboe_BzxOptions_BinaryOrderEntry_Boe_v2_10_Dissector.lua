@@ -1685,14 +1685,26 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.display_indicator.display = function(
   if value == "V" then
     return "Display Indicator: Determined By Port Level Setting (V)"
   end
+  if value == "S" then
+    return "Display Indicator: Display Price Sliding (S)"
+  end
+  if value == "L" then
+    return "Display Indicator: Display Price Sliding But Reject If Order Crosses Nbbo On Entry (L)"
+  end
+  if value == "M" then
+    return "Display Indicator: Multiple Display Price Sliding (M)"
+  end
   if value == "P" then
     return "Display Indicator: Price Adjust (P)"
   end
   if value == "m" then
     return "Display Indicator: Multiple Price Adjust (m)"
   end
-  if value == "m" then
-    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (m)"
+  if value == "R" then
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
+  end
+  if value == "N" then
+    return "Display Indicator: No Rescrape At Limit (N)"
   end
 
   return "Display Indicator: Unknown("..value..")"
@@ -2295,8 +2307,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.mass_cancel_lockout.display = functio
   if value == "0" then
     return "Mass Cancel Lockout: No Lockout (0)"
   end
-  if value == "0" then
-    return "Mass Cancel Lockout: Lockout (0)"
+  if value == "1" then
+    return "Mass Cancel Lockout: Lockout (1)"
   end
 
   return "Mass Cancel Lockout: Unknown("..value..")"
@@ -2449,8 +2461,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.message_type.display = function(value
   if value == 0x24 then
     return "Message Type: Login Response Message (0x24)"
   end
-  if value == 0x02 then
-    return "Message Type: Logout Message (0x02)"
+  if value == 0x08 then
+    return "Message Type: Logout Message (0x08)"
   end
   if value == 0x09 then
     return "Message Type: Server Heartbeat Message (0x09)"
@@ -2482,8 +2494,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.message_type.display = function(value
   if value == 0x25 then
     return "Message Type: Order Acknowledgment Message (0x25)"
   end
-  if value == 0x25 then
-    return "Message Type: Quote Update Acknowledgment Message (0x25)"
+  if value == 0x51 then
+    return "Message Type: Quote Update Acknowledgment Message (0x51)"
   end
   if value == 0x26 then
     return "Message Type: Order Rejected Message (0x26)"
@@ -3710,8 +3722,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_reject_reason.display = functio
   if value == "a" then
     return "Quote Reject Reason: Admin (a)"
   end
-  if value == "C" then
-    return "Quote Reject Reason: Invalid Capacity (C)"
+  if value == "c" then
+    return "Quote Reject Reason: Invalid Capacity (c)"
   end
   if value == "d" then
     return "Quote Reject Reason: Close Only (d)"
@@ -3722,8 +3734,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_reject_reason.display = functio
   if value == "m" then
     return "Quote Reject Reason: Invalid Wash Method (m)"
   end
-  if value == "p" then
-    return "Quote Reject Reason: Invalid Open Close (p)"
+  if value == "o" then
+    return "Quote Reject Reason: Invalid Open Close (o)"
   end
   if value == "p" then
     return "Quote Reject Reason: Risk Management Risk Root Level (p)"
@@ -4092,9 +4104,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.restatement_reason.display = function
   end
   if value == "K" then
     return "Restatement Reason: Price Sliding Reprice (K)"
-  end
-  if value == "Q" then
-    return "Restatement Reason: Liquidity (Q)"
   end
 
   return "Restatement Reason: Unknown("..value..")"
@@ -4640,8 +4649,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.display = function(valu
   if value == "6" then
     return "Time In Force: Gtd (6)"
   end
-  if value == "6" then
-    return "Time In Force: Atc (6)"
+  if value == "7" then
+    return "Time In Force: Atc (7)"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -17041,7 +17050,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- Restatement Reason: 1 Byte Ascii String Enum with 9 values
+  -- Restatement Reason: 1 Byte Ascii String Enum with 8 values
   index, restatement_reason = cboe_bzxoptions_binaryorderentry_boe_v2_10.restatement_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
@@ -30760,7 +30769,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.message.dissect = function(buffer, of
     return cboe_bzxoptions_binaryorderentry_boe_v2_10.login_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Message
-  if message_type == 0x02 then
+  if message_type == 0x08 then
     return cboe_bzxoptions_binaryorderentry_boe_v2_10.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Message
@@ -30804,7 +30813,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.message.dissect = function(buffer, of
     return cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Acknowledgment Message
-  if message_type == 0x25 then
+  if message_type == 0x51 then
     return cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Message

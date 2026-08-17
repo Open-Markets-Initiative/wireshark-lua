@@ -3562,7 +3562,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.unique_id_level.size = 1
 -- Display: Unique Id Level
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.unique_id_level.display = function(value)
   if value == "N" then
-    return "Unique Id Level: Cancel Newest (N)"
+    return "Unique Id Level: None (N)"
   end
   if value == "F" then
     return "Unique Id Level: Tph (F)"

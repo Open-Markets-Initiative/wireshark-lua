@@ -349,8 +349,8 @@ finra_finraorf_tdds_dfi_v2_1.control_message_type.display = function(value)
   if value == "O" then
     return "Control Message Type: Market Session Open Message (O)"
   end
-  if value == "O" then
-    return "Control Message Type: Market Session Close Message (O)"
+  if value == "C" then
+    return "Control Message Type: Market Session Close Message (C)"
   end
   if value == "K" then
     return "Control Message Type: End Of Retransmission Requests Message (K)"
@@ -2193,7 +2193,7 @@ finra_finraorf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, 
     return finra_finraorf_tdds_dfi_v2_1.market_session_open_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Session Close Message
-  if control_message_type == "O" then
+  if control_message_type == "C" then
     return finra_finraorf_tdds_dfi_v2_1.market_session_close_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Retransmission Requests Message

@@ -1003,7 +1003,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_classification.display = funct
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"

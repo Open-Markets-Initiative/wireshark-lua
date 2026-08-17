@@ -376,8 +376,8 @@ finra_finraotc_bbds_dfi_v2018_1a.control_message_type.display = function(value)
   if value == "O" then
     return "Control Message Type: Market Session Open Message (O)"
   end
-  if value == "O" then
-    return "Control Message Type: Market Session Close Message (O)"
+  if value == "C" then
+    return "Control Message Type: Market Session Close Message (C)"
   end
   if value == "K" then
     return "Control Message Type: End Of Retransmission Requests Message (K)"
@@ -800,18 +800,6 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.display = fu
   end
   if value == "C" then
     return "Market Participant Quote Condition: Closed (C)"
-  end
-  if value == "B" then
-    return "Market Participant Quote Condition: Bid (B)"
-  end
-  if value == "N" then
-    return "Market Participant Quote Condition: Not Applicable (N)"
-  end
-  if value == "O" then
-    return "Market Participant Quote Condition: Offer (O)"
-  end
-  if value == "W" then
-    return "Market Participant Quote Condition: Bid And Offer (W)"
   end
   if value == "I" then
     return "Market Participant Quote Condition: Periodic Indicative Other Securities (I)"
@@ -1292,7 +1280,20 @@ finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.size = 1
 
 -- Display: Wanted Indicator
 finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.display = function(value)
-  return "Wanted Indicator: "..value
+  if value == "B" then
+    return "Wanted Indicator: Bid (B)"
+  end
+  if value == "N" then
+    return "Wanted Indicator: Not Applicable (N)"
+  end
+  if value == "O" then
+    return "Wanted Indicator: Offer (O)"
+  end
+  if value == "W" then
+    return "Wanted Indicator: Bid And Offer (W)"
+  end
+
+  return "Wanted Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Wanted Indicator
@@ -1833,7 +1834,7 @@ finra_finraotc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offs
     return finra_finraotc_bbds_dfi_v2018_1a.market_session_open_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Session Close Message
-  if control_message_type == "O" then
+  if control_message_type == "C" then
     return finra_finraotc_bbds_dfi_v2018_1a.market_session_close_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Retransmission Requests Message
@@ -2282,13 +2283,13 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields 
   -- Market Participant Status: 1 Byte Ascii String Enum with 5 values
   index, market_participant_status = finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.dissect(buffer, index, packet, parent)
 
-  -- Market Participant Quote Condition: 1 Byte Ascii String Enum with 9 values
+  -- Market Participant Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, market_participant_quote_condition = finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Ascii String
   index, reserved = finra_finraotc_bbds_dfi_v2018_1a.reserved.dissect(buffer, index, packet, parent)
 
-  -- Wanted Indicator: 1 Byte Ascii String
+  -- Wanted Indicator: 1 Byte Ascii String Enum with 4 values
   index, wanted_indicator = finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.dissect(buffer, index, packet, parent)
 
   -- Unsolicited Indicator: 1 Byte Ascii String Enum with 4 values

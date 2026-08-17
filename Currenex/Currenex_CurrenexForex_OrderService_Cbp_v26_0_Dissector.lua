@@ -15,6 +15,7 @@ local currenex_currenexforex_orderservice_cbp_v26_0 = {}
 -----------------------------------------------------------------------
 
 -- Currenex CurrenexForex OrderService Cbp 26.0 Fields
+omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.ack_status = ProtoField.new("Ack Status", "currenex.currenexforex.orderservice.cbp.v26.0.ackstatus", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.aggressor_flag = ProtoField.new("Aggressor Flag", "currenex.currenexforex.orderservice.cbp.v26.0.aggressorflag", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.begin_seq_no = ProtoField.new("Begin Seq No", "currenex.currenexforex.orderservice.cbp.v26.0.beginseqno", ftypes.INT32)
 omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.cl_order_id = ProtoField.new("Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.0.clorderid", ftypes.INT32)
@@ -130,6 +131,49 @@ end
 -- Currenex CurrenexForex OrderService Cbp 26.0 Fields
 -----------------------------------------------------------------------
 
+-- Ack Status
+currenex_currenexforex_orderservice_cbp_v26_0.ack_status = {}
+
+-- Size: Ack Status
+currenex_currenexforex_orderservice_cbp_v26_0.ack_status.size = 1
+
+-- Display: Ack Status
+currenex_currenexforex_orderservice_cbp_v26_0.ack_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ack Status: No Value"
+  end
+
+  if value == "R" then
+    return "Ack Status: Rejected (R)"
+  end
+  if value == "C" then
+    return "Ack Status: Confirmed (C)"
+  end
+
+  return "Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Ack Status
+currenex_currenexforex_orderservice_cbp_v26_0.ack_status.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_orderservice_cbp_v26_0.ack_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_currenexforex_orderservice_cbp_v26_0.ack_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_currenexforex_orderservice_cbp_v26_0.fields.ack_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Aggressor Flag
 currenex_currenexforex_orderservice_cbp_v26_0.aggressor_flag = {}
 
@@ -148,9 +192,6 @@ currenex_currenexforex_orderservice_cbp_v26_0.aggressor_flag.display = function(
   end
   if value == "2" then
     return "Aggressor Flag: Not Aggressor (2)"
-  end
-  if value == "2" then
-    return "Aggressor Flag: Passive (2)"
   end
 
   return "Aggressor Flag: Unknown("..value..")"
@@ -1147,9 +1188,6 @@ currenex_currenexforex_orderservice_cbp_v26_0.status.display = function(value)
     return "Status: No Value"
   end
 
-  if value == "C" then
-    return "Status: Confirmed (C)"
-  end
   if value == "R" then
     return "Status: Rejected (R)"
   end
@@ -1950,7 +1988,7 @@ currenex_currenexforex_orderservice_cbp_v26_0.new_order_ack = {}
 currenex_currenexforex_orderservice_cbp_v26_0.new_order_ack.size =
   currenex_currenexforex_orderservice_cbp_v26_0.cl_order_id.size + 
   currenex_currenexforex_orderservice_cbp_v26_0.order_id.size + 
-  currenex_currenexforex_orderservice_cbp_v26_0.status.size + 
+  currenex_currenexforex_orderservice_cbp_v26_0.ack_status.size + 
   currenex_currenexforex_orderservice_cbp_v26_0.error_code.size
 
 -- Display: New Order Ack
@@ -1968,8 +2006,8 @@ currenex_currenexforex_orderservice_cbp_v26_0.new_order_ack.fields = function(bu
   -- Order Id: Long
   index, order_id = currenex_currenexforex_orderservice_cbp_v26_0.order_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Alpha
-  index, status = currenex_currenexforex_orderservice_cbp_v26_0.status.dissect(buffer, index, packet, parent)
+  -- Ack Status: Alpha
+  index, ack_status = currenex_currenexforex_orderservice_cbp_v26_0.ack_status.dissect(buffer, index, packet, parent)
 
   -- Error Code: Short
   index, error_code = currenex_currenexforex_orderservice_cbp_v26_0.error_code.dissect(buffer, index, packet, parent)

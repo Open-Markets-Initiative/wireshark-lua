@@ -1648,7 +1648,32 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.size = 1
 
 -- Display: Negotiated Trade
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.display = function(value)
-  return "Negotiated Trade: "..value
+  if value == "1" then
+    return "Negotiated Trade: Negotiated Trade In Liquid Financial Instruments (1)"
+  end
+  if value == "2" then
+    return "Negotiated Trade: Negotiated Trade In Illiquid Financial Instruments (2)"
+  end
+  if value == "3" then
+    return "Negotiated Trade: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
+  end
+  if value == "N" then
+    return "Negotiated Trade: Negotiated Trade Where None Of The Above Apply (N)"
+  end
+  if value == "4" then
+    return "Negotiated Trade: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)"
+  end
+  if value == "5" then
+    return "Negotiated Trade: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)"
+  end
+  if value == "6" then
+    return "Negotiated Trade: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)"
+  end
+  if value == "-" then
+    return "Negotiated Trade: Not Specified (-)"
+  end
+
+  return "Negotiated Trade: Unknown("..value..")"
 end
 
 -- Dissect: Negotiated Trade
@@ -2710,30 +2735,6 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.transaction_category.displa
   end
   if value == "-" then
     return "Transaction Category: None Of The Above Apply (-)"
-  end
-  if value == "1" then
-    return "Transaction Category: Negotiated Trade In Liquid Financial Instruments (1)"
-  end
-  if value == "2" then
-    return "Transaction Category: Negotiated Trade In Illiquid Financial Instruments (2)"
-  end
-  if value == "3" then
-    return "Transaction Category: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
-  end
-  if value == "N" then
-    return "Transaction Category: Negotiated Trade Where None Of The Above Apply (N)"
-  end
-  if value == "4" then
-    return "Transaction Category: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)"
-  end
-  if value == "5" then
-    return "Transaction Category: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)"
-  end
-  if value == "6" then
-    return "Transaction Category: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)"
-  end
-  if value == "-" then
-    return "Transaction Category: Not Specified (-)"
   end
 
   return "Transaction Category: Unknown("..value..")"

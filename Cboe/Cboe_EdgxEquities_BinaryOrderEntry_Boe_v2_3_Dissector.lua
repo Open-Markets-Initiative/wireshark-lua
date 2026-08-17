@@ -3065,22 +3065,16 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.display = fu
     return "Sub Liquidity Indicator: Trade Added Hidden Liquidity That Was Price Improved (I)"
   end
   if value == "m" then
-    return "Sub Liquidity Indicator: Midpoint Peg (m)"
+    return "Sub Liquidity Indicator: Midpoint Peg Order (m)"
   end
   if value == "J" then
     return "Sub Liquidity Indicator: Execution From First Order To Join The Nbbo (J)"
   end
   if value == "S" then
-    return "Sub Liquidity Indicator: Execution From First Order That Set The Nbbo (S)"
+    return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
   end
   if value == "V" then
     return "Sub Liquidity Indicator: Visible Liquidity Add Trade That Was Price Improved (V)"
-  end
-  if value == "S" then
-    return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
-  end
-  if value == "m" then
-    return "Sub Liquidity Indicator: Midpoint Peg Order (m)"
   end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"

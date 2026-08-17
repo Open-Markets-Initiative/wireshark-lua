@@ -1551,11 +1551,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.auto_match.display = function(value)
   if value == "1" then
     return "Auto Match: Market (1)"
   end
-  if value == "1" then
-    return "Auto Match: Limit (1)"
-  end
-  if value == "Z" then
-    return "Auto Match: Attribute Both Clearing Firm And Client Id (Z)"
+  if value == "2" then
+    return "Auto Match: Limit (2)"
   end
 
   return "Auto Match: Unknown("..value..")"
@@ -2532,7 +2529,17 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_type.size = 1
 
 -- Display: Cross Type
 cboe_c1options_binaryorderentry_boe_v2_10.cross_type.display = function(value)
-  return "Cross Type: "..value
+  if value == "1" then
+    return "Cross Type: Aim (1)"
+  end
+  if value == "2" then
+    return "Cross Type: Qcc (2)"
+  end
+  if value == "3" then
+    return "Cross Type: Sam (3)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -2587,8 +2594,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.display_indicator.display = function(v
   if value == "m" then
     return "Display Indicator: Multiple Price Adjust (m)"
   end
-  if value == "m" then
-    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (m)"
+  if value == "R" then
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
   end
 
   return "Display Indicator: Unknown("..value..")"
@@ -3727,8 +3734,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.mass_cancel_lockout.display = function
   if value == "0" then
     return "Mass Cancel Lockout: No Lockout (0)"
   end
-  if value == "0" then
-    return "Mass Cancel Lockout: Lockout (0)"
+  if value == "1" then
+    return "Mass Cancel Lockout: Lockout (1)"
   end
 
   return "Mass Cancel Lockout: Unknown("..value..")"
@@ -3881,8 +3888,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.message_type.display = function(value)
   if value == 0x24 then
     return "Message Type: Login Response Message (0x24)"
   end
-  if value == 0x02 then
-    return "Message Type: Logout Message (0x02)"
+  if value == 0x08 then
+    return "Message Type: Logout Message (0x08)"
   end
   if value == 0x09 then
     return "Message Type: Server Heartbeat Message (0x09)"
@@ -3938,8 +3945,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.message_type.display = function(value)
   if value == 0x43 then
     return "Message Type: Cross Order Acknowledgment Message (0x43)"
   end
-  if value == 0x25 then
-    return "Message Type: Quote Update Acknowledgment Message (0x25)"
+  if value == 0x51 then
+    return "Message Type: Quote Update Acknowledgment Message (0x51)"
   end
   if value == 0x26 then
     return "Message Type: Order Rejected Message (0x26)"
@@ -3992,8 +3999,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.message_type.display = function(value)
   if value == 0x4D then
     return "Message Type: Complex Instrument Accepted Message (0x4D)"
   end
-  if value == 0x4D then
-    return "Message Type: Complex Instrument Rejected Message (0x4D)"
+  if value == 0x4E then
+    return "Message Type: Complex Instrument Rejected Message (0x4E)"
   end
   if value == 0x62 then
     return "Message Type: Floor Trade Notification Message (0x62)"
@@ -5431,8 +5438,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_reject_reason.display = function
   if value == "a" then
     return "Quote Reject Reason: Admin (a)"
   end
-  if value == "C" then
-    return "Quote Reject Reason: Invalid Capacity (C)"
+  if value == "c" then
+    return "Quote Reject Reason: Invalid Capacity (c)"
   end
   if value == "d" then
     return "Quote Reject Reason: Close Only (d)"
@@ -5443,8 +5450,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_reject_reason.display = function
   if value == "m" then
     return "Quote Reject Reason: Invalid Wash Method (m)"
   end
-  if value == "p" then
-    return "Quote Reject Reason: Invalid Open Close (p)"
+  if value == "o" then
+    return "Quote Reject Reason: Invalid Open Close (o)"
   end
   if value == "p" then
     return "Quote Reject Reason: Risk Management Risk Root Level (p)"
@@ -5869,9 +5876,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.restatement_reason.display = function(
   if value == "f" then
     return "Restatement Reason: Unsolicited Floor Action (f)"
   end
-  if value == "Q" then
-    return "Restatement Reason: Liquidity (Q)"
-  end
 
   return "Restatement Reason: Unknown("..value..")"
 end
@@ -6277,15 +6281,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.side.size = 1
 -- Display: Side
 cboe_c1options_binaryorderentry_boe_v2_10.side.display = function(value)
   if value == "1" then
-    return "Side: Aim (1)"
-  end
-  if value == "2" then
-    return "Side: Qcc (2)"
-  end
-  if value == "3" then
-    return "Side: Sam (3)"
-  end
-  if value == "1" then
     return "Side: Buy (1)"
   end
   if value == "2" then
@@ -6564,8 +6559,8 @@ cboe_c1options_binaryorderentry_boe_v2_10.time_in_force.display = function(value
   if value == "6" then
     return "Time In Force: Gtd (6)"
   end
-  if value == "6" then
-    return "Time In Force: Atc (6)"
+  if value == "7" then
+    return "Time In Force: Atc (7)"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -6854,7 +6849,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.delete_floor_trade_rejected_message.fi
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
   index, maturity_date = cboe_c1options_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: 16 Byte
@@ -7023,7 +7018,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.add_floor_trade_rejected_message.field
   -- Floor Trader Acronym: 3 Byte Ascii String
   index, floor_trader_acronym = cboe_c1options_binaryorderentry_boe_v2_10.floor_trader_acronym.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -7118,7 +7113,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.floor_trade_notification_message.field
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = cboe_c1options_binaryorderentry_boe_v2_10.price.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Contra Trader: 4 Byte Ascii String
@@ -14659,7 +14654,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.trade_cancel_or_correct_message.fields
   -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_ref_id = cboe_c1options_binaryorderentry_boe_v2_10.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
@@ -14775,7 +14770,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_execution_message.fields = funct
   -- Contra Capacity: 1 Byte Ascii String
   index, contra_capacity = cboe_c1options_binaryorderentry_boe_v2_10.contra_capacity.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
@@ -18916,7 +18911,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_cancelled_message.fields = funct
   -- Symbol: 8 Byte Ascii String
   index, symbol = cboe_c1options_binaryorderentry_boe_v2_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Cancel Reason: 1 Byte Ascii String Enum with 31 values
@@ -23162,7 +23157,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_restated_message.fields = functi
   -- Symbol: 8 Byte Ascii String
   index, symbol = cboe_c1options_binaryorderentry_boe_v2_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Quote Restatement Reason: 1 Byte Ascii String
@@ -25476,7 +25471,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_message.fields = functi
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = cboe_c1options_binaryorderentry_boe_v2_10.order_id.dissect(buffer, index, packet, parent)
 
-  -- Restatement Reason: 1 Byte Ascii String Enum with 10 values
+  -- Restatement Reason: 1 Byte Ascii String Enum with 9 values
   index, restatement_reason = cboe_c1options_binaryorderentry_boe_v2_10.restatement_reason.dissect(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
@@ -36743,7 +36738,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.delete_floor_trade_message.fields = fu
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
   index, maturity_date = cboe_c1options_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: 16 Byte
@@ -36906,7 +36901,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.add_floor_trade_message.fields = funct
   -- Floor Trader Acronym: 3 Byte Ascii String
   index, floor_trader_acronym = cboe_c1options_binaryorderentry_boe_v2_10.floor_trader_acronym.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -37672,7 +37667,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.short_quote_update.fields = function(b
   -- Symbol: 8 Byte Ascii String
   index, symbol = cboe_c1options_binaryorderentry_boe_v2_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
@@ -37820,7 +37815,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.quote_update.fields = function(buffer,
   -- Symbol: 8 Byte Ascii String
   index, symbol = cboe_c1options_binaryorderentry_boe_v2_10.symbol.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
@@ -39183,7 +39178,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_multileg_message.field
   -- Cross Id: 20 Byte Ascii String
   index, cross_id = cboe_c1options_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String
+  -- Cross Type: 1 Byte Ascii String Enum with 3 values
   index, cross_type = cboe_c1options_binaryorderentry_boe_v2_10.cross_type.dissect(buffer, index, packet, parent)
 
   -- Cross Prioritization: 1 Byte Ascii String Enum with 2 values
@@ -39254,7 +39249,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_complex_message.fields = fun
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_10.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -40001,7 +39996,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_cross_message.fields = funct
   -- Cross Id: 20 Byte Ascii String
   index, cross_id = cboe_c1options_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String
+  -- Cross Type: 1 Byte Ascii String Enum with 3 values
   index, cross_type = cboe_c1options_binaryorderentry_boe_v2_10.cross_type.dissect(buffer, index, packet, parent)
 
   -- Cross Prioritization: 1 Byte Ascii String Enum with 2 values
@@ -41389,7 +41384,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_message.fields = function(bu
   -- Cl Ord Id: 20 Byte Ascii String
   index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_10.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 7 values
+  -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -47075,7 +47070,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.message.dissect = function(buffer, off
     return cboe_c1options_binaryorderentry_boe_v2_10.login_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Message
-  if message_type == 0x02 then
+  if message_type == 0x08 then
     return cboe_c1options_binaryorderentry_boe_v2_10.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Message
@@ -47151,7 +47146,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.message.dissect = function(buffer, off
     return cboe_c1options_binaryorderentry_boe_v2_10.cross_order_acknowledgment_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Acknowledgment Message
-  if message_type == 0x25 then
+  if message_type == 0x51 then
     return cboe_c1options_binaryorderentry_boe_v2_10.quote_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Message
@@ -47223,7 +47218,7 @@ cboe_c1options_binaryorderentry_boe_v2_10.message.dissect = function(buffer, off
     return cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_accepted_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Complex Instrument Rejected Message
-  if message_type == 0x4D then
+  if message_type == 0x4E then
     return cboe_c1options_binaryorderentry_boe_v2_10.complex_instrument_rejected_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Floor Trade Notification Message
