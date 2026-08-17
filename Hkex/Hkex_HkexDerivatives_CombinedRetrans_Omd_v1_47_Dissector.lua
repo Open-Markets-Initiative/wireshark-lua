@@ -1883,22 +1883,22 @@ hkex_hkexderivatives_combinedretrans_omd_v1_47.market.size = 1
 -- Display: Market
 hkex_hkexderivatives_combinedretrans_omd_v1_47.market.display = function(value)
   if value == 1 then
-    return "Market: Cesc Index Futures Options (1)"
+    return "Market: Cesc Index Futures And Options (1)"
   end
   if value == 2 then
-    return "Market: Stock Futures (2)"
+    return "Market: Stock Futures In Omdd Partition 1 (2)"
   end
   if value == 3 then
     return "Market: Three Year Exchange Fund Note Futures (3)"
   end
   if value == 16 then
-    return "Market: Mini Hang Seng Index Futures Options (16)"
+    return "Market: Mini Hang Seng Index Futures And Options (16)"
   end
   if value == 18 then
-    return "Market: Weekly Stock Options (18)"
+    return "Market: Weekly Stock Options In Omdd Partition 1 (18)"
   end
   if value == 20 then
-    return "Market: Stock Options (20)"
+    return "Market: Stock Options In Omdd Partition 1 (20)"
   end
   if value == 24 then
     return "Market: Hibor (24)"
@@ -1910,7 +1910,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_47.market.display = function(value)
     return "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)"
   end
   if value == 34 then
-    return "Market: Hang Seng Index Futures Options (34)"
+    return "Market: Hang Seng Index Futures And Options (34)"
   end
   if value == 35 then
     return "Market: Flexible Hang Seng Index Options (35)"
@@ -1919,7 +1919,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_47.market.display = function(value)
     return "Market: Flexible Hang Seng China Enterprises Index Options (37)"
   end
   if value == 38 then
-    return "Market: Hang Seng China Enterprises Index Futures Options (38)"
+    return "Market: Hang Seng China Enterprises Index Futures And Options (38)"
   end
   if value == 39 then
     return "Market: Weekly Hang Seng Index Options (39)"
@@ -1934,7 +1934,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_47.market.display = function(value)
     return "Market: Sector Index Futures (60)"
   end
   if value == 70 then
-    return "Market: Renminbi Currency Futures Options (70)"
+    return "Market: Renminbi Currency Futures And Options (70)"
   end
   if value == 80 then
     return "Market: Hang Seng Biotech Index Futures (80)"
@@ -1946,76 +1946,76 @@ hkex_hkexderivatives_combinedretrans_omd_v1_47.market.display = function(value)
     return "Market: Weekly Hang Seng Tech Index Options (84)"
   end
   if value == 86 then
-    return "Market: Hang Seng Tech Index Futures And Options And Hang Seng Index (86)"
+    return "Market: Hang Seng Tech Index Futures And Options (86)"
   end
   if value == 87 then
-    return "Market: Weekly Hang Seng China Enterprises Index Options (87)"
+    return "Market: Hang Seng Index And Hang Seng China Enterprises Index Gross And Net Total Return Index Futures (87)"
   end
   if value == 93 then
-    return "Market: Ibovespa Index Futures (93)"
+    return "Market: Weekly Hang Seng China Enterprises Index Options (93)"
   end
   if value == 96 then
-    return "Market: Sp Bse Sensex Index Futures (96)"
+    return "Market: Ibovespa Index Futures (96)"
   end
   if value == 99 then
-    return "Market: Ftse Or Jse Top 40 Index Futures (99)"
+    return "Market: Sp Bse Sensex Index Futures (99)"
   end
   if value == 102 then
-    return "Market: Micex Index Futures (102)"
+    return "Market: Ftse And Jse Top 40 Index Futures (102)"
   end
   if value == 108 then
-    return "Market: Msci Ax J Futures (108)"
+    return "Market: Micex Index Futures (108)"
   end
   if value == 111 then
-    return "Market: Physically Settled Usd Silver Futures (111)"
+    return "Market: Msci Ax J Futures Ntr (111)"
   end
   if value == 112 then
-    return "Market: Physically Settled Cnh Silver Futures (112)"
+    return "Market: Physically Settled Usd Silver Futures (112)"
   end
   if value == 115 then
-    return "Market: Physically Settled Cnh Gold Futures (115)"
+    return "Market: Physically Settled Cnh Silver Futures (115)"
   end
   if value == 116 then
-    return "Market: Physically Settled Usd Gold Futures (116)"
+    return "Market: Physically Settled Cnh Gold Futures (116)"
   end
   if value == 117 then
-    return "Market: Mof T Bond Futures (117)"
+    return "Market: Physically Settled Usd Gold Futures (117)"
   end
   if value == 118 then
-    return "Market: Usd Base And Ferrous Futures (118)"
+    return "Market: Mof T Bond Futures (118)"
   end
   if value == 120 then
-    return "Market: Cnh London Metal Mini Futures (120)"
+    return "Market: Usd Base And Ferrous Futures (120)"
   end
   if value == 122 then
-    return "Market: Cash Settled Rmb Currency Futures (122)"
+    return "Market: Cnh London Metal Mini Futures (122)"
   end
   if value == 125 then
-    return "Market: Cash Settled Cnhusd Futures (125)"
+    return "Market: Cash Settled Rmb Currency Futures (125)"
   end
   if value == 153 then
     return "Market: Msci China A 50 Connect Index Futures (153)"
   end
   if value == 160 then
-    return "Market: Msci Jpy Index Futures (160)"
+    return "Market: Msci Jpy Index Futures Price And Ntr (160)"
   end
   if value == 161 then
     return "Market: Msci Usd Index Futures Ntr (161)"
   end
   if value == 163 then
-    return "Market: Msci Usd Index Futures And Options 1 (163)"
+    return "Market: Msci Usd Index Futures And Options Price 1 (163)"
   end
   if value == 164 then
-    return "Market: Msci Usd Index Futures And Options 2 (164)"
+    return "Market: Msci Usd Index Futures And Options Price 2 (164)"
   end
   if value == 166 then
-    return "Market: Msci Usd Index Futures And Options 3 (166)"
+    return "Market: Msci Usd Index Futures And Options Price 3 (166)"
   end
   if value == 168 then
-    return "Market: Msci Usd Index Futures And Options 4 (168)"
+    return "Market: Msci Usd Index Futures And Options Price 4 (168)"
   end
   if value == 170 then
-    return "Market: Msci Sgd Index Futures (170)"
+    return "Market: Msci Sgd Index Futures Price (170)"
   end
 
   return "Market: Unknown("..value..")"
