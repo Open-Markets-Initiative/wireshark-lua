@@ -20,12 +20,12 @@ omi_cme_headers_mdp_udp_v1_0.fields.block_length = ProtoField.new("Block Length"
 omi_cme_headers_mdp_udp_v1_0.fields.message = ProtoField.new("Message", "cme.headers.mdp.udp.v1.0.message", ftypes.STRING)
 omi_cme_headers_mdp_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "cme.headers.mdp.udp.v1.0.messageheader", ftypes.STRING)
 omi_cme_headers_mdp_udp_v1_0.fields.message_size = ProtoField.new("Message Size", "cme.headers.mdp.udp.v1.0.messagesize", ftypes.UINT16)
-omi_cme_headers_mdp_udp_v1_0.fields.packet = ProtoField.new("Packet", "cme.headers.mdp.udp.v1.0.packet", ftypes.STRING)
 omi_cme_headers_mdp_udp_v1_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.headers.mdp.udp.v1.0.packetsequencenumber", ftypes.UINT32)
 omi_cme_headers_mdp_udp_v1_0.fields.payload = ProtoField.new("Payload", "cme.headers.mdp.udp.v1.0.payload", ftypes.BYTES)
 omi_cme_headers_mdp_udp_v1_0.fields.schema_id = ProtoField.new("Schema Id", "cme.headers.mdp.udp.v1.0.schemaid", ftypes.UINT16)
 omi_cme_headers_mdp_udp_v1_0.fields.sending_time = ProtoField.new("Sending Time", "cme.headers.mdp.udp.v1.0.sendingtime", ftypes.UINT64)
 omi_cme_headers_mdp_udp_v1_0.fields.template_id = ProtoField.new("Template Id", "cme.headers.mdp.udp.v1.0.templateid", ftypes.UINT16)
+omi_cme_headers_mdp_udp_v1_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.headers.mdp.udp.v1.0.udppacket", ftypes.STRING)
 omi_cme_headers_mdp_udp_v1_0.fields.version = ProtoField.new("Version", "cme.headers.mdp.udp.v1.0.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -393,16 +393,16 @@ cme_headers_mdp_udp_v1_0.binary_packet_header.dissect = function(buffer, offset,
   end
 end
 
--- Packet
-cme_headers_mdp_udp_v1_0.packet = {}
+-- Udp Packet
+cme_headers_mdp_udp_v1_0.udp_packet = {}
 
 -- Verify required size of Udp packet
-cme_headers_mdp_udp_v1_0.packet.requiredsize = function(buffer)
+cme_headers_mdp_udp_v1_0.udp_packet.requiredsize = function(buffer)
   return buffer:len() >= cme_headers_mdp_udp_v1_0.binary_packet_header.size + cme_headers_mdp_udp_v1_0.message_size.size + cme_headers_mdp_udp_v1_0.message_header.size + cme_headers_mdp_udp_v1_0.payload.size
 end
 
--- Dissect Packet
-cme_headers_mdp_udp_v1_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Udp Packet
+cme_headers_mdp_udp_v1_0.udp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Binary Packet Header: Struct of 2 fields
@@ -443,7 +443,7 @@ function omi_cme_headers_mdp_udp_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_headers_mdp_udp_v1_0, buffer(), omi_cme_headers_mdp_udp_v1_0.description, "("..buffer:len().." Bytes)")
-  return cme_headers_mdp_udp_v1_0.packet.dissect(buffer, packet, protocol)
+  return cme_headers_mdp_udp_v1_0.udp_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -454,7 +454,7 @@ end
 -- Dissector Heuristic for Cme Headers Mdp Udp 1.0 (Udp)
 local function omi_cme_headers_mdp_udp_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cme_headers_mdp_udp_v1_0.packet.requiredsize(buffer) then return false end
+  if not cme_headers_mdp_udp_v1_0.udp_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_headers_mdp_udp_v1_0

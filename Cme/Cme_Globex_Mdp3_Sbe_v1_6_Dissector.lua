@@ -40,6 +40,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.efp_eligible = ProtoField.new("Efp Eligible"
 omi_cme_globex_mdp3_sbe_v1_6.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.globex.mdp3.sbe.v1.6.efreligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000040)
 omi_cme_globex_mdp3_sbe_v1_6.fields.efs_eligible = ProtoField.new("Efs Eligible", "cme.globex.mdp3.sbe.v1.6.efseligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000020)
 omi_cme_globex_mdp3_sbe_v1_6.fields.electronic_match_eligible = ProtoField.new("Electronic Match Eligible", "cme.globex.mdp3.sbe.v1.6.electronicmatcheligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001)
+omi_cme_globex_mdp3_sbe_v1_6.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.mdp3.sbe.v1.6.encodingtype", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.mdp3.sbe.v1.6.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cme_globex_mdp3_sbe_v1_6.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.6.eventtime", ftypes.UINT64)
 omi_cme_globex_mdp3_sbe_v1_6.fields.event_type = ProtoField.new("Event Type", "cme.globex.mdp3.sbe.v1.6.eventtype", ftypes.UINT8)
@@ -138,6 +139,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.md_security_trading_status = ProtoField.new(
 omi_cme_globex_mdp3_sbe_v1_6.fields.md_update_action = ProtoField.new("Md Update Action", "cme.globex.mdp3.sbe.v1.6.mdupdateaction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.6.message", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.6.messageheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.mdp3.sbe.v1.6.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.message_size = ProtoField.new("Message Size", "cme.globex.mdp3.sbe.v1.6.messagesize", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.globex.mdp3.sbe.v1.6.mincabprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_6.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.globex.mdp3.sbe.v1.6.minlotsize", ftypes.DOUBLE)
@@ -158,7 +160,6 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "cme.g
 omi_cme_globex_mdp3_sbe_v1_6.fields.order_qty = ProtoField.new("Order Qty", "cme.globex.mdp3.sbe.v1.6.orderqty", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.globex.mdp3.sbe.v1.6.originalcontractsize", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.otc_eligible = ProtoField.new("Otc Eligible", "cme.globex.mdp3.sbe.v1.6.otceligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000080)
-omi_cme_globex_mdp3_sbe_v1_6.fields.packet = ProtoField.new("Packet", "cme.globex.mdp3.sbe.v1.6.packet", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.globex.mdp3.sbe.v1.6.packetsequencenumber", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.padding_2 = ProtoField.new("Padding 2", "cme.globex.mdp3.sbe.v1.6.padding2", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_6.fields.padding_3 = ProtoField.new("Padding 3", "cme.globex.mdp3.sbe.v1.6.padding3", ftypes.BYTES)
@@ -200,6 +201,11 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.strike_currency = ProtoField.new("Strike Cur
 omi_cme_globex_mdp3_sbe_v1_6.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.mdp3.sbe.v1.6.strikeprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_6.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.6.subfraction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.6.symbol", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.6.tcpmessage", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.mdp3.sbe.v1.6.tcpmessagesize", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.6.tcppacket", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.6.tcpsendingtime", ftypes.UINT64)
+omi_cme_globex_mdp3_sbe_v1_6.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.6.technicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.6.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.6.text", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.tick_rule = ProtoField.new("Tick Rule", "cme.globex.mdp3.sbe.v1.6.tickrule", ftypes.INT8)
@@ -210,6 +216,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.trade_id = ProtoField.new("Trade Id", "cme.g
 omi_cme_globex_mdp3_sbe_v1_6.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.mdp3.sbe.v1.6.tradingreferencedate", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.globex.mdp3.sbe.v1.6.tradingreferenceprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.6.transacttime", ftypes.UINT64)
+omi_cme_globex_mdp3_sbe_v1_6.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.6.udppacket", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_product = ProtoField.new("Underlying Product", "cme.globex.mdp3.sbe.v1.6.underlyingproduct", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.globex.mdp3.sbe.v1.6.underlyingproductoptional", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.globex.mdp3.sbe.v1.6.underlyingsecurityid", ftypes.INT32)
@@ -711,6 +718,29 @@ cme_globex_mdp3_sbe_v1_6.display_factor.dissect = function(buffer, offset, packe
   local display = cme_globex_mdp3_sbe_v1_6.display_factor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.display_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Encoding Type
+cme_globex_mdp3_sbe_v1_6.encoding_type = {}
+
+-- Size: Encoding Type
+cme_globex_mdp3_sbe_v1_6.encoding_type.size = 2
+
+-- Display: Encoding Type
+cme_globex_mdp3_sbe_v1_6.encoding_type.display = function(value)
+  return "Encoding Type: "..value
+end
+
+-- Dissect: Encoding Type
+cme_globex_mdp3_sbe_v1_6.encoding_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_6.encoding_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_globex_mdp3_sbe_v1_6.encoding_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.encoding_type, range, value, display)
 
   return offset + length, value
 end
@@ -1916,6 +1946,29 @@ cme_globex_mdp3_sbe_v1_6.md_update_action.dissect = function(buffer, offset, pac
   local display = cme_globex_mdp3_sbe_v1_6.md_update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.md_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Sequence Number
+cme_globex_mdp3_sbe_v1_6.message_sequence_number = {}
+
+-- Size: Message Sequence Number
+cme_globex_mdp3_sbe_v1_6.message_sequence_number.size = 4
+
+-- Display: Message Sequence Number
+cme_globex_mdp3_sbe_v1_6.message_sequence_number.display = function(value)
+  return "Message Sequence Number: "..value
+end
+
+-- Dissect: Message Sequence Number
+cme_globex_mdp3_sbe_v1_6.message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_6.message_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_globex_mdp3_sbe_v1_6.message_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3327,6 +3380,52 @@ cme_globex_mdp3_sbe_v1_6.symbol.dissect = function(buffer, offset, packet, paren
   local display = cme_globex_mdp3_sbe_v1_6.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tcp Message Size
+cme_globex_mdp3_sbe_v1_6.tcp_message_size = {}
+
+-- Size: Tcp Message Size
+cme_globex_mdp3_sbe_v1_6.tcp_message_size.size = 2
+
+-- Display: Tcp Message Size
+cme_globex_mdp3_sbe_v1_6.tcp_message_size.display = function(value)
+  return "Tcp Message Size: "..value
+end
+
+-- Dissect: Tcp Message Size
+cme_globex_mdp3_sbe_v1_6.tcp_message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_6.tcp_message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_globex_mdp3_sbe_v1_6.tcp_message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tcp Sending Time
+cme_globex_mdp3_sbe_v1_6.tcp_sending_time = {}
+
+-- Size: Tcp Sending Time
+cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size = 8
+
+-- Display: Tcp Sending Time
+cme_globex_mdp3_sbe_v1_6.tcp_sending_time.display = function(value)
+  return "Tcp Sending Time: "..value
+end
+
+-- Dissect: Tcp Sending Time
+cme_globex_mdp3_sbe_v1_6.tcp_sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -9085,6 +9184,135 @@ cme_globex_mdp3_sbe_v1_6.message_header.dissect = function(buffer, offset, packe
   end
 end
 
+-- Tcp Message
+cme_globex_mdp3_sbe_v1_6.tcp_message = {}
+
+-- Display: Tcp Message
+cme_globex_mdp3_sbe_v1_6.tcp_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tcp Message
+cme_globex_mdp3_sbe_v1_6.tcp_message.fields = function(buffer, offset, packet, parent, size_of_tcp_message)
+  local index = offset
+
+  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, tcp_message_size = cme_globex_mdp3_sbe_v1_6.tcp_message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = cme_globex_mdp3_sbe_v1_6.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Payload: Runtime Type with 17 branches
+  index = cme_globex_mdp3_sbe_v1_6.payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Tcp Message
+cme_globex_mdp3_sbe_v1_6.tcp_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_message)
+  local index = offset + size_of_tcp_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message, buffer(offset, 0))
+    local current = cme_globex_mdp3_sbe_v1_6.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
+    parent:set_len(size_of_tcp_message)
+    local display = cme_globex_mdp3_sbe_v1_6.tcp_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_mdp3_sbe_v1_6.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
+
+    return index
+  end
+end
+
+-- Technical Header
+cme_globex_mdp3_sbe_v1_6.technical_header = {}
+
+-- Size: Technical Header
+cme_globex_mdp3_sbe_v1_6.technical_header.size =
+  cme_globex_mdp3_sbe_v1_6.encoding_type.size + 
+  cme_globex_mdp3_sbe_v1_6.message_sequence_number.size + 
+  cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size
+
+-- Display: Technical Header
+cme_globex_mdp3_sbe_v1_6.technical_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Technical Header
+cme_globex_mdp3_sbe_v1_6.technical_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  index, encoding_type = cme_globex_mdp3_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
+
+  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, message_sequence_number = cme_globex_mdp3_sbe_v1_6.message_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, tcp_sending_time = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Technical Header
+cme_globex_mdp3_sbe_v1_6.technical_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.technical_header, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.technical_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.technical_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.technical_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Tcp Packet
+cme_globex_mdp3_sbe_v1_6.tcp_packet = {}
+
+-- Verify required size of Tcp packet
+cme_globex_mdp3_sbe_v1_6.tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= cme_globex_mdp3_sbe_v1_6.technical_header.size + cme_globex_mdp3_sbe_v1_6.tcp_message_size.size + cme_globex_mdp3_sbe_v1_6.message_header.size
+end
+
+-- Dissect Tcp Packet
+cme_globex_mdp3_sbe_v1_6.tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Technical Header: Struct of 3 fields
+  index, technical_header = cme_globex_mdp3_sbe_v1_6.technical_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Tcp Message
+  local end_of_payload = buffer:len()
+
+  -- Tcp Message: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Tcp Message Size
+    local tcp_message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Tcp Message
+    index, tcp_message = cme_globex_mdp3_sbe_v1_6.tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+  end
+
+  return index
+end
+
 -- Message
 cme_globex_mdp3_sbe_v1_6.message = {}
 
@@ -9177,16 +9405,16 @@ cme_globex_mdp3_sbe_v1_6.binary_packet_header.dissect = function(buffer, offset,
   end
 end
 
--- Packet
-cme_globex_mdp3_sbe_v1_6.packet = {}
+-- Udp Packet
+cme_globex_mdp3_sbe_v1_6.udp_packet = {}
 
 -- Verify required size of Udp packet
-cme_globex_mdp3_sbe_v1_6.packet.requiredsize = function(buffer)
+cme_globex_mdp3_sbe_v1_6.udp_packet.requiredsize = function(buffer)
   return buffer:len() >= cme_globex_mdp3_sbe_v1_6.binary_packet_header.size + cme_globex_mdp3_sbe_v1_6.message_size.size + cme_globex_mdp3_sbe_v1_6.message_header.size
 end
 
--- Dissect Packet
-cme_globex_mdp3_sbe_v1_6.packet.dissect = function(buffer, packet, parent)
+-- Dissect Udp Packet
+cme_globex_mdp3_sbe_v1_6.udp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Binary Packet Header: Struct of 2 fields
@@ -9227,7 +9455,12 @@ function omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_6, buffer(), omi_cme_globex_mdp3_sbe_v1_6.description, "("..buffer:len().." Bytes)")
-  return cme_globex_mdp3_sbe_v1_6.packet.dissect(buffer, packet, protocol)
+  if packet.port_type == 2 then
+    return cme_globex_mdp3_sbe_v1_6.tcp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 3 then
+    return cme_globex_mdp3_sbe_v1_6.udp_packet.dissect(buffer, packet, protocol)
+  end
 end
 
 
@@ -9236,7 +9469,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
-cme_globex_mdp3_sbe_v1_6.schema_id.verify = function(buffer)
+cme_globex_mdp3_sbe_v1_6.schema_id.udp_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(18, 2):le_uint()
 
@@ -9248,9 +9481,33 @@ cme_globex_mdp3_sbe_v1_6.schema_id.verify = function(buffer)
 end
 
 -- Verify Version Field
-cme_globex_mdp3_sbe_v1_6.version.verify = function(buffer)
+cme_globex_mdp3_sbe_v1_6.version.udp_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
+
+  if value == 6 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Schema Id Field
+cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(20, 2):le_uint()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Version Field
+cme_globex_mdp3_sbe_v1_6.version.tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(22, 2):le_uint()
 
   if value == 6 then
     return true
@@ -9262,13 +9519,13 @@ end
 -- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Udp)
 local function omi_cme_globex_mdp3_sbe_v1_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cme_globex_mdp3_sbe_v1_6.packet.requiredsize(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.udp_packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not cme_globex_mdp3_sbe_v1_6.schema_id.verify(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.schema_id.udp_packet_verify(buffer) then return false end
 
   -- Verify Version
-  if not cme_globex_mdp3_sbe_v1_6.version.verify(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.version.udp_packet_verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_mdp3_sbe_v1_6
@@ -9277,12 +9534,27 @@ local function omi_cme_globex_mdp3_sbe_v1_6_udp_heuristic(buffer, packet, parent
   return true
 end
 
--- Register Heuristic for Cme Globex Mdp3 Sbe 1.6
-omi_cme_globex_mdp3_sbe_v1_6:register_heuristic("udp", omi_cme_globex_mdp3_sbe_v1_6_udp_heuristic)
+-- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Tcp)
+local function omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cme_globex_mdp3_sbe_v1_6.tcp_packet.requiredsize(buffer) then return false end
 
--- Register Cme Globex Mdp3 Sbe 1.6 for Decode As
-local udp_table = DissectorTable.get("udp.port")
-udp_table:add_for_decode_as(omi_cme_globex_mdp3_sbe_v1_6)
+  -- Verify Schema Id
+  if not cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify(buffer) then return false end
+
+  -- Verify Version
+  if not cme_globex_mdp3_sbe_v1_6.version.tcp_packet_verify(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cme_globex_mdp3_sbe_v1_6
+  omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristics for Cme Globex Mdp3 Sbe 1.6
+omi_cme_globex_mdp3_sbe_v1_6:register_heuristic("udp", omi_cme_globex_mdp3_sbe_v1_6_udp_heuristic)
+omi_cme_globex_mdp3_sbe_v1_6:register_heuristic("tcp", omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

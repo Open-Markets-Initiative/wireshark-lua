@@ -16936,7 +16936,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
-cme_globex_ilink3_sbe_v8_3.schema_id.verify = function(buffer)
+cme_globex_ilink3_sbe_v8_3.schema_id.packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -16948,7 +16948,7 @@ cme_globex_ilink3_sbe_v8_3.schema_id.verify = function(buffer)
 end
 
 -- Verify Version Field
-cme_globex_ilink3_sbe_v8_3.version.verify = function(buffer)
+cme_globex_ilink3_sbe_v8_3.version.packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -16965,10 +16965,10 @@ local function omi_cme_globex_ilink3_sbe_v8_3_tcp_heuristic(buffer, packet, pare
   if not cme_globex_ilink3_sbe_v8_3.packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not cme_globex_ilink3_sbe_v8_3.schema_id.verify(buffer) then return false end
+  if not cme_globex_ilink3_sbe_v8_3.schema_id.packet_verify(buffer) then return false end
 
   -- Verify Version
-  if not cme_globex_ilink3_sbe_v8_3.version.verify(buffer) then return false end
+  if not cme_globex_ilink3_sbe_v8_3.version.packet_verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_ilink3_sbe_v8_3
