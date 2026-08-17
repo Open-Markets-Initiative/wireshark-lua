@@ -6611,7 +6611,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Hsvf Stx Field
-box_options_sola_multicast_hsvf_v1_9.hsvf_stx.packet_verify = function(buffer)
+box_options_sola_multicast_hsvf_v1_9.hsvf_stx.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -6628,7 +6628,7 @@ local function omi_box_options_sola_multicast_hsvf_v1_9_udp_heuristic(buffer, pa
   if not box_options_sola_multicast_hsvf_v1_9.packet.requiredsize(buffer) then return false end
 
   -- Verify Hsvf Stx
-  if not box_options_sola_multicast_hsvf_v1_9.hsvf_stx.packet_verify(buffer) then return false end
+  if not box_options_sola_multicast_hsvf_v1_9.hsvf_stx.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_box_options_sola_multicast_hsvf_v1_9

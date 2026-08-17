@@ -3196,17 +3196,11 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.side.size = 1
 
 -- Display: Side
 hkex_hkexderivatives_combinedretrans_omd_v1_49.side.display = function(value)
-  if value == 1 then
-    return "Side: Bid (1)"
-  end
-  if value == 2 then
-    return "Side: Offer (2)"
+  if value == 0 then
+    return "Side: Bid (0)"
   end
   if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
+    return "Side: Offer (1)"
   end
 
   return "Side: Unknown("..value..")"

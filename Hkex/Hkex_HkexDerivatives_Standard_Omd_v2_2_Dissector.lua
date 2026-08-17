@@ -2493,12 +2493,6 @@ hkex_hkexderivatives_standard_omd_v2_2.side.display = function(value)
   if value == 1 then
     return "Side: Offer (1)"
   end
-  if value == 1 then
-    return "Side: Bid (1)"
-  end
-  if value == 2 then
-    return "Side: Offer (2)"
-  end
 
   return "Side: Unknown("..value..")"
 end

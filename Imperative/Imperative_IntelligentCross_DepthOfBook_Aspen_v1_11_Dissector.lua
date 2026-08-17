@@ -364,8 +364,8 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.display = funct
   if value == "G" then
     return "Message Type: Order Cancel All Message (G)"
   end
-  if value == "G" then
-    return "Message Type: Order Updated Message (G)"
+  if value == "H" then
+    return "Message Type: Order Updated Message (H)"
   end
   if value == "J" then
     return "Message Type: Order Executed Message (J)"
@@ -1377,7 +1377,7 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dissect = function(b
     return imperative_intelligentcross_depthofbook_aspen_v1_11.order_cancel_all_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Updated Message
-  if message_type == "G" then
+  if message_type == "H" then
     return imperative_intelligentcross_depthofbook_aspen_v1_11.order_updated_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message

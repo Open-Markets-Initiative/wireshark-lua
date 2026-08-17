@@ -1039,9 +1039,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.display_indicator.display = function
   if value == "m" then
     return "Display Indicator: Multiple Price Adjust (m)"
   end
-  if value == "m" then
-    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (m)"
-  end
   if value == "R" then
     return "Display Indicator: Cancel Back The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
   end
@@ -1195,14 +1192,14 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.ex_destination.display = function(va
   if value == "N" then
     return "Ex Destination: Nyse (N)"
   end
-  if value == "U" then
-    return "Ex Destination: Nyse Arca (U)"
+  if value == "P" then
+    return "Ex Destination: Nyse Arca (P)"
   end
   if value == "Q" then
     return "Ex Destination: Nasdaq (Q)"
   end
-  if value == "Q" then
-    return "Ex Destination: Memx (Q)"
+  if value == "U" then
+    return "Ex Destination: Memx (U)"
   end
   if value == "X" then
     return "Ex Destination: Nasdaq Psx (X)"
@@ -1266,8 +1263,8 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.exec_inst.display = function(value)
   if value == "Q" then
     return "Exec Inst: Market Marker Peg (Q)"
   end
-  if value == "Q" then
-    return "Exec Inst: Primary Peg (Q)"
+  if value == "R" then
+    return "Exec Inst: Primary Peg (R)"
   end
   if value == "U" then
     return "Exec Inst: Supplemental Peg Order (U)"
