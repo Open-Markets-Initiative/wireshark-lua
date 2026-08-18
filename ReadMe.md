@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 789 | 5,973,768 |
+| 789 | 5,973,439 |
 
 ## Testing
 
@@ -75,7 +75,7 @@ Useful? A star helps others find OMI.
 
 ## Platforms
 
-> [CixAts Aspen][Aspen.Platform] · [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
+> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
 
 ## Disclaimer
 
@@ -223,7 +223,7 @@ Enjoy.
 [Cboe.C1Options.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C1Options/ComplexAuction.md "Complex Auction"
 [Cboe.C2Options.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/ComplexAuction.md "Complex Auction"
 [Cboe.EdgxOptions.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/ComplexAuction.md "Complex Auction"
-[CixAts.Aspen.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/Aspen/MarketDataFeed.md "Market Data Feed"
+[CixAts.CixAspen.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/CixAspen/MarketDataFeed.md "Market Data Feed"
 [Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
 [Cme.Globex.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Mdp3.md "Market Data Platform 3"
 [Cme.Globex.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Streamlined.md "Streamlined Market Data"
@@ -559,7 +559,6 @@ Enjoy.
 [AquisEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Aquis/Protocols/AquisEquities "Aquis Equities"
 [ArcaEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaEquities "Nyse Arca Equities"
 [ArcaOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/ArcaOptions "Nyse Arca Options"
-[Aspen.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/Aspen "CIX Aspen"
 [AsxDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxDerivatives "Asx Derivatives"
 [AsxSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Asx/Protocols/AsxSecurities "Asx Securities"
 [B3Derivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/B3/Protocols/B3Derivatives "B3 Derivatives"
@@ -573,6 +572,7 @@ Enjoy.
 [C1Options.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C1Options "Cboe C1 Options"
 [C2Options.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/C2Options "Cboe C2 Options"
 [CfeFutures.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/CfeFutures "Cboe Futures Exchange"
+[CixAspen.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/CixAspen "CIX Aspen"
 [CoinbaseDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives "Coinbase Derivatives"
 [Cqs.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cqs "Consolidated Quotation System"
 [Cts.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Siac/Protocols/Cts "Consolidated Tape System"
