@@ -1009,17 +1009,17 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.msg_type.display = function(value)
   if value == "s" then
     return "Msg Type: Trade Report Message (s)"
   end
-  if value == "T" then
-    return "Msg Type: Trade Cancelled Message (T)"
+  if value == "t" then
+    return "Msg Type: Trade Cancelled Message (t)"
   end
-  if value == "F" then
-    return "Msg Type: Moc Imbalance Message (F)"
+  if value == "u" then
+    return "Msg Type: Moc Imbalance Message (u)"
   end
-  if value == "I" then
-    return "Msg Type: Stock Status Message (I)"
+  if value == "v" then
+    return "Msg Type: Stock Status Message (v)"
   end
-  if value == "I" then
-    return "Msg Type: Quote Message (I)"
+  if value == "w" then
+    return "Msg Type: Quote Message (w)"
   end
 
   return "Msg Type: Unknown("..value..")"
@@ -2378,19 +2378,19 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_message.dissect = function(buffe
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_report_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancelled Message
-  if msg_type == "T" then
+  if msg_type == "t" then
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.trade_cancelled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Moc Imbalance Message
-  if msg_type == "F" then
+  if msg_type == "u" then
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.moc_imbalance_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Stock Status Message
-  if msg_type == "I" then
+  if msg_type == "v" then
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.stock_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Message
-  if msg_type == "I" then
+  if msg_type == "w" then
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.quote_message.dissect(buffer, offset, packet, parent)
   end
 

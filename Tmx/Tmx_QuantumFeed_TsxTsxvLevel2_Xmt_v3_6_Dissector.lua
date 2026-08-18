@@ -1148,8 +1148,8 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.msg_type.display = function(value)
   if value == "S" then
     return "Msg Type: Trade Report Message (S)"
   end
-  if value == "P" then
-    return "Msg Type: Trade Report Terms Message (P)"
+  if value == "p" then
+    return "Msg Type: Trade Report Terms Message (p)"
   end
   if value == "T" then
     return "Msg Type: Trade Cancelled Message (T)"
@@ -3795,7 +3795,7 @@ tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.business_message.dissect = function(buffe
     return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_report_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Terms Message
-  if msg_type == "P" then
+  if msg_type == "p" then
     return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.trade_report_terms_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancelled Message

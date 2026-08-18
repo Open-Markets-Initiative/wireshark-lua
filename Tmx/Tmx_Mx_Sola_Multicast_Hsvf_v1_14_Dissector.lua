@@ -2222,8 +2222,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_type.display = function(value)
   if value == "GS" then
     return "Message Type: Group Status Strategies Message (GS)"
   end
-  if value == "XF" then
-    return "Message Type: Future Deliverables Message (XF)"
+  if value == "KF" then
+    return "Message Type: Future Deliverables Message (KF)"
   end
   if value == "L" then
     return "Message Type: Bulletins Message (L)"
@@ -9348,7 +9348,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.dissect = function(buffer, offset,
     return tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Future Deliverables Message
-  if message_type == "XF" then
+  if message_type == "KF" then
     return tmx_mx_sola_multicast_hsvf_v1_14.future_deliverables_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bulletins Message

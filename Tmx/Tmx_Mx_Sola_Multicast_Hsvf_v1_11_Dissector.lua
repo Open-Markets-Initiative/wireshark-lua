@@ -887,19 +887,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.day_count_convention.display = function(value)
     return "Day Count Convention: Act 360 (B)"
   end
   if value == "C" then
-    return "Day Count Convention: 30360 (C)"
-  end
-  if value == "S" then
-    return "Day Count Convention: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Day Count Convention: End Of Day (E)"
-  end
-  if value == "U" then
-    return "Day Count Convention: Instrument New Or Update (U)"
-  end
-  if value == "C" then
-    return "Day Count Convention: Trade Cancellation (C)"
+    return "Day Count Convention: Thirty 360 (C)"
   end
 
   return "Day Count Convention: Unknown("..value..")"
@@ -3570,7 +3558,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.reason.size = 1
 
 -- Display: Reason
 tmx_mx_sola_multicast_hsvf_v1_11.reason.display = function(value)
-  return "Reason: "..value
+  if value == "S" then
+    return "Reason: Start Of Day (S)"
+  end
+  if value == "E" then
+    return "Reason: End Of Day (E)"
+  end
+  if value == "U" then
+    return "Reason: Instrument New Or Update (U)"
+  end
+  if value == "C" then
+    return "Reason: Trade Cancellation (C)"
+  end
+
+  return "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
