@@ -4115,7 +4115,7 @@ ice_icefutures_mdf_impact_v1_1_43.market_type_id.display = function(value)
     return "Market Type Id: Liffe Swapnotes (203)"
   end
   if value == 205 then
-    return "Market Type Id: 1 (205)"
+    return "Market Type Id: Liffe Commodities (205)"
   end
   if value == 206 then
     return "Market Type Id: Metals (206)"
@@ -6322,10 +6322,10 @@ ice_icefutures_mdf_impact_v1_1_43.security_sub_type.display = function(value)
     return "Security Sub Type: Gut Strangle (11)"
   end
   if value == 12 then
-    return "Security Sub Type: 1 X 2 Call Spread To The 2 (12)"
+    return "Security Sub Type: One By Two Call Spread To The Two (12)"
   end
   if value == 13 then
-    return "Security Sub Type: 1 X 2 Put Spread To The 2 (13)"
+    return "Security Sub Type: One By Two Put Spread To The Two (13)"
   end
   if value == 14 then
     return "Security Sub Type: Iron Butterfly (14)"
@@ -6343,10 +6343,7 @@ ice_icefutures_mdf_impact_v1_1_43.security_sub_type.display = function(value)
     return "Security Sub Type: Straddle Spread (19)"
   end
   if value == 21 then
-    return "Security Sub Type: Reversal Conversion To The Call (21)"
-  end
-  if value == 21 then
-    return "Security Sub Type: Reversal Conversion To The Put (21)"
+    return "Security Sub Type: Reversal Conversion (21)"
   end
   if value == 22 then
     return "Security Sub Type: Straddle (22)"
@@ -6391,10 +6388,10 @@ ice_icefutures_mdf_impact_v1_1_43.security_sub_type.display = function(value)
     return "Security Sub Type: Jelly Roll (41)"
   end
   if value == 42 then
-    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 2 (42)"
+    return "Security Sub Type: Hedged One By Two Call Spread To The Two (42)"
   end
   if value == 43 then
-    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 2 (43)"
+    return "Security Sub Type: Hedged One By Two Put Spread To The Two (43)"
   end
   if value == 44 then
     return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
@@ -6478,16 +6475,16 @@ ice_icefutures_mdf_impact_v1_1_43.security_sub_type.display = function(value)
     return "Security Sub Type: Hedged Fence To The Put (73)"
   end
   if value == 74 then
-    return "Security Sub Type: 1 X 2 Call Spread To The 1 (74)"
+    return "Security Sub Type: One By Two Call Spread To The One (74)"
   end
   if value == 75 then
-    return "Security Sub Type: 1 X 2 Put Spread To The 1 (75)"
+    return "Security Sub Type: One By Two Put Spread To The One (75)"
   end
   if value == 76 then
-    return "Security Sub Type: Hedged 1 X 2 Call Spread To The 1 (76)"
+    return "Security Sub Type: Hedged One By Two Call Spread To The One (76)"
   end
   if value == 77 then
-    return "Security Sub Type: Hedged 1 X 2 Put Spread To The 1 (77)"
+    return "Security Sub Type: Hedged One By Two Put Spread To The One (77)"
   end
   if value == 88 then
     return "Security Sub Type: Discount Spreads (88)"
