@@ -5216,18 +5216,6 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.message_code.display = funct
   if value == "B201S" then
     return "Message Code: Equity Derivatives Underlying Snapshot Kospi Message (B201S)"
   end
-  if value == "B203S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Message (B203S)"
-  end
-  if value == "B201Q" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Message (B201Q)"
-  end
-  if value == "B201S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kosdaq Message (B201S)"
-  end
-  if value == "B203S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kosdaq Message (B203S)"
-  end
   if value == "B201Q" then
     return "Message Code: Equity Derivatives Underlying Snapshot Kosdaq Message (B201Q)"
   end
@@ -10856,22 +10844,6 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.payload.dissect = function(b
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Message
   if message_code == "B201S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_018.equity_derivatives_underlying_snapshot_kospi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity Derivatives Underlying Snapshot Kospi Message
-  if message_code == "B203S" then
-    return koscom_mdcsrealtime_equityderivatives_exture_v2_018.equity_derivatives_underlying_snapshot_kospi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity Derivatives Underlying Snapshot Kospi Message
-  if message_code == "B201Q" then
-    return koscom_mdcsrealtime_equityderivatives_exture_v2_018.equity_derivatives_underlying_snapshot_kospi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity Derivatives Underlying Snapshot Kosdaq Message
-  if message_code == "B201S" then
-    return koscom_mdcsrealtime_equityderivatives_exture_v2_018.equity_derivatives_underlying_snapshot_kosdaq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity Derivatives Underlying Snapshot Kosdaq Message
-  if message_code == "B203S" then
-    return koscom_mdcsrealtime_equityderivatives_exture_v2_018.equity_derivatives_underlying_snapshot_kosdaq_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kosdaq Message
   if message_code == "B201Q" then

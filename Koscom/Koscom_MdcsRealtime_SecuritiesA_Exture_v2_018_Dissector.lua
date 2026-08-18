@@ -10728,9 +10728,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.message_code.display = function(va
   if value == "B201S" then
     return "Message Code: Securities Snapshot Mm Lp Excluded Message (B201S)"
   end
-  if value == "B203S" then
-    return "Message Code: Securities Snapshot Mm Lp Excluded Message (B203S)"
-  end
   if value == "B201Q" then
     return "Message Code: Securities Snapshot Mm Lp Excluded Message (B201Q)"
   end
@@ -23727,10 +23724,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.payload.dissect = function(buffer,
   end
   -- Dissect Securities Snapshot Mm Lp Excluded Message
   if message_code == "B201S" then
-    return koscom_mdcsrealtime_securitiesa_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Excluded Message
-  if message_code == "B203S" then
     return koscom_mdcsrealtime_securitiesa_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Snapshot Mm Lp Excluded Message
