@@ -2635,8 +2635,8 @@ siac_cqs_output_cta_v2_9.security_status_indicator.display = function(value)
   if value == "D" then
     return "Security Status Indicator: News Released (D)"
   end
-  if value == "D" then
-    return "Security Status Indicator: Merger Effective (D)"
+  if value == "E" then
+    return "Security Status Indicator: Merger Effective (E)"
   end
   if value == "F" then
     return "Security Status Indicator: Etf Component Prices Not Available (F)"

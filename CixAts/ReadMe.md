@@ -5,9 +5,7 @@
 
 | Division | [Protocol][Omi.CixAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.CixAts.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [CixAspen][CixAspen.Ats] | [MarketDataFeed][CixAts.CixAspen.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf] |
-| [CixMidpoint][CixMidpoint.Ats] | [MarketDataFeed][CixAts.CixMidpoint.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Pdf] |
-| [CixVert][CixVert.Ats] | [MarketDataFeed][CixAts.CixVert.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Pdf] |
+| [Aspen][Aspen.Platform] | [MarketDataFeed][CixAts.Aspen.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Pdf] |
 
 
 CixAts: [website](https://www.thecix.ca "Go to CIX Trading Inc.")
@@ -29,19 +27,9 @@ CixAts: [website](https://www.thecix.ca "Go to CIX Trading Inc.")
 [Omi.CixAts.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols "CixAts Protocol Directory"
 [Omi.CixAts.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Specifications "CixAts Specifications Directory"
 [Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Aspen.md "Aspen Encoding"
-[CixAspen.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/CixAspen "CixAts CixAspen"
-[CixMidpoint.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/CixMidpoint "CixAts CixMidpoint"
-[CixVert.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/CixVert "CixAts CixVert"
-[CixAts.CixAspen.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/CixAspen/MarketDataFeed.md "Market Data Feed"
-[CixAts.CixMidpoint.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/CixMidpoint/MarketDataFeed.md "Market Data Feed"
-[CixAts.CixVert.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/CixVert/MarketDataFeed.md "Market Data Feed"
+[Aspen.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/CixAts/Protocols/Aspen "CixAts Aspen"
+[CixAts.Aspen.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/Aspen/MarketDataFeed.md "Market Data Feed"
 
-[CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/CixAts/CixAts_CixAspen_MarketDataFeed_Aspen_v1_4_Dissector.lua "CixAts CixAspen MarketDataFeed Aspen v1.4 Wireshark Dissector"
-[CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.4 Url"
-[CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Specifications/CixAts/MarketData/Market%20Data%20Feed%20Specification-1.4.pdf "CIX Trading Inc. 1.4 Pdf"
-[CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/CixAts/CixAts_CixMidpoint_MarketDataFeed_Aspen_v1_4_Dissector.lua "CixAts CixMidpoint MarketDataFeed Aspen v1.4 Wireshark Dissector"
-[CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.4 Url"
-[CixAts.CixMidpoint.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Specifications/CixAts/MarketData/Market%20Data%20Feed%20Specification-1.4.pdf "CIX Trading Inc. 1.4 Pdf"
-[CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/CixAts/CixAts_CixVert_MarketDataFeed_Aspen_v1_4_Dissector.lua "CixAts CixVert MarketDataFeed Aspen v1.4 Wireshark Dissector"
-[CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.4 Url"
-[CixAts.CixVert.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Specifications/CixAts/MarketData/Market%20Data%20Feed%20Specification-1.4.pdf "CIX Trading Inc. 1.4 Pdf"
+[CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/CixAts/CixAts_Aspen_MarketDataFeed_Aspen_v1_4_Dissector.lua "CixAts Aspen MarketDataFeed Aspen v1.4 Wireshark Dissector"
+[CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.4 Url"
+[CixAts.Aspen.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Specifications/CixAts/MarketData/Market%20Data%20Feed%20Specification-1.4.pdf "CIX Trading Inc. 1.4 Pdf"

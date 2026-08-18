@@ -2815,7 +2815,7 @@ siac_cts_output_cta_v2_11_b.participant_id.display = function(value)
     return "Participant Id: Texas Stock Exchange Llc Txse (F)"
   end
   if value == "G" then
-    return "Participant Id: 24 X National Exchange Llc 24 X (G)"
+    return "Participant Id: N 24 X National Exchange Llc N 24 X (G)"
   end
   if value == "H" then
     return "Participant Id: Miax Pearl Exchange Llc Miax (H)"
@@ -3214,7 +3214,7 @@ siac_cts_output_cta_v2_11_b.primary_listing_market_participant_id.display = func
     return "Primary Listing Market Participant Id: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Primary Listing Market Participant Id: 24 X (G)"
+    return "Primary Listing Market Participant Id: N 24 X (G)"
   end
   if value == "H" then
     return "Primary Listing Market Participant Id: Miax Pearl (H)"

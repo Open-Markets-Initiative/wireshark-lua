@@ -2987,8 +2987,8 @@ siac_cts_output_cta_v2_9.trade_reporting_facility_id.display = function(value)
   if value == "N" then
     return "Trade Reporting Facility Id: Finra Nyse (N)"
   end
-  if value == "B" then
-    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (B)"
+  if value == "T" then
+    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (T)"
   end
 
   return "Trade Reporting Facility Id: Unknown("..value..")"

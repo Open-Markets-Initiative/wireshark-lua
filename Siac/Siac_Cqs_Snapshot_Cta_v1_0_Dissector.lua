@@ -408,18 +408,6 @@ siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
   if value == 4 then
     return "Delivery Flag: Only One Block (4)"
   end
-  if value == 1 then
-    return "Delivery Flag: First Block Of Snapshot Sequence (1)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Intermediate Block Of Snapshot Sequence (2)"
-  end
-  if value == 3 then
-    return "Delivery Flag: Last Block Of Snapshot Sequence (3)"
-  end
-  if value == 4 then
-    return "Delivery Flag: Only One Block In Snapshot Sequence (4)"
-  end
 
   return "Delivery Flag: Unknown("..value..")"
 end

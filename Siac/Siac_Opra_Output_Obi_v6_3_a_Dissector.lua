@@ -284,28 +284,28 @@ siac_opra_output_obi_v6_3_a.best_bid_denominator_code.size = 1
 -- Display: Best Bid Denominator Code
 siac_opra_output_obi_v6_3_a.best_bid_denominator_code.display = function(value)
   if value == "A" then
-    return "Best Bid Denominator Code: 10 (A)"
+    return "Best Bid Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Best Bid Denominator Code: 100 (B)"
+    return "Best Bid Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Best Bid Denominator Code: 1000 (C)"
+    return "Best Bid Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Best Bid Denominator Code: 10000 (D)"
+    return "Best Bid Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Best Bid Denominator Code: 100000 (E)"
+    return "Best Bid Denominator Code: Hundred Thousand (E)"
   end
   if value == "F" then
-    return "Best Bid Denominator Code: 1000000 (F)"
+    return "Best Bid Denominator Code: Million (F)"
   end
   if value == "G" then
-    return "Best Bid Denominator Code: 10000000 (G)"
+    return "Best Bid Denominator Code: Ten Million (G)"
   end
   if value == "H" then
-    return "Best Bid Denominator Code: 100000000 (H)"
+    return "Best Bid Denominator Code: Hundred Million (H)"
   end
   if value == "I" then
     return "Best Bid Denominator Code: No Fraction (I)"
@@ -462,28 +462,28 @@ siac_opra_output_obi_v6_3_a.best_offer_denominator_code.size = 1
 -- Display: Best Offer Denominator Code
 siac_opra_output_obi_v6_3_a.best_offer_denominator_code.display = function(value)
   if value == "A" then
-    return "Best Offer Denominator Code: 10 (A)"
+    return "Best Offer Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Best Offer Denominator Code: 100 (B)"
+    return "Best Offer Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Best Offer Denominator Code: 1000 (C)"
+    return "Best Offer Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Best Offer Denominator Code: 10000 (D)"
+    return "Best Offer Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Best Offer Denominator Code: 100000 (E)"
+    return "Best Offer Denominator Code: Hundred Thousand (E)"
   end
   if value == "F" then
-    return "Best Offer Denominator Code: 1000000 (F)"
+    return "Best Offer Denominator Code: Million (F)"
   end
   if value == "G" then
-    return "Best Offer Denominator Code: 10000000 (G)"
+    return "Best Offer Denominator Code: Ten Million (G)"
   end
   if value == "H" then
-    return "Best Offer Denominator Code: 100000000 (H)"
+    return "Best Offer Denominator Code: Hundred Million (H)"
   end
   if value == "I" then
     return "Best Offer Denominator Code: No Fraction (I)"
@@ -1293,25 +1293,25 @@ siac_opra_output_obi_v6_3_a.index_value_denominator_code.size = 1
 -- Display: Index Value Denominator Code
 siac_opra_output_obi_v6_3_a.index_value_denominator_code.display = function(value)
   if value == "A" then
-    return "Index Value Denominator Code: 10 (A)"
+    return "Index Value Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Index Value Denominator Code: 100 (B)"
+    return "Index Value Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Index Value Denominator Code: 1000 (C)"
+    return "Index Value Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Index Value Denominator Code: 10000 (D)"
+    return "Index Value Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Index Value Denominator Code: 100000 (E)"
+    return "Index Value Denominator Code: Hundred Thousand (E)"
   end
   if value == "F" then
-    return "Index Value Denominator Code: 1000000 (F)"
+    return "Index Value Denominator Code: Million (F)"
   end
   if value == "G" then
-    return "Index Value Denominator Code: 10000000 (G)"
+    return "Index Value Denominator Code: Ten Million (G)"
   end
   if value == "I" then
     return "Index Value Denominator Code: No Fraction (I)"
@@ -1973,25 +1973,25 @@ siac_opra_output_obi_v6_3_a.premium_price_denominator_code.size = 1
 -- Display: Premium Price Denominator Code
 siac_opra_output_obi_v6_3_a.premium_price_denominator_code.display = function(value)
   if value == "A" then
-    return "Premium Price Denominator Code: 10 (A)"
+    return "Premium Price Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Premium Price Denominator Code: 100 (B)"
+    return "Premium Price Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Premium Price Denominator Code: 1000 (C)"
+    return "Premium Price Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Premium Price Denominator Code: 10000 (D)"
+    return "Premium Price Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Premium Price Denominator Code: 100000 (E)"
+    return "Premium Price Denominator Code: Hundred Thousand (E)"
   end
   if value == "F" then
-    return "Premium Price Denominator Code: 1000000 (F)"
+    return "Premium Price Denominator Code: Million (F)"
   end
   if value == "G" then
-    return "Premium Price Denominator Code: 10000000 (G)"
+    return "Premium Price Denominator Code: Ten Million (G)"
   end
   if value == "I" then
     return "Premium Price Denominator Code: No Fraction (I)"
@@ -2347,19 +2347,19 @@ siac_opra_output_obi_v6_3_a.strike_price_denominator_code.size = 1
 -- Display: Strike Price Denominator Code
 siac_opra_output_obi_v6_3_a.strike_price_denominator_code.display = function(value)
   if value == "A" then
-    return "Strike Price Denominator Code: 10 (A)"
+    return "Strike Price Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Strike Price Denominator Code: 100 (B)"
+    return "Strike Price Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Strike Price Denominator Code: 1000 (C)"
+    return "Strike Price Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Strike Price Denominator Code: 10000 (D)"
+    return "Strike Price Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Strike Price Denominator Code: 100000 (E)"
+    return "Strike Price Denominator Code: Hundred Thousand (E)"
   end
   if value == "I" then
     return "Strike Price Denominator Code: No Fraction (I)"
@@ -2481,28 +2481,28 @@ siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.size = 1
 -- Display: Underlying Price Denominator Code
 siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.display = function(value)
   if value == "A" then
-    return "Underlying Price Denominator Code: 10 (A)"
+    return "Underlying Price Denominator Code: Ten (A)"
   end
   if value == "B" then
-    return "Underlying Price Denominator Code: 100 (B)"
+    return "Underlying Price Denominator Code: Hundred (B)"
   end
   if value == "C" then
-    return "Underlying Price Denominator Code: 1000 (C)"
+    return "Underlying Price Denominator Code: Thousand (C)"
   end
   if value == "D" then
-    return "Underlying Price Denominator Code: 10000 (D)"
+    return "Underlying Price Denominator Code: Ten Thousand (D)"
   end
   if value == "E" then
-    return "Underlying Price Denominator Code: 100000 (E)"
+    return "Underlying Price Denominator Code: Hundred Thousand (E)"
   end
   if value == "F" then
-    return "Underlying Price Denominator Code: 1000000 (F)"
+    return "Underlying Price Denominator Code: Million (F)"
   end
   if value == "G" then
-    return "Underlying Price Denominator Code: 10000000 (G)"
+    return "Underlying Price Denominator Code: Ten Million (G)"
   end
   if value == "H" then
-    return "Underlying Price Denominator Code: 100000000 (H)"
+    return "Underlying Price Denominator Code: Hundred Million (H)"
   end
   if value == "I" then
     return "Underlying Price Denominator Code: No Fraction (I)"

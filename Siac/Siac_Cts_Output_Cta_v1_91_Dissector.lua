@@ -2989,8 +2989,8 @@ siac_cts_output_cta_v1_91.trade_reporting_facility_id.display = function(value)
   if value == "P" then
     return "Trade Reporting Facility Id: Inactive Value P (P)"
   end
-  if value == "B" then
-    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (B)"
+  if value == "T" then
+    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (T)"
   end
   if value == "V" then
     return "Trade Reporting Facility Id: Inactive Value V (V)"
