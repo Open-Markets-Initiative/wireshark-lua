@@ -980,7 +980,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.display = f
     return "Executing Trading Center: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Executing Trading Center: 24 X Exchange (G)"
+    return "Executing Trading Center: N 24 X Exchange (G)"
   end
   if value == "H" then
     return "Executing Trading Center: Miax Pearl Equities (H)"
@@ -1291,9 +1291,6 @@ miax_pearlequities_expressorders_meo_v2_7_b.login_status.display = function(valu
   end
   if value == "S" then
     return "Login Status: Invalid Trading Session Requested (S)"
-  end
-  if value == "S" then
-    return "Login Status: Invalid Start Sequence Number Requested (S)"
   end
   if value == "U" then
     return "Login Status: No Active Trading Session Exists (U)"
@@ -2515,7 +2512,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.display = functi
     return "Primary Market Code: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Primary Market Code: 24 X Exchange (G)"
+    return "Primary Market Code: N 24 X Exchange (G)"
   end
   if value == "H" then
     return "Primary Market Code: Miax Pearl Equities (H)"
@@ -3775,7 +3772,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.login_response.fields = function(buf
   -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_7_b.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Login Status: 1 Byte Ascii String Enum with 9 values
+  -- Login Status: 1 Byte Ascii String Enum with 8 values
   index, login_status = miax_pearlequities_expressorders_meo_v2_7_b.login_status.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer

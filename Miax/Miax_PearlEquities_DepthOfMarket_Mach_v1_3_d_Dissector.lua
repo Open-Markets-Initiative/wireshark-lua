@@ -493,9 +493,6 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.display = function(val
   if value == "S" then
     return "Login Status: Invalid Trading Session Requested (S)"
   end
-  if value == "S" then
-    return "Login Status: Invalid Start Sequence Number Requested (S)"
-  end
   if value == "U" then
     return "Login Status: No Active Trading Session Exists (U)"
   end
@@ -964,7 +961,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.primary_market_code.display = funct
     return "Primary Market Code: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Primary Market Code: 24 X Exchange (G)"
+    return "Primary Market Code: N 24 X Exchange (G)"
   end
   if value == "H" then
     return "Primary Market Code: Miax Pearl Equities (H)"
@@ -1954,7 +1951,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.login_response.fields = function(bu
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
   index, number_of_matching_engines = miax_pearlequities_depthofmarket_mach_v1_3_d.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Login Status: 1 Byte Ascii String Enum with 9 values
+  -- Login Status: 1 Byte Ascii String Enum with 8 values
   index, login_status = miax_pearlequities_depthofmarket_mach_v1_3_d.login_status.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer

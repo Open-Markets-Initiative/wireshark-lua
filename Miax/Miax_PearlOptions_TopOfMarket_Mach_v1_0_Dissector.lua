@@ -661,69 +661,6 @@ miax_pearloptions_topofmarket_mach_v1_0.offer_condition.display = function(value
   if value == "T" then
     return "Offer Condition: Trading Halt (T)"
   end
-  if value == "A" then
-    return "Offer Condition: Cancel Of Trade (A)"
-  end
-  if value == "B" then
-    return "Offer Condition: Trade That Is Late And Is Out Of Sequence (B)"
-  end
-  if value == "C" then
-    return "Offer Condition: Cancel Of The Last Reported Trade (C)"
-  end
-  if value == "D" then
-    return "Offer Condition: Trade That Is Late And Is In Correct Sequence (D)"
-  end
-  if value == "E" then
-    return "Offer Condition: Cancel Of The First Opening Reported Trade (E)"
-  end
-  if value == "F" then
-    return "Offer Condition: Trade That Is Late Report Of The Opening Trade And Is Out Of Sequence (F)"
-  end
-  if value == "G" then
-    return "Offer Condition: Cancel Of The Only Reported Trade (G)"
-  end
-  if value == "H" then
-    return "Offer Condition: Trade That Is Late Report Of The Opening Trade And Is In Correct Sequence (H)"
-  end
-  if value == "I" then
-    return "Offer Condition: Reserved For Future Use (I)"
-  end
-  if value == "J" then
-    return "Offer Condition: Trade Due To Reopening Of An Option In Which Trading Has Been Previously Halted (J)"
-  end
-  if value == "K" then
-    return "Offer Condition: Reserved For Future Use (K)"
-  end
-  if value == "L" then
-    return "Offer Condition: Reserved For Future Use (L)"
-  end
-  if value == "M" then
-    return "Offer Condition: Reserved For Future Use (M)"
-  end
-  if value == "N" then
-    return "Offer Condition: Reserved For Future Use (N)"
-  end
-  if value == "O" then
-    return "Offer Condition: Reserved For Future Use (O)"
-  end
-  if value == "P" then
-    return "Offer Condition: Reserved For Future Use (P)"
-  end
-  if value == "Q" then
-    return "Offer Condition: Reserved For Future Use (Q)"
-  end
-  if value == "R" then
-    return "Offer Condition: Trade Was The Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)"
-  end
-  if value == "S" then
-    return "Offer Condition: Trade Was The Execution Of An Order Identified (S)"
-  end
-  if value == "T" then
-    return "Offer Condition: Reserved For Future Use (T)"
-  end
-  if value == "X" then
-    return "Offer Condition: Trade That Is Trade Through Exempt (X)"
-  end
 
   return "Offer Condition: Unknown("..value..")"
 end
@@ -1463,7 +1400,74 @@ miax_pearloptions_topofmarket_mach_v1_0.trade_condition.size = 1
 
 -- Display: Trade Condition
 miax_pearloptions_topofmarket_mach_v1_0.trade_condition.display = function(value)
-  return "Trade Condition: "..value
+  if value == " " then
+    return "Trade Condition: Regular (<whitespace>)"
+  end
+  if value == "A" then
+    return "Trade Condition: Cancel Of Trade (A)"
+  end
+  if value == "B" then
+    return "Trade Condition: Trade That Is Late And Is Out Of Sequence (B)"
+  end
+  if value == "C" then
+    return "Trade Condition: Cancel Of The Last Reported Trade (C)"
+  end
+  if value == "D" then
+    return "Trade Condition: Trade That Is Late And Is In Correct Sequence (D)"
+  end
+  if value == "E" then
+    return "Trade Condition: Cancel Of The First Opening Reported Trade (E)"
+  end
+  if value == "F" then
+    return "Trade Condition: Trade That Is Late Report Of The Opening Trade And Is Out Of Sequence (F)"
+  end
+  if value == "G" then
+    return "Trade Condition: Cancel Of The Only Reported Trade (G)"
+  end
+  if value == "H" then
+    return "Trade Condition: Trade That Is Late Report Of The Opening Trade And Is In Correct Sequence (H)"
+  end
+  if value == "I" then
+    return "Trade Condition: Reserved For Future Use (I)"
+  end
+  if value == "J" then
+    return "Trade Condition: Trade Due To Reopening Of An Option In Which Trading Has Been Previously Halted (J)"
+  end
+  if value == "K" then
+    return "Trade Condition: Reserved For Future Use (K)"
+  end
+  if value == "L" then
+    return "Trade Condition: Reserved For Future Use (L)"
+  end
+  if value == "M" then
+    return "Trade Condition: Reserved For Future Use (M)"
+  end
+  if value == "N" then
+    return "Trade Condition: Reserved For Future Use (N)"
+  end
+  if value == "O" then
+    return "Trade Condition: Reserved For Future Use (O)"
+  end
+  if value == "P" then
+    return "Trade Condition: Reserved For Future Use (P)"
+  end
+  if value == "Q" then
+    return "Trade Condition: Reserved For Future Use (Q)"
+  end
+  if value == "R" then
+    return "Trade Condition: Trade Was The Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)"
+  end
+  if value == "S" then
+    return "Trade Condition: Trade Was The Execution Of An Order Identified (S)"
+  end
+  if value == "T" then
+    return "Trade Condition: Reserved For Future Use (T)"
+  end
+  if value == "X" then
+    return "Trade Condition: Trade That Is Trade Through Exempt (X)"
+  end
+
+  return "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
