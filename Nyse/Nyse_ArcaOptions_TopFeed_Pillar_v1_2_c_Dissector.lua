@@ -1278,8 +1278,8 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.message_type.display = function(value)
   if value == 320 then
     return "Message Type: Options Trade Message (320)"
   end
-  if value == 322 then
-    return "Message Type: Options Trade Cancel Message (322)"
+  if value == 321 then
+    return "Message Type: Options Trade Cancel Message (321)"
   end
   if value == 322 then
     return "Message Type: Options Trade Correction Message (322)"
@@ -2294,9 +2294,6 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.series.display = function(value)
     return "Series: After 90 Seconds (D)"
   end
   if value == "f" then
-    return "Series: Complex Orders (f)"
-  end
-  if value == "f" then
     return "Series: Other Complex Orders (f)"
   end
   if value == "g" then
@@ -2441,8 +2438,8 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.series_type.display = function(value)
   if value == 1 then
     return "Series Type: Flex (1)"
   end
-  if value == 1 then
-    return "Series Type: Flex Percentage (1)"
+  if value == 2 then
+    return "Series Type: Flex Percentage (2)"
   end
 
   return "Series Type: Unknown("..value..")"
@@ -3675,7 +3672,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.trade_condition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series: 1 Byte Ascii String Enum with 15 values
+  -- Series: 1 Byte Ascii String Enum with 14 values
   index, series = nyse_arcaoptions_topfeed_pillar_v1_2_c.series.dissect(buffer, index, packet, parent)
 
   -- Opening: 1 Byte Ascii String Enum with 3 values
@@ -4794,7 +4791,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.payload.dissect = function(buffer, offset
     return nyse_arcaoptions_topfeed_pillar_v1_2_c.options_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Trade Cancel Message
-  if message_type == 322 then
+  if message_type == 321 then
     return nyse_arcaoptions_topfeed_pillar_v1_2_c.options_trade_cancel_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Trade Correction Message

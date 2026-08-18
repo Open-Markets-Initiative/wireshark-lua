@@ -404,9 +404,6 @@ nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.display = function(value)
   if value == "U" then
     return "Exchange Code: Otcbb (U)"
   end
-  if value == "V" then
-    return "Exchange Code: Other Otc (V)"
-  end
 
   return "Exchange Code: Unknown("..value..")"
 end
@@ -2541,7 +2538,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   -- System Id: 1 Byte Unsigned Fixed Width Integer
   index, system_id = nyse_arcaequities_bbo_xdp_v2_4_c.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 10 values
+  -- Exchange Code: 1 Byte Ascii String Enum with 9 values
   index, exchange_code = nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer

@@ -1882,9 +1882,6 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.series.display = function(value)
     return "Series: After 90 Seconds (D)"
   end
   if value == "f" then
-    return "Series: Complex Orders (f)"
-  end
-  if value == "f" then
     return "Series: Other Complex Orders (f)"
   end
   if value == "g" then
@@ -2029,8 +2026,8 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.display = function(value)
   if value == 1 then
     return "Series Type: Flex (1)"
   end
-  if value == 1 then
-    return "Series Type: Flex Percentage (1)"
+  if value == 2 then
+    return "Series Type: Flex Percentage (2)"
   end
 
   return "Series Type: Unknown("..value..")"
@@ -2808,7 +2805,7 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.trade_condition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series: 1 Byte Ascii String Enum with 15 values
+  -- Series: 1 Byte Ascii String Enum with 14 values
   index, series = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte

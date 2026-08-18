@@ -813,10 +813,10 @@ nyse_nyseequities_depthfeed_pillar_v1_6.market_id.size = 2
 -- Display: Market Id
 nyse_nyseequities_depthfeed_pillar_v1_6.market_id.display = function(value)
   if value == 1 then
-    return "Market Id: Nyse Equities (1)"
+    return "Market Id: Nyse (1)"
   end
   if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
+    return "Market Id: Nyse Arca (3)"
   end
   if value == 4 then
     return "Market Id: Nyse Arca Options (4)"
@@ -826,21 +826,6 @@ nyse_nyseequities_depthfeed_pillar_v1_6.market_id.display = function(value)
   end
   if value == 8 then
     return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
-  if value == 1 then
-    return "Market Id: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca (3)"
   end
   if value == 9 then
     return "Market Id: Nyse American (9)"
@@ -1996,7 +1981,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.ssr_triggering_exchange_id.display = fun
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Pearl (H)"

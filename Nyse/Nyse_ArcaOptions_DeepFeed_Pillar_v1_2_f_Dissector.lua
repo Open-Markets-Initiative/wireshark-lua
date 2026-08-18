@@ -2376,8 +2376,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_type.display = function(value)
   if value == 1 then
     return "Series Type: Flex (1)"
   end
-  if value == 1 then
-    return "Series Type: Flex Percentage (1)"
+  if value == 2 then
+    return "Series Type: Flex Percentage (2)"
   end
 
   return "Series Type: Unknown("..value..")"

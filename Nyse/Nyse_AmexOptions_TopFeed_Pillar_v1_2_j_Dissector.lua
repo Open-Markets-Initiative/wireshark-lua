@@ -2789,7 +2789,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.display = func
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Ise (I)"

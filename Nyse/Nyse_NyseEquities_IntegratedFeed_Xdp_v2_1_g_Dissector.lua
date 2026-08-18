@@ -602,9 +602,6 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.exchange_code.display = function(val
   if value == "U" then
     return "Exchange Code: Otcbb (U)"
   end
-  if value == "V" then
-    return "Exchange Code: Other Otc (V)"
-  end
 
   return "Exchange Code: Unknown("..value..")"
 end
@@ -2435,7 +2432,7 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.status.display = function(value)
     return "Status: Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: Invalid Msg Type Or Msg Size Mismatch (9)"
   end
 
   return "Status: Unknown("..value..")"
@@ -4223,7 +4220,7 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
   index, system_id = nyse_nyseequities_integratedfeed_xdp_v2_1_g.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 10 values
+  -- Exchange Code: 1 Byte Ascii String Enum with 9 values
   index, exchange_code = nyse_nyseequities_integratedfeed_xdp_v2_1_g.exchange_code.dissect(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer

@@ -2327,12 +2327,6 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.size = 1
 -- Display: Mm Type
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.display = function(value)
   if value == 1 then
-    return "Mm Type: Nyse Arca Options Lead Market Maker (1)"
-  end
-  if value == 2 then
-    return "Mm Type: Nyse Arca Options Market Maker (2)"
-  end
-  if value == 1 then
     return "Mm Type: Nyse American Options Market Maker (1)"
   end
   if value == 2 then

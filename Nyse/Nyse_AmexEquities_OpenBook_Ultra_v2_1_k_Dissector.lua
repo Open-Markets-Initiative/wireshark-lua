@@ -404,13 +404,13 @@ nyse_amexequities_openbook_ultra_v2_1_k.message_type.size = 2
 -- Display: Message Type
 nyse_amexequities_openbook_ultra_v2_1_k.message_type.display = function(value)
   if value == 1 then
-    return "Message Type: Sequence Number Reset (1)"
+    return "Message Type: Sequence Number Reset Message (1)"
   end
   if value == 2 then
     return "Message Type: Heartbeat Message (2)"
   end
   if value == 5 then
-    return "Message Type: Message Unavailable (5)"
+    return "Message Type: Unavailable Message (5)"
   end
   if value == 10 then
     return "Message Type: Request Response Message (10)"
@@ -422,34 +422,10 @@ nyse_amexequities_openbook_ultra_v2_1_k.message_type.display = function(value)
     return "Message Type: Retransmission Request Message (20)"
   end
   if value == 22 then
-    return "Message Type: Refresh Request Message (22)"
+    return "Message Type: Book Refresh Request Message (22)"
   end
   if value == 24 then
     return "Message Type: Heartbeat Response Message (24)"
-  end
-  if value == 27 then
-    return "Message Type: Extended Refresh Request (27)"
-  end
-  if value == 34 then
-    return "Message Type: Symbol Index Mapping Request (34)"
-  end
-  if value == 35 then
-    return "Message Type: Symbol Index Mapping Refresh Message (35)"
-  end
-  if value == 230 then
-    return "Message Type: Openbook Full Update Message (230)"
-  end
-  if value == 231 then
-    return "Message Type: Openbook Delta Update Message (231)"
-  end
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 5 then
-    return "Message Type: Unavailable Message (5)"
-  end
-  if value == 22 then
-    return "Message Type: Book Refresh Request Message (22)"
   end
   if value == 27 then
     return "Message Type: Extended Book Refresh Request Message (27)"
@@ -2134,7 +2110,7 @@ nyse_amexequities_openbook_ultra_v2_1_k.packet_header.fields = function(buffer, 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
   index, packet_size = nyse_amexequities_openbook_ultra_v2_1_k.packet_size.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 21 values
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, message_type = nyse_amexequities_openbook_ultra_v2_1_k.message_type.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer

@@ -1773,7 +1773,7 @@ nyse_arcaequities_trades_pillar_v2_6.ssr_triggering_exchange_id.display = functi
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Peral (H)"

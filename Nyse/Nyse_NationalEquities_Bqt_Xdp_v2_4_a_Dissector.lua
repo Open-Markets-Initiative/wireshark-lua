@@ -995,10 +995,10 @@ nyse_nationalequities_bqt_xdp_v2_4_a.market_id.size = 2
 -- Display: Market Id
 nyse_nationalequities_bqt_xdp_v2_4_a.market_id.display = function(value)
   if value == 1 then
-    return "Market Id: Nyse Equities (1)"
+    return "Market Id: Nyse (1)"
   end
   if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
+    return "Market Id: Nyse Arca (3)"
   end
   if value == 4 then
     return "Market Id: Nyse Arca Options (4)"
@@ -1010,24 +1010,6 @@ nyse_nationalequities_bqt_xdp_v2_4_a.market_id.display = function(value)
     return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
-  if value == 0 then
-    return "Market Id: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca (3)"
-  end
-  if value == 9 then
     return "Market Id: Nyse American (9)"
   end
   if value == 10 then
@@ -1035,6 +1017,9 @@ nyse_nationalequities_bqt_xdp_v2_4_a.market_id.display = function(value)
   end
   if value == 11 then
     return "Market Id: Nyse Texas (11)"
+  end
+  if value == 0 then
+    return "Market Id: Nyse Group Bqt (0)"
   end
   if value == 255 then
     return "Market Id: Nyse Trf (255)"
@@ -2436,7 +2421,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.ssr_triggering_exchange_id.display = functi
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Pearl (H)"

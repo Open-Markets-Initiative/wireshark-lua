@@ -2319,7 +2319,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.ssr_triggering_exchange_id.display = 
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Ise (I)"

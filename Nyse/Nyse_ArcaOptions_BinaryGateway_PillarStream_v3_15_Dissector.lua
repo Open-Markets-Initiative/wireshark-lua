@@ -1903,24 +1903,6 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.leg_open_close.display = funct
   if value == 1 then
     return "Leg Open Close: Close (1)"
   end
-  if value == 0 then
-    return "Leg Open Close: Use Current Session Configuration Stp Setting For The Username (0)"
-  end
-  if value == 1 then
-    return "Leg Open Close: No Self Trade Prevention (1)"
-  end
-  if value == 2 then
-    return "Leg Open Close: Cancel Newest (2)"
-  end
-  if value == 3 then
-    return "Leg Open Close: Cancel Oldest (3)"
-  end
-  if value == 4 then
-    return "Leg Open Close: Cancel Both (4)"
-  end
-  if value == 5 then
-    return "Leg Open Close: Cancel Decrement (5)"
-  end
 
   return "Leg Open Close: Unknown("..value..")"
 end
@@ -4967,8 +4949,8 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.seq_msg_type.display = functio
   if value == 0x0250 then
     return "Seq Msg Type: Order Cancel Request (0x0250)"
   end
-  if value == 0x0282 then
-    return "Seq Msg Type: Order Modify Request (0x0282)"
+  if value == 0x0251 then
+    return "Seq Msg Type: Order Modify Request (0x0251)"
   end
   if value == 0x0243 then
     return "Seq Msg Type: New Bulk Quote (0x0243)"
@@ -7780,7 +7762,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_acknowledgement.fields =
   -- Flow Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, flow_indicator = nyse_arcaoptions_binarygateway_pillarstream_v3_15.flow_indicator.dissect(buffer, index, packet, parent)
 
-  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, leg_open_close = nyse_arcaoptions_binarygateway_pillarstream_v3_15.leg_open_close.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
@@ -8874,7 +8856,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered.fields = function(buff
   -- User Data: 10 Byte Ascii String
   index, user_data = nyse_arcaoptions_binarygateway_pillarstream_v3_15.user_data.dissect(buffer, index, packet, parent)
 
-  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, leg_open_close = nyse_arcaoptions_binarygateway_pillarstream_v3_15.leg_open_close.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
@@ -8978,7 +8960,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.exposed.fields = function(buff
   -- User Data: 10 Byte Ascii String
   index, user_data = nyse_arcaoptions_binarygateway_pillarstream_v3_15.user_data.dissect(buffer, index, packet, parent)
 
-  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, leg_open_close = nyse_arcaoptions_binarygateway_pillarstream_v3_15.leg_open_close.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
@@ -9438,7 +9420,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_request.fields = functio
   -- User Data: 10 Byte Ascii String
   index, user_data = nyse_arcaoptions_binarygateway_pillarstream_v3_15.user_data.dissect(buffer, index, packet, parent)
 
-  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Leg Open Close: 8 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, leg_open_close = nyse_arcaoptions_binarygateway_pillarstream_v3_15.leg_open_close.dissect(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
@@ -9607,7 +9589,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.sequenced_message.dissect = fu
     return nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_cancel_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Modify Request
-  if seq_msg_type == 0x0282 then
+  if seq_msg_type == 0x0251 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_modify_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Bulk Quote

@@ -1577,7 +1577,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ssr_triggering_exchange_id.displ
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: 24 X (G)"
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Peral (H)"
@@ -1703,15 +1703,6 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.status.display = function(value)
   end
   if value == "2" then
     return "Status: Rejected Due To Invalid Sequence Range (2)"
-  end
-  if value == "3" then
-    return "Status: Rejected Due To Maximum Sequence Range (3)"
-  end
-  if value == "6" then
-    return "Status: Rejected Requested Seq Num Is Too Old (6)"
-  end
-  if value == "9" then
-    return "Status: Rejected Due To Invalid Msg Type Or Mismatch Between Msg Type And Msg Size (9)"
   end
 
   return "Status: Unknown("..value..")"

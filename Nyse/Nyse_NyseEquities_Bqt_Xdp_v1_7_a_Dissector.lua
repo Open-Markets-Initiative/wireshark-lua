@@ -2274,7 +2274,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.status.display = function(value)
     return "Status: Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: Invalid Msg Type Or Mismatch Between Msg Type And Msg Size (9)"
   end
 
   return "Status: Unknown("..value..")"
