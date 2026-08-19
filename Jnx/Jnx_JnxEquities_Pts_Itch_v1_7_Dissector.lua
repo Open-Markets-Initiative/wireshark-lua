@@ -66,11 +66,15 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.upper_price_limit = ProtoField.new("Upp
 omi_jnx_jnxequities_pts_itch_v1_7.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.itch.v1.7.username", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Session Messages
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.itch.v1.7.debugpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.itch.v1.7.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.itch.v1.7.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.itch.v1.7.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.itch.v1.7.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.itch.v1.7.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.unsequenceddatapacket", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Application Messages
@@ -2719,6 +2723,14 @@ jnx_jnxequities_pts_itch_v1_7.tcp_payload.dissect = function(buffer, offset, pac
   if packet_type == "S" then
     return jnx_jnxequities_pts_itch_v1_7.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Server Heartbeat Packet
+  if packet_type == "H" then
+    return offset
+  end
+  -- Dissect End Of Session Packet
+  if packet_type == "Z" then
+    return offset
+  end
   -- Dissect Login Request Packet
   if packet_type == "L" then
     return jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect(buffer, offset, packet, parent)
@@ -2726,6 +2738,14 @@ jnx_jnxequities_pts_itch_v1_7.tcp_payload.dissect = function(buffer, offset, pac
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
     return jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if packet_type == "O" then
+    return offset
   end
 
   return offset
@@ -2793,7 +2813,7 @@ jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.fields = function(buffer, offs
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 6 branches
+  -- Tcp Payload: Runtime Type with 10 branches
   index = jnx_jnxequities_pts_itch_v1_7.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
