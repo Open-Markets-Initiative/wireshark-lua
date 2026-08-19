@@ -91,7 +91,7 @@
 | [Optiq][Optiq.Platform] | [OrderEntryGateway][Euronext.Optiq.OrderEntryGateway] | [Sbe][Omi.Encoding.Sbe] | [2.1][Euronext.Optiq.OrderEntryGateway.Sbe.v2.1.Dissector] | 3/30/2020 | 17459 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Euronext.Optiq.OrderEntryGateway.Sbe.v2.1.Url] - [xml][Euronext.Optiq.OrderEntryGateway.Sbe.v2.1.Xml] |
 | [Optiq][Optiq.Platform] | [OrderEntryGateway][Euronext.Optiq.OrderEntryGateway] | [Sbe][Omi.Encoding.Sbe] | [2.0][Euronext.Optiq.OrderEntryGateway.Sbe.v2.0.Dissector] | 3/9/2019 | 17384 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Euronext.Optiq.OrderEntryGateway.Sbe.v2.0.Url] - [xml][Euronext.Optiq.OrderEntryGateway.Sbe.v2.0.Xml] |
 | [Optiq][Optiq.Platform] | [OrderEntryGateway][Euronext.Optiq.OrderEntryGateway] | [Sbe][Omi.Encoding.Sbe] | [1.3][Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Dissector] | 8/20/2020 | 11882 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Url] - [xml][Euronext.Optiq.OrderEntryGateway.Sbe.v1.3.Xml] |
-| [Optiq][Optiq.Platform] | [MarketDataPacket][Euronext.Optiq.MarketDataPacket] | [Udp][Omi.Encoding.Udp] | [1.0][Euronext.Optiq.MarketDataPacket.Udp.v1.0.Dissector] | 5/16/2023 | 697 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Euronext.Optiq.MarketDataPacket.Udp.v1.0.Url] |
+| [Optiq][Optiq.Platform] | [MarketDataPacket][Euronext.Optiq.MarketDataPacket] | [Udp][Omi.Encoding.Udp] | [1.][Euronext.Optiq.MarketDataPacket.Udp.v1.Dissector] | 5/16/2023 | 697 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Euronext.Optiq.MarketDataPacket.Udp.v1.Url] |
 
 
 Euronext: [website](https://www.euronext.com "Go to Euronext")
@@ -407,5 +407,5 @@ Euronext: [website](https://www.euronext.com "Go to Euronext")
 [Euronext.Optiq.DropCopyGateway.Sbe.v6.67.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_DropCopyGateway_Sbe_v6_67_Dissector.lua "Euronext Optiq DropCopyGateway Sbe v6.67 Wireshark Dissector"
 [Euronext.Optiq.DropCopyGateway.Sbe.v6.67.Url]: https://connect2.euronext.com/en/membership/resources/it-documentation "Euronext 6.67 Url"
 [Euronext.Optiq.DropCopyGateway.Sbe.v6.67.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Euronext/Specifications/Optiq/v6/v6.67/Euronext.Optiq.DropCopyGateway.Sbe.v6.67.xml "Euronext 6.67 Xml"
-[Euronext.Optiq.MarketDataPacket.Udp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_MarketDataPacket_Udp_v1_0_Dissector.lua "Euronext Optiq MarketDataPacket Udp v1.0 Wireshark Dissector"
-[Euronext.Optiq.MarketDataPacket.Udp.v1.0.Url]: https://connect2.euronext.com/en/membership/resources/it-documentation "Euronext 1.0 Url"
+[Euronext.Optiq.MarketDataPacket.Udp.v1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext_Optiq_MarketDataPacket_Udp_v1_Dissector.lua "Euronext Optiq MarketDataPacket Udp v1 Wireshark Dissector"
+[Euronext.Optiq.MarketDataPacket.Udp.v1.Url]: https://connect2.euronext.com/en/membership/resources/it-documentation "Euronext 1. Url"
