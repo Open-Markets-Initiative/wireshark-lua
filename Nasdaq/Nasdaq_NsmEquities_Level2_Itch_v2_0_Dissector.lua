@@ -623,7 +623,7 @@ nasdaq_nsmequities_level2_itch_v2_0.issue_classification.display = function(valu
     return "Issue Classification: Depository Receipt (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited Partnership (L)"

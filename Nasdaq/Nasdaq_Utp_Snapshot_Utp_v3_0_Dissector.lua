@@ -1310,7 +1310,7 @@ nasdaq_utp_snapshot_utp_v3_0.issue_type.display = function(value)
     return "Issue Type: Depository Receipt (F)"
   end
   if value == "I" then
-    return "Issue Type: 144 A (I)"
+    return "Issue Type: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Type: Limited Partnership (L)"
@@ -1687,7 +1687,7 @@ nasdaq_utp_snapshot_utp_v3_0.market_center_originator.display = function(value)
     return "Market Center Originator: Texas Stock Exchange Llc (F)"
   end
   if value == "G" then
-    return "Market Center Originator: 24 X National Exchange Llc (G)"
+    return "Market Center Originator: N 24 X National Exchange Llc (G)"
   end
   if value == "D" then
     return "Market Center Originator: Financial Industry Regulatory Authority (D)"

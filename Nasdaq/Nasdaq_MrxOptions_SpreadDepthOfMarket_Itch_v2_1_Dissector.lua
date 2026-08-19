@@ -114,11 +114,15 @@ omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.strategy_trading_acti
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq MrxOptions SpreadDepthOfMarket 2.1 Session Messages
+omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.mrxoptions.spreaddepthofmarket.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq MrxOptions SpreadDepthOfMarket Itch 2.1 generated fields
@@ -4094,6 +4098,14 @@ nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.tcp_payload.dissect = function(b
   if packet_type == "S" then
     return nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Server Heartbeat Packet
+  if packet_type == "H" then
+    return offset
+  end
+  -- Dissect End Of Session Packet
+  if packet_type == "Z" then
+    return offset
+  end
   -- Dissect Login Request Packet
   if packet_type == "L" then
     return nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
@@ -4101,6 +4113,14 @@ nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.tcp_payload.dissect = function(b
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
     return nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if packet_type == "O" then
+    return offset
   end
 
   return offset
@@ -4168,7 +4188,7 @@ nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.soup_bin_tcp_packet.fields = fun
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 6 branches
+  -- Tcp Payload: Runtime Type with 10 branches
   index = nasdaq_mrxoptions_spreaddepthofmarket_itch_v2_1.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

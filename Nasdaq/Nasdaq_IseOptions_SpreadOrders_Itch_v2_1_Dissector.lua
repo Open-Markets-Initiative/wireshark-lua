@@ -85,6 +85,18 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.underlying_symbol = ProtoFie
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.spreadorders.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.iseoptions.spreadorders.itch.v2.1.username", ftypes.STRING)
 
+-- Nasdaq IseOptions SpreadOrders 2.1 Session Messages
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.endofsessionpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
+
 -- Nasdaq IseOptions SpreadOrders 2.1 Application Messages
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_add_order_message = ProtoField.new("Complex Add Order Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.complexaddordermessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.complexstrategyauctionmessage", ftypes.STRING)
@@ -92,14 +104,6 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_strategy_directory_m
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.systemeventmessage", ftypes.STRING)
-
--- Nasdaq IseOptions SpreadOrders 2.1 Session Messages
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.debugpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq IseOptions SpreadOrders Itch 2.1 generated fields
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.flex_dac_leg_information_index = ProtoField.new("Flex Dac Leg Information Index", "nasdaq.iseoptions.spreadorders.itch.v2.1.flexdacleginformationindex", ftypes.UINT16)
@@ -3067,6 +3071,14 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.tcp_payload.dissect = function(buffer, 
   if packet_type == "S" then
     return nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Server Heartbeat Packet
+  if packet_type == "H" then
+    return offset
+  end
+  -- Dissect End Of Session Packet
+  if packet_type == "Z" then
+    return offset
+  end
   -- Dissect Login Request Packet
   if packet_type == "L" then
     return nasdaq_iseoptions_spreadorders_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
@@ -3074,6 +3086,14 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.tcp_payload.dissect = function(buffer, 
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
     return nasdaq_iseoptions_spreadorders_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if packet_type == "O" then
+    return offset
   end
 
   return offset
@@ -3141,7 +3161,7 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.soup_bin_tcp_packet.fields = function(b
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 6 branches
+  -- Tcp Payload: Runtime Type with 10 branches
   index = nasdaq_iseoptions_spreadorders_itch_v2_1.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

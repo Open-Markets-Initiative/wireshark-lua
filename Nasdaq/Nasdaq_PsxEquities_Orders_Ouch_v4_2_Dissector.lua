@@ -175,16 +175,16 @@ nasdaq_psxequities_orders_ouch_v4_2.bbo_weight_indicator.size = 1
 -- Display: Bbo Weight Indicator
 nasdaq_psxequities_orders_ouch_v4_2.bbo_weight_indicator.display = function(value)
   if value == "0" then
-    return "Bbo Weight Indicator: 002 (0)"
+    return "Bbo Weight Indicator: Less Than Point Two Percent (0)"
   end
   if value == "1" then
-    return "Bbo Weight Indicator: 021 (1)"
+    return "Bbo Weight Indicator: Less Than One Percent (1)"
   end
   if value == "2" then
-    return "Bbo Weight Indicator: 12 (2)"
+    return "Bbo Weight Indicator: Less Than Two Percent (2)"
   end
   if value == "3" then
-    return "Bbo Weight Indicator: Greater Than 2 (3)"
+    return "Bbo Weight Indicator: Greater Than Two Percent (3)"
   end
   if value == "S" then
     return "Bbo Weight Indicator: Sets The Qbbo (S)"

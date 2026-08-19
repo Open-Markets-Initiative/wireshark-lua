@@ -1667,7 +1667,7 @@ nasdaq_utp_input_utp_v4_0.orig.display = function(value)
     return "Orig: Texas Stock Exchange Llc (FU)"
   end
   if value == "GU" then
-    return "Orig: 24 X National Exchange Llc (GU)"
+    return "Orig: N 24 X National Exchange Llc (GU)"
   end
   if value == "HU" then
     return "Orig: Miax Pearl Llc (HU)"
@@ -2845,10 +2845,10 @@ nasdaq_utp_input_utp_v4_0.tt_exempt.size = 1
 -- Display: Tt Exempt
 nasdaq_utp_input_utp_v4_0.tt_exempt.display = function(value)
   if value == "X" then
-    return "Tt Exempt: 611 Trade Through Exempt (X)"
+    return "Tt Exempt: Rule 611 Trade Through Exempt (X)"
   end
   if value == " " then
-    return "Tt Exempt: Not 611 Trade Through Exempt (<whitespace>)"
+    return "Tt Exempt: Not Rule 611 Trade Through Exempt (<whitespace>)"
   end
 
   return "Tt Exempt: Unknown("..value..")"

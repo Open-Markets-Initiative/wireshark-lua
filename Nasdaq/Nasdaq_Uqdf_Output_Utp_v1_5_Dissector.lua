@@ -214,8 +214,8 @@ nasdaq_uqdf_output_utp_v1_5.administrative_message_type.display = function(value
   if value == "H" then
     return "Administrative Message Type: Cross Sro Trading Action Message (H)"
   end
-  if value == "H" then
-    return "Administrative Message Type: Market Center Trading Action Message (H)"
+  if value == "K" then
+    return "Administrative Message Type: Market Center Trading Action Message (K)"
   end
   if value == "B" then
     return "Administrative Message Type: Issue Symbol Directory Message (B)"
@@ -3936,7 +3936,7 @@ nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, of
     return nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Center Trading Action Message
-  if administrative_message_type == "H" then
+  if administrative_message_type == "K" then
     return nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Symbol Directory Message

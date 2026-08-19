@@ -640,7 +640,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.display = functi
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"

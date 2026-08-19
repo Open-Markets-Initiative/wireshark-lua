@@ -1208,7 +1208,7 @@ nasdaq_utdf_output_utp_v3_0_c.issue_type.display = function(value)
     return "Issue Type: Depository Receipt (F)"
   end
   if value == "I" then
-    return "Issue Type: 144 A (I)"
+    return "Issue Type: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Type: Limited Partnership (L)"
@@ -1525,7 +1525,7 @@ nasdaq_utdf_output_utp_v3_0_c.market_center_originator.display = function(value)
     return "Market Center Originator: Texas Stock Exchange Llc (F)"
   end
   if value == "G" then
-    return "Market Center Originator: 24 X National Exchange Llc (G)"
+    return "Market Center Originator: N 24 X National Exchange Llc (G)"
   end
   if value == "D" then
     return "Market Center Originator: Financial Industry Regulatory Authority (D)"
@@ -3000,10 +3000,10 @@ nasdaq_utdf_output_utp_v3_0_c.trade_through_exempt_flag.size = 1
 -- Display: Trade Through Exempt Flag
 nasdaq_utdf_output_utp_v3_0_c.trade_through_exempt_flag.display = function(value)
   if value == "X" then
-    return "Trade Through Exempt Flag: 611 Trade Through Exempt (X)"
+    return "Trade Through Exempt Flag: Rule 611 Trade Through Exempt (X)"
   end
   if value == " " then
-    return "Trade Through Exempt Flag: Not 611 Trade Through Exempt (<whitespace>)"
+    return "Trade Through Exempt Flag: Not Rule 611 Trade Through Exempt (<whitespace>)"
   end
 
   return "Trade Through Exempt Flag: Unknown("..value..")"

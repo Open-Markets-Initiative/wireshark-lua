@@ -952,7 +952,7 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.issue_classification.display = function(val
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"
