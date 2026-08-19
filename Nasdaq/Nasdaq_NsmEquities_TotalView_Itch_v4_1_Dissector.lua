@@ -1108,40 +1108,40 @@ nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.display = funct
     return "Price Variation Indicator: Less (L)"
   end
   if value == "1" then
-    return "Price Variation Indicator: 1 To 199 (1)"
+    return "Price Variation Indicator: One To One Point Nine Nine Percent (1)"
   end
   if value == "2" then
-    return "Price Variation Indicator: 2 To 299 (2)"
+    return "Price Variation Indicator: Two To Two Point Nine Nine Percent (2)"
   end
   if value == "3" then
-    return "Price Variation Indicator: 3 To 399 (3)"
+    return "Price Variation Indicator: Three To Three Point Nine Nine Percent (3)"
   end
   if value == "4" then
-    return "Price Variation Indicator: 4 To 499 (4)"
+    return "Price Variation Indicator: Four To Four Point Nine Nine Percent (4)"
   end
   if value == "5" then
-    return "Price Variation Indicator: 5 To 599 (5)"
+    return "Price Variation Indicator: Five To Five Point Nine Nine Percent (5)"
   end
   if value == "6" then
-    return "Price Variation Indicator: 6 To 699 (6)"
+    return "Price Variation Indicator: Six To Six Point Nine Nine Percent (6)"
   end
   if value == "7" then
-    return "Price Variation Indicator: 7 To 799 (7)"
+    return "Price Variation Indicator: Seven To Seven Point Nine Nine Percent (7)"
   end
   if value == "8" then
-    return "Price Variation Indicator: 8 To 899 (8)"
+    return "Price Variation Indicator: Eight To Eight Point Nine Nine Percent (8)"
   end
   if value == "9" then
-    return "Price Variation Indicator: 9 To 999 (9)"
+    return "Price Variation Indicator: Nine To Nine Point Nine Nine Percent (9)"
   end
   if value == "A" then
-    return "Price Variation Indicator: 10 To 1999 (A)"
+    return "Price Variation Indicator: Ten To Nineteen Point Nine Nine Percent (A)"
   end
   if value == "B" then
-    return "Price Variation Indicator: 20 To 2999 (B)"
+    return "Price Variation Indicator: Twenty To Twenty Nine Point Nine Nine Percent (B)"
   end
   if value == "C" then
-    return "Price Variation Indicator: 30 Or Greater (C)"
+    return "Price Variation Indicator: Thirty Percent Or Greater (C)"
   end
   if value == " " then
     return "Price Variation Indicator: No Calculation (<whitespace>)"
