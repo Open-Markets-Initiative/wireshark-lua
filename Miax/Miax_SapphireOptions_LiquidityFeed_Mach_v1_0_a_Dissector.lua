@@ -786,15 +786,6 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.message_type.display = function(v
   if value == "x" then
     return "Message Type: Order Close Message (x)"
   end
-  if value == "R" then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: End Of Refresh Notification Message (E)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -2179,7 +2170,17 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -3378,7 +3379,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 11 values
+  -- Message Type: 1 Byte Ascii String Enum with 8 values
   index, message_type = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 8 branches
@@ -3548,7 +3549,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches

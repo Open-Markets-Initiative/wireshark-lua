@@ -2366,9 +2366,6 @@ miax_pearlequities_expressorders_meo_v2_7_a.pending_reject_reason.display = func
   if value == "X" then
     return "Pending Reject Reason: Rejected By Primary Listing Market (X)"
   end
-  if value == "X" then
-    return "Pending Reject Reason: Rejected By Primary Market (X)"
-  end
 
   return "Pending Reject Reason: Unknown("..value..")"
 end
