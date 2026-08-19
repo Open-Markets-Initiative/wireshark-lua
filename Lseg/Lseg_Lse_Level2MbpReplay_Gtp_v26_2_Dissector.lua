@@ -1497,10 +1497,10 @@ lseg_lse_level2mbpreplay_gtp_v26_2.statistic_type.display = function(value)
     return "Statistic Type: Trade Low All Trades (7)"
   end
   if value == 8 then
-    return "Statistic Type: 52 Week Trade High All Trades (8)"
+    return "Statistic Type: Fifty Two Week Trade High All Trades (8)"
   end
   if value == 9 then
-    return "Statistic Type: 52 Week Trade Low All Trades (9)"
+    return "Statistic Type: Fifty Two Week Trade Low All Trades (9)"
   end
   if value == 10 then
     return "Statistic Type: Best Closing Bid (10)"

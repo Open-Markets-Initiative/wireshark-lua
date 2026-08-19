@@ -1582,10 +1582,10 @@ lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.display = function(val
     return "Statistic Type: Trade Low All Trades (7)"
   end
   if value == 8 then
-    return "Statistic Type: 52 Week Trade High All Trades (8)"
+    return "Statistic Type: Fifty Two Week Trade High All Trades (8)"
   end
   if value == 9 then
-    return "Statistic Type: 52 Week Trade Low All Trades (9)"
+    return "Statistic Type: Fifty Two Week Trade Low All Trades (9)"
   end
 
   return "Statistic Type: Unknown("..value..")"
