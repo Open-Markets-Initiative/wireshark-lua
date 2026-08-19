@@ -1806,7 +1806,7 @@ hkex_hkexderivatives_premium_omd_v1_49.market.display = function(value)
     return "Market: Physically Settled Usd Gold Futures (117)"
   end
   if value == 118 then
-    return "Market: 5 Year China Government Bond Futures (118)"
+    return "Market: Five Year China Government Bond Futures (118)"
   end
   if value == 120 then
     return "Market: Usd Base And Ferrous Futures (120)"
