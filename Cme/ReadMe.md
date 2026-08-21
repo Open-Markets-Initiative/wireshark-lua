@@ -5,6 +5,7 @@
 
 | Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cme.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Common][Common.Common] | [Mdp][Cme.Common.Mdp] | [Udp][Omi.Encoding.Udp] | [1.][Cme.Common.Mdp.Udp.v1.Dissector] | 7/26/2019 | 502 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Common.Mdp.Udp.v1.Url] |
 | [Globex][Globex.Platform] | [BrokerTecUst][Cme.Globex.BrokerTecUst] | [Sbe][Omi.Encoding.Sbe] | [10.1][Cme.Globex.BrokerTecUst.Sbe.v10.1.Dissector] | 4/13/2023 | 1773 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cme.Globex.BrokerTecUst.Sbe.v10.1.Url] - [xml][Cme.Globex.BrokerTecUst.Sbe.v10.1.Xml] |
 | [Globex][Globex.Platform] | [Derived][Cme.Globex.Derived] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.Globex.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | 2270 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Derived.Sbe.v12.0.Url] - [xml][Cme.Globex.Derived.Sbe.v12.0.Xml] |
 | [Globex][Globex.Platform] | [EbsSpectrum][Cme.Globex.EbsSpectrum] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.Globex.EbsSpectrum.Sbe.v12.0.Dissector] | 4/8/2022 | 2280 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.EbsSpectrum.Sbe.v12.0.Url] - [xml][Cme.Globex.EbsSpectrum.Sbe.v12.0.Xml] |
@@ -27,7 +28,6 @@
 | [Globex][Globex.Platform] | [Settlements][Cme.Globex.Settlements] | [Sbe][Omi.Encoding.Sbe] | [7.0][Cme.Globex.Settlements.Sbe.v7.0.Dissector] | 12/3/2018 | 3041 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Settlements.Sbe.v7.0.Url] - [xml][Cme.Globex.Settlements.Sbe.v7.0.Xml] |
 | [Globex][Globex.Platform] | [Streamlined][Cme.Globex.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.9][Cme.Globex.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | 13273 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Streamlined.Sbe.v5.9.Url] - [xml][Cme.Globex.Streamlined.Sbe.v5.9.Xml] |
 | [Globex][Globex.Platform] | [Streamlined][Cme.Globex.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.8][Cme.Globex.Streamlined.Sbe.v5.8.Dissector] | 6/2/2017 | 12161 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Streamlined.Sbe.v5.8.Url] - [xml][Cme.Globex.Streamlined.Sbe.v5.8.Xml] |
-| [Headers][Headers] | [Mdp][Cme.Headers.Mdp] | [Udp][Omi.Encoding.Udp] | [1.][Cme.Headers.Mdp.Udp.v1.Dissector] | 7/26/2019 | 502 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Headers.Mdp.Udp.v1.Url] |
 
 
 Cme: [website](http://www.cmegroup.com "Go to CME Group")
@@ -50,9 +50,9 @@ Cme: [website](http://www.cmegroup.com "Go to CME Group")
 [Omi.Cme.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Specifications "Cme Specifications Directory"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[Headers]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Headers "Cme Headers"
+[Common.Common]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Common "Cme Common"
 [Globex.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cme/Protocols/Globex "Cme Globex"
-[Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
+[Cme.Common.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Common/Mdp.md "Market Data Protocol"
 [Cme.Globex.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Mdp3.md "Market Data Platform 3"
 [Cme.Globex.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Streamlined.md "Streamlined Market Data"
 [Cme.Globex.Settlements]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Settlements.md "Settlements"
@@ -61,8 +61,8 @@ Cme: [website](http://www.cmegroup.com "Go to CME Group")
 [Cme.Globex.Derived]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Derived.md "Derived Market Data"
 [Cme.Globex.EbsSpectrum]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/EbsSpectrum.md "Ebs Spectrum Market Data"
 
-[Cme.Headers.Mdp.Udp.v1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Headers_Mdp_Udp_v1_Dissector.lua "Cme Headers Mdp Udp v1 Wireshark Dissector"
-[Cme.Headers.Mdp.Udp.v1.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "CME Group 1. Url"
+[Cme.Common.Mdp.Udp.v1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Common_Mdp_Udp_v1_Dissector.lua "Cme Common Mdp Udp v1 Wireshark Dissector"
+[Cme.Common.Mdp.Udp.v1.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "CME Group 1. Url"
 [Cme.Globex.Mdp3.Sbe.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua "Cme Globex Mdp3 Sbe v1.5 Wireshark Dissector"
 [Cme.Globex.Mdp3.Sbe.v1.5.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/CME+MDP+3.0+Market+Data "CME Group 1.5 Url"
 [Cme.Globex.Mdp3.Sbe.v1.5.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Specifications/Mdp3/Cme.Futures.Mdp3.Sbe.v.1.5.xml "CME Group 1.5 Xml"

@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 822 | 6,045,345 |
+| 825 | 6,053,286 |
 
 ## Testing
 
@@ -132,6 +132,7 @@ Enjoy.
 [Omi.Encoding.Pillar]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pillar.md "Pillar Encoding"
 [Omi.Encoding.Ultra]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ultra.md "Ultra Encoding"
 [Omi.Encoding.PillarStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/PillarStream.md "PillarStream Encoding"
+[Omi.Encoding.Glimpse]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Glimpse.md "Glimpse Encoding"
 [Omi.Encoding.Link]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Link.md "Link Encoding"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cta.md "Cta Encoding"
@@ -154,7 +155,7 @@ Enjoy.
 [Asx.AsxDerivatives.T24]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxDerivatives/T24.md "24 Itch"
 [Asx.AsxDerivatives.Ntp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxDerivatives/Ntp.md "New Trading Platform"
 [Asx.AsxSecurities.Trade]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Asx/Protocols/AsxSecurities/Trade.md "Asx Trade"
-[B3.Securities.BinaryPacketHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Securities/BinaryPacketHeader.md "Binary Packet Header"
+[B3.Common.BinaryPacketHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/Common/BinaryPacketHeader.md "Binary Packet Header"
 [B3.B3Derivatives.BinaryUmdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/B3Derivatives/BinaryUmdf.md "Binary Unified Market Data Feed"
 [B3.B3Derivatives.BinaryEntryPoint]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/B3/Protocols/B3Derivatives/BinaryEntryPoint.md "Binary Entry Point"
 [Bist.BorsaIstanbul.GeniumInet]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bist/Protocols/BorsaIstanbul/GeniumInet.md "Genium Inet"
@@ -245,7 +246,7 @@ Enjoy.
 [Cboe.C2Options.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/C2Options/ComplexAuction.md "Complex Auction"
 [Cboe.EdgxOptions.ComplexAuction]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxOptions/ComplexAuction.md "Complex Auction"
 [CixAts.CixAspen.MarketDataFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/CixAts/Protocols/CixAspen/MarketDataFeed.md "CIX Market Data Feed"
-[Cme.Headers.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Headers/Mdp.md "Market Data Protocol"
+[Cme.Common.Mdp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Common/Mdp.md "Market Data Protocol"
 [Cme.Globex.Mdp3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Mdp3.md "Market Data Platform 3"
 [Cme.Globex.Streamlined]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Streamlined.md "Streamlined Market Data"
 [Cme.Globex.Settlements]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cme/Protocols/Globex/Settlements.md "Settlements"
