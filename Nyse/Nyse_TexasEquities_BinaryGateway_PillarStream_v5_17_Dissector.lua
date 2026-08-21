@@ -9653,7 +9653,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.pillar_stream_message = {}
 
 -- Verify required size of Tcp packet
 nyse_texasequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_texasequities_binarygateway_pillarstream_v5_17.login_message.size + nyse_texasequities_binarygateway_pillarstream_v5_17.login_response.size + nyse_texasequities_binarygateway_pillarstream_v5_17.stream_avail.size + nyse_texasequities_binarygateway_pillarstream_v5_17.heartbeat.size + nyse_texasequities_binarygateway_pillarstream_v5_17.open.size + nyse_texasequities_binarygateway_pillarstream_v5_17.open_response.size + nyse_texasequities_binarygateway_pillarstream_v5_17.close.size + nyse_texasequities_binarygateway_pillarstream_v5_17.close_response.size + nyse_texasequities_binarygateway_pillarstream_v5_17.seq_msg.size
+  return buffer:len() >= nyse_texasequities_binarygateway_pillarstream_v5_17.msg_type.size
 end
 
 -- Dissect Pillar Stream Message

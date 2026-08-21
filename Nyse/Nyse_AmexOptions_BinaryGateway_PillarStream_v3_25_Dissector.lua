@@ -10234,7 +10234,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message = {}
 
 -- Verify required size of Tcp packet
 nyse_amexoptions_binarygateway_pillarstream_v3_25.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_amexoptions_binarygateway_pillarstream_v3_25.login_message.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.login_response.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_avail.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.heartbeat.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.open.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.open_response.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.close.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.close_response.size + nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg.size
+  return buffer:len() >= nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.size
 end
 
 -- Dissect Pillar Stream Message

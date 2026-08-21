@@ -1404,7 +1404,7 @@ nyse_options_streamprotocol_pillarstream_v1_6.pillar_stream_message = {}
 
 -- Verify required size of Tcp packet
 nyse_options_streamprotocol_pillarstream_v1_6.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_options_streamprotocol_pillarstream_v1_6.login_message.size + nyse_options_streamprotocol_pillarstream_v1_6.login_response.size + nyse_options_streamprotocol_pillarstream_v1_6.stream_avail.size + nyse_options_streamprotocol_pillarstream_v1_6.heartbeat.size + nyse_options_streamprotocol_pillarstream_v1_6.open.size + nyse_options_streamprotocol_pillarstream_v1_6.open_response.size + nyse_options_streamprotocol_pillarstream_v1_6.close.size + nyse_options_streamprotocol_pillarstream_v1_6.close_response.size + nyse_options_streamprotocol_pillarstream_v1_6.seq_msg.size
+  return buffer:len() >= nyse_options_streamprotocol_pillarstream_v1_6.msg_type.size
 end
 
 -- Dissect Pillar Stream Message
