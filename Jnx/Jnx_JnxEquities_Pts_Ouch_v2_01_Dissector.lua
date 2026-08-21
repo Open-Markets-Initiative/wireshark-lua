@@ -81,6 +81,24 @@ omi_jnx_jnxequities_pts_ouch_v2_01.fields.sequenced_data_packet = ProtoField.new
 omi_jnx_jnxequities_pts_ouch_v2_01.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.ouch.v2.01.unsequenceddatapacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
+-- Jnx JnxEquities Pts Ouch 2.01 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+jnx_jnxequities_pts_ouch_v2_01.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+jnx_jnxequities_pts_ouch_v2_01.utc_offset_hours = 5
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -96,6 +114,8 @@ omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_application_messages = Pref.bool("
 omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_jnx_jnxequities_pts_ouch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_jnx_jnxequities_pts_ouch_v2_01.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_ouch_v2_01.prefs_changed()
@@ -109,6 +129,12 @@ function omi_jnx_jnxequities_pts_ouch_v2_01.prefs_changed()
   end
   if show.structs ~= omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_structs then
     show.structs = omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_structs
+  end
+  if jnx_jnxequities_pts_ouch_v2_01.timestamp_format ~= omi_jnx_jnxequities_pts_ouch_v2_01.prefs.timestamp_format then
+    jnx_jnxequities_pts_ouch_v2_01.timestamp_format = omi_jnx_jnxequities_pts_ouch_v2_01.prefs.timestamp_format
+  end
+  if jnx_jnxequities_pts_ouch_v2_01.utc_offset_hours ~= omi_jnx_jnxequities_pts_ouch_v2_01.prefs.utc_offset_hours then
+    jnx_jnxequities_pts_ouch_v2_01.utc_offset_hours = omi_jnx_jnxequities_pts_ouch_v2_01.prefs.utc_offset_hours
   end
 end
 
@@ -1302,8 +1328,28 @@ jnx_jnxequities_pts_ouch_v2_01.timestamp = {}
 jnx_jnxequities_pts_ouch_v2_01.timestamp.size = 8
 
 -- Display: Timestamp
-jnx_jnxequities_pts_ouch_v2_01.timestamp.display = function(value)
-  return "Timestamp: "..value
+jnx_jnxequities_pts_ouch_v2_01.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if jnx_jnxequities_pts_ouch_v2_01.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if jnx_jnxequities_pts_ouch_v2_01.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = jnx_jnxequities_pts_ouch_v2_01.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

@@ -146,6 +146,24 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_data_packet = P
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.utc_offset_hours = 5
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -165,6 +183,8 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_structs = Pref.bool("Sh
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs_changed()
@@ -184,6 +204,12 @@ function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_indexes then
     show.indexes = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_indexes
+  end
+  if nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp_format ~= omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.timestamp_format then
+    nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp_format = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.timestamp_format
+  end
+  if nasdaq_ntxoptions_depthofmarket_itch_v2_2.utc_offset_hours ~= omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.utc_offset_hours then
+    nasdaq_ntxoptions_depthofmarket_itch_v2_2.utc_offset_hours = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.utc_offset_hours
   end
 end
 
@@ -2157,8 +2183,28 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp = {}
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp.size = 8
 
 -- Display: Timestamp
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_ntxoptions_depthofmarket_itch_v2_2.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_ntxoptions_depthofmarket_itch_v2_2.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
