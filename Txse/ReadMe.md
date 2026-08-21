@@ -6,6 +6,7 @@
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11749 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 988 | [Header][Omi.Glossary.Status.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
 
 
 Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
@@ -26,10 +27,15 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ReadMe.md "Encoding Directory"
 [Omi.Txse.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols "Txse Protocol Directory"
 [Omi.Txse.Specifications]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Specifications "Txse Specifications Directory"
+[Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Tcp.md "Tcp Encoding"
 [Omi.Encoding.Rake]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Rake.md "Rake Encoding"
 [TxseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/TxseEquities "Txse TxseEquities"
+[Txse.TxseEquities.Framing]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Framing.md ""
 [Txse.TxseEquities.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Seed.md "Session Enabled Entry Daemon"
 
+[Txse.TxseEquities.Framing.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_TxseEquities_Framing_Tcp_v1_0_Dissector.lua "Txse TxseEquities Framing Tcp v1.0 Wireshark Dissector"
+[Txse.TxseEquities.Framing.Tcp.v1.0.Url]: https://www.txse.com "Texas Stock Exchange 1.0 Url"
+[Txse.TxseEquities.Framing.Tcp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Rake\Txse.Equities.Rake.v1.0.pdf "Texas Stock Exchange 1.0 Pdf"
 [Txse.TxseEquities.Seed.Rake.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua "Txse TxseEquities Seed Rake v1.0 Wireshark Dissector"
 [Txse.TxseEquities.Seed.Rake.v1.0.Url]: https://www.txse.com "Texas Stock Exchange 1.0 Url"
 [Txse.TxseEquities.Seed.Rake.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Seed\Txse.Equities.OrderEntry.Seed.v1.0.pdf "Texas Stock Exchange 1.0 Pdf"

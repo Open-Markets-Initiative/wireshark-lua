@@ -398,7 +398,7 @@ cme_headers_mdp_udp_v1.udp_packet = {}
 
 -- Verify required size of Udp packet
 cme_headers_mdp_udp_v1.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_headers_mdp_udp_v1.binary_packet_header.size + cme_headers_mdp_udp_v1.message_size.size + cme_headers_mdp_udp_v1.message_header.size + cme_headers_mdp_udp_v1.payload.size
+  return buffer:len() >= cme_headers_mdp_udp_v1.binary_packet_header.size + cme_headers_mdp_udp_v1.message_size.size + cme_headers_mdp_udp_v1.message_header.size
 end
 
 -- Dissect Udp Packet

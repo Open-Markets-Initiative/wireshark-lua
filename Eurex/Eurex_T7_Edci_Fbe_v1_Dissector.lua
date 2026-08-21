@@ -237,7 +237,7 @@ eurex_t7_edci_fbe_v1.packet = {}
 
 -- Verify required size of Tcp packet
 eurex_t7_edci_fbe_v1.packet.requiredsize = function(buffer)
-  return buffer:len() >= eurex_t7_edci_fbe_v1.message_header.size + eurex_t7_edci_fbe_v1.payload.size
+  return buffer:len() >= eurex_t7_edci_fbe_v1.message_header.size
 end
 
 -- Dissect Packet

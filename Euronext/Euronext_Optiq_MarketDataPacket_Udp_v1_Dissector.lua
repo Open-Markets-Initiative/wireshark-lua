@@ -585,7 +585,7 @@ euronext_optiq_marketdatapacket_udp_v1.packet = {}
 
 -- Verify required size of Udp packet
 euronext_optiq_marketdatapacket_udp_v1.packet.requiredsize = function(buffer)
-  return buffer:len() >= euronext_optiq_marketdatapacket_udp_v1.market_data_packet_header.size + euronext_optiq_marketdatapacket_udp_v1.frame.size + euronext_optiq_marketdatapacket_udp_v1.message_header.size + euronext_optiq_marketdatapacket_udp_v1.payload.size
+  return buffer:len() >= euronext_optiq_marketdatapacket_udp_v1.market_data_packet_header.size + euronext_optiq_marketdatapacket_udp_v1.frame.size + euronext_optiq_marketdatapacket_udp_v1.message_header.size
 end
 
 -- Dissect Packet

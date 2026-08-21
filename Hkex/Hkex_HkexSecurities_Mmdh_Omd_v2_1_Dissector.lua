@@ -7764,7 +7764,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.packet = {}
 
 -- Verify required size of Tcp packet
 hkex_hkexsecurities_mmdh_omd_v2_1.packet.requiredsize = function(buffer)
-  return buffer:len() >= hkex_hkexsecurities_mmdh_omd_v2_1.message.size
+  return buffer:len() >= 1
 end
 
 -- Dissect Packet
