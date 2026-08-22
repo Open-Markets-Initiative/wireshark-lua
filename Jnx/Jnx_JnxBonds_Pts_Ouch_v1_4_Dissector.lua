@@ -176,12 +176,6 @@ jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.display = function(value)
   if value == "S" then
     return "Buy Sell Indicator: Sell (S)"
   end
-  if value == "T" then
-    return "Buy Sell Indicator: Sell Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell Indicator: Sell Short Exempt (E)"
-  end
 
   return "Buy Sell Indicator: Unknown("..value..")"
 end
@@ -332,6 +326,9 @@ jnx_jnxbonds_pts_ouch_v1_4.display.size = 1
 
 -- Display: Display
 jnx_jnxbonds_pts_ouch_v1_4.display.display = function(value)
+  if value == " " then
+    return "Display: Unused (<whitespace>)"
+  end
   if value == "P" then
     return "Display: Postonly (P)"
   end
@@ -567,13 +564,13 @@ jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
     return "Order Canceled Reason: User Logged Off (L)"
   end
   if value == "S" then
-    return "Order Canceled Reason: Supervisory Terminal Manual Cancel (S)"
+    return "Order Canceled Reason: Canceled By Supervisory Terminal (S)"
   end
   if value == "I" then
-    return "Order Canceled Reason: Immediate Or Cancel Order (I)"
+    return "Order Canceled Reason: Immediate Order Remaining Quantity Canceled (I)"
   end
   if value == "M" then
-    return "Order Canceled Reason: Order Expired (M)"
+    return "Order Canceled Reason: Order Expired During Matching (M)"
   end
   if value == "X" then
     return "Order Canceled Reason: Invalid Price (X)"
@@ -591,13 +588,13 @@ jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
     return "Order Canceled Reason: Invalid Display Type (D)"
   end
   if value == "R" then
-    return "Order Canceled Reason: Not Allowed (R)"
+    return "Order Canceled Reason: Order Not Allowed At This Time (R)"
   end
   if value == "F" then
-    return "Order Canceled Reason: Throttled (F)"
+    return "Order Canceled Reason: Flow Control Throttled (F)"
   end
   if value == "G" then
-    return "Order Canceled Reason: Margin Restriction (G)"
+    return "Order Canceled Reason: Margin Order Canceled Due To Margin Restriction (G)"
   end
   if value == "O" then
     return "Order Canceled Reason: Other (O)"
@@ -689,10 +686,10 @@ jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.size = 1
 -- Display: Order Rejected Reason
 jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
   if value == "H" then
-    return "Order Rejected Reason: Halted (H)"
+    return "Order Rejected Reason: Trading Halt (H)"
   end
   if value == "S" then
-    return "Order Rejected Reason: Invalid Orderbook Identifier (S)"
+    return "Order Rejected Reason: Invalid Order Book Identifier (S)"
   end
   if value == "X" then
     return "Order Rejected Reason: Invalid Price (X)"
@@ -710,10 +707,10 @@ jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
     return "Order Rejected Reason: Invalid Display Type (D)"
   end
   if value == "R" then
-    return "Order Rejected Reason: Order Not Allowed (R)"
+    return "Order Rejected Reason: Order Not Allowed At This Time (R)"
   end
   if value == "F" then
-    return "Order Rejected Reason: Flow Throttled (F)"
+    return "Order Rejected Reason: Flow Control Throttled (F)"
   end
   if value == "G" then
     return "Order Rejected Reason: Invalid Margin Specification (G)"
@@ -722,7 +719,7 @@ jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
     return "Order Rejected Reason: Mpid Not Allowed For This Port (L)"
   end
   if value == "c" then
-    return "Order Rejected Reason: No Permission (c)"
+    return "Order Rejected Reason: No Permission To Enter Order On Given Board (c)"
   end
   if value == "O" then
     return "Order Rejected Reason: Other (O)"
@@ -1480,10 +1477,10 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.cancel_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_jnxbonds_pts_ouch_v1_4.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1529,25 +1526,25 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Existing Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Existing Order Token: Token
   index, existing_order_token = jnx_jnxbonds_pts_ouch_v1_4.existing_order_token.dissect(buffer, index, packet, parent)
 
-  -- Replacement Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Replacement Order Token: Token
   index, replacement_order_token = jnx_jnxbonds_pts_ouch_v1_4.replacement_order_token.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_jnxbonds_pts_ouch_v1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Integer
   index, price = jnx_jnxbonds_pts_ouch_v1_4.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Time In Force: Integer
   index, time_in_force = jnx_jnxbonds_pts_ouch_v1_4.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: Alpha
   index, display = jnx_jnxbonds_pts_ouch_v1_4.display.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Quantity: Integer
   index, minimum_quantity = jnx_jnxbonds_pts_ouch_v1_4.minimum_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1600,46 +1597,46 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.enter_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Client Reference: 10 Byte Ascii String
+  -- Client Reference: Alpha
   index, client_reference = jnx_jnxbonds_pts_ouch_v1_4.client_reference.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_jnxbonds_pts_ouch_v1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxbonds_pts_ouch_v1_4.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 1 values
+  -- Group: Alpha
   index, group = jnx_jnxbonds_pts_ouch_v1_4.group.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Integer
   index, price = jnx_jnxbonds_pts_ouch_v1_4.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Time In Force: Integer
   index, time_in_force = jnx_jnxbonds_pts_ouch_v1_4.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 4 Byte Unsigned Fixed Width Integer
+  -- Firm Id: Integer
   index, firm_id = jnx_jnxbonds_pts_ouch_v1_4.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: Alpha
   index, display = jnx_jnxbonds_pts_ouch_v1_4.display.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Capacity: Alpha
   index, capacity = jnx_jnxbonds_pts_ouch_v1_4.capacity.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Quantity: Integer
   index, minimum_quantity = jnx_jnxbonds_pts_ouch_v1_4.minimum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Order Classification: 1 Byte Ascii String Enum with 5 values
+  -- Order Classification: Alpha
   index, order_classification = jnx_jnxbonds_pts_ouch_v1_4.order_classification.dissect(buffer, index, packet, parent)
 
-  -- Cash Margin Type: 1 Byte Ascii String Enum with 1 values
+  -- Cash Margin Type: Alpha
   index, cash_margin_type = jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1841,13 +1838,13 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Order Rejected Reason: 1 Byte Ascii String Enum with 13 values
+  -- Order Rejected Reason: Alpha
   index, order_rejected_reason = jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1893,25 +1890,25 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_executed_with_counter_party_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Integer
   index, executed_quantity = jnx_jnxbonds_pts_ouch_v1_4.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: 4 Byte Signed Fixed Width Integer
+  -- Execution Price: Signed Integer
   index, execution_price = jnx_jnxbonds_pts_ouch_v1_4.execution_price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Liquidity Indicator: Alpha
   index, liquidity_indicator = jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.dissect(buffer, index, packet, parent)
 
-  -- Counter Party: 12 Byte Ascii String
+  -- Counter Party: Alpha
   index, counter_party = jnx_jnxbonds_pts_ouch_v1_4.counter_party.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = jnx_jnxbonds_pts_ouch_v1_4.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1957,25 +1954,25 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_aiq_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Decrement Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Decrement Quantity: Integer
   index, decrement_quantity = jnx_jnxbonds_pts_ouch_v1_4.decrement_quantity.dissect(buffer, index, packet, parent)
 
-  -- Order Canceled Reason: 1 Byte Ascii String Enum with 14 values
+  -- Order Canceled Reason: Alpha
   index, order_canceled_reason = jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.dissect(buffer, index, packet, parent)
 
-  -- Quantity Prevented From Trading: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity Prevented From Trading: Integer
   index, quantity_prevented_from_trading = jnx_jnxbonds_pts_ouch_v1_4.quantity_prevented_from_trading.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: 4 Byte Signed Fixed Width Integer
+  -- Execution Price: Signed Integer
   index, execution_price = jnx_jnxbonds_pts_ouch_v1_4.execution_price.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Liquidity Indicator: Alpha
   index, liquidity_indicator = jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2018,16 +2015,16 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_canceled_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Decrement Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Decrement Quantity: Integer
   index, decrement_quantity = jnx_jnxbonds_pts_ouch_v1_4.decrement_quantity.dissect(buffer, index, packet, parent)
 
-  -- Order Canceled Reason: 1 Byte Ascii String Enum with 14 values
+  -- Order Canceled Reason: Alpha
   index, order_canceled_reason = jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -2079,43 +2076,43 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Replacement Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Replacement Order Token: Token
   index, replacement_order_token = jnx_jnxbonds_pts_ouch_v1_4.replacement_order_token.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_jnxbonds_pts_ouch_v1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxbonds_pts_ouch_v1_4.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 1 values
+  -- Group: Alpha
   index, group = jnx_jnxbonds_pts_ouch_v1_4.group.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Integer
   index, price = jnx_jnxbonds_pts_ouch_v1_4.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Time In Force: Integer
   index, time_in_force = jnx_jnxbonds_pts_ouch_v1_4.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: Alpha
   index, display = jnx_jnxbonds_pts_ouch_v1_4.display.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_jnxbonds_pts_ouch_v1_4.order_number.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Quantity: Integer
   index, minimum_quantity = jnx_jnxbonds_pts_ouch_v1_4.minimum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Ascii String Enum with 2 values
+  -- Order State: Alpha
   index, order_state = jnx_jnxbonds_pts_ouch_v1_4.order_state.dissect(buffer, index, packet, parent)
 
-  -- Previous Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Previous Order Token: Token
   index, previous_order_token = jnx_jnxbonds_pts_ouch_v1_4.previous_order_token.dissect(buffer, index, packet, parent)
 
   return index
@@ -2171,55 +2168,55 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.order_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Token: 4 Byte Unsigned Fixed Width Integer
+  -- Order Token: Token
   index, order_token = jnx_jnxbonds_pts_ouch_v1_4.order_token.dissect(buffer, index, packet, parent)
 
-  -- Client Reference: 10 Byte Ascii String
+  -- Client Reference: Alpha
   index, client_reference = jnx_jnxbonds_pts_ouch_v1_4.client_reference.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Integer
   index, quantity = jnx_jnxbonds_pts_ouch_v1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: 4 Byte Unsigned Fixed Width Integer
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxbonds_pts_ouch_v1_4.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Group: 4 Byte Ascii String Enum with 1 values
+  -- Group: Alpha
   index, group = jnx_jnxbonds_pts_ouch_v1_4.group.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Integer
   index, price = jnx_jnxbonds_pts_ouch_v1_4.price.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Time In Force: Integer
   index, time_in_force = jnx_jnxbonds_pts_ouch_v1_4.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 4 Byte Unsigned Fixed Width Integer
+  -- Firm Id: Integer
   index, firm_id = jnx_jnxbonds_pts_ouch_v1_4.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: Alpha
   index, display = jnx_jnxbonds_pts_ouch_v1_4.display.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 2 values
+  -- Capacity: Alpha
   index, capacity = jnx_jnxbonds_pts_ouch_v1_4.capacity.dissect(buffer, index, packet, parent)
 
-  -- Order Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Number: Integer
   index, order_number = jnx_jnxbonds_pts_ouch_v1_4.order_number.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Minimum Quantity: Integer
   index, minimum_quantity = jnx_jnxbonds_pts_ouch_v1_4.minimum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Order State: 1 Byte Ascii String Enum with 2 values
+  -- Order State: Alpha
   index, order_state = jnx_jnxbonds_pts_ouch_v1_4.order_state.dissect(buffer, index, packet, parent)
 
-  -- Order Classification: 1 Byte Ascii String Enum with 5 values
+  -- Order Classification: Alpha
   index, order_classification = jnx_jnxbonds_pts_ouch_v1_4.order_classification.dissect(buffer, index, packet, parent)
 
-  -- Cash Margin Type: 1 Byte Ascii String Enum with 1 values
+  -- Cash Margin Type: Alpha
   index, cash_margin_type = jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2260,10 +2257,10 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = jnx_jnxbonds_pts_ouch_v1_4.timestamp.dissect(buffer, index, packet, parent)
 
-  -- System Event: 1 Byte Ascii String Enum with 2 values
+  -- System Event: Alpha
   index, system_event = jnx_jnxbonds_pts_ouch_v1_4.system_event.dissect(buffer, index, packet, parent)
 
   return index
