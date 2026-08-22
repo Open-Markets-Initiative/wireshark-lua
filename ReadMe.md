@@ -24,7 +24,7 @@ Note: Some packets contain enough information to programmatically determine the 
 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
 
-For a walk through of the dissectors in use: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
+For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Customization
 
 Omi Lua dissectors are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.
@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 825 | 6,056,466 |
+| 825 | 6,056,406 |
 
 ## Testing
 
@@ -59,11 +59,9 @@ If these dissectors are useful to you, please consider supporting the foundation
 
 [![Omi](https://github.com/Open-Markets-Initiative/Directory/blob/main/About/Images/Logo.png)](https://github.com/Open-Markets-Initiative/Directory)  The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects")
+Other generated code can be found at [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects"); for details of Omi rules and regulations, see [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory").
 
-For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
-
-Useful? A star helps others find OMI.
+Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiative "Open Markets Initiative").
 
 ## Organizations
 

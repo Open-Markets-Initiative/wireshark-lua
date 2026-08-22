@@ -756,20 +756,8 @@ cboe_edgxequities_top_asciipitch_v1_3_9.message_type.display = function(value)
   if value == "L" then
     return "Message Type: Logon Message (L)"
   end
-  if value == "C" then
-    return "Message Type: Logon Accepted Packet (C)"
-  end
   if value == "J" then
     return "Message Type: Logon Rejected Message (J)"
-  end
-  if value == "D" then
-    return "Message Type: Spin Done Packet (D)"
-  end
-  if value == "H" then
-    return "Message Type: Server Heartbeat Packet (H)"
-  end
-  if value == "R" then
-    return "Message Type: Client Heartbeat Packet (R)"
   end
   if value == "T" then
     return "Message Type: Seconds Message (T)"
@@ -2589,7 +2577,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.packet.dissect = function(buffer, packet
 
   while index < end_of_payload do
 
-    -- Message Type: 1 Byte Ascii String Enum with 31 values
+    -- Message Type: 1 Byte Ascii String Enum with 27 values
     index, message_type = cboe_edgxequities_top_asciipitch_v1_3_9.message_type.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 27 branches

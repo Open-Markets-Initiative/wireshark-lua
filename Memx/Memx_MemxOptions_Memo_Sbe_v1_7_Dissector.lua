@@ -1889,8 +1889,8 @@ memx_memxoptions_memo_sbe_v1_7.message_type.display = function(value)
   if value == 3 then
     return "Message Type: Start Of Session (3)"
   end
-  if value == 3 then
-    return "Message Type: End Of Session (3)"
+  if value == 4 then
+    return "Message Type: End Of Session (4)"
   end
   if value == 5 then
     return "Message Type: Replay Begin (5)"
