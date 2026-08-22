@@ -29,6 +29,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.message_header = ProtoField.new("Messag
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_length = ProtoField.new("Message Length", "jnx.jnxequities.pts.itch.v1.7.messagelength", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_type = ProtoField.new("Message Type", "jnx.jnxequities.pts.itch.v1.7.messagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.nanoseconds = ProtoField.new("Nanoseconds", "jnx.jnxequities.pts.itch.v1.7.nanoseconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.new_order_number = ProtoField.new("New Order Number", "jnx.jnxequities.pts.itch.v1.7.newordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_number = ProtoField.new("Order Number", "jnx.jnxequities.pts.itch.v1.7.ordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_type = ProtoField.new("Order Type", "jnx.jnxequities.pts.itch.v1.7.ordertype", ftypes.STRING)
@@ -48,6 +49,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.reject_reason_code = ProtoField.new("Re
 omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxequities.pts.itch.v1.7.requestedsequencenumber", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_session = ProtoField.new("Requested Session", "jnx.jnxequities.pts.itch.v1.7.requestedsession", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.jnxequities.pts.itch.v1.7.roundlotsize", ftypes.UINT32)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds = ProtoField.new("Seconds", "jnx.jnxequities.pts.itch.v1.7.seconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxequities.pts.itch.v1.7.sequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.short_selling_state = ProtoField.new("Short Selling State", "jnx.jnxequities.pts.itch.v1.7.shortsellingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.soupbintcppacket", ftypes.STRING)
@@ -55,8 +57,6 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.system_event = ProtoField.new("System E
 omi_jnx_jnxequities_pts_itch_v1_7.fields.tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.tcppacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.tcppacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.text = ProtoField.new("Text", "jnx.jnxequities.pts.itch.v1.7.text", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jnx.jnxequities.pts.itch.v1.7.timestampnanoseconds", ftypes.UINT32)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "jnx.jnxequities.pts.itch.v1.7.timestampseconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v1.7.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "jnx.jnxequities.pts.itch.v1.7.udpsequencenumber", ftypes.UINT64)
@@ -85,9 +85,9 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.order_executed_message = ProtoField.new
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.jnxequities.pts.itch.v1.7.orderreplacedmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "jnx.jnxequities.pts.itch.v1.7.orderbookdirectorymessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.jnxequities.pts.itch.v1.7.priceticksizemessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds_message = ProtoField.new("Seconds Message", "jnx.jnxequities.pts.itch.v1.7.secondsmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.short_selling_price_restriction_state_message = ProtoField.new("Short Selling Price Restriction State Message", "jnx.jnxequities.pts.itch.v1.7.shortsellingpricerestrictionstatemessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.itch.v1.7.systemeventmessage", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds_message = ProtoField.new("Timestamp Seconds Message", "jnx.jnxequities.pts.itch.v1.7.timestampsecondsmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxequities.pts.itch.v1.7.tradingstatemessage", ftypes.STRING)
 
 -- Jnx JnxEquities Pts Itch 1.7 generated fields
@@ -132,7 +132,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers = Pref.bool("Show Headers",
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_format_enum, false)
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
@@ -182,7 +182,7 @@ jnx_jnxequities_pts_itch_v1_7.conversation.data = function(packet)
   local key = jnx_jnxequities_pts_itch_v1_7.conversation.key(packet)
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.flows[key]
   if data == nil then
-    data = { timestamp_seconds = { last = nil, frames = {} } }
+    data = { seconds = { last = nil, frames = {} } }
     jnx_jnxequities_pts_itch_v1_7.conversation.flows[key] = data
   end
   return data
@@ -480,7 +480,7 @@ jnx_jnxequities_pts_itch_v1_7.message_type.size = 1
 -- Display: Message Type
 jnx_jnxequities_pts_itch_v1_7.message_type.display = function(value)
   if value == "T" then
-    return "Message Type: Timestamp Seconds Message (T)"
+    return "Message Type: Seconds Message (T)"
   end
   if value == "S" then
     return "Message Type: System Event Message (S)"
@@ -524,6 +524,29 @@ jnx_jnxequities_pts_itch_v1_7.message_type.dissect = function(buffer, offset, pa
   local display = jnx_jnxequities_pts_itch_v1_7.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+jnx_jnxequities_pts_itch_v1_7.nanoseconds = {}
+
+-- Size: Nanoseconds
+jnx_jnxequities_pts_itch_v1_7.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+jnx_jnxequities_pts_itch_v1_7.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+jnx_jnxequities_pts_itch_v1_7.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_itch_v1_7.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1030,6 +1053,39 @@ jnx_jnxequities_pts_itch_v1_7.round_lot_size.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds = {}
+
+-- Size: Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds.size = 4
+
+-- Store: Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds.current = nil
+
+-- Generated: Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds.generated = function(value, range, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v1_7.seconds.display(value)
+  local seconds = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+jnx_jnxequities_pts_itch_v1_7.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_itch_v1_7.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequenced Message Type
 jnx_jnxequities_pts_itch_v1_7.sequenced_message_type = {}
 
@@ -1159,62 +1215,6 @@ jnx_jnxequities_pts_itch_v1_7.text.dissect = function(buffer, offset, packet, pa
   local display = jnx_jnxequities_pts_itch_v1_7.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp Nanoseconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds = {}
-
--- Size: Timestamp Nanoseconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size = 4
-
--- Display: Timestamp Nanoseconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.display = function(value)
-  return "Timestamp Nanoseconds: "..value
-end
-
--- Dissect: Timestamp Nanoseconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds = {}
-
--- Size: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.size = 4
-
--- Store: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = nil
-
--- Generated: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.generated = function(value, range, packet, parent)
-  local display = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.display(value)
-  local timestamp_seconds = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds, range, value, display)
-  timestamp_seconds:set_generated()
-end
-
--- Display: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.display = function(value)
-  return "Timestamp Seconds: "..value
-end
-
--- Dissect: Timestamp Seconds
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1390,15 +1390,15 @@ end
 jnx_jnxequities_pts_itch_v1_7.timestamp = {}
 
 -- Translate: Timestamp
-jnx_jnxequities_pts_itch_v1_7.timestamp.translate = function(timestamp_nanoseconds, stored_timestamp_seconds)
-  return UInt64.new(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
+jnx_jnxequities_pts_itch_v1_7.timestamp.translate = function(nanoseconds, stored_seconds)
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
 end
 
 -- Display: Timestamp
-jnx_jnxequities_pts_itch_v1_7.timestamp.display = function(timestamp_nanoseconds, stored_timestamp_seconds, packet)
+jnx_jnxequities_pts_itch_v1_7.timestamp.display = function(nanoseconds, stored_seconds, packet)
   -- Raw display mode
   if jnx_jnxequities_pts_itch_v1_7.timestamp_format == 0 then
-    return "Timestamp: "..(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
+    return "Timestamp: "..(stored_seconds * 1000000000 + nanoseconds)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
@@ -1406,41 +1406,41 @@ jnx_jnxequities_pts_itch_v1_7.timestamp.display = function(timestamp_nanoseconds
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = jnx_jnxequities_pts_itch_v1_7.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
-    local full_seconds = local_midnight + stored_timestamp_seconds
+    local full_seconds = local_midnight + stored_seconds
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Composite: Timestamp
-jnx_jnxequities_pts_itch_v1_7.timestamp.composite = function(buffer, offset, stored_timestamp_seconds, packet, parent)
-  local length = jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size
+jnx_jnxequities_pts_itch_v1_7.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.nanoseconds.size
   local range = buffer(offset, length)
-  local timestamp_nanoseconds = range:uint()
-  local value = jnx_jnxequities_pts_itch_v1_7.timestamp.translate(timestamp_nanoseconds, stored_timestamp_seconds)
-  local display = jnx_jnxequities_pts_itch_v1_7.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds, packet)
+  local nanoseconds = range:uint()
+  local value = jnx_jnxequities_pts_itch_v1_7.timestamp.translate(nanoseconds, stored_seconds)
+  local display = jnx_jnxequities_pts_itch_v1_7.timestamp.display(nanoseconds, stored_seconds, packet)
   parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp, range, value, display)
 
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.generated(stored_timestamp_seconds, range, packet, parent)
+  jnx_jnxequities_pts_itch_v1_7.seconds.generated(stored_seconds, range, packet, parent)
 
-  display = jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.display(timestamp_nanoseconds)
-  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_nanoseconds, range, timestamp_nanoseconds, display)
+  display = jnx_jnxequities_pts_itch_v1_7.nanoseconds.display(nanoseconds)
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.nanoseconds, range, nanoseconds, display)
 
   return offset + length, value
 end
 
 -- Dissect: Timestamp
 jnx_jnxequities_pts_itch_v1_7.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_timestamp_seconds = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current
+  local stored_seconds = jnx_jnxequities_pts_itch_v1_7.seconds.current
 
-  if stored_timestamp_seconds ~= nil then
-    return jnx_jnxequities_pts_itch_v1_7.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
+  if stored_seconds ~= nil then
+    return jnx_jnxequities_pts_itch_v1_7.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
   end
 
-  return jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.dissect(buffer, offset, packet, parent)
+  return jnx_jnxequities_pts_itch_v1_7.nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1453,7 +1453,7 @@ jnx_jnxequities_pts_itch_v1_7.order_replaced_message = {}
 
 -- Size: Order Replaced Message
 jnx_jnxequities_pts_itch_v1_7.order_replaced_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.original_order_number.size + 
   jnx_jnxequities_pts_itch_v1_7.new_order_number.size + 
   jnx_jnxequities_pts_itch_v1_7.quantity.size + 
@@ -1468,8 +1468,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Order Number: Integer
   index, original_order_number = jnx_jnxequities_pts_itch_v1_7.original_order_number.dissect(buffer, index, packet, parent)
@@ -1509,7 +1509,7 @@ jnx_jnxequities_pts_itch_v1_7.order_deleted_message = {}
 
 -- Size: Order Deleted Message
 jnx_jnxequities_pts_itch_v1_7.order_deleted_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.order_number.size
 
 -- Display: Order Deleted Message
@@ -1521,8 +1521,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_jnxequities_pts_itch_v1_7.order_number.dissect(buffer, index, packet, parent)
@@ -1553,7 +1553,7 @@ jnx_jnxequities_pts_itch_v1_7.order_executed_message = {}
 
 -- Size: Order Executed Message
 jnx_jnxequities_pts_itch_v1_7.order_executed_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.order_number.size + 
   jnx_jnxequities_pts_itch_v1_7.executed_quantity.size + 
   jnx_jnxequities_pts_itch_v1_7.match_number.size
@@ -1567,8 +1567,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_jnxequities_pts_itch_v1_7.order_number.dissect(buffer, index, packet, parent)
@@ -1605,7 +1605,7 @@ jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message = {}
 
 -- Size: Order Added With Attributes Message
 jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.order_number.size + 
   jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.size + 
   jnx_jnxequities_pts_itch_v1_7.quantity.size + 
@@ -1624,8 +1624,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_jnxequities_pts_itch_v1_7.order_number.dissect(buffer, index, packet, parent)
@@ -1677,7 +1677,7 @@ jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message = {}
 
 -- Size: Order Added Without Attributes Message
 jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.order_number.size + 
   jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.size + 
   jnx_jnxequities_pts_itch_v1_7.quantity.size + 
@@ -1694,8 +1694,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = jnx_jnxequities_pts_itch_v1_7.order_number.dissect(buffer, index, packet, parent)
@@ -1741,7 +1741,7 @@ jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message = {}
 
 -- Size: Short Selling Price Restriction State Message
 jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.orderbook_id.size + 
   jnx_jnxequities_pts_itch_v1_7.group.size + 
   jnx_jnxequities_pts_itch_v1_7.short_selling_state.size
@@ -1755,8 +1755,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1793,7 +1793,7 @@ jnx_jnxequities_pts_itch_v1_7.trading_state_message = {}
 
 -- Size: Trading State Message
 jnx_jnxequities_pts_itch_v1_7.trading_state_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.orderbook_id.size + 
   jnx_jnxequities_pts_itch_v1_7.group.size + 
   jnx_jnxequities_pts_itch_v1_7.trading_state.size
@@ -1807,8 +1807,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.trading_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1845,7 +1845,7 @@ jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message = {}
 
 -- Size: Orderbook Directory Message
 jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.orderbook_id.size + 
   jnx_jnxequities_pts_itch_v1_7.orderbook_code.size + 
   jnx_jnxequities_pts_itch_v1_7.group.size + 
@@ -1864,8 +1864,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1917,7 +1917,7 @@ jnx_jnxequities_pts_itch_v1_7.price_tick_size_message = {}
 
 -- Size: Price Tick Size Message
 jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.price_tick_size_table_id.size + 
   jnx_jnxequities_pts_itch_v1_7.price_tick_size.size + 
   jnx_jnxequities_pts_itch_v1_7.price_start.size
@@ -1931,8 +1931,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = jnx_jnxequities_pts_itch_v1_7.price_tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -1969,7 +1969,7 @@ jnx_jnxequities_pts_itch_v1_7.system_event_message = {}
 
 -- Size: System Event Message
 jnx_jnxequities_pts_itch_v1_7.system_event_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_nanoseconds.size + 
+  jnx_jnxequities_pts_itch_v1_7.nanoseconds.size + 
   jnx_jnxequities_pts_itch_v1_7.group.size + 
   jnx_jnxequities_pts_itch_v1_7.system_event.size
 
@@ -1982,8 +1982,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
   index, group = jnx_jnxequities_pts_itch_v1_7.group.dissect(buffer, index, packet, parent)
@@ -2012,50 +2012,50 @@ jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect = function(buffer, of
   end
 end
 
--- Timestamp Seconds Message
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message = {}
+-- Seconds Message
+jnx_jnxequities_pts_itch_v1_7.seconds_message = {}
 
--- Size: Timestamp Seconds Message
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.size =
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.size
+-- Size: Seconds Message
+jnx_jnxequities_pts_itch_v1_7.seconds_message.size =
+  jnx_jnxequities_pts_itch_v1_7.seconds.size
 
--- Display: Timestamp Seconds Message
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.display = function(packet, parent, length)
+-- Display: Seconds Message
+jnx_jnxequities_pts_itch_v1_7.seconds_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Timestamp Seconds Message
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Seconds Message
+jnx_jnxequities_pts_itch_v1_7.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp Seconds: Integer
-  index, timestamp_seconds = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.dissect(buffer, index, packet, parent)
+  -- Seconds: Integer
+  index, seconds = jnx_jnxequities_pts_itch_v1_7.seconds.dissect(buffer, index, packet, parent)
 
-  -- Store Timestamp Seconds Value
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = timestamp_seconds
+  -- Store Seconds Value
+  jnx_jnxequities_pts_itch_v1_7.seconds.current = seconds
 
   if not packet.visited then
-    jnx_jnxequities_pts_itch_v1_7.conversation.current.timestamp_seconds.last = timestamp_seconds
+    jnx_jnxequities_pts_itch_v1_7.conversation.current.seconds.last = seconds
   end
 
   return index
 end
 
--- Dissect: Timestamp Seconds Message
-jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Seconds Message
+jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp_seconds_message, buffer(offset, 0))
-    local index = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_itch_v1_7.seconds_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.display(packet, parent, length)
+    local display = jnx_jnxequities_pts_itch_v1_7.seconds_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.fields(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_itch_v1_7.seconds_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2064,9 +2064,9 @@ jnx_jnxequities_pts_itch_v1_7.udp_payload = {}
 
 -- Dissect: Udp Payload
 jnx_jnxequities_pts_itch_v1_7.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Timestamp Seconds Message
+  -- Dissect Seconds Message
   if message_type == "T" then
-    return jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.dissect(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == "S" then
@@ -2342,9 +2342,9 @@ jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect = function(buffer, pack
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
   if not packet.visited then
-    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+    data.seconds.frames[packet.number] = data.seconds.last
   end
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  jnx_jnxequities_pts_itch_v1_7.seconds.current = data.seconds.frames[packet.number]
   jnx_jnxequities_pts_itch_v1_7.conversation.current = data
 
   local index = 0
@@ -2477,9 +2477,9 @@ jnx_jnxequities_pts_itch_v1_7.sequenced_message = {}
 
 -- Dissect: Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Timestamp Seconds Message
+  -- Dissect Seconds Message
   if sequenced_message_type == "T" then
-    return jnx_jnxequities_pts_itch_v1_7.timestamp_seconds_message.dissect(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if sequenced_message_type == "S" then
@@ -2874,9 +2874,9 @@ jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect = function(buffer, packet, pare
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
   if not packet.visited then
-    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+    data.seconds.frames[packet.number] = data.seconds.last
   end
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  jnx_jnxequities_pts_itch_v1_7.seconds.current = data.seconds.frames[packet.number]
   jnx_jnxequities_pts_itch_v1_7.conversation.current = data
 
   local index = 0
@@ -2911,7 +2911,7 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxequities_pts_itch_v1_7.init()
-  jnx_jnxequities_pts_itch_v1_7.timestamp_seconds.current = nil
+  jnx_jnxequities_pts_itch_v1_7.seconds.current = nil
   jnx_jnxequities_pts_itch_v1_7.conversation.current = nil
   jnx_jnxequities_pts_itch_v1_7.conversation.flows = {}
 end
