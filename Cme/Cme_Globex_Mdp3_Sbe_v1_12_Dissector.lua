@@ -82,6 +82,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_group = ProtoField
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_groups = ProtoField.new("Incremental Refresh Book Groups", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbookgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_group = ProtoField.new("Incremental Refresh Book Long Group", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklonggroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_groups = ProtoField.new("Incremental Refresh Book Long Groups", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklonggroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_group = ProtoField.new("Incremental Refresh Book Long Order Id Group", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklongorderidgroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_groups = ProtoField.new("Incremental Refresh Book Long Order Id Groups", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklongorderidgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_order_id_group = ProtoField.new("Incremental Refresh Book Order Id Group", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbookorderidgroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_order_id_groups = ProtoField.new("Incremental Refresh Book Order Id Groups", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbookorderidgroups", ftypes.STRING)
@@ -135,6 +136,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.legs_group = ProtoField.new("Legs Group", "
 omi_cme_globex_mdp3_sbe_v1_12.fields.legs_groups = ProtoField.new("Legs Groups", "cme.globex.mdp3.sbe.v1.12.legsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.lot_type = ProtoField.new("Lot Type", "cme.globex.mdp3.sbe.v1.12.lottype", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_12.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.12.lottyperulesgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.12.lottyperulesgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.globex.mdp3.sbe.v1.12.lowlimitprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_12.fields.main_fraction = ProtoField.new("Main Fraction", "cme.globex.mdp3.sbe.v1.12.mainfraction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_12.fields.market_depth = ProtoField.new("Market Depth", "cme.globex.mdp3.sbe.v1.12.marketdepth", ftypes.INT8)
@@ -375,7 +377,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.events_group_index = ProtoField.new("Events
 omi_cme_globex_mdp3_sbe_v1_12.fields.feed_types_group_index = ProtoField.new("Feed Types Group Index", "cme.globex.mdp3.sbe.v1.12.feedtypesgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_group_index = ProtoField.new("Incremental Refresh Book Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbookgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_group_index = ProtoField.new("Incremental Refresh Book Long Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklonggroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_groups_index = ProtoField.new("Incremental Refresh Book Long Order Id Groups Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklongorderidgroupsindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_group_index = ProtoField.new("Incremental Refresh Book Long Order Id Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbooklongorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_order_id_group_index = ProtoField.new("Incremental Refresh Book Order Id Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshbookorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_daily_statistics_group_index = ProtoField.new("Incremental Refresh Daily Statistics Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshdailystatisticsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_limits_banding_group_index = ProtoField.new("Incremental Refresh Limits Banding Group Index", "cme.globex.mdp3.sbe.v1.12.incrementalrefreshlimitsbandinggroupindex", ftypes.UINT16)
@@ -8002,11 +8004,11 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_trade_summary_long_qty.dissect 
   end
 end
 
--- Incremental Refresh Book Long Order Id Groups
-cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups = {}
+-- Incremental Refresh Book Long Order Id Group
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group = {}
 
--- Size: Incremental Refresh Book Long Order Id Groups
-cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.size =
+-- Size: Incremental Refresh Book Long Order Id Group
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.size =
   cme_globex_mdp3_sbe_v1_12.order_id.size + 
   cme_globex_mdp3_sbe_v1_12.md_order_priority_optional.size + 
   cme_globex_mdp3_sbe_v1_12.md_display_qty_optional.size + 
@@ -8014,18 +8016,18 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.size =
   cme_globex_mdp3_sbe_v1_12.order_update_action.size + 
   cme_globex_mdp3_sbe_v1_12.padding_2.size
 
--- Display: Incremental Refresh Book Long Order Id Groups
-cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Book Long Order Id Group
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Incremental Refresh Book Long Order Id Groups
-cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields = function(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_groups_index)
+-- Dissect Fields: Incremental Refresh Book Long Order Id Group
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.fields = function(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_group_index)
   local index = offset
 
-  -- Implicit Incremental Refresh Book Long Order Id Groups Index
-  if incremental_refresh_book_long_order_id_groups_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_groups_index, incremental_refresh_book_long_order_id_groups_index)
+  -- Implicit Incremental Refresh Book Long Order Id Group Index
+  if incremental_refresh_book_long_order_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_group_index, incremental_refresh_book_long_order_id_group_index)
     iteration:set_generated()
   end
 
@@ -8050,12 +8052,69 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields =
   return index
 end
 
--- Dissect: Incremental Refresh Book Long Order Id Groups
-cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.dissect = function(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_groups_index)
+-- Dissect: Incremental Refresh Book Long Order Id Group
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_group_index)
+  end
+end
+
+-- Incremental Refresh Book Long Order Id Groups
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups = {}
+
+-- Calculate size of: Incremental Refresh Book Long Order Id Groups
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_12.group_size_8_byte.size
+
+  -- Calculate field size from count
+  local incremental_refresh_book_long_order_id_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_book_long_order_id_group_count * 24
+
+  return index
+end
+
+-- Display: Incremental Refresh Book Long Order Id Groups
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Book Long Order Id Groups
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size 8 Byte: Struct of 3 fields
+  index, group_size_8_byte = cme_globex_mdp3_sbe_v1_12.group_size_8_byte.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Incremental Refresh Book Long Order Id Group
+  for incremental_refresh_book_long_order_id_group_index = 1, num_in_group do
+    index, incremental_refresh_book_long_order_id_group = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_group.dissect(buffer, index, packet, parent, incremental_refresh_book_long_order_id_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Book Long Order Id Groups
+cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.incremental_refresh_book_long_order_id_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_groups_index)
+    local index = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.display(packet, parent, length)
@@ -8064,7 +8123,7 @@ cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.dissect 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields(buffer, offset, packet, parent, incremental_refresh_book_long_order_id_groups_index)
+    return cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8218,9 +8277,7 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_book_long_qty.size = function(b
 
   index = index + cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local incremental_refresh_book_long_order_id_groups_count = buffer(offset + index - 33, 1):le_uint()
-  index = index + incremental_refresh_book_long_order_id_groups_count * 24
+  index = index + cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8246,13 +8303,8 @@ cme_globex_mdp3_sbe_v1_12.md_incremental_refresh_book_long_qty.fields = function
   -- Incremental Refresh Book Long Groups: Struct of 2 fields
   index, incremental_refresh_book_long_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 13, 1):le_uint()
-
-  -- Repeating: Incremental Refresh Book Long Order Id Groups
-  for incremental_refresh_book_long_order_id_groups_index = 1, num_in_group do
-    index, incremental_refresh_book_long_order_id_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.dissect(buffer, index, packet, parent, incremental_refresh_book_long_order_id_groups_index)
-  end
+  -- Incremental Refresh Book Long Order Id Groups: Struct of 2 fields
+  index, incremental_refresh_book_long_order_id_groups = cme_globex_mdp3_sbe_v1_12.incremental_refresh_book_long_order_id_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8437,6 +8489,63 @@ cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect = function(buffer, offset
   else
     -- Skip element, add fields directly
     return cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.fields(buffer, offset, packet, parent, lot_type_rules_group_index)
+  end
+end
+
+-- Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups = {}
+
+-- Calculate size of: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_12.group_size.size
+
+  -- Calculate field size from count
+  local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + lot_type_rules_group_count * 5
+
+  return index
+end
+
+-- Display: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_12.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Lot Type Rules Group
+  for lot_type_rules_group_index = 1, num_in_group do
+    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9140,9 +9249,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_fx.size = function(buffer, of
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_12.trading_sessions_groups.size(buffer, offset + index)
 
@@ -9296,13 +9403,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_fx.fields = function(buffer, 
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 330, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Trading Sessions Groups: Struct of 2 fields
   index, trading_sessions_groups = cme_globex_mdp3_sbe_v1_12.trading_sessions_groups.dissect(buffer, index, packet, parent)
@@ -10551,9 +10653,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_repo.size = function(buffer, 
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_12.repo_underlyings_groups.size(buffer, offset + index)
 
@@ -10709,13 +10809,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_repo.fields = function(buffer
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 296, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Repo Underlyings Groups: Struct of 2 fields
   index, repo_underlyings_groups = cme_globex_mdp3_sbe_v1_12.repo_underlyings_groups.dissect(buffer, index, packet, parent)
@@ -10861,9 +10956,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_fixed_income.size = function(
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -11042,13 +11135,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_fixed_income.fields = functio
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 359, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11289,9 +11377,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_spread.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_12.legs_groups.size(buffer, offset + index)
 
@@ -11445,13 +11531,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_spread.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 276, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
   index, legs_groups = cme_globex_mdp3_sbe_v1_12.legs_groups.dissect(buffer, index, packet, parent)
@@ -11790,9 +11871,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_option.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_12.option_underlyings_groups.size(buffer, offset + index)
 
@@ -11948,13 +12027,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_option.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 242, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Option Underlyings Groups: Struct of 2 fields
   index, option_underlyings_groups = cme_globex_mdp3_sbe_v1_12.option_underlyings_groups.dissect(buffer, index, packet, parent)
@@ -12086,9 +12160,7 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_future.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -12246,13 +12318,8 @@ cme_globex_mdp3_sbe_v1_12.md_instrument_definition_future.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_12.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 245, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_12.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_12.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

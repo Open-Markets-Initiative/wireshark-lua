@@ -117,6 +117,7 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.legs_group = ProtoField.new("Legs Group", "
 omi_cme_globex_mdp3_sbe_v1_11.fields.legs_groups = ProtoField.new("Legs Groups", "cme.globex.mdp3.sbe.v1.11.legsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_11.fields.lot_type = ProtoField.new("Lot Type", "cme.globex.mdp3.sbe.v1.11.lottype", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_11.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.11.lottyperulesgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.11.lottyperulesgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_11.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.globex.mdp3.sbe.v1.11.lowlimitprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_11.fields.main_fraction = ProtoField.new("Main Fraction", "cme.globex.mdp3.sbe.v1.11.mainfraction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_11.fields.market_depth = ProtoField.new("Market Depth", "cme.globex.mdp3.sbe.v1.11.marketdepth", ftypes.INT8)
@@ -7396,6 +7397,63 @@ cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect = function(buffer, offset
   end
 end
 
+-- Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups = {}
+
+-- Calculate size of: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_11.group_size.size
+
+  -- Calculate field size from count
+  local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + lot_type_rules_group_count * 5
+
+  return index
+end
+
+-- Display: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_11.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Lot Type Rules Group
+  for lot_type_rules_group_index = 1, num_in_group do
+    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Inst Attrib Value
 cme_globex_mdp3_sbe_v1_11.inst_attrib_value = {}
 
@@ -8016,9 +8074,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_repo.size = function(buffer, 
 
   index = index + cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_11.repo_underlyings_groups.size(buffer, offset + index)
 
@@ -8174,13 +8230,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_repo.fields = function(buffer
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 296, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Repo Underlyings Groups: Struct of 2 fields
   index, repo_underlyings_groups = cme_globex_mdp3_sbe_v1_11.repo_underlyings_groups.dissect(buffer, index, packet, parent)
@@ -8326,9 +8377,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_fixed_income.size = function(
 
   index = index + cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8507,13 +8556,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_fixed_income.fields = functio
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 359, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8806,9 +8850,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_spread.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_11.legs_groups.size(buffer, offset + index)
 
@@ -8962,13 +9004,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_spread.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 276, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Legs Groups: Struct of 2 fields
   index, legs_groups = cme_globex_mdp3_sbe_v1_11.legs_groups.dissect(buffer, index, packet, parent)
@@ -9307,9 +9344,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_option.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_11.option_underlyings_groups.size(buffer, offset + index)
 
@@ -9465,13 +9500,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_option.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 242, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   -- Option Underlyings Groups: Struct of 2 fields
   index, option_underlyings_groups = cme_globex_mdp3_sbe_v1_11.option_underlyings_groups.dissect(buffer, index, packet, parent)
@@ -9603,9 +9633,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_future.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.size(buffer, offset + index)
 
-  -- Calculate field size from count
-  local lot_type_rules_group_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + lot_type_rules_group_count * 5
+  index = index + cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9763,13 +9791,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_future.fields = function(buff
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_11.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(offset + 245, 1):le_uint()
-
-  -- Repeating: Lot Type Rules Group
-  for lot_type_rules_group_index = 1, num_in_group do
-    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_11.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
-  end
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_11.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
