@@ -45,6 +45,10 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.encoding_type = ProtoField.new("Encoding Typ
 omi_cme_globex_mdp3_sbe_v1_8.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.mdp3.sbe.v1.8.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cme_globex_mdp3_sbe_v1_8.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.8.eventtime", ftypes.UINT64)
 omi_cme_globex_mdp3_sbe_v1_8.fields.event_type = ProtoField.new("Event Type", "cme.globex.mdp3.sbe.v1.8.eventtype", ftypes.UINT8)
+omi_cme_globex_mdp3_sbe_v1_8.fields.events_group = ProtoField.new("Events Group", "cme.globex.mdp3.sbe.v1.8.eventsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.mdp3.sbe.v1.8.eventsgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_group = ProtoField.new("Feed Types Group", "cme.globex.mdp3.sbe.v1.8.feedtypesgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_groups = ProtoField.new("Feed Types Groups", "cme.globex.mdp3.sbe.v1.8.feedtypesgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.final = ProtoField.new("Final", "cme.globex.mdp3.sbe.v1.8.final", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cme_globex_mdp3_sbe_v1_8.fields.flow_schedule_type = ProtoField.new("Flow Schedule Type", "cme.globex.mdp3.sbe.v1.8.flowscheduletype", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_8.fields.group_size = ProtoField.new("Group Size", "cme.globex.mdp3.sbe.v1.8.groupsize", ftypes.STRING)
@@ -55,8 +59,28 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.heart_bt_int = ProtoField.new("Heart Bt Int"
 omi_cme_globex_mdp3_sbe_v1_8.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.globex.mdp3.sbe.v1.8.highlimitprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_8.fields.ilink_indicative_mass_quoting_eligible = ProtoField.new("ILink Indicative Mass Quoting Eligible", "cme.globex.mdp3.sbe.v1.8.ilinkindicativemassquotingeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000100)
 omi_cme_globex_mdp3_sbe_v1_8.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.globex.mdp3.sbe.v1.8.impliedmatchingeligibility", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00080000)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_group = ProtoField.new("Incremental Refresh Book Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_groups = ProtoField.new("Incremental Refresh Book Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_group = ProtoField.new("Incremental Refresh Book Order Id Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookorderidgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_groups = ProtoField.new("Incremental Refresh Book Order Id Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookorderidgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_group = ProtoField.new("Incremental Refresh Daily Statistics Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshdailystatisticsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_groups = ProtoField.new("Incremental Refresh Daily Statistics Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshdailystatisticsgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_group = ProtoField.new("Incremental Refresh Limits Banding Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshlimitsbandinggroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_groups = ProtoField.new("Incremental Refresh Limits Banding Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshlimitsbandinggroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_group = ProtoField.new("Incremental Refresh Order Book Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshorderbookgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_groups = ProtoField.new("Incremental Refresh Order Book Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshorderbookgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_group = ProtoField.new("Incremental Refresh Session Statistics Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshsessionstatisticsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_groups = ProtoField.new("Incremental Refresh Session Statistics Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshsessionstatisticsgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_group = ProtoField.new("Incremental Refresh Trade Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradegroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_groups = ProtoField.new("Incremental Refresh Trade Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradegroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_group = ProtoField.new("Incremental Refresh Trade Summary Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummarygroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_groups = ProtoField.new("Incremental Refresh Trade Summary Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummarygroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_group = ProtoField.new("Incremental Refresh Trade Summary Order Id Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummaryorderidgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_groups = ProtoField.new("Incremental Refresh Trade Summary Order Id Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummaryorderidgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_volume_group = ProtoField.new("Incremental Refresh Volume Group", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshvolumegroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_volume_groups = ProtoField.new("Incremental Refresh Volume Groups", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshvolumegroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.globex.mdp3.sbe.v1.8.instattribgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.globex.mdp3.sbe.v1.8.instattribgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_value = ProtoField.new("Inst Attrib Value", "cme.globex.mdp3.sbe.v1.8.instattribvalue", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.intraday = ProtoField.new("Intraday", "cme.globex.mdp3.sbe.v1.8.intraday", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cme_globex_mdp3_sbe_v1_8.fields.is_fractional = ProtoField.new("Is Fractional", "cme.globex.mdp3.sbe.v1.8.isfractional", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000800)
@@ -73,56 +97,12 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.leg_price = ProtoField.new("Leg Price", "cme
 omi_cme_globex_mdp3_sbe_v1_8.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.globex.mdp3.sbe.v1.8.legratioqty", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_8.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.globex.mdp3.sbe.v1.8.legsecurityid", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_8.fields.leg_side = ProtoField.new("Leg Side", "cme.globex.mdp3.sbe.v1.8.legside", ftypes.UINT8)
+omi_cme_globex_mdp3_sbe_v1_8.fields.legs_group = ProtoField.new("Legs Group", "cme.globex.mdp3.sbe.v1.8.legsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.legs_groups = ProtoField.new("Legs Groups", "cme.globex.mdp3.sbe.v1.8.legsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type = ProtoField.new("Lot Type", "cme.globex.mdp3.sbe.v1.8.lottype", ftypes.INT8)
+omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.8.lottyperulesgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.8.lottyperulesgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.globex.mdp3.sbe.v1.8.lowlimitprice", ftypes.DOUBLE)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Book 32 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Book 32 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_group = ProtoField.new("M D Incremental Refresh Book 32 No Order I D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32noorderidentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups = ProtoField.new("M D Incremental Refresh Book 32 No Order I D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32noorderidentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Daily Statistics 33 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshdailystatistics33nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Daily Statistics 33 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshdailystatistics33nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Limits Banding 34 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshlimitsbanding34nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Limits Banding 34 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshlimitsbanding34nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Order Book 43 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshorderbook43nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Order Book 43 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshorderbook43nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Session Statistics 35 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshsessionstatistics35nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Session Statistics 35 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshsessionstatistics35nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Trade 36 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtrade36nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Trade 36 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtrade36nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group = ProtoField.new("M D Incremental Refresh Trade Summary 42 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups = ProtoField.new("M D Incremental Refresh Trade Summary 42 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group = ProtoField.new("M D Incremental Refresh Trade Summary 42 No Order I D Entries Group", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42noorderidentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups = ProtoField.new("M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42noorderidentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_group = ProtoField.new("M D Instrument Definition Future 27 No Events Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noeventsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_groups = ProtoField.new("M D Instrument Definition Future 27 No Events Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noeventsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_group = ProtoField.new("M D Instrument Definition Future 27 No Inst Attrib Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noinstattribgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_groups = ProtoField.new("M D Instrument Definition Future 27 No Inst Attrib Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noinstattribgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_group = ProtoField.new("M D Instrument Definition Future 27 No Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nolottyperulesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_groups = ProtoField.new("M D Instrument Definition Future 27 No Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nolottyperulesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_group = ProtoField.new("M D Instrument Definition Future 27 No M D Feed Types Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nomdfeedtypesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_groups = ProtoField.new("M D Instrument Definition Future 27 No M D Feed Types Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nomdfeedtypesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_group = ProtoField.new("M D Instrument Definition Option 41 No Events Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noeventsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_groups = ProtoField.new("M D Instrument Definition Option 41 No Events Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noeventsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_group = ProtoField.new("M D Instrument Definition Option 41 No Inst Attrib Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noinstattribgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_groups = ProtoField.new("M D Instrument Definition Option 41 No Inst Attrib Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noinstattribgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_group = ProtoField.new("M D Instrument Definition Option 41 No Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nolottyperulesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_groups = ProtoField.new("M D Instrument Definition Option 41 No Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nolottyperulesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_group = ProtoField.new("M D Instrument Definition Option 41 No M D Feed Types Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nomdfeedtypesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_groups = ProtoField.new("M D Instrument Definition Option 41 No M D Feed Types Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nomdfeedtypesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_group = ProtoField.new("M D Instrument Definition Option 41 No Related Instruments Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41norelatedinstrumentsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_groups = ProtoField.new("M D Instrument Definition Option 41 No Related Instruments Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41norelatedinstrumentsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_group = ProtoField.new("M D Instrument Definition Option 41 No Underlyings Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nounderlyingsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_groups = ProtoField.new("M D Instrument Definition Option 41 No Underlyings Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nounderlyingsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_group = ProtoField.new("M D Instrument Definition Spread 29 No Events Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noeventsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_groups = ProtoField.new("M D Instrument Definition Spread 29 No Events Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noeventsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noinstattribgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_groups = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noinstattribgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_group = ProtoField.new("M D Instrument Definition Spread 29 No Legs Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolegsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_groups = ProtoField.new("M D Instrument Definition Spread 29 No Legs Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolegsgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolottyperulesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_groups = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolottyperulesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = ProtoField.new("M D Instrument Definition Spread 29 No M D Feed Types Group", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nomdfeedtypesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = ProtoField.new("M D Instrument Definition Spread 29 No M D Feed Types Groups", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nomdfeedtypesgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.main_fraction = ProtoField.new("Main Fraction", "cme.globex.mdp3.sbe.v1.8.mainfraction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_8.fields.market_depth = ProtoField.new("Market Depth", "cme.globex.mdp3.sbe.v1.8.marketdepth", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_8.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.globex.mdp3.sbe.v1.8.marketsegmentid", ftypes.UINT8)
@@ -167,6 +147,10 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.num_in_group = ProtoField.new("Num In Group"
 omi_cme_globex_mdp3_sbe_v1_8.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.globex.mdp3.sbe.v1.8.numberoforders", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_8.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.globex.mdp3.sbe.v1.8.openclosesettlflag", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_8.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.globex.mdp3.sbe.v1.8.openinterestqty", ftypes.INT32)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_group = ProtoField.new("Option Related Instruments Group", "cme.globex.mdp3.sbe.v1.8.optionrelatedinstrumentsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_groups = ProtoField.new("Option Related Instruments Groups", "cme.globex.mdp3.sbe.v1.8.optionrelatedinstrumentsgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_group = ProtoField.new("Option Underlyings Group", "cme.globex.mdp3.sbe.v1.8.optionunderlyingsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_groups = ProtoField.new("Option Underlyings Groups", "cme.globex.mdp3.sbe.v1.8.optionunderlyingsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.globex.mdp3.sbe.v1.8.ordercrosseligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000002)
 omi_cme_globex_mdp3_sbe_v1_8.fields.order_id = ProtoField.new("Order Id", "cme.globex.mdp3.sbe.v1.8.orderid", ftypes.UINT64)
 omi_cme_globex_mdp3_sbe_v1_8.fields.order_id_optional = ProtoField.new("Order Id Optional", "cme.globex.mdp3.sbe.v1.8.orderidoptional", ftypes.UINT64)
@@ -213,10 +197,10 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.sending_time = ProtoField.new("Sending Time"
 omi_cme_globex_mdp3_sbe_v1_8.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.8.settlcurrency", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.mdp3.sbe.v1.8.settlpricetype", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.side = ProtoField.new("Side", "cme.globex.mdp3.sbe.v1.8.side", ftypes.INT8)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_group = ProtoField.new("Snapshot Full Refresh 38 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefresh38nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_groups = ProtoField.new("Snapshot Full Refresh 38 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefresh38nomdentriesgroups", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_group = ProtoField.new("Snapshot Full Refresh Order Book 44 No M D Entries Group", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbook44nomdentriesgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_groups = ProtoField.new("Snapshot Full Refresh Order Book 44 No M D Entries Groups", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbook44nomdentriesgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbookgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbookgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.strike_currency = ProtoField.new("Strike Currency", "cme.globex.mdp3.sbe.v1.8.strikecurrency", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_8.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.mdp3.sbe.v1.8.strikeprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_8.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.8.subfraction", ftypes.UINT8)
@@ -276,34 +260,26 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book = ProtoFiel
 
 -- Cme Globex Mdp3 Sbe 1.8 generated fields
 omi_cme_globex_mdp3_sbe_v1_8.fields.channel_reset_group_index = ProtoField.new("Channel Reset Group Index", "cme.globex.mdp3.sbe.v1.8.channelresetgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.events_group_index = ProtoField.new("Events Group Index", "cme.globex.mdp3.sbe.v1.8.eventsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_group_index = ProtoField.new("Feed Types Group Index", "cme.globex.mdp3.sbe.v1.8.feedtypesgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_group_index = ProtoField.new("Incremental Refresh Book Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_group_index = ProtoField.new("Incremental Refresh Book Order Id Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshbookorderidgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_group_index = ProtoField.new("Incremental Refresh Daily Statistics Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshdailystatisticsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_group_index = ProtoField.new("Incremental Refresh Limits Banding Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshlimitsbandinggroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_group_index = ProtoField.new("Incremental Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshorderbookgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_group_index = ProtoField.new("Incremental Refresh Session Statistics Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshsessionstatisticsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_group_index = ProtoField.new("Incremental Refresh Trade Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradegroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_group_index = ProtoField.new("Incremental Refresh Trade Summary Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummarygroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_group_index = ProtoField.new("Incremental Refresh Trade Summary Order Id Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshtradesummaryorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_volume_group_index = ProtoField.new("Incremental Refresh Volume Group Index", "cme.globex.mdp3.sbe.v1.8.incrementalrefreshvolumegroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Book 32 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index = ProtoField.new("M D Incremental Refresh Book 32 No Order I D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshbook32noorderidentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Daily Statistics 33 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshdailystatistics33nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Limits Banding 34 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshlimitsbanding34nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Order Book 43 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshorderbook43nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Session Statistics 35 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshsessionstatistics35nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Trade 36 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtrade36nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index = ProtoField.new("M D Incremental Refresh Trade Summary 42 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index = ProtoField.new("M D Incremental Refresh Trade Summary 42 No Order I D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.mdincrementalrefreshtradesummary42noorderidentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_group_index = ProtoField.new("M D Instrument Definition Future 27 No Events Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noeventsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_group_index = ProtoField.new("M D Instrument Definition Future 27 No Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27noinstattribgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_group_index = ProtoField.new("M D Instrument Definition Future 27 No Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nolottyperulesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index = ProtoField.new("M D Instrument Definition Future 27 No M D Feed Types Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionfuture27nomdfeedtypesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_group_index = ProtoField.new("M D Instrument Definition Option 41 No Events Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noeventsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_group_index = ProtoField.new("M D Instrument Definition Option 41 No Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41noinstattribgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_group_index = ProtoField.new("M D Instrument Definition Option 41 No Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nolottyperulesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index = ProtoField.new("M D Instrument Definition Option 41 No M D Feed Types Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nomdfeedtypesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_group_index = ProtoField.new("M D Instrument Definition Option 41 No Related Instruments Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41norelatedinstrumentsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_group_index = ProtoField.new("M D Instrument Definition Option 41 No Underlyings Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionoption41nounderlyingsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Events Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noeventsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29noinstattribgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Legs Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolegsgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = ProtoField.new("M D Instrument Definition Spread 29 No Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nolottyperulesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = ProtoField.new("M D Instrument Definition Spread 29 No M D Feed Types Group Index", "cme.globex.mdp3.sbe.v1.8.mdinstrumentdefinitionspread29nomdfeedtypesgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.8.instattribgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.legs_group_index = ProtoField.new("Legs Group Index", "cme.globex.mdp3.sbe.v1.8.legsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_group_index = ProtoField.new("Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.8.lottyperulesgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_group_index = ProtoField.new("Option Related Instruments Group Index", "cme.globex.mdp3.sbe.v1.8.optionrelatedinstrumentsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_group_index = ProtoField.new("Option Underlyings Group Index", "cme.globex.mdp3.sbe.v1.8.optionunderlyingsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_8.fields.related_sym_group_index = ProtoField.new("Related Sym Group Index", "cme.globex.mdp3.sbe.v1.8.relatedsymgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh 38 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefresh38nomdentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Order Book 44 No M D Entries Group Index", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbook44nomdentriesgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_group_index = ProtoField.new("Snapshot Full Refresh Group Index", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_group_index = ProtoField.new("Snapshot Full Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbookgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -4442,29 +4418,29 @@ end
 -- Dissect Cme Globex Mdp3 Sbe 1.8
 -----------------------------------------------------------------------
 
--- Snapshot Full Refresh Order Book 44 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group = {}
+-- Snapshot Full Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group = {}
 
--- Size: Snapshot Full Refresh Order Book 44 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.size =
+-- Size: Snapshot Full Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.size =
   cme_globex_mdp3_sbe_v1_8.order_id.size + 
   cme_globex_mdp3_sbe_v1_8.md_order_priority.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_px.size + 
   cme_globex_mdp3_sbe_v1_8.md_display_qty.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_type_book.size
 
--- Display: Snapshot Full Refresh Order Book 44 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh Order Book 44 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+-- Dissect Fields: Snapshot Full Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_group_index)
   local index = offset
 
-  -- Implicit Snapshot Full Refresh Order Book 44 No M D Entries Group Index
-  if snapshot_full_refresh_order_book_44_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_group_index, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+  -- Implicit Snapshot Full Refresh Order Book Group Index
+  if snapshot_full_refresh_order_book_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_group_index, snapshot_full_refresh_order_book_group_index)
     iteration:set_generated()
   end
 
@@ -4486,21 +4462,21 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_grou
   return index
 end
 
--- Dissect: Snapshot Full Refresh Order Book 44 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+-- Dissect: Snapshot Full Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_group_index)
   end
 end
 
@@ -4548,29 +4524,29 @@ cme_globex_mdp3_sbe_v1_8.group_size.dissect = function(buffer, offset, packet, p
   end
 end
 
--- Snapshot Full Refresh Order Book 44 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups = {}
+-- Snapshot Full Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups = {}
 
--- Calculate size of: Snapshot Full Refresh Order Book 44 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Snapshot Full Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local snapshot_full_refresh_order_book_44_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + snapshot_full_refresh_order_book_44_no_m_d_entries_group_count * 29
+  local snapshot_full_refresh_order_book_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_full_refresh_order_book_group_count * 29
 
   return index
 end
 
--- Display: Snapshot Full Refresh Order Book 44 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh Order Book 44 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Full Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -4579,29 +4555,29 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Snapshot Full Refresh Order Book 44 No M D Entries Group
-  for snapshot_full_refresh_order_book_44_no_m_d_entries_group_index = 1, num_in_group do
-    index, snapshot_full_refresh_order_book_44_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_order_book_44_no_m_d_entries_group_index)
+  -- Repeating: Snapshot Full Refresh Order Book Group
+  for snapshot_full_refresh_order_book_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_order_book_group = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_order_book_group_index)
   end
 
   return index
 end
 
--- Dissect: Snapshot Full Refresh Order Book 44 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Full Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_44_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4624,7 +4600,7 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_8.transact_time.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.size(buffer, offset + index)
 
   return index
 end
@@ -4656,8 +4632,8 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.fields = function(buff
   -- Transact Time: uInt64
   index, transact_time = cme_globex_mdp3_sbe_v1_8.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh Order Book 44 No M D Entries Groups: Struct of 2 fields
-  index, snapshot_full_refresh_order_book_44_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_44_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Full Refresh Order Book Groups: Struct of 2 fields
+  index, snapshot_full_refresh_order_book_groups = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4680,11 +4656,11 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.dissect = function(buf
   end
 end
 
--- M D Incremental Refresh Order Book 43 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group = {}
+-- Incremental Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group = {}
 
--- Size: M D Incremental Refresh Order Book 43 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.size =
   cme_globex_mdp3_sbe_v1_8.order_id_optional.size + 
   cme_globex_mdp3_sbe_v1_8.md_order_priority.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_px_optional.size + 
@@ -4694,18 +4670,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_gr
   cme_globex_mdp3_sbe_v1_8.md_entry_type_book.size + 
   cme_globex_mdp3_sbe_v1_8.padding_6.size
 
--- Display: M D Incremental Refresh Order Book 43 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Order Book 43 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.fields = function(buffer, offset, packet, parent, incremental_refresh_order_book_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Order Book 43 No M D Entries Group Index
-  if m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Order Book Group Index
+  if incremental_refresh_order_book_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_group_index, incremental_refresh_order_book_group_index)
     iteration:set_generated()
   end
 
@@ -4736,47 +4712,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_gr
   return index
 end
 
--- Dissect: M D Incremental Refresh Order Book 43 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Order Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_order_book_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.fields(buffer, offset, packet, parent, incremental_refresh_order_book_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.fields(buffer, offset, packet, parent, incremental_refresh_order_book_group_index)
   end
 end
 
--- M D Incremental Refresh Order Book 43 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups = {}
+-- Incremental Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups = {}
 
--- Calculate size of: M D Incremental Refresh Order Book 43 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_order_book_43_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_order_book_43_no_m_d_entries_group_count * 40
+  local incremental_refresh_order_book_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_order_book_group_count * 40
 
   return index
 end
 
--- Display: M D Incremental Refresh Order Book 43 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Order Book 43 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -4785,29 +4761,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Order Book 43 No M D Entries Group
-  for m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_order_book_43_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_order_book_43_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Order Book Group
+  for incremental_refresh_order_book_group_index = 1, num_in_group do
+    index, incremental_refresh_order_book_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_group.dissect(buffer, index, packet, parent, incremental_refresh_order_book_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Order Book 43 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Order Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_order_book_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4913,7 +4889,7 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_order_book.size = function(buffe
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.size(buffer, offset + index)
 
   return index
 end
@@ -4936,8 +4912,8 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_order_book.fields = function(buf
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Order Book 43 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_order_book_43_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_order_book_43_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Order Book Groups: Struct of 2 fields
+  index, incremental_refresh_order_book_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_order_book_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4960,27 +4936,27 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_order_book.dissect = function(bu
   end
 end
 
--- M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group = {}
+-- Incremental Refresh Trade Summary Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group = {}
 
--- Size: M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.size =
+-- Size: Incremental Refresh Trade Summary Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.size =
   cme_globex_mdp3_sbe_v1_8.order_id.size + 
   cme_globex_mdp3_sbe_v1_8.last_qty.size + 
   cme_globex_mdp3_sbe_v1_8.padding_4.size
 
--- Display: M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Summary Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Trade Summary Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.fields = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_order_id_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Trade Summary 42 No Order I D Entries Group Index
-  if m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+  -- Implicit Incremental Refresh Trade Summary Order Id Group Index
+  if incremental_refresh_trade_summary_order_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_group_index, incremental_refresh_trade_summary_order_id_group_index)
     iteration:set_generated()
   end
 
@@ -4996,21 +4972,21 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_e
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+-- Dissect: Incremental Refresh Trade Summary Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_order_id_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_order_id_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_order_id_group_index)
   end
 end
 
@@ -5062,29 +5038,29 @@ cme_globex_mdp3_sbe_v1_8.group_size_8_byte.dissect = function(buffer, offset, pa
   end
 end
 
--- M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups = {}
+-- Incremental Refresh Trade Summary Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups = {}
 
--- Calculate size of: M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Trade Summary Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size_8_byte.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_count * 16
+  local incremental_refresh_trade_summary_order_id_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_trade_summary_order_id_group_count * 16
 
   return index
 end
 
--- Display: M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Summary Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Trade Summary Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size 8 Byte: Struct of 3 fields
@@ -5093,37 +5069,37 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_e
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Trade Summary 42 No Order I D Entries Group
-  for m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_group_index)
+  -- Repeating: Incremental Refresh Trade Summary Order Id Group
+  for incremental_refresh_trade_summary_order_id_group_index = 1, num_in_group do
+    index, incremental_refresh_trade_summary_order_id_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_group.dissect(buffer, index, packet, parent, incremental_refresh_trade_summary_order_id_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Trade Summary Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_order_id_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Incremental Refresh Trade Summary 42 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group = {}
+-- Incremental Refresh Trade Summary Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group = {}
 
--- Size: M D Incremental Refresh Trade Summary 42 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Trade Summary Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_size.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
@@ -5134,18 +5110,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries
   cme_globex_mdp3_sbe_v1_8.md_trade_entry_id.size + 
   cme_globex_mdp3_sbe_v1_8.padding_2.size
 
--- Display: M D Incremental Refresh Trade Summary 42 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Summary Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade Summary 42 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Trade Summary Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.fields = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Trade Summary 42 No M D Entries Group Index
-  if m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Trade Summary Group Index
+  if incremental_refresh_trade_summary_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_group_index, incremental_refresh_trade_summary_group_index)
     iteration:set_generated()
   end
 
@@ -5179,47 +5155,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade Summary 42 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Trade Summary Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_group_index)
   end
 end
 
--- M D Incremental Refresh Trade Summary 42 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups = {}
+-- Incremental Refresh Trade Summary Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups = {}
 
--- Calculate size of: M D Incremental Refresh Trade Summary 42 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Trade Summary Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_count * 32
+  local incremental_refresh_trade_summary_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_trade_summary_group_count * 32
 
   return index
 end
 
--- Display: M D Incremental Refresh Trade Summary 42 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Summary Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade Summary 42 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Trade Summary Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5228,29 +5204,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Trade Summary 42 No M D Entries Group
-  for m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Trade Summary Group
+  for incremental_refresh_trade_summary_group_index = 1, num_in_group do
+    index, incremental_refresh_trade_summary_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_group.dissect(buffer, index, packet, parent, incremental_refresh_trade_summary_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade Summary 42 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Trade Summary Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_summary_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5267,9 +5243,9 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.size = function(bu
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.size(buffer, offset + index)
 
   return index
 end
@@ -5292,11 +5268,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.fields = function(
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Trade Summary 42 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Trade Summary Groups: Struct of 2 fields
+  index, incremental_refresh_trade_summary_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Trade Summary 42 No Order I D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_summary_42_no_order_i_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Trade Summary Order Id Groups: Struct of 2 fields
+  index, incremental_refresh_trade_summary_order_id_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_summary_order_id_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5319,26 +5295,26 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade_summary.dissect = function
   end
 end
 
--- M D Instrument Definition Option 41 No Related Instruments Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group = {}
+-- Option Related Instruments Group
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_group = {}
 
--- Size: M D Instrument Definition Option 41 No Related Instruments Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.size =
+-- Size: Option Related Instruments Group
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.size =
   cme_globex_mdp3_sbe_v1_8.related_security_id.size + 
   cme_globex_mdp3_sbe_v1_8.related_symbol.size
 
--- Display: M D Instrument Definition Option 41 No Related Instruments Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.display = function(packet, parent, length)
+-- Display: Option Related Instruments Group
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Related Instruments Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+-- Dissect Fields: Option Related Instruments Group
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.fields = function(buffer, offset, packet, parent, option_related_instruments_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No Related Instruments Group Index
-  if m_d_instrument_definition_option_41_no_related_instruments_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_group_index, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+  -- Implicit Option Related Instruments Group Index
+  if option_related_instruments_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_group_index, option_related_instruments_group_index)
     iteration:set_generated()
   end
 
@@ -5351,47 +5327,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instrume
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Related Instruments Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+-- Dissect: Option Related Instruments Group
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.dissect = function(buffer, offset, packet, parent, option_related_instruments_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.fields(buffer, offset, packet, parent, option_related_instruments_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+    return cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.fields(buffer, offset, packet, parent, option_related_instruments_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No Related Instruments Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups = {}
+-- Option Related Instruments Groups
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No Related Instruments Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.size = function(buffer, offset)
+-- Calculate size of: Option Related Instruments Groups
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_related_instruments_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_related_instruments_group_count * 24
+  local option_related_instruments_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + option_related_instruments_group_count * 24
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No Related Instruments Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.display = function(packet, parent, length)
+-- Display: Option Related Instruments Groups
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Related Instruments Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Option Related Instruments Groups
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5400,52 +5376,52 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instrume
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No Related Instruments Group
-  for m_d_instrument_definition_option_41_no_related_instruments_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_related_instruments_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_related_instruments_group_index)
+  -- Repeating: Option Related Instruments Group
+  for option_related_instruments_group_index = 1, num_in_group do
+    index, option_related_instruments_group = cme_globex_mdp3_sbe_v1_8.option_related_instruments_group.dissect(buffer, index, packet, parent, option_related_instruments_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Related Instruments Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Option Related Instruments Groups
+cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_related_instruments_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_related_instruments_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Instrument Definition Option 41 No Underlyings Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group = {}
+-- Option Underlyings Group
+cme_globex_mdp3_sbe_v1_8.option_underlyings_group = {}
 
--- Size: M D Instrument Definition Option 41 No Underlyings Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.size =
+-- Size: Option Underlyings Group
+cme_globex_mdp3_sbe_v1_8.option_underlyings_group.size =
   cme_globex_mdp3_sbe_v1_8.underlying_security_id.size + 
   cme_globex_mdp3_sbe_v1_8.underlying_symbol.size
 
--- Display: M D Instrument Definition Option 41 No Underlyings Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.display = function(packet, parent, length)
+-- Display: Option Underlyings Group
+cme_globex_mdp3_sbe_v1_8.option_underlyings_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Underlyings Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_underlyings_group_index)
+-- Dissect Fields: Option Underlyings Group
+cme_globex_mdp3_sbe_v1_8.option_underlyings_group.fields = function(buffer, offset, packet, parent, option_underlyings_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No Underlyings Group Index
-  if m_d_instrument_definition_option_41_no_underlyings_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_group_index, m_d_instrument_definition_option_41_no_underlyings_group_index)
+  -- Implicit Option Underlyings Group Index
+  if option_underlyings_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_group_index, option_underlyings_group_index)
     iteration:set_generated()
   end
 
@@ -5458,47 +5434,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_grou
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Underlyings Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_underlyings_group_index)
+-- Dissect: Option Underlyings Group
+cme_globex_mdp3_sbe_v1_8.option_underlyings_group.dissect = function(buffer, offset, packet, parent, option_underlyings_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_underlyings_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.option_underlyings_group.fields(buffer, offset, packet, parent, option_underlyings_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.option_underlyings_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_underlyings_group_index)
+    return cme_globex_mdp3_sbe_v1_8.option_underlyings_group.fields(buffer, offset, packet, parent, option_underlyings_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No Underlyings Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups = {}
+-- Option Underlyings Groups
+cme_globex_mdp3_sbe_v1_8.option_underlyings_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No Underlyings Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.size = function(buffer, offset)
+-- Calculate size of: Option Underlyings Groups
+cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_underlyings_group_count * 24
+  local option_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + option_underlyings_group_count * 24
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No Underlyings Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.display = function(packet, parent, length)
+-- Display: Option Underlyings Groups
+cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Underlyings Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Option Underlyings Groups
+cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5507,52 +5483,52 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No Underlyings Group
-  for m_d_instrument_definition_option_41_no_underlyings_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_underlyings_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_underlyings_group_index)
+  -- Repeating: Option Underlyings Group
+  for option_underlyings_group_index = 1, num_in_group do
+    index, option_underlyings_group = cme_globex_mdp3_sbe_v1_8.option_underlyings_group.dissect(buffer, index, packet, parent, option_underlyings_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Underlyings Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Option Underlyings Groups
+cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_underlyings_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.option_underlyings_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Instrument Definition Option 41 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group = {}
+-- Lot Type Rules Group
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_group = {}
 
--- Size: M D Instrument Definition Option 41 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.size =
+-- Size: Lot Type Rules Group
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.size =
   cme_globex_mdp3_sbe_v1_8.lot_type.size + 
   cme_globex_mdp3_sbe_v1_8.min_lot_size.size
 
--- Display: M D Instrument Definition Option 41 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.display = function(packet, parent, length)
+-- Display: Lot Type Rules Group
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+-- Dissect Fields: Lot Type Rules Group
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.fields = function(buffer, offset, packet, parent, lot_type_rules_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No Lot Type Rules Group Index
-  if m_d_instrument_definition_option_41_no_lot_type_rules_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_group_index, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+  -- Implicit Lot Type Rules Group Index
+  if lot_type_rules_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_group_index, lot_type_rules_group_index)
     iteration:set_generated()
   end
 
@@ -5565,47 +5541,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_g
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+-- Dissect: Lot Type Rules Group
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.dissect = function(buffer, offset, packet, parent, lot_type_rules_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.fields(buffer, offset, packet, parent, lot_type_rules_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+    return cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.fields(buffer, offset, packet, parent, lot_type_rules_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups = {}
+-- Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.size = function(buffer, offset)
+-- Calculate size of: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_lot_type_rules_group_count * 5
+  local lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + lot_type_rules_group_count * 5
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.display = function(packet, parent, length)
+-- Display: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5614,29 +5590,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_g
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No Lot Type Rules Group
-  for m_d_instrument_definition_option_41_no_lot_type_rules_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_lot_type_rules_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_lot_type_rules_group_index)
+  -- Repeating: Lot Type Rules Group
+  for lot_type_rules_group_index = 1, num_in_group do
+    index, lot_type_rules_group = cme_globex_mdp3_sbe_v1_8.lot_type_rules_group.dissect(buffer, index, packet, parent, lot_type_rules_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Lot Type Rules Groups
+cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_lot_type_rules_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.lot_type_rules_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5816,25 +5792,25 @@ cme_globex_mdp3_sbe_v1_8.inst_attrib_value.dissect = function(buffer, offset, pa
   return offset + size, value
 end
 
--- M D Instrument Definition Option 41 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group = {}
+-- Inst Attrib Group
+cme_globex_mdp3_sbe_v1_8.inst_attrib_group = {}
 
--- Size: M D Instrument Definition Option 41 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.size =
+-- Size: Inst Attrib Group
+cme_globex_mdp3_sbe_v1_8.inst_attrib_group.size =
   cme_globex_mdp3_sbe_v1_8.inst_attrib_value.size
 
--- Display: M D Instrument Definition Option 41 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.display = function(packet, parent, length)
+-- Display: Inst Attrib Group
+cme_globex_mdp3_sbe_v1_8.inst_attrib_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+-- Dissect Fields: Inst Attrib Group
+cme_globex_mdp3_sbe_v1_8.inst_attrib_group.fields = function(buffer, offset, packet, parent, inst_attrib_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No Inst Attrib Group Index
-  if m_d_instrument_definition_option_41_no_inst_attrib_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_group_index, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+  -- Implicit Inst Attrib Group Index
+  if inst_attrib_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_group_index, inst_attrib_group_index)
     iteration:set_generated()
   end
 
@@ -5844,47 +5820,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_grou
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+-- Dissect: Inst Attrib Group
+cme_globex_mdp3_sbe_v1_8.inst_attrib_group.dissect = function(buffer, offset, packet, parent, inst_attrib_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.inst_attrib_group.fields(buffer, offset, packet, parent, inst_attrib_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.inst_attrib_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+    return cme_globex_mdp3_sbe_v1_8.inst_attrib_group.fields(buffer, offset, packet, parent, inst_attrib_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups = {}
+-- Inst Attrib Groups
+cme_globex_mdp3_sbe_v1_8.inst_attrib_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.size = function(buffer, offset)
+-- Calculate size of: Inst Attrib Groups
+cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_inst_attrib_group_count * 4
+  local inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + inst_attrib_group_count * 4
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.display = function(packet, parent, length)
+-- Display: Inst Attrib Groups
+cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Inst Attrib Groups
+cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -5893,52 +5869,52 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No Inst Attrib Group
-  for m_d_instrument_definition_option_41_no_inst_attrib_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_inst_attrib_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_inst_attrib_group_index)
+  -- Repeating: Inst Attrib Group
+  for inst_attrib_group_index = 1, num_in_group do
+    index, inst_attrib_group = cme_globex_mdp3_sbe_v1_8.inst_attrib_group.dissect(buffer, index, packet, parent, inst_attrib_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Inst Attrib Groups
+cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_inst_attrib_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.inst_attrib_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Instrument Definition Option 41 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group = {}
+-- Feed Types Group
+cme_globex_mdp3_sbe_v1_8.feed_types_group = {}
 
--- Size: M D Instrument Definition Option 41 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.size =
+-- Size: Feed Types Group
+cme_globex_mdp3_sbe_v1_8.feed_types_group.size =
   cme_globex_mdp3_sbe_v1_8.md_feed_type.size + 
   cme_globex_mdp3_sbe_v1_8.market_depth.size
 
--- Display: M D Instrument Definition Option 41 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.display = function(packet, parent, length)
+-- Display: Feed Types Group
+cme_globex_mdp3_sbe_v1_8.feed_types_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+-- Dissect Fields: Feed Types Group
+cme_globex_mdp3_sbe_v1_8.feed_types_group.fields = function(buffer, offset, packet, parent, feed_types_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No M D Feed Types Group Index
-  if m_d_instrument_definition_option_41_no_m_d_feed_types_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_group_index, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+  -- Implicit Feed Types Group Index
+  if feed_types_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_group_index, feed_types_group_index)
     iteration:set_generated()
   end
 
@@ -5951,47 +5927,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_g
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+-- Dissect: Feed Types Group
+cme_globex_mdp3_sbe_v1_8.feed_types_group.dissect = function(buffer, offset, packet, parent, feed_types_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.feed_types_group.fields(buffer, offset, packet, parent, feed_types_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.feed_types_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+    return cme_globex_mdp3_sbe_v1_8.feed_types_group.fields(buffer, offset, packet, parent, feed_types_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups = {}
+-- Feed Types Groups
+cme_globex_mdp3_sbe_v1_8.feed_types_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.size = function(buffer, offset)
+-- Calculate size of: Feed Types Groups
+cme_globex_mdp3_sbe_v1_8.feed_types_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_m_d_feed_types_group_count * 4
+  local feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + feed_types_group_count * 4
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.display = function(packet, parent, length)
+-- Display: Feed Types Groups
+cme_globex_mdp3_sbe_v1_8.feed_types_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Feed Types Groups
+cme_globex_mdp3_sbe_v1_8.feed_types_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -6000,52 +5976,52 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_g
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No M D Feed Types Group
-  for m_d_instrument_definition_option_41_no_m_d_feed_types_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_m_d_feed_types_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_m_d_feed_types_group_index)
+  -- Repeating: Feed Types Group
+  for feed_types_group_index = 1, num_in_group do
+    index, feed_types_group = cme_globex_mdp3_sbe_v1_8.feed_types_group.dissect(buffer, index, packet, parent, feed_types_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Feed Types Groups
+cme_globex_mdp3_sbe_v1_8.feed_types_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_m_d_feed_types_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.feed_types_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.feed_types_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.feed_types_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Instrument Definition Option 41 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group = {}
+-- Events Group
+cme_globex_mdp3_sbe_v1_8.events_group = {}
 
--- Size: M D Instrument Definition Option 41 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.size =
+-- Size: Events Group
+cme_globex_mdp3_sbe_v1_8.events_group.size =
   cme_globex_mdp3_sbe_v1_8.event_type.size + 
   cme_globex_mdp3_sbe_v1_8.event_time.size
 
--- Display: M D Instrument Definition Option 41 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.display = function(packet, parent, length)
+-- Display: Events Group
+cme_globex_mdp3_sbe_v1_8.events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_events_group_index)
+-- Dissect Fields: Events Group
+cme_globex_mdp3_sbe_v1_8.events_group.fields = function(buffer, offset, packet, parent, events_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Option 41 No Events Group Index
-  if m_d_instrument_definition_option_41_no_events_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_group_index, m_d_instrument_definition_option_41_no_events_group_index)
+  -- Implicit Events Group Index
+  if events_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.events_group_index, events_group_index)
     iteration:set_generated()
   end
 
@@ -6058,47 +6034,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.fie
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_events_group_index)
+-- Dissect: Events Group
+cme_globex_mdp3_sbe_v1_8.events_group.dissect = function(buffer, offset, packet, parent, events_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_events_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.events_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.events_group.fields(buffer, offset, packet, parent, events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_option_41_no_events_group_index)
+    return cme_globex_mdp3_sbe_v1_8.events_group.fields(buffer, offset, packet, parent, events_group_index)
   end
 end
 
--- M D Instrument Definition Option 41 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups = {}
+-- Events Groups
+cme_globex_mdp3_sbe_v1_8.events_groups = {}
 
--- Calculate size of: M D Instrument Definition Option 41 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.size = function(buffer, offset)
+-- Calculate size of: Events Groups
+cme_globex_mdp3_sbe_v1_8.events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_option_41_no_events_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_option_41_no_events_group_count * 9
+  local events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + events_group_count * 9
 
   return index
 end
 
--- Display: M D Instrument Definition Option 41 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.display = function(packet, parent, length)
+-- Display: Events Groups
+cme_globex_mdp3_sbe_v1_8.events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Option 41 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Events Groups
+cme_globex_mdp3_sbe_v1_8.events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -6107,29 +6083,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Option 41 No Events Group
-  for m_d_instrument_definition_option_41_no_events_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_option_41_no_events_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_option_41_no_events_group_index)
+  -- Repeating: Events Group
+  for events_group_index = 1, num_in_group do
+    index, events_group = cme_globex_mdp3_sbe_v1_8.events_group.dissect(buffer, index, packet, parent, events_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Option 41 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Events Groups
+cme_globex_mdp3_sbe_v1_8.events_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_option_41_no_events_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.events_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.events_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.events_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.events_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6365,17 +6341,17 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_option.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_8.trading_reference_date.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.events_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.feed_types_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.size(buffer, offset + index)
 
   return index
 end
@@ -6515,23 +6491,23 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_option.fields = function(buffe
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_globex_mdp3_sbe_v1_8.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No Events Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_events_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_events_groups.dissect(buffer, index, packet, parent)
+  -- Events Groups: Struct of 2 fields
+  index, events_groups = cme_globex_mdp3_sbe_v1_8.events_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No M D Feed Types Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_m_d_feed_types_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_m_d_feed_types_groups.dissect(buffer, index, packet, parent)
+  -- Feed Types Groups: Struct of 2 fields
+  index, feed_types_groups = cme_globex_mdp3_sbe_v1_8.feed_types_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No Inst Attrib Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_inst_attrib_groups.dissect(buffer, index, packet, parent)
+  -- Inst Attrib Groups: Struct of 2 fields
+  index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No Lot Type Rules Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_lot_type_rules_groups.dissect(buffer, index, packet, parent)
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No Underlyings Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_underlyings_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_underlyings_groups.dissect(buffer, index, packet, parent)
+  -- Option Underlyings Groups: Struct of 2 fields
+  index, option_underlyings_groups = cme_globex_mdp3_sbe_v1_8.option_underlyings_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Option 41 No Related Instruments Groups: Struct of 2 fields
-  index, m_d_instrument_definition_option_41_no_related_instruments_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_option_41_no_related_instruments_groups.dissect(buffer, index, packet, parent)
+  -- Option Related Instruments Groups: Struct of 2 fields
+  index, option_related_instruments_groups = cme_globex_mdp3_sbe_v1_8.option_related_instruments_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6742,11 +6718,11 @@ cme_globex_mdp3_sbe_v1_8.quote_request.dissect = function(buffer, offset, packet
   end
 end
 
--- Snapshot Full Refresh 38 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group = {}
+-- Snapshot Full Refresh Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group = {}
 
--- Size: Snapshot Full Refresh 38 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.size =
+-- Size: Snapshot Full Refresh Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px_optional.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_size_optional.size + 
   cme_globex_mdp3_sbe_v1_8.number_of_orders.size + 
@@ -6756,18 +6732,18 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.size =
   cme_globex_mdp3_sbe_v1_8.settl_price_type.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_type.size
 
--- Display: Snapshot Full Refresh 38 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh 38 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_38_no_m_d_entries_group_index)
+-- Dissect Fields: Snapshot Full Refresh Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_group_index)
   local index = offset
 
-  -- Implicit Snapshot Full Refresh 38 No M D Entries Group Index
-  if snapshot_full_refresh_38_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_group_index, snapshot_full_refresh_38_no_m_d_entries_group_index)
+  -- Implicit Snapshot Full Refresh Group Index
+  if snapshot_full_refresh_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_group_index, snapshot_full_refresh_group_index)
     iteration:set_generated()
   end
 
@@ -6798,47 +6774,47 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.fields = 
   return index
 end
 
--- Dissect: Snapshot Full Refresh 38 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_38_no_m_d_entries_group_index)
+-- Dissect: Snapshot Full Refresh Group
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_38_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_38_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_group_index)
   end
 end
 
--- Snapshot Full Refresh 38 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups = {}
+-- Snapshot Full Refresh Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups = {}
 
--- Calculate size of: Snapshot Full Refresh 38 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Snapshot Full Refresh Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local snapshot_full_refresh_38_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + snapshot_full_refresh_38_no_m_d_entries_group_count * 22
+  local snapshot_full_refresh_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_full_refresh_group_count * 22
 
   return index
 end
 
--- Display: Snapshot Full Refresh 38 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Snapshot Full Refresh Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh 38 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Snapshot Full Refresh Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -6847,29 +6823,29 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Snapshot Full Refresh 38 No M D Entries Group
-  for snapshot_full_refresh_38_no_m_d_entries_group_index = 1, num_in_group do
-    index, snapshot_full_refresh_38_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_38_no_m_d_entries_group_index)
+  -- Repeating: Snapshot Full Refresh Group
+  for snapshot_full_refresh_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_group = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_group_index)
   end
 
   return index
 end
 
--- Dissect: Snapshot Full Refresh 38 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Snapshot Full Refresh Groups
+cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_38_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6902,7 +6878,7 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh.size = function(buffer, offset)
 
   index = index + cme_globex_mdp3_sbe_v1_8.max_price_variation.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.size(buffer, offset + index)
 
   return index
 end
@@ -6949,8 +6925,8 @@ cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh.fields = function(buffer, offset,
   -- Max Price Variation: PRICENULL
   index, max_price_variation = cme_globex_mdp3_sbe_v1_8.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh 38 No M D Entries Groups: Struct of 2 fields
-  index, snapshot_full_refresh_38_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_38_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Full Refresh Groups: Struct of 2 fields
+  index, snapshot_full_refresh_groups = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7152,11 +7128,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_volume.dissect = function(buffer
   end
 end
 
--- M D Incremental Refresh Trade 36 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group = {}
+-- Incremental Refresh Trade Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group = {}
 
--- Size: M D Incremental Refresh Trade 36 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Trade Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_size.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
@@ -7167,18 +7143,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.s
   cme_globex_mdp3_sbe_v1_8.md_update_action.size + 
   cme_globex_mdp3_sbe_v1_8.padding_2.size
 
--- Display: M D Incremental Refresh Trade 36 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade 36 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Trade Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.fields = function(buffer, offset, packet, parent, incremental_refresh_trade_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Trade 36 No M D Entries Group Index
-  if m_d_incremental_refresh_trade_36_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_group_index, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Trade Group Index
+  if incremental_refresh_trade_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_group_index, incremental_refresh_trade_group_index)
     iteration:set_generated()
   end
 
@@ -7212,47 +7188,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.f
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade 36 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Trade Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_trade_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_group_index)
   end
 end
 
--- M D Incremental Refresh Trade 36 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups = {}
+-- Incremental Refresh Trade Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups = {}
 
--- Calculate size of: M D Incremental Refresh Trade 36 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Trade Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_trade_36_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_36_no_m_d_entries_group_count * 32
+  local incremental_refresh_trade_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_trade_group_count * 32
 
   return index
 end
 
--- Display: M D Incremental Refresh Trade 36 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Trade Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Trade 36 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Trade Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7261,29 +7237,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Trade 36 No M D Entries Group
-  for m_d_incremental_refresh_trade_36_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_trade_36_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_trade_36_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Trade Group
+  for incremental_refresh_trade_group_index = 1, num_in_group do
+    index, incremental_refresh_trade_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_group.dissect(buffer, index, packet, parent, incremental_refresh_trade_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Trade 36 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Trade Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_trade_36_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_trade_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7300,7 +7276,7 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade.size = function(buffer, of
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7323,8 +7299,8 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade.fields = function(buffer, 
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Trade 36 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_trade_36_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_trade_36_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Trade Groups: Struct of 2 fields
+  index, incremental_refresh_trade_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_trade_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7347,11 +7323,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_trade.dissect = function(buffer,
   end
 end
 
--- M D Incremental Refresh Session Statistics 35 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group = {}
+-- Incremental Refresh Session Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group = {}
 
--- Size: M D Incremental Refresh Session Statistics 35 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Session Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
   cme_globex_mdp3_sbe_v1_8.rpt_seq.size + 
@@ -7361,18 +7337,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_en
   cme_globex_mdp3_sbe_v1_8.md_entry_size_optional.size + 
   cme_globex_mdp3_sbe_v1_8.padding_1.size
 
--- Display: M D Incremental Refresh Session Statistics 35 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Session Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Session Statistics 35 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Session Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.fields = function(buffer, offset, packet, parent, incremental_refresh_session_statistics_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Session Statistics 35 No M D Entries Group Index
-  if m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Session Statistics Group Index
+  if incremental_refresh_session_statistics_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_group_index, incremental_refresh_session_statistics_group_index)
     iteration:set_generated()
   end
 
@@ -7403,47 +7379,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_en
   return index
 end
 
--- Dissect: M D Incremental Refresh Session Statistics 35 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Session Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_session_statistics_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.fields(buffer, offset, packet, parent, incremental_refresh_session_statistics_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.fields(buffer, offset, packet, parent, incremental_refresh_session_statistics_group_index)
   end
 end
 
--- M D Incremental Refresh Session Statistics 35 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups = {}
+-- Incremental Refresh Session Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups = {}
 
--- Calculate size of: M D Incremental Refresh Session Statistics 35 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Session Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_count * 24
+  local incremental_refresh_session_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_session_statistics_group_count * 24
 
   return index
 end
 
--- Display: M D Incremental Refresh Session Statistics 35 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Session Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Session Statistics 35 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Session Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7452,29 +7428,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_en
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Session Statistics 35 No M D Entries Group
-  for m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Session Statistics Group
+  for incremental_refresh_session_statistics_group_index = 1, num_in_group do
+    index, incremental_refresh_session_statistics_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_group.dissect(buffer, index, packet, parent, incremental_refresh_session_statistics_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Session Statistics 35 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Session Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_session_statistics_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7491,7 +7467,7 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.size = functi
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7514,8 +7490,8 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.fields = func
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Session Statistics 35 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_session_statistics_35_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Session Statistics Groups: Struct of 2 fields
+  index, incremental_refresh_session_statistics_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_session_statistics_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7538,29 +7514,29 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_session_statistics.dissect = fun
   end
 end
 
--- M D Incremental Refresh Limits Banding 34 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group = {}
+-- Incremental Refresh Limits Banding Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group = {}
 
--- Size: M D Incremental Refresh Limits Banding 34 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Limits Banding Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.size =
   cme_globex_mdp3_sbe_v1_8.high_limit_price.size + 
   cme_globex_mdp3_sbe_v1_8.low_limit_price.size + 
   cme_globex_mdp3_sbe_v1_8.max_price_variation.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
   cme_globex_mdp3_sbe_v1_8.rpt_seq.size
 
--- Display: M D Incremental Refresh Limits Banding 34 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Limits Banding Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Limits Banding 34 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Limits Banding Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.fields = function(buffer, offset, packet, parent, incremental_refresh_limits_banding_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Limits Banding 34 No M D Entries Group Index
-  if m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Limits Banding Group Index
+  if incremental_refresh_limits_banding_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_group_index, incremental_refresh_limits_banding_group_index)
     iteration:set_generated()
   end
 
@@ -7582,47 +7558,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entrie
   return index
 end
 
--- Dissect: M D Incremental Refresh Limits Banding 34 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Limits Banding Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_limits_banding_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.fields(buffer, offset, packet, parent, incremental_refresh_limits_banding_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.fields(buffer, offset, packet, parent, incremental_refresh_limits_banding_group_index)
   end
 end
 
--- M D Incremental Refresh Limits Banding 34 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups = {}
+-- Incremental Refresh Limits Banding Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups = {}
 
--- Calculate size of: M D Incremental Refresh Limits Banding 34 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Limits Banding Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_count * 32
+  local incremental_refresh_limits_banding_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_limits_banding_group_count * 32
 
   return index
 end
 
--- Display: M D Incremental Refresh Limits Banding 34 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Limits Banding Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Limits Banding 34 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Limits Banding Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7631,29 +7607,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entrie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Limits Banding 34 No M D Entries Group
-  for m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Limits Banding Group
+  for incremental_refresh_limits_banding_group_index = 1, num_in_group do
+    index, incremental_refresh_limits_banding_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_group.dissect(buffer, index, packet, parent, incremental_refresh_limits_banding_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Limits Banding 34 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Limits Banding Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_limits_banding_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7670,7 +7646,7 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.size = function(b
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7693,8 +7669,8 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.fields = function
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Limits Banding 34 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_limits_banding_34_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Limits Banding Groups: Struct of 2 fields
+  index, incremental_refresh_limits_banding_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_limits_banding_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7717,11 +7693,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_limits_banding.dissect = functio
   end
 end
 
--- M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group = {}
+-- Incremental Refresh Daily Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group = {}
 
--- Size: M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Daily Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px_optional.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_size_optional.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
@@ -7732,18 +7708,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entr
   cme_globex_mdp3_sbe_v1_8.md_entry_type_daily_statistics.size + 
   cme_globex_mdp3_sbe_v1_8.padding_7.size
 
--- Display: M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Daily Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Daily Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.fields = function(buffer, offset, packet, parent, incremental_refresh_daily_statistics_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Daily Statistics 33 No M D Entries Group Index
-  if m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Daily Statistics Group Index
+  if incremental_refresh_daily_statistics_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_group_index, incremental_refresh_daily_statistics_group_index)
     iteration:set_generated()
   end
 
@@ -7777,47 +7753,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entr
   return index
 end
 
--- Dissect: M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Daily Statistics Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_daily_statistics_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.fields(buffer, offset, packet, parent, incremental_refresh_daily_statistics_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.fields(buffer, offset, packet, parent, incremental_refresh_daily_statistics_group_index)
   end
 end
 
--- M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups = {}
+-- Incremental Refresh Daily Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups = {}
 
--- Calculate size of: M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Daily Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_count * 32
+  local incremental_refresh_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_daily_statistics_group_count * 32
 
   return index
 end
 
--- Display: M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Daily Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Daily Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7826,29 +7802,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Daily Statistics 33 No M D Entries Group
-  for m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Daily Statistics Group
+  for incremental_refresh_daily_statistics_group_index = 1, num_in_group do
+    index, incremental_refresh_daily_statistics_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_group.dissect(buffer, index, packet, parent, incremental_refresh_daily_statistics_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Daily Statistics 33 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Daily Statistics Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_daily_statistics_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7865,7 +7841,7 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.size = function
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7888,8 +7864,8 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.fields = functi
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Daily Statistics 33 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_daily_statistics_33_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Daily Statistics Groups: Struct of 2 fields
+  index, incremental_refresh_daily_statistics_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_daily_statistics_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7912,11 +7888,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_daily_statistics.dissect = funct
   end
 end
 
--- M D Incremental Refresh Book 32 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group = {}
+-- Incremental Refresh Book Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group = {}
 
--- Size: M D Incremental Refresh Book 32 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.size =
+-- Size: Incremental Refresh Book Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.size =
   cme_globex_mdp3_sbe_v1_8.order_id.size + 
   cme_globex_mdp3_sbe_v1_8.md_order_priority.size + 
   cme_globex_mdp3_sbe_v1_8.md_display_qty_optional.size + 
@@ -7924,18 +7900,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_gr
   cme_globex_mdp3_sbe_v1_8.order_update_action.size + 
   cme_globex_mdp3_sbe_v1_8.padding_2.size
 
--- Display: M D Incremental Refresh Book 32 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Book Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Book 32 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Book Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.fields = function(buffer, offset, packet, parent, incremental_refresh_book_order_id_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Book 32 No Order I D Entries Group Index
-  if m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+  -- Implicit Incremental Refresh Book Order Id Group Index
+  if incremental_refresh_book_order_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_group_index, incremental_refresh_book_order_id_group_index)
     iteration:set_generated()
   end
 
@@ -7960,47 +7936,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_gr
   return index
 end
 
--- Dissect: M D Incremental Refresh Book 32 No Order I D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+-- Dissect: Incremental Refresh Book Order Id Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_book_order_id_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_book_order_id_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.fields(buffer, offset, packet, parent, incremental_refresh_book_order_id_group_index)
   end
 end
 
--- M D Incremental Refresh Book 32 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups = {}
+-- Incremental Refresh Book Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups = {}
 
--- Calculate size of: M D Incremental Refresh Book 32 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Book Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size_8_byte.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_book_32_no_order_i_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_book_32_no_order_i_d_entries_group_count * 24
+  local incremental_refresh_book_order_id_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_book_order_id_group_count * 24
 
   return index
 end
 
--- Display: M D Incremental Refresh Book 32 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Book Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Book 32 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Book Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size 8 Byte: Struct of 3 fields
@@ -8009,37 +7985,37 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Book 32 No Order I D Entries Group
-  for m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_book_32_no_order_i_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_book_32_no_order_i_d_entries_group_index)
+  -- Repeating: Incremental Refresh Book Order Id Group
+  for incremental_refresh_book_order_id_group_index = 1, num_in_group do
+    index, incremental_refresh_book_order_id_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_group.dissect(buffer, index, packet, parent, incremental_refresh_book_order_id_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Book 32 No Order I D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Book Order Id Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_order_id_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- M D Incremental Refresh Book 32 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group = {}
+-- Incremental Refresh Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group = {}
 
--- Size: M D Incremental Refresh Book 32 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.size =
+-- Size: Incremental Refresh Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.size =
   cme_globex_mdp3_sbe_v1_8.md_entry_px_optional.size + 
   cme_globex_mdp3_sbe_v1_8.md_entry_size_optional.size + 
   cme_globex_mdp3_sbe_v1_8.security_id.size + 
@@ -8050,18 +8026,18 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.si
   cme_globex_mdp3_sbe_v1_8.md_entry_type_book.size + 
   cme_globex_mdp3_sbe_v1_8.padding_5.size
 
--- Display: M D Incremental Refresh Book 32 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.display = function(packet, parent, length)
+-- Display: Incremental Refresh Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Book 32 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+-- Dissect Fields: Incremental Refresh Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.fields = function(buffer, offset, packet, parent, incremental_refresh_book_group_index)
   local index = offset
 
-  -- Implicit M D Incremental Refresh Book 32 No M D Entries Group Index
-  if m_d_incremental_refresh_book_32_no_m_d_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group_index, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+  -- Implicit Incremental Refresh Book Group Index
+  if incremental_refresh_book_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_group_index, incremental_refresh_book_group_index)
     iteration:set_generated()
   end
 
@@ -8095,47 +8071,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.fi
   return index
 end
 
--- Dissect: M D Incremental Refresh Book 32 No M D Entries Group
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+-- Dissect: Incremental Refresh Book Group
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_book_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.fields(buffer, offset, packet, parent, incremental_refresh_book_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.fields(buffer, offset, packet, parent, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.fields(buffer, offset, packet, parent, incremental_refresh_book_group_index)
   end
 end
 
--- M D Incremental Refresh Book 32 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups = {}
+-- Incremental Refresh Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups = {}
 
--- Calculate size of: M D Incremental Refresh Book 32 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Incremental Refresh Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_incremental_refresh_book_32_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_book_32_no_m_d_entries_group_count * 32
+  local incremental_refresh_book_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + incremental_refresh_book_group_count * 32
 
   return index
 end
 
--- Display: M D Incremental Refresh Book 32 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.display = function(packet, parent, length)
+-- Display: Incremental Refresh Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Incremental Refresh Book 32 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Incremental Refresh Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -8144,29 +8120,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Incremental Refresh Book 32 No M D Entries Group
-  for m_d_incremental_refresh_book_32_no_m_d_entries_group_index = 1, num_in_group do
-    index, m_d_incremental_refresh_book_32_no_m_d_entries_group = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_group.dissect(buffer, index, packet, parent, m_d_incremental_refresh_book_32_no_m_d_entries_group_index)
+  -- Repeating: Incremental Refresh Book Group
+  for incremental_refresh_book_group_index = 1, num_in_group do
+    index, incremental_refresh_book_group = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_group.dissect(buffer, index, packet, parent, incremental_refresh_book_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Incremental Refresh Book 32 No M D Entries Groups
-cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Incremental Refresh Book Groups
+cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_incremental_refresh_book_32_no_m_d_entries_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.incremental_refresh_book_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8183,9 +8159,9 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_book.size = function(buffer, off
 
   index = index + cme_globex_mdp3_sbe_v1_8.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8208,11 +8184,11 @@ cme_globex_mdp3_sbe_v1_8.md_incremental_refresh_book.fields = function(buffer, o
   -- Padding 2: 2 Byte
   index, padding_2 = cme_globex_mdp3_sbe_v1_8.padding_2.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Book 32 No M D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_book_32_no_m_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Book Groups: Struct of 2 fields
+  index, incremental_refresh_book_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Incremental Refresh Book 32 No Order I D Entries Groups: Struct of 2 fields
-  index, m_d_incremental_refresh_book_32_no_order_i_d_entries_groups = cme_globex_mdp3_sbe_v1_8.m_d_incremental_refresh_book_32_no_order_i_d_entries_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Book Order Id Groups: Struct of 2 fields
+  index, incremental_refresh_book_order_id_groups = cme_globex_mdp3_sbe_v1_8.incremental_refresh_book_order_id_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8307,29 +8283,29 @@ cme_globex_mdp3_sbe_v1_8.security_status.dissect = function(buffer, offset, pack
   end
 end
 
--- M D Instrument Definition Spread 29 No Legs Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group = {}
+-- Legs Group
+cme_globex_mdp3_sbe_v1_8.legs_group = {}
 
--- Size: M D Instrument Definition Spread 29 No Legs Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.size =
+-- Size: Legs Group
+cme_globex_mdp3_sbe_v1_8.legs_group.size =
   cme_globex_mdp3_sbe_v1_8.leg_security_id.size + 
   cme_globex_mdp3_sbe_v1_8.leg_side.size + 
   cme_globex_mdp3_sbe_v1_8.leg_ratio_qty.size + 
   cme_globex_mdp3_sbe_v1_8.leg_price.size + 
   cme_globex_mdp3_sbe_v1_8.leg_option_delta.size
 
--- Display: M D Instrument Definition Spread 29 No Legs Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.display = function(packet, parent, length)
+-- Display: Legs Group
+cme_globex_mdp3_sbe_v1_8.legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Spread 29 No Legs Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
+-- Dissect Fields: Legs Group
+cme_globex_mdp3_sbe_v1_8.legs_group.fields = function(buffer, offset, packet, parent, legs_group_index)
   local index = offset
 
-  -- Implicit M D Instrument Definition Spread 29 No Legs Group Index
-  if m_d_instrument_definition_spread_29_no_legs_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_group_index, m_d_instrument_definition_spread_29_no_legs_group_index)
+  -- Implicit Legs Group Index
+  if legs_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.legs_group_index, legs_group_index)
     iteration:set_generated()
   end
 
@@ -8351,47 +8327,47 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.field
   return index
 end
 
--- Dissect: M D Instrument Definition Spread 29 No Legs Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
+-- Dissect: Legs Group
+cme_globex_mdp3_sbe_v1_8.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.legs_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
+    return cme_globex_mdp3_sbe_v1_8.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
   end
 end
 
--- M D Instrument Definition Spread 29 No Legs Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups = {}
+-- Legs Groups
+cme_globex_mdp3_sbe_v1_8.legs_groups = {}
 
--- Calculate size of: M D Instrument Definition Spread 29 No Legs Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.size = function(buffer, offset)
+-- Calculate size of: Legs Groups
+cme_globex_mdp3_sbe_v1_8.legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
 
   -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_legs_group_count * 18
+  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + legs_group_count * 18
 
   return index
 end
 
--- Display: M D Instrument Definition Spread 29 No Legs Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.display = function(packet, parent, length)
+-- Display: Legs Groups
+cme_globex_mdp3_sbe_v1_8.legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: M D Instrument Definition Spread 29 No Legs Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Legs Groups
+cme_globex_mdp3_sbe_v1_8.legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -8400,453 +8376,29 @@ cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: M D Instrument Definition Spread 29 No Legs Group
-  for m_d_instrument_definition_spread_29_no_legs_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_legs_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_legs_group_index)
+  -- Repeating: Legs Group
+  for legs_group_index = 1, num_in_group do
+    index, legs_group = cme_globex_mdp3_sbe_v1_8.legs_group.dissect(buffer, index, packet, parent, legs_group_index)
   end
 
   return index
 end
 
--- Dissect: M D Instrument Definition Spread 29 No Legs Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Legs Groups
+cme_globex_mdp3_sbe_v1_8.legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_legs_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.legs_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_8.legs_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_8.legs_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group = {}
-
--- Size: M D Instrument Definition Spread 29 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.size =
-  cme_globex_mdp3_sbe_v1_8.lot_type.size + 
-  cme_globex_mdp3_sbe_v1_8.min_lot_size.size
-
--- Display: M D Instrument Definition Spread 29 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Spread 29 No Lot Type Rules Group Index
-  if m_d_instrument_definition_spread_29_no_lot_type_rules_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group_index, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-    iteration:set_generated()
-  end
-
-  -- Lot Type: Int8
-  index, lot_type = cme_globex_mdp3_sbe_v1_8.lot_type.dissect(buffer, index, packet, parent)
-
-  -- Min Lot Size: DecimalQty
-  index, min_lot_size = cme_globex_mdp3_sbe_v1_8.min_lot_size.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups = {}
-
--- Calculate size of: M D Instrument Definition Spread 29 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_lot_type_rules_group_count * 5
-
-  return index
-end
-
--- Display: M D Instrument Definition Spread 29 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Spread 29 No Lot Type Rules Group
-  for m_d_instrument_definition_spread_29_no_lot_type_rules_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_lot_type_rules_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_lot_type_rules_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_lot_type_rules_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group = {}
-
--- Size: M D Instrument Definition Spread 29 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.size =
-  cme_globex_mdp3_sbe_v1_8.inst_attrib_value.size
-
--- Display: M D Instrument Definition Spread 29 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Spread 29 No Inst Attrib Group Index
-  if m_d_instrument_definition_spread_29_no_inst_attrib_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group_index, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-    iteration:set_generated()
-  end
-
-  -- Inst Attrib Value: Struct of 21 fields
-  index, inst_attrib_value = cme_globex_mdp3_sbe_v1_8.inst_attrib_value.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups = {}
-
--- Calculate size of: M D Instrument Definition Spread 29 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_inst_attrib_group_count * 4
-
-  return index
-end
-
--- Display: M D Instrument Definition Spread 29 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Spread 29 No Inst Attrib Group
-  for m_d_instrument_definition_spread_29_no_inst_attrib_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_inst_attrib_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_inst_attrib_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_inst_attrib_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Spread 29 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group = {}
-
--- Size: M D Instrument Definition Spread 29 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.size =
-  cme_globex_mdp3_sbe_v1_8.md_feed_type.size + 
-  cme_globex_mdp3_sbe_v1_8.market_depth.size
-
--- Display: M D Instrument Definition Spread 29 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Spread 29 No M D Feed Types Group Index
-  if m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-    iteration:set_generated()
-  end
-
-  -- Md Feed Type: MDFeedType
-  index, md_feed_type = cme_globex_mdp3_sbe_v1_8.md_feed_type.dissect(buffer, index, packet, parent)
-
-  -- Market Depth: Int8
-  index, market_depth = cme_globex_mdp3_sbe_v1_8.market_depth.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-  end
-end
-
--- M D Instrument Definition Spread 29 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = {}
-
--- Calculate size of: M D Instrument Definition Spread 29 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_m_d_feed_types_group_count * 4
-
-  return index
-end
-
--- Display: M D Instrument Definition Spread 29 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Spread 29 No M D Feed Types Group
-  for m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_m_d_feed_types_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_m_d_feed_types_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group = {}
-
--- Size: M D Instrument Definition Spread 29 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.size =
-  cme_globex_mdp3_sbe_v1_8.event_type.size + 
-  cme_globex_mdp3_sbe_v1_8.event_time.size
-
--- Display: M D Instrument Definition Spread 29 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_events_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Spread 29 No Events Group Index
-  if m_d_instrument_definition_spread_29_no_events_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_group_index, m_d_instrument_definition_spread_29_no_events_group_index)
-    iteration:set_generated()
-  end
-
-  -- Event Type: EventType
-  index, event_type = cme_globex_mdp3_sbe_v1_8.event_type.dissect(buffer, index, packet, parent)
-
-  -- Event Time: uInt64
-  index, event_time = cme_globex_mdp3_sbe_v1_8.event_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_events_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_events_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_spread_29_no_events_group_index)
-  end
-end
-
--- M D Instrument Definition Spread 29 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups = {}
-
--- Calculate size of: M D Instrument Definition Spread 29 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_spread_29_no_events_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_spread_29_no_events_group_count * 9
-
-  return index
-end
-
--- Display: M D Instrument Definition Spread 29 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Spread 29 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Spread 29 No Events Group
-  for m_d_instrument_definition_spread_29_no_events_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_spread_29_no_events_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_spread_29_no_events_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Spread 29 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_spread_29_no_events_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_8.legs_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8933,15 +8485,15 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_spread.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_8.trading_reference_date.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.events_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.feed_types_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9069,20 +8621,20 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_spread.fields = function(buffe
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_globex_mdp3_sbe_v1_8.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No Events Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_events_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_events_groups.dissect(buffer, index, packet, parent)
+  -- Events Groups: Struct of 2 fields
+  index, events_groups = cme_globex_mdp3_sbe_v1_8.events_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No M D Feed Types Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_m_d_feed_types_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_m_d_feed_types_groups.dissect(buffer, index, packet, parent)
+  -- Feed Types Groups: Struct of 2 fields
+  index, feed_types_groups = cme_globex_mdp3_sbe_v1_8.feed_types_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No Inst Attrib Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_inst_attrib_groups.dissect(buffer, index, packet, parent)
+  -- Inst Attrib Groups: Struct of 2 fields
+  index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No Lot Type Rules Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_lot_type_rules_groups.dissect(buffer, index, packet, parent)
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Spread 29 No Legs Groups: Struct of 2 fields
-  index, m_d_instrument_definition_spread_29_no_legs_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_spread_29_no_legs_groups.dissect(buffer, index, packet, parent)
+  -- Legs Groups: Struct of 2 fields
+  index, legs_groups = cme_globex_mdp3_sbe_v1_8.legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9102,430 +8654,6 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_spread.dissect = function(buff
   else
     -- Skip element, add fields directly
     return cme_globex_mdp3_sbe_v1_8.md_instrument_definition_spread.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Future 27 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group = {}
-
--- Size: M D Instrument Definition Future 27 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.size =
-  cme_globex_mdp3_sbe_v1_8.lot_type.size + 
-  cme_globex_mdp3_sbe_v1_8.min_lot_size.size
-
--- Display: M D Instrument Definition Future 27 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Future 27 No Lot Type Rules Group Index
-  if m_d_instrument_definition_future_27_no_lot_type_rules_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_group_index, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-    iteration:set_generated()
-  end
-
-  -- Lot Type: Int8
-  index, lot_type = cme_globex_mdp3_sbe_v1_8.lot_type.dissect(buffer, index, packet, parent)
-
-  -- Min Lot Size: DecimalQty
-  index, min_lot_size = cme_globex_mdp3_sbe_v1_8.min_lot_size.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Lot Type Rules Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-  end
-end
-
--- M D Instrument Definition Future 27 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups = {}
-
--- Calculate size of: M D Instrument Definition Future 27 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_future_27_no_lot_type_rules_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_future_27_no_lot_type_rules_group_count * 5
-
-  return index
-end
-
--- Display: M D Instrument Definition Future 27 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Future 27 No Lot Type Rules Group
-  for m_d_instrument_definition_future_27_no_lot_type_rules_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_future_27_no_lot_type_rules_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_future_27_no_lot_type_rules_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Lot Type Rules Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_lot_type_rules_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Future 27 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group = {}
-
--- Size: M D Instrument Definition Future 27 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.size =
-  cme_globex_mdp3_sbe_v1_8.inst_attrib_value.size
-
--- Display: M D Instrument Definition Future 27 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Future 27 No Inst Attrib Group Index
-  if m_d_instrument_definition_future_27_no_inst_attrib_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_group_index, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-    iteration:set_generated()
-  end
-
-  -- Inst Attrib Value: Struct of 21 fields
-  index, inst_attrib_value = cme_globex_mdp3_sbe_v1_8.inst_attrib_value.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Inst Attrib Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-  end
-end
-
--- M D Instrument Definition Future 27 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups = {}
-
--- Calculate size of: M D Instrument Definition Future 27 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_future_27_no_inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_future_27_no_inst_attrib_group_count * 4
-
-  return index
-end
-
--- Display: M D Instrument Definition Future 27 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Future 27 No Inst Attrib Group
-  for m_d_instrument_definition_future_27_no_inst_attrib_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_future_27_no_inst_attrib_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_future_27_no_inst_attrib_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Inst Attrib Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_inst_attrib_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Future 27 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group = {}
-
--- Size: M D Instrument Definition Future 27 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.size =
-  cme_globex_mdp3_sbe_v1_8.md_feed_type.size + 
-  cme_globex_mdp3_sbe_v1_8.market_depth.size
-
--- Display: M D Instrument Definition Future 27 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Future 27 No M D Feed Types Group Index
-  if m_d_instrument_definition_future_27_no_m_d_feed_types_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_group_index, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-    iteration:set_generated()
-  end
-
-  -- Md Feed Type: MDFeedType
-  index, md_feed_type = cme_globex_mdp3_sbe_v1_8.md_feed_type.dissect(buffer, index, packet, parent)
-
-  -- Market Depth: Int8
-  index, market_depth = cme_globex_mdp3_sbe_v1_8.market_depth.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No M D Feed Types Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-  end
-end
-
--- M D Instrument Definition Future 27 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups = {}
-
--- Calculate size of: M D Instrument Definition Future 27 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_future_27_no_m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_future_27_no_m_d_feed_types_group_count * 4
-
-  return index
-end
-
--- Display: M D Instrument Definition Future 27 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Future 27 No M D Feed Types Group
-  for m_d_instrument_definition_future_27_no_m_d_feed_types_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_future_27_no_m_d_feed_types_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_future_27_no_m_d_feed_types_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No M D Feed Types Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_m_d_feed_types_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- M D Instrument Definition Future 27 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group = {}
-
--- Size: M D Instrument Definition Future 27 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.size =
-  cme_globex_mdp3_sbe_v1_8.event_type.size + 
-  cme_globex_mdp3_sbe_v1_8.event_time.size
-
--- Display: M D Instrument Definition Future 27 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.fields = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_events_group_index)
-  local index = offset
-
-  -- Implicit M D Instrument Definition Future 27 No Events Group Index
-  if m_d_instrument_definition_future_27_no_events_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_group_index, m_d_instrument_definition_future_27_no_events_group_index)
-    iteration:set_generated()
-  end
-
-  -- Event Type: EventType
-  index, event_type = cme_globex_mdp3_sbe_v1_8.event_type.dissect(buffer, index, packet, parent)
-
-  -- Event Time: uInt64
-  index, event_time = cme_globex_mdp3_sbe_v1_8.event_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Events Group
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.dissect = function(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_events_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_events_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.fields(buffer, offset, packet, parent, m_d_instrument_definition_future_27_no_events_group_index)
-  end
-end
-
--- M D Instrument Definition Future 27 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups = {}
-
--- Calculate size of: M D Instrument Definition Future 27 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_8.group_size.size
-
-  -- Calculate field size from count
-  local m_d_instrument_definition_future_27_no_events_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_instrument_definition_future_27_no_events_group_count * 9
-
-  return index
-end
-
--- Display: M D Instrument Definition Future 27 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: M D Instrument Definition Future 27 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_8.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: M D Instrument Definition Future 27 No Events Group
-  for m_d_instrument_definition_future_27_no_events_group_index = 1, num_in_group do
-    index, m_d_instrument_definition_future_27_no_events_group = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_group.dissect(buffer, index, packet, parent, m_d_instrument_definition_future_27_no_events_group_index)
-  end
-
-  return index
-end
-
--- Dissect: M D Instrument Definition Future 27 No Events Groups
-cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_8.fields.m_d_instrument_definition_future_27_no_events_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9624,13 +8752,13 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_future.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_8.trading_reference_date.size
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.events_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.feed_types_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9776,17 +8904,17 @@ cme_globex_mdp3_sbe_v1_8.md_instrument_definition_future.fields = function(buffe
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_globex_mdp3_sbe_v1_8.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Future 27 No Events Groups: Struct of 2 fields
-  index, m_d_instrument_definition_future_27_no_events_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_events_groups.dissect(buffer, index, packet, parent)
+  -- Events Groups: Struct of 2 fields
+  index, events_groups = cme_globex_mdp3_sbe_v1_8.events_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Future 27 No M D Feed Types Groups: Struct of 2 fields
-  index, m_d_instrument_definition_future_27_no_m_d_feed_types_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_m_d_feed_types_groups.dissect(buffer, index, packet, parent)
+  -- Feed Types Groups: Struct of 2 fields
+  index, feed_types_groups = cme_globex_mdp3_sbe_v1_8.feed_types_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Future 27 No Inst Attrib Groups: Struct of 2 fields
-  index, m_d_instrument_definition_future_27_no_inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_inst_attrib_groups.dissect(buffer, index, packet, parent)
+  -- Inst Attrib Groups: Struct of 2 fields
+  index, inst_attrib_groups = cme_globex_mdp3_sbe_v1_8.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- M D Instrument Definition Future 27 No Lot Type Rules Groups: Struct of 2 fields
-  index, m_d_instrument_definition_future_27_no_lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.m_d_instrument_definition_future_27_no_lot_type_rules_groups.dissect(buffer, index, packet, parent)
+  -- Lot Type Rules Groups: Struct of 2 fields
+  index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_8.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
