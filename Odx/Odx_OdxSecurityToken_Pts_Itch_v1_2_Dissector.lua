@@ -82,6 +82,27 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.system_event_message = ProtoField.
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp_seconds_message = ProtoField.new("Timestamp Seconds Message", "odx.odxsecuritytoken.pts.itch.v1.2.timestampsecondsmessage", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Trading State Message", "odx.odxsecuritytoken.pts.itch.v1.2.tradingstatemessage", ftypes.STRING)
 
+-- Odx OdxSecurityToken Pts Itch 1.2 generated fields
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "odx.odxsecuritytoken.pts.itch.v1.2.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Odx OdxSecurityToken Pts Itch 1.2 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp_format = 2
+
+-- Hours ahead of UTC (JST) for midnight calculation
+odx_odxsecuritytoken_pts_itch_v1_2.utc_offset_hours = 9
+
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -98,6 +119,8 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_session_messages = Pref.bool("
 omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_format_enum, false)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs_changed()
@@ -112,7 +135,43 @@ function omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs_changed()
   if show.structs ~= omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_structs then
     show.structs = omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.show_structs
   end
+  if odx_odxsecuritytoken_pts_itch_v1_2.timestamp_format ~= omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.timestamp_format then
+    odx_odxsecuritytoken_pts_itch_v1_2.timestamp_format = omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.timestamp_format
+  end
+  if odx_odxsecuritytoken_pts_itch_v1_2.utc_offset_hours ~= omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.utc_offset_hours then
+    odx_odxsecuritytoken_pts_itch_v1_2.utc_offset_hours = omi_odx_odxsecuritytoken_pts_itch_v1_2.prefs.utc_offset_hours
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+odx_odxsecuritytoken_pts_itch_v1_2.conversation = {}
+odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+odx_odxsecuritytoken_pts_itch_v1_2.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+odx_odxsecuritytoken_pts_itch_v1_2.conversation.data = function(packet)
+  local key = odx_odxsecuritytoken_pts_itch_v1_2.conversation.key(packet)
+  local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key]
+  if data == nil then
+    data = { timestamp_seconds = { last = nil, frames = {} } }
+    odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1156,6 +1215,16 @@ odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds = {}
 -- Size: Timestamp Seconds
 odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.size = 4
 
+-- Store: Timestamp Seconds
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.current = nil
+
+-- Generated: Timestamp Seconds
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.generated = function(value, range, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.display(value)
+  local timestamp_seconds = parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp_seconds, range, value, display)
+  timestamp_seconds:set_generated()
+end
+
 -- Display: Timestamp Seconds
 odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.display = function(value)
   return "Timestamp Seconds: "..value
@@ -1321,6 +1390,63 @@ odx_odxsecuritytoken_pts_itch_v1_2.username.dissect = function(buffer, offset, p
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.username, range, value, display)
 
   return offset + length, value
+end
+
+-- Timestamp
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp = {}
+
+-- Translate: Timestamp
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp.translate = function(timestamp_nanoseconds, stored_timestamp_seconds)
+  return UInt64.new(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
+end
+
+-- Display: Timestamp
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp.display = function(timestamp_nanoseconds, stored_timestamp_seconds, packet)
+  -- Raw display mode
+  if odx_odxsecuritytoken_pts_itch_v1_2.timestamp_format == 0 then
+    return "Timestamp: "..(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if odx_odxsecuritytoken_pts_itch_v1_2.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = odx_odxsecuritytoken_pts_itch_v1_2.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+    local full_seconds = local_midnight + stored_timestamp_seconds
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
+end
+
+-- Composite: Timestamp
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp.composite = function(buffer, offset, stored_timestamp_seconds, packet, parent)
+  local length = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.size
+  local range = buffer(offset, length)
+  local timestamp_nanoseconds = range:uint()
+  local value = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.translate(timestamp_nanoseconds, stored_timestamp_seconds)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds, packet)
+  parent = parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp, range, value, display)
+
+  odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.generated(stored_timestamp_seconds, range, packet, parent)
+
+  display = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.display(timestamp_nanoseconds)
+  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp_nanoseconds, range, timestamp_nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_timestamp_seconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.current
+
+  if stored_timestamp_seconds ~= nil then
+    return odx_odxsecuritytoken_pts_itch_v1_2.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
+  end
+
+  return odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1526,7 +1652,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price_update_message.fields = fun
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxsecuritytoken_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1574,7 +1700,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.order_book_state_message.fields = function(bu
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxsecuritytoken_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1624,7 +1750,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.order_replaced_message.fields = function(buff
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Order Number: Integer
   index, original_order_number = odx_odxsecuritytoken_pts_itch_v1_2.original_order_number.dissect(buffer, index, packet, parent)
@@ -1677,7 +1803,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.order_deleted_message.fields = function(buffe
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxsecuritytoken_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -1725,7 +1851,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.order_executed_with_price_message.fields = fu
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxsecuritytoken_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -1786,7 +1912,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.order_added_message.fields = function(buffer,
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxsecuritytoken_pts_itch_v1_2.order_number.dissect(buffer, index, packet, parent)
@@ -1847,7 +1973,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.trading_state_message.fields = function(buffe
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxsecuritytoken_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1908,7 +2034,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.orderbook_directory_message.fields = function
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxsecuritytoken_pts_itch_v1_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1987,7 +2113,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.price_tick_size_message.fields = function(buf
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = odx_odxsecuritytoken_pts_itch_v1_2.price_tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -2038,7 +2164,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.system_event_message.fields = function(buffer
   local index = offset
 
   -- Timestamp Nanoseconds: Integer
-  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
   index, group = odx_odxsecuritytoken_pts_itch_v1_2.group.dissect(buffer, index, packet, parent)
@@ -2085,6 +2211,13 @@ odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds_message.fields = function(b
 
   -- Timestamp Seconds: Integer
   index, timestamp_seconds = odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Timestamp Seconds Value
+  odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.current = timestamp_seconds
+
+  if not packet.visited then
+    odx_odxsecuritytoken_pts_itch_v1_2.conversation.current.timestamp_seconds.last = timestamp_seconds
+  end
 
   return index
 end
@@ -2506,6 +2639,14 @@ end
 
 -- Dissect Packet
 odx_odxsecuritytoken_pts_itch_v1_2.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.data(packet)
+  if not packet.visited then
+    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
+  end
+  odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
+  odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = data
+
   local index = 0
 
   -- Dependency for Soup Bin Tcp Packet
@@ -2538,6 +2679,9 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxsecuritytoken_pts_itch_v1_2.init()
+  odx_odxsecuritytoken_pts_itch_v1_2.timestamp_seconds.current = nil
+  odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = nil
+  odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows = {}
 end
 
 -- Dissector for Odx OdxSecurityToken Pts Itch 1.2

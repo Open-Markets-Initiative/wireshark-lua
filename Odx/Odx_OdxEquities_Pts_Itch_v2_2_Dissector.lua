@@ -25,7 +25,6 @@ omi_odx_odxequities_pts_itch_v2_2.fields.message_count = ProtoField.new("Message
 omi_odx_odxequities_pts_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "odx.odxequities.pts.itch.v2.2.messageheader", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "odx.odxequities.pts.itch.v2.2.messagelength", ftypes.UINT16)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "odx.odxequities.pts.itch.v2.2.messagetype", ftypes.STRING)
-omi_odx_odxequities_pts_itch_v2_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "odx.odxequities.pts.itch.v2.2.nanoseconds", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.new_order_number = ProtoField.new("New Order Number", "odx.odxequities.pts.itch.v2.2.newordernumber", ftypes.UINT64)
 omi_odx_odxequities_pts_itch_v2_2.fields.order_number = ProtoField.new("Order Number", "odx.odxequities.pts.itch.v2.2.ordernumber", ftypes.UINT64)
 omi_odx_odxequities_pts_itch_v2_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "odx.odxequities.pts.itch.v2.2.orderbookcode", ftypes.STRING)
@@ -40,11 +39,12 @@ omi_odx_odxequities_pts_itch_v2_2.fields.price_tick_size = ProtoField.new("Price
 omi_odx_odxequities_pts_itch_v2_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "odx.odxequities.pts.itch.v2.2.priceticksizetableid", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.quantity = ProtoField.new("Quantity", "odx.odxequities.pts.itch.v2.2.quantity", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "odx.odxequities.pts.itch.v2.2.roundlotsize", ftypes.UINT32)
-omi_odx_odxequities_pts_itch_v2_2.fields.second = ProtoField.new("Second", "odx.odxequities.pts.itch.v2.2.second", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.sequence_number = ProtoField.new("Sequence Number", "odx.odxequities.pts.itch.v2.2.sequencenumber", ftypes.UINT64)
 omi_odx_odxequities_pts_itch_v2_2.fields.session = ProtoField.new("Session", "odx.odxequities.pts.itch.v2.2.session", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.short_selling_state = ProtoField.new("Short Selling State", "odx.odxequities.pts.itch.v2.2.shortsellingstate", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.itch.v2.2.systemevent", ftypes.STRING)
+omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "odx.odxequities.pts.itch.v2.2.timestampnanoseconds", ftypes.UINT32)
+omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_seconds = ProtoField.new("Timestamp Seconds", "odx.odxequities.pts.itch.v2.2.timestampseconds", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "odx.odxequities.pts.itch.v2.2.tradingstate", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.itch.v2.2.upperpricelimit", ftypes.DOUBLE)
 
@@ -100,7 +100,7 @@ omi_odx_odxequities_pts_itch_v2_2.prefs.show_headers = Pref.bool("Show Headers",
 omi_odx_odxequities_pts_itch_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxequities_pts_itch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
+omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Nanoseconds Format", 2, "Timestamp Nanoseconds display format", timestamp_format_enum, false)
 omi_odx_odxequities_pts_itch_v2_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
@@ -147,7 +147,7 @@ odx_odxequities_pts_itch_v2_2.conversation.data = function(packet)
   local key = odx_odxequities_pts_itch_v2_2.conversation.key(packet)
   local data = odx_odxequities_pts_itch_v2_2.conversation.flows[key]
   if data == nil then
-    data = { second = { last = nil, frames = {} } }
+    data = { timestamp_seconds = { last = nil, frames = {} } }
     odx_odxequities_pts_itch_v2_2.conversation.flows[key] = data
   end
   return data
@@ -404,29 +404,6 @@ odx_odxequities_pts_itch_v2_2.message_type.dissect = function(buffer, offset, pa
   local display = odx_odxequities_pts_itch_v2_2.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Nanoseconds
-odx_odxequities_pts_itch_v2_2.nanoseconds = {}
-
--- Size: Nanoseconds
-odx_odxequities_pts_itch_v2_2.nanoseconds.size = 4
-
--- Display: Nanoseconds
-odx_odxequities_pts_itch_v2_2.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-odx_odxequities_pts_itch_v2_2.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_itch_v2_2.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = odx_odxequities_pts_itch_v2_2.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -725,39 +702,6 @@ odx_odxequities_pts_itch_v2_2.round_lot_size.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Second
-odx_odxequities_pts_itch_v2_2.second = {}
-
--- Size: Second
-odx_odxequities_pts_itch_v2_2.second.size = 4
-
--- Store: Second
-odx_odxequities_pts_itch_v2_2.second.current = nil
-
--- Generated: Second
-odx_odxequities_pts_itch_v2_2.second.generated = function(value, range, packet, parent)
-  local display = odx_odxequities_pts_itch_v2_2.second.display(value)
-  local second = parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.second, range, value, display)
-  second:set_generated()
-end
-
--- Display: Second
-odx_odxequities_pts_itch_v2_2.second.display = function(value)
-  return "Second: "..value
-end
-
--- Dissect: Second
-odx_odxequities_pts_itch_v2_2.second.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_itch_v2_2.second.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = odx_odxequities_pts_itch_v2_2.second.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.second, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequence Number
 odx_odxequities_pts_itch_v2_2.sequence_number = {}
 
@@ -892,6 +836,62 @@ odx_odxequities_pts_itch_v2_2.system_event.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Timestamp Nanoseconds
+odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds = {}
+
+-- Size: Timestamp Nanoseconds
+odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size = 4
+
+-- Display: Timestamp Nanoseconds
+odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.display = function(value)
+  return "Timestamp Nanoseconds: "..value
+end
+
+-- Dissect: Timestamp Nanoseconds
+odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds = {}
+
+-- Size: Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds.size = 4
+
+-- Store: Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds.current = nil
+
+-- Generated: Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds.generated = function(value, range, packet, parent)
+  local display = odx_odxequities_pts_itch_v2_2.timestamp_seconds.display(value)
+  local timestamp_seconds = parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_seconds, range, value, display)
+  timestamp_seconds:set_generated()
+end
+
+-- Display: Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds.display = function(value)
+  return "Timestamp Seconds: "..value
+end
+
+-- Dissect: Timestamp Seconds
+odx_odxequities_pts_itch_v2_2.timestamp_seconds.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_itch_v2_2.timestamp_seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = odx_odxequities_pts_itch_v2_2.timestamp_seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trading State
 odx_odxequities_pts_itch_v2_2.trading_state = {}
 
@@ -955,15 +955,15 @@ end
 odx_odxequities_pts_itch_v2_2.timestamp = {}
 
 -- Translate: Timestamp
-odx_odxequities_pts_itch_v2_2.timestamp.translate = function(nanoseconds, stored_second)
-  return UInt64.new(stored_second * 1000000000 + nanoseconds)
+odx_odxequities_pts_itch_v2_2.timestamp.translate = function(timestamp_nanoseconds, stored_timestamp_seconds)
+  return UInt64.new(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
 end
 
 -- Display: Timestamp
-odx_odxequities_pts_itch_v2_2.timestamp.display = function(nanoseconds, stored_second, packet)
+odx_odxequities_pts_itch_v2_2.timestamp.display = function(timestamp_nanoseconds, stored_timestamp_seconds, packet)
   -- Raw display mode
   if odx_odxequities_pts_itch_v2_2.timestamp_format == 0 then
-    return "Timestamp: "..(stored_second * 1000000000 + nanoseconds)
+    return "Timestamp: "..(stored_timestamp_seconds * 1000000000 + timestamp_nanoseconds)
   end
 
   -- Full datetime mode (calculate from capture date + UTC offset)
@@ -971,41 +971,41 @@ odx_odxequities_pts_itch_v2_2.timestamp.display = function(nanoseconds, stored_s
     local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
     local utc_offset_seconds = odx_odxequities_pts_itch_v2_2.utc_offset_hours * 3600
     local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
-    local full_seconds = local_midnight + stored_second
+    local full_seconds = local_midnight + stored_timestamp_seconds
 
-    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", timestamp_nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_timestamp_seconds)..string.format("%09d", timestamp_nanoseconds)
 end
 
 -- Composite: Timestamp
-odx_odxequities_pts_itch_v2_2.timestamp.composite = function(buffer, offset, stored_second, packet, parent)
-  local length = odx_odxequities_pts_itch_v2_2.nanoseconds.size
+odx_odxequities_pts_itch_v2_2.timestamp.composite = function(buffer, offset, stored_timestamp_seconds, packet, parent)
+  local length = odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size
   local range = buffer(offset, length)
-  local nanoseconds = range:uint()
-  local value = odx_odxequities_pts_itch_v2_2.timestamp.translate(nanoseconds, stored_second)
-  local display = odx_odxequities_pts_itch_v2_2.timestamp.display(nanoseconds, stored_second, packet)
+  local timestamp_nanoseconds = range:uint()
+  local value = odx_odxequities_pts_itch_v2_2.timestamp.translate(timestamp_nanoseconds, stored_timestamp_seconds)
+  local display = odx_odxequities_pts_itch_v2_2.timestamp.display(timestamp_nanoseconds, stored_timestamp_seconds, packet)
   parent = parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.timestamp, range, value, display)
 
-  odx_odxequities_pts_itch_v2_2.second.generated(stored_second, range, packet, parent)
+  odx_odxequities_pts_itch_v2_2.timestamp_seconds.generated(stored_timestamp_seconds, range, packet, parent)
 
-  display = odx_odxequities_pts_itch_v2_2.nanoseconds.display(nanoseconds)
-  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.nanoseconds, range, nanoseconds, display)
+  display = odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.display(timestamp_nanoseconds)
+  parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.timestamp_nanoseconds, range, timestamp_nanoseconds, display)
 
   return offset + length, value
 end
 
 -- Dissect: Timestamp
 odx_odxequities_pts_itch_v2_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_second = odx_odxequities_pts_itch_v2_2.second.current
+  local stored_timestamp_seconds = odx_odxequities_pts_itch_v2_2.timestamp_seconds.current
 
-  if stored_second ~= nil then
-    return odx_odxequities_pts_itch_v2_2.timestamp.composite(buffer, offset, stored_second, packet, parent)
+  if stored_timestamp_seconds ~= nil then
+    return odx_odxequities_pts_itch_v2_2.timestamp.composite(buffer, offset, stored_timestamp_seconds, packet, parent)
   end
 
-  return odx_odxequities_pts_itch_v2_2.nanoseconds.dissect(buffer, offset, packet, parent)
+  return odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -1018,7 +1018,7 @@ odx_odxequities_pts_itch_v2_2.order_replaced_message = {}
 
 -- Size: Order Replaced Message
 odx_odxequities_pts_itch_v2_2.order_replaced_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.original_order_number.size + 
   odx_odxequities_pts_itch_v2_2.new_order_number.size + 
   odx_odxequities_pts_itch_v2_2.quantity.size + 
@@ -1033,8 +1033,8 @@ end
 odx_odxequities_pts_itch_v2_2.order_replaced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Original Order Number: Integer
   index, original_order_number = odx_odxequities_pts_itch_v2_2.original_order_number.dissect(buffer, index, packet, parent)
@@ -1074,7 +1074,7 @@ odx_odxequities_pts_itch_v2_2.order_deleted_message = {}
 
 -- Size: Order Deleted Message
 odx_odxequities_pts_itch_v2_2.order_deleted_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.order_number.size
 
 -- Display: Order Deleted Message
@@ -1086,8 +1086,8 @@ end
 odx_odxequities_pts_itch_v2_2.order_deleted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxequities_pts_itch_v2_2.order_number.dissect(buffer, index, packet, parent)
@@ -1118,7 +1118,7 @@ odx_odxequities_pts_itch_v2_2.order_executed_message = {}
 
 -- Size: Order Executed Message
 odx_odxequities_pts_itch_v2_2.order_executed_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.order_number.size + 
   odx_odxequities_pts_itch_v2_2.executed_quantity.size + 
   odx_odxequities_pts_itch_v2_2.match_number.size
@@ -1132,8 +1132,8 @@ end
 odx_odxequities_pts_itch_v2_2.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxequities_pts_itch_v2_2.order_number.dissect(buffer, index, packet, parent)
@@ -1170,7 +1170,7 @@ odx_odxequities_pts_itch_v2_2.order_added_message = {}
 
 -- Size: Order Added Message
 odx_odxequities_pts_itch_v2_2.order_added_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.order_number.size + 
   odx_odxequities_pts_itch_v2_2.buy_sell_indicator.size + 
   odx_odxequities_pts_itch_v2_2.quantity.size + 
@@ -1187,8 +1187,8 @@ end
 odx_odxequities_pts_itch_v2_2.order_added_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Number: Integer
   index, order_number = odx_odxequities_pts_itch_v2_2.order_number.dissect(buffer, index, packet, parent)
@@ -1234,7 +1234,7 @@ odx_odxequities_pts_itch_v2_2.short_selling_price_restriction_state_message = {}
 
 -- Size: Short Selling Price Restriction State Message
 odx_odxequities_pts_itch_v2_2.short_selling_price_restriction_state_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.orderbook_id.size + 
   odx_odxequities_pts_itch_v2_2.group.size + 
   odx_odxequities_pts_itch_v2_2.short_selling_state.size
@@ -1248,8 +1248,8 @@ end
 odx_odxequities_pts_itch_v2_2.short_selling_price_restriction_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxequities_pts_itch_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1286,7 +1286,7 @@ odx_odxequities_pts_itch_v2_2.trading_state_message = {}
 
 -- Size: Trading State Message
 odx_odxequities_pts_itch_v2_2.trading_state_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.orderbook_id.size + 
   odx_odxequities_pts_itch_v2_2.group.size + 
   odx_odxequities_pts_itch_v2_2.trading_state.size
@@ -1300,8 +1300,8 @@ end
 odx_odxequities_pts_itch_v2_2.trading_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxequities_pts_itch_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1338,7 +1338,7 @@ odx_odxequities_pts_itch_v2_2.orderbook_directory_message = {}
 
 -- Size: Orderbook Directory Message
 odx_odxequities_pts_itch_v2_2.orderbook_directory_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.orderbook_id.size + 
   odx_odxequities_pts_itch_v2_2.orderbook_code.size + 
   odx_odxequities_pts_itch_v2_2.group.size + 
@@ -1357,8 +1357,8 @@ end
 odx_odxequities_pts_itch_v2_2.orderbook_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Alpha
   index, orderbook_id = odx_odxequities_pts_itch_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
@@ -1410,7 +1410,7 @@ odx_odxequities_pts_itch_v2_2.price_tick_size_message = {}
 
 -- Size: Price Tick Size Message
 odx_odxequities_pts_itch_v2_2.price_tick_size_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.price_tick_size_table_id.size + 
   odx_odxequities_pts_itch_v2_2.price_tick_size.size + 
   odx_odxequities_pts_itch_v2_2.price_start.size
@@ -1424,8 +1424,8 @@ end
 odx_odxequities_pts_itch_v2_2.price_tick_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Price Tick Size Table Id: Integer
   index, price_tick_size_table_id = odx_odxequities_pts_itch_v2_2.price_tick_size_table_id.dissect(buffer, index, packet, parent)
@@ -1462,7 +1462,7 @@ odx_odxequities_pts_itch_v2_2.system_event_message = {}
 
 -- Size: System Event Message
 odx_odxequities_pts_itch_v2_2.system_event_message.size =
-  odx_odxequities_pts_itch_v2_2.nanoseconds.size + 
+  odx_odxequities_pts_itch_v2_2.timestamp_nanoseconds.size + 
   odx_odxequities_pts_itch_v2_2.group.size + 
   odx_odxequities_pts_itch_v2_2.system_event.size
 
@@ -1475,8 +1475,8 @@ end
 odx_odxequities_pts_itch_v2_2.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
+  -- Timestamp Nanoseconds: Integer
+  index, timestamp_nanoseconds = odx_odxequities_pts_itch_v2_2.timestamp.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
   index, group = odx_odxequities_pts_itch_v2_2.group.dissect(buffer, index, packet, parent)
@@ -1510,7 +1510,7 @@ odx_odxequities_pts_itch_v2_2.timestamp_seconds_message = {}
 
 -- Size: Timestamp Seconds Message
 odx_odxequities_pts_itch_v2_2.timestamp_seconds_message.size =
-  odx_odxequities_pts_itch_v2_2.second.size
+  odx_odxequities_pts_itch_v2_2.timestamp_seconds.size
 
 -- Display: Timestamp Seconds Message
 odx_odxequities_pts_itch_v2_2.timestamp_seconds_message.display = function(packet, parent, length)
@@ -1521,14 +1521,14 @@ end
 odx_odxequities_pts_itch_v2_2.timestamp_seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: Integer
-  index, second = odx_odxequities_pts_itch_v2_2.second.dissect(buffer, index, packet, parent)
+  -- Timestamp Seconds: Integer
+  index, timestamp_seconds = odx_odxequities_pts_itch_v2_2.timestamp_seconds.dissect(buffer, index, packet, parent)
 
-  -- Store Second Value
-  odx_odxequities_pts_itch_v2_2.second.current = second
+  -- Store Timestamp Seconds Value
+  odx_odxequities_pts_itch_v2_2.timestamp_seconds.current = timestamp_seconds
 
   if not packet.visited then
-    odx_odxequities_pts_itch_v2_2.conversation.current.second.last = second
+    odx_odxequities_pts_itch_v2_2.conversation.current.timestamp_seconds.last = timestamp_seconds
   end
 
   return index
@@ -1831,9 +1831,9 @@ odx_odxequities_pts_itch_v2_2.packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = odx_odxequities_pts_itch_v2_2.conversation.data(packet)
   if not packet.visited then
-    data.second.frames[packet.number] = data.second.last
+    data.timestamp_seconds.frames[packet.number] = data.timestamp_seconds.last
   end
-  odx_odxequities_pts_itch_v2_2.second.current = data.second.frames[packet.number]
+  odx_odxequities_pts_itch_v2_2.timestamp_seconds.current = data.timestamp_seconds.frames[packet.number]
   odx_odxequities_pts_itch_v2_2.conversation.current = data
 
   local index = 0
@@ -1857,7 +1857,7 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxequities_pts_itch_v2_2.init()
-  odx_odxequities_pts_itch_v2_2.second.current = nil
+  odx_odxequities_pts_itch_v2_2.timestamp_seconds.current = nil
   odx_odxequities_pts_itch_v2_2.conversation.current = nil
   odx_odxequities_pts_itch_v2_2.conversation.flows = {}
 end
