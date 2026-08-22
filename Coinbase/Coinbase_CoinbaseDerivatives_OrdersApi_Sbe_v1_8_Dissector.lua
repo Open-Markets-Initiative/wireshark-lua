@@ -143,6 +143,10 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.unlock_trading_ack_me
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.unlocktradingmessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.unlocktradingrejectmessage", ftypes.STRING)
 
+-- Coinbase CoinbaseDerivatives OrdersApi 1.8 Schema Messages
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.order_message = ProtoField.new("Order Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.ordermessage", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.session_message = ProtoField.new("Session Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.sessionmessage", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -152,10 +156,12 @@ local show = {}
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.schema_messages = true
 
 -- Register Coinbase CoinbaseDerivatives OrdersApi Sbe 1.8 Show Options
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 
 
 -- Handle changed preferences
@@ -164,6 +170,9 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_application_messages
+  end
+  if show.schema_messages ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_schema_messages then
+    show.schema_messages = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_schema_messages
   end
   if show.structs ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.prefs.show_structs
@@ -1878,7 +1887,10 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.display = function(value)
   if value == 1100 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: Session (1100)"
+  end
+  if value == 1101 then
+    return "Schema Id: Order (1101)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2081,28 +2093,28 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.size = 2
 -- Display: Template Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.display = function(value)
   if value == 100 then
-    return "Template Id: Logon Message (100)"
+    return "Template Id: Session Logon Message (100)"
   end
   if value == 200 then
-    return "Template Id: Logon Conf Message (200)"
+    return "Template Id: Session Logon Conf Message (200)"
   end
   if value == 101 then
-    return "Template Id: Logout Message (101)"
+    return "Template Id: Session Logout Message (101)"
   end
   if value == 201 then
-    return "Template Id: Logged Out Message (201)"
+    return "Template Id: Session Logged Out Message (201)"
   end
   if value == 10 then
-    return "Template Id: Heartbeat Message (10)"
+    return "Template Id: Session Heartbeat Message (10)"
   end
   if value == 11 then
-    return "Template Id: Test Request Message (11)"
+    return "Template Id: Session Test Request Message (11)"
   end
   if value == 102 then
-    return "Template Id: Resend Request Message (102)"
+    return "Template Id: Session Resend Request Message (102)"
   end
   if value == 202 then
-    return "Template Id: Gap Fill Message (202)"
+    return "Template Id: Session Gap Fill Message (202)"
   end
   if value == 102 then
     return "Template Id: Ping Message (102)"
@@ -4449,6 +4461,198 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.ping_message.dissect = function(
   end
 end
 
+-- Order Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload = {}
+
+-- Dissect: Order Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Ping Message
+  if template_id == 102 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.ping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Pong Message
+  if template_id == 202 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.pong_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Info Request Message
+  if template_id == 103 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Info Message
+  if template_id == 203 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Set Account Message
+  if template_id == 105 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_account_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Set Trader Message
+  if template_id == 106 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_trader_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Set Ack Message
+  if template_id == 205 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Message
+  if template_id == 110 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Ioc Order Message
+  if template_id == 111 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_ioc_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Entered Message
+  if template_id == 210 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_entered_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replace Order Message
+  if template_id == 120 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.replace_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Obsolete Stream Order Message
+  if template_id == 121 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.obsolete_stream_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Reject Message
+  if template_id == 221 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Replaced Message
+  if template_id == 220 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_replaced_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order Message
+  if template_id == 130 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Canceled Message
+  if template_id == 230 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_canceled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order Reject Message
+  if template_id == 233 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Order Message
+  if template_id == 131 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Order Ack Message
+  if template_id == 231 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Order Reject Message
+  if template_id == 232 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unlock Trading Message
+  if template_id == 132 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unlock Trading Ack Message
+  if template_id == 234 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unlock Trading Reject Message
+  if template_id == 235 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Filled Message
+  if template_id == 240 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_filled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spread Order Filled Message
+  if template_id == 241 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.spread_order_filled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Last Exec Id Request Message
+  if template_id == 150 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Last Exec Id Message
+  if template_id == 250 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Event Resend Request Message
+  if template_id == 152 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Event Resend Complete Message
+  if template_id == 252 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Event Resend Reject Message
+  if template_id == 253 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Options Fill Protection Message
+  if template_id == 160 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Options Fill Protection Ack Message
+  if template_id == 260 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Options Fill Protection Reject Message
+  if template_id == 261 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_reject_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Order Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message = {}
+
+-- Calculate size of: Order Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Order Payload field
+  local order_payload_offset = offset + index
+  local order_payload_type = buffer(order_payload_offset - 6, 2):le_uint()
+  index = index + coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.size(buffer, order_payload_offset, order_payload_type)
+
+  return index
+end
+
+-- Display: Order Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Order Payload: Runtime Type with 33 branches
+  index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Order Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.order_message, buffer(offset, 0))
+    local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Gap Fill Message
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.gap_fill_message = {}
 
@@ -4785,11 +4989,11 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_message.dissect = function
   end
 end
 
--- Payload
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload = {}
+-- Session Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload = {}
 
--- Dissect: Payload
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Session Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Logon Message
   if template_id == 100 then
     return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_message.dissect(buffer, offset, packet, parent)
@@ -4822,137 +5026,73 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect = function(buffe
   if template_id == 202 then
     return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.gap_fill_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Ping Message
-  if template_id == 102 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.ping_message.dissect(buffer, offset, packet, parent)
+
+  return offset
+end
+
+-- Session Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message = {}
+
+-- Calculate size of: Session Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Session Payload field
+  local session_payload_offset = offset + index
+  local session_payload_type = buffer(session_payload_offset - 6, 2):le_uint()
+  index = index + coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.size(buffer, session_payload_offset, session_payload_type)
+
+  return index
+end
+
+-- Display: Session Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Session Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Session Payload: Runtime Type with 8 branches
+  index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Session Message
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8.fields.session_message, buffer(offset, 0))
+    local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.fields(buffer, offset, packet, parent)
   end
-  -- Dissect Pong Message
-  if template_id == 202 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.pong_message.dissect(buffer, offset, packet, parent)
+end
+
+-- Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload = {}
+
+-- Dissect: Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, schema_id)
+  -- Dissect Session Message
+  if schema_id == 1100 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Instrument Info Request Message
-  if template_id == 103 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Message
-  if template_id == 203 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Account Message
-  if template_id == 105 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_account_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Trader Message
-  if template_id == 106 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_trader_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Ack Message
-  if template_id == 205 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if template_id == 110 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Ioc Order Message
-  if template_id == 111 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_ioc_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entered Message
-  if template_id == 210 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_entered_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if template_id == 120 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Obsolete Stream Order Message
-  if template_id == 121 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.obsolete_stream_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Reject Message
-  if template_id == 221 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if template_id == 220 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if template_id == 130 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if template_id == 230 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Reject Message
-  if template_id == 233 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Message
-  if template_id == 131 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Ack Message
-  if template_id == 231 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Reject Message
-  if template_id == 232 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Message
-  if template_id == 132 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Ack Message
-  if template_id == 234 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Reject Message
-  if template_id == 235 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Filled Message
-  if template_id == 240 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Filled Message
-  if template_id == 241 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.spread_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Exec Id Request Message
-  if template_id == 150 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Exec Id Message
-  if template_id == 250 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Request Message
-  if template_id == 152 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Complete Message
-  if template_id == 252 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Reject Message
-  if template_id == 253 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Message
-  if template_id == 160 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Ack Message
-  if template_id == 260 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Reject Message
-  if template_id == 261 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_reject_message.dissect(buffer, offset, packet, parent)
+  -- Dissect Order Message
+  if schema_id == 1101 then
+    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5053,11 +5193,11 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.sbe_message.fields = function(bu
   -- Message Header: Struct of 11 fields
   index, message_header = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.message_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Template Id
-  local template_id = buffer(index - 6, 2):le_uint()
+  -- Dependency element: Schema Id
+  local schema_id = buffer(index - 4, 2):le_uint()
 
-  -- Payload: Runtime Type with 41 branches
-  index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Payload: Runtime Type with 2 branches
+  index = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect(buffer, index, packet, parent, schema_id)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset + 2, 2):le_uint()
@@ -5181,22 +5321,6 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Schema Id Field
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(28, 2):le_uint()
-
-  if value == 1100 then
-    return true
-  end
-
-  if value == 1101 then
-    return true
-  end
-
-  return false
-end
-
 -- Verify Version Field
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify = function(buffer)
   -- Attempt to read field
@@ -5217,9 +5341,6 @@ end
 local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.requiredsize(buffer) then return false end
-
-  -- Verify Schema Id
-  if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.verify(buffer) then return false end
 
   -- Verify Version
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify(buffer) then return false end
