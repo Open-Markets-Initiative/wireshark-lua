@@ -6459,8 +6459,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.size 
   cboe_c2options_binaryorderentry_boe3_v1_0_12.base_liquidity_indicator.size + 
   cboe_c2options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.size + 
   cboe_c2options_binaryorderentry_boe3_v1_0_12.routing_firm_id.size + 
-  cboe_c2options_binaryorderentry_boe3_v1_0_12.request_received_time.size + 
-  cboe_c2options_binaryorderentry_boe3_v1_0_12.message_type.size
+  cboe_c2options_binaryorderentry_boe3_v1_0_12.request_received_time.size
 
 -- Display: Order Acknowledgement Message
 cboe_c2options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.display = function(packet, parent, length)
@@ -6515,9 +6514,6 @@ cboe_c2options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.field
 
   -- Request Received Time: DateTime
   index, request_received_time = cboe_c2options_binaryorderentry_boe3_v1_0_12.request_received_time.dissect(buffer, index, packet, parent)
-
-  -- Message Type
-  index, message_type = cboe_c2options_binaryorderentry_boe3_v1_0_12.message_type.dissect(buffer, index, packet, parent)
 
   return index
 end
