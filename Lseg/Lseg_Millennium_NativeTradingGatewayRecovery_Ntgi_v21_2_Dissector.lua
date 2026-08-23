@@ -14,6 +14,11 @@ local lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2 Headers
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.message", ftypes.STRING)
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messageheader", ftypes.STRING)
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.packet", ftypes.STRING)
+
 -- Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2 Fields
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.account_type = ProtoField.new("Account Type", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.accounttype", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.algo = ProtoField.new("Algo", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.algo", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
@@ -65,8 +70,6 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_maker_
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_makers = ProtoField.new("Market Makers", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.marketmakers", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.masscancelrejectreason", ftypes.INT32)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.masscancelresponse", ftypes.UINT8)
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.message", ftypes.STRING)
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messageheader", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messagelength", ftypes.INT16)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messagetype", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_version = ProtoField.new("Message Version", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messageversion", ftypes.UINT8)
@@ -86,7 +89,6 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_id = Pr
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_quantity = ProtoField.new("Order Quantity", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.orderquantity", ftypes.INT32)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_reject_code = ProtoField.new("Order Reject Code", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.orderrejectcode", ftypes.INT32)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.owner_type = ProtoField.new("Owner Type", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.ownertype", ftypes.UINT8)
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.packet", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.partitionid", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.party_role_qualifiers = ProtoField.new("Party Role Qualifiers", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.partyrolequalifiers", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.password = ProtoField.new("Password", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.password", ftypes.STRING)

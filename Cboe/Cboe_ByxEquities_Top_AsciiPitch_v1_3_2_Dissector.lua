@@ -14,6 +14,9 @@ local cboe_byxequities_top_asciipitch_v1_3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe ByxEquities Top AsciiPitch 1.3.2 Headers
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.2.packet", ftypes.STRING)
+
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Fields
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.byxequities.top.asciipitch.v1.3.2.askpricelong", ftypes.DOUBLE)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.byxequities.top.asciipitch.v1.3.2.askpriceshort", ftypes.DOUBLE)
@@ -35,7 +38,6 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.last_trade_size = ProtoField.n
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.byxequities.top.asciipitch.v1.3.2.lasttradetime", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.message_type = ProtoField.new("Message Type", "cboe.byxequities.top.asciipitch.v1.3.2.messagetype", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.byxequities.top.asciipitch.v1.3.2.milliseconds", ftypes.STRING)
-omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.2.packet", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.password = ProtoField.new("Password", "cboe.byxequities.top.asciipitch.v1.3.2.password", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.byxequities.top.asciipitch.v1.3.2.regshoaction", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.byxequities.top.asciipitch.v1.3.2.rejectreason", ftypes.STRING)

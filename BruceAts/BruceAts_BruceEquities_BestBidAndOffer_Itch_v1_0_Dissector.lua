@@ -14,6 +14,10 @@ local bruceats_bruceequities_bestbidandoffer_itch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Headers
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packet", ftypes.STRING)
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packetheader", ftypes.STRING)
+
 -- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Fields
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.authenticity = ProtoField.new("Authenticity", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.authenticity", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.best_bid_price = ProtoField.new("Best Bid Price", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.bestbidprice", ftypes.DOUBLE)
@@ -27,8 +31,6 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_count = Prot
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messagelength", ftypes.UINT16)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messagetype", ftypes.STRING)
-omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packet", ftypes.STRING)
-omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packetheader", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.regshoaction", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.roundlotsize", ftypes.UINT32)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.sequencenumber", ftypes.UINT64)

@@ -14,6 +14,12 @@ local lseg_turquoise_level2incremental_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Turquoise Level2Incremental Gtp 24.4 Headers
+omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.level2incremental.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2incremental.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Level2Incremental Gtp 24.4 Fields
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.level2incremental.gtp.v24.4.allowedbooktypes", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.auction_info = ProtoField.new("Auction Info", "lseg.turquoise.level2incremental.gtp.v24.4.auctioninfo", ftypes.STRING)
@@ -37,9 +43,7 @@ omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.instrument = ProtoField.ne
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.level2incremental.gtp.v24.4.isin", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.turquoise.level2incremental.gtp.v24.4.length", ftypes.UINT16)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.level2incremental.gtp.v24.4.marketdatagroup", ftypes.STRING)
-omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.level2incremental.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.level2incremental.gtp.v24.4.messagecount", ftypes.UINT8)
-omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.level2incremental.gtp.v24.4.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.level2incremental.gtp.v24.4.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.level2incremental.gtp.v24.4.newendtime", ftypes.STRING)
@@ -52,7 +56,6 @@ omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.order_book_type = ProtoFie
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.turquoise.level2incremental.gtp.v24.4.orderid", ftypes.UINT64)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.order_modify_flags = ProtoField.new("Order Modify Flags", "lseg.turquoise.level2incremental.gtp.v24.4.ordermodifyflags", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.level2incremental.gtp.v24.4.ordertype", ftypes.UINT8)
-omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2incremental.gtp.v24.4.packet", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.turquoise.level2incremental.gtp.v24.4.participant", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.turquoise.level2incremental.gtp.v24.4.previousprice", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.turquoise.level2incremental.gtp.v24.4.previousquantity", ftypes.DOUBLE)
@@ -86,7 +89,6 @@ omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.trading_status = ProtoFiel
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level2incremental.gtp.v24.4.transactiontime", ftypes.UINT64)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.level2incremental.gtp.v24.4.turnover", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.level2incremental.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.level2incremental.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.level2incremental.gtp.v24.4.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.level2incremental.gtp.v24.4.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)

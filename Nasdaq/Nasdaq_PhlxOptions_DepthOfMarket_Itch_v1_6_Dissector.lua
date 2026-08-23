@@ -14,6 +14,10 @@ local nasdaq_phlxoptions_depthofmarket_itch_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 Headers
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packetheader", ftypes.STRING)
+
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 Fields
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.askprice", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.askreferencenumberdelta", ftypes.UINT32)
@@ -59,8 +63,6 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.order_reference_number_del
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.original_ask_reference_number_delta = ProtoField.new("Original Ask Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.originalaskreferencenumberdelta", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.original_bid_reference_number_delta = ProtoField.new("Original Bid Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.originalbidreferencenumberdelta", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.original_reference_number_delta = ProtoField.new("Original Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.originalreferencenumberdelta", ftypes.UINT32)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packet", ftypes.STRING)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packetheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.pairedcontracts", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.printable = ProtoField.new("Printable", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.printable", ftypes.STRING)

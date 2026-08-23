@@ -14,6 +14,10 @@ local iex_iexequities_tops_iextp_v1_56 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexEquities Tops IexTp 1.56 Headers
+omi_iex_iexequities_tops_iextp_v1_56.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.tops.iextp.v1.56.iextpheader", ftypes.STRING)
+omi_iex_iexequities_tops_iextp_v1_56.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.iextp.v1.56.packet", ftypes.STRING)
+
 -- Iex IexEquities Tops IexTp 1.56 Fields
 omi_iex_iexequities_tops_iextp_v1_56.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.tops.iextp.v1.56.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_tops_iextp_v1_56.fields.ask_price = ProtoField.new("Ask Price", "iex.iexequities.tops.iextp.v1.56.askprice", ftypes.DOUBLE)
@@ -29,7 +33,6 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.etp = ProtoField.new("Etp", "iex.iex
 omi_iex_iexequities_tops_iextp_v1_56.fields.extended_hours = ProtoField.new("Extended Hours", "iex.iexequities.tops.iextp.v1.56.extendedhours", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_iex_iexequities_tops_iextp_v1_56.fields.extension_number = ProtoField.new("Extension Number", "iex.iexequities.tops.iextp.v1.56.extensionnumber", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.tops.iextp.v1.56.firstmessagesequencenumber", ftypes.UINT64)
-omi_iex_iexequities_tops_iextp_v1_56.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.tops.iextp.v1.56.iextpheader", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "iex.iexequities.tops.iextp.v1.56.imbalanceshares", ftypes.UINT32)
 omi_iex_iexequities_tops_iextp_v1_56.fields.imbalance_side = ProtoField.new("Imbalance Side", "iex.iexequities.tops.iextp.v1.56.imbalanceside", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.indicative_clearing_price = ProtoField.new("Indicative Clearing Price", "iex.iexequities.tops.iextp.v1.56.indicativeclearingprice", ftypes.DOUBLE)
@@ -46,7 +49,6 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.message_type = ProtoField.new("Messa
 omi_iex_iexequities_tops_iextp_v1_56.fields.odd_lot = ProtoField.new("Odd Lot", "iex.iexequities.tops.iextp.v1.56.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_iex_iexequities_tops_iextp_v1_56.fields.official_price = ProtoField.new("Official Price", "iex.iexequities.tops.iextp.v1.56.officialprice", ftypes.DOUBLE)
 omi_iex_iexequities_tops_iextp_v1_56.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.iexequities.tops.iextp.v1.56.operationalhaltstatus", ftypes.STRING)
-omi_iex_iexequities_tops_iextp_v1_56.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.iextp.v1.56.packet", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.paired_shares = ProtoField.new("Paired Shares", "iex.iexequities.tops.iextp.v1.56.pairedshares", ftypes.UINT32)
 omi_iex_iexequities_tops_iextp_v1_56.fields.payload_length = ProtoField.new("Payload Length", "iex.iexequities.tops.iextp.v1.56.payloadlength", ftypes.UINT16)
 omi_iex_iexequities_tops_iextp_v1_56.fields.price = ProtoField.new("Price", "iex.iexequities.tops.iextp.v1.56.price", ftypes.DOUBLE)

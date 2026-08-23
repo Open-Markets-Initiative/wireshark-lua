@@ -14,6 +14,10 @@ local nasdaq_psxequities_lastsale_itch_v2_1_2018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PsxEquities LastSale Itch 2.1.2018 Headers
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packet", ftypes.STRING)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packetheader", ftypes.STRING)
+
 -- Nasdaq PsxEquities LastSale Itch 2.1.2018 Fields
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.lastsale.itch.v2.1.2018.authenticity", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.lastsale.itch.v2.1.2018.breachedlevel", ftypes.STRING)
@@ -52,8 +56,6 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.original_sale_condition_mo
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.original_trade_control_number = ProtoField.new("Original Trade Control Number", "nasdaq.psxequities.lastsale.itch.v2.1.2018.originaltradecontrolnumber", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.psxequities.lastsale.itch.v2.1.2018.originaltradeprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.2018.originaltradesize", ftypes.UINT32)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packet", ftypes.STRING)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packetheader", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.proxy_price = ProtoField.new("Proxy Price", "nasdaq.psxequities.lastsale.itch.v2.1.2018.proxyprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.lastsale.itch.v2.1.2018.regshoaction", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.lastsale.itch.v2.1.2018.roundlotsize", ftypes.UINT32)

@@ -14,6 +14,10 @@ local finra_finraorf_tdds_dfi_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Finra FinraOrf Tdds Dfi 2.0 Headers
+omi_finra_finraorf_tdds_dfi_v2_0.fields.message = ProtoField.new("Message", "finra.finraorf.tdds.dfi.v2.0.message", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_0.fields.packet = ProtoField.new("Packet", "finra.finraorf.tdds.dfi.v2.0.packet", ftypes.STRING)
+
 -- Finra FinraOrf Tdds Dfi 2.0 Fields
 omi_finra_finraorf_tdds_dfi_v2_0.fields.action = ProtoField.new("Action", "finra.finraorf.tdds.dfi.v2.0.action", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraorf.tdds.dfi.v2.0.actiondatetime", ftypes.STRING)
@@ -44,7 +48,6 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.last_sale_price_market_center = ProtoFie
 omi_finra_finraorf_tdds_dfi_v2_0.fields.low_price = ProtoField.new("Low Price", "finra.finraorf.tdds.dfi.v2.0.lowprice", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.finraorf.tdds.dfi.v2.0.lowpricedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.finraorf.tdds.dfi.v2.0.marketcenteroriginatorid", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_0.fields.message = ProtoField.new("Message", "finra.finraorf.tdds.dfi.v2.0.message", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_category = ProtoField.new("Message Category", "finra.finraorf.tdds.dfi.v2.0.messagecategory", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_header = ProtoField.new("Message Header", "finra.finraorf.tdds.dfi.v2.0.messageheader", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_separator = ProtoField.new("Message Separator", "finra.finraorf.tdds.dfi.v2.0.messageseparator", ftypes.UINT8)
@@ -58,7 +61,6 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.net_change_direction = ProtoField.new("N
 omi_finra_finraorf_tdds_dfi_v2_0.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.finraorf.tdds.dfi.v2.0.originaldisseminationdate", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.original_message_sequence_number = ProtoField.new("Original Message Sequence Number", "finra.finraorf.tdds.dfi.v2.0.originalmessagesequencenumber", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.finraorf.tdds.dfi.v2.0.originaltradeinformation", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_0.fields.packet = ProtoField.new("Packet", "finra.finraorf.tdds.dfi.v2.0.packet", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.finraorf.tdds.dfi.v2.0.pricechangeindicator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.reason_code = ProtoField.new("Reason Code", "finra.finraorf.tdds.dfi.v2.0.reasoncode", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.0.reportfunction", ftypes.STRING)

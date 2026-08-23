@@ -14,6 +14,13 @@ local otcmarkets_linkats_multicast_link_v4_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets LinkAts Multicast Link 4.5 Headers
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.message = ProtoField.new("Message", "otcmarkets.linkats.multicast.link.v4.5.message", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.multicast.link.v4.5.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.multicast.link.v4.5.packet", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.multicast.link.v4.5.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.multicast.link.v4.5.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts Multicast Link 4.5 Fields
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.multicast.link.v4.5.adrlevel", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.multicast.link.v4.5.adrratio", ftypes.UINT64)
@@ -61,8 +68,6 @@ omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_close_time_milli = Prot
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.multicast.link.v4.5.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.multicast.link.v4.5.marketopen", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otcmarkets.linkats.multicast.link.v4.5.maturitydatemilli", ftypes.UINT64)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.message = ProtoField.new("Message", "otcmarkets.linkats.multicast.link.v4.5.message", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.multicast.link.v4.5.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.multicast.link.v4.5.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.multicast.link.v4.5.messagetype", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.multicast.link.v4.5.messages", ftypes.UINT8)
@@ -73,9 +78,6 @@ omi_otcmarkets_linkats_multicast_link_v4_5.fields.offer_auto_ex = ProtoField.new
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.otc_issuer_id = ProtoField.new("Otc Issuer Id", "otcmarkets.linkats.multicast.link.v4.5.otcissuerid", ftypes.UINT32)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otcmarkets.linkats.multicast.link.v4.5.otclinkecneligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otcmarkets.linkats.multicast.link.v4.5.otclinkmessagingdisabled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.multicast.link.v4.5.packet", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.multicast.link.v4.5.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.multicast.link.v4.5.packetheader", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.multicast.link.v4.5.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.multicast.link.v4.5.packetsize", ftypes.UINT16)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.multicast.link.v4.5.parvalue", ftypes.UINT64)

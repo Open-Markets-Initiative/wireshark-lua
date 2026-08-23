@@ -14,9 +14,12 @@ local n24x_24xequities_memoirlastsale_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- 24X 24XEquities MemoirLastSale Sbe 1.3 Headers
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
+
 -- 24X 24XEquities MemoirLastSale Sbe 1.3 Fields
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "24x.24xequities.memoirlastsale.sbe.v1.3.blocklength", ftypes.UINT16)
-omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1 = ProtoField.new("Corrected Sale Condition 1", "24x.24xequities.memoirlastsale.sbe.v1.3.correctedsalecondition1", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_2 = ProtoField.new("Corrected Sale Condition 2", "24x.24xequities.memoirlastsale.sbe.v1.3.correctedsalecondition2", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3 = ProtoField.new("Corrected Sale Condition 3", "24x.24xequities.memoirlastsale.sbe.v1.3.correctedsalecondition3", ftypes.STRING)
@@ -37,7 +40,6 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3 = 
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4 = ProtoField.new("Original Sale Condition 4", "24x.24xequities.memoirlastsale.sbe.v1.3.originalsalecondition4", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "24x.24xequities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.DOUBLE)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "24x.24xequities.memoirlastsale.sbe.v1.3.originaltradeqty", ftypes.UINT32)
-omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "24x.24xequities.memoirlastsale.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "24x.24xequities.memoirlastsale.sbe.v1.3.salecondition1", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.sale_condition_2 = ProtoField.new("Sale Condition 2", "24x.24xequities.memoirlastsale.sbe.v1.3.salecondition2", ftypes.STRING)

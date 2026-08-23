@@ -14,6 +14,12 @@ local nyse_nyseequities_integratedfeed_xdp_v2_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities IntegratedFeed Xdp 2.3.a Headers
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities IntegratedFeed Xdp 2.3.a Fields
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.addordermessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.addorderrefreshmessage", ftypes.STRING)
@@ -52,9 +58,7 @@ omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.lower_collar = ProtoField
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messagecount", ftypes.UINT8)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageunavailablemessage", ftypes.STRING)
@@ -70,8 +74,6 @@ omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.num_parity_splits = Proto
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.open = ProtoField.new("Open", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.open", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.orderexecutionmessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.order_id = ProtoField.new("Order Id", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.orderid", ftypes.UINT64)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packetsize", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.pairedqty", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.position_change = ProtoField.new("Position Change", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.positionchange", ftypes.UINT8)

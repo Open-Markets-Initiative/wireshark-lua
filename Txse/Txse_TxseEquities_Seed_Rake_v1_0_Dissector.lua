@@ -14,6 +14,11 @@ local txse_txseequities_seed_rake_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Txse TxseEquities Seed Rake 1.0 Headers
+omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
+
 -- Txse TxseEquities Seed Rake 1.0 Fields
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_at_entry_if_crossed = ProtoField.new("Cancel At Entry If Crossed", "txse.txseequities.seed.rake.v1.0.cancelatentryifcrossed", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "txse.txseequities.seed.rake.v1.0.cancelreason", ftypes.INT8)
@@ -275,11 +280,8 @@ omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_display_price = Proto
 omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_presence_bits = ProtoField.new("Order Restated Presence Bits", "txse.txseequities.seed.rake.v1.0.orderrestatedpresencebits", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_rank_price = ProtoField.new("Order Restated Rank Price", "txse.txseequities.seed.rake.v1.0.orderrestatedrankprice", ftypes.DOUBLE)
 omi_txse_txseequities_seed_rake_v1_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "txse.txseequities.seed.rake.v1.0.origclordid", ftypes.INT64)
-omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.packet_type = ProtoField.new("Packet Type", "txse.txseequities.seed.rake.v1.0.packettype", ftypes.UINT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.price = ProtoField.new("Price", "txse.txseequities.seed.rake.v1.0.price", ftypes.DOUBLE)
-omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
-omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_bit_fields = ProtoField.new("Replace Order Bit Fields", "txse.txseequities.seed.rake.v1.0.replaceorderbitfields", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_locate_broker = ProtoField.new("Replace Order Locate Broker", "txse.txseequities.seed.rake.v1.0.replaceorderlocatebroker", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_max_floor_qty = ProtoField.new("Replace Order Max Floor Qty", "txse.txseequities.seed.rake.v1.0.replaceordermaxfloorqty", ftypes.INT32)

@@ -14,6 +14,12 @@ local siac_cts_output_cta_v2_11_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Cts Output Cta 2.11.b Headers
+omi_siac_cts_output_cta_v2_11_b.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.11.b.blockheader", ftypes.STRING)
+omi_siac_cts_output_cta_v2_11_b.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.11.b.message", ftypes.STRING)
+omi_siac_cts_output_cta_v2_11_b.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.11.b.packet", ftypes.STRING)
+omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cts Output Cta 2.11.b Fields
 omi_siac_cts_output_cta_v2_11_b.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cts.output.cta.v2.11.b.administrativemessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.11.b.administrativemessagetype", ftypes.STRING)
@@ -23,7 +29,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_reference_price = ProtoFie
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.11.b.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.11.b.bidindexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_11_b.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.11.b.blockchecksum", ftypes.UINT16)
-omi_siac_cts_output_cta_v2_11_b.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.11.b.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.11.b.blockpadbyte", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.11.b.blocksequencenumber", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.11.b.blocksize", ftypes.UINT16)
@@ -84,7 +89,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.luld_tier = ProtoField.new("Luld Tier", "
 omi_siac_cts_output_cta_v2_11_b.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cts.output.cta.v2.11.b.marketstatusmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.11.b.marketstatusmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.11.b.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.11.b.message", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.11.b.messagecategory", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.11.b.messageid", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.11.b.messagelength", ftypes.UINT16)
@@ -108,7 +112,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.original_stop_stock_indicator = ProtoFiel
 omi_siac_cts_output_cta_v2_11_b.fields.original_trade_price = ProtoField.new("Original Trade Price", "siac.cts.output.cta.v2.11.b.originaltradeprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.original_trade_through_exempt_indicator = ProtoField.new("Original Trade Through Exempt Indicator", "siac.cts.output.cta.v2.11.b.originaltradethroughexemptindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.original_trade_volume = ProtoField.new("Original Trade Volume", "siac.cts.output.cta.v2.11.b.originaltradevolume", ftypes.UINT32)
-omi_siac_cts_output_cta_v2_11_b.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.11.b.packet", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.participant = ProtoField.new("Participant", "siac.cts.output.cta.v2.11.b.participant", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.participant_fractional_total_volume = ProtoField.new("Participant Fractional Total Volume", "siac.cts.output.cta.v2.11.b.participantfractionaltotalvolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.participant_high_price = ProtoField.new("Participant High Price", "siac.cts.output.cta.v2.11.b.participanthighprice", ftypes.DOUBLE)
@@ -145,7 +148,6 @@ omi_siac_cts_output_cta_v2_11_b.fields.security_symbol_5 = ProtoField.new("Secur
 omi_siac_cts_output_cta_v2_11_b.fields.sell_volume = ProtoField.new("Sell Volume", "siac.cts.output.cta.v2.11.b.sellvolume", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_11_b.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.output.cta.v2.11.b.sellerssaledays", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.shortsalerestrictionindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.11.b.stopstockindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.summary_message = ProtoField.new("Summary Message", "siac.cts.output.cta.v2.11.b.summarymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.11.b.summarymessagetype", ftypes.STRING)

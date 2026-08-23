@@ -14,6 +14,12 @@ local hkex_hkexsecurities_indexrefresh_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities IndexRefresh Omd 1.44 Headers
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.closing_value = ProtoField.new("Closing Value", "hkex.hkexsecurities.indexrefresh.omd.v1.44.closingvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.indexrefresh.omd.v1.44.currencycode", ftypes.STRING)
@@ -32,16 +38,12 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_value = ProtoField.n
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.indexrefresh.omd.v1.44.indexvolume", ftypes.INT64)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexsecurities.indexrefresh.omd.v1.44.lastseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.low_value = ProtoField.new("Low Value", "hkex.hkexsecurities.indexrefresh.omd.v1.44.lowvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.indexrefresh.omd.v1.44.netchgprevday", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.net_chg_prev_day_pct = ProtoField.new("Net Chg Prev Day Pct", "hkex.hkexsecurities.indexrefresh.omd.v1.44.netchgprevdaypct", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.indexrefresh.omd.v1.44.openingvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.indexrefresh.omd.v1.44.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.previous_ses_close = ProtoField.new("Previous Ses Close", "hkex.hkexsecurities.indexrefresh.omd.v1.44.previoussesclose", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.44.sendtime", ftypes.UINT64)

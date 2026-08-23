@@ -14,6 +14,13 @@ local smallx_orderbookfeed_sbe_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- SmallX OrderBookFeed Sbe 2.2 Headers
+omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header = ProtoField.new("Message Header", "smallx.orderbookfeed.sbe.v2.2.messageheader", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
+
 -- SmallX OrderBookFeed Sbe 2.2 Fields
 omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative = ProtoField.new("Administrative", "smallx.orderbookfeed.sbe.v2.2.administrative", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.aggressor_side = ProtoField.new("Aggressor Side", "smallx.orderbookfeed.sbe.v2.2.aggressorside", ftypes.STRING)
@@ -69,7 +76,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.legs_groups = ProtoField.new("Legs Grou
 omi_smallx_orderbookfeed_sbe_v2_2.fields.low_price = ProtoField.new("Low Price", "smallx.orderbookfeed.sbe.v2.2.lowprice", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.maturity_date = ProtoField.new("Maturity Date", "smallx.orderbookfeed.sbe.v2.2.maturitydate", ftypes.UINT16)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.message_count = ProtoField.new("Message Count", "smallx.orderbookfeed.sbe.v2.2.messagecount", ftypes.UINT8)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header = ProtoField.new("Message Header", "smallx.orderbookfeed.sbe.v2.2.messageheader", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.orderbookfeed.sbe.v2.2.messagesequence", ftypes.INT32)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.num_in_group = ProtoField.new("Num In Group", "smallx.orderbookfeed.sbe.v2.2.numingroup", ftypes.UINT8)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.open_interest = ProtoField.new("Open Interest", "smallx.orderbookfeed.sbe.v2.2.openinterest", ftypes.DOUBLE)
@@ -80,9 +86,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.order_id = ProtoField.new("Order Id", "
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority = ProtoField.new("Order Priority", "smallx.orderbookfeed.sbe.v2.2.orderpriority", ftypes.INT64)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority_optional = ProtoField.new("Order Priority Optional", "smallx.orderbookfeed.sbe.v2.2.orderpriorityoptional", ftypes.INT64)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_update_action = ProtoField.new("Order Update Action", "smallx.orderbookfeed.sbe.v2.2.orderupdateaction", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price = ProtoField.new("Price", "smallx.orderbookfeed.sbe.v2.2.price", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment = ProtoField.new("Price Increment", "smallx.orderbookfeed.sbe.v2.2.priceincrement", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "smallx.orderbookfeed.sbe.v2.2.pricemultiplier", ftypes.DOUBLE)
@@ -95,7 +98,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_5 = ProtoField.new("Reserved 5
 omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_7 = ProtoField.new("Reserved 7", "smallx.orderbookfeed.sbe.v2.2.reserved7", ftypes.UINT16, nil, base.DEC, 0xFE00)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.reserved_9 = ProtoField.new("Reserved 9", "smallx.orderbookfeed.sbe.v2.2.reserved9", ftypes.UINT16, nil, base.DEC, 0xFF80)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.retransmission = ProtoField.new("Retransmission", "smallx.orderbookfeed.sbe.v2.2.retransmission", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.schema_id = ProtoField.new("Schema Id", "smallx.orderbookfeed.sbe.v2.2.schemaid", ftypes.UINT16)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "smallx.orderbookfeed.sbe.v2.2.sellorderid", ftypes.INT64)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.session_date = ProtoField.new("Session Date", "smallx.orderbookfeed.sbe.v2.2.sessiondate", ftypes.UINT16)

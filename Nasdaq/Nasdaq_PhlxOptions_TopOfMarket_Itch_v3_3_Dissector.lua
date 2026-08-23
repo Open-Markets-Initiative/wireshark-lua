@@ -14,6 +14,10 @@ local nasdaq_phlxoptions_topofmarket_itch_v3_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Headers
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packetheader", ftypes.STRING)
+
 -- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Fields
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlxoptions.topofmarket.itch.v3.3.askprice2", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlxoptions.topofmarket.itch.v3.3.askprice4", ftypes.DOUBLE)
@@ -43,8 +47,6 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.option_type = ProtoField.new
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.phlxoptions.topofmarket.itch.v3.3.originalcrossid", ftypes.UINT32)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.original_price = ProtoField.new("Original Price", "nasdaq.phlxoptions.topofmarket.itch.v3.3.originalprice", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.phlxoptions.topofmarket.itch.v3.3.originalvolume", ftypes.UINT32)
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packet", ftypes.STRING)
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packetheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", "nasdaq.phlxoptions.topofmarket.itch.v3.3.price2", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.phlxoptions.topofmarket.itch.v3.3.price4", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlxoptions.topofmarket.itch.v3.3.quotecondition", ftypes.STRING)

@@ -14,15 +14,17 @@ local blueoceanats_commonheader_udp_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- BlueOceanAts CommonHeader Udp 1.1 Headers
+omi_blueoceanats_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "blueoceanats.commonheader.udp.v1.1.commonheader", ftypes.STRING)
+omi_blueoceanats_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "blueoceanats.commonheader.udp.v1.1.packet", ftypes.STRING)
+
 -- BlueOceanAts CommonHeader Udp 1.1 Fields
 omi_blueoceanats_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "blueoceanats.commonheader.udp.v1.1.blocklength", ftypes.UINT16)
-omi_blueoceanats_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "blueoceanats.commonheader.udp.v1.1.commonheader", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "blueoceanats.commonheader.udp.v1.1.headerlength", ftypes.UINT8)
 omi_blueoceanats_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "blueoceanats.commonheader.udp.v1.1.message", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "blueoceanats.commonheader.udp.v1.1.messagecount", ftypes.UINT16)
 omi_blueoceanats_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "blueoceanats.commonheader.udp.v1.1.messagelength", ftypes.UINT16)
 omi_blueoceanats_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "blueoceanats.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
-omi_blueoceanats_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "blueoceanats.commonheader.udp.v1.1.packet", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "blueoceanats.commonheader.udp.v1.1.payload", ftypes.BYTES)
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.commonheader.udp.v1.1.sbemessage", ftypes.STRING)

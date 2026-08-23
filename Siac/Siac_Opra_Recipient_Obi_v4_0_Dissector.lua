@@ -14,6 +14,13 @@ local siac_opra_recipient_obi_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Opra Recipient Obi 4.0 Headers
+omi_siac_opra_recipient_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v4.0.blockheader", ftypes.STRING)
+omi_siac_opra_recipient_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v4.0.blocktimestamp", ftypes.STRING)
+omi_siac_opra_recipient_obi_v4_0.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v4.0.message", ftypes.STRING)
+omi_siac_opra_recipient_obi_v4_0.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v4.0.messageheader", ftypes.STRING)
+omi_siac_opra_recipient_obi_v4_0.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v4.0.packet", ftypes.STRING)
+
 -- Siac Opra Recipient Obi 4.0 Fields
 omi_siac_opra_recipient_obi_v4_0.fields.administrative_category = ProtoField.new("Administrative Category", "siac.opra.recipient.obi.v4.0.administrativecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.recipient.obi.v4.0.administrativemessagetype", ftypes.STRING)
@@ -35,11 +42,9 @@ omi_siac_opra_recipient_obi_v4_0.fields.bid_price_short = ProtoField.new("Bid Pr
 omi_siac_opra_recipient_obi_v4_0.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.recipient.obi.v4.0.bidsize", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.recipient.obi.v4.0.bidsizeshort", ftypes.UINT16)
 omi_siac_opra_recipient_obi_v4_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.recipient.obi.v4.0.blockchecksum", ftypes.UINT16)
-omi_siac_opra_recipient_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v4.0.blockheader", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.recipient.obi.v4.0.blockpadbyte", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v4_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.recipient.obi.v4.0.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v4_0.fields.block_size = ProtoField.new("Block Size", "siac.opra.recipient.obi.v4.0.blocksize", ftypes.UINT16)
-omi_siac_opra_recipient_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v4.0.blocktimestamp", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.control_category = ProtoField.new("Control Category", "siac.opra.recipient.obi.v4.0.controlcategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.recipient.obi.v4.0.controlmessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.recipient.obi.v4.0.datafeedindicator", ftypes.STRING)
@@ -59,11 +64,9 @@ omi_siac_opra_recipient_obi_v4_0.fields.last_price = ProtoField.new("Last Price"
 omi_siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_category = ProtoField.new("Long Equity And Index Quote Category", "siac.opra.recipient.obi.v4.0.longequityandindexquotecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.long_equity_and_index_quote_message_type = ProtoField.new("Long Equity And Index Quote Message Type", "siac.opra.recipient.obi.v4.0.longequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.low_price = ProtoField.new("Low Price", "siac.opra.recipient.obi.v4.0.lowprice", ftypes.INT32)
-omi_siac_opra_recipient_obi_v4_0.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v4.0.message", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_category = ProtoField.new("Message Category", "siac.opra.recipient.obi.v4.0.messagecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_data = ProtoField.new("Message Data", "siac.opra.recipient.obi.v4.0.messagedata", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.recipient.obi.v4.0.messagedatalength", ftypes.UINT16)
-omi_siac_opra_recipient_obi_v4_0.fields.message_header = ProtoField.new("Message Header", "siac.opra.recipient.obi.v4.0.messageheader", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.recipient.obi.v4.0.messageindicator", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.recipient.obi.v4.0.messagesinblock", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v4_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.recipient.obi.v4.0.nanoseconds", ftypes.UINT32)
@@ -77,7 +80,6 @@ omi_siac_opra_recipient_obi_v4_0.fields.open_interest_category = ProtoField.new(
 omi_siac_opra_recipient_obi_v4_0.fields.open_interest_message_type = ProtoField.new("Open Interest Message Type", "siac.opra.recipient.obi.v4.0.openinterestmessagetype", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.recipient.obi.v4.0.openinterestvolume", ftypes.UINT32)
 omi_siac_opra_recipient_obi_v4_0.fields.open_price = ProtoField.new("Open Price", "siac.opra.recipient.obi.v4.0.openprice", ftypes.INT32)
-omi_siac_opra_recipient_obi_v4_0.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v4.0.packet", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.recipient.obi.v4.0.participantid", ftypes.STRING)
 omi_siac_opra_recipient_obi_v4_0.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v4.0.premiumprice", ftypes.INT32)
 omi_siac_opra_recipient_obi_v4_0.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v4.0.premiumpricedenominatorcode", ftypes.STRING)

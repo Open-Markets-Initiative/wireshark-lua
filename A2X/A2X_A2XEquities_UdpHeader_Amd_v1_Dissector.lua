@@ -14,13 +14,15 @@ local a2x_a2xequities_udpheader_amd_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- A2X A2XEquities UdpHeader Amd 1. Fields
+-- A2X A2XEquities UdpHeader Amd 1. Headers
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", "a2x.a2xequities.udpheader.amd.v1.message", ftypes.STRING)
-omi_a2x_a2xequities_udpheader_amd_v1.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.udpheader.amd.v1.messagecount", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
+omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
+
+-- A2X A2XEquities UdpHeader Amd 1. Fields
+omi_a2x_a2xequities_udpheader_amd_v1.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.udpheader.amd.v1.messagecount", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.udpheader.amd.v1.msglength", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.udpheader.amd.v1.msgtype", ftypes.UINT8)
-omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.payload = ProtoField.new("Payload", "a2x.a2xequities.udpheader.amd.v1.payload", ftypes.BYTES)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.udpheader.amd.v1.seqno", ftypes.UINT32)
 

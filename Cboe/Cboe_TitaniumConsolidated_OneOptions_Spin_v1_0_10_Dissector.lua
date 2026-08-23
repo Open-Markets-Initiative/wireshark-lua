@@ -14,6 +14,10 @@ local cboe_titaniumconsolidated_oneoptions_spin_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Headers
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packetheader", ftypes.STRING)
+
 -- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Fields
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.count", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.feedsymbol", ftypes.STRING)
@@ -29,8 +33,6 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_length = Pr
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.ordercount", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.osisymbol", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packetheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.password = ProtoField.new("Password", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.password", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.sequence", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.sessionsubid", ftypes.STRING)

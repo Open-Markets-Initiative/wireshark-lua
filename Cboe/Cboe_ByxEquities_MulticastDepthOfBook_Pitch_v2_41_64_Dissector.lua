@@ -14,6 +14,10 @@ local cboe_byxequities_multicastdepthofbook_pitch_v2_41_64 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64 Headers
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.packet = ProtoField.new("Packet", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.packet", ftypes.STRING)
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.packet_header = ProtoField.new("Packet Header", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.packetheader", ftypes.STRING)
+
 -- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.64 Fields
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.add_flags = ProtoField.new("Add Flags", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.addflags", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.auctiononlyprice", ftypes.UINT64)
@@ -34,8 +38,6 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.message_length =
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.message_type = ProtoField.new("Message Type", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.messagetype", ftypes.UINT8)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.modifyflags", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.order_id = ProtoField.new("Order Id", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.orderid", ftypes.UINT64)
-omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.packet = ProtoField.new("Packet", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.packet", ftypes.STRING)
-omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.packet_header = ProtoField.new("Packet Header", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.packetheader", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.participant_id = ProtoField.new("Participant Id", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.participantid", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.pricebinarylongprice8", ftypes.DOUBLE)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_64.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.64.pricebinaryshortprice2", ftypes.DOUBLE)

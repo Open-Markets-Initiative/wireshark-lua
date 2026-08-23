@@ -14,6 +14,12 @@ local finra_finraorf_tdds_dfi_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Finra FinraOrf Tdds Dfi 2.1 Headers
+omi_finra_finraorf_tdds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.finraorf.tdds.dfi.v2.1.message", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.mold_udp64 = ProtoField.new("Mold Udp64", "finra.finraorf.tdds.dfi.v2.1.moldudp64", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.finraorf.tdds.dfi.v2.1.packet", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.packet_header = ProtoField.new("Packet Header", "finra.finraorf.tdds.dfi.v2.1.packetheader", ftypes.STRING)
+
 -- Finra FinraOrf Tdds Dfi 2.1 Fields
 omi_finra_finraorf_tdds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.finraorf.tdds.dfi.v2.1.action", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraorf.tdds.dfi.v2.1.actiondatetime", ftypes.STRING)
@@ -46,19 +52,15 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.length = ProtoField.new("Length", "finra
 omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.finraorf.tdds.dfi.v2.1.lowprice", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.finraorf.tdds.dfi.v2.1.lowpricedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.finraorf.tdds.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.finraorf.tdds.dfi.v2.1.message", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.finraorf.tdds.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.finraorf.tdds.dfi.v2.1.messageheader", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.finraorf.tdds.dfi.v2.1.minute", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.mold_udp64 = ProtoField.new("Mold Udp64", "finra.finraorf.tdds.dfi.v2.1.moldudp64", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.finraorf.tdds.dfi.v2.1.month", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.finraorf.tdds.dfi.v2.1.netchangeamount", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_denominator = ProtoField.new("Net Change Denominator", "finra.finraorf.tdds.dfi.v2.1.netchangedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_direction = ProtoField.new("Net Change Direction", "finra.finraorf.tdds.dfi.v2.1.netchangedirection", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.finraorf.tdds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.finraorf.tdds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.finraorf.tdds.dfi.v2.1.packet", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.packet_header = ProtoField.new("Packet Header", "finra.finraorf.tdds.dfi.v2.1.packetheader", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.finraorf.tdds.dfi.v2.1.pricechangeindicator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.reason_code = ProtoField.new("Reason Code", "finra.finraorf.tdds.dfi.v2.1.reasoncode", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.1.reportfunction", ftypes.STRING)

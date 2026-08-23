@@ -14,6 +14,12 @@ local lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg TradeEcho Mifid2PostTradeReplay Gtp 27.2.2 Headers
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.message", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.packet", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unitheader", ftypes.STRING)
+
 -- Lseg TradeEcho Mifid2PostTradeReplay Gtp 27.2.2 Fields
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.agencycrossindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.agency_cross_trade_flag = ProtoField.new("Agency Cross Trade Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.agencycrosstradeflag", ftypes.STRING)
@@ -58,9 +64,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.market_data_group = 
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.marketmechanism", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.matched_principal_trade_flag = ProtoField.new("Matched Principal Trade Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.matchedprincipaltradeflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.maturity_date_of_the_contract = ProtoField.new("Maturity Date Of The Contract", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.maturitydateofthecontract", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.message", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messagecount", ftypes.UINT8)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messagelength", ftypes.UINT16)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messagetype", ftypes.UINT8)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.missing_price_price_conditions = ProtoField.new("Missing Price Price Conditions", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.missingpricepriceconditions", ftypes.STRING)
@@ -82,7 +86,6 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.number_of_trades_onb
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.offbookautomatedindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.offbook = ProtoField.new("Offbook", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.orderbooktype", ftypes.UINT8)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.packet", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.portfolio_transaction_flag = ProtoField.new("Portfolio Transaction Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.portfoliotransactionflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.posttradedeferralreason", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price = ProtoField.new("Price", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.price", ftypes.STRING)
@@ -129,7 +132,6 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.transaction_identifi
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.transactiontobecleared", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.turnover", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unitheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment = ProtoField.new("Upfront Payment", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.upfrontpayment", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.username", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.venuebookdefinitionid", ftypes.UINT8)

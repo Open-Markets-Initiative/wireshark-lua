@@ -14,6 +14,11 @@ local hkex_hkexsecurities_mmdh_omd_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities Mmdh Omd 2.1 Headers
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.mmdh.omd.v2.1.message", ftypes.STRING)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message_header = ProtoField.new("Message Header", "hkex.hkexsecurities.mmdh.omd.v2.1.messageheader", ftypes.STRING)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.mmdh.omd.v2.1.packet", ftypes.STRING)
+
 -- Hkex HkexSecurities Mmdh Omd 2.1 Fields
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.mmdh.omd.v2.1.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.mmdh.omd.v2.1.aggregatequantity", ftypes.UINT64)
@@ -103,8 +108,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.lp_broker_number = ProtoField.new("
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.mmdh.omd.v2.1.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.mmdh.omd.v2.1.marketname", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.mmdh.omd.v2.1.maturitydate", ftypes.UINT32)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.mmdh.omd.v2.1.message", ftypes.STRING)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message_header = ProtoField.new("Message Header", "hkex.hkexsecurities.mmdh.omd.v2.1.messageheader", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_length = ProtoField.new("Msg Length", "hkex.hkexsecurities.mmdh.omd.v2.1.msglength", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.mmdh.omd.v2.1.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.mmdh.omd.v2.1.msgtype", ftypes.UINT16)
@@ -132,7 +135,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.opening_value = ProtoField.new("Ope
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.order_id = ProtoField.new("Order Id", "hkex.hkexsecurities.mmdh.omd.v2.1.orderid", ftypes.UINT64)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.order_imbalance_direction = ProtoField.new("Order Imbalance Direction", "hkex.hkexsecurities.mmdh.omd.v2.1.orderimbalancedirection", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.order_imbalance_quantity = ProtoField.new("Order Imbalance Quantity", "hkex.hkexsecurities.mmdh.omd.v2.1.orderimbalancequantity", ftypes.UINT64)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.mmdh.omd.v2.1.packet", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.password_expiry_days = ProtoField.new("Password Expiry Days", "hkex.hkexsecurities.mmdh.omd.v2.1.passwordexpirydays", ftypes.UINT8)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.pos_flag = ProtoField.new("Pos Flag", "hkex.hkexsecurities.mmdh.omd.v2.1.posflag", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.pos_lower_limit = ProtoField.new("Pos Lower Limit", "hkex.hkexsecurities.mmdh.omd.v2.1.poslowerlimit", ftypes.DOUBLE)

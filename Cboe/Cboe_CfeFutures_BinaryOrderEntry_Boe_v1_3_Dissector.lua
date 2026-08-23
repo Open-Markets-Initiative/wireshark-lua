@@ -14,6 +14,10 @@ local cboe_cfefutures_binaryorderentry_boe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Headers
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe.v1.3.packet", ftypes.STRING)
+
 -- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Fields
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.account = ProtoField.new("Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.account", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.application_message_type = ProtoField.new("Application Message Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.applicationmessagetype", ftypes.UINT8)
@@ -119,7 +123,6 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_id = ProtoField
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.masscancelinst", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.cfefutures.binaryorderentry.boe.v1.3.matchingunit", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.maturitydate", ftypes.UINT32)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.binaryorderentry.boe.v1.3.messagelength", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.messagetype", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.min_qty = ProtoField.new("Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.minqty", ftypes.UINT32)
@@ -469,7 +472,6 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.order_rejected_symbol_exist
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.order_rejected_time_in_force_exists = ProtoField.new("Order Rejected Time In Force Exists", "cboe.cfefutures.binaryorderentry.boe.v1.3.orderrejectedtimeinforceexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.origclordid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.orig_time = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.origtime", ftypes.UINT64)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe.v1.3.packet", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.param_group = ProtoField.new("Param Group", "cboe.cfefutures.binaryorderentry.boe.v1.3.paramgroup", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cfefutures.binaryorderentry.boe.v1.3.paramgrouplength", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.paramgrouptype", ftypes.UINT8)

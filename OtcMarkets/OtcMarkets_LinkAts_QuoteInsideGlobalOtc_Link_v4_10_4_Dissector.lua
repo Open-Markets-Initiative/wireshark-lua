@@ -14,6 +14,13 @@ local otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets LinkAts QuoteInsideGlobalOtc Link 4.10.4 Headers
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.message", ftypes.STRING)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packet", ftypes.STRING)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts QuoteInsideGlobalOtc Link 4.10.4 Fields
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.ask_num_priced_mp = ProtoField.new("Ask Num Priced Mp", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.asknumpricedmp", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.askprice", ftypes.UINT64)
@@ -40,17 +47,12 @@ omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_close = P
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketclosetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketopen", ftypes.UINT64)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.message", ftypes.STRING)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messagetype", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.num_priced_mp = ProtoField.new("Num Priced Mp", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.numpricedmp", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.otclinkecneligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.otclinkmessagingdisabled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packet", ftypes.STRING)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetheader", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.packetsize", ftypes.UINT16)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.price", ftypes.UINT64)

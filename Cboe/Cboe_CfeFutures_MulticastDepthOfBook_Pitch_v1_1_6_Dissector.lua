@@ -14,6 +14,10 @@ local cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Headers
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Fields
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.blockvolume", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.canceled_long_quantity = ProtoField.new("Canceled Long Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.canceledlongquantity", ftypes.UINT32)
@@ -57,8 +61,6 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.offer_close_valid =
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.openinterest", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.openprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.orderid", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.packetheader", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.previous_armvm = ProtoField.new("Previous Armvm", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.previousarmvm", ftypes.INT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.previoussettlement", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.priceincrement", ftypes.DOUBLE)

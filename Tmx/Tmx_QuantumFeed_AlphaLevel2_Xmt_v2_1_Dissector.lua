@@ -14,14 +14,18 @@ local tmx_quantumfeed_alphalevel2_xmt_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Tmx QuantumFeed AlphaLevel2 Xmt 2.1 Fields
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.alphalevel2.xmt.v2.1.ackrequiredpossdup", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.alphalevel2.xmt.v2.1.boardlot", ftypes.UINT16)
+-- Tmx QuantumFeed AlphaLevel2 Xmt 2.1 Headers
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.alphalevel2.xmt.v2.1.body", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.alphalevel2.xmt.v2.1.bodyheader", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.alphalevel2.xmt.v2.1.bodymessage", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.broker_number = ProtoField.new("Broker Number", "tmx.quantumfeed.alphalevel2.xmt.v2.1.brokernumber", ftypes.UINT16)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.alphalevel2.xmt.v2.1.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.alphalevel2.xmt.v2.1.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.alphalevel2.xmt.v2.1.packet", ftypes.STRING)
+
+-- Tmx QuantumFeed AlphaLevel2 Xmt 2.1 Fields
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.alphalevel2.xmt.v2.1.ackrequiredpossdup", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.alphalevel2.xmt.v2.1.boardlot", ftypes.UINT16)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.broker_number = ProtoField.new("Broker Number", "tmx.quantumfeed.alphalevel2.xmt.v2.1.brokernumber", ftypes.UINT16)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.quantumfeed.alphalevel2.xmt.v2.1.buybrokernumber", ftypes.UINT16)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.buy_display_volume = ProtoField.new("Buy Display Volume", "tmx.quantumfeed.alphalevel2.xmt.v2.1.buydisplayvolume", ftypes.UINT32)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.buy_order_id = ProtoField.new("Buy Order Id", "tmx.quantumfeed.alphalevel2.xmt.v2.1.buyorderid", ftypes.UINT64)
@@ -31,7 +35,6 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.cross_type = ProtoField.new("Cro
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.currency = ProtoField.new("Currency", "tmx.quantumfeed.alphalevel2.xmt.v2.1.currency", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.cusip = ProtoField.new("Cusip", "tmx.quantumfeed.alphalevel2.xmt.v2.1.cusip", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.face_value = ProtoField.new("Face Value", "tmx.quantumfeed.alphalevel2.xmt.v2.1.facevalue", ftypes.DOUBLE)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.alphalevel2.xmt.v2.1.frameheader", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.initiated_by = ProtoField.new("Initiated By", "tmx.quantumfeed.alphalevel2.xmt.v2.1.initiatedby", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.is_dark = ProtoField.new("Is Dark", "tmx.quantumfeed.alphalevel2.xmt.v2.1.isdark", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.last_sale = ProtoField.new("Last Sale", "tmx.quantumfeed.alphalevel2.xmt.v2.1.lastsale", ftypes.DOUBLE)
@@ -46,7 +49,6 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.num_body = ProtoField.new("Num B
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_id = ProtoField.new("Order Id", "tmx.quantumfeed.alphalevel2.xmt.v2.1.orderid", ftypes.UINT64)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_side = ProtoField.new("Order Side", "tmx.quantumfeed.alphalevel2.xmt.v2.1.orderside", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.orig_trade_number = ProtoField.new("Orig Trade Number", "tmx.quantumfeed.alphalevel2.xmt.v2.1.origtradenumber", ftypes.UINT32)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.alphalevel2.xmt.v2.1.packet", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.price = ProtoField.new("Price", "tmx.quantumfeed.alphalevel2.xmt.v2.1.price", ftypes.DOUBLE)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.quantumfeed.alphalevel2.xmt.v2.1.prioritytimestamp", ftypes.UINT32)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.product_type = ProtoField.new("Product Type", "tmx.quantumfeed.alphalevel2.xmt.v2.1.producttype", ftypes.STRING)

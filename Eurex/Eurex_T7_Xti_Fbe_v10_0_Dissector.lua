@@ -14,6 +14,11 @@ local eurex_t7_xti_fbe_v10_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Eurex T7 Xti Fbe 10.0 Headers
+omi_eurex_t7_xti_fbe_v10_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v10.0.message", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v10_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v10.0.messageheader", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v10_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v10.0.packet", ftypes.STRING)
+
 -- Eurex T7 Xti Fbe 10.0 Fields
 omi_eurex_t7_xti_fbe_v10_0.fields.account = ProtoField.new("Account", "eurex.t7.xti.fbe.v10.0.account", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_0.fields.accrued_interes_amt = ProtoField.new("Accrued Interes Amt", "eurex.t7.xti.fbe.v10.0.accruedinteresamt", ftypes.DOUBLE)
@@ -122,9 +127,7 @@ omi_eurex_t7_xti_fbe_v10_0.fields.matching_engine_status = ProtoField.new("Match
 omi_eurex_t7_xti_fbe_v10_0.fields.matching_engine_trade_date = ProtoField.new("Matching Engine Trade Date", "eurex.t7.xti.fbe.v10.0.matchingenginetradedate", ftypes.UINT32)
 omi_eurex_t7_xti_fbe_v10_0.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.t7.xti.fbe.v10.0.mdbooktype", ftypes.UINT8)
 omi_eurex_t7_xti_fbe_v10_0.fields.md_sub_book_type = ProtoField.new("Md Sub Book Type", "eurex.t7.xti.fbe.v10.0.mdsubbooktype", ftypes.UINT8)
-omi_eurex_t7_xti_fbe_v10_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v10.0.message", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_0.fields.message_event_source = ProtoField.new("Message Event Source", "eurex.t7.xti.fbe.v10.0.messageeventsource", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v10_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v10.0.messageheader", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.xti.fbe.v10.0.msgseqnum", ftypes.UINT32)
 omi_eurex_t7_xti_fbe_v10_0.fields.negotiation_id = ProtoField.new("Negotiation Id", "eurex.t7.xti.fbe.v10.0.negotiationid", ftypes.UINT32)
 omi_eurex_t7_xti_fbe_v10_0.fields.negotiation_start_time = ProtoField.new("Negotiation Start Time", "eurex.t7.xti.fbe.v10.0.negotiationstarttime", ftypes.UINT64)
@@ -180,7 +183,6 @@ omi_eurex_t7_xti_fbe_v10_0.fields.orig_time = ProtoField.new("Orig Time", "eurex
 omi_eurex_t7_xti_fbe_v10_0.fields.orig_trade_id = ProtoField.new("Orig Trade Id", "eurex.t7.xti.fbe.v10.0.origtradeid", ftypes.UINT32)
 omi_eurex_t7_xti_fbe_v10_0.fields.ownership_indicator = ProtoField.new("Ownership Indicator", "eurex.t7.xti.fbe.v10.0.ownershipindicator", ftypes.UINT8)
 omi_eurex_t7_xti_fbe_v10_0.fields.package_id = ProtoField.new("Package Id", "eurex.t7.xti.fbe.v10.0.packageid", ftypes.UINT32)
-omi_eurex_t7_xti_fbe_v10_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v10.0.packet", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_0.fields.pad1 = ProtoField.new("Pad1", "eurex.t7.xti.fbe.v10.0.pad1", ftypes.BYTES)
 omi_eurex_t7_xti_fbe_v10_0.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.xti.fbe.v10.0.pad2", ftypes.BYTES)
 omi_eurex_t7_xti_fbe_v10_0.fields.pad2v2 = ProtoField.new("Pad2v2", "eurex.t7.xti.fbe.v10.0.pad2v2", ftypes.BYTES)

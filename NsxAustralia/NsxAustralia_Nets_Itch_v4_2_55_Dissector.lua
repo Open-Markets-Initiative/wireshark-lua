@@ -14,6 +14,14 @@ local nsxaustralia_nets_itch_v4_2_55 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- NsxAustralia Nets Itch 4.2.55 Headers
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.clientpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.clientpacketheader", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.clientsoupbintcppacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.serverpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.serverpacketheader", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.serversoupbintcppacket", ftypes.STRING)
+
 -- NsxAustralia Nets Itch 4.2.55 Fields
 omi_nsxaustralia_nets_itch_v4_2_55.fields.aggressor_firm_id = ProtoField.new("Aggressor Firm Id", "nsxaustralia.nets.itch.v4.2.55.aggressorfirmid", ftypes.UINT32)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.asset_type = ProtoField.new("Asset Type", "nsxaustralia.nets.itch.v4.2.55.assettype", ftypes.STRING)
@@ -25,6 +33,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.best_offer = ProtoField.new("Best Offe
 omi_nsxaustralia_nets_itch_v4_2_55.fields.best_offer_size = ProtoField.new("Best Offer Size", "nsxaustralia.nets.itch.v4.2.55.bestoffersize", ftypes.UINT64)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.board = ProtoField.new("Board", "nsxaustralia.nets.itch.v4.2.55.board", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.buy_firm_id = ProtoField.new("Buy Firm Id", "nsxaustralia.nets.itch.v4.2.55.buyfirmid", ftypes.UINT32)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.itch.v4.2.55.clientpackettype", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.cross_type = ProtoField.new("Cross Type", "nsxaustralia.nets.itch.v4.2.55.crosstype", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.currency = ProtoField.new("Currency", "nsxaustralia.nets.itch.v4.2.55.currency", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.event_code = ProtoField.new("Event Code", "nsxaustralia.nets.itch.v4.2.55.eventcode", ftypes.STRING)
@@ -50,10 +59,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.order_number = ProtoField.new("Order N
 omi_nsxaustralia_nets_itch_v4_2_55.fields.order_verb = ProtoField.new("Order Verb", "nsxaustralia.nets.itch.v4.2.55.orderverb", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.orderbook = ProtoField.new("Orderbook", "nsxaustralia.nets.itch.v4.2.55.orderbook", ftypes.UINT32)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.original_order_number = ProtoField.new("Original Order Number", "nsxaustralia.nets.itch.v4.2.55.originalordernumber", ftypes.UINT64)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.packet", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.packetheader", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.packet_length = ProtoField.new("Packet Length", "nsxaustralia.nets.itch.v4.2.55.packetlength", ftypes.UINT16)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.itch.v4.2.55.packettype", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.password = ProtoField.new("Password", "nsxaustralia.nets.itch.v4.2.55.password", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.price = ProtoField.new("Price", "nsxaustralia.nets.itch.v4.2.55.price", ftypes.INT64)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.price_decimals = ProtoField.new("Price Decimals", "nsxaustralia.nets.itch.v4.2.55.pricedecimals", ftypes.UINT32)
@@ -78,9 +84,9 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.security_name = ProtoField.new("Securi
 omi_nsxaustralia_nets_itch_v4_2_55.fields.sell_firm_id = ProtoField.new("Sell Firm Id", "nsxaustralia.nets.itch.v4.2.55.sellfirmid", ftypes.UINT32)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.sequence_number = ProtoField.new("Sequence Number", "nsxaustralia.nets.itch.v4.2.55.sequencenumber", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nsxaustralia.nets.itch.v4.2.55.sequencedmessagetype", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.itch.v4.2.55.serverpackettype", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.session = ProtoField.new("Session", "nsxaustralia.nets.itch.v4.2.55.session", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.settle_date = ProtoField.new("Settle Date", "nsxaustralia.nets.itch.v4.2.55.settledate", ftypes.UINT32)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.soupbintcppacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.text = ProtoField.new("Text", "nsxaustralia.nets.itch.v4.2.55.text", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.theoretical_opening_price = ProtoField.new("Theoretical Opening Price", "nsxaustralia.nets.itch.v4.2.55.theoreticalopeningprice", ftypes.INT64)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.theoretical_opening_quantity = ProtoField.new("Theoretical Opening Quantity", "nsxaustralia.nets.itch.v4.2.55.theoreticalopeningquantity", ftypes.UINT64)
@@ -91,6 +97,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.title = ProtoField.new("Title", "nsxau
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trade_indicator = ProtoField.new("Trade Indicator", "nsxaustralia.nets.itch.v4.2.55.tradeindicator", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trade_source = ProtoField.new("Trade Source", "nsxaustralia.nets.itch.v4.2.55.tradesource", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.trading_state = ProtoField.new("Trading State", "nsxaustralia.nets.itch.v4.2.55.tradingstate", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nsxaustralia.nets.itch.v4.2.55.unsequencedmessage", ftypes.BYTES)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nsxaustralia.nets.itch.v4.2.55.unsequencedmessagetype", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.username = ProtoField.new("Username", "nsxaustralia.nets.itch.v4.2.55.username", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.weight = ProtoField.new("Weight", "nsxaustralia.nets.itch.v4.2.55.weight", ftypes.UINT64)
@@ -135,13 +142,21 @@ local show = {}
 
 -- NsxAustralia Nets Itch 4.2.55 Element Dissection Options
 show.application_messages = true
-show.session_messages = true
 show.structs = true
+show.session_messages = true
 
 -- Register NsxAustralia Nets Itch 4.2.55 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 
 -- Handle changed preferences
@@ -473,6 +488,45 @@ nsxaustralia_nets_itch_v4_2_55.buy_firm_id.dissect = function(buffer, offset, pa
   local display = nsxaustralia_nets_itch_v4_2_55.buy_firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.buy_firm_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nsxaustralia_nets_itch_v4_2_55.client_packet_type = {}
+
+-- Size: Client Packet Type
+nsxaustralia_nets_itch_v4_2_55.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nsxaustralia_nets_itch_v4_2_55.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nsxaustralia_nets_itch_v4_2_55.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_itch_v4_2_55.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nsxaustralia_nets_itch_v4_2_55.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1162,60 +1216,6 @@ nsxaustralia_nets_itch_v4_2_55.packet_length.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Packet Type
-nsxaustralia_nets_itch_v4_2_55.packet_type = {}
-
--- Size: Packet Type
-nsxaustralia_nets_itch_v4_2_55.packet_type.size = 1
-
--- Display: Packet Type
-nsxaustralia_nets_itch_v4_2_55.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nsxaustralia_nets_itch_v4_2_55.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_itch_v4_2_55.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nsxaustralia_nets_itch_v4_2_55.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Password
 nsxaustralia_nets_itch_v4_2_55.password = {}
 
@@ -1885,6 +1885,48 @@ nsxaustralia_nets_itch_v4_2_55.sequenced_message_type.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Server Packet Type
+nsxaustralia_nets_itch_v4_2_55.server_packet_type = {}
+
+-- Size: Server Packet Type
+nsxaustralia_nets_itch_v4_2_55.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nsxaustralia_nets_itch_v4_2_55.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nsxaustralia_nets_itch_v4_2_55.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_itch_v4_2_55.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nsxaustralia_nets_itch_v4_2_55.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Session
 nsxaustralia_nets_itch_v4_2_55.session = {}
 
@@ -2249,6 +2291,25 @@ nsxaustralia_nets_itch_v4_2_55.trading_state.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Unsequenced Message
+nsxaustralia_nets_itch_v4_2_55.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+nsxaustralia_nets_itch_v4_2_55.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+nsxaustralia_nets_itch_v4_2_55.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nsxaustralia_nets_itch_v4_2_55.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
+end
+
 -- Unsequenced Message Type
 nsxaustralia_nets_itch_v4_2_55.unsequenced_message_type = {}
 
@@ -2379,151 +2440,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect NsxAustralia Nets Itch 4.2.55
 -----------------------------------------------------------------------
-
--- Logout Request
-nsxaustralia_nets_itch_v4_2_55.logout_request = {}
-
--- Display: Logout Request
-nsxaustralia_nets_itch_v4_2_55.logout_request.display = function(packet, parent, length)
-  return "Logout Request"
-end
-
-
--- Dissect: Logout Request
-nsxaustralia_nets_itch_v4_2_55.logout_request.dissect = function(buffer, offset, packet, parent)
-  local display = nsxaustralia_nets_itch_v4_2_55.logout_request.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Client Heartbeat
-nsxaustralia_nets_itch_v4_2_55.client_heartbeat = {}
-
--- Display: Client Heartbeat
-nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display = function(packet, parent, length)
-  return "Client Heartbeat"
-end
-
-
--- Dissect: Client Heartbeat
-nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Unsequenced Data Packet
-nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String
-  index, unsequenced_message_type = nsxaustralia_nets_itch_v4_2_55.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = packet_length - 2
-
-  -- Unsequenced Message
-  index, unsequenced_message = nsxaustralia_nets_itch_v4_2_55.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-nsxaustralia_nets_itch_v4_2_55.login_request_packet = {}
-
--- Size: Login Request Packet
-nsxaustralia_nets_itch_v4_2_55.login_request_packet.size =
-  nsxaustralia_nets_itch_v4_2_55.username.size + 
-  nsxaustralia_nets_itch_v4_2_55.password.size + 
-  nsxaustralia_nets_itch_v4_2_55.requested_session.size + 
-  nsxaustralia_nets_itch_v4_2_55.requested_sequence_number.size
-
--- Display: Login Request Packet
-nsxaustralia_nets_itch_v4_2_55.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = nsxaustralia_nets_itch_v4_2_55.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = nsxaustralia_nets_itch_v4_2_55.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = nsxaustralia_nets_itch_v4_2_55.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = nsxaustralia_nets_itch_v4_2_55.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-nsxaustralia_nets_itch_v4_2_55.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.login_request_packet, buffer(offset, 0))
-    local index = nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nsxaustralia_nets_itch_v4_2_55.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- End Of Session
 nsxaustralia_nets_itch_v4_2_55.end_of_session = {}
@@ -3948,151 +3864,135 @@ nsxaustralia_nets_itch_v4_2_55.debug_packet.dissect = function(buffer, offset, p
   end
 end
 
--- Payload
-nsxaustralia_nets_itch_v4_2_55.payload = {}
+-- Server Payload
+nsxaustralia_nets_itch_v4_2_55.server_payload = {}
 
--- Dissect: Payload
-nsxaustralia_nets_itch_v4_2_55.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Payload
+nsxaustralia_nets_itch_v4_2_55.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return nsxaustralia_nets_itch_v4_2_55.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return nsxaustralia_nets_itch_v4_2_55.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return nsxaustralia_nets_itch_v4_2_55.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return nsxaustralia_nets_itch_v4_2_55.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return nsxaustralia_nets_itch_v4_2_55.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if packet_type == "Z" then
+  if server_packet_type == "Z" then
     return nsxaustralia_nets_itch_v4_2_55.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return nsxaustralia_nets_itch_v4_2_55.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if packet_type == "R" then
-    return nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if packet_type == "O" then
-    return nsxaustralia_nets_itch_v4_2_55.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-nsxaustralia_nets_itch_v4_2_55.packet_header = {}
+-- Server Packet Header
+nsxaustralia_nets_itch_v4_2_55.server_packet_header = {}
 
--- Size: Packet Header
-nsxaustralia_nets_itch_v4_2_55.packet_header.size =
+-- Size: Server Packet Header
+nsxaustralia_nets_itch_v4_2_55.server_packet_header.size =
   nsxaustralia_nets_itch_v4_2_55.packet_length.size + 
-  nsxaustralia_nets_itch_v4_2_55.packet_type.size
+  nsxaustralia_nets_itch_v4_2_55.server_packet_type.size
 
--- Display: Packet Header
-nsxaustralia_nets_itch_v4_2_55.packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+nsxaustralia_nets_itch_v4_2_55.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-nsxaustralia_nets_itch_v4_2_55.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+nsxaustralia_nets_itch_v4_2_55.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = nsxaustralia_nets_itch_v4_2_55.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = nsxaustralia_nets_itch_v4_2_55.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = nsxaustralia_nets_itch_v4_2_55.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-nsxaustralia_nets_itch_v4_2_55.packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+nsxaustralia_nets_itch_v4_2_55.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.packet_header, buffer(offset, 0))
-    local index = nsxaustralia_nets_itch_v4_2_55.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_header, buffer(offset, 0))
+    local index = nsxaustralia_nets_itch_v4_2_55.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nsxaustralia_nets_itch_v4_2_55.packet_header.display(packet, parent, length)
+    local display = nsxaustralia_nets_itch_v4_2_55.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nsxaustralia_nets_itch_v4_2_55.packet_header.fields(buffer, offset, packet, parent)
+    return nsxaustralia_nets_itch_v4_2_55.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = nsxaustralia_nets_itch_v4_2_55.packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = nsxaustralia_nets_itch_v4_2_55.server_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 10 branches
-  index = nsxaustralia_nets_itch_v4_2_55.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = nsxaustralia_nets_itch_v4_2_55.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nsxaustralia_nets_itch_v4_2_55.packet_header.size then
+  if remaining < nsxaustralia_nets_itch_v4_2_55.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -4107,16 +4007,16 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-nsxaustralia_nets_itch_v4_2_55.packet = {}
+-- Server Packet
+nsxaustralia_nets_itch_v4_2_55.server_packet = {}
 
 -- Verify required size of Tcp packet
-nsxaustralia_nets_itch_v4_2_55.packet.requiredsize = function(buffer)
-  return buffer:len() >= nsxaustralia_nets_itch_v4_2_55.packet_header.size
+nsxaustralia_nets_itch_v4_2_55.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nsxaustralia_nets_itch_v4_2_55.server_packet_header.size
 end
 
--- Dissect Packet
-nsxaustralia_nets_itch_v4_2_55.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+nsxaustralia_nets_itch_v4_2_55.server_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = nsxaustralia_nets_itch_v4_2_55.conversation.data(packet)
   if not packet.visited then
@@ -4127,17 +4027,336 @@ nsxaustralia_nets_itch_v4_2_55.packet.dissect = function(buffer, packet, parent)
 
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nsxaustralia_nets_itch_v4_2_55.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = nsxaustralia_nets_itch_v4_2_55.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request = {}
+
+-- Display: Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+nsxaustralia_nets_itch_v4_2_55.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nsxaustralia_nets_itch_v4_2_55.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = nsxaustralia_nets_itch_v4_2_55.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = nsxaustralia_nets_itch_v4_2_55.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+nsxaustralia_nets_itch_v4_2_55.login_request_packet = {}
+
+-- Size: Login Request Packet
+nsxaustralia_nets_itch_v4_2_55.login_request_packet.size =
+  nsxaustralia_nets_itch_v4_2_55.username.size + 
+  nsxaustralia_nets_itch_v4_2_55.password.size + 
+  nsxaustralia_nets_itch_v4_2_55.requested_session.size + 
+  nsxaustralia_nets_itch_v4_2_55.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nsxaustralia_nets_itch_v4_2_55.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nsxaustralia_nets_itch_v4_2_55.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nsxaustralia_nets_itch_v4_2_55.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nsxaustralia_nets_itch_v4_2_55.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nsxaustralia_nets_itch_v4_2_55.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nsxaustralia_nets_itch_v4_2_55.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.login_request_packet, buffer(offset, 0))
+    local index = nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nsxaustralia_nets_itch_v4_2_55.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nsxaustralia_nets_itch_v4_2_55.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nsxaustralia_nets_itch_v4_2_55.client_payload = {}
+
+-- Dissect: Client Payload
+nsxaustralia_nets_itch_v4_2_55.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return nsxaustralia_nets_itch_v4_2_55.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return nsxaustralia_nets_itch_v4_2_55.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return nsxaustralia_nets_itch_v4_2_55.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat
+  if client_packet_type == "R" then
+    return nsxaustralia_nets_itch_v4_2_55.client_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if client_packet_type == "O" then
+    return nsxaustralia_nets_itch_v4_2_55.logout_request.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+nsxaustralia_nets_itch_v4_2_55.client_packet_header = {}
+
+-- Size: Client Packet Header
+nsxaustralia_nets_itch_v4_2_55.client_packet_header.size =
+  nsxaustralia_nets_itch_v4_2_55.packet_length.size + 
+  nsxaustralia_nets_itch_v4_2_55.client_packet_type.size
+
+-- Display: Client Packet Header
+nsxaustralia_nets_itch_v4_2_55.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+nsxaustralia_nets_itch_v4_2_55.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nsxaustralia_nets_itch_v4_2_55.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nsxaustralia_nets_itch_v4_2_55.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+nsxaustralia_nets_itch_v4_2_55.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header, buffer(offset, 0))
+    local index = nsxaustralia_nets_itch_v4_2_55.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nsxaustralia_nets_itch_v4_2_55.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nsxaustralia_nets_itch_v4_2_55.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = nsxaustralia_nets_itch_v4_2_55.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 5 branches
+  index = nsxaustralia_nets_itch_v4_2_55.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nsxaustralia_nets_itch_v4_2_55.client_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+nsxaustralia_nets_itch_v4_2_55.client_packet = {}
+
+-- Verify required size of Tcp packet
+nsxaustralia_nets_itch_v4_2_55.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nsxaustralia_nets_itch_v4_2_55.client_packet_header.size
+end
+
+-- Dissect Client Packet
+nsxaustralia_nets_itch_v4_2_55.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nsxaustralia_nets_itch_v4_2_55.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -4162,6 +4381,71 @@ function omi_nsxaustralia_nets_itch_v4_2_55.init()
   nsxaustralia_nets_itch_v4_2_55.conversation.flows = {}
 end
 
+-- Connection roles for NsxAustralia Nets Itch 4.2.55: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+nsxaustralia_nets_itch_v4_2_55.role = function(packet)
+  if omi_nsxaustralia_nets_itch_v4_2_55.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_nsxaustralia_nets_itch_v4_2_55.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_nsxaustralia_nets_itch_v4_2_55.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_nsxaustralia_nets_itch_v4_2_55.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nsxaustralia_nets_itch_v4_2_55.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for NsxAustralia Nets Itch 4.2.55
 function omi_nsxaustralia_nets_itch_v4_2_55.dissector(buffer, packet, parent)
 
@@ -4170,8 +4454,94 @@ function omi_nsxaustralia_nets_itch_v4_2_55.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_nsxaustralia_nets_itch_v4_2_55, buffer(), omi_nsxaustralia_nets_itch_v4_2_55.description, "("..buffer:len().." Bytes)")
-  return nsxaustralia_nets_itch_v4_2_55.packet.dissect(buffer, packet, protocol)
+  local role = nsxaustralia_nets_itch_v4_2_55.role(packet)
+  if role == "initiator" then
+    return nsxaustralia_nets_itch_v4_2_55.client_packet.dissect(buffer, packet, protocol)
+  end
+  return nsxaustralia_nets_itch_v4_2_55.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nsxaustralia_nets_itch_v4_2_55.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nsxaustralia_nets_itch_v4_2_55.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -4179,9 +4549,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for NsxAustralia Nets Itch 4.2.55 (Tcp)
-local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic(buffer, packet, parent)
+local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nsxaustralia_nets_itch_v4_2_55.packet.requiredsize(buffer) then return false end
+  if not nsxaustralia_nets_itch_v4_2_55.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nsxaustralia_nets_itch_v4_2_55.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nsxaustralia_nets_itch_v4_2_55
@@ -4190,12 +4563,44 @@ local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic(buffer, packet, 
   return true
 end
 
--- Register Heuristic for NsxAustralia Nets Itch 4.2.55
-omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic)
+-- Dissector Heuristic for NsxAustralia Nets Itch 4.2.55 (Tcp)
+local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nsxaustralia_nets_itch_v4_2_55.server_packet.requiredsize(buffer) then return false end
 
--- Register NsxAustralia Nets Itch 4.2.55 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_nsxaustralia_nets_itch_v4_2_55)
+  -- Verify the frame matches this side's fingerprint
+  if not nsxaustralia_nets_itch_v4_2_55.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nsxaustralia_nets_itch_v4_2_55
+  omi_nsxaustralia_nets_itch_v4_2_55.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for NsxAustralia Nets Itch 4.2.55 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic(buffer, packet, parent)
+  local role = nsxaustralia_nets_itch_v4_2_55.role(packet)
+  local first, second = omi_nsxaustralia_nets_itch_v4_2_55_tcp_initiator_heuristic, omi_nsxaustralia_nets_itch_v4_2_55_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nsxaustralia_nets_itch_v4_2_55.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  nsxaustralia_nets_itch_v4_2_55.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for NsxAustralia Nets Itch 4.2.55
+omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -14,6 +14,10 @@ local memx_memxoptions_riskcontrol_sbe_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxOptions RiskControl Sbe 1.6 Headers
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.memxoptions.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
+
 -- Memx MemxOptions RiskControl Sbe 1.6 Fields
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.allow_iso_orders = ProtoField.new("Allow Iso Orders", "memx.memxoptions.riskcontrol.sbe.v1.6.allowisoorders", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.allow_orders = ProtoField.new("Allow Orders", "memx.memxoptions.riskcontrol.sbe.v1.6.alloworders", ftypes.UINT8)
@@ -22,7 +26,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.breach_id = ProtoField.new("Bre
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.breach_id_optional = ProtoField.new("Breach Id Optional", "memx.memxoptions.riskcontrol.sbe.v1.6.breachidoptional", ftypes.UINT64)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.clordid = ProtoField.new("ClOrdId", "memx.memxoptions.riskcontrol.sbe.v1.6.clordid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.memxoptions.riskcontrol.sbe.v1.6.clordidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.count = ProtoField.new("Count", "memx.memxoptions.riskcontrol.sbe.v1.6.count", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.efid = ProtoField.new("Efid", "memx.memxoptions.riskcontrol.sbe.v1.6.efid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.efid_optional = ProtoField.new("Efid Optional", "memx.memxoptions.riskcontrol.sbe.v1.6.efidoptional", ftypes.STRING)
@@ -45,7 +48,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.next_sequence_number = ProtoFie
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.number_msgs_sent = ProtoField.new("Number Msgs Sent", "memx.memxoptions.riskcontrol.sbe.v1.6.numbermsgssent", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.option_security_id = ProtoField.new("Option Security Id", "memx.memxoptions.riskcontrol.sbe.v1.6.optionsecurityid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "memx.memxoptions.riskcontrol.sbe.v1.6.orderid", ftypes.UINT64)
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.memxoptions.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.memxoptions.riskcontrol.sbe.v1.6.pendingmessagecount", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.percent = ProtoField.new("Percent", "memx.memxoptions.riskcontrol.sbe.v1.6.percent", ftypes.INT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds = ProtoField.new("Period In Milli Seconds", "memx.memxoptions.riskcontrol.sbe.v1.6.periodinmilliseconds", ftypes.UINT32)

@@ -14,6 +14,12 @@ local hkex_hkexsecurities_combinedretrans_omd_v1_45 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities CombinedRetrans Omd 1.45 Headers
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.combinedretrans.omd.v1.45.message", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.combinedretrans.omd.v1.45.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.combinedretrans.omd.v1.45.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.combinedretrans.omd.v1.45.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities CombinedRetrans Omd 1.45 Fields
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.combinedretrans.omd.v1.45.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.combinedretrans.omd.v1.45.aggregatequantity", ftypes.UINT64)
@@ -99,9 +105,7 @@ omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.lp_broker_number = Prot
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.combinedretrans.omd.v1.45.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.combinedretrans.omd.v1.45.marketname", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.combinedretrans.omd.v1.45.maturitydate", ftypes.UINT32)
-omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.combinedretrans.omd.v1.45.message", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.combinedretrans.omd.v1.45.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.combinedretrans.omd.v1.45.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.combinedretrans.omd.v1.45.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.combinedretrans.omd.v1.45.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.combinedretrans.omd.v1.45.netchgprevday", ftypes.DOUBLE)
@@ -130,8 +134,6 @@ omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.order_id = ProtoField.n
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.order_imbalance_direction = ProtoField.new("Order Imbalance Direction", "hkex.hkexsecurities.combinedretrans.omd.v1.45.orderimbalancedirection", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.order_imbalance_quantity = ProtoField.new("Order Imbalance Quantity", "hkex.hkexsecurities.combinedretrans.omd.v1.45.orderimbalancequantity", ftypes.UINT64)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.order_type = ProtoField.new("Order Type", "hkex.hkexsecurities.combinedretrans.omd.v1.45.ordertype", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.combinedretrans.omd.v1.45.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.combinedretrans.omd.v1.45.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.combinedretrans.omd.v1.45.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.pos_flag = ProtoField.new("Pos Flag", "hkex.hkexsecurities.combinedretrans.omd.v1.45.posflag", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedretrans_omd_v1_45.fields.pos_lower_limit = ProtoField.new("Pos Lower Limit", "hkex.hkexsecurities.combinedretrans.omd.v1.45.poslowerlimit", ftypes.DOUBLE)

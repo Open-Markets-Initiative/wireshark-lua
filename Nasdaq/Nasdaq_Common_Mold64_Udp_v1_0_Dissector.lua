@@ -14,14 +14,16 @@ local nasdaq_common_mold64_udp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq Common Mold64 Udp 1.0 Headers
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
+
 -- Nasdaq Common Mold64 Udp 1.0 Fields
 omi_nasdaq_common_mold64_udp_v1_0.fields.message = ProtoField.new("Message", "nasdaq.common.mold64.udp.v1.0.message", ftypes.STRING)
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.common.mold64.udp.v1.0.messagecount", ftypes.UINT16)
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.common.mold64.udp.v1.0.messageheader", ftypes.STRING)
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.common.mold64.udp.v1.0.messagelength", ftypes.UINT16)
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.common.mold64.udp.v1.0.messagetype", ftypes.STRING)
-omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
-omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
 omi_nasdaq_common_mold64_udp_v1_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.mold64.udp.v1.0.payload", ftypes.BYTES)
 omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.mold64.udp.v1.0.sequencenumber", ftypes.UINT64)
 omi_nasdaq_common_mold64_udp_v1_0.fields.session = ProtoField.new("Session", "nasdaq.common.mold64.udp.v1.0.session", ftypes.STRING)

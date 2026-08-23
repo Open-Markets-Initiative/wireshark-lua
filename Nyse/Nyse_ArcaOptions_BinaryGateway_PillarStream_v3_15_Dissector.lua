@@ -625,7 +625,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.breach_action_request.size = 1
 -- Display: Breach Action Request
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.breach_action_request.display = function(value)
   if value == 0 then
-    return "Breach Action Request: No Value"
+    return "Breach Action Request: Not Applicable"
   end
   if value == 1 then
     return "Breach Action Request: Notifications Only (1)"
@@ -661,7 +661,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.breach_action_response.size = 
 -- Display: Breach Action Response
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.breach_action_response.display = function(value)
   if value == 0 then
-    return "Breach Action Response: No Value"
+    return "Breach Action Response: Not Applicable"
   end
   if value == 1 then
     return "Breach Action Response: Notification (1)"
@@ -697,7 +697,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.bulk_action.size = 1
 -- Display: Bulk Action
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.bulk_action.display = function(value)
   if value == 0 then
-    return "Bulk Action: No Value"
+    return "Bulk Action: Not Applicable"
   end
   if value == 1 then
     return "Bulk Action: Cancel Single Leg Only (1)"
@@ -1259,7 +1259,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_covered_or_uncovered.si
 -- Display: Contra Covered Or Uncovered
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_covered_or_uncovered.display = function(value)
   if value == 0 then
-    return "Contra Covered Or Uncovered: No Value"
+    return "Contra Covered Or Uncovered: Not Applicable"
   end
   if value == 1 then
     return "Contra Covered Or Uncovered: Exposed (1)"
@@ -1292,7 +1292,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_cross_type.size = 2
 -- Display: Contra Cross Type
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_cross_type.display = function(value)
   if value == 0 then
-    return "Contra Cross Type: No Value"
+    return "Contra Cross Type: Not Applicable"
   end
   if value == 10 then
     return "Contra Cross Type: Qcc (10)"
@@ -1325,7 +1325,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_customer_or_firm.size =
 -- Display: Contra Customer Or Firm
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_customer_or_firm.display = function(value)
   if value == 0 then
-    return "Contra Customer Or Firm: No Value"
+    return "Contra Customer Or Firm: Not Applicable"
   end
   if value == 1 then
     return "Contra Customer Or Firm: Customer (1)"
@@ -1448,7 +1448,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_open_close.size = 1
 -- Display: Contra Open Close
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.contra_open_close.display = function(value)
   if value == 0 then
-    return "Contra Open Close: No Value"
+    return "Contra Open Close: Not Applicable"
   end
   if value == 1 then
     return "Contra Open Close: Open (1)"
@@ -1550,7 +1550,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered_or_uncovered.size = 1
 -- Display: Covered Or Uncovered
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered_or_uncovered.display = function(value)
   if value == 0 then
-    return "Covered Or Uncovered: No Value"
+    return "Covered Or Uncovered: Not Applicable"
   end
   if value == 1 then
     return "Covered Or Uncovered: Exposed (1)"
@@ -1790,7 +1790,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.ioc_attribution.size = 1
 -- Display: Ioc Attribution
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.ioc_attribution.display = function(value)
   if value == 0 then
-    return "Ioc Attribution: No Value"
+    return "Ioc Attribution: Not Applicable"
   end
   if value == 1 then
     return "Ioc Attribution: Include Ioc And Gtx Orders In Activitybased Calculations And Cancellations (1)"
@@ -2728,7 +2728,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.multileg_reporting_type.size =
 -- Display: Multileg Reporting Type
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.multileg_reporting_type.display = function(value)
   if value == 0 then
-    return "Multileg Reporting Type: No Value"
+    return "Multileg Reporting Type: Not Applicable"
   end
   if value == 1 then
     return "Multileg Reporting Type: Singleleg Security (1)"
@@ -2833,7 +2833,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.open_close.size = 1
 -- Display: Open Close
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.open_close.display = function(value)
   if value == 0 then
-    return "Open Close: No Value"
+    return "Open Close: Not Applicable"
   end
   if value == 1 then
     return "Open Close: Open (1)"
@@ -3004,7 +3004,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.participant_type.size = 1
 -- Display: Participant Type
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.participant_type.display = function(value)
   if value == 0 then
-    return "Participant Type: No Value"
+    return "Participant Type: Not Applicable"
   end
   if value == 1 then
     return "Participant Type: Customer (1)"
@@ -4594,7 +4594,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.risk_action_type.size = 1
 -- Display: Risk Action Type
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.risk_action_type.display = function(value)
   if value == 0 then
-    return "Risk Action Type: No Value"
+    return "Risk Action Type: Not Applicable"
   end
   if value == 1 then
     return "Risk Action Type: Query Risk Entity For Current Risk Control Configscalculationsstatus (1)"
@@ -4675,7 +4675,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.risk_control_type.size = 1
 -- Display: Risk Control Type
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.risk_control_type.display = function(value)
   if value == 0 then
-    return "Risk Control Type: No Value"
+    return "Risk Control Type: Not Applicable"
   end
   if value == 1 then
     return "Risk Control Type: Single Order Max Qty (1)"
@@ -5472,7 +5472,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.threshold_breach_level.size = 
 -- Display: Threshold Breach Level
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.threshold_breach_level.display = function(value)
   if value == 0 then
-    return "Threshold Breach Level: No Value"
+    return "Threshold Breach Level: Not Applicable"
   end
   if value == 1 then
     return "Threshold Breach Level: Greater Than 50 Percent (1)"

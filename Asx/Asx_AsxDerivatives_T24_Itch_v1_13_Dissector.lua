@@ -14,6 +14,11 @@ local asx_asxderivatives_t24_itch_v1_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Asx AsxDerivatives T24 Itch 1.13 Headers
+omi_asx_asxderivatives_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.t24.itch.v1.13.packet", ftypes.STRING)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.t24.itch.v1.13.packetheader", ftypes.STRING)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
+
 -- Asx AsxDerivatives T24 Itch 1.13 Fields
 omi_asx_asxderivatives_t24_itch_v1_13.fields.activated = ProtoField.new("Activated", "asx.asxderivatives.t24.itch.v1.13.activated", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.all_fields = ProtoField.new("All Fields", "asx.asxderivatives.t24.itch.v1.13.allfields", ftypes.UINT8, nil, base.DEC, 0xC0)
@@ -74,8 +79,6 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.opening_trade_price = ProtoField.ne
 omi_asx_asxderivatives_t24_itch_v1_13.fields.option_type = ProtoField.new("Option Type", "asx.asxderivatives.t24.itch.v1.13.optiontype", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.order_book_priority = ProtoField.new("Order Book Priority", "asx.asxderivatives.t24.itch.v1.13.orderbookpriority", ftypes.UINT32)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.order_number = ProtoField.new("Order Number", "asx.asxderivatives.t24.itch.v1.13.ordernumber", ftypes.UINT64)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.t24.itch.v1.13.packet", ftypes.STRING)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.t24.itch.v1.13.packetheader", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.payments_per_year = ProtoField.new("Payments Per Year", "asx.asxderivatives.t24.itch.v1.13.paymentsperyear", ftypes.UINT8)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.price = ProtoField.new("Price", "asx.asxderivatives.t24.itch.v1.13.price", ftypes.DOUBLE)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.price_decimal_position = ProtoField.new("Price Decimal Position", "asx.asxderivatives.t24.itch.v1.13.pricedecimalposition", ftypes.UINT8)
@@ -95,7 +98,6 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.seller_contract_number = ProtoField
 omi_asx_asxderivatives_t24_itch_v1_13.fields.seller_quantity_remaining = ProtoField.new("Seller Quantity Remaining", "asx.asxderivatives.t24.itch.v1.13.sellerquantityremaining", ftypes.UINT32)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.selling_order_number = ProtoField.new("Selling Order Number", "asx.asxderivatives.t24.itch.v1.13.sellingordernumber", ftypes.UINT64)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "asx.asxderivatives.t24.itch.v1.13.sequencenumber", ftypes.UINT64)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.session_week = ProtoField.new("Session Week", "asx.asxderivatives.t24.itch.v1.13.sessionweek", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.session_year = ProtoField.new("Session Year", "asx.asxderivatives.t24.itch.v1.13.sessionyear", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "asx.asxderivatives.t24.itch.v1.13.settlementprice", ftypes.DOUBLE)

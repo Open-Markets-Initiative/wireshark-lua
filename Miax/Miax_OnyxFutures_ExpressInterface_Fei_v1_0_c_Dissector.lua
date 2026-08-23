@@ -14,6 +14,11 @@ local miax_onyxfutures_expressinterface_fei_v1_0_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax OnyxFutures ExpressInterface Fei 1.0.c Headers
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
+
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Fields
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account = ProtoField.new("Account", "miax.onyxfutures.expressinterface.fei.v1.0.c.account", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action = ProtoField.new("Action", "miax.onyxfutures.expressinterface.fei.v1.0.c.action", ftypes.STRING)
@@ -61,7 +66,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions = Pro
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.ordertype", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order = ProtoField.new("Original Client Order", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorder", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorderid", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING)
@@ -82,10 +86,8 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_le
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketlength", ftypes.UINT16)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpackettype", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)

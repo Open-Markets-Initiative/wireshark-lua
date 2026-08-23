@@ -14,6 +14,12 @@ local nyse_texasequities_bqt_xdp_v2_4_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse TexasEquities Bqt Xdp 2.4.a Headers
+omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message = ProtoField.new("Message", "nyse.texasequities.bqt.xdp.v2.4.a.message", ftypes.STRING)
+omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.bqt.xdp.v2.4.a.messageheader", ftypes.STRING)
+omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.packet = ProtoField.new("Packet", "nyse.texasequities.bqt.xdp.v2.4.a.packet", ftypes.STRING)
+omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.bqt.xdp.v2.4.a.packetheader", ftypes.STRING)
+
 -- Nyse TexasEquities Bqt Xdp 2.4.a Fields
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.texasequities.bqt.xdp.v2.4.a.askprice", ftypes.DOUBLE)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.texasequities.bqt.xdp.v2.4.a.askquotecondition", ftypes.STRING)
@@ -47,9 +53,7 @@ omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.market_id_of_best_ask = ProtoField.
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.texasequities.bqt.xdp.v2.4.a.marketidofbestbid", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.texasequities.bqt.xdp.v2.4.a.marketidofopenprice", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.market_state = ProtoField.new("Market State", "nyse.texasequities.bqt.xdp.v2.4.a.marketstate", ftypes.STRING)
-omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message = ProtoField.new("Message", "nyse.texasequities.bqt.xdp.v2.4.a.message", ftypes.STRING)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message_count = ProtoField.new("Message Count", "nyse.texasequities.bqt.xdp.v2.4.a.messagecount", ftypes.UINT8)
-omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.bqt.xdp.v2.4.a.messageheader", ftypes.STRING)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message_size = ProtoField.new("Message Size", "nyse.texasequities.bqt.xdp.v2.4.a.messagesize", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.message_type = ProtoField.new("Message Type", "nyse.texasequities.bqt.xdp.v2.4.a.messagetype", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.mpv = ProtoField.new("Mpv", "nyse.texasequities.bqt.xdp.v2.4.a.mpv", ftypes.UINT16)
@@ -62,8 +66,6 @@ omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_price 
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.texasequities.bqt.xdp.v2.4.a.nysegroupmarketidoflowprice", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_the_close = ProtoField.new("Nyse Group Market Id Of The Close", "nyse.texasequities.bqt.xdp.v2.4.a.nysegroupmarketidoftheclose", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.texasequities.bqt.xdp.v2.4.a.originaltradeid", ftypes.UINT32)
-omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.packet = ProtoField.new("Packet", "nyse.texasequities.bqt.xdp.v2.4.a.packet", ftypes.STRING)
-omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.bqt.xdp.v2.4.a.packetheader", ftypes.STRING)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.texasequities.bqt.xdp.v2.4.a.packetsize", ftypes.UINT16)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.texasequities.bqt.xdp.v2.4.a.prevcloseprice", ftypes.DOUBLE)
 omi_nyse_texasequities_bqt_xdp_v2_4_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.texasequities.bqt.xdp.v2.4.a.prevclosevolume", ftypes.UINT32)

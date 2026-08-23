@@ -14,9 +14,12 @@ local ltse_ltseequities_memoirlastsale_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ltse LtseEquities MemoirLastSale Sbe 1.3 Headers
+omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
+omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
+
 -- Ltse LtseEquities MemoirLastSale Sbe 1.3 Fields
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "ltse.ltseequities.memoirlastsale.sbe.v1.3.blocklength", ftypes.UINT16)
-omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1 = ProtoField.new("Corrected Sale Condition 1", "ltse.ltseequities.memoirlastsale.sbe.v1.3.correctedsalecondition1", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_2 = ProtoField.new("Corrected Sale Condition 2", "ltse.ltseequities.memoirlastsale.sbe.v1.3.correctedsalecondition2", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3 = ProtoField.new("Corrected Sale Condition 3", "ltse.ltseequities.memoirlastsale.sbe.v1.3.correctedsalecondition3", ftypes.STRING)
@@ -37,7 +40,6 @@ omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3 =
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4 = ProtoField.new("Original Sale Condition 4", "ltse.ltseequities.memoirlastsale.sbe.v1.3.originalsalecondition4", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "ltse.ltseequities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.DOUBLE)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "ltse.ltseequities.memoirlastsale.sbe.v1.3.originaltradeqty", ftypes.UINT32)
-omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "ltse.ltseequities.memoirlastsale.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "ltse.ltseequities.memoirlastsale.sbe.v1.3.salecondition1", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.sale_condition_2 = ProtoField.new("Sale Condition 2", "ltse.ltseequities.memoirlastsale.sbe.v1.3.salecondition2", ftypes.STRING)

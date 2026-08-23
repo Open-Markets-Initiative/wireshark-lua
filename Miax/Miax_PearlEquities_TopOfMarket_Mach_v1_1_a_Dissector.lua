@@ -14,6 +14,10 @@ local miax_pearlequities_topofmarket_mach_v1_1_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Headers
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.a.machmessage", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.topofmarket.mach.v1.1.a.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price = ProtoField.new("Bid Price", "miax.pearlequities.topofmarket.mach.v1.1.a.bidprice", ftypes.DOUBLE)
@@ -22,7 +26,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.closing_time = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.topofmarket.mach.v1.1.a.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags = ProtoField.new("Flags", "miax.pearlequities.topofmarket.mach.v1.1.a.flags", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.topofmarket.mach.v1.1.a.lotsize", ftypes.UINT16)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.a.machmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.topofmarket.mach.v1.1.a.machpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.a.machpackettype", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.a.marketstate", ftypes.UINT8)
@@ -31,7 +34,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.nanoseconds = ProtoField.n
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price = ProtoField.new("Offer Price", "miax.pearlequities.topofmarket.mach.v1.1.a.offerprice", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size = ProtoField.new("Offer Size", "miax.pearlequities.topofmarket.mach.v1.1.a.offersize", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.topofmarket.mach.v1.1.a.openingtime", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.price = ProtoField.new("Price", "miax.pearlequities.topofmarket.mach.v1.1.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.topofmarket.mach.v1.1.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.reserved1", ftypes.STRING)

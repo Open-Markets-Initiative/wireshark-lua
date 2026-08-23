@@ -14,6 +14,10 @@ local box_options_sola_multicast_hsvf_v1_8 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Box Options Sola Multicast Hsvf 1.8 Headers
+omi_box_options_sola_multicast_hsvf_v1_8.fields.message_header = ProtoField.new("Message Header", "box.options.sola.multicast.hsvf.v1.8.messageheader", ftypes.STRING)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.packet = ProtoField.new("Packet", "box.options.sola.multicast.hsvf.v1.8.packet", ftypes.STRING)
+
 -- Box Options Sola Multicast Hsvf 1.8 Fields
 omi_box_options_sola_multicast_hsvf_v1_8.fields.ask_price = ProtoField.new("Ask Price", "box.options.sola.multicast.hsvf.v1.8.askprice", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.options.sola.multicast.hsvf.v1.8.askpricefractionindicator", ftypes.STRING)
@@ -86,7 +90,6 @@ omi_box_options_sola_multicast_hsvf_v1_8.fields.max_threshold_price_sign = Proto
 omi_box_options_sola_multicast_hsvf_v1_8.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.options.sola.multicast.hsvf.v1.8.maximumnumberofcontractsperorder", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.options.sola.multicast.hsvf.v1.8.maximumthresholdprice", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.options.sola.multicast.hsvf.v1.8.maximumthresholdpricefractionindicator", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.message_header = ProtoField.new("Message Header", "box.options.sola.multicast.hsvf.v1.8.messageheader", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.message_type = ProtoField.new("Message Type", "box.options.sola.multicast.hsvf.v1.8.messagetype", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.options.sola.multicast.hsvf.v1.8.minnumberofcontractsperorder", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.options.sola.multicast.hsvf.v1.8.minthresholdprice", ftypes.STRING)
@@ -112,7 +115,6 @@ omi_box_options_sola_multicast_hsvf_v1_8.fields.option_type = ProtoField.new("Op
 omi_box_options_sola_multicast_hsvf_v1_8.fields.order_quantity = ProtoField.new("Order Quantity", "box.options.sola.multicast.hsvf.v1.8.orderquantity", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.order_sequence_number = ProtoField.new("Order Sequence Number", "box.options.sola.multicast.hsvf.v1.8.ordersequencenumber", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.order_side = ProtoField.new("Order Side", "box.options.sola.multicast.hsvf.v1.8.orderside", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.packet = ProtoField.new("Packet", "box.options.sola.multicast.hsvf.v1.8.packet", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.percentage_assured_to_initial_order = ProtoField.new("Percentage Assured To Initial Order", "box.options.sola.multicast.hsvf.v1.8.percentageassuredtoinitialorder", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.options.sola.multicast.hsvf.v1.8.priceindicatormarker", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.options.sola.multicast.hsvf.v1.8.publiccustomerasksize", ftypes.STRING)

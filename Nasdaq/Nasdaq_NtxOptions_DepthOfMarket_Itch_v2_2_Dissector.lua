@@ -14,6 +14,16 @@ local nasdaq_ntxoptions_depthofmarket_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Headers
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
+
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsession", ftypes.STRING)
@@ -35,6 +45,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_size_long = ProtoField.
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.cancelled_volume = ProtoField.new("Cancelled Volume", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.cancelledvolume", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.changereason", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientpackettype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.closingtype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.cross_number = ProtoField.new("Cross Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.crossnumber", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.crosstype", ftypes.STRING)
@@ -63,7 +74,6 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_header = ProtoField
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mic = ProtoField.new("Mic", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.mic", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mpv = ProtoField.new("Mpv", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.mpv", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.new_reference_number = ProtoField.new("New Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.newreferencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.option_type = ProtoField.new("Option Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.optiontype", ftypes.STRING)
@@ -73,7 +83,6 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.original_ask_reference_numb
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.original_bid_reference_number = ProtoField.new("Original Bid Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.originalbidreferencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.original_reference_number = ProtoField.new("Original Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.originalreferencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.packetlength", ftypes.UINT16)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.packettype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.paired_quantity = ProtoField.new("Paired Quantity", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pairedquantity", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.password = ProtoField.new("Password", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.password", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pricelong", ftypes.UINT32)
@@ -87,10 +96,8 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.requested_sequence_number =
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.requestedsession", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.securitysymbol", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.sequencedmessagetype", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.soupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serverpackettype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.strategyid", ftypes.UINT32)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tcppacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.text = ProtoField.new("Text", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.text", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.ticksizetableid", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.timestamp", ftypes.UINT64)
@@ -98,10 +105,10 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tracking_number = ProtoFiel
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tradable = ProtoField.new("Tradable", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tradable", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.trade_type = ProtoField.new("Trade Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tradetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.trading_currency = ProtoField.new("Trading Currency", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tradingcurrency", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udpsequencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udpsession", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.username = ProtoField.new("Username", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.username", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumelong", ftypes.UINT32)
@@ -171,15 +178,23 @@ local show = {}
 
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Element Dissection Options
 show.application_messages = true
-show.session_messages = true
 show.structs = true
+show.session_messages = true
 show.headers = true
 show.indexes = true
 
 -- Register Nasdaq NtxOptions DepthOfMarket Itch 2.2 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -715,6 +730,45 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.change_reason.dissect = function(buffe
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.change_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1686,60 +1740,6 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_length.dissect = function(buffe
   return offset + length, value
 end
 
--- Packet Type
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type = {}
-
--- Size: Packet Type
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Paired Quantity
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.paired_quantity = {}
 
@@ -2107,6 +2107,48 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message_type.dissect = funct
   return offset + length, value
 end
 
+-- Server Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Strategy Id
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.strategy_id = {}
 
@@ -2405,6 +2447,25 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.underlying_symbol.dissect = function(b
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
+end
+
+-- Unsequenced Message
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
 end
 
 -- Unsequenced Message Type
@@ -4197,117 +4258,6 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.mold_udp_64_packet.dissect = function(
   return index
 end
 
--- Unsequenced Data Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String
-  index, unsequenced_message_type = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = packet_length - 2
-
-  -- Unsequenced Message
-  index, unsequenced_message = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet = {}
-
--- Size: Login Request Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.size =
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.username.size + 
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.password.size + 
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_session.size + 
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_sequence_number.size
-
--- Display: Login Request Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = nasdaq_ntxoptions_depthofmarket_itch_v2_2.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = nasdaq_ntxoptions_depthofmarket_itch_v2_2.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- End Of Replay Sequence Message
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_replay_sequence_message = {}
 
@@ -4614,151 +4564,135 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.dissect = function(buffer
   end
 end
 
--- Tcp Payload
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_payload = {}
+-- Server Tcp Payload
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_payload = {}
 
--- Dissect: Tcp Payload
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Tcp Payload
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Packet
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return offset
   end
   -- Dissect End Of Session Packet
-  if packet_type == "Z" then
-    return offset
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if packet_type == "R" then
-    return offset
-  end
-  -- Dissect Logout Request Packet
-  if packet_type == "O" then
+  if server_packet_type == "Z" then
     return offset
   end
 
   return offset
 end
 
--- Tcp Packet Header
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header = {}
+-- Server Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header = {}
 
--- Size: Tcp Packet Header
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.size =
+-- Size: Server Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.size =
   nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_length.size + 
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.size
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.size
 
--- Display: Tcp Packet Header
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tcp Packet Header
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Tcp Packet Header
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Tcp Packet Header: Struct of 2 fields
-  index, tcp_packet_header = nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Server Tcp Packet Header: Struct of 2 fields
+  index, server_tcp_packet_header = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 10 branches
-  index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Tcp Payload: Runtime Type with 6 branches
+  index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.size then
+  if remaining < nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -4773,29 +4707,314 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet = {}
+-- Server Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet_header.size
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.size
 end
 
--- Dissect Tcp Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Unsequenced Data Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.size =
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.username.size + 
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.password.size + 
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_session.size + 
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_ntxoptions_depthofmarket_itch_v2_2.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_ntxoptions_depthofmarket_itch_v2_2.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_ntxoptions_depthofmarket_itch_v2_2.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Tcp Payload
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_payload = {}
+
+-- Dissect: Client Tcp Payload
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if client_packet_type == "O" then
+    return offset
+  end
+
+  return offset
+end
+
+-- Client Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header = {}
+
+-- Size: Client Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.size =
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_length.size + 
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.size
+
+-- Display: Client Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Tcp Packet Header
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Tcp Packet Header: Struct of 2 fields
+  index, client_tcp_packet_header = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Tcp Payload: Runtime Type with 5 branches
+  index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.size
+end
+
+-- Dissect Client Tcp Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -4817,6 +5036,71 @@ end
 function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.init()
 end
 
+-- Connection roles for Nasdaq NtxOptions DepthOfMarket Itch 2.2: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.role = function(packet)
+  if omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nasdaq NtxOptions DepthOfMarket Itch 2.2
 function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.dissector(buffer, packet, parent)
 
@@ -4826,7 +5110,11 @@ function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.dissector(buffer, packet,
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2, buffer(), omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.description, "("..buffer:len().." Bytes)")
   if packet.port_type == 2 then
-    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet.dissect(buffer, packet, protocol)
+    local role = nasdaq_ntxoptions_depthofmarket_itch_v2_2.role(packet)
+    if role == "initiator" then
+      return nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.dissect(buffer, packet, protocol)
+    end
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.dissect(buffer, packet, protocol)
   end
   if packet.port_type == 3 then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.mold_udp_64_packet.dissect(buffer, packet, protocol)
@@ -4835,13 +5123,113 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request Packet
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session Packet
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nasdaq NtxOptions DepthOfMarket Itch 2.2 (Tcp)
-local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_heuristic(buffer, packet, parent)
+local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_ntxoptions_depthofmarket_itch_v2_2.tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2
+  omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq NtxOptions DepthOfMarket Itch 2.2 (Tcp)
+local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2
@@ -4860,6 +5248,27 @@ local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_udp_heuristic(buffe
   omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.dissector(buffer, packet, parent)
 
   return true
+end
+
+-- Dissector Heuristic for Nasdaq NtxOptions DepthOfMarket Itch 2.2 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_ntxoptions_depthofmarket_itch_v2_2.role(packet)
+  local first, second = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_initiator_heuristic, omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.swap(packet)
+
+  return false
 end
 
 -- Register Heuristics for Nasdaq NtxOptions DepthOfMarket Itch 2.2

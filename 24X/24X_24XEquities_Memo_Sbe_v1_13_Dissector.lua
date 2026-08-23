@@ -14,13 +14,16 @@ local n24x_24xequities_memo_sbe_v1_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- 24X 24XEquities Memo Sbe 1.13 Headers
+omi_n24x_24xequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.24xequities.memo.sbe.v1.13.packet", ftypes.STRING)
+
 -- 24X 24XEquities Memo Sbe 1.13 Fields
 omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "24x.24xequities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "24x.24xequities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "24x.24xequities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "24x.24xequities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "24x.24xequities.memo.sbe.v1.13.clordid", ftypes.STRING)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "24x.24xequities.memo.sbe.v1.13.count", ftypes.UINT32)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "24x.24xequities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type = ProtoField.new("Cust Order Capacity Cust Order Capacity Type", "24x.24xequities.memo.sbe.v1.13.custordercapacitycustordercapacitytype", ftypes.UINT8)
@@ -72,7 +75,6 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.order_qty = ProtoField.new("Order Qty
 omi_n24x_24xequities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "24x.24xequities.memo.sbe.v1.13.orderrejectreason", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "24x.24xequities.memo.sbe.v1.13.origclordid", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "24x.24xequities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.24xequities.memo.sbe.v1.13.packet", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "24x.24xequities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "24x.24xequities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "24x.24xequities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)

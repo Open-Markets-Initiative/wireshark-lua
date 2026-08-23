@@ -14,6 +14,13 @@ local otcmarkets_linkats_extendedtrade_link_v4_10_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets LinkAts ExtendedTrade Link 4.10.4 Headers
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.message", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packet", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts ExtendedTrade Link 4.10.4 Fields
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otcmarkets.linkats.extendedtrade.link.v4.10.4.channelseqnum", ftypes.UINT32)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.deprecated_utf_85 = ProtoField.new("Deprecated Utf 85", "otcmarkets.linkats.extendedtrade.link.v4.10.4.deprecatedutf85", ftypes.STRING)
@@ -23,14 +30,9 @@ omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.market_close = ProtoFie
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.extendedtrade.link.v4.10.4.marketclosetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.extendedtrade.link.v4.10.4.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.extendedtrade.link.v4.10.4.marketopen", ftypes.UINT64)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.message", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messagetype", ftypes.UINT8)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messages", ftypes.UINT8)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packet", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetheader", ftypes.STRING)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetsize", ftypes.UINT16)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.replay = ProtoField.new("Replay", "otcmarkets.linkats.extendedtrade.link.v4.10.4.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)

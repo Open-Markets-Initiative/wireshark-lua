@@ -14,13 +14,16 @@ local blueoceanats_blueequities_memo_sbe_v1_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- BlueOceanAts BlueEquities Memo Sbe 1.13 Headers
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
+
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "blueoceanats.blueequities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "blueoceanats.blueequities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "blueoceanats.blueequities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "blueoceanats.blueequities.memo.sbe.v1.13.clordid", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "blueoceanats.blueequities.memo.sbe.v1.13.count", ftypes.UINT32)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "blueoceanats.blueequities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "blueoceanats.blueequities.memo.sbe.v1.13.custordercapacity", ftypes.UINT8)
@@ -71,7 +74,6 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_qty = ProtoField.new("
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "blueoceanats.blueequities.memo.sbe.v1.13.orderrejectreason", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.origclordid = ProtoField.new("OrigClOrdId", "blueoceanats.blueequities.memo.sbe.v1.13.origclordid", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "blueoceanats.blueequities.memo.sbe.v1.13.origclordidoptional", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "blueoceanats.blueequities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)

@@ -14,6 +14,13 @@ local b3_b3derivatives_binaryumdf_sbe_v1_8 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- B3 B3Derivatives BinaryUmdf Sbe 1.8 Headers
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.framingheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message = ProtoField.new("Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.message", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.messageheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryumdf.sbe.v1.8.packet", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet_header = ProtoField.new("Packet Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.packetheader", ftypes.STRING)
+
 -- B3 B3Derivatives BinaryUmdf Sbe 1.8 Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.aggressor_side = ProtoField.new("Aggressor Side", "b3.b3derivatives.binaryumdf.sbe.v1.8.aggressorside", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v1.8.aggressortime", ftypes.UINT64)
@@ -45,7 +52,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.end_of_event = ProtoField.new("E
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.entering_firm = ProtoField.new("Entering Firm", "b3.b3derivatives.binaryumdf.sbe.v1.8.enteringfirm", ftypes.UINT32)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.exercise_style = ProtoField.new("Exercise Style", "b3.b3derivatives.binaryumdf.sbe.v1.8.exercisestyle", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.fill_qty = ProtoField.new("Fill Qty", "b3.b3derivatives.binaryumdf.sbe.v1.8.fillqty", ftypes.INT64)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.framingheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.b3derivatives.binaryumdf.sbe.v1.8.governanceindicator", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.b3derivatives.binaryumdf.sbe.v1.8.groupsizeencoding", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline = ProtoField.new("Headline", "b3.b3derivatives.binaryumdf.sbe.v1.8.headline", ftypes.STRING)
@@ -103,8 +109,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.md_entry_type = ProtoField.new("
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.md_future_price = ProtoField.new("Md Future Price", "b3.b3derivatives.binaryumdf.sbe.v1.8.mdfutureprice", ftypes.DOUBLE)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.md_insert_timestamp = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v1.8.mdinserttimestamp", ftypes.UINT64)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.md_update_action = ProtoField.new("Md Update Action", "b3.b3derivatives.binaryumdf.sbe.v1.8.mdupdateaction", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message = ProtoField.new("Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.message", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.messageheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message_length = ProtoField.new("Message Length", "b3.b3derivatives.binaryumdf.sbe.v1.8.messagelength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.min_cross_qty = ProtoField.new("Min Cross Qty", "b3.b3derivatives.binaryumdf.sbe.v1.8.mincrossqty", ftypes.INT64)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.min_lot_size = ProtoField.new("Min Lot Size", "b3.b3derivatives.binaryumdf.sbe.v1.8.minlotsize", ftypes.INT64)
@@ -137,8 +141,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.open_close_settl_flag = ProtoFie
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.opening_price = ProtoField.new("Opening Price", "b3.b3derivatives.binaryumdf.sbe.v1.8.openingprice", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v1.8.origtime", ftypes.UINT64)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.b3derivatives.binaryumdf.sbe.v1.8.outofsequence", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryumdf.sbe.v1.8.packet", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet_header = ProtoField.new("Packet Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.packetheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryumdf.sbe.v1.8.padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.padding_2 = ProtoField.new("Padding 2", "b3.b3derivatives.binaryumdf.sbe.v1.8.padding2", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.padding_3 = ProtoField.new("Padding 3", "b3.b3derivatives.binaryumdf.sbe.v1.8.padding3", ftypes.BYTES)

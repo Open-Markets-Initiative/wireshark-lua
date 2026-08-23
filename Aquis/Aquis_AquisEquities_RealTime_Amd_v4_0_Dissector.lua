@@ -14,6 +14,12 @@ local aquis_aquisequities_realtime_amd_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Aquis AquisEquities RealTime Amd 4.0 Headers
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.realtime.amd.v4.0.packetheader", ftypes.STRING)
+
 -- Aquis AquisEquities RealTime Amd 4.0 Fields
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "aquis.aquisequities.realtime.amd.v4.0.algorithmicindicator", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled = ProtoField.new("Aod Enabled", "aquis.aquisequities.realtime.amd.v4.0.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
@@ -39,9 +45,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_flags = ProtoField.new("
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_mechanism = ProtoField.new("Market Mechanism", "aquis.aquisequities.realtime.amd.v4.0.marketmechanism", ftypes.UINT32, {[1]="Central Limit Order Book", [2]="Quote Driven Market", [3]="Dark Order Book", [4]="Off Book", [5]="Periodic Auction", [6]="Rfq", [7]="Other"}, base.DEC, 0x00000007)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.match_vol = ProtoField.new("Match Vol", "aquis.aquisequities.realtime.amd.v4.0.matchvol", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.md_flags = ProtoField.new("Md Flags", "aquis.aquisequities.realtime.amd.v4.0.mdflags", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.realtime.amd.v4.0.messagecount", ftypes.UINT8)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mic = ProtoField.new("Mic", "aquis.aquisequities.realtime.amd.v4.0.mic", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.modification_indicator = ProtoField.new("Modification Indicator", "aquis.aquisequities.realtime.amd.v4.0.modificationindicator", ftypes.UINT32, {[1]="Trade Cancelation", [2]="Trade Amendment", [3]="New Trade"}, base.DEC, 0x0000C000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.realtime.amd.v4.0.msglength", ftypes.UINT8)
@@ -50,8 +54,6 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.name = ProtoField.new("Name", "
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.negotiation_indicator_or_pre_trade_transparency_waiver = ProtoField.new("Negotiation Indicator Or Pre Trade Transparency Waiver", "aquis.aquisequities.realtime.amd.v4.0.negotiationindicatororpretradetransparencywaiver", ftypes.UINT32, {[0]="Negotiated Trade", [1]="Negotiated Trade In Liquid Instruments", [2]="Negotiated Trade In Illiquid Instruments", [3]="Negotiated Trade Other Than Current Market Price", [4]="No Negotiated Trade", [5]="Si Illiquid Instruments", [6]="Si Above Standard Market Size", [7]="Ilqd And Size"}, base.DEC, 0x00001C00)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.off_book_automation = ProtoField.new("Off Book Automation", "aquis.aquisequities.realtime.amd.v4.0.offbookautomation", ftypes.UINT32, {[1]="Unspecified", [2]="Off Book Non Automated", [3]="Off Book Automated"}, base.DEC, 0x00180000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.realtime.amd.v4.0.orderref", ftypes.UINT32)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.realtime.amd.v4.0.packetheader", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.0.price", ftypes.UINT64)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisequities.realtime.amd.v4.0.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.0.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000)

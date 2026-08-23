@@ -14,6 +14,11 @@ local euronext_optiq_orderentrygateway_sbe_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Euronext Optiq OrderEntryGateway Sbe 2.1 Headers
+omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v2.1.message", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v2.1.messageheader", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v2.1.packet", ftypes.STRING)
+
 -- Euronext Optiq OrderEntryGateway Sbe 2.1 Fields
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.account_number = ProtoField.new("Account Number", "euronext.optiq.orderentrygateway.sbe.v2.1.accountnumber", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.account_number_cross = ProtoField.new("Account Number Cross", "euronext.optiq.orderentrygateway.sbe.v2.1.accountnumbercross", ftypes.STRING)
@@ -182,8 +187,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.lp_role = ProtoField.new("L
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.lp_role_optional = ProtoField.new("Lp Role Optional", "euronext.optiq.orderentrygateway.sbe.v2.1.lproleoptional", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.lrgs = ProtoField.new("Lrgs", "euronext.optiq.orderentrygateway.sbe.v2.1.lrgs", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.maturity = ProtoField.new("Maturity", "euronext.optiq.orderentrygateway.sbe.v2.1.maturity", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v2.1.message", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v2.1.messageheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.orderentrygateway.sbe.v2.1.messagepricenotation", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.mi_cof_secondary_listing = ProtoField.new("Mi Cof Secondary Listing", "euronext.optiq.orderentrygateway.sbe.v2.1.micofsecondarylisting", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.mifid_fields_group = ProtoField.new("Mifid Fields Group", "euronext.optiq.orderentrygateway.sbe.v2.1.mifidfieldsgroup", ftypes.STRING)
@@ -250,7 +253,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.orig_client_order_id = Prot
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.other_leg_last_px = ProtoField.new("Other Leg Last Px", "euronext.optiq.orderentrygateway.sbe.v2.1.otherleglastpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.other_not_used_groups = ProtoField.new("Other Not Used Groups", "euronext.optiq.orderentrygateway.sbe.v2.1.othernotusedgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.package_id = ProtoField.new("Package Id", "euronext.optiq.orderentrygateway.sbe.v2.1.packageid", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v2.1.packet", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.parent_exec_id = ProtoField.new("Parent Exec Id", "euronext.optiq.orderentrygateway.sbe.v2.1.parentexecid", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.parent_symbol_index = ProtoField.new("Parent Symbol Index", "euronext.optiq.orderentrygateway.sbe.v2.1.parentsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.passive_order = ProtoField.new("Passive Order", "euronext.optiq.orderentrygateway.sbe.v2.1.passiveorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)

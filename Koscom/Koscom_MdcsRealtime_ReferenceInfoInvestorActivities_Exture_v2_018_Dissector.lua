@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.018 Headers
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.018 Fields
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.accumulated_ask_trading_value = ProtoField.new("Accumulated Ask Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.accumulatedasktradingvalue", ftypes.DOUBLE)
@@ -82,7 +85,6 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.mar
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.messagesequencenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.reinvestcallcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.securitygroupid", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.sessionid", ftypes.STRING)

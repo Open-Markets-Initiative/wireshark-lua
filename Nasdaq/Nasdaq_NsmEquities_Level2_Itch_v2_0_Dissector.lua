@@ -14,6 +14,10 @@ local nasdaq_nsmequities_level2_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities Level2 Itch 2.0 Headers
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.level2.itch.v2.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.level2.itch.v2.0.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities Level2 Itch 2.0 Fields
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.level2.itch.v2.0.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.nsmequities.level2.itch.v2.0.breachedlevel", ftypes.STRING)
@@ -46,8 +50,6 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_length = ProtoField.new("
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.level2.itch.v2.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.mpid = ProtoField.new("Mpid", "nasdaq.nsmequities.level2.itch.v2.0.mpid", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.nsmequities.level2.itch.v2.0.operationalhaltaction", ftypes.STRING)
-omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.level2.itch.v2.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.level2.itch.v2.0.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.participant_shares = ProtoField.new("Participant Shares", "nasdaq.nsmequities.level2.itch.v2.0.participantshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.level2.itch.v2.0.price", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.nsmequities.level2.itch.v2.0.primarymarketmaker", ftypes.STRING)

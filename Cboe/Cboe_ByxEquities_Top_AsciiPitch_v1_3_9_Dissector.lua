@@ -14,6 +14,9 @@ local cboe_byxequities_top_asciipitch_v1_3_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe ByxEquities Top AsciiPitch 1.3.9 Headers
+omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
+
 -- Cboe ByxEquities Top AsciiPitch 1.3.9 Fields
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.ask_price_price_10 = ProtoField.new("Ask Price Price 10", "cboe.byxequities.top.asciipitch.v1.3.9.askpriceprice10", ftypes.DOUBLE)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.ask_price_price_14 = ProtoField.new("Ask Price Price 14", "cboe.byxequities.top.asciipitch.v1.3.9.askpriceprice14", ftypes.DOUBLE)
@@ -39,7 +42,6 @@ omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.last_trade_size = ProtoField.n
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.byxequities.top.asciipitch.v1.3.9.lasttradetime", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.message_type = ProtoField.new("Message Type", "cboe.byxequities.top.asciipitch.v1.3.9.messagetype", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.byxequities.top.asciipitch.v1.3.9.milliseconds", ftypes.STRING)
-omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.password = ProtoField.new("Password", "cboe.byxequities.top.asciipitch.v1.3.9.password", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alpha_1 = ProtoField.new("Reg Sho Action Alpha 1", "cboe.byxequities.top.asciipitch.v1.3.9.regshoactionalpha1", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alphanumeric_1 = ProtoField.new("Reg Sho Action Alphanumeric 1", "cboe.byxequities.top.asciipitch.v1.3.9.regshoactionalphanumeric1", ftypes.STRING)

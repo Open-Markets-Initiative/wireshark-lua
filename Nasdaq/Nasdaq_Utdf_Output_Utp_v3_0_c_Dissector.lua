@@ -14,6 +14,10 @@ local nasdaq_utdf_output_utp_v3_0_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq Utdf Output Utp 3.0.c Headers
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.utdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.utdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
+
 -- Nasdaq Utdf Output Utp 3.0.c Fields
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Time", "nasdaq.utdf.output.utp.v3.0.c.actiontime", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utdf.output.utp.v3.0.c.administrativemessage", ftypes.STRING)
@@ -67,7 +71,6 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_category = ProtoField.new("Mess
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_count = ProtoField.new("Message Count", "nasdaq.utdf.output.utp.v3.0.c.messagecount", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v3.0.c.messageheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_length = ProtoField.new("Message Length", "nasdaq.utdf.output.utp.v3.0.c.messagelength", ftypes.UINT16)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.utdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v3.0.c.mwcblevel1", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utdf.output.utp.v3.0.c.mwcblevel2", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.utdf.output.utp.v3.0.c.mwcblevel3", ftypes.UINT64)
@@ -114,7 +117,6 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_volume_short = ProtoField.new("Tr
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utdf.output.utp.v3.0.c.tradingactioncode", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.trading_action_indicator = ProtoField.new("Trading Action Indicator", "nasdaq.utdf.output.utp.v3.0.c.tradingactionindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utdf.output.utp.v3.0.c.tradingactionsequencenumber", ftypes.UINT32)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.utdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.utdf.output.utp.v3.0.c.udpsequencenumber", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.utdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v3.0.c.version", ftypes.STRING)

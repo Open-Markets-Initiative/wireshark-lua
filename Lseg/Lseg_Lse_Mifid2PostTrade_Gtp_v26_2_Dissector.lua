@@ -14,6 +14,12 @@ local lseg_lse_mifid2posttrade_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Lse Mifid2PostTrade Gtp 26.2 Headers
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttrade.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttrade.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttrade.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.mifid2posttrade.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse Mifid2PostTrade Gtp 26.2 Fields
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.agencycrossindicator", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.algorithmicindicator", ftypes.STRING)
@@ -36,9 +42,7 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.length = ProtoField.new("Length", 
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.lse.mifid2posttrade.gtp.v26.2.marketclosingpriceflag", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse.mifid2posttrade.gtp.v26.2.marketdatagroup", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.lse.mifid2posttrade.gtp.v26.2.marketmechanism", ftypes.STRING)
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttrade.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_count = ProtoField.new("Message Count", "lseg.lse.mifid2posttrade.gtp.v26.2.messagecount", ftypes.UINT8)
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttrade.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.mifid2posttrade.gtp.v26.2.messagelength", ftypes.UINT16)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.mifid2posttrade.gtp.v26.2.messagetype", ftypes.UINT8)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price = ProtoField.new("Mifid Price", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidprice", ftypes.STRING)
@@ -52,7 +56,6 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_currency = ProtoField.new
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.offbookautomatedindicator", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.mifid2posttrade.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.mifid2posttrade.gtp.v26.2.orderbooktype", ftypes.UINT8)
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttrade.gtp.v26.2.packet", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.mifid2posttrade.gtp.v26.2.partitionid", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.lse.mifid2posttrade.gtp.v26.2.posttradedeferralreason", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.priceformationindicator", ftypes.STRING)
@@ -92,7 +95,6 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_mode = ProtoField.new("Tra
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.mifid2posttrade.gtp.v26.2.tradingstatus", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.lse.mifid2posttrade.gtp.v26.2.transactioncategory", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.lse.mifid2posttrade.gtp.v26.2.transactionidentificationcode", ftypes.STRING)
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.mifid2posttrade.gtp.v26.2.unitheader", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttrade.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttrade.gtp.v26.2.venueofexecution", ftypes.STRING)
 

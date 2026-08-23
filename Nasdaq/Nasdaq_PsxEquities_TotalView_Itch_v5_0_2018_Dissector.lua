@@ -14,6 +14,10 @@ local nasdaq_psxequities_totalview_itch_v5_0_2018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PsxEquities TotalView Itch 5.0.2018 Headers
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.totalview.itch.v5.0.2018.packet", ftypes.STRING)
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.totalview.itch.v5.0.2018.packetheader", ftypes.STRING)
+
 -- Nasdaq PsxEquities TotalView Itch 5.0.2018 Fields
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.attribution = ProtoField.new("Attribution", "nasdaq.psxequities.totalview.itch.v5.0.2018.attribution", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.psxequities.totalview.itch.v5.0.2018.auctioncollarextension", ftypes.UINT32)
@@ -61,8 +65,6 @@ omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.new_order_reference_numbe
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.totalview.itch.v5.0.2018.operationalhaltaction", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.psxequities.totalview.itch.v5.0.2018.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.original_order_reference_number = ProtoField.new("Original Order Reference Number", "nasdaq.psxequities.totalview.itch.v5.0.2018.originalorderreferencenumber", ftypes.UINT64)
-omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.totalview.itch.v5.0.2018.packet", ftypes.STRING)
-omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.totalview.itch.v5.0.2018.packetheader", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.psxequities.totalview.itch.v5.0.2018.pairedshares", ftypes.UINT64)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.price = ProtoField.new("Price", "nasdaq.psxequities.totalview.itch.v5.0.2018.price", ftypes.DOUBLE)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.psxequities.totalview.itch.v5.0.2018.pricevariationindicator", ftypes.STRING)

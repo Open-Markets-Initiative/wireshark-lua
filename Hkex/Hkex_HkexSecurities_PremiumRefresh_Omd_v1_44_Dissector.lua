@@ -14,6 +14,12 @@ local hkex_hkexsecurities_premiumrefresh_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities PremiumRefresh Omd 1.44 Headers
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities PremiumRefresh Omd 1.44 Fields
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.aggregatequantity", ftypes.UINT64)
@@ -70,9 +76,7 @@ omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.lp_broker_number = Proto
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.marketname", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.maturitydate", ftypes.UINT32)
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.news_id = ProtoField.new("News Id", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.newsid", ftypes.STRING)
@@ -94,8 +98,6 @@ omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.number_of_securities = P
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.number_of_trades = ProtoField.new("Number Of Trades", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.numberoftrades", ftypes.UINT32)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.order_imbalance_direction = ProtoField.new("Order Imbalance Direction", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.orderimbalancedirection", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.order_imbalance_quantity = ProtoField.new("Order Imbalance Quantity", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.orderimbalancequantity", ftypes.UINT64)
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.pos_flag = ProtoField.new("Pos Flag", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.posflag", ftypes.STRING)
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_44.fields.pos_lower_limit = ProtoField.new("Pos Lower Limit", "hkex.hkexsecurities.premiumrefresh.omd.v1.44.poslowerlimit", ftypes.DOUBLE)

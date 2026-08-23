@@ -14,6 +14,11 @@ local txse_txseequities_framing_tcp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Txse TxseEquities Framing Tcp 1.0 Headers
+omi_txse_txseequities_framing_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.tcp.v1.0.packet", ftypes.STRING)
+omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.framing.tcp.v1.0.rakemessageheader", ftypes.STRING)
+omi_txse_txseequities_framing_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.raketcpmessage", ftypes.STRING)
+
 -- Txse TxseEquities Framing Tcp 1.0 Fields
 omi_txse_txseequities_framing_tcp_v1_0.fields.debug_message = ProtoField.new("Debug Message", "txse.txseequities.framing.tcp.v1.0.debugmessage", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.highest_known_sequence_number = ProtoField.new("Highest Known Sequence Number", "txse.txseequities.framing.tcp.v1.0.highestknownsequencenumber", ftypes.UINT64)
@@ -25,10 +30,7 @@ omi_txse_txseequities_framing_tcp_v1_0.fields.message_length = ProtoField.new("M
 omi_txse_txseequities_framing_tcp_v1_0.fields.message_type = ProtoField.new("Message Type", "txse.txseequities.framing.tcp.v1.0.messagetype", ftypes.UINT8)
 omi_txse_txseequities_framing_tcp_v1_0.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "txse.txseequities.framing.tcp.v1.0.nextsequencenumber", ftypes.UINT64)
 omi_txse_txseequities_framing_tcp_v1_0.fields.number_stream_ids = ProtoField.new("Number Stream Ids", "txse.txseequities.framing.tcp.v1.0.numberstreamids", ftypes.UINT8)
-omi_txse_txseequities_framing_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.tcp.v1.0.packet", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.packet_type = ProtoField.new("Packet Type", "txse.txseequities.framing.tcp.v1.0.packettype", ftypes.UINT8)
-omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.framing.tcp.v1.0.rakemessageheader", ftypes.STRING)
-omi_txse_txseequities_framing_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.raketcpmessage", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.sender_comp = ProtoField.new("Sender Comp", "txse.txseequities.framing.tcp.v1.0.sendercomp", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "txse.txseequities.framing.tcp.v1.0.sequencedmessage", ftypes.BYTES)
 omi_txse_txseequities_framing_tcp_v1_0.fields.session = ProtoField.new("Session", "txse.txseequities.framing.tcp.v1.0.session", ftypes.UINT64)

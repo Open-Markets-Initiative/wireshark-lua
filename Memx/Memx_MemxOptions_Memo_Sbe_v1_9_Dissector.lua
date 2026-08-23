@@ -14,6 +14,10 @@ local memx_memxoptions_memo_sbe_v1_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxOptions Memo Sbe 1.9 Headers
+omi_memx_memxoptions_memo_sbe_v1_9.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.9.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memo_sbe_v1_9.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memo.sbe.v1.9.packet", ftypes.STRING)
+
 -- Memx MemxOptions Memo Sbe 1.9 Fields
 omi_memx_memxoptions_memo_sbe_v1_9.fields.alloc_canc_replace_reason = ProtoField.new("Alloc Canc Replace Reason", "memx.memxoptions.memo.sbe.v1.9.alloccancreplacereason", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.alloc_id = ProtoField.new("Alloc Id", "memx.memxoptions.memo.sbe.v1.9.allocid", ftypes.STRING)
@@ -31,7 +35,6 @@ omi_memx_memxoptions_memo_sbe_v1_9.fields.cancel_group_id = ProtoField.new("Canc
 omi_memx_memxoptions_memo_sbe_v1_9.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.memxoptions.memo.sbe.v1.9.cancelordersfromthisportonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.memxoptions.memo.sbe.v1.9.cancelreason", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.clordid = ProtoField.new("ClOrdId", "memx.memxoptions.memo.sbe.v1.9.clordid", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_9.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.9.commonheader", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.memxoptions.memo.sbe.v1.9.contratradingcapacity", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.count = ProtoField.new("Count", "memx.memxoptions.memo.sbe.v1.9.count", ftypes.UINT32)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.cum_qty = ProtoField.new("Cum Qty", "memx.memxoptions.memo.sbe.v1.9.cumqty", ftypes.UINT32)
@@ -91,7 +94,6 @@ omi_memx_memxoptions_memo_sbe_v1_9.fields.order_reject_reason = ProtoField.new("
 omi_memx_memxoptions_memo_sbe_v1_9.fields.orig_list_seq_no = ProtoField.new("Orig List Seq No", "memx.memxoptions.memo.sbe.v1.9.origlistseqno", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.memxoptions.memo.sbe.v1.9.origclordid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "memx.memxoptions.memo.sbe.v1.9.origclordidoptional", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_9.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memo.sbe.v1.9.packet", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.memxoptions.memo.sbe.v1.9.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.parties_group = ProtoField.new("Parties Group", "memx.memxoptions.memo.sbe.v1.9.partiesgroup", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.parties_groups = ProtoField.new("Parties Groups", "memx.memxoptions.memo.sbe.v1.9.partiesgroups", ftypes.STRING)

@@ -14,6 +14,10 @@ local miax_onyxfutures_depthofmarket_mach_v1_0_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax OnyxFutures DepthOfMarket Mach 1.0.b Headers
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
+
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Fields
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.aggressor_side = ProtoField.new("Aggressor Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.aggressorside", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price = ProtoField.new("Anticipated Opening Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.anticipatedopeningprice", ftypes.DOUBLE)
@@ -30,7 +34,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg = ProtoFiel
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_type = ProtoField.new("Instrument Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumenttype", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.depthofmarket.mach.v1.0.b.legratio", ftypes.INT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.low_limit_price = ProtoField.new("Low Limit Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.lowlimitprice", ftypes.DOUBLE)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.market_state = ProtoField.new("Market State", "miax.onyxfutures.depthofmarket.mach.v1.0.b.marketstate", ftypes.UINT8)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.match_algorithm = ProtoField.new("Match Algorithm", "miax.onyxfutures.depthofmarket.mach.v1.0.b.matchalgorithm", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "miax.onyxfutures.depthofmarket.mach.v1.0.b.maturitymonthyear", ftypes.UINT32)
@@ -45,7 +48,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_id = ProtoField.new(
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position = ProtoField.new("Order Position", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_side = ProtoField.new("Order Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderside", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.ordertype", ftypes.STRING)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packetlength", ftypes.UINT16)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packettype", ftypes.UINT8)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.price", ftypes.DOUBLE)

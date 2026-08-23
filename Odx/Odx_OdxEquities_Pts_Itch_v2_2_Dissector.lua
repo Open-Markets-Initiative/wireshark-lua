@@ -14,6 +14,10 @@ local odx_odxequities_pts_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Odx OdxEquities Pts Itch 2.2 Headers
+omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
+omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
+
 -- Odx OdxEquities Pts Itch 2.2 Fields
 omi_odx_odxequities_pts_itch_v2_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.itch.v2.2.buysellindicator", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "odx.odxequities.pts.itch.v2.2.executedquantity", ftypes.UINT32)
@@ -31,8 +35,6 @@ omi_odx_odxequities_pts_itch_v2_2.fields.order_number = ProtoField.new("Order Nu
 omi_odx_odxequities_pts_itch_v2_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "odx.odxequities.pts.itch.v2.2.orderbookcode", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "odx.odxequities.pts.itch.v2.2.orderbookid", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.original_order_number = ProtoField.new("Original Order Number", "odx.odxequities.pts.itch.v2.2.originalordernumber", ftypes.UINT64)
-omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
-omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.price = ProtoField.new("Price", "odx.odxequities.pts.itch.v2.2.price", ftypes.DOUBLE)
 omi_odx_odxequities_pts_itch_v2_2.fields.price_decimals = ProtoField.new("Price Decimals", "odx.odxequities.pts.itch.v2.2.pricedecimals", ftypes.UINT32)
 omi_odx_odxequities_pts_itch_v2_2.fields.price_start = ProtoField.new("Price Start", "odx.odxequities.pts.itch.v2.2.pricestart", ftypes.DOUBLE)

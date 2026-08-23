@@ -14,6 +14,13 @@ local miax_pearloptions_liquidityfeed_mach_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlOptions LiquidityFeed Mach 1.2 Headers
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.tcppacket", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.udppacket", ftypes.STRING)
+
 -- Miax PearlOptions LiquidityFeed Mach 1.2 Fields
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.action = ProtoField.new("Action", "miax.pearloptions.liquidityfeed.mach.v1.2.action", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.active_on_pearl = ProtoField.new("Active On Pearl", "miax.pearloptions.liquidityfeed.mach.v1.2.activeonpearl", ftypes.STRING)
@@ -37,7 +44,6 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_reason = ProtoField.
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_request = ProtoField.new("Logout Request", "miax.pearloptions.liquidityfeed.mach.v1.2.logoutrequest", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.logout_text = ProtoField.new("Logout Text", "miax.pearloptions.liquidityfeed.mach.v1.2.logouttext", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.liquidityfeed.mach.v1.2.longtermoption", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearloptions.liquidityfeed.mach.v1.2.matchingengineid", ftypes.UINT8)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.messagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.liquidityfeed.mach.v1.2.nanoseconds", ftypes.UINT32)
@@ -70,10 +76,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.security_symbol = ProtoFiel
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.liquidityfeed.mach.v1.2.sequencenumber", ftypes.UINT64)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sequenceddatapacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.sequencedmessagetype", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketlength", ftypes.UINT16)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpackettype", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_version = ProtoField.new("Sesm Version", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmversion", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.liquidityfeed.mach.v1.2.sessionid", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.session_number = ProtoField.new("Session Number", "miax.pearloptions.liquidityfeed.mach.v1.2.sessionnumber", ftypes.UINT8)
@@ -81,13 +85,11 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.start_sequence_number = Pro
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.strike_price = ProtoField.new("Strike Price", "miax.pearloptions.liquidityfeed.mach.v1.2.strikeprice", ftypes.DOUBLE)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearloptions.liquidityfeed.mach.v1.2.synchronizationcomplete", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_status = ProtoField.new("System Status", "miax.pearloptions.liquidityfeed.mach.v1.2.systemstatus", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.tcppacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.test_packet = ProtoField.new("Test Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.testpacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.test_text = ProtoField.new("Test Text", "miax.pearloptions.liquidityfeed.mach.v1.2.testtext", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.time_in_force_tif = ProtoField.new("Time In Force Tif", "miax.pearloptions.liquidityfeed.mach.v1.2.timeinforcetif", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearloptions.liquidityfeed.mach.v1.2.tradingsessionid", ftypes.UINT8)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.trading_status = ProtoField.new("Trading Status", "miax.pearloptions.liquidityfeed.mach.v1.2.tradingstatus", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.udppacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.pearloptions.liquidityfeed.mach.v1.2.underlyingsymbol", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.unsequenceddatapacket", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.unsequencedmessagetype", ftypes.STRING)
@@ -3518,11 +3520,11 @@ function omi_miax_pearloptions_liquidityfeed_mach_v1_2.dissector(buffer, packet,
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2, buffer(), omi_miax_pearloptions_liquidityfeed_mach_v1_2.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_pearloptions_liquidityfeed_mach_v1_2.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

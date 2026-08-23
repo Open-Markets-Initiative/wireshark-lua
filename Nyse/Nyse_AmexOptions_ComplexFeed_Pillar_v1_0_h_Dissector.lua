@@ -14,6 +14,13 @@ local nyse_amexoptions_complexfeed_pillar_v1_0_h = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse AmexOptions ComplexFeed Pillar 1.0.h Headers
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.pillar.v1.0.h.message", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageheader", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packet", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packetheader", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.STRING)
+
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Fields
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.amexoptions.complexfeed.pillar.v1.0.h.askcustomervolume", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.ask_price = ProtoField.new("Ask Price", "nyse.amexoptions.complexfeed.pillar.v1.0.h.askprice", ftypes.DOUBLE)
@@ -43,8 +50,6 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.lot_size = ProtoField.new(
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.market_id = ProtoField.new("Market Id", "nyse.amexoptions.complexfeed.pillar.v1.0.h.marketid", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.market_state = ProtoField.new("Market State", "nyse.amexoptions.complexfeed.pillar.v1.0.h.marketstate", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.amexoptions.complexfeed.pillar.v1.0.h.maturitydate", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.pillar.v1.0.h.message", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_size = ProtoField.new("Message Size", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagesize", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.nanoseconds", ftypes.UINT32)
@@ -53,8 +58,6 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.no_of_legs = ProtoField.ne
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.amexoptions.complexfeed.pillar.v1.0.h.numbermsgs", ftypes.UINT8)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.amexoptions.complexfeed.pillar.v1.0.h.optionsymbolroot", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.options_status_halt_condition = ProtoField.new("Options Status Halt Condition", "nyse.amexoptions.complexfeed.pillar.v1.0.h.optionsstatushaltcondition", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packet", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packetheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.participant = ProtoField.new("Participant", "nyse.amexoptions.complexfeed.pillar.v1.0.h.participant", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.amexoptions.complexfeed.pillar.v1.0.h.pktsize", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexoptions.complexfeed.pillar.v1.0.h.prevcloseprice", ftypes.DOUBLE)
@@ -78,7 +81,6 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2 = ProtoF
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seconds", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitystatus", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitytype", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seqnum", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seriesindex", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seriesseqnum", ftypes.UINT32)

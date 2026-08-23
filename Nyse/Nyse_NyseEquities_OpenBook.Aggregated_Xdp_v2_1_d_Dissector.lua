@@ -14,6 +14,12 @@ local nyse_nyseequities_openbookaggregated_xdp_v2_1_d = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Headers
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.message", ftypes.STRING)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packet", ftypes.STRING)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Fields
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.beginseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.channel_id = ProtoField.new("Channel Id", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.channelid", ftypes.UINT8)
@@ -29,9 +35,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.last_symbol_seq_num =
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.lotsize", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.message", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_count = ProtoField.new("Message Count", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messagecount", ftypes.UINT8)
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.mpv", ftypes.UINT16)
@@ -40,8 +44,6 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_type = ProtoField
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nanoseconds", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.num_orders = ProtoField.new("Num Orders", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.numorders", ftypes.UINT16)
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packet", ftypes.STRING)
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.packetsize", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.prevcloseprice", ftypes.DOUBLE)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.prevclosevolume", ftypes.UINT32)

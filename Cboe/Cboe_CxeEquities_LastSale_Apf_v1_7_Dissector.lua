@@ -14,6 +14,9 @@ local cboe_cxeequities_lastsale_apf_v1_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxeEquities LastSale Apf 1.7 Headers
+omi_cboe_cxeequities_lastsale_apf_v1_7.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.7.packet", ftypes.STRING)
+
 -- Cboe CxeEquities LastSale Apf 1.7 Fields
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.cxeequities.lastsale.apf.v1.7.agencycrosstrade", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.cxeequities.lastsale.apf.v1.7.algorithmicindicator", ftypes.STRING)
@@ -41,7 +44,6 @@ omi_cboe_cxeequities_lastsale_apf_v1_7.fields.negotiation_flag = ProtoField.new(
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.notional_amount = ProtoField.new("Notional Amount", "cboe.cxeequities.lastsale.apf.v1.7.notionalamount", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.notional_currency = ProtoField.new("Notional Currency", "cboe.cxeequities.lastsale.apf.v1.7.notionalcurrency", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.off_book_automated = ProtoField.new("Off Book Automated", "cboe.cxeequities.lastsale.apf.v1.7.offbookautomated", ftypes.STRING)
-omi_cboe_cxeequities_lastsale_apf_v1_7.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.7.packet", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.packet_type = ProtoField.new("Packet Type", "cboe.cxeequities.lastsale.apf.v1.7.packettype", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.password = ProtoField.new("Password", "cboe.cxeequities.lastsale.apf.v1.7.password", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.portfolio_flag = ProtoField.new("Portfolio Flag", "cboe.cxeequities.lastsale.apf.v1.7.portfolioflag", ftypes.STRING)
@@ -1025,7 +1027,7 @@ cboe_cxeequities_lastsale_apf_v1_7.price_discovery_process.display = function(va
     return "Price Discovery Process: Price Is Pending (PNDG)"
   end
   if value == NOAP then
-    return "Price Discovery Process: No Value"
+    return "Price Discovery Process: Price Is Not Applicable"
   end
 
   return "Price Discovery Process: Unknown("..value..")"

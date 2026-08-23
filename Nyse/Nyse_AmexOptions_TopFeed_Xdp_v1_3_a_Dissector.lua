@@ -14,6 +14,12 @@ local nyse_amexoptions_topfeed_xdp_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse AmexOptions TopFeed Xdp 1.3.a Headers
+omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.amexoptions.topfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.topfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.topfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.topfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
 -- Nyse AmexOptions TopFeed Xdp 1.3.a Fields
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.amexoptions.topfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.amexoptions.topfeed.xdp.v1.3.a.askprice", ftypes.INT32)
@@ -38,9 +44,7 @@ omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Marke
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.amexoptions.topfeed.xdp.v1.3.a.marketimbalanceqty", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.market_imbalance_side = ProtoField.new("Market Imbalance Side", "nyse.amexoptions.topfeed.xdp.v1.3.a.marketimbalanceside", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.amexoptions.topfeed.xdp.v1.3.a.maturitydate", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.amexoptions.topfeed.xdp.v1.3.a.message", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.amexoptions.topfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
-omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.topfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.amexoptions.topfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.topfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.topfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
@@ -56,8 +60,6 @@ omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.outright_summary_message = ProtoF
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message = ProtoField.new("Outright Trade Cancel Message", "nyse.amexoptions.topfeed.xdp.v1.3.a.outrighttradecancelmessage", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message = ProtoField.new("Outright Trade Correction Message", "nyse.amexoptions.topfeed.xdp.v1.3.a.outrighttradecorrectionmessage", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.outright_trade_message = ProtoField.new("Outright Trade Message", "nyse.amexoptions.topfeed.xdp.v1.3.a.outrighttrademessage", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.topfeed.xdp.v1.3.a.packet", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.topfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.amexoptions.topfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.amexoptions.topfeed.xdp.v1.3.a.pairedqty", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_xdp_v1_3_a.fields.participant = ProtoField.new("Participant", "nyse.amexoptions.topfeed.xdp.v1.3.a.participant", ftypes.STRING)

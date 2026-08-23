@@ -14,6 +14,10 @@ local cboe_c2options_complex_spin_v2_1_61 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C2Options Complex Spin 2.1.61 Headers
+omi_cboe_c2options_complex_spin_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.c2options.complex.spin.v2.1.61.packet", ftypes.STRING)
+omi_cboe_c2options_complex_spin_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.c2options.complex.spin.v2.1.61.packetheader", ftypes.STRING)
+
 -- Cboe C2Options Complex Spin 2.1.61 Fields
 omi_cboe_c2options_complex_spin_v2_1_61.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.c2options.complex.spin.v2.1.61.complexinstrumentid", ftypes.STRING)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.c2options.complex.spin.v2.1.61.complexinstrumenttype", ftypes.STRING)
@@ -39,8 +43,6 @@ omi_cboe_c2options_complex_spin_v2_1_61.fields.message_type = ProtoField.new("Me
 omi_cboe_c2options_complex_spin_v2_1_61.fields.order_count = ProtoField.new("Order Count", "cboe.c2options.complex.spin.v2.1.61.ordercount", ftypes.UINT32)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.order_id = ProtoField.new("Order Id", "cboe.c2options.complex.spin.v2.1.61.orderid", ftypes.UINT64)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c2options.complex.spin.v2.1.61.osisymbol", ftypes.STRING)
-omi_cboe_c2options_complex_spin_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.c2options.complex.spin.v2.1.61.packet", ftypes.STRING)
-omi_cboe_c2options_complex_spin_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.c2options.complex.spin.v2.1.61.packetheader", ftypes.STRING)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.password = ProtoField.new("Password", "cboe.c2options.complex.spin.v2.1.61.password", ftypes.STRING)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.price_binary_signed_long_price_8 = ProtoField.new("Price Binary Signed Long Price 8", "cboe.c2options.complex.spin.v2.1.61.pricebinarysignedlongprice8", ftypes.DOUBLE)
 omi_cboe_c2options_complex_spin_v2_1_61.fields.price_binary_signed_short_price_2 = ProtoField.new("Price Binary Signed Short Price 2", "cboe.c2options.complex.spin.v2.1.61.pricebinarysignedshortprice2", ftypes.DOUBLE)

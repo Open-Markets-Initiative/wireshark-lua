@@ -14,6 +14,10 @@ local currenex_currenexforex_now_cbp_v10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Currenex CurrenexForex Now Cbp 10. Headers
+omi_currenex_currenexforex_now_cbp_v10.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.now.cbp.v10.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_now_cbp_v10.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.now.cbp.v10.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex Now Cbp 10. Fields
 omi_currenex_currenexforex_now_cbp_v10.fields.activity_indicator = ProtoField.new("Activity Indicator", "currenex.currenexforex.now.cbp.v10.activityindicator", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.INT64)
@@ -28,11 +32,9 @@ omi_currenex_currenexforex_now_cbp_v10.fields.instrument_type = ProtoField.new("
 omi_currenex_currenexforex_now_cbp_v10.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.currenexforex.now.cbp.v10.itchetx", ftypes.INT8)
 omi_currenex_currenexforex_now_cbp_v10.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.currenexforex.now.cbp.v10.itchsoh", ftypes.INT8)
 omi_currenex_currenexforex_now_cbp_v10.fields.level = ProtoField.new("Level", "currenex.currenexforex.now.cbp.v10.level", ftypes.STRING)
-omi_currenex_currenexforex_now_cbp_v10.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.now.cbp.v10.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.now.cbp.v10.messagetype", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.offer = ProtoField.new("Offer", "currenex.currenexforex.now.cbp.v10.offer", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.offer_price = ProtoField.new("Offer Price", "currenex.currenexforex.now.cbp.v10.offerprice", ftypes.DOUBLE)
-omi_currenex_currenexforex_now_cbp_v10.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.now.cbp.v10.packet", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.paid_given_indicator = ProtoField.new("Paid Given Indicator", "currenex.currenexforex.now.cbp.v10.paidgivenindicator", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.password = ProtoField.new("Password", "currenex.currenexforex.now.cbp.v10.password", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.price = ProtoField.new("Price", "currenex.currenexforex.now.cbp.v10.price", ftypes.DOUBLE)

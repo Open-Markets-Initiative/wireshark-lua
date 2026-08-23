@@ -14,6 +14,10 @@ local miax_pearloptions_topofmarket_mach_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlOptions TopOfMarket Mach 1.0 Headers
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v1.0.machmessage", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v1.0.packet", ftypes.STRING)
+
 -- Miax PearlOptions TopOfMarket Mach 1.0 Fields
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.active_on_pearl = ProtoField.new("Active On Pearl", "miax.pearloptions.topofmarket.mach.v1.0.activeonpearl", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.pearloptions.topofmarket.mach.v1.0.applicationmessage", ftypes.STRING)
@@ -30,7 +34,6 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.expected_event_time_seconds_p
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.expiration_date = ProtoField.new("Expiration Date", "miax.pearloptions.topofmarket.mach.v1.0.expirationdate", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.pearloptions.topofmarket.mach.v1.0.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.topofmarket.mach.v1.0.longtermoption", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v1.0.machmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.pearloptions.topofmarket.mach.v1.0.messagetype", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearloptions.topofmarket.mach.v1.0.nanoseconds", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_condition = ProtoField.new("Offer Condition", "miax.pearloptions.topofmarket.mach.v1.0.offercondition", ftypes.STRING)
@@ -39,7 +42,6 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_priority_customer_size 
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.offer_size = ProtoField.new("Offer Size", "miax.pearloptions.topofmarket.mach.v1.0.offersize", ftypes.UINT16)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.opening_time = ProtoField.new("Opening Time", "miax.pearloptions.topofmarket.mach.v1.0.openingtime", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.pearloptions.topofmarket.mach.v1.0.openingunderlyingmarketcode", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v1.0.packet", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.pearloptions.topofmarket.mach.v1.0.packetlength", ftypes.UINT16)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.topofmarket.mach.v1.0.packettype", ftypes.UINT8)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pbbo_condition = ProtoField.new("Pbbo Condition", "miax.pearloptions.topofmarket.mach.v1.0.pbbocondition", ftypes.STRING)

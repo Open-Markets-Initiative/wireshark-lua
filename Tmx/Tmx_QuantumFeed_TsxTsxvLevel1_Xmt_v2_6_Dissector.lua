@@ -14,6 +14,14 @@ local tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Headers
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.body", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodyheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodymessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.packet", ftypes.STRING)
+
 -- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Fields
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.ackrequiredpossdup", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.ask_price = ProtoField.new("Ask Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.askprice", ftypes.DOUBLE)
@@ -21,10 +29,6 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.ask_size = ProtoField.new("Ask
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.bid_price = ProtoField.new("Bid Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bidprice", ftypes.DOUBLE)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.bid_size = ProtoField.new("Bid Size", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bidsize", ftypes.UINT32)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.boardlot", ftypes.UINT16)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.body", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodyheader", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodymessage", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.businessheader", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.buybrokernumber", ftypes.UINT16)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.buymaximumquantity", ftypes.UINT32)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.buy_minimum_quantity = ProtoField.new("Buy Minimum Quantity", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.buyminimumquantity", ftypes.UINT32)
@@ -36,7 +40,6 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.currency = ProtoField.new("Cur
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.cusip = ProtoField.new("Cusip", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.cusip", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.face_value = ProtoField.new("Face Value", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.facevalue", ftypes.DOUBLE)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.far_indicative_closing_price = ProtoField.new("Far Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.farindicativeclosingprice", ftypes.DOUBLE)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.frameheader", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.imbalance_reference_price = ProtoField.new("Imbalance Reference Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.imbalancereferenceprice", ftypes.DOUBLE)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.imbalanceside", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.imbalancevolume", ftypes.UINT32)
@@ -55,7 +58,6 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.msg_version = ProtoField.new("
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.near_indicative_closing_price = ProtoField.new("Near Indicative Closing Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.nearindicativeclosingprice", ftypes.DOUBLE)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.numbody", ftypes.UINT8)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.opening_trade = ProtoField.new("Opening Trade", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.openingtrade", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.packet", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.paired_volume = ProtoField.new("Paired Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.pairedvolume", ftypes.UINT32)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.price = ProtoField.new("Price", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.price", ftypes.DOUBLE)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.price_variation = ProtoField.new("Price Variation", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.pricevariation", ftypes.DOUBLE)

@@ -14,6 +14,10 @@ local jnx_jnxequities_pts_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jnx JnxEquities Pts Itch 2.0 Headers
+omi_jnx_jnxequities_pts_itch_v2_0.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v2.0.packet", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v2.0.packetheader", ftypes.STRING)
+
 -- Jnx JnxEquities Pts Itch 2.0 Fields
 omi_jnx_jnxequities_pts_itch_v2_0.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.itch.v2.0.attribution", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.itch.v2.0.buysellindicator", ftypes.STRING)
@@ -33,8 +37,6 @@ omi_jnx_jnxequities_pts_itch_v2_0.fields.order_type = ProtoField.new("Order Type
 omi_jnx_jnxequities_pts_itch_v2_0.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.jnxequities.pts.itch.v2.0.orderbookcode", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxequities.pts.itch.v2.0.orderbookid", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.jnxequities.pts.itch.v2.0.originalordernumber", ftypes.UINT64)
-omi_jnx_jnxequities_pts_itch_v2_0.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v2.0.packet", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v2.0.packetheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.price = ProtoField.new("Price", "jnx.jnxequities.pts.itch.v2.0.price", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.jnxequities.pts.itch.v2.0.pricedecimals", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.price_start = ProtoField.new("Price Start", "jnx.jnxequities.pts.itch.v2.0.pricestart", ftypes.DOUBLE)

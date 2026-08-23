@@ -14,6 +14,14 @@ local coinbase_deribit_marketdataapi_sbe_v0_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Coinbase Deribit MarketDataApi Sbe 0.1 Headers
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessage", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_header = ProtoField.new("Md Message Header", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageheader", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet = ProtoField.new("Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.packet", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_header = ProtoField.new("Packet Header", "coinbase.deribit.marketdataapi.sbe.v0.1.packetheader", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
+
 -- Coinbase Deribit MarketDataApi Sbe 0.1 Fields
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.deribit.marketdataapi.sbe.v0.1.activeinstrumentcount", ftypes.INT32)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.base_currency = ProtoField.new("Base Currency", "coinbase.deribit.marketdataapi.sbe.v0.1.basecurrency", ftypes.STRING)
@@ -57,20 +65,14 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.maker_order_id = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.mark_price = ProtoField.new("Mark Price", "coinbase.deribit.marketdataapi.sbe.v0.1.markprice", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.match_id = ProtoField.new("Match Id", "coinbase.deribit.marketdataapi.sbe.v0.1.matchid", ftypes.INT64)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.max_buy_price = ProtoField.new("Max Buy Price", "coinbase.deribit.marketdataapi.sbe.v0.1.maxbuyprice", ftypes.DOUBLE)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessage", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_header = ProtoField.new("Md Message Header", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageheader", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count = ProtoField.new("Message Count", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecount", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_uint_8 = ProtoField.new("Message Count uint 8", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecountuint8", ftypes.UINT8)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_length = ProtoField.new("Message Length", "coinbase.deribit.marketdataapi.sbe.v0.1.messagelength", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.min_sell_price = ProtoField.new("Min Sell Price", "coinbase.deribit.marketdataapi.sbe.v0.1.minsellprice", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.month = ProtoField.new("Month", "coinbase.deribit.marketdataapi.sbe.v0.1.month", ftypes.INT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.name = ProtoField.new("Name", "coinbase.deribit.marketdataapi.sbe.v0.1.name", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "coinbase.deribit.marketdataapi.sbe.v0.1.numberoflegs", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.marketdataapi.sbe.v0.1.orderid", ftypes.INT64)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet = ProtoField.new("Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.packet", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_header = ProtoField.new("Packet Header", "coinbase.deribit.marketdataapi.sbe.v0.1.packetheader", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.price = ProtoField.new("Price", "coinbase.deribit.marketdataapi.sbe.v0.1.price", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_exponent = ProtoField.new("Quantity Exponent", "coinbase.deribit.marketdataapi.sbe.v0.1.quantityexponent", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_mantissa = ProtoField.new("Quantity Mantissa", "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa", ftypes.INT64)

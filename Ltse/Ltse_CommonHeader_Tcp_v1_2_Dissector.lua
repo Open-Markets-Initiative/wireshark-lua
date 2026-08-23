@@ -14,9 +14,12 @@ local ltse_commonheader_tcp_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ltse CommonHeader Tcp 1.2 Headers
+omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
+
 -- Ltse CommonHeader Tcp 1.2 Fields
 omi_ltse_commonheader_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.tcp.v1.2.blocklength", ftypes.UINT16)
-omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.count = ProtoField.new("Count", "ltse.commonheader.tcp.v1.2.count", ftypes.UINT32)
 omi_ltse_commonheader_tcp_v1_2.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "ltse.commonheader.tcp.v1.2.loginacceptedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.login_reject_code = ProtoField.new("Login Reject Code", "ltse.commonheader.tcp.v1.2.loginrejectcode", ftypes.STRING)
@@ -27,7 +30,6 @@ omi_ltse_commonheader_tcp_v1_2.fields.message_count = ProtoField.new("Message Co
 omi_ltse_commonheader_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.tcp.v1.2.messagelength", ftypes.UINT16)
 omi_ltse_commonheader_tcp_v1_2.fields.message_type = ProtoField.new("Message Type", "ltse.commonheader.tcp.v1.2.messagetype", ftypes.UINT8)
 omi_ltse_commonheader_tcp_v1_2.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "ltse.commonheader.tcp.v1.2.nextsequencenumber", ftypes.UINT64)
-omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.payload = ProtoField.new("Payload", "ltse.commonheader.tcp.v1.2.payload", ftypes.BYTES)
 omi_ltse_commonheader_tcp_v1_2.fields.pending_message_count = ProtoField.new("Pending Message Count", "ltse.commonheader.tcp.v1.2.pendingmessagecount", ftypes.UINT32)
 omi_ltse_commonheader_tcp_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "ltse.commonheader.tcp.v1.2.replayallrequestmessage", ftypes.STRING)

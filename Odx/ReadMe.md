@@ -5,10 +5,10 @@
 
 | Division | [Protocol][Omi.Odx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Odx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Glimpse][Omi.Encoding.Glimpse] | [2.0][Odx.OdxEquities.Pts.Glimpse.v2.0.Dissector] | 3/31/2023 | 2356 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Glimpse.v2.0.Pdf] |
-| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxEquities.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1930 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Itch.v2.2.Pdf] |
-| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [2.0][Odx.OdxEquities.Pts.Ouch.v2.0.Dissector] | 3/31/2023 | 2764 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Ouch.v2.0.Pdf] |
-| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 2752 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
+| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Glimpse][Omi.Encoding.Glimpse] | [2.0][Odx.OdxEquities.Pts.Glimpse.v2.0.Dissector] | 3/31/2023 | 2761 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Glimpse.v2.0.Pdf] |
+| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Itch][Omi.Encoding.Itch] | [2.2][Odx.OdxEquities.Pts.Itch.v2.2.Dissector] | 4/6/2026 | 1932 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Itch.v2.2.Pdf] |
+| [OdxEquities][OdxEquities.Exchange] | [Pts][Odx.OdxEquities.Pts] | [Ouch][Omi.Encoding.Ouch] | [2.0][Odx.OdxEquities.Pts.Ouch.v2.0.Dissector] | 3/31/2023 | 3149 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxEquities.Pts.Ouch.v2.0.Pdf] |
+| [OdxSecurityToken][OdxSecurityToken.Exchange] | [Pts][Odx.OdxSecurityToken.Pts] | [Itch][Omi.Encoding.Itch] | [1.2][Odx.OdxSecurityToken.Pts.Itch.v1.2.Dissector] | 4/6/2026 | 3157 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Odx.OdxSecurityToken.Pts.Itch.v1.2.Pdf] |
 
 
 Odx: [website](https://www.odx.co.jp/en "Go to Osaka Digital Exchange")

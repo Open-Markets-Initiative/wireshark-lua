@@ -14,6 +14,10 @@ local bist_borsaistanbul_geniuminet_itch_v21_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Bist BorsaIstanbul GeniumInet Itch 21.12 Headers
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
+
 -- Bist BorsaIstanbul GeniumInet Itch 21.12 Fields
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.available_ask_quantity_at_equilibrium_price = ProtoField.new("Available Ask Quantity At Equilibrium Price", "bist.borsaistanbul.geniuminet.itch.v21.12.availableaskquantityatequilibriumprice", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.available_bid_quantity_at_equilibrium_price = ProtoField.new("Available Bid Quantity At Equilibrium Price", "bist.borsaistanbul.geniuminet.itch.v21.12.availablebidquantityatequilibriumprice", ftypes.UINT64)
@@ -54,8 +58,6 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.odd_lot_size = ProtoField.n
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_attributes = ProtoField.new("Order Attributes", "bist.borsaistanbul.geniuminet.itch.v21.12.orderattributes", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_book_id = ProtoField.new("Order Book Id", "bist.borsaistanbul.geniuminet.itch.v21.12.orderbookid", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.order_id = ProtoField.new("Order Id", "bist.borsaistanbul.geniuminet.itch.v21.12.orderid", ftypes.UINT64)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.participant_id = ProtoField.new("Participant Id", "bist.borsaistanbul.geniuminet.itch.v21.12.participantid", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.price = ProtoField.new("Price", "bist.borsaistanbul.geniuminet.itch.v21.12.price", ftypes.INT32)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.price_from = ProtoField.new("Price From", "bist.borsaistanbul.geniuminet.itch.v21.12.pricefrom", ftypes.INT32)

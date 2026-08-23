@@ -14,12 +14,15 @@ local ltse_ltseequities_memo_sbe_v1_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ltse LtseEquities Memo Sbe 1.12 Headers
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memo.sbe.v1.12.commonheader", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memo.sbe.v1.12.packet", ftypes.STRING)
+
 -- Ltse LtseEquities Memo Sbe 1.12 Fields
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.block_length = ProtoField.new("Block Length", "ltse.ltseequities.memo.sbe.v1.12.blocklength", ftypes.UINT16)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "ltse.ltseequities.memo.sbe.v1.12.cancelgroupid", ftypes.UINT16)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.cancel_reason = ProtoField.new("Cancel Reason", "ltse.ltseequities.memo.sbe.v1.12.cancelreason", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.clordid = ProtoField.new("ClOrdId", "ltse.ltseequities.memo.sbe.v1.12.clordid", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memo.sbe.v1.12.commonheader", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.count = ProtoField.new("Count", "ltse.ltseequities.memo.sbe.v1.12.count", ftypes.UINT32)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.cum_qty = ProtoField.new("Cum Qty", "ltse.ltseequities.memo.sbe.v1.12.cumqty", ftypes.UINT32)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "ltse.ltseequities.memo.sbe.v1.12.custordercapacity", ftypes.UINT8)
@@ -70,7 +73,6 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.order_qty = ProtoField.new("Order Qt
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "ltse.ltseequities.memo.sbe.v1.12.orderrejectreason", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.origclordid = ProtoField.new("OrigClOrdId", "ltse.ltseequities.memo.sbe.v1.12.origclordid", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.origclordid_optional = ProtoField.new("OrigClOrdId Optional", "ltse.ltseequities.memo.sbe.v1.12.origclordidoptional", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memo.sbe.v1.12.packet", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "ltse.ltseequities.memo.sbe.v1.12.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "ltse.ltseequities.memo.sbe.v1.12.pegoffsetvalue", ftypes.DOUBLE)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.peg_price_type = ProtoField.new("Peg Price Type", "ltse.ltseequities.memo.sbe.v1.12.pegpricetype", ftypes.UINT8)

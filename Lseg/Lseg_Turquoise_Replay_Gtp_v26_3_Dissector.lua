@@ -14,6 +14,12 @@ local lseg_turquoise_replay_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Turquoise Replay Gtp 26.3 Headers
+omi_lseg_turquoise_replay_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.replay.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.replay.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.replay.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.replay.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Replay Gtp 26.3 Fields
 omi_lseg_turquoise_replay_gtp_v26_3.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.replay.gtp.v26.3.agencycrossindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.replay.gtp.v26.3.aggregatednoofordersandquotes", ftypes.STRING)
@@ -62,9 +68,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.login_status = ProtoField.new("Login 
 omi_lseg_turquoise_replay_gtp_v26_3.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.turquoise.replay.gtp.v26.3.marketclosingpriceflag", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.replay.gtp.v26.3.marketdatagroup", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.turquoise.replay.gtp.v26.3.marketmechanism", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.replay.gtp.v26.3.message", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.replay.gtp.v26.3.messagecount", ftypes.UINT8)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.replay.gtp.v26.3.messageheader", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.replay.gtp.v26.3.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.replay.gtp.v26.3.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.replay.gtp.v26.3.mifidprice", ftypes.STRING)
@@ -91,7 +95,6 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.order_book_update = ProtoField.new("O
 omi_lseg_turquoise_replay_gtp_v26_3.fields.order_id = ProtoField.new("Order Id", "lseg.turquoise.replay.gtp.v26.3.orderid", ftypes.UINT64)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.order_modify_flags = ProtoField.new("Order Modify Flags", "lseg.turquoise.replay.gtp.v26.3.ordermodifyflags", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.replay.gtp.v26.3.ordertype", ftypes.UINT8)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.replay.gtp.v26.3.packet", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.participant = ProtoField.new("Participant", "lseg.turquoise.replay.gtp.v26.3.participant", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.replay.gtp.v26.3.posttradedeferralreason", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.previous_price = ProtoField.new("Previous Price", "lseg.turquoise.replay.gtp.v26.3.previousprice", ftypes.DOUBLE)
@@ -163,7 +166,6 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_identification_code = Pro
 omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.replay.gtp.v26.3.transactiontime", ftypes.UINT64)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.replay.gtp.v26.3.turnover", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.replay.gtp.v26.3.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.replay.gtp.v26.3.unitheader", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.replay.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.replay.gtp.v26.3.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.replay.gtp.v26.3.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)

@@ -14,6 +14,10 @@ local cboe_dxederivatives_multicastdepthofbook_pitch_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Headers
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packetheader", ftypes.STRING)
+
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Fields
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.algorithmicindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.algorithmic_trade = ProtoField.new("Algorithmic Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.algorithmictrade", ftypes.STRING)
@@ -78,8 +82,6 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_interest = 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.open_price = ProtoField.new("Open Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.openingcondition", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.order_id = ProtoField.new("Order Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.orderid", ftypes.UINT64)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packetheader", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.participant_id = ProtoField.new("Participant Id", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.participantid", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.price = ProtoField.new("Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.price", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.priceformationdiscoveryprocess", ftypes.STRING)

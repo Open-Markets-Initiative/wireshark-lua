@@ -14,9 +14,18 @@ local jpx_osederivatives_geniuminet_ouch_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jpx OseDerivatives GeniumInet Ouch 5.0 Headers
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacketheader", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientsoupbintcppacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacketheader", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serversoupbintcppacket", ftypes.STRING)
+
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelreason", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.new("Client Account", "jpx.osederivatives.geniuminet.ouch.v5.0.clientaccount", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpackettype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.combo_group_id = ProtoField.new("Combo Group Id", "jpx.osederivatives.geniuminet.ouch.v5.0.combogroupid", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info = ProtoField.new("Customer Info", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.deal_source = ProtoField.new("Deal Source", "jpx.osederivatives.geniuminet.ouch.v5.0.dealsource", ftypes.UINT8)
@@ -28,10 +37,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_book_id = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_id = ProtoField.new("Order Id", "jpx.osederivatives.geniuminet.ouch.v5.0.orderid", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_state = ProtoField.new("Order State", "jpx.osederivatives.geniuminet.ouch.v5.0.orderstate", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_token = ProtoField.new("Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.ordertoken", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.packet", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.packetheader", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_length = ProtoField.new("Packet Length", "jpx.osederivatives.geniuminet.ouch.v5.0.packetlength", ftypes.UINT16)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.packettype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.password = ProtoField.new("Password", "jpx.osederivatives.geniuminet.ouch.v5.0.password", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.previous_order_token = ProtoField.new("Previous Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.previousordertoken", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.price = ProtoField.new("Price", "jpx.osederivatives.geniuminet.ouch.v5.0.price", ftypes.DOUBLE)
@@ -44,9 +50,9 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_session = ProtoFiel
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.scope = ProtoField.new("Scope", "jpx.osederivatives.geniuminet.ouch.v5.0.scope", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencenumber", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpackettype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.ouch.v5.0.session", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.soupbintcppacket", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.text = ProtoField.new("Text", "jpx.osederivatives.geniuminet.ouch.v5.0.text", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "jpx.osederivatives.geniuminet.ouch.v5.0.timeinforce", ftypes.UINT8)
@@ -87,13 +93,21 @@ local show = {}
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Element Dissection Options
 show.application_messages = true
-show.session_messages = true
 show.structs = true
+show.session_messages = true
 
 -- Register Jpx OseDerivatives GeniumInet Ouch 5.0 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 
 -- Handle changed preferences
@@ -213,6 +227,45 @@ jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect = function(buffer
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type = {}
+
+-- Size: Client Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -522,60 +575,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.dissect = function(buffer,
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_type = {}
-
--- Size: Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.size = 1
-
--- Display: Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1431,6 +1430,48 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.dissect = functio
   return offset + length, value
 end
 
+-- Server Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type = {}
+
+-- Size: Server Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Session
 jpx_osederivatives_geniuminet_ouch_v5_0.session = {}
 
@@ -1750,526 +1791,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Jpx OseDerivatives GeniumInet Ouch 5.0
 -----------------------------------------------------------------------
-
--- Logout Request
-jpx_osederivatives_geniuminet_ouch_v5_0.logout_request = {}
-
--- Display: Logout Request
-jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display = function(packet, parent, length)
-  return "Logout Request"
-end
-
-
--- Dissect: Logout Request
-jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect = function(buffer, offset, packet, parent)
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Client Heartbeat
-jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat = {}
-
--- Display: Client Heartbeat
-jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display = function(packet, parent, length)
-  return "Client Heartbeat"
-end
-
-
--- Dissect: Client Heartbeat
-jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Mass Cancel
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel = {}
-
--- Size: Mass Cancel
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.underlying_id.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.scope.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size
-
--- Display: Mass Cancel
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: Alpha
-  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
-
-  -- Underlying Id: Numeric unsigned
-  index, underlying_id = jpx_osederivatives_geniuminet_ouch_v5_0.underlying_id.dissect(buffer, index, packet, parent)
-
-  -- Scope: Numeric unsigned
-  index, scope = jpx_osederivatives_geniuminet_ouch_v5_0.scope.dissect(buffer, index, packet, parent)
-
-  -- Client Account: Alpha
-  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel
-jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Cancel By Order Id
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id = {}
-
--- Size: Cancel By Order Id
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_id.size
-
--- Display: Cancel By Order Id
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cancel By Order Id
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Book Id: Numeric signed
-  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Side: Alpha
-  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
-
-  -- Order Id: Numeric unsigned
-  index, order_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cancel By Order Id
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Cancel Order
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order = {}
-
--- Size: Cancel Order
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size
-
--- Display: Cancel Order
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cancel Order
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: Alpha
-  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cancel Order
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replace Order
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order = {}
-
--- Size: Replace Order
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
-
--- Display: Replace Order
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replace Order
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Existing Order Token: Alpha
-  index, existing_order_token = jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.dissect(buffer, index, packet, parent)
-
-  -- Replacement Order Token: Alpha
-  index, replacement_order_token = jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Numeric unsigned
-  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Price
-  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Numeric unsigned
-  index, open_close = jpx_osederivatives_geniuminet_ouch_v5_0.open_close.dissect(buffer, index, packet, parent)
-
-  -- Client Account: Alpha
-  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
-
-  -- Customer Info: Alpha
-  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
-
-  -- Exchange Info: Alpha
-  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replace Order
-jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Enter Mm Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order = {}
-
--- Size: Enter Mm Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
-
--- Display: Enter Mm Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Mm Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: Alpha
-  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
-
-  -- Order Book Id: Numeric signed
-  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Side: Alpha
-  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Numeric unsigned
-  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Price
-  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
-
-  -- Client Account: Alpha
-  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
-
-  -- Exchange Info: Alpha
-  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Enter Mm Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Enter Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order = {}
-
--- Size: Enter Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
-
--- Display: Enter Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: Alpha
-  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
-
-  -- Order Book Id: Numeric signed
-  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
-
-  -- Side: Alpha
-  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Numeric unsigned
-  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Price
-  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: Numeric unsigned
-  index, time_in_force = jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Numeric unsigned
-  index, open_close = jpx_osederivatives_geniuminet_ouch_v5_0.open_close.dissect(buffer, index, packet, parent)
-
-  -- Client Account: Alpha
-  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
-
-  -- Customer Info: Alpha
-  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
-
-  -- Exchange Info: Alpha
-  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Enter Order
-jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
-
--- Dissect: Unsequenced Message
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order
-  if unsequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Mm Order
-  if unsequenced_message_type == "P" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order
-  if unsequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order
-  if unsequenced_message_type == "X" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel By Order Id
-  if unsequenced_message_type == "Y" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel
-  if unsequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 6 values
-  index, unsequenced_message_type = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Unsequenced Message: Runtime Type with 6 branches
-  index = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet = {}
-
--- Size: Login Request Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.username.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.password.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.requested_session.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.size
-
--- Display: Login Request Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = jpx_osederivatives_geniuminet_ouch_v5_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = jpx_osederivatives_geniuminet_ouch_v5_0.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = jpx_osederivatives_geniuminet_ouch_v5_0.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- End Of Session
 jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session = {}
@@ -2919,151 +2440,135 @@ jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect = function(buffer, 
   end
 end
 
--- Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload = {}
+-- Server Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.server_payload = {}
 
--- Dissect: Payload
-jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if packet_type == "Z" then
+  if server_packet_type == "Z" then
     return jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if packet_type == "R" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if packet_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_header = {}
+-- Server Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header = {}
 
--- Size: Packet Header
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.size =
+-- Size: Server Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.size =
   jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.size
 
--- Display: Packet Header
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = jpx_osederivatives_geniuminet_ouch_v5_0.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.packet_header, buffer(offset, 0))
-    local index = jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_header, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.display(packet, parent, length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.fields(buffer, offset, packet, parent)
+    return jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 10 branches
-  index = jpx_osederivatives_geniuminet_ouch_v5_0.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.size then
+  if remaining < jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3078,29 +2583,723 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.packet = {}
+-- Server Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet = {}
 
 -- Verify required size of Tcp packet
-jpx_osederivatives_geniuminet_ouch_v5_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= jpx_osederivatives_geniuminet_ouch_v5_0.packet_header.size
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_header.size
 end
 
--- Dissect Packet
-jpx_osederivatives_geniuminet_ouch_v5_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = jpx_osederivatives_geniuminet_ouch_v5_0.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request = {}
+
+-- Display: Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel = {}
+
+-- Size: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.underlying_id.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.scope.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size
+
+-- Display: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: Alpha
+  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
+
+  -- Underlying Id: Numeric unsigned
+  index, underlying_id = jpx_osederivatives_geniuminet_ouch_v5_0.underlying_id.dissect(buffer, index, packet, parent)
+
+  -- Scope: Numeric unsigned
+  index, scope = jpx_osederivatives_geniuminet_ouch_v5_0.scope.dissect(buffer, index, packet, parent)
+
+  -- Client Account: Alpha
+  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel
+jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.mass_cancel, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id = {}
+
+-- Size: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_id.size
+
+-- Display: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Book Id: Numeric signed
+  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Numeric unsigned
+  index, order_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cancel By Order Id
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order = {}
+
+-- Size: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size
+
+-- Display: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: Alpha
+  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cancel Order
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order = {}
+
+-- Size: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
+
+-- Display: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Existing Order Token: Alpha
+  index, existing_order_token = jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.dissect(buffer, index, packet, parent)
+
+  -- Replacement Order Token: Alpha
+  index, replacement_order_token = jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Numeric unsigned
+  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Numeric unsigned
+  index, open_close = jpx_osederivatives_geniuminet_ouch_v5_0.open_close.dissect(buffer, index, packet, parent)
+
+  -- Client Account: Alpha
+  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
+
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
+
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replace Order
+jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replace_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order = {}
+
+-- Size: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
+
+-- Display: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: Alpha
+  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
+
+  -- Order Book Id: Numeric signed
+  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Numeric unsigned
+  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
+
+  -- Client Account: Alpha
+  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
+
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Enter Mm Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_mm_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order = {}
+
+-- Size: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.side.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.quantity.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.price.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
+
+-- Display: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: Alpha
+  index, order_token = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect(buffer, index, packet, parent)
+
+  -- Order Book Id: Numeric signed
+  index, order_book_id = jpx_osederivatives_geniuminet_ouch_v5_0.order_book_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Numeric unsigned
+  index, quantity = jpx_osederivatives_geniuminet_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = jpx_osederivatives_geniuminet_ouch_v5_0.price.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: Numeric unsigned
+  index, time_in_force = jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Numeric unsigned
+  index, open_close = jpx_osederivatives_geniuminet_ouch_v5_0.open_close.dissect(buffer, index, packet, parent)
+
+  -- Client Account: Alpha
+  index, client_account = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect(buffer, index, packet, parent)
+
+  -- Customer Info: Alpha
+  index, customer_info = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect(buffer, index, packet, parent)
+
+  -- Exchange Info: Alpha
+  index, exchange_info = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Enter Order
+jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.enter_order, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unsequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
+
+-- Dissect: Unsequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+  -- Dissect Enter Order
+  if unsequenced_message_type == "O" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Enter Mm Order
+  if unsequenced_message_type == "P" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replace Order
+  if unsequenced_message_type == "U" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order
+  if unsequenced_message_type == "X" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel By Order Id
+  if unsequenced_message_type == "Y" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel
+  if unsequenced_message_type == "M" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 6 values
+  index, unsequenced_message_type = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Unsequenced Message: Runtime Type with 6 branches
+  index = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet = {}
+
+-- Size: Login Request Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.username.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.password.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.requested_session.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.size
+
+-- Display: Login Request Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = jpx_osederivatives_geniuminet_ouch_v5_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = jpx_osederivatives_geniuminet_ouch_v5_0.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = jpx_osederivatives_geniuminet_ouch_v5_0.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.login_request_packet, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.client_payload = {}
+
+-- Dissect: Client Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat
+  if client_packet_type == "R" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if client_packet_type == "O" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header = {}
+
+-- Size: Client Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.size =
+  jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.size
+
+-- Display: Client Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = jpx_osederivatives_geniuminet_ouch_v5_0.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_header, buffer(offset, 0))
+    local index = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 5 branches
+  index = jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet = {}
+
+-- Verify required size of Tcp packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_header.size
+end
+
+-- Dissect Client Packet
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -3122,6 +3321,71 @@ end
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.init()
 end
 
+-- Connection roles for Jpx OseDerivatives GeniumInet Ouch 5.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+jpx_osederivatives_geniuminet_ouch_v5_0.role = function(packet)
+  if omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+jpx_osederivatives_geniuminet_ouch_v5_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Jpx OseDerivatives GeniumInet Ouch 5.0
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.dissector(buffer, packet, parent)
 
@@ -3130,8 +3394,94 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0, buffer(), omi_jpx_osederivatives_geniuminet_ouch_v5_0.description, "("..buffer:len().." Bytes)")
-  return jpx_osederivatives_geniuminet_ouch_v5_0.packet.dissect(buffer, packet, protocol)
+  local role = jpx_osederivatives_geniuminet_ouch_v5_0.role(packet)
+  if role == "initiator" then
+    return jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.dissect(buffer, packet, protocol)
+  end
+  return jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -3139,9 +3489,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0 (Tcp)
-local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic(buffer, packet, parent)
+local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not jpx_osederivatives_geniuminet_ouch_v5_0.packet.requiredsize(buffer) then return false end
+  if not jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jpx_osederivatives_geniuminet_ouch_v5_0
@@ -3150,12 +3503,44 @@ local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic(buffer,
   return true
 end
 
--- Register Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0
-omi_jpx_osederivatives_geniuminet_ouch_v5_0:register_heuristic("tcp", omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic)
+-- Dissector Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0 (Tcp)
+local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.requiredsize(buffer) then return false end
 
--- Register Jpx OseDerivatives GeniumInet Ouch 5.0 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_jpx_osederivatives_geniuminet_ouch_v5_0)
+  -- Verify the frame matches this side's fingerprint
+  if not jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_jpx_osederivatives_geniuminet_ouch_v5_0
+  omi_jpx_osederivatives_geniuminet_ouch_v5_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic(buffer, packet, parent)
+  local role = jpx_osederivatives_geniuminet_ouch_v5_0.role(packet)
+  local first, second = omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_initiator_heuristic, omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  jpx_osederivatives_geniuminet_ouch_v5_0.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  jpx_osederivatives_geniuminet_ouch_v5_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Jpx OseDerivatives GeniumInet Ouch 5.0
+omi_jpx_osederivatives_geniuminet_ouch_v5_0:register_heuristic("tcp", omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

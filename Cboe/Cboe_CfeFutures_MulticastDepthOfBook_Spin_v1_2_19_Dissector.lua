@@ -14,6 +14,10 @@ local cboe_cfefutures_multicastdepthofbook_spin_v1_2_19 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Headers
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Fields
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.accrueddayvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.blockvolume", ftypes.UINT32)
@@ -56,8 +60,6 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.open_interest = Pro
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.openprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.order_count = ProtoField.new("Order Count", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.ordercount", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.orderid", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packetheader", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.password = ProtoField.new("Password", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.password", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_price_8 = ProtoField.new("Price Binary Price 8", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.pricebinaryprice8", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.pricebinaryshortprice2", ftypes.DOUBLE)

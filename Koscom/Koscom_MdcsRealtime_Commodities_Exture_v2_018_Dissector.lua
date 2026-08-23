@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_commodities_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime Commodities Exture 2.018 Headers
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.commodities.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime Commodities Exture 2.018 Fields
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.commodities.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_representative_issue_to_calculate_base_price = ProtoField.new("A Representative Issue To Calculate Base Price", "koscom.mdcsrealtime.commodities.exture.v2.018.arepresentativeissuetocalculatebaseprice", ftypes.STRING)
@@ -184,7 +187,6 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumu
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume = ProtoField.new("Negotiated Trade Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders = ProtoField.new("Number Of Bidders", "koscom.mdcsrealtime.commodities.exture.v2.018.numberofbidders", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.commodities.exture.v2.018.openingprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.commodities.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.previous_price = ProtoField.new("Previous Price", "koscom.mdcsrealtime.commodities.exture.v2.018.previousprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "koscom.mdcsrealtime.commodities.exture.v2.018.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.processing_time_of_trading_system = ProtoField.new("Processing Time Of Trading System", "koscom.mdcsrealtime.commodities.exture.v2.018.processingtimeoftradingsystem", ftypes.STRING)

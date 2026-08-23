@@ -14,10 +14,13 @@ local iex_iexequities_iextpheader_udp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexEquities IexTpHeader Udp 1.0 Headers
+omi_iex_iexequities_iextpheader_udp_v1_0.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.iextpheader.udp.v1.0.iextpheader", ftypes.STRING)
+omi_iex_iexequities_iextpheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexequities.iextpheader.udp.v1.0.packet", ftypes.STRING)
+
 -- Iex IexEquities IexTpHeader Udp 1.0 Fields
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.iexequities.iextpheader.udp.v1.0.channelid", ftypes.UINT32)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.iextpheader.udp.v1.0.firstmessagesequencenumber", ftypes.UINT64)
-omi_iex_iexequities_iextpheader_udp_v1_0.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.iextpheader.udp.v1.0.iextpheader", ftypes.STRING)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message = ProtoField.new("Message", "iex.iexequities.iextpheader.udp.v1.0.message", ftypes.STRING)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "iex.iexequities.iextpheader.udp.v1.0.messagecount", ftypes.UINT16)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_data = ProtoField.new("Message Data", "iex.iexequities.iextpheader.udp.v1.0.messagedata", ftypes.BYTES)
@@ -25,7 +28,6 @@ omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_header = ProtoField.new(
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.iextpheader.udp.v1.0.messagelength", ftypes.UINT16)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.iexequities.iextpheader.udp.v1.0.messageprotocolid", ftypes.UINT16)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.iextpheader.udp.v1.0.messagetype", ftypes.STRING)
-omi_iex_iexequities_iextpheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexequities.iextpheader.udp.v1.0.packet", ftypes.STRING)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.iexequities.iextpheader.udp.v1.0.payloadlength", ftypes.UINT16)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.iextpheader.udp.v1.0.reserved", ftypes.BYTES)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.iextpheader.udp.v1.0.sendtime", ftypes.UINT64)

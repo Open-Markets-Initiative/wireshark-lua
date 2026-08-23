@@ -14,6 +14,12 @@ local hkex_hkexderivatives_combinedrefresh_omd_v1_49 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexDerivatives CombinedRefresh Omd 1.49 Headers
+omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.message", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives CombinedRefresh Omd 1.49 Fields
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.actualstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.actualstarttime", ftypes.STRING)
@@ -76,10 +82,8 @@ omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.lot_type = ProtoField.
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.low = ProtoField.new("Low", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.low", ftypes.INT32)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.market = ProtoField.new("Market", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.market", ftypes.UINT8)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.market_bid = ProtoField.new("Market Bid", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.marketbid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
-omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.message", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.modifier", ftypes.UINT8)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgcount", ftypes.UINT8)
-omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgtype", ftypes.UINT16)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.net_open_interest = ProtoField.new("Net Open Interest", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.netopeninterest", ftypes.INT32)
@@ -95,8 +99,6 @@ omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.order_id = ProtoField.
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.ordertype", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.orderbookid", ftypes.UINT32)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.override_crossing = ProtoField.new("Override Crossing", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.overridecrossing", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
-omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.packetheader", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.pktsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.planned_start_date = ProtoField.new("Planned Start Date", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.plannedstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.plannedstarttime", ftypes.STRING)

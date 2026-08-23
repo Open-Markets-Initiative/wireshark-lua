@@ -14,6 +14,10 @@ local cboe_gaprequestproxy_pitch_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe GapRequestProxy Pitch 1. Headers
+omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
+
 -- Cboe GapRequestProxy Pitch 1. Fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16)
 omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING)
@@ -24,8 +28,6 @@ omi_cboe_gaprequestproxy_pitch_v1.fields.message = ProtoField.new("Message", "cb
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_header = ProtoField.new("Message Header", "cboe.gaprequestproxy.pitch.v1.messageheader", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_length = ProtoField.new("Message Length", "cboe.gaprequestproxy.pitch.v1.messagelength", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_type = ProtoField.new("Message Type", "cboe.gaprequestproxy.pitch.v1.messagetype", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.password = ProtoField.new("Password", "cboe.gaprequestproxy.pitch.v1.password", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.sequence = ProtoField.new("Sequence", "cboe.gaprequestproxy.pitch.v1.sequence", ftypes.UINT32)
 omi_cboe_gaprequestproxy_pitch_v1.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.gaprequestproxy.pitch.v1.sessionsubid", ftypes.STRING)

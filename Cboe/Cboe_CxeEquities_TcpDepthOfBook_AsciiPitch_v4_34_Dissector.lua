@@ -14,6 +14,9 @@ local cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Headers
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packet", ftypes.STRING)
+
 -- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Fields
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.auction_type = ProtoField.new("Auction Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.auctiontype", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_10 = ProtoField.new("Cancelled Shares Numeric 10", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesnumeric10", ftypes.STRING)
@@ -37,7 +40,6 @@ omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.login_rejected_packe
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.loginrequestpacket", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.order_id = ProtoField.new("Order Id", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.orderid", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.outside_tolerance = ProtoField.new("Outside Tolerance", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.outsidetolerance", ftypes.STRING)
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packet", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet_type = ProtoField.new("Packet Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packettype", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.password = ProtoField.new("Password", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.password", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_determination = ProtoField.new("Price Determination", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.pricedetermination", ftypes.STRING)

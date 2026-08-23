@@ -14,10 +14,13 @@ local ltse_ltseequities_memoirdepthfeed_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ltse LtseEquities MemoirDepthFeed Sbe 1.3 Headers
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+
 -- Ltse LtseEquities MemoirDepthFeed Sbe 1.3 Fields
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
-omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.DOUBLE)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
@@ -30,7 +33,6 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv"
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.orderid", ftypes.UINT64)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
-omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)

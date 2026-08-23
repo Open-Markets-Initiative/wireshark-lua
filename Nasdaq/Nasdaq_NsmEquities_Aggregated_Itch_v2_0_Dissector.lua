@@ -14,6 +14,10 @@ local nasdaq_nsmequities_aggregated_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities Aggregated Itch 2.0 Headers
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.aggregated.itch.v2.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.aggregated.itch.v2.0.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities Aggregated Itch 2.0 Fields
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.aggregate_shares = ProtoField.new("Aggregate Shares", "nasdaq.nsmequities.aggregated.itch.v2.0.aggregateshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.nsmequities.aggregated.itch.v2.0.auctioncollarextension", ftypes.UINT32)
@@ -61,8 +65,6 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.near_execution_time = ProtoFi
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.aggregated.itch.v2.0.nearprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.open_eligibility_status = ProtoField.new("Open Eligibility Status", "nasdaq.nsmequities.aggregated.itch.v2.0.openeligibilitystatus", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.nsmequities.aggregated.itch.v2.0.operationalhaltaction", ftypes.STRING)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.aggregated.itch.v2.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.aggregated.itch.v2.0.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.aggregated.itch.v2.0.pairedshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.participant_shares = ProtoField.new("Participant Shares", "nasdaq.nsmequities.aggregated.itch.v2.0.participantshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.aggregated.itch.v2.0.price", ftypes.DOUBLE)

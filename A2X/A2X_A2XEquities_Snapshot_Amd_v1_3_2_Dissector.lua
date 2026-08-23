@@ -14,6 +14,11 @@ local a2x_a2xequities_snapshot_amd_v1_3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- A2X A2XEquities Snapshot Amd 1.3.2 Headers
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.snapshot.amd.v1.3.2.messageheader", ftypes.STRING)
+omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.snapshot.amd.v1.3.2.packet", ftypes.STRING)
+
 -- A2X A2XEquities Snapshot Amd 1.3.2 Fields
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "a2x.a2xequities.snapshot.amd.v1.3.2.closingsellqty", ftypes.UINT32)
@@ -22,13 +27,10 @@ omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.indicative_price = ProtoField.new
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open", "a2x.a2xequities.snapshot.amd.v1.3.2.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.snapshot.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.snapshot.amd.v1.3.2.marketflags", ftypes.STRING)
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.snapshot.amd.v1.3.2.message", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.snapshot.amd.v1.3.2.messagecount", ftypes.UINT8)
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.snapshot.amd.v1.3.2.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.snapshot.amd.v1.3.2.msglength", ftypes.UINT8)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.snapshot.amd.v1.3.2.msgtype", ftypes.UINT8)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.a2xequities.snapshot.amd.v1.3.2.orderref", ftypes.UINT32)
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.snapshot.amd.v1.3.2.packet", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.snapshot.amd.v1.3.2.price", ftypes.UINT64)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.snapshot.amd.v1.3.2.quantity", ftypes.UINT32)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.security_count = ProtoField.new("Security Count", "a2x.a2xequities.snapshot.amd.v1.3.2.securitycount", ftypes.UINT16)

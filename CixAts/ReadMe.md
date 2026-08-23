@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.CixAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.CixAts.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [CixAspen][CixAspen.Platform] | [MarketDataFeed][CixAts.CixAspen.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1934 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf] |
+| [CixAspen][CixAspen.Platform] | [MarketDataFeed][CixAts.CixAspen.MarketDataFeed] | [Aspen][Omi.Encoding.Aspen] | [1.4][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Dissector] | 4/9/2026 | 1936 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Url] - [pdf][CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf] |
 
 
 CixAts: [website](https://www.thecix.ca "Go to CIX Trading Inc.")

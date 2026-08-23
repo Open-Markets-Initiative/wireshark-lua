@@ -14,6 +14,10 @@ local cboe_titaniumconsolidated_oneequities_pitch_v1_4_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Headers
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packetheader", ftypes.STRING)
+
 -- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Fields
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_block = ProtoField.new("Adap Block", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapblocksize", ftypes.UINT8)
@@ -53,8 +57,6 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_cumulati
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_volume_status = ProtoField.new("National Volume Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.nationalvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.opencloseindicator", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.opening_price = ProtoField.new("Opening Price", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.openingprice", ftypes.DOUBLE)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packetheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price = ProtoField.new("Price", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.price", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity = ProtoField.new("Quantity", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantity", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.regshoaction", ftypes.STRING)

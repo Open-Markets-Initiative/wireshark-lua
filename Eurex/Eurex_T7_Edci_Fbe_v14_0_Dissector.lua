@@ -14,6 +14,11 @@ local eurex_t7_edci_fbe_v14_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Eurex T7 Edci Fbe 14.0 Headers
+omi_eurex_t7_edci_fbe_v14_0.fields.message = ProtoField.new("Message", "eurex.t7.edci.fbe.v14.0.message", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v14_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v14.0.messageheader", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v14_0.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v14.0.packet", ftypes.STRING)
+
 -- Eurex T7 Edci Fbe 14.0 Fields
 omi_eurex_t7_edci_fbe_v14_0.fields.affected_cl_ord_id = ProtoField.new("Affected Cl Ord Id", "eurex.t7.edci.fbe.v14.0.affectedclordid", ftypes.UINT64)
 omi_eurex_t7_edci_fbe_v14_0.fields.affected_fix_cl_ord_id = ProtoField.new("Affected Fix Cl Ord Id", "eurex.t7.edci.fbe.v14.0.affectedfixclordid", ftypes.STRING)
@@ -54,8 +59,6 @@ omi_eurex_t7_edci_fbe_v14_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "eu
 omi_eurex_t7_edci_fbe_v14_0.fields.market_id = ProtoField.new("Market Id", "eurex.t7.edci.fbe.v14.0.marketid", ftypes.UINT16)
 omi_eurex_t7_edci_fbe_v14_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.t7.edci.fbe.v14.0.marketsegmentid", ftypes.INT32)
 omi_eurex_t7_edci_fbe_v14_0.fields.match_type = ProtoField.new("Match Type", "eurex.t7.edci.fbe.v14.0.matchtype", ftypes.UINT8)
-omi_eurex_t7_edci_fbe_v14_0.fields.message = ProtoField.new("Message", "eurex.t7.edci.fbe.v14.0.message", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v14_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v14.0.messageheader", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.edci.fbe.v14.0.msgseqnum", ftypes.UINT32)
 omi_eurex_t7_edci_fbe_v14_0.fields.no_affected_orders = ProtoField.new("No Affected Orders", "eurex.t7.edci.fbe.v14.0.noaffectedorders", ftypes.UINT16)
 omi_eurex_t7_edci_fbe_v14_0.fields.no_fills = ProtoField.new("No Fills", "eurex.t7.edci.fbe.v14.0.nofills", ftypes.UINT8)
@@ -67,7 +70,6 @@ omi_eurex_t7_edci_fbe_v14_0.fields.ord_type = ProtoField.new("Ord Type", "eurex.
 omi_eurex_t7_edci_fbe_v14_0.fields.order_id = ProtoField.new("Order Id", "eurex.t7.edci.fbe.v14.0.orderid", ftypes.UINT64)
 omi_eurex_t7_edci_fbe_v14_0.fields.order_qty = ProtoField.new("Order Qty", "eurex.t7.edci.fbe.v14.0.orderqty", ftypes.DOUBLE)
 omi_eurex_t7_edci_fbe_v14_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "eurex.t7.edci.fbe.v14.0.origclordid", ftypes.UINT64)
-omi_eurex_t7_edci_fbe_v14_0.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v14.0.packet", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_0.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.edci.fbe.v14.0.pad2", ftypes.BYTES)
 omi_eurex_t7_edci_fbe_v14_0.fields.pad2v2 = ProtoField.new("Pad2v2", "eurex.t7.edci.fbe.v14.0.pad2v2", ftypes.BYTES)
 omi_eurex_t7_edci_fbe_v14_0.fields.pad3 = ProtoField.new("Pad3", "eurex.t7.edci.fbe.v14.0.pad3", ftypes.BYTES)

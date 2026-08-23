@@ -14,6 +14,10 @@ local cboe_c1options_openingprocess_pitch_v1_0_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options OpeningProcess Pitch 1.0.30 Headers
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingprocess.pitch.v1.0.30.packet", ftypes.STRING)
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingprocess.pitch.v1.0.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options OpeningProcess Pitch 1.0.30 Fields
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.c1options.openingprocess.pitch.v1.0.30.auctiononlyprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_type = ProtoField.new("Auction Type", "cboe.c1options.openingprocess.pitch.v1.0.30.auctiontype", ftypes.STRING)
@@ -34,8 +38,6 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.midnight_reference = Prot
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.multiplier = ProtoField.new("Multiplier", "cboe.c1options.openingprocess.pitch.v1.0.30.multiplier", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.openingprocess.pitch.v1.0.30.openingcondition", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.openingprocess.pitch.v1.0.30.osisymbol", ftypes.STRING)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingprocess.pitch.v1.0.30.packet", ftypes.STRING)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingprocess.pitch.v1.0.30.packetheader", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.price = ProtoField.new("Price", "cboe.c1options.openingprocess.pitch.v1.0.30.price", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.quantity = ProtoField.new("Quantity", "cboe.c1options.openingprocess.pitch.v1.0.30.quantity", ftypes.UINT32)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1options.openingprocess.pitch.v1.0.30.referenceprice", ftypes.DOUBLE)

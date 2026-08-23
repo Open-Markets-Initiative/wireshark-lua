@@ -14,6 +14,12 @@ local siac_cqs_output_cta_v1_91 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Cqs Output Cta 1.91 Headers
+omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cqs Output Cta 1.91 Fields
 omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v1.91.adftimestamp", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cqs.output.cta.v1.91.administrativemessage", ftypes.STRING)
@@ -39,7 +45,6 @@ omi_siac_cqs_output_cta_v1_91.fields.bid_price_short = ProtoField.new("Bid Price
 omi_siac_cqs_output_cta_v1_91.fields.bid_size_long = ProtoField.new("Bid Size Long", "siac.cqs.output.cta.v1.91.bidsizelong", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.cqs.output.cta.v1.91.bidsizeshort", ftypes.UINT16)
 omi_siac_cqs_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.output.cta.v1.91.blockchecksum", ftypes.UINT16)
-omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.output.cta.v1.91.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v1.91.blocksize", ftypes.UINT16)
@@ -65,7 +70,6 @@ omi_siac_cqs_output_cta_v1_91.fields.market_condition = ProtoField.new("Market C
 omi_siac_cqs_output_cta_v1_91.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cqs.output.cta.v1.91.marketstatusmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cqs.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message_category = ProtoField.new("Message Category", "siac.cqs.output.cta.v1.91.messagecategory", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v1.91.messageid", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v1.91.messagelength", ftypes.UINT16)
@@ -86,7 +90,6 @@ omi_siac_cqs_output_cta_v1_91.fields.offer_price_short = ProtoField.new("Offer P
 omi_siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band = ProtoField.new("Offer Price Upper Limit Price Band", "siac.cqs.output.cta.v1.91.offerpriceupperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_output_cta_v1_91.fields.offer_size_long = ProtoField.new("Offer Size Long", "siac.cqs.output.cta.v1.91.offersizelong", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.cqs.output.cta.v1.91.offersizeshort", ftypes.UINT16)
-omi_siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.output.cta.v1.91.participantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cqs.output.cta.v1.91.participantreferencenumber", ftypes.INT64)
 omi_siac_cqs_output_cta_v1_91.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v1.91.participanttimestamp", ftypes.STRING)
@@ -103,7 +106,6 @@ omi_siac_cqs_output_cta_v1_91.fields.security_symbol_long = ProtoField.new("Secu
 omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v1.91.securitysymbolshort", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v1.91.settlementcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v1.91.shortsalerestrictionindicator", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier = ProtoField.new("Sip Generated Message Identifier", "siac.cqs.output.cta.v1.91.sipgeneratedmessageidentifier", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.text = ProtoField.new("Text", "siac.cqs.output.cta.v1.91.text", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v1.91.transactionid", ftypes.UINT32)

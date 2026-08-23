@@ -14,9 +14,17 @@ local cme_globex_settlements_sbe_v7_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cme Globex Settlements Sbe 7.0 Headers
+omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.settlements.sbe.v7.0.tcpmessage", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.settlements.sbe.v7.0.tcppacket", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.settlements.sbe.v7.0.technicalheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
+
 -- Cme Globex Settlements Sbe 7.0 Fields
 omi_cme_globex_settlements_sbe_v7_0.fields.actual = ProtoField.new("Actual", "cme.globex.settlements.sbe.v7.0.actual", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.block_length = ProtoField.new("Block Length", "cme.globex.settlements.sbe.v7.0.blocklength", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.cabinet = ProtoField.new("Cabinet", "cme.globex.settlements.sbe.v7.0.cabinet", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cme_globex_settlements_sbe_v7_0.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.globex.settlements.sbe.v7.0.clearedvolume", ftypes.UINT32)
@@ -45,8 +53,6 @@ omi_cme_globex_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entr
 omi_cme_globex_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.globex.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "cme.globex.settlements.sbe.v7.0.mdstatisticdesc", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.globex.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
-omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.settlements.sbe.v7.0.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.globex.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.globex.settlements.sbe.v7.0.month", ftypes.UINT8)
@@ -67,15 +73,11 @@ omi_cme_globex_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sendin
 omi_cme_globex_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.settlements.sbe.v7.0.settlpricetype", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.settlements.sbe.v7.0.strikeprice", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.globex.settlements.sbe.v7.0.symbol", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.settlements.sbe.v7.0.tcpmessage", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.settlements.sbe.v7.0.tcpmessagesize", ftypes.UINT16)
-omi_cme_globex_settlements_sbe_v7_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.settlements.sbe.v7.0.tcppacket", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.settlements.sbe.v7.0.tcpsendingtime", ftypes.UINT64)
-omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.settlements.sbe.v7.0.technicalheader", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.settlements.sbe.v7.0.templateid", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime", ftypes.UINT64)
-omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_clearing_product_code = ProtoField.new("Underlying Clearing Product Code", "cme.globex.settlements.sbe.v7.0.underlyingclearingproductcode", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.settlements.sbe.v7.0.underlyingmaturitymonthyear", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
@@ -2908,11 +2910,11 @@ function omi_cme_globex_settlements_sbe_v7_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_settlements_sbe_v7_0, buffer(), omi_cme_globex_settlements_sbe_v7_0.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return cme_globex_settlements_sbe_v7_0.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return cme_globex_settlements_sbe_v7_0.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return cme_globex_settlements_sbe_v7_0.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

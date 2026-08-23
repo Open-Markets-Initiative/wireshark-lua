@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_securitiesc_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime SecuritiesC Exture 2.018 Headers
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.securitiesc.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime SecuritiesC Exture 2.018 Fields
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "koscom.mdcsrealtime.securitiesc.exture.v2.018.abasepricetotriggerdynamicvi", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "koscom.mdcsrealtime.securitiesc.exture.v2.018.abasepricetotriggerstaticvi", ftypes.STRING)
@@ -405,7 +408,6 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.number_of_repo_trade_pe
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.numbers_of_issuer = ProtoField.new("Numbers Of Issuer", "koscom.mdcsrealtime.securitiesc.exture.v2.018.numbersofissuer", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.securitiesc.exture.v2.018.openingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.otherstocktypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.securitiesc.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.par_value = ProtoField.new("Par Value", "koscom.mdcsrealtime.securitiesc.exture.v2.018.parvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.parvaluetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.payment_methods = ProtoField.new("Payment Methods", "koscom.mdcsrealtime.securitiesc.exture.v2.018.paymentmethods", ftypes.STRING)

@@ -14,6 +14,12 @@ local nasdaq_uqdf_output_utp_v1_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq Uqdf Output Utp 1.5 Headers
+omi_nasdaq_uqdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.uqdf.output.utp.v1.5.message", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.uqdf.output.utp.v1.5.messageheader", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.uqdf.output.utp.v1.5.packet", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.uqdf.output.utp.v1.5.packetheader", ftypes.STRING)
+
 -- Nasdaq Uqdf Output Utp 1.5 Fields
 omi_nasdaq_uqdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.uqdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.uqdf.output.utp.v1.5.administrative", ftypes.STRING)
@@ -65,9 +71,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap = ProtoField.ne
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.uqdf.output.utp.v1.5.marketcenteridentifier", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "nasdaq.uqdf.output.utp.v1.5.marketcenteroriginatorid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.uqdf.output.utp.v1.5.markettier", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.uqdf.output.utp.v1.5.message", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_category = ProtoField.new("Message Category", "nasdaq.uqdf.output.utp.v1.5.messagecategory", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.uqdf.output.utp.v1.5.messageheader", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_info = ProtoField.new("Message Info", "nasdaq.uqdf.output.utp.v1.5.messageinfo", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.uqdf.output.utp.v1.5.messagelength", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.uqdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
@@ -88,8 +92,6 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.nbbo_appendage_indicator = ProtoField.new
 omi_nasdaq_uqdf_output_utp_v1_5.fields.nbbo_quote_condition = ProtoField.new("Nbbo Quote Condition", "nasdaq.uqdf.output.utp.v1.5.nbboquotecondition", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.number_of_market_center_attachments = ProtoField.new("Number Of Market Center Attachments", "nasdaq.uqdf.output.utp.v1.5.numberofmarketcenterattachments", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.uqdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.uqdf.output.utp.v1.5.packet", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.uqdf.output.utp.v1.5.packetheader", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.uqdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.uqdf.output.utp.v1.5.participanttoken", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.quote = ProtoField.new("Quote", "nasdaq.uqdf.output.utp.v1.5.quote", ftypes.STRING)

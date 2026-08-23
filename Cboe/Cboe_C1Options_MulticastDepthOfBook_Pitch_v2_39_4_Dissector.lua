@@ -14,6 +14,10 @@ local cboe_c1options_multicastdepthofbook_pitch_v2_39_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Headers
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packet", ftypes.STRING)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packetheader", ftypes.STRING)
+
 -- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Fields
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.add_flags = ProtoField.new("Add Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.addflags", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.auctionendoffset", ftypes.UINT32)
@@ -43,8 +47,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_type = Prot
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.modifyflags", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.orderid", ftypes.UINT64)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.osisymbol", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packet", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packetheader", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.participantid", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.referenceprice", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.regshoaction", ftypes.STRING)

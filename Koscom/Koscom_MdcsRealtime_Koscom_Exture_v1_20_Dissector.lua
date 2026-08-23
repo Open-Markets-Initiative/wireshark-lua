@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_koscom_exture_v1_20 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime Koscom Exture 1.20 Headers
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.koscom.exture.v1.20.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.appraised_value = ProtoField.new("Appraised Value", "koscom.mdcsrealtime.koscom.exture.v1.20.appraisedvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_best_order = ProtoField.new("Ask Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.askbestorder", ftypes.STRING)
@@ -136,7 +139,6 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.original_quote_price = ProtoF
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.original_sequence_number = ProtoField.new("Original Sequence Number", "koscom.mdcsrealtime.koscom.exture.v1.20.originalsequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.originally_registered_number = ProtoField.new("Originally Registered Number", "koscom.mdcsrealtime.koscom.exture.v1.20.originallyregisterednumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.otc_derivatives_type = ProtoField.new("Otc Derivatives Type", "koscom.mdcsrealtime.koscom.exture.v1.20.otcderivativestype", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.koscom.exture.v1.20.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.par_value_amount_cash_amount_converted_amount_krw = ProtoField.new("Par Value Amount Cash Amount Converted Amount Krw", "koscom.mdcsrealtime.koscom.exture.v1.20.parvalueamountcashamountconvertedamountkrw", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.prerequisite_cost = ProtoField.new("Prerequisite Cost", "koscom.mdcsrealtime.koscom.exture.v1.20.prerequisitecost", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.pretax_unit_price = ProtoField.new("Pretax Unit Price", "koscom.mdcsrealtime.koscom.exture.v1.20.pretaxunitprice", ftypes.STRING)

@@ -14,20 +14,22 @@ local tmx_quantumfeed_xmtheader_udp_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Tmx QuantumFeed XmtHeader Udp 1.1 Fields
-omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.xmtheader.udp.v1.1.ackrequiredpossdup", ftypes.STRING)
+-- Tmx QuantumFeed XmtHeader Udp 1.1 Headers
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.xmtheader.udp.v1.1.body", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.xmtheader.udp.v1.1.bodyheader", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.xmtheader.udp.v1.1.bodymessage", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.xmtheader.udp.v1.1.businessheader", ftypes.STRING)
-omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.xmtheader.udp.v1.1.businessmessage", ftypes.BYTES)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.xmtheader.udp.v1.1.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.xmtheader.udp.v1.1.packet", ftypes.STRING)
+
+-- Tmx QuantumFeed XmtHeader Udp 1.1 Fields
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.xmtheader.udp.v1.1.ackrequiredpossdup", ftypes.STRING)
+omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.business_message = ProtoField.new("Business Message", "tmx.quantumfeed.xmtheader.udp.v1.1.businessmessage", ftypes.BYTES)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.xmtheader.udp.v1.1.messagelength", ftypes.UINT16)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.xmtheader.udp.v1.1.msglength", ftypes.UINT16)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.xmtheader.udp.v1.1.msgtype", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.msg_version = ProtoField.new("Msg Version", "tmx.quantumfeed.xmtheader.udp.v1.1.msgversion", ftypes.UINT8)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.xmtheader.udp.v1.1.numbody", ftypes.UINT8)
-omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.xmtheader.udp.v1.1.packet", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolname", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.xmtheader.udp.v1.1.protocolversion", ftypes.STRING)
 omi_tmx_quantumfeed_xmtheader_udp_v1_1.fields.sequence_0 = ProtoField.new("Sequence 0", "tmx.quantumfeed.xmtheader.udp.v1.1.sequence0", ftypes.UINT8)

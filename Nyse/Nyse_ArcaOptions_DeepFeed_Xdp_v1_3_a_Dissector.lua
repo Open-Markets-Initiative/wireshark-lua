@@ -14,6 +14,12 @@ local nyse_arcaoptions_deepfeed_xdp_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaOptions DeepFeed Xdp 1.3.a Headers
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
 -- Nyse ArcaOptions DeepFeed Xdp 1.3.a Fields
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.contractmultiplier", ftypes.UINT16)
@@ -27,9 +33,7 @@ omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.group_id = ProtoField.new("Group
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.maturitydate", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.message", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
@@ -37,8 +41,6 @@ omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.option_symbol_root = ProtoField.
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.priceresolution", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.pricescalecode", ftypes.UINT8)

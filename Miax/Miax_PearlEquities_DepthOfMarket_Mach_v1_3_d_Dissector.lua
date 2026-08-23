@@ -14,6 +14,13 @@ local miax_pearlequities_depthofmarket_mach_v1_3_d = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities DepthOfMarket Mach 1.3.d Headers
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.tcppacket", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.udppacket", ftypes.STRING)
+
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.depthofmarket.mach.v1.3.d.applicationprotocol", ftypes.STRING)
@@ -23,10 +30,8 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.computer_id = ProtoField
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.do_m_version = ProtoField.new("Do M Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.domversion", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.endsequencenumber", ftypes.UINT64)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpackettype", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.goodbyepacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.highestsequencenumber", ftypes.UINT64)
@@ -37,7 +42,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_reason = ProtoFie
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.logoutrequest", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.depthofmarket.mach.v1.3.d.logouttext", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.d.lotsize", ftypes.UINT16)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.d.machpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.machpackettype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.depthofmarket.mach.v1.3.d.marketstate", ftypes.UINT8)
@@ -75,7 +79,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.start_sequence_number = 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.symbolid", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.depthofmarket.mach.v1.3.d.synchronizationcomplete", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.depthofmarket.mach.v1.3.d.systemstatus", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.tcppacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.testpacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.d.testsecurityindicator", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.depthofmarket.mach.v1.3.d.testtext", ftypes.STRING)
@@ -85,7 +88,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_id = ProtoField.ne
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.traded_against_retail = ProtoField.new("Traded Against Retail", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradedagainstretail", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradingstatus", ftypes.UINT8)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.udppacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.unsequenceddatapacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.username = ProtoField.new("Username", "miax.pearlequities.depthofmarket.mach.v1.3.d.username", ftypes.STRING)
@@ -3577,11 +3579,11 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.dissector(buffer, pack
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d, buffer(), omi_miax_pearlequities_depthofmarket_mach_v1_3_d.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

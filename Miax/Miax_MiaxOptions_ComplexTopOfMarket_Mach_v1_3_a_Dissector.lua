@@ -14,6 +14,13 @@ local miax_miaxoptions_complextopofmarket_mach_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Headers
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.activeonmiax", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.application_message = ProtoField.new("Application Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.applicationmessage", ftypes.STRING)
@@ -48,7 +55,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.logout_reason = Proto
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.logout_request = ProtoField.new("Logout Request", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.logoutrequest", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.logout_text = ProtoField.new("Logout Text", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.logouttext", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.long_term_option = ProtoField.new("Long Term Option", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.longtermoption", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.matchingengineid", ftypes.UINT8)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.messagetype", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.miaxbbopostingincrementindicator", ftypes.STRING)
@@ -87,10 +93,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.security_symbol = Pro
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sequencedmessagetype", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmpacketheader", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmpacketlength", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmpackettype", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmtcppacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmversion", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sessionid", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sessionnumber", ftypes.UINT8)
@@ -101,13 +105,11 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.strategy_id = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.strikeprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.synchronizationcomplete", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.system_status = ProtoField.new("System Status", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.systemstatus", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.tcppacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.test_packet = ProtoField.new("Test Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.testpacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.test_text = ProtoField.new("Test Text", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.testtext", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.tradeid", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.tradingsessionid", ftypes.UINT8)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.tradingstatus", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.udppacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.underlyingsymbol", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.unsequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.unsequencedmessagetype", ftypes.STRING)
@@ -4590,11 +4592,11 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.dissector(buffer, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a, buffer(), omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_miaxoptions_complextopofmarket_mach_v1_3_a.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_miaxoptions_complextopofmarket_mach_v1_3_a.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_miaxoptions_complextopofmarket_mach_v1_3_a.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_equityderivatives_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime EquityDerivatives Exture 2.018 Headers
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime EquityDerivatives Exture 2.018 Fields
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.apricechangeagainstthepreviousday", ftypes.STRING)
@@ -223,7 +226,6 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.number_of_months_
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.numberofrepotradeperiods", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.openingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.otherstocktypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.par_value = ProtoField.new("Par Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.parvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.parvaluetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.pbr = ProtoField.new("Pbr", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.pbr", ftypes.DOUBLE)

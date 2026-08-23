@@ -14,6 +14,10 @@ local memx_memxequities_memoirtopofbook_sbe_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxEquities MemoirTopOfBook Sbe 1.1 Headers
+omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirtopofbook.sbe.v1.1.commonheader", ftypes.STRING)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirtopofbook.sbe.v1.1.packet", ftypes.STRING)
+
 -- Memx MemxEquities MemoirTopOfBook Sbe 1.1 Fields
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.memxequities.memoirtopofbook.sbe.v1.1.asofsequencenumber", ftypes.UINT64)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.bid_price = ProtoField.new("Bid Price", "memx.memxequities.memoirtopofbook.sbe.v1.1.bidprice", ftypes.DOUBLE)
@@ -21,7 +25,6 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.bid_price_short = ProtoFie
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.bid_size = ProtoField.new("Bid Size", "memx.memxequities.memoirtopofbook.sbe.v1.1.bidsize", ftypes.UINT32)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.bid_size_short = ProtoField.new("Bid Size Short", "memx.memxequities.memoirtopofbook.sbe.v1.1.bidsizeshort", ftypes.UINT16)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memoirtopofbook.sbe.v1.1.blocklength", ftypes.UINT16)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirtopofbook.sbe.v1.1.commonheader", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.header_length = ProtoField.new("Header Length", "memx.memxequities.memoirtopofbook.sbe.v1.1.headerlength", ftypes.UINT8)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.memxequities.memoirtopofbook.sbe.v1.1.istestsymbol", ftypes.UINT8)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.message = ProtoField.new("Message", "memx.memxequities.memoirtopofbook.sbe.v1.1.message", ftypes.STRING)
@@ -33,7 +36,6 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.offer_price = ProtoField.n
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.memxequities.memoirtopofbook.sbe.v1.1.offerpriceshort", ftypes.DOUBLE)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.offer_size = ProtoField.new("Offer size", "memx.memxequities.memoirtopofbook.sbe.v1.1.offersize", ftypes.UINT32)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "memx.memxequities.memoirtopofbook.sbe.v1.1.offersizeuint16", ftypes.UINT16)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirtopofbook.sbe.v1.1.packet", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.round_lot = ProtoField.new("Round Lot", "memx.memxequities.memoirtopofbook.sbe.v1.1.roundlot", ftypes.UINT32)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memoirtopofbook.sbe.v1.1.sbeheader", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.memoirtopofbook.sbe.v1.1.sbemessage", ftypes.STRING)

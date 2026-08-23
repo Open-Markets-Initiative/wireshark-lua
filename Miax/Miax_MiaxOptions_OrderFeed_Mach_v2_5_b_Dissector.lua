@@ -14,6 +14,13 @@ local miax_miaxoptions_orderfeed_mach_v2_5_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax MiaxOptions OrderFeed Mach 2.5.b Headers
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions OrderFeed Mach 2.5.b Fields
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.action = ProtoField.new("Action", "miax.miaxoptions.orderfeed.mach.v2.5.b.action", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.orderfeed.mach.v2.5.b.activeonmiax", ftypes.STRING)
@@ -41,7 +48,6 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.logout_reason = ProtoField.new
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.logout_request = ProtoField.new("Logout Request", "miax.miaxoptions.orderfeed.mach.v2.5.b.logoutrequest", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.logout_text = ProtoField.new("Logout Text", "miax.miaxoptions.orderfeed.mach.v2.5.b.logouttext", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.long_term_option = ProtoField.new("Long Term Option", "miax.miaxoptions.orderfeed.mach.v2.5.b.longtermoption", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.matchingengineid", ftypes.UINT8)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.message_type = ProtoField.new("Message Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.messagetype", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.miaxoptions.orderfeed.mach.v2.5.b.miaxbbopostingincrementindicator", ftypes.STRING)
@@ -80,10 +86,8 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.security_symbol = ProtoField.n
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.b.sequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.sequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.sequencedmessagetype", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpacketheader", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpacketlength", ftypes.UINT16)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpackettype", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmtcppacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmversion", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.sessionid", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.orderfeed.mach.v2.5.b.sessionnumber", ftypes.UINT8)
@@ -93,13 +97,11 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strategy_id = ProtoField.new("
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.strike_price = ProtoField.new("Strike Price", "miax.miaxoptions.orderfeed.mach.v2.5.b.strikeprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.miaxoptions.orderfeed.mach.v2.5.b.synchronizationcomplete", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.system_status = ProtoField.new("System Status", "miax.miaxoptions.orderfeed.mach.v2.5.b.systemstatus", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.tcppacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.test_packet = ProtoField.new("Test Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.testpacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.test_text = ProtoField.new("Test Text", "miax.miaxoptions.orderfeed.mach.v2.5.b.testtext", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.time_in_force_tif = ProtoField.new("Time In Force Tif", "miax.miaxoptions.orderfeed.mach.v2.5.b.timeinforcetif", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.tradingsessionid", ftypes.UINT8)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.trading_status = ProtoField.new("Trading Status", "miax.miaxoptions.orderfeed.mach.v2.5.b.tradingstatus", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.udppacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.miaxoptions.orderfeed.mach.v2.5.b.underlyingsymbol", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.unsequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.miaxoptions.orderfeed.mach.v2.5.b.unsequencedmessagetype", ftypes.STRING)
@@ -4128,11 +4130,11 @@ function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.dissector(buffer, packet, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b, buffer(), omi_miax_miaxoptions_orderfeed_mach_v2_5_b.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_miaxoptions_orderfeed_mach_v2_5_b.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_miaxoptions_orderfeed_mach_v2_5_b.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

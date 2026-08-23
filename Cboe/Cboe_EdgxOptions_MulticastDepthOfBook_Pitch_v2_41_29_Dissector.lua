@@ -14,6 +14,10 @@ local cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe EdgxOptions MulticastDepthOfBook Pitch 2.41.29 Headers
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
+
 -- Cboe EdgxOptions MulticastDepthOfBook Pitch 2.41.29 Fields
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.aon = ProtoField.new("Aon", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -48,8 +52,6 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.multiplier = Pro
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.openingcondition", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.order_id = ProtoField.new("Order Id", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.orderid", ftypes.UINT64)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.osisymbol", ftypes.STRING)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)

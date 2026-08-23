@@ -14,6 +14,12 @@ local nyse_nyseconsolidated_bqt_xdp_v2_4_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseConsolidated Bqt Xdp 2.4.a Headers
+omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message = ProtoField.new("Message", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.message", ftypes.STRING)
+omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.messageheader", ftypes.STRING)
+omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.packet = ProtoField.new("Packet", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.packet", ftypes.STRING)
+omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.packetheader", ftypes.STRING)
+
 -- Nyse NyseConsolidated Bqt Xdp 2.4.a Fields
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.askprice", ftypes.DOUBLE)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.askquotecondition", ftypes.STRING)
@@ -47,9 +53,7 @@ omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.market_id_of_best_ask = ProtoFie
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.marketidofbestbid", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.marketidofopenprice", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.market_state = ProtoField.new("Market State", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.marketstate", ftypes.STRING)
-omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message = ProtoField.new("Message", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.message", ftypes.STRING)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message_count = ProtoField.new("Message Count", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.messagecount", ftypes.UINT8)
-omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.messageheader", ftypes.STRING)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message_size = ProtoField.new("Message Size", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.messagesize", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.message_type = ProtoField.new("Message Type", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.messagetype", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.mpv = ProtoField.new("Mpv", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.mpv", ftypes.UINT16)
@@ -62,8 +66,6 @@ omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_pri
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.nysegroupmarketidoflowprice", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_the_close = ProtoField.new("Nyse Group Market Id Of The Close", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.nysegroupmarketidoftheclose", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.originaltradeid", ftypes.UINT32)
-omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.packet = ProtoField.new("Packet", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.packet", ftypes.STRING)
-omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.packetheader", ftypes.STRING)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.packetsize", ftypes.UINT16)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.prevcloseprice", ftypes.DOUBLE)
 omi_nyse_nyseconsolidated_bqt_xdp_v2_4_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseconsolidated.bqt.xdp.v2.4.a.prevclosevolume", ftypes.UINT32)

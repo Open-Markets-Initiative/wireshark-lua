@@ -14,6 +14,13 @@ local miax_miaxoptions_mpf_mach_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax MiaxOptions Mpf Mach 1.1 Headers
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.mpf.mach.v1.1.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.mpf.mach.v1.1.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions Mpf Mach 1.1 Fields
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.application_message = ProtoField.new("Application Message", "miax.miaxoptions.mpf.mach.v1.1.applicationmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.application_protocol = ProtoField.new("Application Protocol", "miax.miaxoptions.mpf.mach.v1.1.applicationprotocol", ftypes.STRING)
@@ -27,7 +34,6 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.login_status = ProtoField.new("Login S
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.logout_reason = ProtoField.new("Logout Reason", "miax.miaxoptions.mpf.mach.v1.1.logoutreason", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.logout_request = ProtoField.new("Logout Request", "miax.miaxoptions.mpf.mach.v1.1.logoutrequest", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.logout_text = ProtoField.new("Logout Text", "miax.miaxoptions.mpf.mach.v1.1.logouttext", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.mpf.mach.v1.1.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.miaxoptions.mpf.mach.v1.1.matchingengineid", ftypes.UINT8)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.message_type = ProtoField.new("Message Type", "miax.miaxoptions.mpf.mach.v1.1.messagetype", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.miaxoptions.mpf.mach.v1.1.nanoseconds", ftypes.UINT32)
@@ -44,10 +50,8 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "m
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.sequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.mpf.mach.v1.1.sequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.miaxoptions.mpf.mach.v1.1.sequencedmessagetype", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketheader", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketlength", ftypes.UINT16)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.mpf.mach.v1.1.sesmpackettype", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.sesmtcppacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.mpf.mach.v1.1.sesmversion", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.mpf.mach.v1.1.sessionnumber", ftypes.UINT8)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.settlement_date = ProtoField.new("Settlement Date", "miax.miaxoptions.mpf.mach.v1.1.settlementdate", ftypes.STRING)
@@ -56,11 +60,9 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol = ProtoField.new("Symbol", "mia
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol_status = ProtoField.new("Symbol Status", "miax.miaxoptions.mpf.mach.v1.1.symbolstatus", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.miaxoptions.mpf.mach.v1.1.synchronizationcomplete", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.synthetic_future_symbol = ProtoField.new("Synthetic Future Symbol", "miax.miaxoptions.mpf.mach.v1.1.syntheticfuturesymbol", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.tcppacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.test_packet = ProtoField.new("Test Packet", "miax.miaxoptions.mpf.mach.v1.1.testpacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.test_text = ProtoField.new("Test Text", "miax.miaxoptions.mpf.mach.v1.1.testtext", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.miaxoptions.mpf.mach.v1.1.tradingsessionid", ftypes.UINT8)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.mpf.mach.v1.1.udppacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.miaxoptions.mpf.mach.v1.1.unsequenceddatapacket", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.miaxoptions.mpf.mach.v1.1.unsequencedmessagetype", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.username = ProtoField.new("Username", "miax.miaxoptions.mpf.mach.v1.1.username", ftypes.STRING)
@@ -2451,11 +2453,11 @@ function omi_miax_miaxoptions_mpf_mach_v1_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1, buffer(), omi_miax_miaxoptions_mpf_mach_v1_1.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_miaxoptions_mpf_mach_v1_1.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_miaxoptions_mpf_mach_v1_1.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_miaxoptions_mpf_mach_v1_1.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

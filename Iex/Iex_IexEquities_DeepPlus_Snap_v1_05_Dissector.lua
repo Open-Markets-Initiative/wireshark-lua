@@ -14,6 +14,11 @@ local iex_iexequities_deepplus_snap_v1_05 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexEquities DeepPlus Snap 1.05 Headers
+omi_iex_iexequities_deepplus_snap_v1_05.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.snap.v1.05.message", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_05.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deepplus.snap.v1.05.messageheader", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_05.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.snap.v1.05.packet", ftypes.STRING)
+
 -- Iex IexEquities DeepPlus Snap 1.05 Fields
 omi_iex_iexequities_deepplus_snap_v1_05.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deepplus.snap.v1.05.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.authentication_token = ProtoField.new("Authentication Token", "iex.iexequities.deepplus.snap.v1.05.authenticationtoken", ftypes.STRING)
@@ -27,8 +32,6 @@ omi_iex_iexequities_deepplus_snap_v1_05.fields.iex_tp_message_length = ProtoFiel
 omi_iex_iexequities_deepplus_snap_v1_05.fields.iex_tp_message_type = ProtoField.new("Iex Tp Message Type", "iex.iexequities.deepplus.snap.v1.05.iextpmessagetype", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.iexequities.deepplus.snap.v1.05.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.deepplus.snap.v1.05.luldtier", ftypes.UINT8)
-omi_iex_iexequities_deepplus_snap_v1_05.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.snap.v1.05.message", ftypes.STRING)
-omi_iex_iexequities_deepplus_snap_v1_05.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deepplus.snap.v1.05.messageheader", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.deepplus.snap.v1.05.messagelength", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.deepplus.snap.v1.05.messagetype", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.minimum_sequence_number = ProtoField.new("Minimum Sequence Number", "iex.iexequities.deepplus.snap.v1.05.minimumsequencenumber", ftypes.UINT64)
@@ -37,7 +40,6 @@ omi_iex_iexequities_deepplus_snap_v1_05.fields.odd_lot = ProtoField.new("Odd Lot
 omi_iex_iexequities_deepplus_snap_v1_05.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.iexequities.deepplus.snap.v1.05.operationalhaltstatus", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.order_id = ProtoField.new("Order Id", "iex.iexequities.deepplus.snap.v1.05.orderid", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.order_id_reference = ProtoField.new("Order Id Reference", "iex.iexequities.deepplus.snap.v1.05.orderidreference", ftypes.UINT64)
-omi_iex_iexequities_deepplus_snap_v1_05.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.snap.v1.05.packet", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.price = ProtoField.new("Price", "iex.iexequities.deepplus.snap.v1.05.price", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.priority = ProtoField.new("Priority", "iex.iexequities.deepplus.snap.v1.05.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.reason = ProtoField.new("Reason", "iex.iexequities.deepplus.snap.v1.05.reason", ftypes.STRING)

@@ -14,6 +14,12 @@ local nyse_arcaequities_bbo_xdp_v2_4_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaEquities Bbo Xdp 2.4.c Headers
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", "nyse.arcaequities.bbo.xdp.v2.4.c.message", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bbo.xdp.v2.4.c.packetheader", ftypes.STRING)
+
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaequities.bbo.xdp.v2.4.c.askprice", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.arcaequities.bbo.xdp.v2.4.c.askvolume", ftypes.UINT32)
@@ -33,17 +39,13 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.last_symbol_seq_num = ProtoField.new
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.lot_size = ProtoField.new("Lot Size", "nyse.arcaequities.bbo.xdp.v2.4.c.lotsize", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.bbo.xdp.v2.4.c.marketid", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.market_state = ProtoField.new("Market State", "nyse.arcaequities.bbo.xdp.v2.4.c.marketstate", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", "nyse.arcaequities.bbo.xdp.v2.4.c.message", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_count = ProtoField.new("Message Count", "nyse.arcaequities.bbo.xdp.v2.4.c.messagecount", ftypes.UINT8)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.bbo.xdp.v2.4.c.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.bbo.xdp.v2.4.c.messagetype", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.bbo.xdp.v2.4.c.messageunavailablemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.bbo.xdp.v2.4.c.mpv", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaequities.bbo.xdp.v2.4.c.nanoseconds", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.nextsourceseqnum", ftypes.UINT32)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bbo.xdp.v2.4.c.packetheader", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_size = ProtoField.new("Packet Size", "nyse.arcaequities.bbo.xdp.v2.4.c.packetsize", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaequities.bbo.xdp.v2.4.c.prevcloseprice", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arcaequities.bbo.xdp.v2.4.c.prevclosevolume", ftypes.UINT32)

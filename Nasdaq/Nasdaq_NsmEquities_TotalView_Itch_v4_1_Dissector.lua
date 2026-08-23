@@ -14,6 +14,10 @@ local nasdaq_nsmequities_totalview_itch_v4_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities TotalView Itch 4.1 Headers
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v4.1.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v4.1.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities TotalView Itch 4.1 Fields
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.itch.v4.1.attribution", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.itch.v4.1.canceledshares", ftypes.UINT32)
@@ -44,8 +48,6 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.near_price = ProtoField.new("N
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.nsmequities.totalview.itch.v4.1.neworderreferencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.itch.v4.1.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.original_order_reference_number = ProtoField.new("Original Order Reference Number", "nasdaq.nsmequities.totalview.itch.v4.1.originalorderreferencenumber", ftypes.UINT64)
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v4.1.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v4.1.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.totalview.itch.v4.1.pairedshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.itch.v4.1.price", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.totalview.itch.v4.1.pricevariationindicator", ftypes.STRING)

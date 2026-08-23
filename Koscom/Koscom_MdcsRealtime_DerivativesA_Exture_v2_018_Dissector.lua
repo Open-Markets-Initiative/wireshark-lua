@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_derivativesa_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime DerivativesA Exture 2.018 Headers
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.derivativesa.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime DerivativesA Exture 2.018 Fields
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.derivativesa.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
@@ -207,7 +210,6 @@ omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.open_interest = ProtoF
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.open_interest_limit_quantity = ProtoField.new("Open Interest Limit Quantity", "koscom.mdcsrealtime.derivativesa.exture.v2.018.openinterestlimitquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.open_interest_type_code = ProtoField.new("Open Interest Type Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.openinteresttypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.derivativesa.exture.v2.018.openingprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.derivativesa.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.payment_methods = ProtoField.new("Payment Methods", "koscom.mdcsrealtime.derivativesa.exture.v2.018.paymentmethods", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.previous_days_adjusted_closing_price = ProtoField.new("Previous Days Adjusted Closing Price", "koscom.mdcsrealtime.derivativesa.exture.v2.018.previousdaysadjustedclosingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.previous_days_best_ask = ProtoField.new("Previous Days Best Ask", "koscom.mdcsrealtime.derivativesa.exture.v2.018.previousdaysbestask", ftypes.STRING)

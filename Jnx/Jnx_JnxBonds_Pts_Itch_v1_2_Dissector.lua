@@ -14,6 +14,10 @@ local jnx_jnxbonds_pts_itch_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jnx JnxBonds Pts Itch 1.2 Headers
+omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.itch.v1.2.packet", ftypes.STRING)
+omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.itch.v1.2.packetheader", ftypes.STRING)
+
 -- Jnx JnxBonds Pts Itch 1.2 Fields
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxbonds.pts.itch.v1.2.buysellindicator", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxbonds.pts.itch.v1.2.executedquantity", ftypes.UINT32)
@@ -31,8 +35,6 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.order_number = ProtoField.new("Order Numbe
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.jnxbonds.pts.itch.v1.2.orderbookcode", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxbonds.pts.itch.v1.2.orderbookid", ftypes.UINT32)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.jnxbonds.pts.itch.v1.2.originalordernumber", ftypes.UINT64)
-omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.itch.v1.2.packet", ftypes.STRING)
-omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.itch.v1.2.packetheader", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.price = ProtoField.new("Price", "jnx.jnxbonds.pts.itch.v1.2.price", ftypes.DOUBLE)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.jnxbonds.pts.itch.v1.2.pricedecimals", ftypes.UINT32)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.price_start = ProtoField.new("Price Start", "jnx.jnxbonds.pts.itch.v1.2.pricestart", ftypes.DOUBLE)

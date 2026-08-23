@@ -14,6 +14,12 @@ local cme_globex_ilink3_sbe_v8_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cme Globex iLink3 Sbe 8.4 Headers
+omi_cme_globex_ilink3_sbe_v8_4.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.4.messageheader", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.packet = ProtoField.new("Packet", "cme.globex.ilink3.sbe.v8.4.packet", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.globex.ilink3.sbe.v8.4.simpleopenframe", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.4.simpleopenframingheader", ftypes.STRING)
+
 -- Cme Globex iLink3 Sbe 8.4 Fields
 omi_cme_globex_ilink3_sbe_v8_4.fields.access_key_id = ProtoField.new("Access Key Id", "cme.globex.ilink3.sbe.v8.4.accesskeyid", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.affected_order_id = ProtoField.new("Affected Order Id", "cme.globex.ilink3.sbe.v8.4.affectedorderid", ftypes.UINT64)
@@ -121,7 +127,6 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.maturity_month_year = ProtoField.new("Matu
 omi_cme_globex_ilink3_sbe_v8_4.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.globex.ilink3.sbe.v8.4.maxnoofsubstitutions", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_4.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.globex.ilink3.sbe.v8.4.mdtradeentryid", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.memo = ProtoField.new("Memo", "cme.globex.ilink3.sbe.v8.4.memo", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.4.messageheader", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.message_length = ProtoField.new("Message Length", "cme.globex.ilink3.sbe.v8.4.messagelength", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.min_qty = ProtoField.new("Min Qty", "cme.globex.ilink3.sbe.v8.4.minqty", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "cme.globex.ilink3.sbe.v8.4.mmprotectionreset", ftypes.UINT8)
@@ -167,7 +172,6 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.outright_order_events_groups = ProtoField.
 omi_cme_globex_ilink3_sbe_v8_4.fields.outright_trade_events_group = ProtoField.new("Outright Trade Events Group", "cme.globex.ilink3.sbe.v8.4.outrighttradeeventsgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.outright_trade_events_groups = ProtoField.new("Outright Trade Events Groups", "cme.globex.ilink3.sbe.v8.4.outrighttradeeventsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.ownership = ProtoField.new("Ownership", "cme.globex.ilink3.sbe.v8.4.ownership", ftypes.UINT8)
-omi_cme_globex_ilink3_sbe_v8_4.fields.packet = ProtoField.new("Packet", "cme.globex.ilink3.sbe.v8.4.packet", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.globex.ilink3.sbe.v8.4.partydetaildefinitionstatus", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_4.fields.party_detail_id = ProtoField.new("Party Detail Id", "cme.globex.ilink3.sbe.v8.4.partydetailid", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.party_detail_request_status = ProtoField.new("Party Detail Request Status", "cme.globex.ilink3.sbe.v8.4.partydetailrequeststatus", ftypes.UINT8)
@@ -261,8 +265,6 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.side_time_in_force = ProtoField.new("Side 
 omi_cme_globex_ilink3_sbe_v8_4.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.globex.ilink3.sbe.v8.4.sidetradeid", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.sides_group = ProtoField.new("Sides Group", "cme.globex.ilink3.sbe.v8.4.sidesgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.sides_groups = ProtoField.new("Sides Groups", "cme.globex.ilink3.sbe.v8.4.sidesgroups", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.globex.ilink3.sbe.v8.4.simpleopenframe", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.4.simpleopenframingheader", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.globex.ilink3.sbe.v8.4.sourcerepoid", ftypes.INT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.split_msg = ProtoField.new("Split Msg", "cme.globex.ilink3.sbe.v8.4.splitmsg", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_4.fields.spread_leg_order_events_group = ProtoField.new("Spread Leg Order Events Group", "cme.globex.ilink3.sbe.v8.4.spreadlegordereventsgroup", ftypes.STRING)

@@ -14,6 +14,12 @@ local cboe_c1options_openingauction_csm_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options OpeningAuction Csm 1.0 Headers
+omi_cboe_c1options_openingauction_csm_v1_0.fields.message = ProtoField.new("Message", "cboe.c1options.openingauction.csm.v1.0.message", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingauction.csm.v1.0.messageheader", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingauction.csm.v1.0.packet", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingauction.csm.v1.0.packetheader", ftypes.STRING)
+
 -- Cboe C1Options OpeningAuction Csm 1.0 Fields
 omi_cboe_c1options_openingauction_csm_v1_0.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.c1options.openingauction.csm.v1.0.applseqnum", ftypes.UINT32)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.class_key = ProtoField.new("Class Key", "cboe.c1options.openingauction.csm.v1.0.classkey", ftypes.UINT32)
@@ -43,9 +49,7 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.md_entry_px_mantissa = ProtoFi
 omi_cboe_c1options_openingauction_csm_v1_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cboe.c1options.openingauction.csm.v1.0.mdentrysize", ftypes.UINT32)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cboe.c1options.openingauction.csm.v1.0.mdentrytype", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.md_volume_type = ProtoField.new("Md Volume Type", "cboe.c1options.openingauction.csm.v1.0.mdvolumetype", ftypes.UINT8)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.message = ProtoField.new("Message", "cboe.c1options.openingauction.csm.v1.0.message", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.openingauction.csm.v1.0.messagecount", ftypes.UINT8)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingauction.csm.v1.0.messageheader", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.openingauction.csm.v1.0.messagelength", ftypes.UINT16)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.openingauction.csm.v1.0.messagetype", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.c1options.openingauction.csm.v1.0.minimumabovepremiumfraction", ftypes.STRING)
@@ -60,8 +64,6 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.minimum_strike_price_fraction_
 omi_cboe_c1options_openingauction_csm_v1_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "cboe.c1options.openingauction.csm.v1.0.msgseqnum", ftypes.UINT32)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.no_entries = ProtoField.new("No Entries", "cboe.c1options.openingauction.csm.v1.0.noentries", ftypes.UINT8)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.no_legs = ProtoField.new("No Legs", "cboe.c1options.openingauction.csm.v1.0.nolegs", ftypes.UINT8)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingauction.csm.v1.0.packet", ftypes.STRING)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingauction.csm.v1.0.packetheader", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.packet_length = ProtoField.new("Packet Length", "cboe.c1options.openingauction.csm.v1.0.packetlength", ftypes.UINT16)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.c1options.openingauction.csm.v1.0.premiumbreakpoint", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.premium_break_point_exponent = ProtoField.new("Premium Break Point Exponent", "cboe.c1options.openingauction.csm.v1.0.premiumbreakpointexponent", ftypes.INT8)

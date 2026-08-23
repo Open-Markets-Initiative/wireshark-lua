@@ -14,6 +14,11 @@ local iex_iexoptions_binaryorderentry_sbe_v1_02 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexOptions BinaryOrderEntry Sbe 1.02 Headers
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.binaryorderentry.sbe.v1.02.messageheader", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet = ProtoField.new("Packet", "iex.iexoptions.binaryorderentry.sbe.v1.02.packet", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
+
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_account = ProtoField.new("Account Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountaccount", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_string_16 = ProtoField.new("Account string 16", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountstring16", ftypes.STRING)
@@ -91,7 +96,6 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.max_duplicative = ProtoFiel
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.max_notional = ProtoField.new("Max Notional", "iex.iexoptions.binaryorderentry.sbe.v1.02.maxnotional", ftypes.DOUBLE)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.max_qty = ProtoField.new("Max Qty", "iex.iexoptions.binaryorderentry.sbe.v1.02.maxqty", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.member = ProtoField.new("Member", "iex.iexoptions.binaryorderentry.sbe.v1.02.member", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.binaryorderentry.sbe.v1.02.messageheader", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mic = ProtoField.new("Mic", "iex.iexoptions.binaryorderentry.sbe.v1.02.mic", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_filter = ProtoField.new("Mpid Filter", "iex.iexoptions.binaryorderentry.sbe.v1.02.mpidfilter", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_status = ProtoField.new("Mpid Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.mpidstatus", ftypes.INT8)
@@ -113,7 +117,6 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_unsolicited_ack_subsc
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.origclordid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.orp_enabled = ProtoField.new("Orp Enabled", "iex.iexoptions.binaryorderentry.sbe.v1.02.orpenabled", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.osi_symbol = ProtoField.new("Osi Symbol", "iex.iexoptions.binaryorderentry.sbe.v1.02.osisymbol", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet = ProtoField.new("Packet", "iex.iexoptions.binaryorderentry.sbe.v1.02.packet", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet_length = ProtoField.new("Packet Length", "iex.iexoptions.binaryorderentry.sbe.v1.02.packetlength", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.percentage_limit = ProtoField.new("Percentage Limit", "iex.iexoptions.binaryorderentry.sbe.v1.02.percentagelimit", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4 = ProtoField.new("Price Price 4", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4", ftypes.DOUBLE)
@@ -140,7 +143,6 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control_o
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status = ProtoField.new("Risk Control Status Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatus", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status_optional = ProtoField.new("Risk Control Status Risk Control Status optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatusoptional", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.routingfirmid", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.sequence", ftypes.UINT32)

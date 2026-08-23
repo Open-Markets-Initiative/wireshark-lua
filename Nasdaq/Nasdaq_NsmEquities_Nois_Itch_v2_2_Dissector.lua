@@ -14,6 +14,10 @@ local nasdaq_nsmequities_nois_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities Nois Itch 2.2 Headers
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities Nois Itch 2.2 Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.currentreferenceprice", ftypes.BYTES)
@@ -29,8 +33,6 @@ omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_header = ProtoField.new("Me
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nois.itch.v2.2.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nois.itch.v2.2.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.nearprice", ftypes.BYTES)
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.nois.itch.v2.2.reason", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.rfu = ProtoField.new("Rfu", "nasdaq.nsmequities.nois.itch.v2.2.rfu", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nois.itch.v2.2.roundlotsize", ftypes.UINT64)

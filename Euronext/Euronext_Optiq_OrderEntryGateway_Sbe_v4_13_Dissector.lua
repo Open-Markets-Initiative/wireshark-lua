@@ -14,6 +14,11 @@ local euronext_optiq_orderentrygateway_sbe_v4_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Euronext Optiq OrderEntryGateway Sbe 4.13 Headers
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v4.13.message", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v4.13.messageheader", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v4.13.packet", ftypes.STRING)
+
 -- Euronext Optiq OrderEntryGateway Sbe 4.13 Fields
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.account_number = ProtoField.new("Account Number", "euronext.optiq.orderentrygateway.sbe.v4.13.accountnumber", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.account_number_cross = ProtoField.new("Account Number Cross", "euronext.optiq.orderentrygateway.sbe.v4.13.accountnumbercross", ftypes.STRING)
@@ -201,8 +206,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.lp_role = ProtoField.new("
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.lp_role_optional = ProtoField.new("Lp Role Optional", "euronext.optiq.orderentrygateway.sbe.v4.13.lproleoptional", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.lrgs = ProtoField.new("Lrgs", "euronext.optiq.orderentrygateway.sbe.v4.13.lrgs", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.maturity = ProtoField.new("Maturity", "euronext.optiq.orderentrygateway.sbe.v4.13.maturity", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v4.13.message", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v4.13.messageheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.orderentrygateway.sbe.v4.13.messagepricenotation", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.mi_cof_secondary_listing = ProtoField.new("Mi Cof Secondary Listing", "euronext.optiq.orderentrygateway.sbe.v4.13.micofsecondarylisting", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.mifid_fields_group = ProtoField.new("Mifid Fields Group", "euronext.optiq.orderentrygateway.sbe.v4.13.mifidfieldsgroup", ftypes.STRING)
@@ -274,7 +277,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.original_ioiid = ProtoFiel
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.other_leg_last_px = ProtoField.new("Other Leg Last Px", "euronext.optiq.orderentrygateway.sbe.v4.13.otherleglastpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.other_not_used_groups = ProtoField.new("Other Not Used Groups", "euronext.optiq.orderentrygateway.sbe.v4.13.othernotusedgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.package_id = ProtoField.new("Package Id", "euronext.optiq.orderentrygateway.sbe.v4.13.packageid", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v4.13.packet", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.parent_exec_id = ProtoField.new("Parent Exec Id", "euronext.optiq.orderentrygateway.sbe.v4.13.parentexecid", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.parent_symbol_index = ProtoField.new("Parent Symbol Index", "euronext.optiq.orderentrygateway.sbe.v4.13.parentsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.passive_order = ProtoField.new("Passive Order", "euronext.optiq.orderentrygateway.sbe.v4.13.passiveorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)

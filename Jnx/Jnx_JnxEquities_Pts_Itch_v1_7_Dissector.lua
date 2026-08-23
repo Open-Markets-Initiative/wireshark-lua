@@ -14,11 +14,22 @@ local jnx_jnxequities_pts_itch_v1_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jnx JnxEquities Pts Itch 1.7 Headers
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clientsoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clienttcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.clienttcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.serversoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.servertcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.servertcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
+
 -- Jnx JnxEquities Pts Itch 1.7 Fields
 omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxequities.pts.itch.v1.7.acceptedsequencenumber", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxequities.pts.itch.v1.7.acceptedsession", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.itch.v1.7.attribution", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.itch.v1.7.buysellindicator", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.itch.v1.7.clientpackettype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxequities.pts.itch.v1.7.executedquantity", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.group = ProtoField.new("Group", "jnx.jnxequities.pts.itch.v1.7.group", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.jnxequities.pts.itch.v1.7.lowerpricelimit", ftypes.DOUBLE)
@@ -28,7 +39,6 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.message_count = ProtoField.new("Message
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_header = ProtoField.new("Message Header", "jnx.jnxequities.pts.itch.v1.7.messageheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_length = ProtoField.new("Message Length", "jnx.jnxequities.pts.itch.v1.7.messagelength", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_type = ProtoField.new("Message Type", "jnx.jnxequities.pts.itch.v1.7.messagetype", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.nanoseconds = ProtoField.new("Nanoseconds", "jnx.jnxequities.pts.itch.v1.7.nanoseconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.new_order_number = ProtoField.new("New Order Number", "jnx.jnxequities.pts.itch.v1.7.newordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_number = ProtoField.new("Order Number", "jnx.jnxequities.pts.itch.v1.7.ordernumber", ftypes.UINT64)
@@ -37,7 +47,6 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_code = ProtoField.new("Orderb
 omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxequities.pts.itch.v1.7.orderbookid", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.jnxequities.pts.itch.v1.7.originalordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.packet_length = ProtoField.new("Packet Length", "jnx.jnxequities.pts.itch.v1.7.packetlength", ftypes.UINT16)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.itch.v1.7.packettype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.password = ProtoField.new("Password", "jnx.jnxequities.pts.itch.v1.7.password", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.price = ProtoField.new("Price", "jnx.jnxequities.pts.itch.v1.7.price", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.jnxequities.pts.itch.v1.7.pricedecimals", ftypes.DOUBLE)
@@ -51,16 +60,14 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_session = ProtoField.new("Req
 omi_jnx_jnxequities_pts_itch_v1_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.jnxequities.pts.itch.v1.7.roundlotsize", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds = ProtoField.new("Seconds", "jnx.jnxequities.pts.itch.v1.7.seconds", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxequities.pts.itch.v1.7.sequencedmessagetype", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.itch.v1.7.serverpackettype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.short_selling_state = ProtoField.new("Short Selling State", "jnx.jnxequities.pts.itch.v1.7.shortsellingstate", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.soupbintcppacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.system_event = ProtoField.new("System Event", "jnx.jnxequities.pts.itch.v1.7.systemevent", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.tcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.tcppacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.text = ProtoField.new("Text", "jnx.jnxequities.pts.itch.v1.7.text", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v1.7.tradingstate", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "jnx.jnxequities.pts.itch.v1.7.udpsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_session = ProtoField.new("Udp Session", "jnx.jnxequities.pts.itch.v1.7.udpsession", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.jnxequities.pts.itch.v1.7.unsequencedmessage", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.itch.v1.7.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v1.7.upperpricelimit", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.itch.v1.7.username", ftypes.STRING)
@@ -119,15 +126,23 @@ jnx_jnxequities_pts_itch_v1_7.utc_offset_hours = 9
 local show = {}
 
 -- Jnx JnxEquities Pts Itch 1.7 Element Dissection Options
-show.session_messages = true
 show.structs = true
+show.session_messages = true
 show.headers = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Jnx JnxEquities Pts Itch 1.7 Show Options
-omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -310,6 +325,45 @@ jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.dissect = function(buffer, offs
   local display = jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+jnx_jnxequities_pts_itch_v1_7.client_packet_type = {}
+
+-- Size: Client Packet Type
+jnx_jnxequities_pts_itch_v1_7.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+jnx_jnxequities_pts_itch_v1_7.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+jnx_jnxequities_pts_itch_v1_7.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_itch_v1_7.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -716,60 +770,6 @@ jnx_jnxequities_pts_itch_v1_7.packet_length.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Packet Type
-jnx_jnxequities_pts_itch_v1_7.packet_type = {}
-
--- Size: Packet Type
-jnx_jnxequities_pts_itch_v1_7.packet_type.size = 1
-
--- Display: Packet Type
-jnx_jnxequities_pts_itch_v1_7.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-jnx_jnxequities_pts_itch_v1_7.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxequities_pts_itch_v1_7.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_jnxequities_pts_itch_v1_7.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Password
 jnx_jnxequities_pts_itch_v1_7.password = {}
 
@@ -1143,6 +1143,48 @@ jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Server Packet Type
+jnx_jnxequities_pts_itch_v1_7.server_packet_type = {}
+
+-- Size: Server Packet Type
+jnx_jnxequities_pts_itch_v1_7.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+jnx_jnxequities_pts_itch_v1_7.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+jnx_jnxequities_pts_itch_v1_7.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_itch_v1_7.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Selling State
 jnx_jnxequities_pts_itch_v1_7.short_selling_state = {}
 
@@ -1309,6 +1351,25 @@ jnx_jnxequities_pts_itch_v1_7.udp_session.dissect = function(buffer, offset, pac
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_session, range, value, display)
 
   return offset + length, value
+end
+
+-- Unsequenced Message
+jnx_jnxequities_pts_itch_v1_7.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+jnx_jnxequities_pts_itch_v1_7.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+jnx_jnxequities_pts_itch_v1_7.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = jnx_jnxequities_pts_itch_v1_7.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
 end
 
 -- Unsequenced Message Type
@@ -2361,117 +2422,6 @@ jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect = function(buffer, pack
   return index
 end
 
--- Unsequenced Data Packet
-jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String
-  index, unsequenced_message_type = jnx_jnxequities_pts_itch_v1_7.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = packet_length - 2
-
-  -- Unsequenced Message
-  index, unsequenced_message = jnx_jnxequities_pts_itch_v1_7.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-jnx_jnxequities_pts_itch_v1_7.login_request_packet = {}
-
--- Size: Login Request Packet
-jnx_jnxequities_pts_itch_v1_7.login_request_packet.size =
-  jnx_jnxequities_pts_itch_v1_7.username.size + 
-  jnx_jnxequities_pts_itch_v1_7.password.size + 
-  jnx_jnxequities_pts_itch_v1_7.requested_session.size + 
-  jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.size
-
--- Display: Login Request Packet
-jnx_jnxequities_pts_itch_v1_7.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = jnx_jnxequities_pts_itch_v1_7.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = jnx_jnxequities_pts_itch_v1_7.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = jnx_jnxequities_pts_itch_v1_7.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet, buffer(offset, 0))
-    local index = jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = jnx_jnxequities_pts_itch_v1_7.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message = {}
 
@@ -2702,151 +2652,135 @@ jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect = function(buffer, offset, pa
   end
 end
 
--- Tcp Payload
-jnx_jnxequities_pts_itch_v1_7.tcp_payload = {}
+-- Server Tcp Payload
+jnx_jnxequities_pts_itch_v1_7.server_tcp_payload = {}
 
--- Dissect: Tcp Payload
-jnx_jnxequities_pts_itch_v1_7.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Tcp Payload
+jnx_jnxequities_pts_itch_v1_7.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return jnx_jnxequities_pts_itch_v1_7.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return jnx_jnxequities_pts_itch_v1_7.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return jnx_jnxequities_pts_itch_v1_7.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Packet
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return offset
   end
   -- Dissect End Of Session Packet
-  if packet_type == "Z" then
-    return offset
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if packet_type == "R" then
-    return offset
-  end
-  -- Dissect Logout Request Packet
-  if packet_type == "O" then
+  if server_packet_type == "Z" then
     return offset
   end
 
   return offset
 end
 
--- Tcp Packet Header
-jnx_jnxequities_pts_itch_v1_7.tcp_packet_header = {}
+-- Server Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header = {}
 
--- Size: Tcp Packet Header
-jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.size =
+-- Size: Server Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.size =
   jnx_jnxequities_pts_itch_v1_7.packet_length.size + 
-  jnx_jnxequities_pts_itch_v1_7.packet_type.size
+  jnx_jnxequities_pts_itch_v1_7.server_packet_type.size
 
--- Display: Tcp Packet Header
-jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tcp Packet Header
-jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = jnx_jnxequities_pts_itch_v1_7.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = jnx_jnxequities_pts_itch_v1_7.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = jnx_jnxequities_pts_itch_v1_7.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Tcp Packet Header
-jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.tcp_packet_header, buffer(offset, 0))
-    local index = jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.display(packet, parent, length)
+    local display = jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.fields(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Tcp Packet Header: Struct of 2 fields
-  index, tcp_packet_header = jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Server Tcp Packet Header: Struct of 2 fields
+  index, server_tcp_packet_header = jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 10 branches
-  index = jnx_jnxequities_pts_itch_v1_7.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Tcp Payload: Runtime Type with 6 branches
+  index = jnx_jnxequities_pts_itch_v1_7.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.size then
+  if remaining < jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2861,16 +2795,16 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.tcp_packet = {}
+-- Server Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet = {}
 
 -- Verify required size of Tcp packet
-jnx_jnxequities_pts_itch_v1_7.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.tcp_packet_header.size
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.server_tcp_packet_header.size
 end
 
--- Dissect Tcp Packet
-jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
   if not packet.visited then
@@ -2881,17 +2815,302 @@ jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect = function(buffer, packet, pare
 
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = jnx_jnxequities_pts_itch_v1_7.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = jnx_jnxequities_pts_itch_v1_7.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Unsequenced Data Packet
+jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = jnx_jnxequities_pts_itch_v1_7.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = jnx_jnxequities_pts_itch_v1_7.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+jnx_jnxequities_pts_itch_v1_7.login_request_packet = {}
+
+-- Size: Login Request Packet
+jnx_jnxequities_pts_itch_v1_7.login_request_packet.size =
+  jnx_jnxequities_pts_itch_v1_7.username.size + 
+  jnx_jnxequities_pts_itch_v1_7.password.size + 
+  jnx_jnxequities_pts_itch_v1_7.requested_session.size + 
+  jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.size
+
+-- Display: Login Request Packet
+jnx_jnxequities_pts_itch_v1_7.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = jnx_jnxequities_pts_itch_v1_7.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = jnx_jnxequities_pts_itch_v1_7.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = jnx_jnxequities_pts_itch_v1_7.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_itch_v1_7.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_itch_v1_7.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Tcp Payload
+jnx_jnxequities_pts_itch_v1_7.client_tcp_payload = {}
+
+-- Dissect: Client Tcp Payload
+jnx_jnxequities_pts_itch_v1_7.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if client_packet_type == "O" then
+    return offset
+  end
+
+  return offset
+end
+
+-- Client Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header = {}
+
+-- Size: Client Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.size =
+  jnx_jnxequities_pts_itch_v1_7.packet_length.size + 
+  jnx_jnxequities_pts_itch_v1_7.client_packet_type.size
+
+-- Display: Client Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = jnx_jnxequities_pts_itch_v1_7.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = jnx_jnxequities_pts_itch_v1_7.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Tcp Packet Header
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Tcp Packet Header: Struct of 2 fields
+  index, client_tcp_packet_header = jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Tcp Payload: Runtime Type with 5 branches
+  index = jnx_jnxequities_pts_itch_v1_7.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_itch_v1_7.client_tcp_packet_header.size
+end
+
+-- Dissect Client Tcp Packet
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = jnx_jnxequities_pts_itch_v1_7.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -2916,6 +3135,71 @@ function omi_jnx_jnxequities_pts_itch_v1_7.init()
   jnx_jnxequities_pts_itch_v1_7.conversation.flows = {}
 end
 
+-- Connection roles for Jnx JnxEquities Pts Itch 1.7: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+jnx_jnxequities_pts_itch_v1_7.role = function(packet)
+  if omi_jnx_jnxequities_pts_itch_v1_7.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_jnx_jnxequities_pts_itch_v1_7.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_jnx_jnxequities_pts_itch_v1_7.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_jnx_jnxequities_pts_itch_v1_7.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+jnx_jnxequities_pts_itch_v1_7.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Jnx JnxEquities Pts Itch 1.7
 function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
 
@@ -2925,7 +3209,11 @@ function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
   -- Dissect protocol
   local protocol = parent:add(omi_jnx_jnxequities_pts_itch_v1_7, buffer(), omi_jnx_jnxequities_pts_itch_v1_7.description, "("..buffer:len().." Bytes)")
   if packet.port_type == 2 then
-    return jnx_jnxequities_pts_itch_v1_7.tcp_packet.dissect(buffer, packet, protocol)
+    local role = jnx_jnxequities_pts_itch_v1_7.role(packet)
+    if role == "initiator" then
+      return jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.dissect(buffer, packet, protocol)
+    end
+    return jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.dissect(buffer, packet, protocol)
   end
   if packet.port_type == 3 then
     return jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect(buffer, packet, protocol)
@@ -2934,13 +3222,113 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request Packet
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session Packet
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Tcp)
-local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic(buffer, packet, parent)
+local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not jnx_jnxequities_pts_itch_v1_7.tcp_packet.requiredsize(buffer) then return false end
+  if not jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not jnx_jnxequities_pts_itch_v1_7.client_tcp_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
+  omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Tcp)
+local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_jnxequities_pts_itch_v1_7
@@ -2959,6 +3347,27 @@ local function omi_jnx_jnxequities_pts_itch_v1_7_udp_heuristic(buffer, packet, p
   omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
 
   return true
+end
+
+-- Dissector Heuristic for Jnx JnxEquities Pts Itch 1.7 (Tcp): apply the heuristic of the sender's connection role
+local function omi_jnx_jnxequities_pts_itch_v1_7_tcp_heuristic(buffer, packet, parent)
+  local role = jnx_jnxequities_pts_itch_v1_7.role(packet)
+  local first, second = omi_jnx_jnxequities_pts_itch_v1_7_tcp_initiator_heuristic, omi_jnx_jnxequities_pts_itch_v1_7_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  jnx_jnxequities_pts_itch_v1_7.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  jnx_jnxequities_pts_itch_v1_7.swap(packet)
+
+  return false
 end
 
 -- Register Heuristics for Jnx JnxEquities Pts Itch 1.7

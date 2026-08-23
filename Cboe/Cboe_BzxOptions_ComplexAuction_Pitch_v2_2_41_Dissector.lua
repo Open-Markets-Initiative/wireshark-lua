@@ -14,6 +14,10 @@ local cboe_bzxoptions_complexauction_pitch_v2_2_41 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe BzxOptions ComplexAuction Pitch 2.2.41 Headers
+omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
+omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
+
 -- Cboe BzxOptions ComplexAuction Pitch 2.2.41 Fields
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.bzxoptions.complexauction.pitch.v2.2.41.auctionendoffset", ftypes.UINT32)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.auction_id = ProtoField.new("Auction Id", "cboe.bzxoptions.complexauction.pitch.v2.2.41.auctionid", ftypes.UINT64)
@@ -46,8 +50,6 @@ omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.message_type = ProtoFiel
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.bzxoptions.complexauction.pitch.v2.2.41.openingcondition", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.options_auction_update_auction_type = ProtoField.new("Options Auction Update Auction Type", "cboe.bzxoptions.complexauction.pitch.v2.2.41.optionsauctionupdateauctiontype", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.bzxoptions.complexauction.pitch.v2.2.41.osisymbol", ftypes.STRING)
-omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
-omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzxoptions.complexauction.pitch.v2.2.41.participantid", ftypes.STRING)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.price = ProtoField.new("Price", "cboe.bzxoptions.complexauction.pitch.v2.2.41.price", ftypes.DOUBLE)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.quantity = ProtoField.new("Quantity", "cboe.bzxoptions.complexauction.pitch.v2.2.41.quantity", ftypes.UINT32)

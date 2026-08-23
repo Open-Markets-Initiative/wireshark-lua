@@ -14,6 +14,10 @@ local miax_miaxoptions_complextopofmarket_mach_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Headers
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.packet", ftypes.STRING)
+
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.complextopofmarket.mach.v1.3.activeonmiax", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.application_message = ProtoField.new("Application Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.applicationmessage", ftypes.STRING)
@@ -35,7 +39,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_ratio_qty = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_side = ProtoField.new("Leg Side", "miax.miaxoptions.complextopofmarket.mach.v1.3.legside", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.miaxoptions.complextopofmarket.mach.v1.3.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.long_term_option = ProtoField.new("Long Term Option", "miax.miaxoptions.complextopofmarket.mach.v1.3.longtermoption", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.message_type = ProtoField.new("Message Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.messagetype", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.miaxoptions.complextopofmarket.mach.v1.3.miaxbbopostingincrementindicator", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.miaxoptions.complextopofmarket.mach.v1.3.nanoseconds", ftypes.UINT32)
@@ -50,7 +53,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_2 = ProtoFie
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_4 = ProtoField.new("Offer Size 4", "miax.miaxoptions.complextopofmarket.mach.v1.3.offersize4", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_time = ProtoField.new("Opening Time", "miax.miaxoptions.complextopofmarket.mach.v1.3.openingtime", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.miaxoptions.complextopofmarket.mach.v1.3.openingunderlyingmarketcode", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.packet", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.complextopofmarket.mach.v1.3.packetlength", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.packettype", ftypes.UINT8)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_2 = ProtoField.new("Price 2", "miax.miaxoptions.complextopofmarket.mach.v1.3.price2", ftypes.DOUBLE)

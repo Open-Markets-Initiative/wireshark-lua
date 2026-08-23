@@ -14,6 +14,10 @@ local nasdaq_nsmequities_nlsplus_itch_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities NlsPlus Itch 4.0 Headers
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v4.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities NlsPlus Itch 4.0 Fields
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.adjusted_closing_price = ProtoField.new("Adjusted Closing Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.adjustedclosingprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.nlsplus.itch.v4.0.authenticity", ftypes.STRING)
@@ -59,8 +63,6 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.original_trade_control_number = 
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.originaltradeprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.nsmequities.nlsplus.itch.v4.0.originaltradesize", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.originating_market_center_identifier = ProtoField.new("Originating Market Center Identifier", "nasdaq.nsmequities.nlsplus.itch.v4.0.originatingmarketcenteridentifier", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v4.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.nlsplus.itch.v4.0.reason", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.reference_for_net_change = ProtoField.new("Reference For Net Change", "nasdaq.nsmequities.nlsplus.itch.v4.0.referencefornetchange", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.referenceprice", ftypes.DOUBLE)

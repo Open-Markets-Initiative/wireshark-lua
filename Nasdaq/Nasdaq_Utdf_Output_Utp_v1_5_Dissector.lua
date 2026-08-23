@@ -14,6 +14,12 @@ local nasdaq_utdf_output_utp_v1_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq Utdf Output Utp 1.5 Headers
+omi_nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
+
 -- Nasdaq Utdf Output Utp 1.5 Fields
 omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.utdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.utdf.output.utp.v1.5.administrative", ftypes.STRING)
@@ -67,9 +73,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price = ProtoFiel
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlowprice", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume = ProtoField.new("Market Participant Volume", "nasdaq.utdf.output.utp.v1.5.marketparticipantvolume", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utdf.output.utp.v1.5.markettier", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.message_category = ProtoField.new("Message Category", "nasdaq.utdf.output.utp.v1.5.messagecategory", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.message_info = ProtoField.new("Message Info", "nasdaq.utdf.output.utp.v1.5.messageinfo", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.utdf.output.utp.v1.5.messagelength", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
@@ -85,8 +89,6 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id = ProtoField.new("Origi
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag = ProtoField.new("Original Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.originaltradethroughexemptflag", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.utdf.output.utp.v1.5.originalvolume", ftypes.UINT32)
-omi_nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator = ProtoField.new("Participant Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.participantpricechangeindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.utdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.utdf.output.utp.v1.5.participanttoken", ftypes.UINT64)

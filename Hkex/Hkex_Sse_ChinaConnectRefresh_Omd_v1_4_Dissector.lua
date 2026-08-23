@@ -14,6 +14,12 @@ local hkex_sse_chinaconnectrefresh_omd_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex Sse ChinaConnectRefresh Omd 1.4 Headers
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.sse.chinaconnectrefresh.omd.v1.4.message", ftypes.STRING)
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.sse.chinaconnectrefresh.omd.v1.4.msgheader", ftypes.STRING)
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.sse.chinaconnectrefresh.omd.v1.4.packet", ftypes.STRING)
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.packet_header = ProtoField.new("Packet Header", "hkex.sse.chinaconnectrefresh.omd.v1.4.packetheader", ftypes.STRING)
+
 -- Hkex Sse ChinaConnectRefresh Omd 1.4 Fields
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.aggregate_ask_quantity = ProtoField.new("Aggregate Ask Quantity", "hkex.sse.chinaconnectrefresh.omd.v1.4.aggregateaskquantity", ftypes.UINT64)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.aggregate_bid_quantity = ProtoField.new("Aggregate Bid Quantity", "hkex.sse.chinaconnectrefresh.omd.v1.4.aggregatebidquantity", ftypes.UINT64)
@@ -39,15 +45,11 @@ omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.lot_size = ProtoField.new("Lot 
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.low_price = ProtoField.new("Low Price", "hkex.sse.chinaconnectrefresh.omd.v1.4.lowprice", ftypes.DOUBLE)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.market_code = ProtoField.new("Market Code", "hkex.sse.chinaconnectrefresh.omd.v1.4.marketcode", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.market_name = ProtoField.new("Market Name", "hkex.sse.chinaconnectrefresh.omd.v1.4.marketname", ftypes.STRING)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.sse.chinaconnectrefresh.omd.v1.4.message", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.msg_count = ProtoField.new("Msg Count", "hkex.sse.chinaconnectrefresh.omd.v1.4.msgcount", ftypes.UINT8)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.sse.chinaconnectrefresh.omd.v1.4.msgheader", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.msg_size = ProtoField.new("Msg Size", "hkex.sse.chinaconnectrefresh.omd.v1.4.msgsize", ftypes.UINT16)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.msg_type = ProtoField.new("Msg Type", "hkex.sse.chinaconnectrefresh.omd.v1.4.msgtype", ftypes.UINT16)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.number_of_securities = ProtoField.new("Number Of Securities", "hkex.sse.chinaconnectrefresh.omd.v1.4.numberofsecurities", ftypes.UINT32)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.opening_price = ProtoField.new("Opening Price", "hkex.sse.chinaconnectrefresh.omd.v1.4.openingprice", ftypes.DOUBLE)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.sse.chinaconnectrefresh.omd.v1.4.packet", ftypes.STRING)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.packet_header = ProtoField.new("Packet Header", "hkex.sse.chinaconnectrefresh.omd.v1.4.packetheader", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.sse.chinaconnectrefresh.omd.v1.4.pktsize", ftypes.UINT16)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "hkex.sse.chinaconnectrefresh.omd.v1.4.previousclosingprice", ftypes.DOUBLE)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_code = ProtoField.new("Security Code", "hkex.sse.chinaconnectrefresh.omd.v1.4.securitycode", ftypes.UINT32)

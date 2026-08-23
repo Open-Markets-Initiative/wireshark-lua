@@ -14,6 +14,12 @@ local lseg_lse_mifid2posttraderecovery_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Headers
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Fields
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.agencycrossindicator", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.algorithmicindicator", ftypes.STRING)
@@ -65,9 +71,7 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.login_status = ProtoField.
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.marketclosingpriceflag", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.marketdatagroup", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.marketmechanism", ftypes.STRING)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_count = ProtoField.new("Message Count", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messagecount", ftypes.UINT8)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messagelength", ftypes.UINT16)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messagetype", ftypes.UINT8)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.mifid_price = ProtoField.new("Mifid Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.mifidprice", ftypes.STRING)
@@ -88,7 +92,6 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.official_closing_price = P
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.official_opening_price = ProtoField.new("Official Opening Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.officialopeningprice", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.opening_price_indicator = ProtoField.new("Opening Price Indicator", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.openingpriceindicator", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.orderbooktype", ftypes.UINT8)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.packet", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.partitionid", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.posttradedeferralreason", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.previousdaysclosingprice", ftypes.DOUBLE)
@@ -151,7 +154,6 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_category = Pro
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.transactionidentificationcode", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnover", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unitheader", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.username = ProtoField.new("Username", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.username", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueofexecution", ftypes.STRING)

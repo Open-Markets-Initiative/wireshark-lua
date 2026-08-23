@@ -14,6 +14,10 @@ local bruceats_bruceequities_lastsale_itch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- BruceAts BruceEquities LastSale Itch 1.0 Headers
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.lastsale.itch.v1.0.packet", ftypes.STRING)
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.lastsale.itch.v1.0.packetheader", ftypes.STRING)
+
 -- BruceAts BruceEquities LastSale Itch 1.0 Fields
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.authenticity = ProtoField.new("Authenticity", "bruceats.bruceequities.lastsale.itch.v1.0.authenticity", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.event_code = ProtoField.new("Event Code", "bruceats.bruceequities.lastsale.itch.v1.0.eventcode", ftypes.STRING)
@@ -24,8 +28,6 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_count = ProtoField.
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.lastsale.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "bruceats.bruceequities.lastsale.itch.v1.0.messagelength", ftypes.UINT16)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "bruceats.bruceequities.lastsale.itch.v1.0.messagetype", ftypes.STRING)
-omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.lastsale.itch.v1.0.packet", ftypes.STRING)
-omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.lastsale.itch.v1.0.packetheader", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.price = ProtoField.new("Price", "bruceats.bruceequities.lastsale.itch.v1.0.price", ftypes.DOUBLE)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "bruceats.bruceequities.lastsale.itch.v1.0.regshoaction", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "bruceats.bruceequities.lastsale.itch.v1.0.roundlotsize", ftypes.UINT32)

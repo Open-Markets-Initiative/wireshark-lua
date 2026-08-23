@@ -14,6 +14,10 @@ local currenex_currenexforex_orderservice_cbp_v26 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Currenex CurrenexForex OrderService Cbp 26. Headers
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex OrderService Cbp 26. Fields
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.ack_status = ProtoField.new("Ack Status", "currenex.currenexforex.orderservice.cbp.v26.ackstatus", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.aggressor_flag = ProtoField.new("Aggressor Flag", "currenex.currenexforex.orderservice.cbp.v26.aggressorflag", ftypes.STRING)
@@ -31,7 +35,6 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_id = ProtoFiel
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.currenexforex.orderservice.cbp.v26.instrumentindex", ftypes.INT16)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_type = ProtoField.new("Instrument Type", "currenex.currenexforex.orderservice.cbp.v26.instrumenttype", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.leaves_amt = ProtoField.new("Leaves Amt", "currenex.currenexforex.orderservice.cbp.v26.leavesamt", ftypes.INT64)
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.orderservice.cbp.v26.messagetype", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.min_amt = ProtoField.new("Min Amt", "currenex.currenexforex.orderservice.cbp.v26.minamt", ftypes.INT64)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.new_cl_order_id = ProtoField.new("New Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.newclorderid", ftypes.INT32)
@@ -40,7 +43,6 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_amt = ProtoField.ne
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_id = ProtoField.new("Order Id", "currenex.currenexforex.orderservice.cbp.v26.orderid", ftypes.INT64)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.order_type = ProtoField.new("Order Type", "currenex.currenexforex.orderservice.cbp.v26.ordertype", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.orig_cl_order_id = ProtoField.new("Orig Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.origclorderid", ftypes.INT32)
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.password = ProtoField.new("Password", "currenex.currenexforex.orderservice.cbp.v26.password", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.prev_cl_order_id = ProtoField.new("Prev Cl Order Id", "currenex.currenexforex.orderservice.cbp.v26.prevclorderid", ftypes.INT32)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.price = ProtoField.new("Price", "currenex.currenexforex.orderservice.cbp.v26.price", ftypes.INT32)

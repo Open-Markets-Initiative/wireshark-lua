@@ -14,6 +14,10 @@ local miax_pearlequities_depthofmarket_mach_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities DepthOfMarket Mach 1.3.a Headers
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.attributable_id = ProtoField.new("Attributable Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.attributableid", ftypes.STRING)
@@ -21,7 +25,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.closing_time = ProtoFiel
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.do_m_version = ProtoField.new("Do M Version", "miax.pearlequities.depthofmarket.mach.v1.3.a.domversion", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.a.lotsize", ftypes.UINT16)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.a.machpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.machpackettype", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.depthofmarket.mach.v1.3.a.marketstate", ftypes.UINT8)
@@ -33,7 +36,6 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_execution_flags = 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderid", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position = ProtoField.new("Order Position", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_side = ProtoField.new("Order Side", "miax.pearlequities.depthofmarket.mach.v1.3.a.orderside", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)

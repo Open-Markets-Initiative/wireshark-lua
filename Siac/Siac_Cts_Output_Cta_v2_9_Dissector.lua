@@ -14,6 +14,12 @@ local siac_cts_output_cta_v2_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Cts Output Cta 2.9 Headers
+omi_siac_cts_output_cta_v2_9.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.9.blockheader", ftypes.STRING)
+omi_siac_cts_output_cta_v2_9.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.9.message", ftypes.STRING)
+omi_siac_cts_output_cta_v2_9.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.9.packet", ftypes.STRING)
+omi_siac_cts_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v2.9.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cts Output Cta 2.9 Fields
 omi_siac_cts_output_cta_v2_9.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cts.output.cta.v2.9.administrativemessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v2.9.administrativemessagetype", ftypes.STRING)
@@ -22,7 +28,6 @@ omi_siac_cts_output_cta_v2_9.fields.auction_collar_reference_price = ProtoField.
 omi_siac_cts_output_cta_v2_9.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.9.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_9.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.9.bidindexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_9.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.9.blockchecksum", ftypes.UINT16)
-omi_siac_cts_output_cta_v2_9.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.9.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.9.blockpadbyte", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_9.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.9.blocksequencenumber", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_9.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.9.blocksize", ftypes.UINT16)
@@ -59,7 +64,6 @@ omi_siac_cts_output_cta_v2_9.fields.low_price = ProtoField.new("Low Price", "sia
 omi_siac_cts_output_cta_v2_9.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cts.output.cta.v2.9.marketstatusmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.9.marketstatusmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.market_wide_circuit_breaker_level_indicator = ProtoField.new("Market Wide Circuit Breaker Level Indicator", "siac.cts.output.cta.v2.9.marketwidecircuitbreakerlevelindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_9.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.9.message", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.message_category = ProtoField.new("Message Category", "siac.cts.output.cta.v2.9.messagecategory", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.9.messageid", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_9.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.9.messagelength", ftypes.UINT16)
@@ -74,7 +78,6 @@ omi_siac_cts_output_cta_v2_9.fields.offer_index_value = ProtoField.new("Offer In
 omi_siac_cts_output_cta_v2_9.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.9.openprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_9.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.9.originalparticipantreferencenumber", ftypes.INT64)
 omi_siac_cts_output_cta_v2_9.fields.original_trade = ProtoField.new("Original Trade", "siac.cts.output.cta.v2.9.originaltrade", ftypes.STRING)
-omi_siac_cts_output_cta_v2_9.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.9.packet", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.participant_data = ProtoField.new("Participant Data", "siac.cts.output.cta.v2.9.participantdata", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.cts.output.cta.v2.9.participantid", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.participant_open_high_low_last_indicator = ProtoField.new("Participant Open High Low Last Indicator", "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator", ftypes.STRING)
@@ -99,7 +102,6 @@ omi_siac_cts_output_cta_v2_9.fields.sell_volume = ProtoField.new("Sell Volume", 
 omi_siac_cts_output_cta_v2_9.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.output.cta.v2.9.sellerssaledays", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_9.fields.settlement_type = ProtoField.new("Settlement Type", "siac.cts.output.cta.v2.9.settlementtype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.9.shortsalerestrictionindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v2.9.sipblocktimestamp", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.sro_trade_detail = ProtoField.new("Sro Trade Detail", "siac.cts.output.cta.v2.9.srotradedetail", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.9.stopstockindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.summary_message = ProtoField.new("Summary Message", "siac.cts.output.cta.v2.9.summarymessage", ftypes.STRING)

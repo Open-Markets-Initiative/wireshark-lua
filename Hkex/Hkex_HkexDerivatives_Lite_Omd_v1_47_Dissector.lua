@@ -14,6 +14,12 @@ local hkex_hkexderivatives_lite_omd_v1_47 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexDerivatives Lite Omd 1.47 Headers
+omi_hkex_hkexderivatives_lite_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.lite.omd.v1.47.message", ftypes.STRING)
+omi_hkex_hkexderivatives_lite_omd_v1_47.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.lite.omd.v1.47.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_lite_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.lite.omd.v1.47.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_lite_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.lite.omd.v1.47.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives Lite Omd 1.47 Fields
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.hkexderivatives.lite.omd.v1.47.actualstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.lite.omd.v1.47.actualstarttime", ftypes.STRING)
@@ -69,10 +75,8 @@ omi_hkex_hkexderivatives_lite_omd_v1_47.fields.leg_side = ProtoField.new("Leg Si
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.locked = ProtoField.new("Locked", "hkex.hkexderivatives.lite.omd.v1.47.locked", ftypes.UINT8)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.low = ProtoField.new("Low", "hkex.hkexderivatives.lite.omd.v1.47.low", ftypes.INT32)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.market = ProtoField.new("Market", "hkex.hkexderivatives.lite.omd.v1.47.market", ftypes.UINT8)
-omi_hkex_hkexderivatives_lite_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.lite.omd.v1.47.message", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.lite.omd.v1.47.modifier", ftypes.UINT8)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.lite.omd.v1.47.msgcount", ftypes.UINT8)
-omi_hkex_hkexderivatives_lite_omd_v1_47.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.lite.omd.v1.47.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.lite.omd.v1.47.msgsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexderivatives.lite.omd.v1.47.msgtype", ftypes.UINT16)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.net_open_interest = ProtoField.new("Net Open Interest", "hkex.hkexderivatives.lite.omd.v1.47.netopeninterest", ftypes.INT32)
@@ -86,8 +90,6 @@ omi_hkex_hkexderivatives_lite_omd_v1_47.fields.number_of_lots = ProtoField.new("
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.number_of_orders = ProtoField.new("Number Of Orders", "hkex.hkexderivatives.lite.omd.v1.47.numberoforders", ftypes.UINT32)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.open = ProtoField.new("Open", "hkex.hkexderivatives.lite.omd.v1.47.open", ftypes.INT32)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.lite.omd.v1.47.orderbookid", ftypes.UINT32)
-omi_hkex_hkexderivatives_lite_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.lite.omd.v1.47.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_lite_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.lite.omd.v1.47.packetheader", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.lite.omd.v1.47.pktsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.planned_start_date = ProtoField.new("Planned Start Date", "hkex.hkexderivatives.lite.omd.v1.47.plannedstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v1_47.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.lite.omd.v1.47.plannedstarttime", ftypes.STRING)

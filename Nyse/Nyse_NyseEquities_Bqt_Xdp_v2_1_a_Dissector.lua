@@ -14,6 +14,12 @@ local nyse_nyseequities_bqt_xdp_v2_1_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities Bqt Xdp 2.1.a Headers
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.bqt.xdp.v2.1.a.message", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bqt.xdp.v2.1.a.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bqt.xdp.v2.1.a.packet", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bqt.xdp.v2.1.a.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities Bqt Xdp 2.1.a Fields
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseequities.bqt.xdp.v2.1.a.askprice", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.nyseequities.bqt.xdp.v2.1.a.askquotecondition", ftypes.STRING)
@@ -44,9 +50,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_low_price = ProtoField.
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidofopenprice", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_id_of_the_close = ProtoField.new("Market Id Of The Close", "nyse.nyseequities.bqt.xdp.v2.1.a.marketidoftheclose", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bqt.xdp.v2.1.a.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.bqt.xdp.v2.1.a.message", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_count = ProtoField.new("Message Count", "nyse.nyseequities.bqt.xdp.v2.1.a.messagecount", ftypes.UINT8)
-omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bqt.xdp.v2.1.a.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.bqt.xdp.v2.1.a.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.bqt.xdp.v2.1.a.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.bqt.xdp.v2.1.a.mpv", ftypes.UINT16)
@@ -58,8 +62,6 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.ok_for_morning_hours = ProtoField.ne
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.ok_for_national_hours_core = ProtoField.new("Ok For National Hours Core", "nyse.nyseequities.bqt.xdp.v2.1.a.okfornationalhourscore", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.open = ProtoField.new("Open", "nyse.nyseequities.bqt.xdp.v2.1.a.open", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.nyseequities.bqt.xdp.v2.1.a.originaltradeid", ftypes.UINT32)
-omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bqt.xdp.v2.1.a.packet", ftypes.STRING)
-omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bqt.xdp.v2.1.a.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseequities.bqt.xdp.v2.1.a.packetsize", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseequities.bqt.xdp.v2.1.a.prevcloseprice", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseequities.bqt.xdp.v2.1.a.prevclosevolume", ftypes.UINT32)

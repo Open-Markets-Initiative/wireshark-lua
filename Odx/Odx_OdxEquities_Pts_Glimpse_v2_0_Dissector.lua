@@ -14,9 +14,18 @@ local odx_odxequities_pts_glimpse_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Odx OdxEquities Pts Glimpse 2.0 Headers
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.clientpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.clientpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.clientsoupbintcppacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.serverpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.serverpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.serversoupbintcppacket", ftypes.STRING)
+
 -- Odx OdxEquities Pts Glimpse 2.0 Fields
 omi_odx_odxequities_pts_glimpse_v2_0.fields.attribution = ProtoField.new("Attribution", "odx.odxequities.pts.glimpse.v2.0.attribution", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.glimpse.v2.0.buysellindicator", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.clientpackettype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.group = ProtoField.new("Group", "odx.odxequities.pts.glimpse.v2.0.group", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "odx.odxequities.pts.glimpse.v2.0.lowerpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "odx.odxequities.pts.glimpse.v2.0.nanoseconds", ftypes.UINT32)
@@ -24,10 +33,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.order_number = ProtoField.new("Order
 omi_odx_odxequities_pts_glimpse_v2_0.fields.order_type = ProtoField.new("Order Type", "odx.odxequities.pts.glimpse.v2.0.ordertype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.orderbook_code = ProtoField.new("Orderbook Code", "odx.odxequities.pts.glimpse.v2.0.orderbookcode", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "odx.odxequities.pts.glimpse.v2.0.orderbookid", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.packet", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.packetheader", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_length = ProtoField.new("Packet Length", "odx.odxequities.pts.glimpse.v2.0.packetlength", ftypes.UINT16)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.packettype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.password = ProtoField.new("Password", "odx.odxequities.pts.glimpse.v2.0.password", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.price = ProtoField.new("Price", "odx.odxequities.pts.glimpse.v2.0.price", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.price_decimals = ProtoField.new("Price Decimals", "odx.odxequities.pts.glimpse.v2.0.pricedecimals", ftypes.UINT32)
@@ -42,12 +48,13 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.round_lot_size = ProtoField.new("Rou
 omi_odx_odxequities_pts_glimpse_v2_0.fields.seconds = ProtoField.new("Seconds", "odx.odxequities.pts.glimpse.v2.0.seconds", ftypes.UINT32)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "odx.odxequities.pts.glimpse.v2.0.sequencenumber", ftypes.UINT64)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "odx.odxequities.pts.glimpse.v2.0.sequencedmessagetype", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.serverpackettype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.session = ProtoField.new("Session", "odx.odxequities.pts.glimpse.v2.0.session", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.short_selling_state = ProtoField.new("Short Selling State", "odx.odxequities.pts.glimpse.v2.0.shortsellingstate", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.soupbintcppacket", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.glimpse.v2.0.systemevent", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.text = ProtoField.new("Text", "odx.odxequities.pts.glimpse.v2.0.text", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.trading_state = ProtoField.new("Trading State", "odx.odxequities.pts.glimpse.v2.0.tradingstate", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "odx.odxequities.pts.glimpse.v2.0.unsequencedmessage", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxequities.pts.glimpse.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.glimpse.v2.0.upperpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.username = ProtoField.new("Username", "odx.odxequities.pts.glimpse.v2.0.username", ftypes.STRING)
@@ -99,14 +106,22 @@ odx_odxequities_pts_glimpse_v2_0.utc_offset_hours = 9
 local show = {}
 
 -- Odx OdxEquities Pts Glimpse 2.0 Element Dissection Options
+show.structs = true
 show.session_messages = true
 show.application_messages = true
-show.structs = true
 
 -- Register Odx OdxEquities Pts Glimpse 2.0 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
@@ -234,6 +249,45 @@ odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.dissect = function(buffer, o
   local display = odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+odx_odxequities_pts_glimpse_v2_0.client_packet_type = {}
+
+-- Size: Client Packet Type
+odx_odxequities_pts_glimpse_v2_0.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+odx_odxequities_pts_glimpse_v2_0.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+odx_odxequities_pts_glimpse_v2_0.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_glimpse_v2_0.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = odx_odxequities_pts_glimpse_v2_0.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -428,60 +482,6 @@ odx_odxequities_pts_glimpse_v2_0.packet_length.dissect = function(buffer, offset
   local display = odx_odxequities_pts_glimpse_v2_0.packet_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-odx_odxequities_pts_glimpse_v2_0.packet_type = {}
-
--- Size: Packet Type
-odx_odxequities_pts_glimpse_v2_0.packet_type.size = 1
-
--- Display: Packet Type
-odx_odxequities_pts_glimpse_v2_0.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-odx_odxequities_pts_glimpse_v2_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_glimpse_v2_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = odx_odxequities_pts_glimpse_v2_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -885,6 +885,48 @@ odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.dissect = function(buffe
   return offset + length, value
 end
 
+-- Server Packet Type
+odx_odxequities_pts_glimpse_v2_0.server_packet_type = {}
+
+-- Size: Server Packet Type
+odx_odxequities_pts_glimpse_v2_0.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+odx_odxequities_pts_glimpse_v2_0.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+odx_odxequities_pts_glimpse_v2_0.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_glimpse_v2_0.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = odx_odxequities_pts_glimpse_v2_0.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Session
 odx_odxequities_pts_glimpse_v2_0.session = {}
 
@@ -1019,6 +1061,25 @@ odx_odxequities_pts_glimpse_v2_0.trading_state.dissect = function(buffer, offset
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.trading_state, range, value, display)
 
   return offset + length, value
+end
+
+-- Unsequenced Message
+odx_odxequities_pts_glimpse_v2_0.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+odx_odxequities_pts_glimpse_v2_0.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+odx_odxequities_pts_glimpse_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = odx_odxequities_pts_glimpse_v2_0.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
 end
 
 -- Unsequenced Message Type
@@ -1173,151 +1234,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Odx OdxEquities Pts Glimpse 2.0
 -----------------------------------------------------------------------
-
--- Logout Request
-odx_odxequities_pts_glimpse_v2_0.logout_request = {}
-
--- Display: Logout Request
-odx_odxequities_pts_glimpse_v2_0.logout_request.display = function(packet, parent, length)
-  return "Logout Request"
-end
-
-
--- Dissect: Logout Request
-odx_odxequities_pts_glimpse_v2_0.logout_request.dissect = function(buffer, offset, packet, parent)
-  local display = odx_odxequities_pts_glimpse_v2_0.logout_request.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Client Heartbeat
-odx_odxequities_pts_glimpse_v2_0.client_heartbeat = {}
-
--- Display: Client Heartbeat
-odx_odxequities_pts_glimpse_v2_0.client_heartbeat.display = function(packet, parent, length)
-  return "Client Heartbeat"
-end
-
-
--- Dissect: Client Heartbeat
-odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = odx_odxequities_pts_glimpse_v2_0.client_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Unsequenced Data Packet
-odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String
-  index, unsequenced_message_type = odx_odxequities_pts_glimpse_v2_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Runtime Size Of: Unsequenced Message
-  local size_of_unsequenced_message = packet_length - 2
-
-  -- Unsequenced Message
-  index, unsequenced_message = odx_odxequities_pts_glimpse_v2_0.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-odx_odxequities_pts_glimpse_v2_0.login_request_packet = {}
-
--- Size: Login Request Packet
-odx_odxequities_pts_glimpse_v2_0.login_request_packet.size =
-  odx_odxequities_pts_glimpse_v2_0.username.size + 
-  odx_odxequities_pts_glimpse_v2_0.password.size + 
-  odx_odxequities_pts_glimpse_v2_0.requested_session.size + 
-  odx_odxequities_pts_glimpse_v2_0.requested_sequence_number.size
-
--- Display: Login Request Packet
-odx_odxequities_pts_glimpse_v2_0.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = odx_odxequities_pts_glimpse_v2_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = odx_odxequities_pts_glimpse_v2_0.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = odx_odxequities_pts_glimpse_v2_0.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = odx_odxequities_pts_glimpse_v2_0.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.login_request_packet, buffer(offset, 0))
-    local index = odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = odx_odxequities_pts_glimpse_v2_0.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- End Of Session
 odx_odxequities_pts_glimpse_v2_0.end_of_session = {}
@@ -2074,151 +1990,135 @@ odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect = function(buffer, offset,
   end
 end
 
--- Payload
-odx_odxequities_pts_glimpse_v2_0.payload = {}
+-- Server Payload
+odx_odxequities_pts_glimpse_v2_0.server_payload = {}
 
--- Dissect: Payload
-odx_odxequities_pts_glimpse_v2_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Payload
+odx_odxequities_pts_glimpse_v2_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return odx_odxequities_pts_glimpse_v2_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return odx_odxequities_pts_glimpse_v2_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return odx_odxequities_pts_glimpse_v2_0.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if packet_type == "Z" then
+  if server_packet_type == "Z" then
     return odx_odxequities_pts_glimpse_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if packet_type == "R" then
-    return odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if packet_type == "O" then
-    return odx_odxequities_pts_glimpse_v2_0.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-odx_odxequities_pts_glimpse_v2_0.packet_header = {}
+-- Server Packet Header
+odx_odxequities_pts_glimpse_v2_0.server_packet_header = {}
 
--- Size: Packet Header
-odx_odxequities_pts_glimpse_v2_0.packet_header.size =
+-- Size: Server Packet Header
+odx_odxequities_pts_glimpse_v2_0.server_packet_header.size =
   odx_odxequities_pts_glimpse_v2_0.packet_length.size + 
-  odx_odxequities_pts_glimpse_v2_0.packet_type.size
+  odx_odxequities_pts_glimpse_v2_0.server_packet_type.size
 
--- Display: Packet Header
-odx_odxequities_pts_glimpse_v2_0.packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+odx_odxequities_pts_glimpse_v2_0.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-odx_odxequities_pts_glimpse_v2_0.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+odx_odxequities_pts_glimpse_v2_0.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = odx_odxequities_pts_glimpse_v2_0.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = odx_odxequities_pts_glimpse_v2_0.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = odx_odxequities_pts_glimpse_v2_0.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-odx_odxequities_pts_glimpse_v2_0.packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+odx_odxequities_pts_glimpse_v2_0.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_header, buffer(offset, 0))
-    local index = odx_odxequities_pts_glimpse_v2_0.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header, buffer(offset, 0))
+    local index = odx_odxequities_pts_glimpse_v2_0.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = odx_odxequities_pts_glimpse_v2_0.packet_header.display(packet, parent, length)
+    local display = odx_odxequities_pts_glimpse_v2_0.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return odx_odxequities_pts_glimpse_v2_0.packet_header.fields(buffer, offset, packet, parent)
+    return odx_odxequities_pts_glimpse_v2_0.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = odx_odxequities_pts_glimpse_v2_0.packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = odx_odxequities_pts_glimpse_v2_0.server_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 10 branches
-  index = odx_odxequities_pts_glimpse_v2_0.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = odx_odxequities_pts_glimpse_v2_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < odx_odxequities_pts_glimpse_v2_0.packet_header.size then
+  if remaining < odx_odxequities_pts_glimpse_v2_0.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2233,16 +2133,16 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-odx_odxequities_pts_glimpse_v2_0.packet = {}
+-- Server Packet
+odx_odxequities_pts_glimpse_v2_0.server_packet = {}
 
 -- Verify required size of Tcp packet
-odx_odxequities_pts_glimpse_v2_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= odx_odxequities_pts_glimpse_v2_0.packet_header.size
+odx_odxequities_pts_glimpse_v2_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= odx_odxequities_pts_glimpse_v2_0.server_packet_header.size
 end
 
--- Dissect Packet
-odx_odxequities_pts_glimpse_v2_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+odx_odxequities_pts_glimpse_v2_0.server_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = odx_odxequities_pts_glimpse_v2_0.conversation.data(packet)
   if not packet.visited then
@@ -2253,17 +2153,336 @@ odx_odxequities_pts_glimpse_v2_0.packet.dissect = function(buffer, packet, paren
 
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = odx_odxequities_pts_glimpse_v2_0.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = odx_odxequities_pts_glimpse_v2_0.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Logout Request
+odx_odxequities_pts_glimpse_v2_0.logout_request = {}
+
+-- Display: Logout Request
+odx_odxequities_pts_glimpse_v2_0.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+odx_odxequities_pts_glimpse_v2_0.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxequities_pts_glimpse_v2_0.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+odx_odxequities_pts_glimpse_v2_0.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+odx_odxequities_pts_glimpse_v2_0.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = odx_odxequities_pts_glimpse_v2_0.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = odx_odxequities_pts_glimpse_v2_0.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = odx_odxequities_pts_glimpse_v2_0.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+odx_odxequities_pts_glimpse_v2_0.login_request_packet = {}
+
+-- Size: Login Request Packet
+odx_odxequities_pts_glimpse_v2_0.login_request_packet.size =
+  odx_odxequities_pts_glimpse_v2_0.username.size + 
+  odx_odxequities_pts_glimpse_v2_0.password.size + 
+  odx_odxequities_pts_glimpse_v2_0.requested_session.size + 
+  odx_odxequities_pts_glimpse_v2_0.requested_sequence_number.size
+
+-- Display: Login Request Packet
+odx_odxequities_pts_glimpse_v2_0.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = odx_odxequities_pts_glimpse_v2_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = odx_odxequities_pts_glimpse_v2_0.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = odx_odxequities_pts_glimpse_v2_0.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = odx_odxequities_pts_glimpse_v2_0.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.login_request_packet, buffer(offset, 0))
+    local index = odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = odx_odxequities_pts_glimpse_v2_0.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return odx_odxequities_pts_glimpse_v2_0.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+odx_odxequities_pts_glimpse_v2_0.client_payload = {}
+
+-- Dissect: Client Payload
+odx_odxequities_pts_glimpse_v2_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat
+  if client_packet_type == "R" then
+    return odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if client_packet_type == "O" then
+    return odx_odxequities_pts_glimpse_v2_0.logout_request.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+odx_odxequities_pts_glimpse_v2_0.client_packet_header = {}
+
+-- Size: Client Packet Header
+odx_odxequities_pts_glimpse_v2_0.client_packet_header.size =
+  odx_odxequities_pts_glimpse_v2_0.packet_length.size + 
+  odx_odxequities_pts_glimpse_v2_0.client_packet_type.size
+
+-- Display: Client Packet Header
+odx_odxequities_pts_glimpse_v2_0.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+odx_odxequities_pts_glimpse_v2_0.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = odx_odxequities_pts_glimpse_v2_0.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = odx_odxequities_pts_glimpse_v2_0.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+odx_odxequities_pts_glimpse_v2_0.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header, buffer(offset, 0))
+    local index = odx_odxequities_pts_glimpse_v2_0.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = odx_odxequities_pts_glimpse_v2_0.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return odx_odxequities_pts_glimpse_v2_0.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = odx_odxequities_pts_glimpse_v2_0.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 5 branches
+  index = odx_odxequities_pts_glimpse_v2_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < odx_odxequities_pts_glimpse_v2_0.client_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+odx_odxequities_pts_glimpse_v2_0.client_packet = {}
+
+-- Verify required size of Tcp packet
+odx_odxequities_pts_glimpse_v2_0.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= odx_odxequities_pts_glimpse_v2_0.client_packet_header.size
+end
+
+-- Dissect Client Packet
+odx_odxequities_pts_glimpse_v2_0.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = odx_odxequities_pts_glimpse_v2_0.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -2288,6 +2507,71 @@ function omi_odx_odxequities_pts_glimpse_v2_0.init()
   odx_odxequities_pts_glimpse_v2_0.conversation.flows = {}
 end
 
+-- Connection roles for Odx OdxEquities Pts Glimpse 2.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+odx_odxequities_pts_glimpse_v2_0.role = function(packet)
+  if omi_odx_odxequities_pts_glimpse_v2_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_odx_odxequities_pts_glimpse_v2_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_odx_odxequities_pts_glimpse_v2_0.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_odx_odxequities_pts_glimpse_v2_0.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+odx_odxequities_pts_glimpse_v2_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Odx OdxEquities Pts Glimpse 2.0
 function omi_odx_odxequities_pts_glimpse_v2_0.dissector(buffer, packet, parent)
 
@@ -2296,8 +2580,94 @@ function omi_odx_odxequities_pts_glimpse_v2_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_odx_odxequities_pts_glimpse_v2_0, buffer(), omi_odx_odxequities_pts_glimpse_v2_0.description, "("..buffer:len().." Bytes)")
-  return odx_odxequities_pts_glimpse_v2_0.packet.dissect(buffer, packet, protocol)
+  local role = odx_odxequities_pts_glimpse_v2_0.role(packet)
+  if role == "initiator" then
+    return odx_odxequities_pts_glimpse_v2_0.client_packet.dissect(buffer, packet, protocol)
+  end
+  return odx_odxequities_pts_glimpse_v2_0.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+odx_odxequities_pts_glimpse_v2_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+odx_odxequities_pts_glimpse_v2_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -2305,9 +2675,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Odx OdxEquities Pts Glimpse 2.0 (Tcp)
-local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic(buffer, packet, parent)
+local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not odx_odxequities_pts_glimpse_v2_0.packet.requiredsize(buffer) then return false end
+  if not odx_odxequities_pts_glimpse_v2_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not odx_odxequities_pts_glimpse_v2_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_odx_odxequities_pts_glimpse_v2_0
@@ -2316,12 +2689,44 @@ local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic(buffer, packet
   return true
 end
 
--- Register Heuristic for Odx OdxEquities Pts Glimpse 2.0
-omi_odx_odxequities_pts_glimpse_v2_0:register_heuristic("tcp", omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic)
+-- Dissector Heuristic for Odx OdxEquities Pts Glimpse 2.0 (Tcp)
+local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not odx_odxequities_pts_glimpse_v2_0.server_packet.requiredsize(buffer) then return false end
 
--- Register Odx OdxEquities Pts Glimpse 2.0 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_odx_odxequities_pts_glimpse_v2_0)
+  -- Verify the frame matches this side's fingerprint
+  if not odx_odxequities_pts_glimpse_v2_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_odx_odxequities_pts_glimpse_v2_0
+  omi_odx_odxequities_pts_glimpse_v2_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Odx OdxEquities Pts Glimpse 2.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic(buffer, packet, parent)
+  local role = odx_odxequities_pts_glimpse_v2_0.role(packet)
+  local first, second = omi_odx_odxequities_pts_glimpse_v2_0_tcp_initiator_heuristic, omi_odx_odxequities_pts_glimpse_v2_0_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  odx_odxequities_pts_glimpse_v2_0.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  odx_odxequities_pts_glimpse_v2_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Odx OdxEquities Pts Glimpse 2.0
+omi_odx_odxequities_pts_glimpse_v2_0:register_heuristic("tcp", omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

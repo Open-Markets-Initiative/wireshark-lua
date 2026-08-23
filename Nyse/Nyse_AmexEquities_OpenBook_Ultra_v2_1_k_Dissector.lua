@@ -14,6 +14,10 @@ local nyse_amexequities_openbook_ultra_v2_1_k = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse AmexEquities OpenBook Ultra 2.1.k Headers
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.amexequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
+
 -- Nyse AmexEquities OpenBook Ultra 2.1.k Fields
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexequities.openbook.ultra.v2.1.k.beginseqnum", ftypes.UINT32)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.amexequities.openbook.ultra.v2.1.k.chgqty", ftypes.UINT32)
@@ -33,8 +37,6 @@ omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.mpv = ProtoField.new("Mpv", "
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.msg_type = ProtoField.new("Msg Type", "nyse.amexequities.openbook.ultra.v2.1.k.msgtype", ftypes.UINT16)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.next_seq_number = ProtoField.new("Next Seq Number", "nyse.amexequities.openbook.ultra.v2.1.k.nextseqnumber", ftypes.UINT32)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.num_orders = ProtoField.new("Num Orders", "nyse.amexequities.openbook.ultra.v2.1.k.numorders", ftypes.UINT16)
-omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.amexequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
-omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet_size = ProtoField.new("Packet Size", "nyse.amexequities.openbook.ultra.v2.1.k.packetsize", ftypes.UINT16)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.price_numerator = ProtoField.new("Price Numerator", "nyse.amexequities.openbook.ultra.v2.1.k.pricenumerator", ftypes.DOUBLE)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.openbook.ultra.v2.1.k.pricescalecode", ftypes.DOUBLE)

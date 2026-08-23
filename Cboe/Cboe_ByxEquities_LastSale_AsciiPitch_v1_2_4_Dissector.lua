@@ -14,6 +14,9 @@ local cboe_byxequities_lastsale_asciipitch_v1_2_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe ByxEquities LastSale AsciiPitch 1.2.4 Headers
+omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.packet", ftypes.STRING)
+
 -- Cboe ByxEquities LastSale AsciiPitch 1.2.4 Fields
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.debugpacket", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.byxequities.lastsale.asciipitch.v1.2.4.executedshares", ftypes.STRING)
@@ -21,7 +24,6 @@ omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.execution_id = ProtoField
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.loginacceptedpacket", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.loginrejectedpacket", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.loginrequestpacket", ftypes.STRING)
-omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.packet", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.packet_type = ProtoField.new("Packet Type", "cboe.byxequities.lastsale.asciipitch.v1.2.4.packettype", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.password = ProtoField.new("Password", "cboe.byxequities.lastsale.asciipitch.v1.2.4.password", ftypes.STRING)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.price_long_price_14 = ProtoField.new("Price Long Price 14", "cboe.byxequities.lastsale.asciipitch.v1.2.4.pricelongprice14", ftypes.DOUBLE)

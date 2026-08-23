@@ -14,6 +14,10 @@ local cboe_neoequities_crossingfacility_pitch_v1_0_14 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe NeoEquities CrossingFacility Pitch 1.0.14 Headers
+omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packet", ftypes.STRING)
+omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packetheader", ftypes.STRING)
+
 -- Cboe NeoEquities CrossingFacility Pitch 1.0.14 Fields
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.active_market_maker = ProtoField.new("Active Market Maker", "cboe.neoequities.crossingfacility.pitch.v1.0.14.activemarketmaker", ftypes.UINT16)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "cboe.neoequities.crossingfacility.pitch.v1.0.14.allowedbooktypes", ftypes.STRING)
@@ -48,8 +52,6 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.original_price = Prot
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.original_quantity = ProtoField.new("Original Quantity", "cboe.neoequities.crossingfacility.pitch.v1.0.14.originalquantity", ftypes.UINT32)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.original_settlement_date = ProtoField.new("Original Settlement Date", "cboe.neoequities.crossingfacility.pitch.v1.0.14.originalsettlementdate", ftypes.UINT32)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.original_settlement_type = ProtoField.new("Original Settlement Type", "cboe.neoequities.crossingfacility.pitch.v1.0.14.originalsettlementtype", ftypes.UINT8)
-omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packet", ftypes.STRING)
-omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packetheader", ftypes.STRING)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.previous_close = ProtoField.new("Previous Close", "cboe.neoequities.crossingfacility.pitch.v1.0.14.previousclose", ftypes.DOUBLE)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.price = ProtoField.new("Price", "cboe.neoequities.crossingfacility.pitch.v1.0.14.price", ftypes.DOUBLE)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.quantity = ProtoField.new("Quantity", "cboe.neoequities.crossingfacility.pitch.v1.0.14.quantity", ftypes.UINT32)

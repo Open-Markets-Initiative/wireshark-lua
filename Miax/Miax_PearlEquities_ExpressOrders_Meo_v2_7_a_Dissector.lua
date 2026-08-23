@@ -14,6 +14,11 @@ local miax_pearlequities_expressorders_meo_v2_7_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities ExpressOrders Meo 2.7.a Headers
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.7.a.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.7.a.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.7.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities ExpressOrders Meo 2.7.a Fields
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.account = ProtoField.new("Account", "miax.pearlequities.expressorders.meo.v2.7.a.account", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.action = ProtoField.new("Action", "miax.pearlequities.expressorders.meo.v2.7.a.action", ftypes.STRING)
@@ -35,10 +40,8 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.display_qty = ProtoField.
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.display_range_qty = ProtoField.new("Display Range Qty", "miax.pearlequities.expressorders.meo.v2.7.a.displayrangeqty", ftypes.UINT32)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.displayed = ProtoField.new("Displayed", "miax.pearlequities.expressorders.meo.v2.7.a.displayed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.a.endsequencenumber", ftypes.UINT64)
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.7.a.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.expressorders.meo.v2.7.a.esesmpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.expressorders.meo.v2.7.a.esesmpackettype", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.7.a.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.expressorders.meo.v2.7.a.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.executing_trading_center = ProtoField.new("Executing Trading Center", "miax.pearlequities.expressorders.meo.v2.7.a.executingtradingcenter", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.executing_trading_center_mpid = ProtoField.new("Executing Trading Center Mpid", "miax.pearlequities.expressorders.meo.v2.7.a.executingtradingcentermpid", ftypes.STRING)
@@ -84,7 +87,6 @@ omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.order_status = ProtoField
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.order_type = ProtoField.new("Order Type", "miax.pearlequities.expressorders.meo.v2.7.a.ordertype", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.pearlequities.expressorders.meo.v2.7.a.originalclientorderid", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.original_order_capacity = ProtoField.new("Original Order Capacity", "miax.pearlequities.expressorders.meo.v2.7.a.originalordercapacity", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.7.a.packet", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.peg_offset = ProtoField.new("Peg Offset", "miax.pearlequities.expressorders.meo.v2.7.a.pegoffset", ftypes.DOUBLE)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.pending_cancel_status = ProtoField.new("Pending Cancel Status", "miax.pearlequities.expressorders.meo.v2.7.a.pendingcancelstatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.pending_modify_status = ProtoField.new("Pending Modify Status", "miax.pearlequities.expressorders.meo.v2.7.a.pendingmodifystatus", ftypes.STRING)

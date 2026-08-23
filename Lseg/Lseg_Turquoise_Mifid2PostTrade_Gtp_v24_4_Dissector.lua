@@ -14,6 +14,12 @@ local lseg_turquoise_mifid2posttrade_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Headers
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2posttrade.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Fields
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.agencycrossindicator", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.algorithmicindicator", ftypes.STRING)
@@ -35,9 +41,7 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.length = ProtoField.new("Len
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.turquoise.mifid2posttrade.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.mifid2posttrade.gtp.v24.4.marketdatagroup", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.turquoise.mifid2posttrade.gtp.v24.4.marketmechanism", ftypes.STRING)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messagecount", ftypes.UINT8)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.mifid2posttrade.gtp.v24.4.mifidprice", ftypes.STRING)
@@ -50,7 +54,6 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.notional_currency = ProtoFie
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.nt_pre_trade_waiver_flag = ProtoField.new("Nt Pre Trade Waiver Flag", "lseg.turquoise.mifid2posttrade.gtp.v24.4.ntpretradewaiverflag", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.mifid2posttrade.gtp.v24.4.orderbooktype", ftypes.UINT8)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2posttrade.gtp.v24.4.packet", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.mifid2posttrade.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.mifid2posttrade.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.priceformationindicator", ftypes.STRING)
@@ -82,7 +85,6 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trading_mode = ProtoField.ne
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.mifid2posttrade.gtp.v24.4.tradingstatus", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.turquoise.mifid2posttrade.gtp.v24.4.transactioncategory", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.turquoise.mifid2posttrade.gtp.v24.4.transactionidentificationcode", ftypes.STRING)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unitheader", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid2posttrade.gtp.v24.4.venueinstrumentid", ftypes.STRING)

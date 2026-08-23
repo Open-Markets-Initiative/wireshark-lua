@@ -14,6 +14,12 @@ local lseg_turquoise_analytics_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Turquoise Analytics Gtp 26.3 Headers
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.analytics.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Analytics Gtp 26.3 Fields
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.analytics.gtp.v26.3.allowedbooktypes", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.bid_ask_spread = ProtoField.new("Bid Ask Spread", "lseg.turquoise.analytics.gtp.v26.3.bidaskspread", ftypes.DOUBLE)
@@ -31,14 +37,11 @@ omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument = ProtoField.new("Instr
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.isin = ProtoField.new("Isin", "lseg.turquoise.analytics.gtp.v26.3.isin", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.length = ProtoField.new("Length", "lseg.turquoise.analytics.gtp.v26.3.length", ftypes.UINT16)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.analytics.gtp.v26.3.marketdatagroup", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v26.3.message", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.analytics.gtp.v26.3.messagecount", ftypes.UINT8)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v26.3.messageheader", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.analytics.gtp.v26.3.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.analytics.gtp.v26.3.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.analytics.gtp.v26.3.newendtime", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.analytics.gtp.v26.3.orderbooktype", ftypes.UINT8)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v26.3.packet", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.analytics.gtp.v26.3.pricebandtolerances", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.analytics.gtp.v26.3.reserved23", ftypes.BYTES)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.analytics.gtp.v26.3.reserved38", ftypes.BYTES)
@@ -56,7 +59,6 @@ omi_lseg_turquoise_analytics_gtp_v26_3.fields.static_circuit_breaker_tolerances 
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.analytics.gtp.v26.3.tickid", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v26.3.timestamp", ftypes.UINT64)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.analytics.gtp.v26.3.tradingstatus", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.analytics.gtp.v26.3.unitheader", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.analytics.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.analytics.gtp.v26.3.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.analytics.gtp.v26.3.venueinstrumentid", ftypes.STRING)

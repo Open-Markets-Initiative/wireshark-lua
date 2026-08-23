@@ -14,6 +14,11 @@ local euronext_optiq_dropcopygateway_sbe_v5_35 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Euronext Optiq DropCopyGateway Sbe 5.35 Headers
+omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message = ProtoField.new("Message", "euronext.optiq.dropcopygateway.sbe.v5.35.message", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.dropcopygateway.sbe.v5.35.messageheader", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.packet = ProtoField.new("Packet", "euronext.optiq.dropcopygateway.sbe.v5.35.packet", ftypes.STRING)
+
 -- Euronext Optiq DropCopyGateway Sbe 5.35 Fields
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.access_flag = ProtoField.new("Access Flag", "euronext.optiq.dropcopygateway.sbe.v5.35.accessflag", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.account_number = ProtoField.new("Account Number", "euronext.optiq.dropcopygateway.sbe.v5.35.accountnumber", ftypes.STRING)
@@ -213,8 +218,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.lp_role_lp_roleenum = ProtoF
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.lp_role_lp_roleenum_optional = ProtoField.new("Lp Role Lp Roleenum optional", "euronext.optiq.dropcopygateway.sbe.v5.35.lprolelproleenumoptional", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.margin_trading_flag = ProtoField.new("Margin Trading Flag", "euronext.optiq.dropcopygateway.sbe.v5.35.margintradingflag", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.market_phase_flag = ProtoField.new("Market Phase Flag", "euronext.optiq.dropcopygateway.sbe.v5.35.marketphaseflag", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message = ProtoField.new("Message", "euronext.optiq.dropcopygateway.sbe.v5.35.message", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.dropcopygateway.sbe.v5.35.messageheader", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.dropcopygateway.sbe.v5.35.messagepricenotation", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.message_sending_time = ProtoField.new("Message Sending Time", "euronext.optiq.dropcopygateway.sbe.v5.35.messagesendingtime", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.mi_fid_indicators_mi_fid_indicatorsset = ProtoField.new("Mi Fid Indicators Mi Fid Indicatorsset", "euronext.optiq.dropcopygateway.sbe.v5.35.mifidindicatorsmifidindicatorsset", ftypes.STRING)
@@ -266,7 +269,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.original_invest_decis_w_firm
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.original_investor_id = ProtoField.new("Original Investor Id", "euronext.optiq.dropcopygateway.sbe.v5.35.originalinvestorid", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.original_non_exec_broker_short_code = ProtoField.new("Original Non Exec Broker Short Code", "euronext.optiq.dropcopygateway.sbe.v5.35.originalnonexecbrokershortcode", ftypes.INT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.original_short_code_type = ProtoField.new("Original Short Code Type", "euronext.optiq.dropcopygateway.sbe.v5.35.originalshortcodetype", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.packet = ProtoField.new("Packet", "euronext.optiq.dropcopygateway.sbe.v5.35.packet", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.parent_exec_id = ProtoField.new("Parent Exec Id", "euronext.optiq.dropcopygateway.sbe.v5.35.parentexecid", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.parent_symbol_index = ProtoField.new("Parent Symbol Index", "euronext.optiq.dropcopygateway.sbe.v5.35.parentsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_35.fields.parent_trade_unique_identifier = ProtoField.new("Parent Trade Unique Identifier", "euronext.optiq.dropcopygateway.sbe.v5.35.parenttradeuniqueidentifier", ftypes.STRING)

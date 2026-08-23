@@ -14,14 +14,17 @@ local miax_pearlequities_headeronly_esesm_v1_0_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities HeaderOnly ESesM 1.0.a Headers
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Fields
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.headeronly.esesm.v1.0.a.applicationprotocol", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.headeronly.esesm.v1.0.a.computerid", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.endsequencenumber", ftypes.UINT64)
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpackettype", ftypes.STRING)
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.goodbyepacket", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.highestsequencenumber", ftypes.UINT64)
@@ -33,7 +36,6 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request = ProtoFiel
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.headeronly.esesm.v1.0.a.logouttext", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingengineid", ftypes.UINT8)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.headeronly.esesm.v1.0.a.numberofmatchingengines", ftypes.UINT8)
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedtradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.headeronly.esesm.v1.0.a.retransmissionrequest", ftypes.STRING)

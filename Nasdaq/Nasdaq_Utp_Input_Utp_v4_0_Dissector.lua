@@ -14,6 +14,12 @@ local nasdaq_utp_input_utp_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq Utp Input Utp 4.0 Headers
+omi_nasdaq_utp_input_utp_v4_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.clientpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.serverpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.servertcppacketheader", ftypes.STRING)
+
 -- Nasdaq Utp Input Utp 4.0 Fields
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.input.utp.v4.0.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.input.utp.v4.0.acceptedsession", ftypes.STRING)
@@ -39,6 +45,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.bid_short_2 = ProtoField.new("Bid Short 2",
 omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_int_4 = ProtoField.new("Bid Size Int 4", "nasdaq.utp.input.utp.v4.0.bidsizeint4", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short_2 = ProtoField.new("Bid Size Short 2", "nasdaq.utp.input.utp.v4.0.bidsizeshort2", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.cancel_type = ProtoField.new("Cancel Type", "nasdaq.utp.input.utp.v4.0.canceltype", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.utp.input.utp.v4.0.clientpackettype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utp.input.utp.v4.0.collardownprice", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_extension = ProtoField.new("Collar Extension", "nasdaq.utp.input.utp.v4.0.collarextension", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utp.input.utp.v4.0.collarreferenceprice", ftypes.DOUBLE)
@@ -88,9 +95,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.orig_trcond = ProtoField.new("Orig Trcond",
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_tt_exempt = ProtoField.new("Orig Tt Exempt", "nasdaq.utp.input.utp.v4.0.origttexempt", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_int_4 = ProtoField.new("Orig Volume Int 4", "nasdaq.utp.input.utp.v4.0.origvolumeint4", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_long_8 = ProtoField.new("Orig Volume Long 8", "nasdaq.utp.input.utp.v4.0.origvolumelong8", ftypes.DOUBLE)
-omi_nasdaq_utp_input_utp_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.packet", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.utp.input.utp.v4.0.packetlength", ftypes.UINT16)
-omi_nasdaq_utp_input_utp_v4_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.utp.input.utp.v4.0.packettype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.part_token = ProtoField.new("Part Token", "nasdaq.utp.input.utp.v4.0.parttoken", ftypes.UINT64)
 omi_nasdaq_utp_input_utp_v4_0.fields.password = ProtoField.new("Password", "nasdaq.utp.input.utp.v4.0.password", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.price = ProtoField.new("Price", "nasdaq.utp.input.utp.v4.0.price", ftypes.DOUBLE)
@@ -105,6 +110,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.return_control_messages_message = ProtoFiel
 omi_nasdaq_utp_input_utp_v4_0.fields.return_control_messages_message_type = ProtoField.new("Return Control Messages Message Type", "nasdaq.utp.input.utp.v4.0.returncontrolmessagesmessagetype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.reversal = ProtoField.new("Reversal", "nasdaq.utp.input.utp.v4.0.reversal", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.rii = ProtoField.new("Rii", "nasdaq.utp.input.utp.v4.0.rii", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.utp.input.utp.v4.0.serverpackettype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.side = ProtoField.new("Side", "nasdaq.utp.input.utp.v4.0.side", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_state = ProtoField.new("Sip State", "nasdaq.utp.input.utp.v4.0.sipstate", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_time = ProtoField.new("Sip Time", "nasdaq.utp.input.utp.v4.0.siptime", ftypes.UINT64)
@@ -113,7 +119,6 @@ omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_11 = ProtoField.new("Symbol Byt
 omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_5 = ProtoField.new("Symbol Byte 5", "nasdaq.utp.input.utp.v4.0.symbolbyte5", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.symbol_state = ProtoField.new("Symbol State", "nasdaq.utp.input.utp.v4.0.symbolstate", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.syntax_violation = ProtoField.new("Syntax Violation", "nasdaq.utp.input.utp.v4.0.syntaxviolation", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.tcppacketheader", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.text = ProtoField.new("Text", "nasdaq.utp.input.utp.v4.0.text", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.text_len = ProtoField.new("Text Len", "nasdaq.utp.input.utp.v4.0.textlen", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.input.utp.v4.0.timestamp1", ftypes.UINT64)
@@ -200,17 +205,25 @@ local show = {}
 
 -- Nasdaq Utp Input Utp 4.0 Element Dissection Options
 show.application_messages = true
-show.session_messages = true
 show.structs = true
 show.headers = true
+show.session_messages = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Nasdaq Utp Input Utp 4.0 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_nasdaq_utp_input_utp_v4_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_utp_input_utp_v4_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -890,6 +903,45 @@ nasdaq_utp_input_utp_v4_0.cancel_type.dissect = function(buffer, offset, packet,
   local display = nasdaq_utp_input_utp_v4_0.cancel_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.cancel_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_utp_input_utp_v4_0.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_utp_input_utp_v4_0.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_utp_input_utp_v4_0.client_packet_type.display = function(value)
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_utp_input_utp_v4_0.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_input_utp_v4_0.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -1964,60 +2016,6 @@ nasdaq_utp_input_utp_v4_0.packet_length.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Packet Type
-nasdaq_utp_input_utp_v4_0.packet_type = {}
-
--- Size: Packet Type
-nasdaq_utp_input_utp_v4_0.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_utp_input_utp_v4_0.packet_type.display = function(value)
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_utp_input_utp_v4_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utp_input_utp_v4_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Part Token
 nasdaq_utp_input_utp_v4_0.part_token = {}
 
@@ -2428,6 +2426,48 @@ nasdaq_utp_input_utp_v4_0.rii.dissect = function(buffer, offset, packet, parent)
   local display = nasdaq_utp_input_utp_v4_0.rii.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.rii, range, value, display)
+
+  return offset + length, value
+end
+
+-- Server Packet Type
+nasdaq_utp_input_utp_v4_0.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_utp_input_utp_v4_0.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_utp_input_utp_v4_0.server_packet_type.display = function(value)
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_utp_input_utp_v4_0.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_input_utp_v4_0.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.server_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -3073,58 +3113,6 @@ nasdaq_utp_input_utp_v4_0.login_accepted_packet.dissect = function(buffer, offse
   else
     -- Skip element, add fields directly
     return nasdaq_utp_input_utp_v4_0.login_accepted_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Request Packet
-nasdaq_utp_input_utp_v4_0.login_request_packet = {}
-
--- Size: Login Request Packet
-nasdaq_utp_input_utp_v4_0.login_request_packet.size =
-  nasdaq_utp_input_utp_v4_0.username.size + 
-  nasdaq_utp_input_utp_v4_0.password.size + 
-  nasdaq_utp_input_utp_v4_0.requested_session.size + 
-  nasdaq_utp_input_utp_v4_0.requested_sequence_number.size
-
--- Display: Login Request Packet
-nasdaq_utp_input_utp_v4_0.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-nasdaq_utp_input_utp_v4_0.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = nasdaq_utp_input_utp_v4_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = nasdaq_utp_input_utp_v4_0.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = nasdaq_utp_input_utp_v4_0.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = nasdaq_utp_input_utp_v4_0.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-nasdaq_utp_input_utp_v4_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_utp_input_utp_v4_0.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_utp_input_utp_v4_0.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_utp_input_utp_v4_0.login_request_packet.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7283,60 +7271,6 @@ nasdaq_utp_input_utp_v4_0.message_header.dissect = function(buffer, offset, pack
   end
 end
 
--- Unsequenced Data Packet
-nasdaq_utp_input_utp_v4_0.unsequenced_data_packet = {}
-
--- Calculate size of: Unsequenced Data Packet
-nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_utp_input_utp_v4_0.message_header.size
-
-  -- Parse runtime size of: Category Payload
-  index = index + buffer(offset + index - 5, 2):uint()
-
-  return index
-end
-
--- Display: Unsequenced Data Packet
-nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Header: Struct of 2 fields
-  index, message_header = nasdaq_utp_input_utp_v4_0.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Category
-  local message_category = buffer(index - 1, 1):string()
-
-  -- Category Payload: Runtime Type with 6 branches
-  index = nasdaq_utp_input_utp_v4_0.category_payload.dissect(buffer, index, packet, parent, message_category)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.unsequenced_data_packet, buffer(offset, 0))
-    local index = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Sequenced Data Packet
 nasdaq_utp_input_utp_v4_0.sequenced_data_packet = {}
 
@@ -7391,124 +7325,317 @@ nasdaq_utp_input_utp_v4_0.sequenced_data_packet.dissect = function(buffer, offse
   end
 end
 
--- Tcp Payload
-nasdaq_utp_input_utp_v4_0.tcp_payload = {}
+-- Server Tcp Payload
+nasdaq_utp_input_utp_v4_0.server_tcp_payload = {}
 
--- Dissect: Tcp Payload
-nasdaq_utp_input_utp_v4_0.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Tcp Payload
+nasdaq_utp_input_utp_v4_0.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return nasdaq_utp_input_utp_v4_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return nasdaq_utp_input_utp_v4_0.debug_packet.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_utp_input_utp_v4_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return nasdaq_utp_input_utp_v4_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return nasdaq_utp_input_utp_v4_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Packet
-  if packet_type == "H" then
-    return offset
-  end
-  -- Dissect Client Heartbeat Packet
-  if packet_type == "R" then
+  if server_packet_type == "H" then
     return offset
   end
   -- Dissect End Of Session Packet
-  if packet_type == "Z" then
-    return offset
-  end
-  -- Dissect Logout Request Packet
-  if packet_type == "O" then
+  if server_packet_type == "Z" then
     return offset
   end
 
   return offset
 end
 
--- Tcp Packet Header
-nasdaq_utp_input_utp_v4_0.tcp_packet_header = {}
+-- Server Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.server_tcp_packet_header = {}
 
--- Size: Tcp Packet Header
-nasdaq_utp_input_utp_v4_0.tcp_packet_header.size =
+-- Size: Server Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.size =
   nasdaq_utp_input_utp_v4_0.packet_length.size + 
-  nasdaq_utp_input_utp_v4_0.packet_type.size
+  nasdaq_utp_input_utp_v4_0.server_packet_type.size
 
--- Display: Tcp Packet Header
-nasdaq_utp_input_utp_v4_0.tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tcp Packet Header
-nasdaq_utp_input_utp_v4_0.tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: Short
   index, packet_length = nasdaq_utp_input_utp_v4_0.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: Char
-  index, packet_type = nasdaq_utp_input_utp_v4_0.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: Char
+  index, server_packet_type = nasdaq_utp_input_utp_v4_0.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Tcp Packet Header
-nasdaq_utp_input_utp_v4_0.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_utp_input_utp_v4_0.tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.server_tcp_packet_header, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_utp_input_utp_v4_0.tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_utp_input_utp_v4_0.tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Packet
-nasdaq_utp_input_utp_v4_0.packet = {}
+-- Server Packet
+nasdaq_utp_input_utp_v4_0.server_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_utp_input_utp_v4_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_utp_input_utp_v4_0.tcp_packet_header.size
+nasdaq_utp_input_utp_v4_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.size
 end
 
--- Dissect Packet
-nasdaq_utp_input_utp_v4_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+nasdaq_utp_input_utp_v4_0.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Server Packet
   local end_of_payload = buffer:len()
 
   while index < end_of_payload do
 
-    -- Tcp Packet Header: Struct of 2 fields
-    index, tcp_packet_header = nasdaq_utp_input_utp_v4_0.tcp_packet_header.dissect(buffer, index, packet, parent)
+    -- Server Tcp Packet Header: Struct of 2 fields
+    index, server_tcp_packet_header = nasdaq_utp_input_utp_v4_0.server_tcp_packet_header.dissect(buffer, index, packet, parent)
 
-    -- Dependency element: Packet Type
-    local packet_type = buffer(index - 1, 1):string()
+    -- Dependency element: Server Packet Type
+    local server_packet_type = buffer(index - 1, 1):string()
 
-    -- Tcp Payload: Runtime Type with 10 branches
-    index = nasdaq_utp_input_utp_v4_0.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
+    -- Server Tcp Payload: Runtime Type with 6 branches
+    index = nasdaq_utp_input_utp_v4_0.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
+  end
+
+  return index
+end
+
+-- Login Request Packet
+nasdaq_utp_input_utp_v4_0.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_utp_input_utp_v4_0.login_request_packet.size =
+  nasdaq_utp_input_utp_v4_0.username.size + 
+  nasdaq_utp_input_utp_v4_0.password.size + 
+  nasdaq_utp_input_utp_v4_0.requested_session.size + 
+  nasdaq_utp_input_utp_v4_0.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_utp_input_utp_v4_0.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_utp_input_utp_v4_0.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_utp_input_utp_v4_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_utp_input_utp_v4_0.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_utp_input_utp_v4_0.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_utp_input_utp_v4_0.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_utp_input_utp_v4_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utp_input_utp_v4_0.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utp_input_utp_v4_0.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unsequenced Data Packet
+nasdaq_utp_input_utp_v4_0.unsequenced_data_packet = {}
+
+-- Calculate size of: Unsequenced Data Packet
+nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_utp_input_utp_v4_0.message_header.size
+
+  -- Parse runtime size of: Category Payload
+  index = index + buffer(offset + index - 5, 2):uint()
+
+  return index
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nasdaq_utp_input_utp_v4_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Category
+  local message_category = buffer(index - 1, 1):string()
+
+  -- Category Payload: Runtime Type with 6 branches
+  index = nasdaq_utp_input_utp_v4_0.category_payload.dissect(buffer, index, packet, parent, message_category)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Tcp Payload
+nasdaq_utp_input_utp_v4_0.client_tcp_payload = {}
+
+-- Dissect: Client Tcp Payload
+nasdaq_utp_input_utp_v4_0.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return nasdaq_utp_input_utp_v4_0.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return nasdaq_utp_input_utp_v4_0.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if client_packet_type == "O" then
+    return offset
+  end
+
+  return offset
+end
+
+-- Client Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.client_tcp_packet_header = {}
+
+-- Size: Client Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.size =
+  nasdaq_utp_input_utp_v4_0.packet_length.size + 
+  nasdaq_utp_input_utp_v4_0.client_packet_type.size
+
+-- Display: Client Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: Short
+  index, packet_length = nasdaq_utp_input_utp_v4_0.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: Char
+  index, client_packet_type = nasdaq_utp_input_utp_v4_0.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Tcp Packet Header
+nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.client_tcp_packet_header, buffer(offset, 0))
+    local index = nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Packet
+nasdaq_utp_input_utp_v4_0.client_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_utp_input_utp_v4_0.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.size
+end
+
+-- Dissect Client Packet
+nasdaq_utp_input_utp_v4_0.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Packet
+  local end_of_payload = buffer:len()
+
+  while index < end_of_payload do
+
+    -- Client Tcp Packet Header: Struct of 2 fields
+    index, client_tcp_packet_header = nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Client Packet Type
+    local client_packet_type = buffer(index - 1, 1):string()
+
+    -- Client Tcp Payload: Runtime Type with 5 branches
+    index = nasdaq_utp_input_utp_v4_0.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
   end
 
   return index
@@ -7523,6 +7650,71 @@ end
 function omi_nasdaq_utp_input_utp_v4_0.init()
 end
 
+-- Connection roles for Nasdaq Utp Input Utp 4.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_utp_input_utp_v4_0.role = function(packet)
+  if omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_nasdaq_utp_input_utp_v4_0.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_nasdaq_utp_input_utp_v4_0.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_utp_input_utp_v4_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nasdaq Utp Input Utp 4.0
 function omi_nasdaq_utp_input_utp_v4_0.dissector(buffer, packet, parent)
 
@@ -7531,8 +7723,94 @@ function omi_nasdaq_utp_input_utp_v4_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_utp_input_utp_v4_0, buffer(), omi_nasdaq_utp_input_utp_v4_0.description, "("..buffer:len().." Bytes)")
-  return nasdaq_utp_input_utp_v4_0.packet.dissect(buffer, packet, protocol)
+  local role = nasdaq_utp_input_utp_v4_0.role(packet)
+  if role == "initiator" then
+    return nasdaq_utp_input_utp_v4_0.client_packet.dissect(buffer, packet, protocol)
+  end
+  return nasdaq_utp_input_utp_v4_0.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_utp_input_utp_v4_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request Packet
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_utp_input_utp_v4_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session Packet
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -7540,9 +7818,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nasdaq Utp Input Utp 4.0 (Tcp)
-local function omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic(buffer, packet, parent)
+local function omi_nasdaq_utp_input_utp_v4_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_utp_input_utp_v4_0.packet.requiredsize(buffer) then return false end
+  if not nasdaq_utp_input_utp_v4_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_utp_input_utp_v4_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_utp_input_utp_v4_0
@@ -7551,12 +7832,44 @@ local function omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic(buffer, packet, paren
   return true
 end
 
--- Register Heuristic for Nasdaq Utp Input Utp 4.0
-omi_nasdaq_utp_input_utp_v4_0:register_heuristic("tcp", omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic)
+-- Dissector Heuristic for Nasdaq Utp Input Utp 4.0 (Tcp)
+local function omi_nasdaq_utp_input_utp_v4_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_utp_input_utp_v4_0.server_packet.requiredsize(buffer) then return false end
 
--- Register Nasdaq Utp Input Utp 4.0 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_nasdaq_utp_input_utp_v4_0)
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_utp_input_utp_v4_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_utp_input_utp_v4_0
+  omi_nasdaq_utp_input_utp_v4_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq Utp Input Utp 4.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_utp_input_utp_v4_0.role(packet)
+  local first, second = omi_nasdaq_utp_input_utp_v4_0_tcp_initiator_heuristic, omi_nasdaq_utp_input_utp_v4_0_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_utp_input_utp_v4_0.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  nasdaq_utp_input_utp_v4_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nasdaq Utp Input Utp 4.0
+omi_nasdaq_utp_input_utp_v4_0:register_heuristic("tcp", omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

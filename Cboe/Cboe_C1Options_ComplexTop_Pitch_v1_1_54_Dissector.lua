@@ -14,6 +14,10 @@ local cboe_c1options_complextop_pitch_v1_1_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options ComplexTop Pitch 1.1.54 Headers
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.pitch.v1.1.54.packet", ftypes.STRING)
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
+
 -- Cboe C1Options ComplexTop Pitch 1.1.54 Fields
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.c1options.complextop.pitch.v1.1.54.askcustomerquantitylong", ftypes.UINT32)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.ask_customer_quantity_short = ProtoField.new("Ask Customer Quantity Short", "cboe.c1options.complextop.pitch.v1.1.54.askcustomerquantityshort", ftypes.UINT16)
@@ -61,8 +65,6 @@ omi_cboe_c1options_complextop_pitch_v1_1_54.fields.message_type = ProtoField.new
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complextop.pitch.v1.1.54.midnightreference", ftypes.UINT32)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.complextop.pitch.v1.1.54.openingcondition", ftypes.STRING)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.complextop.pitch.v1.1.54.osisymbol", ftypes.STRING)
-omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.pitch.v1.1.54.packet", ftypes.STRING)
-omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.price_long = ProtoField.new("Price Long", "cboe.c1options.complextop.pitch.v1.1.54.pricelong", ftypes.DOUBLE)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.price_short = ProtoField.new("Price Short", "cboe.c1options.complextop.pitch.v1.1.54.priceshort", ftypes.DOUBLE)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.c1options.complextop.pitch.v1.1.54.quantitylong", ftypes.UINT32)

@@ -14,18 +14,20 @@ local cme_common_mdp_udp_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Common Mdp Udp 1. Fields
+-- Cme Common Mdp Udp 1. Headers
 omi_cme_common_mdp_udp_v1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.common.mdp.udp.v1.binarypacketheader", ftypes.STRING)
-omi_cme_common_mdp_udp_v1.fields.block_length = ProtoField.new("Block Length", "cme.common.mdp.udp.v1.blocklength", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.message = ProtoField.new("Message", "cme.common.mdp.udp.v1.message", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.message_header = ProtoField.new("Message Header", "cme.common.mdp.udp.v1.messageheader", ftypes.STRING)
+omi_cme_common_mdp_udp_v1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.common.mdp.udp.v1.udppacket", ftypes.STRING)
+
+-- Cme Common Mdp Udp 1. Fields
+omi_cme_common_mdp_udp_v1.fields.block_length = ProtoField.new("Block Length", "cme.common.mdp.udp.v1.blocklength", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.message_size = ProtoField.new("Message Size", "cme.common.mdp.udp.v1.messagesize", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.common.mdp.udp.v1.packetsequencenumber", ftypes.UINT32)
 omi_cme_common_mdp_udp_v1.fields.payload = ProtoField.new("Payload", "cme.common.mdp.udp.v1.payload", ftypes.BYTES)
 omi_cme_common_mdp_udp_v1.fields.schema_id = ProtoField.new("Schema Id", "cme.common.mdp.udp.v1.schemaid", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.sending_time = ProtoField.new("Sending Time", "cme.common.mdp.udp.v1.sendingtime", ftypes.UINT64)
 omi_cme_common_mdp_udp_v1.fields.template_id = ProtoField.new("Template Id", "cme.common.mdp.udp.v1.templateid", ftypes.UINT16)
-omi_cme_common_mdp_udp_v1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.common.mdp.udp.v1.udppacket", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.version = ProtoField.new("Version", "cme.common.mdp.udp.v1.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------

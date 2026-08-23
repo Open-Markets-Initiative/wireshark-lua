@@ -14,6 +14,10 @@ local cboe_cxaequities_multicasttopofbook_pitch_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 Headers
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.packet", ftypes.STRING)
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.packetheader", ftypes.STRING)
+
 -- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 Fields
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.ask_price = ProtoField.new("Ask Price", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.askprice", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.ask_quantity = ProtoField.new("Ask Quantity", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.askquantity", ftypes.UINT32)
@@ -32,8 +36,6 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message = ProtoFiel
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messagetype", ftypes.UINT8)
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.packet", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.packetheader", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.pid = ProtoField.new("Pid", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.pid", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.price = ProtoField.new("Price", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.price", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.quantity = ProtoField.new("Quantity", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.quantity", ftypes.UINT32)

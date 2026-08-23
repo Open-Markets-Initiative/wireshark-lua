@@ -14,6 +14,10 @@ local asx_asxsecurities_trade_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Asx AsxSecurities Trade Itch 2.0 Headers
+omi_asx_asxsecurities_trade_itch_v2_0.fields.packet = ProtoField.new("Packet", "asx.asxsecurities.trade.itch.v2.0.packet", ftypes.STRING)
+omi_asx_asxsecurities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.itch.v2.0.packetheader", ftypes.STRING)
+
 -- Asx AsxSecurities Trade Itch 2.0 Fields
 omi_asx_asxsecurities_trade_itch_v2_0.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.asxsecurities.trade.itch.v2.0.askquantity", ftypes.UINT64)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.asxsecurities.trade.itch.v2.0.bestaskprice", ftypes.DOUBLE)
@@ -59,8 +63,6 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.odd_lot_size = ProtoField.new("Odd 
 omi_asx_asxsecurities_trade_itch_v2_0.fields.order_book_id = ProtoField.new("Order Book Id", "asx.asxsecurities.trade.itch.v2.0.orderbookid", ftypes.UINT32)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.order_book_position = ProtoField.new("Order Book Position", "asx.asxsecurities.trade.itch.v2.0.orderbookposition", ftypes.UINT32)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.order_id = ProtoField.new("Order Id", "asx.asxsecurities.trade.itch.v2.0.orderid", ftypes.UINT64)
-omi_asx_asxsecurities_trade_itch_v2_0.fields.packet = ProtoField.new("Packet", "asx.asxsecurities.trade.itch.v2.0.packet", ftypes.STRING)
-omi_asx_asxsecurities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.itch.v2.0.packetheader", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id = ProtoField.new("Participant Id", "asx.asxsecurities.trade.itch.v2.0.participantid", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "asx.asxsecurities.trade.itch.v2.0.participantidcounterparty", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "asx.asxsecurities.trade.itch.v2.0.participantidowner", ftypes.STRING)

@@ -14,6 +14,10 @@ local tmx_mx_sola_multicast_hsvf_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Tmx Mx Sola Multicast Hsvf 1.11 Headers
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_header = ProtoField.new("Message Header", "tmx.mx.sola.multicast.hsvf.v1.11.messageheader", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.packet = ProtoField.new("Packet", "tmx.mx.sola.multicast.hsvf.v1.11.packet", ftypes.STRING)
+
 -- Tmx Mx Sola Multicast Hsvf 1.11 Fields
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.askpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_n_6 = ProtoField.new("Ask Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.askpricen6", ftypes.STRING)
@@ -95,7 +99,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_number_of_contracts_per_orde
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_n_6 = ProtoField.new("Maximum Threshold Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricen6", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_x_6 = ProtoField.new("Maximum Threshold Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricex6", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_header = ProtoField.new("Message Header", "tmx.mx.sola.multicast.hsvf.v1.11.messageheader", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_type = ProtoField.new("Message Type", "tmx.mx.sola.multicast.hsvf.v1.11.messagetype", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.min_price = ProtoField.new("Min Price", "tmx.mx.sola.multicast.hsvf.v1.11.minprice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.minpricefractionindicator", ftypes.STRING)
@@ -128,7 +131,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.opening_price_fraction_indicator = P
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.option_marker = ProtoField.new("Option Marker", "tmx.mx.sola.multicast.hsvf.v1.11.optionmarker", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.option_market_depth_trading_instrument = ProtoField.new("Option Market Depth Trading Instrument", "tmx.mx.sola.multicast.hsvf.v1.11.optionmarketdepthtradinginstrument", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.option_type = ProtoField.new("Option Type", "tmx.mx.sola.multicast.hsvf.v1.11.optiontype", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.packet = ProtoField.new("Packet", "tmx.mx.sola.multicast.hsvf.v1.11.packet", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.payment_frequency = ProtoField.new("Payment Frequency", "tmx.mx.sola.multicast.hsvf.v1.11.paymentfrequency", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.previous_reset_date = ProtoField.new("Previous Reset Date", "tmx.mx.sola.multicast.hsvf.v1.11.previousresetdate", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.previous_reset_rate = ProtoField.new("Previous Reset Rate", "tmx.mx.sola.multicast.hsvf.v1.11.previousresetrate", ftypes.STRING)

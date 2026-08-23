@@ -14,6 +14,11 @@ local iex_iexoptions_marketdata_sbe_v1_03 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexOptions MarketData Sbe 1.03 Headers
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.marketdata.sbe.v1.03.messageheader", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet = ProtoField.new("Packet", "iex.iexoptions.marketdata.sbe.v1.03.packet", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.03.sbemessage", ftypes.STRING)
+
 -- Iex IexOptions MarketData Sbe 1.03 Fields
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "iex.iexoptions.marketdata.sbe.v1.03.asofsequencenumber", ftypes.UINT64)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.ask_customer_size = ProtoField.new("Ask Customer Size", "iex.iexoptions.marketdata.sbe.v1.03.askcustomersize", ftypes.UINT32)
@@ -43,7 +48,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.instrument_id = ProtoField.new("I
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.liquidity_event_type = ProtoField.new("Liquidity Event Type", "iex.iexoptions.marketdata.sbe.v1.03.liquidityeventtype", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.logon_id = ProtoField.new("Logon Id", "iex.iexoptions.marketdata.sbe.v1.03.logonid", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.maturity_date = ProtoField.new("Maturity Date", "iex.iexoptions.marketdata.sbe.v1.03.maturitydate", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.marketdata.sbe.v1.03.messageheader", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.message_list_group_encoding = ProtoField.new("Message List Group Encoding", "iex.iexoptions.marketdata.sbe.v1.03.messagelistgroupencoding", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.mod_flag = ProtoField.new("Mod Flag", "iex.iexoptions.marketdata.sbe.v1.03.modflag", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.mpv_group = ProtoField.new("Mpv Group", "iex.iexoptions.marketdata.sbe.v1.03.mpvgroup", ftypes.INT8)
@@ -53,14 +57,12 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.order_id = ProtoField.new("Order 
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.original_trade_id = ProtoField.new("Original Trade Id", "iex.iexoptions.marketdata.sbe.v1.03.originaltradeid", ftypes.UINT64)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.orp_enablement = ProtoField.new("Orp Enablement", "iex.iexoptions.marketdata.sbe.v1.03.orpenablement", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.osi_symbol = ProtoField.new("Osi Symbol", "iex.iexoptions.marketdata.sbe.v1.03.osisymbol", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet = ProtoField.new("Packet", "iex.iexoptions.marketdata.sbe.v1.03.packet", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet_length = ProtoField.new("Packet Length", "iex.iexoptions.marketdata.sbe.v1.03.packetlength", ftypes.UINT16)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.participant_id = ProtoField.new("Participant Id", "iex.iexoptions.marketdata.sbe.v1.03.participantid", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.price = ProtoField.new("Price", "iex.iexoptions.marketdata.sbe.v1.03.price", ftypes.DOUBLE)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.quote_relief_multiplier = ProtoField.new("Quote Relief Multiplier", "iex.iexoptions.marketdata.sbe.v1.03.quotereliefmultiplier", ftypes.UINT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.remaining_contracts = ProtoField.new("Remaining Contracts", "iex.iexoptions.marketdata.sbe.v1.03.remainingcontracts", ftypes.UINT32)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.request_id = ProtoField.new("Request Id", "iex.iexoptions.marketdata.sbe.v1.03.requestid", ftypes.UINT32)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.03.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.marketdata.sbe.v1.03.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequence_number = ProtoField.new("Sequence Number", "iex.iexoptions.marketdata.sbe.v1.03.sequencenumber", ftypes.UINT64)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_groups = ProtoField.new("Sequenced Packet Message messages Groups", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroups", ftypes.STRING)

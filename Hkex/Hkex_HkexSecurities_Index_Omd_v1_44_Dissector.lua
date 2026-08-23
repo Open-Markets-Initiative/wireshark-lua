@@ -14,6 +14,12 @@ local hkex_hkexsecurities_index_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities Index Omd 1.44 Headers
+omi_hkex_hkexsecurities_index_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.index.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.index.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_index_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.index.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_index_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.index.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities Index Omd 1.44 Fields
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.closing_value = ProtoField.new("Closing Value", "hkex.hkexsecurities.index.omd.v1.44.closingvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.index.omd.v1.44.currencycode", ftypes.STRING)
@@ -32,17 +38,13 @@ omi_hkex_hkexsecurities_index_omd_v1_44.fields.index_turnover = ProtoField.new("
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.index.omd.v1.44.indexvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.index.omd.v1.44.indexvolume", ftypes.INT64)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.low_value = ProtoField.new("Low Value", "hkex.hkexsecurities.index.omd.v1.44.lowvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_index_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.index.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.index.omd.v1.44.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.index.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.index.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.index.omd.v1.44.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.index.omd.v1.44.netchgprevday", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.net_chg_prev_day_pct = ProtoField.new("Net Chg Prev Day Pct", "hkex.hkexsecurities.index.omd.v1.44.netchgprevdaypct", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.new_seq_no = ProtoField.new("New Seq No", "hkex.hkexsecurities.index.omd.v1.44.newseqno", ftypes.UINT32)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.index.omd.v1.44.openingvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_index_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.index.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_index_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.index.omd.v1.44.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.index.omd.v1.44.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.previous_ses_close = ProtoField.new("Previous Ses Close", "hkex.hkexsecurities.index.omd.v1.44.previoussesclose", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.44.sendtime", ftypes.UINT64)

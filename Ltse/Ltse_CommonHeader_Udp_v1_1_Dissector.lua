@@ -14,15 +14,17 @@ local ltse_commonheader_udp_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ltse CommonHeader Udp 1.1 Headers
+omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
+omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
+
 -- Ltse CommonHeader Udp 1.1 Fields
 omi_ltse_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.udp.v1.1.blocklength", ftypes.UINT16)
-omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "ltse.commonheader.udp.v1.1.headerlength", ftypes.UINT8)
 omi_ltse_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "ltse.commonheader.udp.v1.1.message", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "ltse.commonheader.udp.v1.1.messagecount", ftypes.UINT16)
 omi_ltse_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.udp.v1.1.messagelength", ftypes.UINT16)
 omi_ltse_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "ltse.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
-omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "ltse.commonheader.udp.v1.1.payload", ftypes.BYTES)
 omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)

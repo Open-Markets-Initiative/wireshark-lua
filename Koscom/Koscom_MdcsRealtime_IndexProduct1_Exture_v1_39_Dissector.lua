@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_indexproduct1_exture_v1_39 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime IndexProduct1 Exture 1.39 Headers
+omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime IndexProduct1 Exture 1.39 Fields
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.accumulatedcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.accumulatedtradingvalue", ftypes.STRING)
@@ -69,7 +72,6 @@ omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.market_price_index_wei
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.messagesequencenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.reinvestcallcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.totalearningsindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.totalearningsindexweight", ftypes.STRING)

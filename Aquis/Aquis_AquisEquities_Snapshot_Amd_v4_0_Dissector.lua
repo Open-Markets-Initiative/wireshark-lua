@@ -14,6 +14,12 @@ local aquis_aquisequities_snapshot_amd_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Aquis AquisEquities Snapshot Amd 4.0 Headers
+omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.snapshot.amd.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.snapshot.amd.v4.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.snapshot.amd.v4.0.packetheader", ftypes.STRING)
+
 -- Aquis AquisEquities Snapshot Amd 4.0 Fields
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.snapshot.amd.v4.0.closingbuyqty", ftypes.UINT32)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.snapshot.amd.v4.0.closingsellqty", ftypes.UINT32)
@@ -22,14 +28,10 @@ omi_aquis_aquisequities_snapshot_amd_v4_0.fields.indicative_price = ProtoField.n
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.snapshot.amd.v4.0.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.snapshot.amd.v4.0.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.market_flags = ProtoField.new("Market Flags", "aquis.aquisequities.snapshot.amd.v4.0.marketflags", ftypes.STRING)
-omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.0.message", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.snapshot.amd.v4.0.messagecount", ftypes.UINT8)
-omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.snapshot.amd.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.snapshot.amd.v4.0.msglength", ftypes.UINT8)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.snapshot.amd.v4.0.msgtype", ftypes.UINT8)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.snapshot.amd.v4.0.orderref", ftypes.UINT32)
-omi_aquis_aquisequities_snapshot_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.snapshot.amd.v4.0.packet", ftypes.STRING)
-omi_aquis_aquisequities_snapshot_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.snapshot.amd.v4.0.packetheader", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.price = ProtoField.new("Price", "aquis.aquisequities.snapshot.amd.v4.0.price", ftypes.UINT64)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.snapshot.amd.v4.0.quantity", ftypes.UINT32)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.reserved = ProtoField.new("Reserved", "aquis.aquisequities.snapshot.amd.v4.0.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)

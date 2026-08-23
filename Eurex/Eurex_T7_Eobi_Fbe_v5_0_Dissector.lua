@@ -14,6 +14,13 @@ local eurex_t7_eobi_fbe_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Eurex T7 Eobi Fbe 5.0 Headers
+omi_eurex_t7_eobi_fbe_v5_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v5.0.eobiheader", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v5_0.fields.message = ProtoField.new("Message", "eurex.t7.eobi.fbe.v5.0.message", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v5_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v5.0.messageheadercomp", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v5_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eobi.fbe.v5.0.packet", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v5_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.t7.eobi.fbe.v5.0.packetheader", ftypes.STRING)
+
 -- Eurex T7 Eobi Fbe 5.0 Fields
 omi_eurex_t7_eobi_fbe_v5_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.t7.eobi.fbe.v5.0.aggressorside", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v5.0.aggressortime", ftypes.UINT64)
@@ -24,7 +31,6 @@ omi_eurex_t7_eobi_fbe_v5_0.fields.bid_size = ProtoField.new("Bid Size", "eurex.t
 omi_eurex_t7_eobi_fbe_v5_0.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eobi.fbe.v5.0.bodylen", ftypes.UINT16)
 omi_eurex_t7_eobi_fbe_v5_0.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.t7.eobi.fbe.v5.0.completionindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.display_qty = ProtoField.new("Display Qty", "eurex.t7.eobi.fbe.v5.0.displayqty", ftypes.INT32)
-omi_eurex_t7_eobi_fbe_v5_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v5.0.eobiheader", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v5_0.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.eobi.fbe.v5.0.execid", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v5_0.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.t7.eobi.fbe.v5.0.fastmarketindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.t7.eobi.fbe.v5.0.imbalanceqty", ftypes.INT32)
@@ -46,8 +52,6 @@ omi_eurex_t7_eobi_fbe_v5_0.fields.md_entry_size = ProtoField.new("Md Entry Size"
 omi_eurex_t7_eobi_fbe_v5_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.t7.eobi.fbe.v5.0.mdentrytype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.md_instrument_entry_grp_comp = ProtoField.new("Md Instrument Entry Grp Comp", "eurex.t7.eobi.fbe.v5.0.mdinstrumententrygrpcomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v5_0.fields.md_trade_entry_grp_comp = ProtoField.new("Md Trade Entry Grp Comp", "eurex.t7.eobi.fbe.v5.0.mdtradeentrygrpcomp", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v5_0.fields.message = ProtoField.new("Message", "eurex.t7.eobi.fbe.v5.0.message", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v5_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v5.0.messageheadercomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v5_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.eobi.fbe.v5.0.msgseqnum", ftypes.UINT32)
 omi_eurex_t7_eobi_fbe_v5_0.fields.no_legs = ProtoField.new("No Legs", "eurex.t7.eobi.fbe.v5.0.nolegs", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.eobi.fbe.v5.0.nomdentries", ftypes.UINT8)
@@ -55,8 +59,6 @@ omi_eurex_t7_eobi_fbe_v5_0.fields.offer_px = ProtoField.new("Offer Px", "eurex.t
 omi_eurex_t7_eobi_fbe_v5_0.fields.offer_size = ProtoField.new("Offer Size", "eurex.t7.eobi.fbe.v5.0.offersize", ftypes.INT32)
 omi_eurex_t7_eobi_fbe_v5_0.fields.ord_type = ProtoField.new("Ord Type", "eurex.t7.eobi.fbe.v5.0.ordtype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.t7.eobi.fbe.v5.0.orderdetailscomp", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v5_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eobi.fbe.v5.0.packet", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v5_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.t7.eobi.fbe.v5.0.packetheader", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad_1 = ProtoField.new("Pad 1", "eurex.t7.eobi.fbe.v5.0.pad1", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad1 = ProtoField.new("Pad1", "eurex.t7.eobi.fbe.v5.0.pad1", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.eobi.fbe.v5.0.pad2", ftypes.BYTES)

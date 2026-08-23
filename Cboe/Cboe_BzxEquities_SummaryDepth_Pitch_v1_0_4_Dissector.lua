@@ -14,6 +14,10 @@ local cboe_bzxequities_summarydepth_pitch_v1_0_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe BzxEquities SummaryDepth Pitch 1.0.4 Headers
+omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.summarydepth.pitch.v1.0.4.packet", ftypes.STRING)
+omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxequities.summarydepth.pitch.v1.0.4.packetheader", ftypes.STRING)
+
 -- Cboe BzxEquities SummaryDepth Pitch 1.0.4 Fields
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.adap_block = ProtoField.new("Adap Block", "cboe.bzxequities.summarydepth.pitch.v1.0.4.adapblock", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.bzxequities.summarydepth.pitch.v1.0.4.adapblocksize", ftypes.UINT8)
@@ -37,8 +41,6 @@ omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.message = ProtoField.new("
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.summarydepth.pitch.v1.0.4.messageheader", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.summarydepth.pitch.v1.0.4.messagelength", ftypes.UINT8)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.summarydepth.pitch.v1.0.4.messagetype", ftypes.UINT8)
-omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.summarydepth.pitch.v1.0.4.packet", ftypes.STRING)
-omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxequities.summarydepth.pitch.v1.0.4.packetheader", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.price = ProtoField.new("Price", "cboe.bzxequities.summarydepth.pitch.v1.0.4.price", ftypes.DOUBLE)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.quantity = ProtoField.new("Quantity", "cboe.bzxequities.summarydepth.pitch.v1.0.4.quantity", ftypes.UINT32)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzxequities.summarydepth.pitch.v1.0.4.regshoaction", ftypes.STRING)

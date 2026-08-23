@@ -14,6 +14,13 @@ local siac_opra_output_obi_v6_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Opra Output Obi 6.3.a Headers
+omi_siac_opra_output_obi_v6_3_a.fields.block_header = ProtoField.new("Block Header", "siac.opra.output.obi.v6.3.a.blockheader", ftypes.STRING)
+omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v6.3.a.blocktimestamp", ftypes.STRING)
+omi_siac_opra_output_obi_v6_3_a.fields.message = ProtoField.new("Message", "siac.opra.output.obi.v6.3.a.message", ftypes.STRING)
+omi_siac_opra_output_obi_v6_3_a.fields.message_header = ProtoField.new("Message Header", "siac.opra.output.obi.v6.3.a.messageheader", ftypes.STRING)
+omi_siac_opra_output_obi_v6_3_a.fields.packet = ProtoField.new("Packet", "siac.opra.output.obi.v6.3.a.packet", ftypes.STRING)
+
 -- Siac Opra Output Obi 6.3.a Fields
 omi_siac_opra_output_obi_v6_3_a.fields.administrative_category = ProtoField.new("Administrative Category", "siac.opra.output.obi.v6.3.a.administrativecategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.output.obi.v6.3.a.administrativemessagetype", ftypes.STRING)
@@ -35,11 +42,9 @@ omi_siac_opra_output_obi_v6_3_a.fields.bid_price_short = ProtoField.new("Bid Pri
 omi_siac_opra_output_obi_v6_3_a.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.output.obi.v6.3.a.bidsize", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.output.obi.v6.3.a.bidsizeshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_3_a.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.output.obi.v6.3.a.blockchecksum", ftypes.UINT16)
-omi_siac_opra_output_obi_v6_3_a.fields.block_header = ProtoField.new("Block Header", "siac.opra.output.obi.v6.3.a.blockheader", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.output.obi.v6.3.a.blockpadbyte", ftypes.UINT8)
 omi_siac_opra_output_obi_v6_3_a.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.output.obi.v6.3.a.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.block_size = ProtoField.new("Block Size", "siac.opra.output.obi.v6.3.a.blocksize", ftypes.UINT16)
-omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v6.3.a.blocktimestamp", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.control_category = ProtoField.new("Control Category", "siac.opra.output.obi.v6.3.a.controlcategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.output.obi.v6.3.a.controlmessagetype", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.output.obi.v6.3.a.datafeedindicator", ftypes.STRING)
@@ -58,11 +63,9 @@ omi_siac_opra_output_obi_v6_3_a.fields.last_price = ProtoField.new("Last Price",
 omi_siac_opra_output_obi_v6_3_a.fields.long_equity_and_index_quote_category = ProtoField.new("Long Equity And Index Quote Category", "siac.opra.output.obi.v6.3.a.longequityandindexquotecategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.long_equity_and_index_quote_message_type = ProtoField.new("Long Equity And Index Quote Message Type", "siac.opra.output.obi.v6.3.a.longequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.low_price = ProtoField.new("Low Price", "siac.opra.output.obi.v6.3.a.lowprice", ftypes.INT32)
-omi_siac_opra_output_obi_v6_3_a.fields.message = ProtoField.new("Message", "siac.opra.output.obi.v6.3.a.message", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.message_category = ProtoField.new("Message Category", "siac.opra.output.obi.v6.3.a.messagecategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.message_data = ProtoField.new("Message Data", "siac.opra.output.obi.v6.3.a.messagedata", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.output.obi.v6.3.a.messagedatalength", ftypes.UINT16)
-omi_siac_opra_output_obi_v6_3_a.fields.message_header = ProtoField.new("Message Header", "siac.opra.output.obi.v6.3.a.messageheader", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.message_indicator = ProtoField.new("Message Indicator", "siac.opra.output.obi.v6.3.a.messageindicator", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.output.obi.v6.3.a.messagesinblock", ftypes.UINT8)
 omi_siac_opra_output_obi_v6_3_a.fields.multicast_line_number = ProtoField.new("Multicast Line Number", "siac.opra.output.obi.v6.3.a.multicastlinenumber", ftypes.UINT16)
@@ -77,7 +80,6 @@ omi_siac_opra_output_obi_v6_3_a.fields.open_interest_category = ProtoField.new("
 omi_siac_opra_output_obi_v6_3_a.fields.open_interest_message_type = ProtoField.new("Open Interest Message Type", "siac.opra.output.obi.v6.3.a.openinterestmessagetype", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.output.obi.v6.3.a.openinterestvolume", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.open_price = ProtoField.new("Open Price", "siac.opra.output.obi.v6.3.a.openprice", ftypes.INT32)
-omi_siac_opra_output_obi_v6_3_a.fields.packet = ProtoField.new("Packet", "siac.opra.output.obi.v6.3.a.packet", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.output.obi.v6.3.a.participantid", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.opra.output.obi.v6.3.a.participantreferencenumber", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.output.obi.v6.3.a.premiumprice", ftypes.INT32)

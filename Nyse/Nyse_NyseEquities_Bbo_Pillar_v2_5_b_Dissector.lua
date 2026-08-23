@@ -14,6 +14,13 @@ local nyse_nyseequities_bbo_pillar_v2_5_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities Bbo Pillar 2.5.b Headers
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.b.message", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.b.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.b.packet", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.b.packetheader", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.b.sendtime", ftypes.STRING)
+
 -- Nyse NyseEquities Bbo Pillar 2.5.b Fields
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseequities.bbo.pillar.v2.5.b.askprice", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.nyseequities.bbo.pillar.v2.5.b.askvolume", ftypes.UINT32)
@@ -32,16 +39,12 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.last_symbol_seq_num = ProtoField.
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.bbo.pillar.v2.5.b.lotsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.bbo.pillar.v2.5.b.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bbo.pillar.v2.5.b.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.b.message", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.b.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.bbo.pillar.v2.5.b.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.bbo.pillar.v2.5.b.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.bbo.pillar.v2.5.b.mpv", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseequities.bbo.pillar.v2.5.b.nanoseconds", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nyseequities.bbo.pillar.v2.5.b.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseequities.bbo.pillar.v2.5.b.numbermsgs", ftypes.UINT8)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.b.packet", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.b.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseequities.bbo.pillar.v2.5.b.pktsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseequities.bbo.pillar.v2.5.b.prevcloseprice", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseequities.bbo.pillar.v2.5.b.prevclosevolume", ftypes.UINT32)
@@ -61,7 +64,6 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.rpi_indicator = ProtoField.new("R
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bbo.pillar.v2.5.b.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.bbo.pillar.v2.5.b.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.bbo.pillar.v2.5.b.securitytype", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.b.sendtime", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.bbo.pillar.v2.5.b.seqnum", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.bbo.pillar.v2.5.b.sessionstate", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.bbo.pillar.v2.5.b.sourceid", ftypes.STRING)

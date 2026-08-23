@@ -14,6 +14,11 @@ local aquis_aquisequities_tradingprotocol_atp_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Aquis AquisEquities TradingProtocol Atp 4.0 Headers
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tradingprotocol.atp.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tradingprotocol.atp.v4.0.packet", ftypes.STRING)
+
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Fields
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.account = ProtoField.new("Account", "aquis.aquisequities.tradingprotocol.atp.v4.0.account", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.algo_trade_flag = ProtoField.new("Algo Trade Flag", "aquis.aquisequities.tradingprotocol.atp.v4.0.algotradeflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -36,8 +41,6 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.lis = ProtoField.new("Li
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.lis_only = ProtoField.new("Lis Only", "aquis.aquisequities.tradingprotocol.atp.v4.0.lisonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.logout_reason_code = ProtoField.new("Logout Reason Code", "aquis.aquisequities.tradingprotocol.atp.v4.0.logoutreasoncode", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.market_data_id = ProtoField.new("Market Data Id", "aquis.aquisequities.tradingprotocol.atp.v4.0.marketdataid", ftypes.UINT32)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.message", ftypes.STRING)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tradingprotocol.atp.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.min_qty = ProtoField.new("Min Qty", "aquis.aquisequities.tradingprotocol.atp.v4.0.minqty", ftypes.UINT32)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tradingprotocol.atp.v4.0.msglength", ftypes.UINT16)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.msg_seq_no = ProtoField.new("Msg Seq No", "aquis.aquisequities.tradingprotocol.atp.v4.0.msgseqno", ftypes.UINT32)
@@ -51,7 +54,6 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_ref = ProtoField.n
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_status = ProtoField.new("Order Status", "aquis.aquisequities.tradingprotocol.atp.v4.0.orderstatus", ftypes.UINT8, {[1]="Pending New", [2]="Acknowledged", [3]="Cancelled", [4]="Rejected", [5]="Filled", [6]="Modified"}, base.DEC, 0xE0)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_type = ProtoField.new("Order Type", "aquis.aquisequities.tradingprotocol.atp.v4.0.ordertype", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.orig_aqx_ord_id = ProtoField.new("Orig Aqx Ord Id", "aquis.aquisequities.tradingprotocol.atp.v4.0.origaqxordid", ftypes.UINT32)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tradingprotocol.atp.v4.0.packet", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role = ProtoField.new("Party Role", "aquis.aquisequities.tradingprotocol.atp.v4.0.partyrole", ftypes.UINT8, {[0]="None", [1]="Client Id", [2]="Executing Decision Id", [3]="Investing Decision Id"}, base.DEC, 0x0F)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role_qualifier = ProtoField.new("Party Role Qualifier", "aquis.aquisequities.tradingprotocol.atp.v4.0.partyrolequalifier", ftypes.UINT8, {[0]="None", [1]="Algo", [2]="Firm", [3]="Person"}, base.DEC, 0xF0)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.password = ProtoField.new("Password", "aquis.aquisequities.tradingprotocol.atp.v4.0.password", ftypes.STRING)

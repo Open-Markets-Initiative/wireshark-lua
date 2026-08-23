@@ -14,6 +14,10 @@ local cboe_bzxoptions_binaryorderentry_boe_v2_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe BzxOptions BinaryOrderEntry Boe 2.10 Headers
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.bzxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
+
 -- Cboe BzxOptions BinaryOrderEntry Boe 2.10 Fields
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.account = ProtoField.new("Account", "cboe.bzxoptions.binaryorderentry.boe.v2.10.account", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.application_message_type = ProtoField.new("Application Message Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.applicationmessagetype", ftypes.UINT8)
@@ -128,7 +132,6 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.matching_unit = ProtoField
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.bzxoptions.binaryorderentry.boe.v2.10.maturitydate", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.max_floor = ProtoField.new("Max Floor", "cboe.bzxoptions.binaryorderentry.boe.v2.10.maxfloor", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.bzxoptions.binaryorderentry.boe.v2.10.maxremovepct", ftypes.UINT8)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.bzxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.message_length = ProtoField.new("Message Length", "cboe.bzxoptions.binaryorderentry.boe.v2.10.messagelength", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.message_type = ProtoField.new("Message Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.messagetype", ftypes.UINT8)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.min_qty = ProtoField.new("Min Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.minqty", ftypes.UINT32)
@@ -641,7 +644,6 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_restated_time_in_for
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_restated_working_price_exists = ProtoField.new("Order Restated Working Price Exists", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderrestatedworkingpriceexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.origclordid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.orig_time = ProtoField.new("Orig Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.origtime", ftypes.UINT64)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.param_group = ProtoField.new("Param Group", "cboe.bzxoptions.binaryorderentry.boe.v2.10.paramgroup", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.bzxoptions.binaryorderentry.boe.v2.10.paramgrouplength", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.paramgrouptype", ftypes.UINT8)

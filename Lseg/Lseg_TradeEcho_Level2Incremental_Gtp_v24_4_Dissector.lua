@@ -14,6 +14,12 @@ local lseg_tradeecho_level2incremental_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg TradeEcho Level2Incremental Gtp 24.4 Headers
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg TradeEcho Level2Incremental Gtp 24.4 Fields
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.level2incremental.gtp.v24.4.allowedbooktypes", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.level2incremental.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
@@ -24,9 +30,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.instrument = ProtoField.ne
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.level2incremental.gtp.v24.4.isin", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.level2incremental.gtp.v24.4.length", ftypes.UINT16)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.level2incremental.gtp.v24.4.marketdatagroup", ftypes.STRING)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.level2incremental.gtp.v24.4.messagecount", ftypes.UINT8)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.level2incremental.gtp.v24.4.messagelength", ftypes.UINT16)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.level2incremental.gtp.v24.4.messagetype", ftypes.UINT8)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.level2incremental.gtp.v24.4.newendtime", ftypes.STRING)
@@ -34,7 +38,6 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.off_book = ProtoField.new(
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.level2incremental.gtp.v24.4.orderbooktype", ftypes.UINT8)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.order_id = ProtoField.new("Order Id", "lseg.tradeecho.level2incremental.gtp.v24.4.orderid", ftypes.UINT64)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.order_type = ProtoField.new("Order Type", "lseg.tradeecho.level2incremental.gtp.v24.4.ordertype", ftypes.UINT8)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v24.4.packet", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.participant = ProtoField.new("Participant", "lseg.tradeecho.level2incremental.gtp.v24.4.participant", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.previous_price = ProtoField.new("Previous Price", "lseg.tradeecho.level2incremental.gtp.v24.4.previousprice", ftypes.DOUBLE)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.tradeecho.level2incremental.gtp.v24.4.previousquantity", ftypes.DOUBLE)
@@ -56,7 +59,6 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.tick_id = ProtoField.new("
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incremental.gtp.v24.4.timestamp", ftypes.UINT64)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incremental.gtp.v24.4.tradingstatus", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.tradeecho.level2incremental.gtp.v24.4.transactiontime", ftypes.UINT64)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.level2incremental.gtp.v24.4.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.level2incremental.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incremental.gtp.v24.4.venueinstrumentid", ftypes.STRING)

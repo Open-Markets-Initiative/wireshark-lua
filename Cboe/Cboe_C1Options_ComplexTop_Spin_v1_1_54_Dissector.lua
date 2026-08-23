@@ -14,6 +14,10 @@ local cboe_c1options_complextop_spin_v1_1_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options ComplexTop Spin 1.1.54 Headers
+omi_cboe_c1options_complextop_spin_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.spin.v1.1.54.packet", ftypes.STRING)
+omi_cboe_c1options_complextop_spin_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.spin.v1.1.54.packetheader", ftypes.STRING)
+
 -- Cboe C1Options ComplexTop Spin 1.1.54 Fields
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_2 = ProtoField.new("Ask Customer Quantity Binary 2", "cboe.c1options.complextop.spin.v1.1.54.askcustomerquantitybinary2", ftypes.UINT16)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_4 = ProtoField.new("Ask Customer Quantity Binary 4", "cboe.c1options.complextop.spin.v1.1.54.askcustomerquantitybinary4", ftypes.UINT32)
@@ -57,8 +61,6 @@ omi_cboe_c1options_complextop_spin_v1_1_54.fields.message_length = ProtoField.ne
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complextop.spin.v1.1.54.messagetype", ftypes.UINT8)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.order_count = ProtoField.new("Order Count", "cboe.c1options.complextop.spin.v1.1.54.ordercount", ftypes.UINT32)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.complextop.spin.v1.1.54.osisymbol", ftypes.STRING)
-omi_cboe_c1options_complextop_spin_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.spin.v1.1.54.packet", ftypes.STRING)
-omi_cboe_c1options_complextop_spin_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.spin.v1.1.54.packetheader", ftypes.STRING)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.password = ProtoField.new("Password", "cboe.c1options.complextop.spin.v1.1.54.password", ftypes.STRING)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.c1options.complextop.spin.v1.1.54.pricebinarylongprice8", ftypes.DOUBLE)
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.c1options.complextop.spin.v1.1.54.pricebinaryshortprice2", ftypes.DOUBLE)

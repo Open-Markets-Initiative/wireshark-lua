@@ -14,13 +14,21 @@ local cme_globex_mdp3_sbe_v1_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cme Globex Mdp3 Sbe 1.12 Headers
+omi_cme_globex_mdp3_sbe_v1_12.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.12.binarypacketheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.12.message", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.12.messageheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.12.tcpmessage", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.12.tcppacket", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.12.technicalheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.12.udppacket", ftypes.STRING)
+
 -- Cme Globex Mdp3 Sbe 1.12 Fields
 omi_cme_globex_mdp3_sbe_v1_12.fields.actual = ProtoField.new("Actual", "cme.globex.mdp3.sbe.v1.12.actual", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cme_globex_mdp3_sbe_v1_12.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.globex.mdp3.sbe.v1.12.aggressorindicator", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_12.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.globex.mdp3.sbe.v1.12.aggressorside", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_12.fields.appl_id = ProtoField.new("Appl Id", "cme.globex.mdp3.sbe.v1.12.applid", ftypes.INT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.asset = ProtoField.new("Asset", "cme.globex.mdp3.sbe.v1.12.asset", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_12.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.12.binarypacketheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.block_length = ProtoField.new("Block Length", "cme.globex.mdp3.sbe.v1.12.blocklength", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.block_trade_eligible = ProtoField.new("Block Trade Eligible", "cme.globex.mdp3.sbe.v1.12.blocktradeeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000004)
 omi_cme_globex_mdp3_sbe_v1_12.fields.cfi_code = ProtoField.new("Cfi Code", "cme.globex.mdp3.sbe.v1.12.cficode", ftypes.STRING)
@@ -173,8 +181,6 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.md_stream_id = ProtoField.new("Md Stream Id
 omi_cme_globex_mdp3_sbe_v1_12.fields.md_trade_entry = ProtoField.new("Md Trade Entry", "cme.globex.mdp3.sbe.v1.12.mdtradeentry", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_12.fields.md_trade_entry_optional = ProtoField.new("Md Trade Entry Optional", "cme.globex.mdp3.sbe.v1.12.mdtradeentryoptional", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_12.fields.md_update_action = ProtoField.new("Md Update Action", "cme.globex.mdp3.sbe.v1.12.mdupdateaction", ftypes.UINT8)
-omi_cme_globex_mdp3_sbe_v1_12.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.12.message", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_12.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.12.messageheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.mdp3.sbe.v1.12.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_12.fields.message_size = ProtoField.new("Message Size", "cme.globex.mdp3.sbe.v1.12.messagesize", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.globex.mdp3.sbe.v1.12.mincabprice", ftypes.DOUBLE)
@@ -285,11 +291,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.strike_currency = ProtoField.new("Strike Cu
 omi_cme_globex_mdp3_sbe_v1_12.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.mdp3.sbe.v1.12.strikeprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_12.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.12.subfraction", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_12.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.12.symbol", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.12.tcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.mdp3.sbe.v1.12.tcpmessagesize", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.12.tcppacket", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.12.tcpsendingtime", ftypes.UINT64)
-omi_cme_globex_mdp3_sbe_v1_12.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.12.technicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.12.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.term_code = ProtoField.new("Term Code", "cme.globex.mdp3.sbe.v1.12.termcode", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.termination_type = ProtoField.new("Termination Type", "cme.globex.mdp3.sbe.v1.12.terminationtype", ftypes.STRING)
@@ -306,7 +309,6 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.trading_sessions_group = ProtoField.new("Tr
 omi_cme_globex_mdp3_sbe_v1_12.fields.trading_sessions_groups = ProtoField.new("Trading Sessions Groups", "cme.globex.mdp3.sbe.v1.12.tradingsessionsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.12.transacttime", ftypes.UINT64)
 omi_cme_globex_mdp3_sbe_v1_12.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.globex.mdp3.sbe.v1.12.triangulationeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00100000)
-omi_cme_globex_mdp3_sbe_v1_12.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.12.udppacket", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.underlying_country_of_issue = ProtoField.new("Underlying Country Of Issue", "cme.globex.mdp3.sbe.v1.12.underlyingcountryofissue", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.underlying_financial_instrument_full_name = ProtoField.new("Underlying Financial Instrument Full Name", "cme.globex.mdp3.sbe.v1.12.underlyingfinancialinstrumentfullname", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.underlying_instrument_guid = ProtoField.new("Underlying Instrument Guid", "cme.globex.mdp3.sbe.v1.12.underlyinginstrumentguid", ftypes.UINT64)
@@ -15294,11 +15296,11 @@ function omi_cme_globex_mdp3_sbe_v1_12.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_12, buffer(), omi_cme_globex_mdp3_sbe_v1_12.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return cme_globex_mdp3_sbe_v1_12.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return cme_globex_mdp3_sbe_v1_12.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return cme_globex_mdp3_sbe_v1_12.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

@@ -14,6 +14,13 @@ local jpx_sseequities_marketbyorder_flex_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jpx SseEquities MarketByOrder Flex 1.1 Headers
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Message", "jpx.sseequities.marketbyorder.flex.v1.1.message", ftypes.STRING)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.sseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.sseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.tcppacket", ftypes.STRING)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.udppacket", ftypes.STRING)
+
 -- Jpx SseEquities MarketByOrder Flex 1.1 Fields
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.adopted_pricing_method = ProtoField.new("Adopted Pricing Method", "jpx.sseequities.marketbyorder.flex.v1.1.adoptedpricingmethod", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.best_bid = ProtoField.new("Best Bid", "jpx.sseequities.marketbyorder.flex.v1.1.bestbid", ftypes.DOUBLE)
@@ -26,9 +33,7 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.issue_code = ProtoField.new("
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.last_price = ProtoField.new("Last Price", "jpx.sseequities.marketbyorder.flex.v1.1.lastprice", ftypes.DOUBLE)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.market_status = ProtoField.new("Market Status", "jpx.sseequities.marketbyorder.flex.v1.1.marketstatus", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.match_id = ProtoField.new("Match Id", "jpx.sseequities.marketbyorder.flex.v1.1.matchid", ftypes.UINT32)
-omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Message", "jpx.sseequities.marketbyorder.flex.v1.1.message", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_count = ProtoField.new("Message Count", "jpx.sseequities.marketbyorder.flex.v1.1.messagecount", ftypes.UINT8)
-omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.sseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_type = ProtoField.new("Message Type", "jpx.sseequities.marketbyorder.flex.v1.1.messagetype", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.modification_flag = ProtoField.new("Modification Flag", "jpx.sseequities.marketbyorder.flex.v1.1.modificationflag", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.sseequities.marketbyorder.flex.v1.1.multicastgroupnumber", ftypes.UINT8)
@@ -36,7 +41,6 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.next_sequence_number = ProtoF
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.number_of_system_reboots = ProtoField.new("Number Of System Reboots", "jpx.sseequities.marketbyorder.flex.v1.1.numberofsystemreboots", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.order_condition = ProtoField.new("Order Condition", "jpx.sseequities.marketbyorder.flex.v1.1.ordercondition", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.order_id = ProtoField.new("Order Id", "jpx.sseequities.marketbyorder.flex.v1.1.orderid", ftypes.UINT32)
-omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.sseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_length = ProtoField.new("Packet Length", "jpx.sseequities.marketbyorder.flex.v1.1.packetlength", ftypes.UINT16)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_number = ProtoField.new("Packet Number", "jpx.sseequities.marketbyorder.flex.v1.1.packetnumber", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_type = ProtoField.new("Packet Type", "jpx.sseequities.marketbyorder.flex.v1.1.packettype", ftypes.STRING)
@@ -51,7 +55,6 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.short_selling_status = ProtoF
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.side = ProtoField.new("Side", "jpx.sseequities.marketbyorder.flex.v1.1.side", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.status_flag = ProtoField.new("Status Flag", "jpx.sseequities.marketbyorder.flex.v1.1.statusflag", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tag_length = ProtoField.new("Tag Length", "jpx.sseequities.marketbyorder.flex.v1.1.taglength", ftypes.UINT8)
-omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.tcppacket", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.test_mode_flag = ProtoField.new("Test Mode Flag", "jpx.sseequities.marketbyorder.flex.v1.1.testmodeflag", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_microseconds = ProtoField.new("Time Microseconds", "jpx.sseequities.marketbyorder.flex.v1.1.timemicroseconds", ftypes.UINT32)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.time_seconds = ProtoField.new("Time Seconds", "jpx.sseequities.marketbyorder.flex.v1.1.timeseconds", ftypes.UINT32)
@@ -59,7 +62,6 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.total_invalidation = ProtoFie
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.total_number_of_packets = ProtoField.new("Total Number Of Packets", "jpx.sseequities.marketbyorder.flex.v1.1.totalnumberofpackets", ftypes.UINT8)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.total_volume = ProtoField.new("Total Volume", "jpx.sseequities.marketbyorder.flex.v1.1.totalvolume", ftypes.UINT64)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.triggered_side = ProtoField.new("Triggered Side", "jpx.sseequities.marketbyorder.flex.v1.1.triggeredside", ftypes.STRING)
-omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.udppacket", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.update_number = ProtoField.new("Update Number", "jpx.sseequities.marketbyorder.flex.v1.1.updatenumber", ftypes.UINT32)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.user_id = ProtoField.new("User Id", "jpx.sseequities.marketbyorder.flex.v1.1.userid", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.utility_flag = ProtoField.new("Utility Flag", "jpx.sseequities.marketbyorder.flex.v1.1.utilityflag", ftypes.UINT8)
@@ -2401,11 +2403,11 @@ function omi_jpx_sseequities_marketbyorder_flex_v1_1.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1, buffer(), omi_jpx_sseequities_marketbyorder_flex_v1_1.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return jpx_sseequities_marketbyorder_flex_v1_1.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

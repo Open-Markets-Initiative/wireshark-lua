@@ -14,6 +14,10 @@ local iex_iexequities_deepplus_iextp_v1_04 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexEquities DeepPlus IexTp 1.04 Headers
+omi_iex_iexequities_deepplus_iextp_v1_04.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deepplus.iextp.v1.04.iextpheader", ftypes.STRING)
+omi_iex_iexequities_deepplus_iextp_v1_04.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.iextp.v1.04.packet", ftypes.STRING)
+
 -- Iex IexEquities DeepPlus IexTp 1.04 Fields
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deepplus.iextp.v1.04.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.channel_id = ProtoField.new("Channel Id", "iex.iexequities.deepplus.iextp.v1.04.channelid", ftypes.UINT32)
@@ -21,7 +25,6 @@ omi_iex_iexequities_deepplus_iextp_v1_04.fields.detail = ProtoField.new("Detail"
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.etp = ProtoField.new("Etp", "iex.iexequities.deepplus.iextp.v1.04.etp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.extended_hours = ProtoField.new("Extended Hours", "iex.iexequities.deepplus.iextp.v1.04.extendedhours", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.deepplus.iextp.v1.04.firstmessagesequencenumber", ftypes.UINT64)
-omi_iex_iexequities_deepplus_iextp_v1_04.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deepplus.iextp.v1.04.iextpheader", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.iexequities.deepplus.iextp.v1.04.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.deepplus.iextp.v1.04.luldtier", ftypes.UINT8)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.iextp.v1.04.message", ftypes.STRING)
@@ -35,7 +38,6 @@ omi_iex_iexequities_deepplus_iextp_v1_04.fields.odd_lot = ProtoField.new("Odd Lo
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.iexequities.deepplus.iextp.v1.04.operationalhaltstatus", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.order_id = ProtoField.new("Order Id", "iex.iexequities.deepplus.iextp.v1.04.orderid", ftypes.UINT64)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.order_id_reference = ProtoField.new("Order Id Reference", "iex.iexequities.deepplus.iextp.v1.04.orderidreference", ftypes.UINT64)
-omi_iex_iexequities_deepplus_iextp_v1_04.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.iextp.v1.04.packet", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.payload_length = ProtoField.new("Payload Length", "iex.iexequities.deepplus.iextp.v1.04.payloadlength", ftypes.UINT16)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.price = ProtoField.new("Price", "iex.iexequities.deepplus.iextp.v1.04.price", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.priority = ProtoField.new("Priority", "iex.iexequities.deepplus.iextp.v1.04.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)

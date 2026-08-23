@@ -14,6 +14,10 @@ local finra_finraotc_bbds_dfi_v2018_1a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Finra FinraOtc Bbds Dfi 2018.1A Headers
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.finraotc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
+
 -- Finra FinraOtc Bbds Dfi 2018.1A Fields
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.finraotc.bbds.dfi.v2018.1a.action", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraotc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
@@ -46,7 +50,6 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_identifier = Prot
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_location_id = ProtoField.new("Market Participant Location Id", "finra.finraotc.bbds.dfi.v2018.1a.marketparticipantlocationid", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition = ProtoField.new("Market Participant Quote Condition", "finra.finraotc.bbds.dfi.v2018.1a.marketparticipantquotecondition", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_status = ProtoField.new("Market Participant Status", "finra.finraotc.bbds.dfi.v2018.1a.marketparticipantstatus", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_category = ProtoField.new("Message Category", "finra.finraotc.bbds.dfi.v2018.1a.messagecategory", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_header = ProtoField.new("Message Header", "finra.finraotc.bbds.dfi.v2018.1a.messageheader", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_separator = ProtoField.new("Message Separator", "finra.finraotc.bbds.dfi.v2018.1a.messageseparator", ftypes.UINT8)
@@ -55,7 +58,6 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "f
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.finraotc.bbds.dfi.v2018.1a.month", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.finraotc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.finraotc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.finraotc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation = ProtoField.new("Quotation", "finra.finraotc.bbds.dfi.v2018.1a.quotation", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.finraotc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.finraotc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING)

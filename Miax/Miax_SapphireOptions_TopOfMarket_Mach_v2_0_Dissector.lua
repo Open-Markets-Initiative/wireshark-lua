@@ -14,6 +14,13 @@ local miax_sapphireoptions_topofmarket_mach_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax SapphireOptions TopOfMarket Mach 2.0 Headers
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.topofmarket.mach.v2.0.machmessage", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpacketheader", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmtcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.tcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.udppacket", ftypes.STRING)
+
 -- Miax SapphireOptions TopOfMarket Mach 2.0 Fields
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.active_on_sapphire = ProtoField.new("Active On Sapphire", "miax.sapphireoptions.topofmarket.mach.v2.0.activeonsapphire", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.application_message = ProtoField.new("Application Message", "miax.sapphireoptions.topofmarket.mach.v2.0.applicationmessage", ftypes.STRING)
@@ -44,7 +51,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.logout_reason = ProtoField
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.logout_request = ProtoField.new("Logout Request", "miax.sapphireoptions.topofmarket.mach.v2.0.logoutrequest", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.logout_text = ProtoField.new("Logout Text", "miax.sapphireoptions.topofmarket.mach.v2.0.logouttext", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.long_term_option = ProtoField.new("Long Term Option", "miax.sapphireoptions.topofmarket.mach.v2.0.longtermoption", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.topofmarket.mach.v2.0.machmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.sapphireoptions.topofmarket.mach.v2.0.matchingengineid", ftypes.UINT8)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.message_type = ProtoField.new("Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.messagetype", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.sapphireoptions.topofmarket.mach.v2.0.nanoseconds", ftypes.UINT32)
@@ -82,10 +88,8 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.security_symbol = ProtoFie
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.sapphireoptions.topofmarket.mach.v2.0.sequencenumber", ftypes.UINT64)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.sequenceddatapacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.sequencedmessagetype", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpacketheader", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpacketlength", ftypes.UINT16)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpackettype", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmtcppacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_version = ProtoField.new("Sesm Version", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmversion", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.session_id = ProtoField.new("Session Id", "miax.sapphireoptions.topofmarket.mach.v2.0.sessionid", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.session_number = ProtoField.new("Session Number", "miax.sapphireoptions.topofmarket.mach.v2.0.sessionnumber", ftypes.UINT8)
@@ -93,7 +97,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.start_sequence_number = Pr
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.strike_price = ProtoField.new("Strike Price", "miax.sapphireoptions.topofmarket.mach.v2.0.strikeprice", ftypes.DOUBLE)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.sapphireoptions.topofmarket.mach.v2.0.synchronizationcomplete", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.system_status = ProtoField.new("System Status", "miax.sapphireoptions.topofmarket.mach.v2.0.systemstatus", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.tcppacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.test_packet = ProtoField.new("Test Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.testpacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.test_text = ProtoField.new("Test Text", "miax.sapphireoptions.topofmarket.mach.v2.0.testtext", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.to_m_version = ProtoField.new("To M Version", "miax.sapphireoptions.topofmarket.mach.v2.0.tomversion", ftypes.STRING)
@@ -103,7 +106,6 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trade_price = ProtoField.n
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trade_size = ProtoField.new("Trade Size", "miax.sapphireoptions.topofmarket.mach.v2.0.tradesize", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.sapphireoptions.topofmarket.mach.v2.0.tradingsessionid", ftypes.UINT8)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trading_status = ProtoField.new("Trading Status", "miax.sapphireoptions.topofmarket.mach.v2.0.tradingstatus", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.udppacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.sapphireoptions.topofmarket.mach.v2.0.underlyingsymbol", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.unsequenceddatapacket", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.unsequencedmessagetype", ftypes.STRING)
@@ -4761,11 +4763,11 @@ function omi_miax_sapphireoptions_topofmarket_mach_v2_0.dissector(buffer, packet
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0, buffer(), omi_miax_sapphireoptions_topofmarket_mach_v2_0.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_sapphireoptions_topofmarket_mach_v2_0.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_sapphireoptions_topofmarket_mach_v2_0.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_sapphireoptions_topofmarket_mach_v2_0.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

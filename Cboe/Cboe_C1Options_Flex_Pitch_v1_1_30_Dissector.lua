@@ -14,6 +14,10 @@ local cboe_c1options_flex_pitch_v1_1_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options Flex Pitch 1.1.30 Headers
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.pitch.v1.1.30.packet", ftypes.STRING)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.pitch.v1.1.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Flex Pitch 1.1.30 Fields
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.flex.pitch.v1.1.30.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.flex.pitch.v1.1.30.auctionid", ftypes.UINT64)
@@ -60,8 +64,6 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.observation_day = ProtoField.new("O
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.flex.pitch.v1.1.30.orderid", ftypes.UINT64)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.osi_root = ProtoField.new("Osi Root", "cboe.c1options.flex.pitch.v1.1.30.osiroot", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.flex.pitch.v1.1.30.osisymbol", ftypes.STRING)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.pitch.v1.1.30.packet", ftypes.STRING)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.pitch.v1.1.30.packetheader", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1options.flex.pitch.v1.1.30.participantid", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage = ProtoField.new("Percentage", "cboe.c1options.flex.pitch.v1.1.30.percentage", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage_1 = ProtoField.new("Percentage 1", "cboe.c1options.flex.pitch.v1.1.30.percentage1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)

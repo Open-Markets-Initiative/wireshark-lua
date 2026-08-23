@@ -14,6 +14,10 @@ local cboe_c1options_flex_spin_v1_1_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options Flex Spin 1.1.30 Headers
+omi_cboe_c1options_flex_spin_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.spin.v1.1.30.packet", ftypes.STRING)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.spin.v1.1.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Flex Spin 1.1.30 Fields
 omi_cboe_c1options_flex_spin_v1_1_30.fields.bit_fields = ProtoField.new("Bit Fields", "cboe.c1options.flex.spin.v1.1.30.bitfields", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.call_put_indicator = ProtoField.new("Call Put Indicator", "cboe.c1options.flex.spin.v1.1.30.callputindicator", ftypes.STRING)
@@ -50,8 +54,6 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.observation_day = ProtoField.new("Ob
 omi_cboe_c1options_flex_spin_v1_1_30.fields.order_count = ProtoField.new("Order Count", "cboe.c1options.flex.spin.v1.1.30.ordercount", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.osi_root = ProtoField.new("Osi Root", "cboe.c1options.flex.spin.v1.1.30.osiroot", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.flex.spin.v1.1.30.osisymbol", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.spin.v1.1.30.packet", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.spin.v1.1.30.packetheader", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.password = ProtoField.new("Password", "cboe.c1options.flex.spin.v1.1.30.password", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_1 = ProtoField.new("Percentage 1", "cboe.c1options.flex.spin.v1.1.30.percentage1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.percentage_binary_4 = ProtoField.new("Percentage Binary 4", "cboe.c1options.flex.spin.v1.1.30.percentagebinary4", ftypes.UINT32)

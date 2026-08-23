@@ -14,6 +14,10 @@ local nasdaq_nsmequities_noiview_itch_v3_0_2026 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities NoiView Itch 3.0.2026 Headers
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities NoiView Itch 3.0.2026 Fields
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.itch.v3.0.2026.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.itch.v3.0.2026.crossprice", ftypes.DOUBLE)
@@ -49,8 +53,6 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.near_execution_price = Prot
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.near_execution_time = ProtoField.new("Near Execution Time", "nasdaq.nsmequities.noiview.itch.v3.0.2026.nearexecutiontime", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.itch.v3.0.2026.nearprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.open_eligibility_status = ProtoField.new("Open Eligibility Status", "nasdaq.nsmequities.noiview.itch.v3.0.2026.openeligibilitystatus", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.itch.v3.0.2026.pairedshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.itch.v3.0.2026.pricevariationindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.itch.v3.0.2026.reason", ftypes.STRING)

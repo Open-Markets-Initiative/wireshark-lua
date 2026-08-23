@@ -14,6 +14,13 @@ local nyse_arcaoptions_topfeed_pillar_v1_2_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaOptions TopFeed Pillar 1.2.c Headers
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.message", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packet", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packetheader", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime", ftypes.STRING)
+
 -- Nyse ArcaOptions TopFeed Pillar 1.2.c Fields
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.arcaoptions.topfeed.pillar.v1.2.c.askcustomervolume", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaoptions.topfeed.pillar.v1.2.c.askprice", ftypes.INT32)
@@ -51,8 +58,6 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_id = ProtoField.new("Ma
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaoptions.topfeed.pillar.v1.2.c.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_state = ProtoField.new("Market State", "nyse.arcaoptions.topfeed.pillar.v1.2.c.marketstate", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.topfeed.pillar.v1.2.c.maturitydate", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.message", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_size = ProtoField.new("Message Size", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagesize", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_type = ProtoField.new("Message Type", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagetype", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaoptions.topfeed.pillar.v1.2.c.nanoseconds", ftypes.UINT32)
@@ -63,8 +68,6 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.open = ProtoField.new("Open", 
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.opening = ProtoField.new("Opening", "nyse.arcaoptions.topfeed.pillar.v1.2.c.opening", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arcaoptions.topfeed.pillar.v1.2.c.optionsymbolroot", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.arcaoptions.topfeed.pillar.v1.2.c.originaltradeid", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packet", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packetheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaoptions.topfeed.pillar.v1.2.c.pairedqty", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.participant = ProtoField.new("Participant", "nyse.arcaoptions.topfeed.pillar.v1.2.c.participant", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaoptions.topfeed.pillar.v1.2.c.pktsize", ftypes.UINT16)
@@ -91,7 +94,6 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.second_reserved_4 = ProtoField
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitystatus", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitytype", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series = ProtoField.new("Series", "nyse.arcaoptions.topfeed.pillar.v1.2.c.series", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seriesindex", ftypes.UINT32)

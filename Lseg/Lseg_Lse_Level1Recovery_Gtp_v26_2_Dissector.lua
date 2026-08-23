@@ -14,6 +14,12 @@ local lseg_lse_level1recovery_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Lse Level1Recovery Gtp 26.2 Headers
+omi_lseg_lse_level1recovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.level1recovery.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.level1recovery.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_level1recovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.level1recovery.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_level1recovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.level1recovery.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse Level1Recovery Gtp 26.2 Fields
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse.level1recovery.gtp.v26.2.allowedbooktypes", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.auction_type = ProtoField.new("Auction Type", "lseg.lse.level1recovery.gtp.v26.2.auctiontype", ftypes.STRING)
@@ -63,9 +69,7 @@ omi_lseg_lse_level1recovery_gtp_v26_2.fields.listing_end_date = ProtoField.new("
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.listing_start_date = ProtoField.new("Listing Start Date", "lseg.lse.level1recovery.gtp.v26.2.listingstartdate", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.login_status = ProtoField.new("Login Status", "lseg.lse.level1recovery.gtp.v26.2.loginstatus", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse.level1recovery.gtp.v26.2.marketdatagroup", ftypes.STRING)
-omi_lseg_lse_level1recovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.level1recovery.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_count = ProtoField.new("Message Count", "lseg.lse.level1recovery.gtp.v26.2.messagecount", ftypes.UINT8)
-omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.level1recovery.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.level1recovery.gtp.v26.2.messagelength", ftypes.UINT16)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.level1recovery.gtp.v26.2.messagetype", ftypes.UINT8)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.minimum_lot_minimum_execution_size = ProtoField.new("Minimum Lot Minimum Execution Size", "lseg.lse.level1recovery.gtp.v26.2.minimumlotminimumexecutionsize", ftypes.DOUBLE)
@@ -82,7 +86,6 @@ omi_lseg_lse_level1recovery_gtp_v26_2.fields.official_closing_price = ProtoField
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.official_opening_price = ProtoField.new("Official Opening Price", "lseg.lse.level1recovery.gtp.v26.2.officialopeningprice", ftypes.DOUBLE)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.opening_price_indicator = ProtoField.new("Opening Price Indicator", "lseg.lse.level1recovery.gtp.v26.2.openingpriceindicator", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.level1recovery.gtp.v26.2.orderbooktype", ftypes.UINT8)
-omi_lseg_lse_level1recovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.level1recovery.gtp.v26.2.packet", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.level1recovery.gtp.v26.2.partitionid", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.lse.level1recovery.gtp.v26.2.previousdaysclosingprice", ftypes.DOUBLE)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.price = ProtoField.new("Price", "lseg.lse.level1recovery.gtp.v26.2.price", ftypes.DOUBLE)
@@ -136,7 +139,6 @@ omi_lseg_lse_level1recovery_gtp_v26_2.fields.trading_status = ProtoField.new("Tr
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level1recovery.gtp.v26.2.transactiontime", ftypes.UINT64)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level1recovery.gtp.v26.2.turnover", ftypes.DOUBLE)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.level1recovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_lse_level1recovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.level1recovery.gtp.v26.2.unitheader", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.username = ProtoField.new("Username", "lseg.lse.level1recovery.gtp.v26.2.username", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.level1recovery.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.volume = ProtoField.new("Volume", "lseg.lse.level1recovery.gtp.v26.2.volume", ftypes.DOUBLE)

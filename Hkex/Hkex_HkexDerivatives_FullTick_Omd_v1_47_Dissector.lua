@@ -14,6 +14,12 @@ local hkex_hkexderivatives_fulltick_omd_v1_47 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexDerivatives FullTick Omd 1.47 Headers
+omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltick.omd.v1.47.message", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltick.omd.v1.47.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltick.omd.v1.47.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.fulltick.omd.v1.47.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives FullTick Omd 1.47 Fields
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.hkexderivatives.fulltick.omd.v1.47.actualstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.fulltick.omd.v1.47.actualstarttime", ftypes.STRING)
@@ -73,10 +79,8 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.locked = ProtoField.new("Lock
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.lot_type = ProtoField.new("Lot Type", "hkex.hkexderivatives.fulltick.omd.v1.47.lottype", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.market = ProtoField.new("Market", "hkex.hkexderivatives.fulltick.omd.v1.47.market", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.market_bid = ProtoField.new("Market Bid", "hkex.hkexderivatives.fulltick.omd.v1.47.marketbid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
-omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltick.omd.v1.47.message", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.fulltick.omd.v1.47.modifier", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.fulltick.omd.v1.47.msgcount", ftypes.UINT8)
-omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltick.omd.v1.47.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.fulltick.omd.v1.47.msgsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexderivatives.fulltick.omd.v1.47.msgtype", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.new_seq_no = ProtoField.new("New Seq No", "hkex.hkexderivatives.fulltick.omd.v1.47.newseqno", ftypes.UINT32)
@@ -92,8 +96,6 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.order_id = ProtoField.new("Or
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.fulltick.omd.v1.47.ordertype", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.fulltick.omd.v1.47.orderbookid", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.override_crossing = ProtoField.new("Override Crossing", "hkex.hkexderivatives.fulltick.omd.v1.47.overridecrossing", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
-omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltick.omd.v1.47.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.fulltick.omd.v1.47.packetheader", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.fulltick.omd.v1.47.pktsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.planned_start_date = ProtoField.new("Planned Start Date", "hkex.hkexderivatives.fulltick.omd.v1.47.plannedstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_47.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.fulltick.omd.v1.47.plannedstarttime", ftypes.STRING)

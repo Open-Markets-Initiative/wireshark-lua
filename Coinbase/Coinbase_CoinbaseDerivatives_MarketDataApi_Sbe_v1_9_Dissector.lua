@@ -14,6 +14,13 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.9 Headers
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.messageheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packet", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packetflags", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packetheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.sbemessage", ftypes.STRING)
+
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.9 Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.activeinstrumentcount", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.aggressororderid", ftypes.INT64)
@@ -81,7 +88,6 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.logical_expiry = 
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.low_price = ProtoField.new("Low Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.lowprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.match_id = ProtoField.new("Match Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.matchid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.message_count = ProtoField.new("Message Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.messagecount", ftypes.UINT8)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.month = ProtoField.new("Month", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.month", ftypes.INT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.newleg1price", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.newleg2price", ftypes.DOUBLE)
@@ -100,9 +106,6 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.open_interest = P
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.option_expiry_type = ProtoField.new("Option Expiry Type", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.optionexpirytype", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.order_count = ProtoField.new("Order Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.ordercount", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.order_id = ProtoField.new("Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.orderid", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packet", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packetflags", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.packetheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.predicted_funding_rate = ProtoField.new("Predicted Funding Rate", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.predictedfundingrate", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.price = ProtoField.new("Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.price", ftypes.DOUBLE)
@@ -119,7 +122,6 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.reserved_7 = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.reservedbits", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.retransmit = ProtoField.new("Retransmit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.retransmit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.retrydelaynanos", ftypes.INT64)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.sbemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.schemaid", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.sellorderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.sendingtime", ftypes.INT64)

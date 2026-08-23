@@ -14,12 +14,15 @@ local memx_memxoptions_memoirdepth_sbe_v1_6_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxOptions MemoirDepth Sbe 1.6.a Headers
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirdepth.sbe.v1.6.a.packet", ftypes.STRING)
+
 -- Memx MemxOptions MemoirDepth Sbe 1.6.a Fields
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.memxoptions.memoirdepth.sbe.v1.6.a.asofsequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.memoirdepth.sbe.v1.6.a.blocklength", ftypes.UINT16)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.closing_only = ProtoField.new("Closing Only", "memx.memxoptions.memoirdepth.sbe.v1.6.a.closingonly", ftypes.UINT8)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirdepth.sbe.v1.6.a.closingtime", ftypes.UINT64)
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.commonheader", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.corrected_price = ProtoField.new("Corrected Price", "memx.memxoptions.memoirdepth.sbe.v1.6.a.correctedprice", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.memxoptions.memoirdepth.sbe.v1.6.a.correctedquantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.header_length = ProtoField.new("Header Length", "memx.memxoptions.memoirdepth.sbe.v1.6.a.headerlength", ftypes.UINT8)
@@ -38,7 +41,6 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.order_id = ProtoField.new("Or
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.original_price = ProtoField.new("Original Price", "memx.memxoptions.memoirdepth.sbe.v1.6.a.originalprice", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.original_quantity = ProtoField.new("Original Quantity", "memx.memxoptions.memoirdepth.sbe.v1.6.a.originalquantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.osi_root = ProtoField.new("Osi Root", "memx.memxoptions.memoirdepth.sbe.v1.6.a.osiroot", ftypes.STRING)
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirdepth.sbe.v1.6.a.packet", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.price = ProtoField.new("Price", "memx.memxoptions.memoirdepth.sbe.v1.6.a.price", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.price_short = ProtoField.new("Price Short", "memx.memxoptions.memoirdepth.sbe.v1.6.a.priceshort", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantity", ftypes.UINT32)

@@ -14,6 +14,13 @@ local miax_emeraldoptions_topofmarket_mach_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax EmeraldOptions TopOfMarket Mach 1.3 Headers
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.topofmarket.mach.v1.3.machmessage", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketheader", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmtcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.tcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.udppacket", ftypes.STRING)
+
 -- Miax EmeraldOptions TopOfMarket Mach 1.3 Fields
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.emeraldoptions.topofmarket.mach.v1.3.activeonmiax", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.application_message = ProtoField.new("Application Message", "miax.emeraldoptions.topofmarket.mach.v1.3.applicationmessage", ftypes.STRING)
@@ -52,7 +59,6 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.logout_reason = ProtoField.
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.logout_request = ProtoField.new("Logout Request", "miax.emeraldoptions.topofmarket.mach.v1.3.logoutrequest", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.logout_text = ProtoField.new("Logout Text", "miax.emeraldoptions.topofmarket.mach.v1.3.logouttext", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.long_term_option = ProtoField.new("Long Term Option", "miax.emeraldoptions.topofmarket.mach.v1.3.longtermoption", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.topofmarket.mach.v1.3.machmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.emeraldoptions.topofmarket.mach.v1.3.matchingengineid", ftypes.UINT8)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.message_type = ProtoField.new("Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.messagetype", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.emeraldoptions.topofmarket.mach.v1.3.nanoseconds", ftypes.UINT32)
@@ -83,10 +89,8 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.security_symbol = ProtoFiel
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "miax.emeraldoptions.topofmarket.mach.v1.3.sequencenumber", ftypes.UINT64)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sequenceddatapacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.sequencedmessagetype", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketheader", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketlength", ftypes.UINT16)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpackettype", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmtcppacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_version = ProtoField.new("Sesm Version", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmversion", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.session_id = ProtoField.new("Session Id", "miax.emeraldoptions.topofmarket.mach.v1.3.sessionid", ftypes.UINT32)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.emeraldoptions.topofmarket.mach.v1.3.sessionnumber", ftypes.UINT8)
@@ -94,7 +98,6 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.start_sequence_number = Pro
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.strike_price = ProtoField.new("Strike Price", "miax.emeraldoptions.topofmarket.mach.v1.3.strikeprice", ftypes.DOUBLE)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.emeraldoptions.topofmarket.mach.v1.3.synchronizationcomplete", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.system_status = ProtoField.new("System Status", "miax.emeraldoptions.topofmarket.mach.v1.3.systemstatus", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.tcppacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.test_packet = ProtoField.new("Test Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.testpacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.test_text = ProtoField.new("Test Text", "miax.emeraldoptions.topofmarket.mach.v1.3.testtext", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.to_m_version = ProtoField.new("To M Version", "miax.emeraldoptions.topofmarket.mach.v1.3.tomversion", ftypes.STRING)
@@ -104,7 +107,6 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.trade_price = ProtoField.ne
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.trade_size = ProtoField.new("Trade Size", "miax.emeraldoptions.topofmarket.mach.v1.3.tradesize", ftypes.UINT32)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.emeraldoptions.topofmarket.mach.v1.3.tradingsessionid", ftypes.UINT8)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.trading_status = ProtoField.new("Trading Status", "miax.emeraldoptions.topofmarket.mach.v1.3.tradingstatus", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.udppacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.emeraldoptions.topofmarket.mach.v1.3.underlyingsymbol", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.unsequenceddatapacket", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.unsequencedmessagetype", ftypes.STRING)
@@ -4792,11 +4794,11 @@ function omi_miax_emeraldoptions_topofmarket_mach_v1_3.dissector(buffer, packet,
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3, buffer(), omi_miax_emeraldoptions_topofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_emeraldoptions_topofmarket_mach_v1_3.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_emeraldoptions_topofmarket_mach_v1_3.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

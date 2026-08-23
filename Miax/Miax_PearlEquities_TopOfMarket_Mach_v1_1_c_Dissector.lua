@@ -14,6 +14,13 @@ local miax_pearlequities_topofmarket_mach_v1_1_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Miax PearlEquities TopOfMarket Mach 1.1.c Headers
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.c.machmessage", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.tcppacket", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.udppacket", ftypes.STRING)
+
 -- Miax PearlEquities TopOfMarket Mach 1.1.c Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.topofmarket.mach.v1.1.c.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.topofmarket.mach.v1.1.c.applicationprotocol", ftypes.STRING)
@@ -25,10 +32,8 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.closing_time = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.topofmarket.mach.v1.1.c.computerid", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.topofmarket.mach.v1.1.c.correctionnumber", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.c.endsequencenumber", ftypes.UINT64)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpackettype", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmversion", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.flags = ProtoField.new("Flags", "miax.pearlequities.topofmarket.mach.v1.1.c.flags", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.goodbyepacket", ftypes.STRING)
@@ -40,7 +45,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.logout_reason = ProtoField
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.topofmarket.mach.v1.1.c.logoutrequest", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.topofmarket.mach.v1.1.c.logouttext", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.topofmarket.mach.v1.1.c.lotsize", ftypes.UINT16)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.c.machmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.topofmarket.mach.v1.1.c.machpacketlength", ftypes.UINT16)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.c.machpackettype", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.c.marketstate", ftypes.UINT8)
@@ -75,7 +79,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.start_sequence_number = Pr
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.topofmarket.mach.v1.1.c.symbolid", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.topofmarket.mach.v1.1.c.synchronizationcomplete", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.topofmarket.mach.v1.1.c.systemstatus", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.tcppacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.testpacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.topofmarket.mach.v1.1.c.testsecurityindicator", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.topofmarket.mach.v1.1.c.testtext", ftypes.STRING)
@@ -84,7 +87,6 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.to_m_version = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.topofmarket.mach.v1.1.c.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.topofmarket.mach.v1.1.c.tradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.topofmarket.mach.v1.1.c.tradingstatus", ftypes.UINT8)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.udppacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.unsequenceddatapacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.topofmarket.mach.v1.1.c.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.username = ProtoField.new("Username", "miax.pearlequities.topofmarket.mach.v1.1.c.username", ftypes.STRING)
@@ -3424,11 +3426,11 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_c.dissector(buffer, packet
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c, buffer(), omi_miax_pearlequities_topofmarket_mach_v1_1_c.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

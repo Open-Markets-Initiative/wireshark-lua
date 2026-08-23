@@ -14,6 +14,13 @@ local nyse_arcaoptions_deepfeed_pillar_v1_2_f = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaOptions DeepFeed Pillar 1.2.f Headers
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.message", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.packet", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.packetheader", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.sendtime", ftypes.STRING)
+
 -- Nyse ArcaOptions DeepFeed Pillar 1.2.f Fields
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.auction_id = ProtoField.new("Auction Id", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.auctionid", ftypes.UINT64)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.auctioninterestclearingprice", ftypes.INT32)
@@ -48,8 +55,6 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.market_id = ProtoField.new("M
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.market_state = ProtoField.new("Market State", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.marketstate", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.maturitydate", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.message", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_size = ProtoField.new("Message Size", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messagesize", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_type = ProtoField.new("Message Type", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messagetype", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.nanoseconds", ftypes.UINT32)
@@ -59,8 +64,6 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.number_msgs = ProtoField.new(
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.open = ProtoField.new("Open", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.open", ftypes.INT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.optionsymbolroot", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.order_id = ProtoField.new("Order Id", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.orderid", ftypes.UINT64)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.packet", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.packetheader", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.pairedqty", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.participant = ProtoField.new("Participant", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.participant", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.pktsize", ftypes.UINT16)
@@ -89,7 +92,6 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.second_reserved_4 = ProtoFiel
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.securitystatus", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.securitytype", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.sendtime", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriesindex", ftypes.UINT32)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.seriesseqnum", ftypes.UINT32)

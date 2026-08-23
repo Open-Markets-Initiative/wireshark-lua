@@ -14,6 +14,12 @@ local lseg_lse_analytics_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Lse Analytics Gtp 26.2 Headers
+omi_lseg_lse_analytics_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.analytics.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_analytics_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.analytics.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_analytics_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.analytics.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_analytics_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.analytics.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse Analytics Gtp 26.2 Fields
 omi_lseg_lse_analytics_gtp_v26_2.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse.analytics.gtp.v26.2.allowedbooktypes", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.lse.analytics.gtp.v26.2.averagedailyturnoveradt", ftypes.DOUBLE)
@@ -34,15 +40,12 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.instrument = ProtoField.new("Instrument"
 omi_lseg_lse_analytics_gtp_v26_2.fields.isin = ProtoField.new("Isin", "lseg.lse.analytics.gtp.v26.2.isin", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.length = ProtoField.new("Length", "lseg.lse.analytics.gtp.v26.2.length", ftypes.UINT16)
 omi_lseg_lse_analytics_gtp_v26_2.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse.analytics.gtp.v26.2.marketdatagroup", ftypes.STRING)
-omi_lseg_lse_analytics_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.analytics.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.message_count = ProtoField.new("Message Count", "lseg.lse.analytics.gtp.v26.2.messagecount", ftypes.UINT8)
-omi_lseg_lse_analytics_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.analytics.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.analytics.gtp.v26.2.messagelength", ftypes.UINT16)
 omi_lseg_lse_analytics_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.analytics.gtp.v26.2.messagetype", ftypes.UINT8)
 omi_lseg_lse_analytics_gtp_v26_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.analytics.gtp.v26.2.newendtime", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.analytics.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_lse_analytics_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.analytics.gtp.v26.2.orderbooktype", ftypes.UINT8)
-omi_lseg_lse_analytics_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.analytics.gtp.v26.2.packet", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.analytics.gtp.v26.2.partitionid", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse.analytics.gtp.v26.2.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_0 = ProtoField.new("Reserved 0", "lseg.lse.analytics.gtp.v26.2.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -69,7 +72,6 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third
 omi_lseg_lse_analytics_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.analytics.gtp.v26.2.tickid", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp", ftypes.UINT64)
 omi_lseg_lse_analytics_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.analytics.gtp.v26.2.tradingstatus", ftypes.STRING)
-omi_lseg_lse_analytics_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.analytics.gtp.v26.2.unitheader", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.analytics.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.lse.analytics.gtp.v26.2.vwapbuy", ftypes.DOUBLE)
 omi_lseg_lse_analytics_gtp_v26_2.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.lse.analytics.gtp.v26.2.vwapsell", ftypes.DOUBLE)

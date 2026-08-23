@@ -14,6 +14,9 @@ local cboe_bzxequities_auctionfeed_asciipitch_v1_3_8 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Headers
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packet", ftypes.STRING)
+
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long_price_14 = ProtoField.new("Auction Only Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricelongprice14", ftypes.DOUBLE)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_numeric_10 = ProtoField.new("Auction Only Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricenumeric10", ftypes.STRING)
@@ -25,7 +28,6 @@ omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_numer
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginacceptedpacket", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrejectedpacket", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrequestpacket", ftypes.STRING)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packet", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet_type = ProtoField.new("Packet Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packettype", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.password = ProtoField.new("Password", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.password", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long_price_14 = ProtoField.new("Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.pricelongprice14", ftypes.DOUBLE)

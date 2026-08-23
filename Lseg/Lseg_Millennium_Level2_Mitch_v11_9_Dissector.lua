@@ -14,6 +14,12 @@ local lseg_millennium_level2_mitch_v11_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Millennium Level2 Mitch 11.9 Headers
+omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
+
 -- Lseg Millennium Level2 Mitch 11.9 Fields
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_flags = ProtoField.new("Add Attributed Order Flags", "lseg.millennium.level2.mitch.v11.9.addattributedorderflags", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_flags = ProtoField.new("Add Order Flags", "lseg.millennium.level2.mitch.v11.9.addorderflags", ftypes.STRING)
@@ -35,9 +41,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.isin = ProtoField.new("Isin", "lse
 omi_lseg_millennium_level2_mitch_v11_9.fields.length = ProtoField.new("Length", "lseg.millennium.level2.mitch.v11.9.length", ftypes.UINT16)
 omi_lseg_millennium_level2_mitch_v11_9.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.level2.mitch.v11.9.marketdatagroup", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.market_order = ProtoField.new("Market Order", "lseg.millennium.level2.mitch.v11.9.marketorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.level2.mitch.v11.9.messagecount", ftypes.UINT8)
-omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.level2.mitch.v11.9.messagelength", ftypes.UINT8)
 omi_lseg_millennium_level2_mitch_v11_9.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.level2.mitch.v11.9.messagetype", ftypes.UINT8)
 omi_lseg_millennium_level2_mitch_v11_9.fields.named_market_order = ProtoField.new("Named Market Order", "lseg.millennium.level2.mitch.v11.9.namedmarketorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -50,7 +54,6 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.order_book_clear_flags = ProtoFiel
 omi_lseg_millennium_level2_mitch_v11_9.fields.order_deleted_flags = ProtoField.new("Order Deleted Flags", "lseg.millennium.level2.mitch.v11.9.orderdeletedflags", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.order_id = ProtoField.new("Order Id", "lseg.millennium.level2.mitch.v11.9.orderid", ftypes.UINT64)
 omi_lseg_millennium_level2_mitch_v11_9.fields.order_modified_flags = ProtoField.new("Order Modified Flags", "lseg.millennium.level2.mitch.v11.9.ordermodifiedflags", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.paired_quantity = ProtoField.new("Paired Quantity", "lseg.millennium.level2.mitch.v11.9.pairedquantity", ftypes.UINT32)
 omi_lseg_millennium_level2_mitch_v11_9.fields.previous_close_price = ProtoField.new("Previous Close Price", "lseg.millennium.level2.mitch.v11.9.previouscloseprice", ftypes.INT64)
 omi_lseg_millennium_level2_mitch_v11_9.fields.price = ProtoField.new("Price", "lseg.millennium.level2.mitch.v11.9.price", ftypes.INT64)
@@ -83,7 +86,6 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.symbol_status_flags = ProtoField.n
 omi_lseg_millennium_level2_mitch_v11_9.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.level2.mitch.v11.9.tradematchid", ftypes.UINT64)
 omi_lseg_millennium_level2_mitch_v11_9.fields.trading_status = ProtoField.new("Trading Status", "lseg.millennium.level2.mitch.v11.9.tradingstatus", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.underlying = ProtoField.new("Underlying", "lseg.millennium.level2.mitch.v11.9.underlying", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 1", "lseg.millennium.level2.mitch.v11.9.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2 = ProtoField.new("Unused 2", "lseg.millennium.level2.mitch.v11.9.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4 = ProtoField.new("Unused 4", "lseg.millennium.level2.mitch.v11.9.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)

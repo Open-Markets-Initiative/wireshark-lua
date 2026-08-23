@@ -14,6 +14,10 @@ local nasdaq_psxequities_bbo_itch_v2_1_2018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PsxEquities Bbo Itch 2.1.2018 Headers
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
+
 -- Nasdaq PsxEquities Bbo Itch 2.1.2018 Fields
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.bbo.itch.v2.1.2018.authenticity", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.itch.v2.1.2018.breachedlevel", ftypes.STRING)
@@ -40,8 +44,6 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_type = ProtoField.new("
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbid", ftypes.DOUBLE)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psxequities.bbo.itch.v2.1.2018.nextsharessymbol", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.bbo.itch.v2.1.2018.operationalhaltaction", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.itch.v2.1.2018.psxbestbidprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.itch.v2.1.2018.psxbestbidsize", ftypes.UINT32)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.itch.v2.1.2018.psxbestofferprice", ftypes.DOUBLE)

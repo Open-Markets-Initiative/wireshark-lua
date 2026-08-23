@@ -14,6 +14,10 @@ local cboe_cfefutures_multicasttop_spin_v1_2_20 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures MulticastTop Spin 1.2.20 Headers
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.spin.v1.2.20.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.spin.v1.2.20.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastTop Spin 1.2.20 Fields
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.accrueddayvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_price_8 = ProtoField.new("Ask Price Binary Price 8", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricebinaryprice8", ftypes.UINT64)
@@ -68,8 +72,6 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.offer_close_valid = ProtoFi
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicasttop.spin.v1.2.20.openinterest", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.openprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.order_count = ProtoField.new("Order Count", "cboe.cfefutures.multicasttop.spin.v1.2.20.ordercount", ftypes.UINT32)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.spin.v1.2.20.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.spin.v1.2.20.packetheader", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.password = ProtoField.new("Password", "cboe.cfefutures.multicasttop.spin.v1.2.20.password", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicasttop.spin.v1.2.20.priceincrement", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicasttop.spin.v1.2.20.reportsymbol", ftypes.STRING)

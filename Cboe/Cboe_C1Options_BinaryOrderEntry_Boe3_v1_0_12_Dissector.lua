@@ -14,6 +14,12 @@ local cboe_c1options_binaryorderentry_boe3_v1_0_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Headers
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangemessageheader", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangepacket", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmmessageheader", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmpacket", ftypes.STRING)
+
 -- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Fields
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.account = ProtoField.new("Account", "cboe.c1options.binaryorderentry.boe3.v1.0.12.account", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.acknowledgement_allocation = ProtoField.new("Acknowledgement Allocation", "cboe.c1options.binaryorderentry.boe3.v1.0.12.acknowledgementallocation", ftypes.STRING)
@@ -80,11 +86,13 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.equity_trade_size = Prot
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.equity_trade_venue = ProtoField.new("Equity Trade Venue", "cboe.c1options.binaryorderentry.boe3.v1.0.12.equitytradevenue", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.equity_transact_time = ProtoField.new("Equity Transact Time", "cboe.c1options.binaryorderentry.boe3.v1.0.12.equitytransacttime", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exdestination", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_type = ProtoField.new("Message Type", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangemessagetype", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.c1options.binaryorderentry.boe3.v1.0.12.execid", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.c1options.binaryorderentry.boe3.v1.0.12.execinst", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c1options.binaryorderentry.boe3.v1.0.12.execrefid", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.c1options.binaryorderentry.boe3.v1.0.12.expiretime", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.fee_code = ProtoField.new("Fee Code", "cboe.c1options.binaryorderentry.boe3.v1.0.12.feecode", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_type = ProtoField.new("Message Type", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmmessagetype", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.floor_destination = ProtoField.new("Floor Destination", "cboe.c1options.binaryorderentry.boe3.v1.0.12.floordestination", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.c1options.binaryorderentry.boe3.v1.0.12.floorroutinginst", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.floor_trade_time = ProtoField.new("Floor Trade Time", "cboe.c1options.binaryorderentry.boe3.v1.0.12.floortradetime", ftypes.UINT64)
@@ -121,9 +129,7 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.mass_cancel_rejected_mes
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.c1options.binaryorderentry.boe3.v1.0.12.matchingunit", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.c1options.binaryorderentry.boe3.v1.0.12.maturitydate", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.max_floor = ProtoField.new("Max Floor", "cboe.c1options.binaryorderentry.boe3.v1.0.12.maxfloor", ftypes.UINT32)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.messageheader", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.binaryorderentry.boe3.v1.0.12.messagelength", ftypes.UINT16)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.binaryorderentry.boe3.v1.0.12.messagetype", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.min_qty = ProtoField.new("Min Qty", "cboe.c1options.binaryorderentry.boe3.v1.0.12.minqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.c1options.binaryorderentry.boe3.v1.0.12.modifyordermessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.c1options.binaryorderentry.boe3.v1.0.12.modifyrejectreason", ftypes.STRING)
@@ -158,7 +164,6 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.order_restatement_reason
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.order_router_subsidy = ProtoField.new("Order Router Subsidy", "cboe.c1options.binaryorderentry.boe3.v1.0.12.orderroutersubsidy", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c1options.binaryorderentry.boe3.v1.0.12.origclordid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.c1options.binaryorderentry.boe3.v1.0.12.origtime", ftypes.UINT64)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.packet", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.password = ProtoField.new("Password", "cboe.c1options.binaryorderentry.boe3.v1.0.12.password", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c1options.binaryorderentry.boe3.v1.0.12.postinginstruction", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c1options.binaryorderentry.boe3.v1.0.12.preventmatch", ftypes.STRING)
@@ -259,6 +264,14 @@ show.structs = true
 show.indexes = true
 
 -- Register Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -1706,7 +1719,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.equity_transact_time.size = 8
 
 -- Display: Equity Transact Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.equity_transact_time.display = function(value)
-  return "Equity Transact Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Equity Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Equity Transact Time
@@ -1795,6 +1812,123 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.ex_destination.dissect = function(b
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.ex_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.ex_destination, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type = {}
+
+-- Size: Exchange Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.size = 2
+
+-- Display: Exchange Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.display = function(value)
+  if value == 501 then
+    return "Message Type: Login Response Message (501)"
+  end
+  if value == 502 then
+    return "Message Type: Replay Complete Message (502)"
+  end
+  if value == 503 then
+    return "Message Type: Logout Response Message (503)"
+  end
+  if value == 504 then
+    return "Message Type: Server Heartbeat Message (504)"
+  end
+  if value == 0x09C5 then
+    return "Message Type: Order Acknowledgement Message (0x09C5)"
+  end
+  if value == 0x09C6 then
+    return "Message Type: Cross Order Acknowledgment Message (0x09C6)"
+  end
+  if value == 0x09D5 then
+    return "Message Type: Quote Update Acknowledgement Message (0x09D5)"
+  end
+  if value == 0x09C7 then
+    return "Message Type: Order Rejected Message (0x09C7)"
+  end
+  if value == 0x09C8 then
+    return "Message Type: Cross Order Rejected Message (0x09C8)"
+  end
+  if value == 0x09D6 then
+    return "Message Type: Quote Update Rejected Message (0x09D6)"
+  end
+  if value == 0x09CB then
+    return "Message Type: Order Modified Message (0x09CB)"
+  end
+  if value == 0x09CD then
+    return "Message Type: Order Restated Message (0x09CD)"
+  end
+  if value == 0x09D9 then
+    return "Message Type: Quote Restated Message (0x09D9)"
+  end
+  if value == 0x09CC then
+    return "Message Type: Modify Rejected Message (0x09CC)"
+  end
+  if value == 0x09D0 then
+    return "Message Type: Order Cancelled Message (0x09D0)"
+  end
+  if value == 0x09D7 then
+    return "Message Type: Quote Cancelled Message (0x09D7)"
+  end
+  if value == 0x09D1 then
+    return "Message Type: Cross Order Cancelled Message (0x09D1)"
+  end
+  if value == 0x09D2 then
+    return "Message Type: Cancel Rejected Message (0x09D2)"
+  end
+  if value == 0x09D3 then
+    return "Message Type: Order Execution Message (0x09D3)"
+  end
+  if value == 0x09D8 then
+    return "Message Type: Quote Execution Message (0x09D8)"
+  end
+  if value == 0x09D4 then
+    return "Message Type: Trade Cancel Correct Message (0x09D4)"
+  end
+  if value == 0x09DE then
+    return "Message Type: Purge Rejected Message (0x09DE)"
+  end
+  if value == 0x09DA then
+    return "Message Type: Reset Risk Acknowledgement Message (0x09DA)"
+  end
+  if value == 0x09DB then
+    return "Message Type: Mass Cancel Acknowledgment Message (0x09DB)"
+  end
+  if value == 0x09DC then
+    return "Message Type: Mass Cancel Rejected Message (0x09DC)"
+  end
+  if value == 0x09DD then
+    return "Message Type: Purge Acknowledgement Message (0x09DD)"
+  end
+  if value == 0x09DF then
+    return "Message Type: Purge Notification Message (0x09DF)"
+  end
+  if value == 0x09C9 then
+    return "Message Type: New Complex Instrument Accepted Message (0x09C9)"
+  end
+  if value == 0x09CA then
+    return "Message Type: New Complex Instrument Rejected Message (0x09CA)"
+  end
+  if value == 0x09CE then
+    return "Message Type: Carried Restatement Message (0x09CE)"
+  end
+  if value == 0x09CF then
+    return "Message Type: Done For Day Message (0x09CF)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1889,7 +2023,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.expire_time.size = 8
 
 -- Display: Expire Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.expire_time.display = function(value)
-  return "Expire Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Expire Time
@@ -1923,6 +2061,81 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.fee_code.dissect = function(buffer,
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.fee_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type = {}
+
+-- Size: Firm Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.size = 2
+
+-- Display: Firm Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Login Request Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Logout Request Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Client Heartbeat Message (3)"
+  end
+  if value == 0x07D1 then
+    return "Message Type: New Order Message (0x07D1)"
+  end
+  if value == 0x07D2 then
+    return "Message Type: New Order Short Message (0x07D2)"
+  end
+  if value == 0x07D3 then
+    return "Message Type: New Order Cross Message (0x07D3)"
+  end
+  if value == 0x07D5 then
+    return "Message Type: New Complex Instrument Message (0x07D5)"
+  end
+  if value == 0x07D6 then
+    return "Message Type: New Complex Order Message (0x07D6)"
+  end
+  if value == 0x07D7 then
+    return "Message Type: New Complex Order Short Message (0x07D7)"
+  end
+  if value == 0x07D8 then
+    return "Message Type: New Order Cross Multileg Message (0x07D8)"
+  end
+  if value == 0x07DA then
+    return "Message Type: Cancel Order Message (0x07DA)"
+  end
+  if value == 0x07DF then
+    return "Message Type: Mass Cancel Order Message (0x07DF)"
+  end
+  if value == 0x07DB then
+    return "Message Type: Modify Order Message (0x07DB)"
+  end
+  if value == 0x07DC then
+    return "Message Type: Quote Update Message (0x07DC)"
+  end
+  if value == 0x07DD then
+    return "Message Type: Quote Update Short Message (0x07DD)"
+  end
+  if value == 0x07E0 then
+    return "Message Type: Purge Orders Message (0x07E0)"
+  end
+  if value == 0x07DE then
+    return "Message Type: Reset Risk Message (0x07DE)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Firm Message Type
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1994,7 +2207,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.floor_trade_time.size = 8
 
 -- Display: Floor Trade Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.floor_trade_time.display = function(value)
-  return "Floor Trade Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Floor Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Floor Trade Time
@@ -2712,174 +2929,6 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.message_length.dissect = function(b
   return offset + length, value
 end
 
--- Message Type
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type = {}
-
--- Size: Message Type
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.size = 2
-
--- Display: Message Type
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Replay Complete Message (504)"
-  end
-  if value == 0x07D1 then
-    return "Message Type: New Order Message (0x07D1)"
-  end
-  if value == 0x07D2 then
-    return "Message Type: New Order Short Message (0x07D2)"
-  end
-  if value == 0x07D3 then
-    return "Message Type: New Order Cross Message (0x07D3)"
-  end
-  if value == 0x07D5 then
-    return "Message Type: New Complex Instrument Message (0x07D5)"
-  end
-  if value == 0x07D6 then
-    return "Message Type: New Complex Order Message (0x07D6)"
-  end
-  if value == 0x07D7 then
-    return "Message Type: New Complex Order Short Message (0x07D7)"
-  end
-  if value == 0x07D8 then
-    return "Message Type: New Order Cross Multileg Message (0x07D8)"
-  end
-  if value == 0x07DA then
-    return "Message Type: Cancel Order Message (0x07DA)"
-  end
-  if value == 0x07DF then
-    return "Message Type: Mass Cancel Order Message (0x07DF)"
-  end
-  if value == 0x07DB then
-    return "Message Type: Modify Order Message (0x07DB)"
-  end
-  if value == 0x07DC then
-    return "Message Type: Quote Update Message (0x07DC)"
-  end
-  if value == 0x07DD then
-    return "Message Type: Quote Update Short Message (0x07DD)"
-  end
-  if value == 0x07E0 then
-    return "Message Type: Purge Orders Message (0x07E0)"
-  end
-  if value == 0x07DE then
-    return "Message Type: Reset Risk Message (0x07DE)"
-  end
-  if value == 0x09C5 then
-    return "Message Type: Order Acknowledgement Message (0x09C5)"
-  end
-  if value == 0x09C6 then
-    return "Message Type: Cross Order Acknowledgment Message (0x09C6)"
-  end
-  if value == 0x09D5 then
-    return "Message Type: Quote Update Acknowledgement Message (0x09D5)"
-  end
-  if value == 0x09C7 then
-    return "Message Type: Order Rejected Message (0x09C7)"
-  end
-  if value == 0x09C8 then
-    return "Message Type: Cross Order Rejected Message (0x09C8)"
-  end
-  if value == 0x09D6 then
-    return "Message Type: Quote Update Rejected Message (0x09D6)"
-  end
-  if value == 0x09CB then
-    return "Message Type: Order Modified Message (0x09CB)"
-  end
-  if value == 0x09CD then
-    return "Message Type: Order Restated Message (0x09CD)"
-  end
-  if value == 0x09D9 then
-    return "Message Type: Quote Restated Message (0x09D9)"
-  end
-  if value == 0x09CC then
-    return "Message Type: Modify Rejected Message (0x09CC)"
-  end
-  if value == 0x09D0 then
-    return "Message Type: Order Cancelled Message (0x09D0)"
-  end
-  if value == 0x09D7 then
-    return "Message Type: Quote Cancelled Message (0x09D7)"
-  end
-  if value == 0x09D1 then
-    return "Message Type: Cross Order Cancelled Message (0x09D1)"
-  end
-  if value == 0x09D2 then
-    return "Message Type: Cancel Rejected Message (0x09D2)"
-  end
-  if value == 0x09D3 then
-    return "Message Type: Order Execution Message (0x09D3)"
-  end
-  if value == 0x09D8 then
-    return "Message Type: Quote Execution Message (0x09D8)"
-  end
-  if value == 0x09D4 then
-    return "Message Type: Trade Cancel Correct Message (0x09D4)"
-  end
-  if value == 0x09DE then
-    return "Message Type: Purge Rejected Message (0x09DE)"
-  end
-  if value == 0x09DA then
-    return "Message Type: Reset Risk Acknowledgement Message (0x09DA)"
-  end
-  if value == 0x09DB then
-    return "Message Type: Mass Cancel Acknowledgment Message (0x09DB)"
-  end
-  if value == 0x09DC then
-    return "Message Type: Mass Cancel Rejected Message (0x09DC)"
-  end
-  if value == 0x09DD then
-    return "Message Type: Purge Acknowledgement Message (0x09DD)"
-  end
-  if value == 0x09DF then
-    return "Message Type: Purge Notification Message (0x09DF)"
-  end
-  if value == 0x09C9 then
-    return "Message Type: New Complex Instrument Accepted Message (0x09C9)"
-  end
-  if value == 0x09CA then
-    return "Message Type: New Complex Instrument Rejected Message (0x09CA)"
-  end
-  if value == 0x09CE then
-    return "Message Type: Carried Restatement Message (0x09CE)"
-  end
-  if value == 0x09CF then
-    return "Message Type: Done For Day Message (0x09CF)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Min Qty
 cboe_c1options_binaryorderentry_boe3_v1_0_12.min_qty = {}
 
@@ -3327,7 +3376,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.orig_time.size = 8
 
 -- Display: Orig Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.orig_time.display = function(value)
-  return "Orig Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -3814,7 +3867,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.request_received_time.size = 8
 
 -- Display: Request Received Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.request_received_time.display = function(value)
-  return "Request Received Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Request Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Received Time
@@ -4210,7 +4267,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.send_time.size = 8
 
 -- Display: Send Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.send_time.display = function(value)
-  return "Send Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Send Time
@@ -4401,11 +4462,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.size_modifier.size = 1
 
 -- Display: Size Modifier
 cboe_c1options_binaryorderentry_boe3_v1_0_12.size_modifier.display = function(value)
-  if value == "0x00" then
-    return "Size Modifier: New Quote Size Will Be Set To Value Of Order Qty (0x00)"
-  end
   if value == "R" then
     return "Size Modifier: Reduce Outstanding Size Of Quote By The Order Qty Provided (R)"
+  end
+  if value == 0 then
+    return "Size Modifier: New Quote Size"
   end
 
   return "Size Modifier: Unknown("..value..")"
@@ -4415,7 +4476,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_12.size_modifier.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_12.size_modifier.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.size_modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.size_modifier, range, value, display)
@@ -4574,9 +4643,6 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.display = function(value)
-  if value == "0x00" then
-    return "Sub Liquidity Indicator: No Additional Information (0x00)"
-  end
   if value == "S" then
     return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
   end
@@ -4601,6 +4667,9 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.display = f
   if value == "s" then
     return "Sub Liquidity Indicator: Sam (s)"
   end
+  if value == 0 then
+    return "Sub Liquidity Indicator: No Additional Information"
+  end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"
 end
@@ -4609,7 +4678,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.sub_liquidity_indicator, range, value, display)
@@ -4880,7 +4957,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.transaction_time.size = 8
 
 -- Display: Transaction Time
 cboe_c1options_binaryorderentry_boe3_v1_0_12.transaction_time.display = function(value)
-  return "Transaction Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transaction Time
@@ -7441,8 +7522,7 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.size 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.base_liquidity_indicator.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.sub_liquidity_indicator.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.routing_firm_id.size + 
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.request_received_time.size + 
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.size
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.request_received_time.size
 
 -- Display: Order Acknowledgement Message
 cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.display = function(packet, parent, length)
@@ -7498,9 +7578,6 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.field
   -- Request Received Time: DateTime
   index, request_received_time = cboe_c1options_binaryorderentry_boe3_v1_0_12.request_received_time.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 48 values
-  index, message_type = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.dissect(buffer, index, packet, parent)
-
   return index
 end
 
@@ -7520,6 +7597,420 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.disse
     -- Skip element, add fields directly
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Server Heartbeat
+cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message = {}
+
+-- Size: Logout Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.size =
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason_text.size
+
+-- Display: Logout Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
+  index, logout_reason = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason.dissect(buffer, index, packet, parent)
+
+  -- Logout Reason Text: 60 Byte Ascii String
+  index, logout_reason_text = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason_text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Complete
+cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete = {}
+
+-- Display: Replay Complete
+cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.display = function(packet, parent, length)
+  return "Replay Complete"
+end
+
+
+-- Dissect: Replay Complete
+cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Unit Sequence
+cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence = {}
+
+-- Size: Unit Sequence
+cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.size =
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_number.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.size
+
+-- Display: Unit Sequence
+cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequence
+cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields = function(buffer, offset, packet, parent, unit_sequence_index)
+  local index = offset
+
+  -- Implicit Unit Sequence Index
+  if unit_sequence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: 1 Byte Unsigned Fixed Width Integer
+  index, unit_number = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Sequence
+cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
+  end
+end
+
+-- Login Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message = {}
+
+-- Calculate size of: Login Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_status.size
+
+  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_text.size
+
+  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.client_sequence.size
+
+  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.number_of_units.size
+
+  -- Calculate field size from count
+  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + unit_sequence_count * 5
+
+  return index
+end
+
+-- Display: Login Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
+  index, login_response_status = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_status.dissect(buffer, index, packet, parent)
+
+  -- Login Response Text: 60 Byte Ascii String
+  index, login_response_text = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_text.dissect(buffer, index, packet, parent)
+
+  -- Client Sequence: 4 Byte Unsigned Fixed Width Integer
+  index, client_sequence = cboe_c1options_binaryorderentry_boe3_v1_0_12.client_sequence.dissect(buffer, index, packet, parent)
+
+  -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
+  index, number_of_units = cboe_c1options_binaryorderentry_boe3_v1_0_12.number_of_units.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.dissect(buffer, index, packet, parent, unit_sequence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Login Response Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.login_response_message, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Exchange Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message = {}
+
+-- Dissect: Exchange Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
+  -- Dissect Login Response Message
+  if exchange_message_type == 501 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete
+  if exchange_message_type == 502 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response Message
+  if exchange_message_type == 503 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat
+  if exchange_message_type == 504 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgement Message
+  if exchange_message_type == 0x09C5 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cross Order Acknowledgment Message
+  if exchange_message_type == 0x09C6 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Update Acknowledgement Message
+  if exchange_message_type == 0x09D5 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Rejected Message
+  if exchange_message_type == 0x09C7 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cross Order Rejected Message
+  if exchange_message_type == 0x09C8 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Update Rejected Message
+  if exchange_message_type == 0x09D6 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified Message
+  if exchange_message_type == 0x09CB then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_modified_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Restated Message
+  if exchange_message_type == 0x09CD then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_restated_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Restated Message
+  if exchange_message_type == 0x09D9 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_restated_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Rejected Message
+  if exchange_message_type == 0x09CC then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.modify_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancelled Message
+  if exchange_message_type == 0x09D0 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_cancelled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancelled Message
+  if exchange_message_type == 0x09D7 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_cancelled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cross Order Cancelled Message
+  if exchange_message_type == 0x09D1 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_cancelled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Rejected Message
+  if exchange_message_type == 0x09D2 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cancel_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution Message
+  if exchange_message_type == 0x09D3 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_execution_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Execution Message
+  if exchange_message_type == 0x09D8 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_execution_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Correct Message
+  if exchange_message_type == 0x09D4 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.trade_cancel_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Rejected Message
+  if exchange_message_type == 0x09DE then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Risk Acknowledgement Message
+  if exchange_message_type == 0x09DA then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.reset_risk_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Acknowledgment Message
+  if exchange_message_type == 0x09DB then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.mass_cancel_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Rejected Message
+  if exchange_message_type == 0x09DC then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.mass_cancel_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Acknowledgement Message
+  if exchange_message_type == 0x09DD then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Notification Message
+  if exchange_message_type == 0x09DF then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Complex Instrument Accepted Message
+  if exchange_message_type == 0x09C9 then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Complex Instrument Rejected Message
+  if exchange_message_type == 0x09CA then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Carried Restatement Message
+  if exchange_message_type == 0x09CE then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.carried_restatement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Done For Day Message
+  if exchange_message_type == 0x09CF then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.done_for_day_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Exchange Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header = {}
+
+-- Size: Exchange Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.size =
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.start_of_message.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.message_length.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.matching_unit.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.reserved_field.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.size
+
+-- Display: Exchange Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Exchange Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
+  index, start_of_message = cboe_c1options_binaryorderentry_boe3_v1_0_12.start_of_message.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_length.dissect(buffer, index, packet, parent)
+
+  -- Exchange Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 31 values
+  index, exchange_message_type = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_type.dissect(buffer, index, packet, parent)
+
+  -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  index, matching_unit = cboe_c1options_binaryorderentry_boe3_v1_0_12.matching_unit.dissect(buffer, index, packet, parent)
+
+  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
+  index, reserved_field = cboe_c1options_binaryorderentry_boe3_v1_0_12.reserved_field.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Exchange Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_header, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Exchange Packet
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet = {}
+
+-- Verify required size of Tcp packet
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.size
+end
+
+-- Dissect Exchange Packet
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Exchange Message Header: Struct of 6 fields
+  index, exchange_message_header = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Exchange Message Type
+  local exchange_message_type = buffer(index - 8, 2):le_uint()
+
+  -- Exchange Message: Runtime Type with 31 branches
+  index = cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_message.dissect(buffer, index, packet, parent, exchange_message_type)
+
+  return index
 end
 
 -- Reset Risk Message
@@ -9630,203 +10121,6 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.new_order_message.dissect = functio
   end
 end
 
--- Server Heartbeat
-cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat = {}
-
--- Display: Server Heartbeat
-cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display = function(packet, parent, length)
-  return "Server Heartbeat"
-end
-
-
--- Dissect: Server Heartbeat
-cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Logout Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message = {}
-
--- Size: Logout Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.size =
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason.size + 
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason_text.size
-
--- Display: Logout Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logout Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
-  index, logout_reason = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason.dissect(buffer, index, packet, parent)
-
-  -- Logout Reason Text: 60 Byte Ascii String
-  index, logout_reason_text = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_reason_text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logout Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.logout_response_message, buffer(offset, 0))
-    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Complete
-cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete = {}
-
--- Display: Replay Complete
-cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.display = function(packet, parent, length)
-  return "Replay Complete"
-end
-
-
--- Dissect: Replay Complete
-cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect = function(buffer, offset, packet, parent)
-  local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Unit Sequence
-cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence = {}
-
--- Size: Unit Sequence
-cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.size =
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_number.size + 
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.size
-
--- Display: Unit Sequence
-cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unit Sequence
-cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields = function(buffer, offset, packet, parent, unit_sequence_index)
-  local index = offset
-
-  -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence_index, unit_sequence_index)
-    iteration:set_generated()
-  end
-
-  -- Unit Number: 1 Byte Unsigned Fixed Width Integer
-  index, unit_number = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_number.dissect(buffer, index, packet, parent)
-
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unit Sequence
-cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
-  end
-end
-
--- Login Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message = {}
-
--- Calculate size of: Login Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_status.size
-
-  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_text.size
-
-  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.client_sequence.size
-
-  index = index + cboe_c1options_binaryorderentry_boe3_v1_0_12.number_of_units.size
-
-  -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + unit_sequence_count * 5
-
-  return index
-end
-
--- Display: Login Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
-  index, login_response_status = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_status.dissect(buffer, index, packet, parent)
-
-  -- Login Response Text: 60 Byte Ascii String
-  index, login_response_text = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_text.dissect(buffer, index, packet, parent)
-
-  -- Client Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, client_sequence = cboe_c1options_binaryorderentry_boe3_v1_0_12.client_sequence.dissect(buffer, index, packet, parent)
-
-  -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = cboe_c1options_binaryorderentry_boe3_v1_0_12.number_of_units.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Unit Sequence
-  for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_c1options_binaryorderentry_boe3_v1_0_12.unit_sequence.dissect(buffer, index, packet, parent, unit_sequence_index)
-  end
-
-  return index
-end
-
--- Dissect: Login Response Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.login_response_message, buffer(offset, 0))
-    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Client Heartbeat
 cboe_c1options_binaryorderentry_boe3_v1_0_12.client_heartbeat = {}
 
@@ -9935,226 +10229,102 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.login_request_message.dissect = fun
   end
 end
 
--- Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message = {}
+-- Firm Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message = {}
 
--- Dissect: Message
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Firm Message
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
   -- Dissect Login Request Message
-  if message_type == 1 then
+  if firm_message_type == 1 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.login_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
-  if message_type == 2 then
+  if firm_message_type == 2 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat
-  if message_type == 3 then
+  if firm_message_type == 3 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Response Message
-  if message_type == 501 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if message_type == 502 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if message_type == 503 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if message_type == 504 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect New Order Message
-  if message_type == 0x07D1 then
+  if firm_message_type == 0x07D1 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Short Message
-  if message_type == 0x07D2 then
+  if firm_message_type == 0x07D2 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_order_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Cross Message
-  if message_type == 0x07D3 then
+  if firm_message_type == 0x07D3 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_order_cross_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Complex Instrument Message
-  if message_type == 0x07D5 then
+  if firm_message_type == 0x07D5 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Complex Order Message
-  if message_type == 0x07D6 then
+  if firm_message_type == 0x07D6 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Complex Order Short Message
-  if message_type == 0x07D7 then
+  if firm_message_type == 0x07D7 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_order_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Cross Multileg Message
-  if message_type == 0x07D8 then
+  if firm_message_type == 0x07D8 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_order_cross_multileg_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Message
-  if message_type == 0x07DA then
+  if firm_message_type == 0x07DA then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.cancel_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Order Message
-  if message_type == 0x07DF then
+  if firm_message_type == 0x07DF then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.mass_cancel_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
-  if message_type == 0x07DB then
+  if firm_message_type == 0x07DB then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.modify_order_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Message
-  if message_type == 0x07DC then
+  if firm_message_type == 0x07DC then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Short Message
-  if message_type == 0x07DD then
+  if firm_message_type == 0x07DD then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_short_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Purge Orders Message
-  if message_type == 0x07E0 then
+  if firm_message_type == 0x07E0 then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_orders_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reset Risk Message
-  if message_type == 0x07DE then
+  if firm_message_type == 0x07DE then
     return cboe_c1options_binaryorderentry_boe3_v1_0_12.reset_risk_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Message
-  if message_type == 0x09C5 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Order Acknowledgment Message
-  if message_type == 0x09C6 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Acknowledgement Message
-  if message_type == 0x09D5 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Message
-  if message_type == 0x09C7 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Order Rejected Message
-  if message_type == 0x09C8 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Rejected Message
-  if message_type == 0x09D6 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_update_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if message_type == 0x09CB then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if message_type == 0x09CD then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Restated Message
-  if message_type == 0x09D9 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Message
-  if message_type == 0x09CC then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.modify_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Message
-  if message_type == 0x09D0 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancelled Message
-  if message_type == 0x09D7 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Order Cancelled Message
-  if message_type == 0x09D1 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cross_order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Message
-  if message_type == 0x09D2 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 0x09D3 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Message
-  if message_type == 0x09D8 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.quote_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct Message
-  if message_type == 0x09D4 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.trade_cancel_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Message
-  if message_type == 0x09DE then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Acknowledgement Message
-  if message_type == 0x09DA then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.reset_risk_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Acknowledgment Message
-  if message_type == 0x09DB then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.mass_cancel_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Rejected Message
-  if message_type == 0x09DC then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.mass_cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement Message
-  if message_type == 0x09DD then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Notification Message
-  if message_type == 0x09DF then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.purge_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Instrument Accepted Message
-  if message_type == 0x09C9 then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Instrument Rejected Message
-  if message_type == 0x09CA then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.new_complex_instrument_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Carried Restatement Message
-  if message_type == 0x09CE then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.carried_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Done For Day Message
-  if message_type == 0x09CF then
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.done_for_day_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header = {}
+-- Firm Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header = {}
 
--- Size: Message Header
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.size =
+-- Size: Firm Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.size =
   cboe_c1options_binaryorderentry_boe3_v1_0_12.start_of_message.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.message_length.size + 
-  cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.size + 
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.matching_unit.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.reserved_field.size + 
   cboe_c1options_binaryorderentry_boe3_v1_0_12.sequence_number.size
 
--- Display: Message Header
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.display = function(packet, parent, length)
+-- Display: Firm Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Firm Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
@@ -10163,8 +10333,8 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.fields = function(bu
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 48 values
-  index, message_type = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_type.dissect(buffer, index, packet, parent)
+  -- Firm Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
+  index, firm_message_type = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_type.dissect(buffer, index, packet, parent)
 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_c1options_binaryorderentry_boe3_v1_0_12.matching_unit.dissect(buffer, index, packet, parent)
@@ -10178,44 +10348,44 @@ cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.fields = function(bu
   return index
 end
 
--- Dissect: Message Header
-cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Firm Message Header
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.message_header, buffer(offset, 0))
-    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_header, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.display(packet, parent, length)
+    local display = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.fields(buffer, offset, packet, parent)
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Packet
-cboe_c1options_binaryorderentry_boe3_v1_0_12.packet = {}
+-- Firm Packet
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet = {}
 
 -- Verify required size of Tcp packet
-cboe_c1options_binaryorderentry_boe3_v1_0_12.packet.requiredsize = function(buffer)
-  return buffer:len() >= cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.size
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.size
 end
 
--- Dissect Packet
-cboe_c1options_binaryorderentry_boe3_v1_0_12.packet.dissect = function(buffer, packet, parent)
+-- Dissect Firm Packet
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Message Header: Struct of 6 fields
-  index, message_header = cboe_c1options_binaryorderentry_boe3_v1_0_12.message_header.dissect(buffer, index, packet, parent)
+  -- Firm Message Header: Struct of 6 fields
+  index, firm_message_header = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 8, 2):le_uint()
+  -- Dependency element: Firm Message Type
+  local firm_message_type = buffer(index - 8, 2):le_uint()
 
-  -- Message: Runtime Type with 48 branches
-  index = cboe_c1options_binaryorderentry_boe3_v1_0_12.message.dissect(buffer, index, packet, parent, message_type)
+  -- Firm Message: Runtime Type with 17 branches
+  index = cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_message.dissect(buffer, index, packet, parent, firm_message_type)
 
   return index
 end
@@ -10229,6 +10399,71 @@ end
 function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.init()
 end
 
+-- Connection roles for Cboe C1Options BinaryOrderEntry Boe3 1.0.12: Firm is the initiator, Exchange is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+cboe_c1options_binaryorderentry_boe3_v1_0_12.role = function(packet)
+  if omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+cboe_c1options_binaryorderentry_boe3_v1_0_12.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Cboe C1Options BinaryOrderEntry Boe3 1.0.12
 function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
 
@@ -10237,8 +10472,279 @@ function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.dissector(buffer, pack
 
   -- Dissect protocol
   local protocol = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12, buffer(), omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.description, "("..buffer:len().." Bytes)")
-  return cboe_c1options_binaryorderentry_boe3_v1_0_12.packet.dissect(buffer, packet, protocol)
+  local role = cboe_c1options_binaryorderentry_boe3_v1_0_12.role(packet)
+  if role == "initiator" then
+    return cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.dissect(buffer, packet, protocol)
+  end
+  return cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Firm Packet: would its message dispatch accept this frame?
+cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local firm_message_type = buffer(4, 2):le_uint()
+
+  -- Login Request Message
+  if firm_message_type == 1 then
+    return true
+  end
+
+  -- Logout Request
+  if firm_message_type == 2 then
+    return true
+  end
+
+  -- Client Heartbeat
+  if firm_message_type == 3 then
+    return true
+  end
+
+  -- New Order Message
+  if firm_message_type == 0x07D1 then
+    return true
+  end
+
+  -- New Order Short Message
+  if firm_message_type == 0x07D2 then
+    return true
+  end
+
+  -- New Order Cross Message
+  if firm_message_type == 0x07D3 then
+    return true
+  end
+
+  -- New Complex Instrument Message
+  if firm_message_type == 0x07D5 then
+    return true
+  end
+
+  -- New Complex Order Message
+  if firm_message_type == 0x07D6 then
+    return true
+  end
+
+  -- New Complex Order Short Message
+  if firm_message_type == 0x07D7 then
+    return true
+  end
+
+  -- New Order Cross Multileg Message
+  if firm_message_type == 0x07D8 then
+    return true
+  end
+
+  -- Cancel Order Message
+  if firm_message_type == 0x07DA then
+    return true
+  end
+
+  -- Mass Cancel Order Message
+  if firm_message_type == 0x07DF then
+    return true
+  end
+
+  -- Modify Order Message
+  if firm_message_type == 0x07DB then
+    return true
+  end
+
+  -- Quote Update Message
+  if firm_message_type == 0x07DC then
+    return true
+  end
+
+  -- Quote Update Short Message
+  if firm_message_type == 0x07DD then
+    return true
+  end
+
+  -- Purge Orders Message
+  if firm_message_type == 0x07E0 then
+    return true
+  end
+
+  -- Reset Risk Message
+  if firm_message_type == 0x07DE then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Exchange Packet: would its message dispatch accept this frame?
+cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local exchange_message_type = buffer(4, 2):le_uint()
+
+  -- Login Response Message
+  if exchange_message_type == 501 then
+    return true
+  end
+
+  -- Replay Complete
+  if exchange_message_type == 502 then
+    return true
+  end
+
+  -- Logout Response Message
+  if exchange_message_type == 503 then
+    return true
+  end
+
+  -- Server Heartbeat
+  if exchange_message_type == 504 then
+    return true
+  end
+
+  -- Order Acknowledgement Message
+  if exchange_message_type == 0x09C5 then
+    return true
+  end
+
+  -- Cross Order Acknowledgment Message
+  if exchange_message_type == 0x09C6 then
+    return true
+  end
+
+  -- Quote Update Acknowledgement Message
+  if exchange_message_type == 0x09D5 then
+    return true
+  end
+
+  -- Order Rejected Message
+  if exchange_message_type == 0x09C7 then
+    return true
+  end
+
+  -- Cross Order Rejected Message
+  if exchange_message_type == 0x09C8 then
+    return true
+  end
+
+  -- Quote Update Rejected Message
+  if exchange_message_type == 0x09D6 then
+    return true
+  end
+
+  -- Order Modified Message
+  if exchange_message_type == 0x09CB then
+    return true
+  end
+
+  -- Order Restated Message
+  if exchange_message_type == 0x09CD then
+    return true
+  end
+
+  -- Quote Restated Message
+  if exchange_message_type == 0x09D9 then
+    return true
+  end
+
+  -- Modify Rejected Message
+  if exchange_message_type == 0x09CC then
+    return true
+  end
+
+  -- Order Cancelled Message
+  if exchange_message_type == 0x09D0 then
+    return true
+  end
+
+  -- Quote Cancelled Message
+  if exchange_message_type == 0x09D7 then
+    return true
+  end
+
+  -- Cross Order Cancelled Message
+  if exchange_message_type == 0x09D1 then
+    return true
+  end
+
+  -- Cancel Rejected Message
+  if exchange_message_type == 0x09D2 then
+    return true
+  end
+
+  -- Order Execution Message
+  if exchange_message_type == 0x09D3 then
+    return true
+  end
+
+  -- Quote Execution Message
+  if exchange_message_type == 0x09D8 then
+    return true
+  end
+
+  -- Trade Cancel Correct Message
+  if exchange_message_type == 0x09D4 then
+    return true
+  end
+
+  -- Purge Rejected Message
+  if exchange_message_type == 0x09DE then
+    return true
+  end
+
+  -- Reset Risk Acknowledgement Message
+  if exchange_message_type == 0x09DA then
+    return true
+  end
+
+  -- Mass Cancel Acknowledgment Message
+  if exchange_message_type == 0x09DB then
+    return true
+  end
+
+  -- Mass Cancel Rejected Message
+  if exchange_message_type == 0x09DC then
+    return true
+  end
+
+  -- Purge Acknowledgement Message
+  if exchange_message_type == 0x09DD then
+    return true
+  end
+
+  -- Purge Notification Message
+  if exchange_message_type == 0x09DF then
+    return true
+  end
+
+  -- New Complex Instrument Accepted Message
+  if exchange_message_type == 0x09C9 then
+    return true
+  end
+
+  -- New Complex Instrument Rejected Message
+  if exchange_message_type == 0x09CA then
+    return true
+  end
+
+  -- Carried Restatement Message
+  if exchange_message_type == 0x09CE then
+    return true
+  end
+
+  -- Done For Day Message
+  if exchange_message_type == 0x09CF then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -10246,9 +10752,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Cboe C1Options BinaryOrderEntry Boe3 1.0.12 (Tcp)
-local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_heuristic(buffer, packet, parent)
+local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cboe_c1options_binaryorderentry_boe3_v1_0_12.packet.requiredsize(buffer) then return false end
+  if not cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cboe_c1options_binaryorderentry_boe3_v1_0_12.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c1options_binaryorderentry_boe3_v1_0_12
@@ -10257,12 +10766,44 @@ local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_heuristic(bu
   return true
 end
 
--- Register Heuristic for Cboe C1Options BinaryOrderEntry Boe3 1.0.12
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12:register_heuristic("tcp", omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_heuristic)
+-- Dissector Heuristic for Cboe C1Options BinaryOrderEntry Boe3 1.0.12 (Tcp)
+local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.requiredsize(buffer) then return false end
 
--- Register Cboe C1Options BinaryOrderEntry Boe3 1.0.12 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_cboe_c1options_binaryorderentry_boe3_v1_0_12)
+  -- Verify the frame matches this side's fingerprint
+  if not cboe_c1options_binaryorderentry_boe3_v1_0_12.exchange_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_c1options_binaryorderentry_boe3_v1_0_12
+  omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Cboe C1Options BinaryOrderEntry Boe3 1.0.12 (Tcp): apply the heuristic of the sender's connection role
+local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_heuristic(buffer, packet, parent)
+  local role = cboe_c1options_binaryorderentry_boe3_v1_0_12.role(packet)
+  local first, second = omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_initiator_heuristic, omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  cboe_c1options_binaryorderentry_boe3_v1_0_12.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Cboe C1Options BinaryOrderEntry Boe3 1.0.12
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12:register_heuristic("tcp", omi_cboe_c1options_binaryorderentry_boe3_v1_0_12_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

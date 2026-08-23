@@ -14,6 +14,13 @@ local ice_icefutures_bgw_sbe_v7_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ice IceFutures Bgw Sbe 7.0 Headers
+omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.bgw.sbe.v7.0.messageheader", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.packet = ProtoField.new("Packet", "ice.icefutures.bgw.sbe.v7.0.packet", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "ice.icefutures.bgw.sbe.v7.0.simpleopenframe", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "ice.icefutures.bgw.sbe.v7.0.simpleopenframingheader", ftypes.STRING)
+
 -- Ice IceFutures Bgw Sbe 7.0 Fields
 omi_ice_icefutures_bgw_sbe_v7_0.fields.alloc_handl_inst = ProtoField.new("Alloc Handl Inst", "ice.icefutures.bgw.sbe.v7.0.allochandlinst", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.allocation_account = ProtoField.new("Allocation Account", "ice.icefutures.bgw.sbe.v7.0.allocationaccount", ftypes.STRING)
@@ -86,7 +93,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.give_up_clearing_firm = ProtoField.new("G
 omi_ice_icefutures_bgw_sbe_v7_0.fields.granularity = ProtoField.new("Granularity", "ice.icefutures.bgw.sbe.v7.0.granularity", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "ice.icefutures.bgw.sbe.v7.0.groupsizeencoding", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.icefutures.bgw.sbe.v7.0.gtallowed", ftypes.UINT8)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.heart_beat_interval = ProtoField.new("Heart Beat Interval", "ice.icefutures.bgw.sbe.v7.0.heartbeatinterval", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "ice.icefutures.bgw.sbe.v7.0.hedgemarketid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_only = ProtoField.new("Hedge Only", "ice.icefutures.bgw.sbe.v7.0.hedgeonly", ftypes.UINT8)
@@ -161,7 +167,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.max_show = ProtoField.new("Max Show", "ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc_timestamp = ProtoField.new("Me Acceptance Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeutctimestamp", ftypes.UINT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc_timestamp_null = ProtoField.new("Me Acceptance Time Utc Timestamp Null", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeutctimestampnull", ftypes.UINT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.memo = ProtoField.new("Memo", "ice.icefutures.bgw.sbe.v7.0.memo", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.bgw.sbe.v7.0.messageheader", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.message_length = ProtoField.new("Message Length", "ice.icefutures.bgw.sbe.v7.0.messagelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_id = ProtoField.new("Mifid Id", "ice.icefutures.bgw.sbe.v7.0.mifidid", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_boolean_enum = ProtoField.new("Mifid Regulated Market Boolean Enum", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarketbooleanenum", ftypes.UINT8)
@@ -209,7 +214,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.original_creation_timestamp = ProtoField.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.original_system_id = ProtoField.new("Original System Id", "ice.icefutures.bgw.sbe.v7.0.originalsystemid", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.originator_user_id = ProtoField.new("Originator User Id", "ice.icefutures.bgw.sbe.v7.0.originatoruserid", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.override_block_min = ProtoField.new("Override Block Min", "ice.icefutures.bgw.sbe.v7.0.overrideblockmin", ftypes.UINT8)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.packet = ProtoField.new("Packet", "ice.icefutures.bgw.sbe.v7.0.packet", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code = ProtoField.new("Physical Code", "ice.icefutures.bgw.sbe.v7.0.physicalcode", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_data = ProtoField.new("Physical Code Data", "ice.icefutures.bgw.sbe.v7.0.physicalcodedata", ftypes.BYTES)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_length = ProtoField.new("Physical Code Length", "ice.icefutures.bgw.sbe.v7.0.physicalcodelength", ftypes.UINT16)
@@ -313,8 +317,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.settl_method = ProtoField.new("Settl Meth
 omi_ice_icefutures_bgw_sbe_v7_0.fields.severity_level = ProtoField.new("Severity Level", "ice.icefutures.bgw.sbe.v7.0.severitylevel", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.side_side_enum = ProtoField.new("Side Side Enum", "ice.icefutures.bgw.sbe.v7.0.sidesideenum", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.side_side_enum_null = ProtoField.new("Side Side Enum Null", "ice.icefutures.bgw.sbe.v7.0.sidesideenumnull", ftypes.UINT8)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "ice.icefutures.bgw.sbe.v7.0.simpleopenframe", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "ice.icefutures.bgw.sbe.v7.0.simpleopenframingheader", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.start_date = ProtoField.new("Start Date", "ice.icefutures.bgw.sbe.v7.0.startdate", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.status = ProtoField.new("Status", "ice.icefutures.bgw.sbe.v7.0.status", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_elected = ProtoField.new("Stop Elected", "ice.icefutures.bgw.sbe.v7.0.stopelected", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)

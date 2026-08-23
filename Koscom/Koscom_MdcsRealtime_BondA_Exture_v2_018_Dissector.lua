@@ -14,6 +14,9 @@ local koscom_mdcsrealtime_bonda_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Koscom MdcsRealtime BondA Exture 2.018 Headers
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime BondA Exture 2.018 Fields
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.bonda.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
@@ -314,7 +317,6 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.optionembedded_type_code = Pr
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.original_bond_type_code_subjec_to_strip = ProtoField.new("Original Bond Type Code Subjec To Strip", "koscom.mdcsrealtime.bonda.exture.v2.018.originalbondtypecodesubjectostrip", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.other_funds = ProtoField.new("Other Funds", "koscom.mdcsrealtime.bonda.exture.v2.018.otherfunds", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.other_types_of_bond = ProtoField.new("Other Types Of Bond", "koscom.mdcsrealtime.bonda.exture.v2.018.othertypesofbond", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.participating_rate = ProtoField.new("Participating Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.participatingrate", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.payment_agent_code = ProtoField.new("Payment Agent Code", "koscom.mdcsrealtime.bonda.exture.v2.018.paymentagentcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.payment_guarantor_code = ProtoField.new("Payment Guarantor Code", "koscom.mdcsrealtime.bonda.exture.v2.018.paymentguarantorcode", ftypes.STRING)

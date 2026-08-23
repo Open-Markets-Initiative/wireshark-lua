@@ -14,6 +14,12 @@ local lseg_tradeecho_mifid2posttradereplay_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg TradeEcho Mifid2PostTradeReplay Gtp 24.4 Headers
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg TradeEcho Mifid2PostTradeReplay Gtp 24.4 Fields
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.agencycrossindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.agency_cross_trade_flag = ProtoField.new("Agency Cross Trade Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.agencycrosstradeflag", ftypes.STRING)
@@ -52,9 +58,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.login_status = ProtoFi
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.marketclosingpriceflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.marketdatagroup", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.marketmechanism", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.messagecount", ftypes.UINT8)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.messagelength", ftypes.UINT16)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.messagetype", ftypes.UINT8)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.mifidprice", ftypes.STRING)
@@ -76,7 +80,6 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.number_of_trades_onboo
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.off_book = ProtoField.new("Off Book", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.offbookautomatedindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.orderbooktype", ftypes.UINT8)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.packet", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.portfolio_transaction_flag = ProtoField.new("Portfolio Transaction Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.portfoliotransactionflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.posttradedeferralreason", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
@@ -117,7 +120,6 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.transaction_identifica
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.transactiontobecleared", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.turnover", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.unitheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v24_4.fields.username = ProtoField.new("Username", "lseg.tradeecho.mifid2posttradereplay.gtp.v24.4.username", ftypes.STRING)

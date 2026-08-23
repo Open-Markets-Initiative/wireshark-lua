@@ -14,6 +14,12 @@ local hkex_hkexderivatives_literefresh_omd_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexDerivatives LiteRefresh Omd 2.2 Headers
+omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.literefresh.omd.v2.2.message", ftypes.STRING)
+omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.literefresh.omd.v2.2.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.literefresh.omd.v2.2.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.literefresh.omd.v2.2.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives LiteRefresh Omd 2.2 Fields
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literefresh.omd.v2.2.actualstarttime", ftypes.UINT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexderivatives.literefresh.omd.v2.2.aggregatequantity", ftypes.UINT64)
@@ -76,10 +82,8 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.lot_type = ProtoField.new("
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.low_price = ProtoField.new("Low Price", "hkex.hkexderivatives.literefresh.omd.v2.2.lowprice", ftypes.INT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.market_uint_162 = ProtoField.new("Market Uint 162", "hkex.hkexderivatives.literefresh.omd.v2.2.marketuint162", ftypes.UINT16)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.market_uint_164 = ProtoField.new("Market Uint 164", "hkex.hkexderivatives.literefresh.omd.v2.2.marketuint164", ftypes.UINT32)
-omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.literefresh.omd.v2.2.message", ftypes.STRING)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.literefresh.omd.v2.2.modifier", ftypes.UINT16)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.literefresh.omd.v2.2.msgcount", ftypes.UINT8)
-omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.literefresh.omd.v2.2.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexderivatives.literefresh.omd.v2.2.msgsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexderivatives.literefresh.omd.v2.2.msgtype", ftypes.UINT16)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.net_oi = ProtoField.new("Net Oi", "hkex.hkexderivatives.literefresh.omd.v2.2.netoi", ftypes.INT32)
@@ -92,8 +96,6 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.order_book_position = Proto
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.order_id = ProtoField.new("Order Id", "hkex.hkexderivatives.literefresh.omd.v2.2.orderid", ftypes.UINT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.literefresh.omd.v2.2.ordertype", ftypes.UINT8)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.literefresh.omd.v2.2.orderbookid", ftypes.UINT32)
-omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.literefresh.omd.v2.2.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.literefresh.omd.v2.2.packetheader", ftypes.STRING)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.literefresh.omd.v2.2.pktsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literefresh.omd.v2.2.plannedstarttime", ftypes.UINT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_2.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.literefresh.omd.v2.2.price", ftypes.INT64)

@@ -14,6 +14,10 @@ local asx_asxderivatives_ntp_itch_v1_05 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Asx AsxDerivatives Ntp Itch 1.05 Headers
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.ntp.itch.v1.05.packet", ftypes.STRING)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.ntp.itch.v1.05.packetheader", ftypes.STRING)
+
 -- Asx AsxDerivatives Ntp Itch 1.05 Fields
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.asxderivatives.ntp.itch.v1.05.aotlowerprice", ftypes.DOUBLE)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.aot_price = ProtoField.new("Aot Price", "asx.asxderivatives.ntp.itch.v1.05.aotprice", ftypes.DOUBLE)
@@ -71,8 +75,6 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.opposite_tradeable_instrument_id = 
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.option_type = ProtoField.new("Option Type", "asx.asxderivatives.ntp.itch.v1.05.optiontype", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.order_book_priority = ProtoField.new("Order Book Priority", "asx.asxderivatives.ntp.itch.v1.05.orderbookpriority", ftypes.UINT64)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.order_id = ProtoField.new("Order Id", "asx.asxderivatives.ntp.itch.v1.05.orderid", ftypes.UINT64)
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.ntp.itch.v1.05.packet", ftypes.STRING)
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.ntp.itch.v1.05.packetheader", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.participant_id_buyer = ProtoField.new("Participant Id Buyer", "asx.asxderivatives.ntp.itch.v1.05.participantidbuyer", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.participant_id_seller = ProtoField.new("Participant Id Seller", "asx.asxderivatives.ntp.itch.v1.05.participantidseller", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.payments_per_year = ProtoField.new("Payments Per Year", "asx.asxderivatives.ntp.itch.v1.05.paymentsperyear", ftypes.UINT8)

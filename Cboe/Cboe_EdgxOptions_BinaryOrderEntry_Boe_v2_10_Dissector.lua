@@ -14,6 +14,10 @@ local cboe_edgxoptions_binaryorderentry_boe_v2_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe EdgxOptions BinaryOrderEntry Boe 2.10 Headers
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
+
 -- Cboe EdgxOptions BinaryOrderEntry Boe 2.10 Fields
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.account = ProtoField.new("Account", "cboe.edgxoptions.binaryorderentry.boe.v2.10.account", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.alloc_qty = ProtoField.new("Alloc Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.allocqty", ftypes.UINT32)
@@ -367,7 +371,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.matching_unit = ProtoFiel
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maturitydate", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.max_floor = ProtoField.new("Max Floor", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maxfloor", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maxremovepct", ftypes.UINT8)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_length = ProtoField.new("Message Length", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messagelength", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_type = ProtoField.new("Message Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messagetype", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.min_qty = ProtoField.new("Min Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.minqty", ftypes.UINT32)
@@ -1061,7 +1064,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.order_restated_working_pr
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.origclordid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.orig_time = ProtoField.new("Orig Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.origtime", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.ors = ProtoField.new("Ors", "cboe.edgxoptions.binaryorderentry.boe.v2.10.ors", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group = ProtoField.new("Param Group", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgroup", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgrouplength", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgrouptype", ftypes.UINT8)

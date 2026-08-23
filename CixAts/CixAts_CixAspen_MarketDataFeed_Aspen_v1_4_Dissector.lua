@@ -14,6 +14,12 @@ local cixats_cixaspen_marketdatafeed_aspen_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- CixAts CixAspen MarketDataFeed Aspen 1.4 Headers
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header = ProtoField.new("Message Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageheader", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packet", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet_header = ProtoField.new("Packet Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packetheader", ftypes.STRING)
+
 -- CixAts CixAspen MarketDataFeed Aspen 1.4 Fields
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.board_lot_size = ProtoField.new("Board Lot Size", "cixats.cixaspen.marketdatafeed.aspen.v1.4.boardlotsize", ftypes.UINT32)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.broker = ProtoField.new("Broker", "cixats.cixaspen.marketdatafeed.aspen.v1.4.broker", ftypes.STRING)
@@ -28,15 +34,11 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.info = ProtoField.new("Info
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.length = ProtoField.new("Length", "cixats.cixaspen.marketdatafeed.aspen.v1.4.length", ftypes.UINT16)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.listing_market = ProtoField.new("Listing Market", "cixats.cixaspen.marketdatafeed.aspen.v1.4.listingmarket", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.marketdatafeed.aspen.v1.4.marketdayidentifier", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header = ProtoField.new("Message Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageheader", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_type = ProtoField.new("Message Type", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messagetype", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.order_id = ProtoField.new("Order Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.orderid", ftypes.UINT64)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.original_execution_id = ProtoField.new("Original Execution Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.originalexecutionid", ftypes.UINT64)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.original_trade_price = ProtoField.new("Original Trade Price", "cixats.cixaspen.marketdatafeed.aspen.v1.4.originaltradeprice", ftypes.DOUBLE)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.original_trade_quantity = ProtoField.new("Original Trade Quantity", "cixats.cixaspen.marketdatafeed.aspen.v1.4.originaltradequantity", ftypes.DOUBLE)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packet", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet_header = ProtoField.new("Packet Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packetheader", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.price = ProtoField.new("Price", "cixats.cixaspen.marketdatafeed.aspen.v1.4.price", ftypes.DOUBLE)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.quantity = ProtoField.new("Quantity", "cixats.cixaspen.marketdatafeed.aspen.v1.4.quantity", ftypes.DOUBLE)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.quantity_canceled = ProtoField.new("Quantity Canceled", "cixats.cixaspen.marketdatafeed.aspen.v1.4.quantitycanceled", ftypes.DOUBLE)

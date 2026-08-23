@@ -14,6 +14,14 @@ local nasdaq_ntxequities_orders_ouch_v4_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NtxEquities Orders Ouch 4.2 Headers
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacketheader", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacketheader", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serversoupbintcppacket", ftypes.STRING)
+
 -- Nasdaq NtxEquities Orders Ouch 4.2 Fields
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.aiq_canceled_reason = ProtoField.new("Aiq Canceled Reason", "nasdaq.ntxequities.orders.ouch.v4.2.aiqcanceledreason", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.ntxequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
@@ -21,6 +29,7 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.broken_trade_reason = ProtoField.
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.ntxequities.orders.ouch.v4.2.buysellindicator", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.canceled_reason = ProtoField.new("Canceled Reason", "nasdaq.ntxequities.orders.ouch.v4.2.canceledreason", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.capacity = ProtoField.new("Capacity", "nasdaq.ntxequities.orders.ouch.v4.2.capacity", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxequities.orders.ouch.v4.2.clientpackettype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.ntxequities.orders.ouch.v4.2.crosstype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.ntxequities.orders.ouch.v4.2.decrementshares", ftypes.UINT32)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.ntxequities.orders.ouch.v4.2.display", ftypes.STRING)
@@ -36,10 +45,7 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.minimum_quantity = ProtoField.new
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.ntxequities.orders.ouch.v4.2.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.order_state = ProtoField.new("Order State", "nasdaq.ntxequities.orders.ouch.v4.2.orderstate", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.order_token = ProtoField.new("Order Token", "nasdaq.ntxequities.orders.ouch.v4.2.ordertoken", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.packet", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.packetheader", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.ntxequities.orders.ouch.v4.2.packetlength", ftypes.UINT16)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.ntxequities.orders.ouch.v4.2.packettype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.ntxequities.orders.ouch.v4.2.password", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.ntxequities.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.ntxequities.orders.ouch.v4.2.price", ftypes.DOUBLE)
@@ -51,9 +57,9 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.requested_sequence_number = Proto
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.ntxequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.ntxequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxequities.orders.ouch.v4.2.serverpackettype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.ntxequities.orders.ouch.v4.2.session", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.ntxequities.orders.ouch.v4.2.shares", ftypes.UINT32)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.soupbintcppacket", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.ntxequities.orders.ouch.v4.2.stock", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.ntxequities.orders.ouch.v4.2.text", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.ntxequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
@@ -96,13 +102,21 @@ local show = {}
 
 -- Nasdaq NtxEquities Orders Ouch 4.2 Element Dissection Options
 show.application_messages = true
-show.session_messages = true
 show.structs = true
+show.session_messages = true
 
 -- Register Nasdaq NtxEquities Orders Ouch 4.2 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 
 -- Handle changed preferences
@@ -360,6 +374,45 @@ nasdaq_ntxequities_orders_ouch_v4_2.capacity.dissect = function(buffer, offset, 
   local display = nasdaq_ntxequities_orders_ouch_v4_2.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -840,60 +893,6 @@ nasdaq_ntxequities_orders_ouch_v4_2.packet_length.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Packet Type
-nasdaq_ntxequities_orders_ouch_v4_2.packet_type = {}
-
--- Size: Packet Type
-nasdaq_ntxequities_orders_ouch_v4_2.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_ntxequities_orders_ouch_v4_2.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_ntxequities_orders_ouch_v4_2.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_orders_ouch_v4_2.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_ntxequities_orders_ouch_v4_2.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Password
 nasdaq_ntxequities_orders_ouch_v4_2.password = {}
 
@@ -1298,6 +1297,48 @@ nasdaq_ntxequities_orders_ouch_v4_2.sequenced_message_type.dissect = function(bu
   return offset + length, value
 end
 
+-- Server Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Session
 nasdaq_ntxequities_orders_ouch_v4_2.session = {}
 
@@ -1518,458 +1559,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nasdaq NtxEquities Orders Ouch 4.2
 -----------------------------------------------------------------------
-
--- Logout Request
-nasdaq_ntxequities_orders_ouch_v4_2.logout_request = {}
-
--- Display: Logout Request
-nasdaq_ntxequities_orders_ouch_v4_2.logout_request.display = function(packet, parent, length)
-  return "Logout Request"
-end
-
-
--- Dissect: Logout Request
-nasdaq_ntxequities_orders_ouch_v4_2.logout_request.dissect = function(buffer, offset, packet, parent)
-  local display = nasdaq_ntxequities_orders_ouch_v4_2.logout_request.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Client Heartbeat
-nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat = {}
-
--- Display: Client Heartbeat
-nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.display = function(packet, parent, length)
-  return "Client Heartbeat"
-end
-
-
--- Dissect: Client Heartbeat
-nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Trade Now Message
-nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message = {}
-
--- Size: Trade Now Message
-nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size
-
--- Display: Trade Now Message
-nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Now Message
-nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: 14 Byte Ascii String
-  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Now Message
-nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Modify Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message = {}
-
--- Size: Modify Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.shares.size
-
--- Display: Modify Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: 14 Byte Ascii String
-  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
-
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
-  index, buy_sell_indicator = nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
-
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Modify Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Cancel Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message = {}
-
--- Size: Cancel Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.shares.size
-
--- Display: Cancel Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cancel Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: 14 Byte Ascii String
-  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
-
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cancel Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replace Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message = {}
-
--- Size: Replace Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.shares.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.price.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.display.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.size
-
--- Display: Replace Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replace Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Existing Order Token: 14 Byte Ascii String
-  index, existing_order_token = nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.dissect(buffer, index, packet, parent)
-
-  -- Replacement Order Token: 14 Byte Ascii String
-  index, replacement_order_token = nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.dissect(buffer, index, packet, parent)
-
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_ntxequities_orders_ouch_v4_2.price.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer
-  index, time_in_force = nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Display: 1 Byte Ascii String Enum with 10 values
-  index, display = nasdaq_ntxequities_orders_ouch_v4_2.display.dissect(buffer, index, packet, parent)
-
-  -- Intermarket Sweep Eligibility: 1 Byte Ascii String Enum with 3 values
-  index, intermarket_sweep_eligibility = nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
-
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, minimum_quantity = nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replace Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Enter Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message = {}
-
--- Size: Enter Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.shares.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.stock.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.price.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.firm.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.display.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.capacity.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.cross_type.size
-
--- Display: Enter Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Token: 14 Byte Ascii String
-  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
-
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
-  index, buy_sell_indicator = nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
-
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
-
-  -- Stock: 8 Byte Ascii String
-  index, stock = nasdaq_ntxequities_orders_ouch_v4_2.stock.dissect(buffer, index, packet, parent)
-
-  -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = nasdaq_ntxequities_orders_ouch_v4_2.price.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 4 Byte Unsigned Fixed Width Integer
-  index, time_in_force = nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Firm: 4 Byte Ascii String
-  index, firm = nasdaq_ntxequities_orders_ouch_v4_2.firm.dissect(buffer, index, packet, parent)
-
-  -- Display: 1 Byte Ascii String Enum with 10 values
-  index, display = nasdaq_ntxequities_orders_ouch_v4_2.display.dissect(buffer, index, packet, parent)
-
-  -- Capacity: 1 Byte Ascii String Enum with 4 values
-  index, capacity = nasdaq_ntxequities_orders_ouch_v4_2.capacity.dissect(buffer, index, packet, parent)
-
-  -- Intermarket Sweep Eligibility: 1 Byte Ascii String Enum with 3 values
-  index, intermarket_sweep_eligibility = nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
-
-  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, minimum_quantity = nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.dissect(buffer, index, packet, parent)
-
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
-  index, cross_type = nasdaq_ntxequities_orders_ouch_v4_2.cross_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Enter Order Message
-nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Unsequenced Message
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message = {}
-
--- Dissect: Unsequenced Message
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now Message
-  if unsequenced_message_type == "N" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Unsequenced Data Packet
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet = {}
-
--- Read runtime size of: Unsequenced Data Packet
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  return packet_length - 1
-end
-
--- Display: Unsequenced Data Packet
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local index = offset
-
-  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 5 values
-  index, unsequenced_message_type = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
-
-  -- Unsequenced Message: Runtime Type with 5 branches
-  index = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-  local size_of_unsequenced_data_packet = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.size(buffer, offset)
-  local index = offset + size_of_unsequenced_data_packet
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.unsequenced_data_packet, buffer(offset, 0))
-    local current = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-    parent:set_len(size_of_unsequenced_data_packet)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
-
-    return index
-  end
-end
-
--- Login Request Packet
-nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet = {}
-
--- Size: Login Request Packet
-nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.size =
-  nasdaq_ntxequities_orders_ouch_v4_2.username.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.password.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.requested_session.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.requested_sequence_number.size
-
--- Display: Login Request Packet
-nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = nasdaq_ntxequities_orders_ouch_v4_2.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = nasdaq_ntxequities_orders_ouch_v4_2.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = nasdaq_ntxequities_orders_ouch_v4_2.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = nasdaq_ntxequities_orders_ouch_v4_2.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- End Of Session
 nasdaq_ntxequities_orders_ouch_v4_2.end_of_session = {}
@@ -2959,151 +2548,135 @@ nasdaq_ntxequities_orders_ouch_v4_2.debug_packet.dissect = function(buffer, offs
   end
 end
 
--- Payload
-nasdaq_ntxequities_orders_ouch_v4_2.payload = {}
+-- Server Payload
+nasdaq_ntxequities_orders_ouch_v4_2.server_payload = {}
 
--- Dissect: Payload
-nasdaq_ntxequities_orders_ouch_v4_2.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Payload
+nasdaq_ntxequities_orders_ouch_v4_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return nasdaq_ntxequities_orders_ouch_v4_2.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return nasdaq_ntxequities_orders_ouch_v4_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return nasdaq_ntxequities_orders_ouch_v4_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return nasdaq_ntxequities_orders_ouch_v4_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
-  if packet_type == "H" then
+  if server_packet_type == "H" then
     return nasdaq_ntxequities_orders_ouch_v4_2.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if packet_type == "Z" then
+  if server_packet_type == "Z" then
     return nasdaq_ntxequities_orders_ouch_v4_2.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if packet_type == "R" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if packet_type == "O" then
-    return nasdaq_ntxequities_orders_ouch_v4_2.logout_request.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Packet Header
-nasdaq_ntxequities_orders_ouch_v4_2.packet_header = {}
+-- Server Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header = {}
 
--- Size: Packet Header
-nasdaq_ntxequities_orders_ouch_v4_2.packet_header.size =
+-- Size: Server Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.size =
   nasdaq_ntxequities_orders_ouch_v4_2.packet_length.size + 
-  nasdaq_ntxequities_orders_ouch_v4_2.packet_type.size
+  nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.size
 
--- Display: Packet Header
-nasdaq_ntxequities_orders_ouch_v4_2.packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-nasdaq_ntxequities_orders_ouch_v4_2.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = nasdaq_ntxequities_orders_ouch_v4_2.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = nasdaq_ntxequities_orders_ouch_v4_2.packet_type.dissect(buffer, index, packet, parent)
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Packet Header
-nasdaq_ntxequities_orders_ouch_v4_2.packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.packet_header, buffer(offset, 0))
-    local index = nasdaq_ntxequities_orders_ouch_v4_2.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.packet_header.display(packet, parent, length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_ntxequities_orders_ouch_v4_2.packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Soup Bin Tcp Packet
-nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet = {}
+-- Server Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet = {}
 
--- Display: Soup Bin Tcp Packet
-nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.display = function(packet, parent, length)
+-- Display: Server Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Soup Bin Tcp Packet
-nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+-- Dissect Fields: Server Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = nasdaq_ntxequities_orders_ouch_v4_2.packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):string()
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 10 branches
-  index = nasdaq_ntxequities_orders_ouch_v4_2.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = nasdaq_ntxequities_orders_ouch_v4_2.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
 
--- Dissect: Soup Bin Tcp Packet
-nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-  local index = offset + size_of_soup_bin_tcp_packet
+-- Dissect: Server Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
-    parent:set_len(size_of_soup_bin_tcp_packet)
-    local display = nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+    nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
 
     return index
   end
 end
 
--- Remaining Bytes For: Soup Bin Tcp Packet
-local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_ntxequities_orders_ouch_v4_2.packet_header.size then
+  if remaining < nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3118,29 +2691,655 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-nasdaq_ntxequities_orders_ouch_v4_2.packet = {}
+-- Server Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_ntxequities_orders_ouch_v4_2.packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_ntxequities_orders_ouch_v4_2.packet_header.size
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.size
 end
 
--- Dissect Packet
-nasdaq_ntxequities_orders_ouch_v4_2.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Soup Bin Tcp Packet
+  -- Dependency for Server Soup Bin Tcp Packet
   local end_of_payload = buffer:len()
 
-  -- Soup Bin Tcp Packet: Struct of 2 fields
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_ntxequities_orders_ouch_v4_2.soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = nasdaq_ntxequities_orders_ouch_v4_2.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Logout Request
+nasdaq_ntxequities_orders_ouch_v4_2.logout_request = {}
+
+-- Display: Logout Request
+nasdaq_ntxequities_orders_ouch_v4_2.logout_request.display = function(packet, parent, length)
+  return "Logout Request"
+end
+
+
+-- Dissect: Logout Request
+nasdaq_ntxequities_orders_ouch_v4_2.logout_request.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxequities_orders_ouch_v4_2.logout_request.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat
+nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Trade Now Message
+nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message = {}
+
+-- Size: Trade Now Message
+nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size
+
+-- Display: Trade Now Message
+nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Now Message
+nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: 14 Byte Ascii String
+  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Now Message
+nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.trade_now_message, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message = {}
+
+-- Size: Modify Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.shares.size
+
+-- Display: Modify Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: 14 Byte Ascii String
+  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
+  index, buy_sell_indicator = nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.modify_order_message, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message = {}
+
+-- Size: Cancel Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.shares.size
+
+-- Display: Cancel Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: 14 Byte Ascii String
+  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
+
+  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cancel Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.cancel_order_message, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replace Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message = {}
+
+-- Size: Replace Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.size
+
+-- Display: Replace Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replace Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Existing Order Token: 14 Byte Ascii String
+  index, existing_order_token = nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.dissect(buffer, index, packet, parent)
+
+  -- Replacement Order Token: 14 Byte Ascii String
+  index, replacement_order_token = nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.dissect(buffer, index, packet, parent)
+
+  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_ntxequities_orders_ouch_v4_2.price.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 4 Byte Unsigned Fixed Width Integer
+  index, time_in_force = nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Display: 1 Byte Ascii String Enum with 10 values
+  index, display = nasdaq_ntxequities_orders_ouch_v4_2.display.dissect(buffer, index, packet, parent)
+
+  -- Intermarket Sweep Eligibility: 1 Byte Ascii String Enum with 3 values
+  index, intermarket_sweep_eligibility = nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
+
+  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, minimum_quantity = nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replace Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.replace_order_message, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Enter Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message = {}
+
+-- Size: Enter Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.order_token.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.shares.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.stock.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.price.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.firm.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.display.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.capacity.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.cross_type.size
+
+-- Display: Enter Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Token: 14 Byte Ascii String
+  index, order_token = nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 4 values
+  index, buy_sell_indicator = nasdaq_ntxequities_orders_ouch_v4_2.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  index, shares = nasdaq_ntxequities_orders_ouch_v4_2.shares.dissect(buffer, index, packet, parent)
+
+  -- Stock: 8 Byte Ascii String
+  index, stock = nasdaq_ntxequities_orders_ouch_v4_2.stock.dissect(buffer, index, packet, parent)
+
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_ntxequities_orders_ouch_v4_2.price.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 4 Byte Unsigned Fixed Width Integer
+  index, time_in_force = nasdaq_ntxequities_orders_ouch_v4_2.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Firm: 4 Byte Ascii String
+  index, firm = nasdaq_ntxequities_orders_ouch_v4_2.firm.dissect(buffer, index, packet, parent)
+
+  -- Display: 1 Byte Ascii String Enum with 10 values
+  index, display = nasdaq_ntxequities_orders_ouch_v4_2.display.dissect(buffer, index, packet, parent)
+
+  -- Capacity: 1 Byte Ascii String Enum with 4 values
+  index, capacity = nasdaq_ntxequities_orders_ouch_v4_2.capacity.dissect(buffer, index, packet, parent)
+
+  -- Intermarket Sweep Eligibility: 1 Byte Ascii String Enum with 3 values
+  index, intermarket_sweep_eligibility = nasdaq_ntxequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect(buffer, index, packet, parent)
+
+  -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, minimum_quantity = nasdaq_ntxequities_orders_ouch_v4_2.minimum_quantity.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  index, cross_type = nasdaq_ntxequities_orders_ouch_v4_2.cross_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Enter Order Message
+nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.enter_order_message, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unsequenced Message
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message = {}
+
+-- Dissect: Unsequenced Message
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+  -- Dissect Enter Order Message
+  if unsequenced_message_type == "O" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.enter_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replace Order Message
+  if unsequenced_message_type == "U" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.replace_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order Message
+  if unsequenced_message_type == "X" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.cancel_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Message
+  if unsequenced_message_type == "M" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.modify_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Now Message
+  if unsequenced_message_type == "N" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.trade_now_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 5 values
+  index, unsequenced_message_type = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Unsequenced Message: Runtime Type with 5 branches
+  index = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.username.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.password.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.requested_session.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_ntxequities_orders_ouch_v4_2.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_ntxequities_orders_ouch_v4_2.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_ntxequities_orders_ouch_v4_2.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = nasdaq_ntxequities_orders_ouch_v4_2.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nasdaq_ntxequities_orders_ouch_v4_2.client_payload = {}
+
+-- Dissect: Client Payload
+nasdaq_ntxequities_orders_ouch_v4_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat
+  if client_packet_type == "R" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.client_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if client_packet_type == "O" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.logout_request.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header = {}
+
+-- Size: Client Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.size =
+  nasdaq_ntxequities_orders_ouch_v4_2.packet_length.size + 
+  nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.size
+
+-- Display: Client Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = nasdaq_ntxequities_orders_ouch_v4_2.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 5 branches
+  index = nasdaq_ntxequities_orders_ouch_v4_2.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.size
+end
+
+-- Dissect Client Packet
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nasdaq_ntxequities_orders_ouch_v4_2.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -3162,6 +3361,71 @@ end
 function omi_nasdaq_ntxequities_orders_ouch_v4_2.init()
 end
 
+-- Connection roles for Nasdaq NtxEquities Orders Ouch 4.2: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_ntxequities_orders_ouch_v4_2.role = function(packet)
+  if omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_ntxequities_orders_ouch_v4_2.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nasdaq NtxEquities Orders Ouch 4.2
 function omi_nasdaq_ntxequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
 
@@ -3170,8 +3434,94 @@ function omi_nasdaq_ntxequities_orders_ouch_v4_2.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2, buffer(), omi_nasdaq_ntxequities_orders_ouch_v4_2.description, "("..buffer:len().." Bytes)")
-  return nasdaq_ntxequities_orders_ouch_v4_2.packet.dissect(buffer, packet, protocol)
+  local role = nasdaq_ntxequities_orders_ouch_v4_2.role(packet)
+  if role == "initiator" then
+    return nasdaq_ntxequities_orders_ouch_v4_2.client_packet.dissect(buffer, packet, protocol)
+  end
+  return nasdaq_ntxequities_orders_ouch_v4_2.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_ntxequities_orders_ouch_v4_2.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_ntxequities_orders_ouch_v4_2.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -3179,9 +3529,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nasdaq NtxEquities Orders Ouch 4.2 (Tcp)
-local function omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic(buffer, packet, parent)
+local function omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_ntxequities_orders_ouch_v4_2.packet.requiredsize(buffer) then return false end
+  if not nasdaq_ntxequities_orders_ouch_v4_2.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_ntxequities_orders_ouch_v4_2.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxequities_orders_ouch_v4_2
@@ -3190,12 +3543,44 @@ local function omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic(buffer, pac
   return true
 end
 
--- Register Heuristic for Nasdaq NtxEquities Orders Ouch 4.2
-omi_nasdaq_ntxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic)
+-- Dissector Heuristic for Nasdaq NtxEquities Orders Ouch 4.2 (Tcp)
+local function omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_ntxequities_orders_ouch_v4_2.server_packet.requiredsize(buffer) then return false end
 
--- Register Nasdaq NtxEquities Orders Ouch 4.2 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_nasdaq_ntxequities_orders_ouch_v4_2)
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_ntxequities_orders_ouch_v4_2.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_ntxequities_orders_ouch_v4_2
+  omi_nasdaq_ntxequities_orders_ouch_v4_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq NtxEquities Orders Ouch 4.2 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_ntxequities_orders_ouch_v4_2.role(packet)
+  local first, second = omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_initiator_heuristic, omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_ntxequities_orders_ouch_v4_2.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  nasdaq_ntxequities_orders_ouch_v4_2.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nasdaq NtxEquities Orders Ouch 4.2
+omi_nasdaq_ntxequities_orders_ouch_v4_2:register_heuristic("tcp", omi_nasdaq_ntxequities_orders_ouch_v4_2_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

@@ -14,6 +14,11 @@ local lseg_millennium_nativetradinggateway_ntgi_v21_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Millennium NativeTradingGateway Ntgi 21.2 Headers
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.message", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messageheader", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggateway.ntgi.v21.2.packet", ftypes.STRING)
+
 -- Lseg Millennium NativeTradingGateway Ntgi 21.2 Fields
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.account = ProtoField.new("Account", "lseg.millennium.nativetradinggateway.ntgi.v21.2.account", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.account_type = ProtoField.new("Account Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.accounttype", ftypes.UINT8)
@@ -73,8 +78,6 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.market_makers = Proto
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "lseg.millennium.nativetradinggateway.ntgi.v21.2.masscancelrejectreason", ftypes.INT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.masscancelrequesttype", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "lseg.millennium.nativetradinggateway.ntgi.v21.2.masscancelresponse", ftypes.UINT8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.message", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messageheader", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messagelength", ftypes.INT16)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messagetype", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_version = ProtoField.new("Message Version", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messageversion", ftypes.UINT8)
@@ -100,7 +103,6 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.order_reject_code = P
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.order_type = ProtoField.new("Order Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.ordertype", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.originalclientorderid", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.owner_type = ProtoField.new("Owner Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.ownertype", ftypes.UINT8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggateway.ntgi.v21.2.packet", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.partitionid", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.party_role_qualifiers = ProtoField.new("Party Role Qualifiers", "lseg.millennium.nativetradinggateway.ntgi.v21.2.partyrolequalifiers", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.passive_only_order = ProtoField.new("Passive Only Order", "lseg.millennium.nativetradinggateway.ntgi.v21.2.passiveonlyorder", ftypes.UINT8)

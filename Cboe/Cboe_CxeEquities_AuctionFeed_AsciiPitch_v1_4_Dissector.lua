@@ -14,6 +14,9 @@ local cboe_cxeequities_auctionfeed_asciipitch_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxeEquities AuctionFeed AsciiPitch 1.4 Headers
+omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.packet", ftypes.STRING)
+
 -- Cboe CxeEquities AuctionFeed AsciiPitch 1.4 Fields
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.auction_type = ProtoField.new("Auction Type", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.auctiontype", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.debugpacket", ftypes.STRING)
@@ -24,7 +27,6 @@ omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.login_accepted_packet = 
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.loginrejectedpacket", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.loginrequestpacket", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.outside_tolerance = ProtoField.new("Outside Tolerance", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.outsidetolerance", ftypes.STRING)
-omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.packet", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.packet_type = ProtoField.new("Packet Type", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.packettype", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.password = ProtoField.new("Password", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.password", ftypes.STRING)
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.fields.price = ProtoField.new("Price", "cboe.cxeequities.auctionfeed.asciipitch.v1.4.price", ftypes.DOUBLE)

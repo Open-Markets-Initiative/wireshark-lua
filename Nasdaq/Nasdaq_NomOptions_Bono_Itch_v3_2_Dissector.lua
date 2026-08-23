@@ -14,6 +14,10 @@ local nasdaq_nomoptions_bono_itch_v3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NomOptions Bono Itch 3.2 Headers
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.bono.itch.v3.2.packet", ftypes.STRING)
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.bono.itch.v3.2.packetheader", ftypes.STRING)
+
 -- Nasdaq NomOptions Bono Itch 3.2 Fields
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.nomoptions.bono.itch.v3.2.askprice2", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.nomoptions.bono.itch.v3.2.askprice4", ftypes.DOUBLE)
@@ -43,8 +47,6 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_type = ProtoField.new("Option
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.nomoptions.bono.itch.v3.2.originalcrossid", ftypes.UINT32)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_price = ProtoField.new("Original Price", "nasdaq.nomoptions.bono.itch.v3.2.originalprice", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.nomoptions.bono.itch.v3.2.originalvolume", ftypes.UINT32)
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.bono.itch.v3.2.packet", ftypes.STRING)
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.bono.itch.v3.2.packetheader", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_2 = ProtoField.new("Price 2", "nasdaq.nomoptions.bono.itch.v3.2.price2", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_4 = ProtoField.new("Price 4", "nasdaq.nomoptions.bono.itch.v3.2.price4", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.nomoptions.bono.itch.v3.2.quotecondition", ftypes.STRING)

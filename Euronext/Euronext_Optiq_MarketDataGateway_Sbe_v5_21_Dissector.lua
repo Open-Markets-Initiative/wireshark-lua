@@ -14,6 +14,13 @@ local euronext_optiq_marketdatagateway_sbe_v5_21 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Euronext Optiq MarketDataGateway Sbe 5.21 Headers
+omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatagateway.sbe.v5.21.marketdatapacketheader", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v5.21.messageheader", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v5.21.optiqmessage", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatagateway.sbe.v5.21.packet", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v5.21.packetflags", ftypes.STRING)
+
 -- Euronext Optiq MarketDataGateway Sbe 5.21 Fields
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.account_type = ProtoField.new("Account Type", "euronext.optiq.marketdatagateway.sbe.v5.21.accounttype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.action_type = ProtoField.new("Action Type", "euronext.optiq.marketdatagateway.sbe.v5.21.actiontype", ftypes.UINT8)
@@ -197,7 +204,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.low_level = ProtoField.new
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.low_time = ProtoField.new("Low Time", "euronext.optiq.marketdatagateway.sbe.v5.21.lowtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.main_depositary = ProtoField.new("Main Depositary", "euronext.optiq.marketdatagateway.sbe.v5.21.maindepositary", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market = ProtoField.new("Market", "euronext.optiq.marketdatagateway.sbe.v5.21.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
-omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatagateway.sbe.v5.21.marketdatapacketheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market_model = ProtoField.new("Market Model", "euronext.optiq.marketdatagateway.sbe.v5.21.marketmodel", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market_of_reference_mic = ProtoField.new("Market Of Reference Mic", "euronext.optiq.marketdatagateway.sbe.v5.21.marketofreferencemic", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.market_on_open_moo = ProtoField.new("Market On Open Moo", "euronext.optiq.marketdatagateway.sbe.v5.21.marketonopenmoo", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
@@ -215,7 +221,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.maximum_decimals_in_quanti
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.md_seq_num = ProtoField.new("Md Seq Num", "euronext.optiq.marketdatagateway.sbe.v5.21.mdseqnum", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.md_seq_num_optional = ProtoField.new("Md Seq Num Optional", "euronext.optiq.marketdatagateway.sbe.v5.21.mdseqnumoptional", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatagateway.sbe.v5.21.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
-omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v5.21.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.message_price_notation = ProtoField.new("Message Price Notation", "euronext.optiq.marketdatagateway.sbe.v5.21.messagepricenotation", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.mic = ProtoField.new("Mic", "euronext.optiq.marketdatagateway.sbe.v5.21.mic", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.mic_list = ProtoField.new("Mic List", "euronext.optiq.marketdatagateway.sbe.v5.21.miclist", ftypes.STRING)
@@ -278,7 +283,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.opened_closed_fund = Proto
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.opening_level = ProtoField.new("Opening Level", "euronext.optiq.marketdatagateway.sbe.v5.21.openinglevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.opening_time = ProtoField.new("Opening Time", "euronext.optiq.marketdatagateway.sbe.v5.21.openingtime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.option_type = ProtoField.new("Option Type", "euronext.optiq.marketdatagateway.sbe.v5.21.optiontype", ftypes.UINT8)
-omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v5.21.optiqmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.optiq_segment = ProtoField.new("Optiq Segment", "euronext.optiq.marketdatagateway.sbe.v5.21.optiqsegment", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.order_entry_qualifier = ProtoField.new("Order Entry Qualifier", "euronext.optiq.marketdatagateway.sbe.v5.21.orderentryqualifier", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.order_priority = ProtoField.new("Order Priority", "euronext.optiq.marketdatagateway.sbe.v5.21.orderpriority", ftypes.UINT64)
@@ -295,8 +299,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.outright_rep_groups = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.pack = ProtoField.new("Pack", "euronext.optiq.marketdatagateway.sbe.v5.21.pack", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.package_components_group = ProtoField.new("Package Components Group", "euronext.optiq.marketdatagateway.sbe.v5.21.packagecomponentsgroup", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.package_components_groups = ProtoField.new("Package Components Groups", "euronext.optiq.marketdatagateway.sbe.v5.21.packagecomponentsgroups", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatagateway.sbe.v5.21.packet", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v5.21.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatagateway.sbe.v5.21.packetsequencenumber", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatagateway.sbe.v5.21.packettime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v5_21.fields.par_value = ProtoField.new("Par Value", "euronext.optiq.marketdatagateway.sbe.v5.21.parvalue", ftypes.UINT64)

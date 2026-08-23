@@ -14,6 +14,12 @@ local imperative_intelligentcross_depthofbook_aspen_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Imperative IntelligentCross DepthOfBook Aspen 1.11 Headers
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.message", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageheader", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.depthofbook.aspen.v1.11.packet", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.packetheader", ftypes.STRING)
+
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Fields
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.count = ProtoField.new("Count", "imperative.intelligentcross.depthofbook.aspen.v1.11.count", ftypes.UINT16)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.event = ProtoField.new("Event", "imperative.intelligentcross.depthofbook.aspen.v1.11.event", ftypes.STRING)
@@ -23,12 +29,8 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.info = ProtoField
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.length = ProtoField.new("Length", "imperative.intelligentcross.depthofbook.aspen.v1.11.length", ftypes.UINT16)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.listing_market = ProtoField.new("Listing Market", "imperative.intelligentcross.depthofbook.aspen.v1.11.listingmarket", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "imperative.intelligentcross.depthofbook.aspen.v1.11.marketdayidentifier", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.message", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageheader", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_type = ProtoField.new("Message Type", "imperative.intelligentcross.depthofbook.aspen.v1.11.messagetype", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.order_id = ProtoField.new("Order Id", "imperative.intelligentcross.depthofbook.aspen.v1.11.orderid", ftypes.UINT64)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.depthofbook.aspen.v1.11.packet", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.packetheader", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.price = ProtoField.new("Price", "imperative.intelligentcross.depthofbook.aspen.v1.11.price", ftypes.DOUBLE)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.reserved_1 = ProtoField.new("Reserved 1", "imperative.intelligentcross.depthofbook.aspen.v1.11.reserved1", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.reserved_2 = ProtoField.new("Reserved 2", "imperative.intelligentcross.depthofbook.aspen.v1.11.reserved2", ftypes.STRING)

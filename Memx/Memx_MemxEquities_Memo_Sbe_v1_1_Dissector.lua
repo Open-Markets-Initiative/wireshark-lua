@@ -14,12 +14,15 @@ local memx_memxequities_memo_sbe_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxEquities Memo Sbe 1.1 Headers
+omi_memx_memxequities_memo_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memo.sbe.v1.1.commonheader", ftypes.STRING)
+omi_memx_memxequities_memo_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.memo.sbe.v1.1.packet", ftypes.STRING)
+
 -- Memx MemxEquities Memo Sbe 1.1 Fields
 omi_memx_memxequities_memo_sbe_v1_1.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memo.sbe.v1.1.blocklength", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_1.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.memxequities.memo.sbe.v1.1.cancelgroupid", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_1.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.memxequities.memo.sbe.v1.1.cancelreason", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.clordid = ProtoField.new("ClOrdId", "memx.memxequities.memo.sbe.v1.1.clordid", ftypes.STRING)
-omi_memx_memxequities_memo_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memo.sbe.v1.1.commonheader", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.count = ProtoField.new("Count", "memx.memxequities.memo.sbe.v1.1.count", ftypes.UINT32)
 omi_memx_memxequities_memo_sbe_v1_1.fields.cum_qty = ProtoField.new("Cum Qty", "memx.memxequities.memo.sbe.v1.1.cumqty", ftypes.UINT32)
 omi_memx_memxequities_memo_sbe_v1_1.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "memx.memxequities.memo.sbe.v1.1.custordercapacity", ftypes.UINT8)
@@ -66,7 +69,6 @@ omi_memx_memxequities_memo_sbe_v1_1.fields.order_id_optional = ProtoField.new("O
 omi_memx_memxequities_memo_sbe_v1_1.fields.order_qty = ProtoField.new("Order Qty", "memx.memxequities.memo.sbe.v1.1.orderqty", ftypes.UINT32)
 omi_memx_memxequities_memo_sbe_v1_1.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.memxequities.memo.sbe.v1.1.orderrejectreason", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.memxequities.memo.sbe.v1.1.origclordid", ftypes.STRING)
-omi_memx_memxequities_memo_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.memo.sbe.v1.1.packet", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.memxequities.memo.sbe.v1.1.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_memx_memxequities_memo_sbe_v1_1.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "memx.memxequities.memo.sbe.v1.1.pegoffsetvalue", ftypes.DOUBLE)
 omi_memx_memxequities_memo_sbe_v1_1.fields.peg_price_type = ProtoField.new("Peg Price Type", "memx.memxequities.memo.sbe.v1.1.pegpricetype", ftypes.UINT8)

@@ -14,6 +14,10 @@ local jpx_osederivatives_geniuminet_itch_v5_0_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Jpx OseDerivatives GeniumInet Itch 5.0.6 Headers
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.itch.v5.0.6.packet", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.packetheader", ftypes.STRING)
+
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 Fields
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.available_ask_quantity_at_equilibrium_price = ProtoField.new("Available Ask Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.itch.v5.0.6.availableaskquantityatequilibriumprice", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.available_bid_quantity_at_equilibrium_price = ProtoField.new("Available Bid Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.itch.v5.0.6.availablebidquantityatequilibriumprice", ftypes.UINT64)
@@ -55,8 +59,6 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.order_book_position = Proto
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.order_id = ProtoField.new("Order Id", "jpx.osederivatives.geniuminet.itch.v5.0.6.orderid", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.override_crossing = ProtoField.new("Override Crossing", "jpx.osederivatives.geniuminet.itch.v5.0.6.overridecrossing", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.owner_participant_id = ProtoField.new("Owner Participant Id", "jpx.osederivatives.geniuminet.itch.v5.0.6.ownerparticipantid", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.itch.v5.0.6.packet", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.packetheader", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.participant_id = ProtoField.new("Participant Id", "jpx.osederivatives.geniuminet.itch.v5.0.6.participantid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.participant_id_counterparty = ProtoField.new("Participant Id Counterparty", "jpx.osederivatives.geniuminet.itch.v5.0.6.participantidcounterparty", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.participant_id_owner = ProtoField.new("Participant Id Owner", "jpx.osederivatives.geniuminet.itch.v5.0.6.participantidowner", ftypes.STRING)

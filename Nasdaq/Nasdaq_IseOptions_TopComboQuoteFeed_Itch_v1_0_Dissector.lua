@@ -14,6 +14,10 @@ local nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Headers
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
+
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Fields
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_cust_size = ProtoField.new("Ask Cust Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.askcustsize", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_market_size = ProtoField.new("Ask Market Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.askmarketsize", ftypes.UINT32)
@@ -58,8 +62,6 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.number_of_legs = ProtoF
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.open_state = ProtoField.new("Open State", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.openstate", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_id = ProtoField.new("Option Id", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.optionid", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.optiontype", ftypes.STRING)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.price", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.pro_cust_size = ProtoField.new("Pro Cust Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.procustsize", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.quotecondition", ftypes.STRING)

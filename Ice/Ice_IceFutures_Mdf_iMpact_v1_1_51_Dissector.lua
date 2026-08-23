@@ -14,6 +14,12 @@ local ice_icefutures_mdf_impact_v1_1_51 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ice IceFutures Mdf iMpact 1.1.51 Headers
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.51.message", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.51.messageheader", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.51.packet", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.51.packetheader", ftypes.STRING)
+
 -- Ice IceFutures Mdf iMpact 1.1.51 Fields
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_distribution = ProtoField.new("Accrued Distribution", "ice.icefutures.mdf.impact.v1.1.51.accrueddistribution", ftypes.INT8)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_funding = ProtoField.new("Accrued Funding", "ice.icefutures.mdf.impact.v1.1.51.accruedfunding", ftypes.INT8)
@@ -145,9 +151,7 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.maturity_month = ProtoField.new("Ma
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.maturity_year = ProtoField.new("Maturity Year", "ice.icefutures.mdf.impact.v1.1.51.maturityyear", ftypes.INT16)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.max_options_price = ProtoField.new("Max Options Price", "ice.icefutures.mdf.impact.v1.1.51.maxoptionsprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.mdf.impact.v1.1.51.maxprice", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.51.message", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_date_time = ProtoField.new("Message Date Time", "ice.icefutures.mdf.impact.v1.1.51.messagedatetime", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.51.messageheader", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.icefutures.mdf.impact.v1.1.51.messagetimestamp", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_type = ProtoField.new("Message Type", "ice.icefutures.mdf.impact.v1.1.51.messagetype", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.mic_code = ProtoField.new("Mic Code", "ice.icefutures.mdf.impact.v1.1.51.miccode", ftypes.STRING)
@@ -197,8 +201,6 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.order_id = ProtoField.new("Order Id
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.icefutures.mdf.impact.v1.1.51.orderpricedenominator", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.icefutures.mdf.impact.v1.1.51.ordersequenceid", ftypes.INT16)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.override_block_min = ProtoField.new("Override Block Min", "ice.icefutures.mdf.impact.v1.1.51.overrideblockmin", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.51.packet", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.51.packetheader", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.icefutures.mdf.impact.v1.1.51.preopenprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.icefutures.mdf.impact.v1.1.51.preopenvolume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.icefutures.mdf.impact.v1.1.51.previousdaysettlementprice", ftypes.INT64)

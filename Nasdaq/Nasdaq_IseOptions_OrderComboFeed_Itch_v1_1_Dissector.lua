@@ -14,6 +14,10 @@ local nasdaq_iseoptions_ordercombofeed_itch_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq IseOptions OrderComboFeed Itch 1.1 Headers
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
+
 -- Nasdaq IseOptions OrderComboFeed Itch 1.1 Fields
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionevent", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionid", ftypes.UINT32)
@@ -48,8 +52,6 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.option_type = ProtoField.n
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.order_capacity = ProtoField.new("Order Capacity", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.ordercapacity", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.order_type = ProtoField.new("Order Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.ordertype", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.ownerid", ftypes.STRING)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.price", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.responseprice", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.responsesize", ftypes.UINT32)

@@ -14,6 +14,10 @@ local currenex_currenexforex_esp_cbp_v9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Currenex CurrenexForex Esp Cbp 9. Headers
+omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex Esp Cbp 9. Fields
 omi_currenex_currenexforex_esp_cbp_v9.fields.attributed = ProtoField.new("Attributed", "currenex.currenexforex.esp.cbp.v9.attributed", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.currenexforex.esp.cbp.v9.instrumentid", ftypes.STRING)
@@ -22,10 +26,8 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_type = ProtoField.new("I
 omi_currenex_currenexforex_esp_cbp_v9.fields.itch_etx = ProtoField.new("Itch Etx", "currenex.currenexforex.esp.cbp.v9.itchetx", ftypes.INT8)
 omi_currenex_currenexforex_esp_cbp_v9.fields.itch_soh = ProtoField.new("Itch Soh", "currenex.currenexforex.esp.cbp.v9.itchsoh", ftypes.INT8)
 omi_currenex_currenexforex_esp_cbp_v9.fields.max_amount = ProtoField.new("Max Amount", "currenex.currenexforex.esp.cbp.v9.maxamount", ftypes.INT64)
-omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.message_type = ProtoField.new("Message Type", "currenex.currenexforex.esp.cbp.v9.messagetype", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount = ProtoField.new("Min Amount", "currenex.currenexforex.esp.cbp.v9.minamount", ftypes.INT64)
-omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.password = ProtoField.new("Password", "currenex.currenexforex.esp.cbp.v9.password", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.price = ProtoField.new("Price", "currenex.currenexforex.esp.cbp.v9.price", ftypes.INT32)
 omi_currenex_currenexforex_esp_cbp_v9.fields.price_id = ProtoField.new("Price Id", "currenex.currenexforex.esp.cbp.v9.priceid", ftypes.INT8)

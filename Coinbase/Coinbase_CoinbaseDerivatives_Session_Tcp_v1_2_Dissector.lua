@@ -14,19 +14,22 @@ local coinbase_coinbasederivatives_session_tcp_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Coinbase CoinbaseDerivatives Session Tcp 1.2 Headers
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.UINT8)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.session.tcp.v1.2.messageheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.session.tcp.v1.2.packet", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.session.tcp.v1.2.sbemessage", ftypes.STRING)
+
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Fields
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "coinbase.coinbasederivatives.session.tcp.v1.2.blocklength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.coinbasederivatives.session.tcp.v1.2.correlationid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.session.tcp.v1.2.details", ftypes.STRING)
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.session.tcp.v1.2.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.session.tcp.v1.2.lastprocessedseqno", ftypes.UINT32)
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.session.tcp.v1.2.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.session.tcp.v1.2.messagelength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.newsequencenumber", ftypes.UINT32)
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.session.tcp.v1.2.packet", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.padding", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.session.tcp.v1.2.password", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.session.tcp.v1.2.protocolid", ftypes.UINT8)
@@ -36,7 +39,6 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.ref_sequence_number = P
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.session.tcp.v1.2.reserved", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.session.tcp.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.session.tcp.v1.2.resetseqnum", ftypes.INT8)
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.session.tcp.v1.2.sbemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.session.tcp.v1.2.schemaid", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos", ftypes.INT64)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.sequencenumber", ftypes.UINT32)

@@ -14,6 +14,11 @@ local iex_iexequities_deep_snap_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Iex IexEquities Deep Snap 1.6 Headers
+omi_iex_iexequities_deep_snap_v1_6.fields.message = ProtoField.new("Message", "iex.iexequities.deep.snap.v1.6.message", ftypes.STRING)
+omi_iex_iexequities_deep_snap_v1_6.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deep.snap.v1.6.messageheader", ftypes.STRING)
+omi_iex_iexequities_deep_snap_v1_6.fields.packet = ProtoField.new("Packet", "iex.iexequities.deep.snap.v1.6.packet", ftypes.STRING)
+
 -- Iex IexEquities Deep Snap 1.6 Fields
 omi_iex_iexequities_deep_snap_v1_6.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deep.snap.v1.6.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deep_snap_v1_6.fields.auction_book_clearing_price = ProtoField.new("Auction Book Clearing Price", "iex.iexequities.deep.snap.v1.6.auctionbookclearingprice", ftypes.DOUBLE)
@@ -36,15 +41,12 @@ omi_iex_iexequities_deep_snap_v1_6.fields.indicative_clearing_price = ProtoField
 omi_iex_iexequities_deep_snap_v1_6.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.iexequities.deep.snap.v1.6.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deep_snap_v1_6.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.iexequities.deep.snap.v1.6.lowerauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_deep_snap_v1_6.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.deep.snap.v1.6.luldtier", ftypes.UINT8)
-omi_iex_iexequities_deep_snap_v1_6.fields.message = ProtoField.new("Message", "iex.iexequities.deep.snap.v1.6.message", ftypes.STRING)
-omi_iex_iexequities_deep_snap_v1_6.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deep.snap.v1.6.messageheader", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.deep.snap.v1.6.messagelength", ftypes.UINT16)
 omi_iex_iexequities_deep_snap_v1_6.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.deep.snap.v1.6.messagetype", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.minimum_sequence_number = ProtoField.new("Minimum Sequence Number", "iex.iexequities.deep.snap.v1.6.minimumsequencenumber", ftypes.UINT64)
 omi_iex_iexequities_deep_snap_v1_6.fields.odd_lot = ProtoField.new("Odd Lot", "iex.iexequities.deep.snap.v1.6.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_iex_iexequities_deep_snap_v1_6.fields.official_price = ProtoField.new("Official Price", "iex.iexequities.deep.snap.v1.6.officialprice", ftypes.DOUBLE)
 omi_iex_iexequities_deep_snap_v1_6.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.iexequities.deep.snap.v1.6.operationalhaltstatus", ftypes.STRING)
-omi_iex_iexequities_deep_snap_v1_6.fields.packet = ProtoField.new("Packet", "iex.iexequities.deep.snap.v1.6.packet", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.paired_shares = ProtoField.new("Paired Shares", "iex.iexequities.deep.snap.v1.6.pairedshares", ftypes.UINT32)
 omi_iex_iexequities_deep_snap_v1_6.fields.price = ProtoField.new("Price", "iex.iexequities.deep.snap.v1.6.price", ftypes.DOUBLE)
 omi_iex_iexequities_deep_snap_v1_6.fields.price_type = ProtoField.new("Price Type", "iex.iexequities.deep.snap.v1.6.pricetype", ftypes.STRING)

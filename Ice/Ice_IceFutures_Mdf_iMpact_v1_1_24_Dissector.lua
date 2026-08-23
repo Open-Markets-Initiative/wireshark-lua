@@ -14,6 +14,12 @@ local ice_icefutures_mdf_impact_v1_1_24 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Ice IceFutures Mdf iMpact 1.1.24 Headers
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.24.message", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.24.messageheader", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.24.packet", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.24.packetheader", ftypes.STRING)
+
 -- Ice IceFutures Mdf iMpact 1.1.24 Fields
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.icefutures.mdf.impact.v1.1.24.aggbidqty", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.icefutures.mdf.impact.v1.1.24.aggofferqty", ftypes.INT32)
@@ -104,9 +110,7 @@ omi_ice_icefutures_mdf_impact_v1_1_24.fields.maturity_month = ProtoField.new("Ma
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.maturity_year = ProtoField.new("Maturity Year", "ice.icefutures.mdf.impact.v1.1.24.maturityyear", ftypes.INT16)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.max_options_price = ProtoField.new("Max Options Price", "ice.icefutures.mdf.impact.v1.1.24.maxoptionsprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.mdf.impact.v1.1.24.maxprice", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.24.message", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_date_time = ProtoField.new("Message Date Time", "ice.icefutures.mdf.impact.v1.1.24.messagedatetime", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.24.messageheader", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.icefutures.mdf.impact.v1.1.24.messagetimestamp", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_type = ProtoField.new("Message Type", "ice.icefutures.mdf.impact.v1.1.24.messagetype", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.mic_code = ProtoField.new("Mic Code", "ice.icefutures.mdf.impact.v1.1.24.miccode", ftypes.STRING)
@@ -145,8 +149,6 @@ omi_ice_icefutures_mdf_impact_v1_1_24.fields.order_entry_date_time = ProtoField.
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.order_id = ProtoField.new("Order Id", "ice.icefutures.mdf.impact.v1.1.24.orderid", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.icefutures.mdf.impact.v1.1.24.orderpricedenominator", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.icefutures.mdf.impact.v1.1.24.ordersequenceid", ftypes.INT16)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.24.packet", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.24.packetheader", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.pre_open_price = ProtoField.new("Pre Open Price", "ice.icefutures.mdf.impact.v1.1.24.preopenprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.pre_open_volume = ProtoField.new("Pre Open Volume", "ice.icefutures.mdf.impact.v1.1.24.preopenvolume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.previous_day_settlement_price = ProtoField.new("Previous Day Settlement Price", "ice.icefutures.mdf.impact.v1.1.24.previousdaysettlementprice", ftypes.INT64)

@@ -14,6 +14,11 @@ local a2x_a2xequities_rtmdf_amd_v1_3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Headers
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
+
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Fields
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
@@ -27,15 +32,12 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_open = ProtoField.new("Mac Open"
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mac_run = ProtoField.new("Mac Run", "a2x.a2xequities.rtmdf.amd.v1.3.2.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_flags = ProtoField.new("Market Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.marketflags", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.match_vol = ProtoField.new("Match Vol", "a2x.a2xequities.rtmdf.amd.v1.3.2.matchvol", ftypes.UINT32)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.rtmdf.amd.v1.3.2.messagecount", ftypes.UINT8)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.mic = ProtoField.new("Mic", "a2x.a2xequities.rtmdf.amd.v1.3.2.mic", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.rtmdf.amd.v1.3.2.msglength", ftypes.UINT8)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.msgtype", ftypes.UINT8)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.name = ProtoField.new("Name", "a2x.a2xequities.rtmdf.amd.v1.3.2.name", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_ref = ProtoField.new("Order Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderref", ftypes.UINT32)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.price = ProtoField.new("Price", "a2x.a2xequities.rtmdf.amd.v1.3.2.price", ftypes.UINT64)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.quantity", ftypes.UINT32)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_flags = ProtoField.new("Security Flags", "a2x.a2xequities.rtmdf.amd.v1.3.2.securityflags", ftypes.STRING)

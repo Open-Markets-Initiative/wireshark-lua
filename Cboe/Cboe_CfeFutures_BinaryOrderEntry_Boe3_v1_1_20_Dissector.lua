@@ -14,6 +14,12 @@ local cboe_cfefutures_binaryorderentry_boe3_v1_1_20 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Headers
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangemessageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangepacket", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmmessageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmpacket", ftypes.STRING)
+
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Fields
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.account = ProtoField.new("Account", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.account", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.acknowledgementstyle", ftypes.STRING)
@@ -42,10 +48,12 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cum_qty = ProtoField.ne
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.custorderhandlinginst", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.customgroupid", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.customgroupidcnt", ftypes.UINT8)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_type = ProtoField.new("Message Type", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangemessagetype", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exec_id = ProtoField.new("Exec Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.execid", ftypes.UINT64)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.execrefid", ftypes.UINT64)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.expire_time = ProtoField.new("Expire Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.expiretime", ftypes.UINT64)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.fee_code = ProtoField.new("Fee Code", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.feecode", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_type = ProtoField.new("Message Type", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmmessagetype", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.frequenttraderid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.gtc_order_filter = ProtoField.new("Gtc Order Filter", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.gtcorderfilter", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.instruction_details = ProtoField.new("Instruction Details", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.instructiondetails", ftypes.STRING)
@@ -75,9 +83,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_reject_reas
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_rejected = ProtoField.new("Mass Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.matchingunit", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.maturitydate", ftypes.UINT32)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.messagelength", ftypes.UINT16)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.messagetype", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.min_qty = ProtoField.new("Min Qty", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.minqty", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_order = ProtoField.new("Modify Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyorder", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyrejectreason", ftypes.STRING)
@@ -107,7 +113,6 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_reject_reason = P
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_rejected = ProtoField.new("Order Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.origclordid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.orig_time = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.origtime", ftypes.UINT64)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.packet", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.password = ProtoField.new("Password", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.password", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.pending_status = ProtoField.new("Pending Status", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.pendingstatus", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.preventmatch", ftypes.STRING)
@@ -185,6 +190,14 @@ show.structs = true
 show.indexes = true
 
 -- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -950,8 +963,8 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cust_order_handling_inst.display =
   if value == "D" then
     return "Cust Order Handling Inst: Other (D)"
   end
-  if value == "0x00" then
-    return "Cust Order Handling Inst: Apply Default (0x00)"
+  if value == 0 then
+    return "Cust Order Handling Inst: Apply Default"
   end
 
   return "Cust Order Handling Inst: Unknown("..value..")"
@@ -961,7 +974,15 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cust_order_handling_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cust_order_handling_inst, range, value, display)
@@ -1011,6 +1032,117 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.custom_group_id_cnt.dissect = func
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.custom_group_id_cnt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type = {}
+
+-- Size: Exchange Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.size = 2
+
+-- Display: Exchange Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.display = function(value)
+  if value == 501 then
+    return "Message Type: Login Response Message (501)"
+  end
+  if value == 502 then
+    return "Message Type: Replay Complete Message (502)"
+  end
+  if value == 503 then
+    return "Message Type: Logout Response Message (503)"
+  end
+  if value == 504 then
+    return "Message Type: Server Heartbeat Message (504)"
+  end
+  if value == 1501 then
+    return "Message Type: Order Acknowledgement (1501)"
+  end
+  if value == 1523 then
+    return "Message Type: Order Acknowledgement Option (1523)"
+  end
+  if value == 1502 then
+    return "Message Type: Order Rejected (1502)"
+  end
+  if value == 1503 then
+    return "Message Type: Order Modified (1503)"
+  end
+  if value == 1504 then
+    return "Message Type: Modify Rejected (1504)"
+  end
+  if value == 1505 then
+    return "Message Type: Order Execution (1505)"
+  end
+  if value == 1524 then
+    return "Message Type: Order Execution Option (1524)"
+  end
+  if value == 1506 then
+    return "Message Type: Order Cancelled (1506)"
+  end
+  if value == 1507 then
+    return "Message Type: Cancel Rejected (1507)"
+  end
+  if value == 1508 then
+    return "Message Type: Mass Cancel Acknowledgement (1508)"
+  end
+  if value == 1509 then
+    return "Message Type: Mass Cancel Rejected (1509)"
+  end
+  if value == 1510 then
+    return "Message Type: Purge Acknowledgement (1510)"
+  end
+  if value == 1511 then
+    return "Message Type: Purge Rejected (1511)"
+  end
+  if value == 1512 then
+    return "Message Type: Trade Cancel Correct (1512)"
+  end
+  if value == 1525 then
+    return "Message Type: Trade Cancel Correct Option (1525)"
+  end
+  if value == 1513 then
+    return "Message Type: Tas Restatement (1513)"
+  end
+  if value == 1515 then
+    return "Message Type: Quote Update Acknowledgement (1515)"
+  end
+  if value == 1516 then
+    return "Message Type: Quote Update Rejected (1516)"
+  end
+  if value == 1517 then
+    return "Message Type: Quote Restated (1517)"
+  end
+  if value == 1518 then
+    return "Message Type: Quote Execution (1518)"
+  end
+  if value == 1519 then
+    return "Message Type: Quote Cancelled (1519)"
+  end
+  if value == 1520 then
+    return "Message Type: Tas Quote Restatement (1520)"
+  end
+  if value == 1522 then
+    return "Message Type: Reset Risk Acknowledgement (1522)"
+  end
+  if value == 1526 then
+    return "Message Type: New Complex Instrument Accepted Option (1526)"
+  end
+  if value == 1527 then
+    return "Message Type: New Complex Instrument Rejected Option (1527)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1069,7 +1201,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.expire_time.size = 8
 
 -- Display: Expire Time
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.expire_time.display = function(value)
-  return "Expire Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Expire Time
@@ -1103,6 +1239,69 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fee_code.dissect = function(buffer
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.fee_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type = {}
+
+-- Size: Firm Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.size = 2
+
+-- Display: Firm Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Login Request Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Logout Request Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Client Heartbeat Message (3)"
+  end
+  if value == 1008 then
+    return "Message Type: New Order (1008)"
+  end
+  if value == 1009 then
+    return "Message Type: New Order Option (1009)"
+  end
+  if value == 1002 then
+    return "Message Type: Modify Order (1002)"
+  end
+  if value == 1003 then
+    return "Message Type: Cancel Order (1003)"
+  end
+  if value == 1004 then
+    return "Message Type: Mass Cancel Order (1004)"
+  end
+  if value == 1005 then
+    return "Message Type: Purge Orders (1005)"
+  end
+  if value == 1006 then
+    return "Message Type: Quote Update (1006)"
+  end
+  if value == 1010 then
+    return "Message Type: Quote Update Option (1010)"
+  end
+  if value == 1007 then
+    return "Message Type: Reset Risk (1007)"
+  end
+  if value == 1011 then
+    return "Message Type: New Complex Instrument Option (1011)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Firm Message Type
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -1798,156 +1997,6 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_length.dissect = function(
   return offset + length, value
 end
 
--- Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type = {}
-
--- Size: Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.size = 2
-
--- Display: Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Replay Complete Message (504)"
-  end
-  if value == 1008 then
-    return "Message Type: New Order (1008)"
-  end
-  if value == 1009 then
-    return "Message Type: New Order Option (1009)"
-  end
-  if value == 1002 then
-    return "Message Type: Modify Order (1002)"
-  end
-  if value == 1003 then
-    return "Message Type: Cancel Order (1003)"
-  end
-  if value == 1004 then
-    return "Message Type: Mass Cancel Order (1004)"
-  end
-  if value == 1005 then
-    return "Message Type: Purge Orders (1005)"
-  end
-  if value == 1006 then
-    return "Message Type: Quote Update (1006)"
-  end
-  if value == 1010 then
-    return "Message Type: Quote Update Option (1010)"
-  end
-  if value == 1007 then
-    return "Message Type: Reset Risk (1007)"
-  end
-  if value == 1011 then
-    return "Message Type: New Complex Instrument Option (1011)"
-  end
-  if value == 1501 then
-    return "Message Type: Order Acknowledgement (1501)"
-  end
-  if value == 1523 then
-    return "Message Type: Order Acknowledgement Option (1523)"
-  end
-  if value == 1502 then
-    return "Message Type: Order Rejected (1502)"
-  end
-  if value == 1503 then
-    return "Message Type: Order Modified (1503)"
-  end
-  if value == 1504 then
-    return "Message Type: Modify Rejected (1504)"
-  end
-  if value == 1505 then
-    return "Message Type: Order Execution (1505)"
-  end
-  if value == 1524 then
-    return "Message Type: Order Execution Option (1524)"
-  end
-  if value == 1506 then
-    return "Message Type: Order Cancelled (1506)"
-  end
-  if value == 1507 then
-    return "Message Type: Cancel Rejected (1507)"
-  end
-  if value == 1508 then
-    return "Message Type: Mass Cancel Acknowledgement (1508)"
-  end
-  if value == 1509 then
-    return "Message Type: Mass Cancel Rejected (1509)"
-  end
-  if value == 1510 then
-    return "Message Type: Purge Acknowledgement (1510)"
-  end
-  if value == 1511 then
-    return "Message Type: Purge Rejected (1511)"
-  end
-  if value == 1512 then
-    return "Message Type: Trade Cancel Correct (1512)"
-  end
-  if value == 1525 then
-    return "Message Type: Trade Cancel Correct Option (1525)"
-  end
-  if value == 1513 then
-    return "Message Type: Tas Restatement (1513)"
-  end
-  if value == 1515 then
-    return "Message Type: Quote Update Acknowledgement (1515)"
-  end
-  if value == 1516 then
-    return "Message Type: Quote Update Rejected (1516)"
-  end
-  if value == 1517 then
-    return "Message Type: Quote Restated (1517)"
-  end
-  if value == 1518 then
-    return "Message Type: Quote Execution (1518)"
-  end
-  if value == 1519 then
-    return "Message Type: Quote Cancelled (1519)"
-  end
-  if value == 1520 then
-    return "Message Type: Tas Quote Restatement (1520)"
-  end
-  if value == 1522 then
-    return "Message Type: Reset Risk Acknowledgement (1522)"
-  end
-  if value == 1526 then
-    return "Message Type: New Complex Instrument Accepted Option (1526)"
-  end
-  if value == 1527 then
-    return "Message Type: New Complex Instrument Rejected Option (1527)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Min Qty
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.min_qty = {}
 
@@ -2219,8 +2268,8 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.open_close.display = function(valu
   if value == "N" then
     return "Open Close: None (N)"
   end
-  if value == "0x00" then
-    return "Open Close: None (0x00)"
+  if value == 0 then
+    return "Open Close: None"
   end
 
   return "Open Close: Unknown("..value..")"
@@ -2230,7 +2279,15 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.open_close.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.open_close.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.open_close, range, value, display)
@@ -2444,7 +2501,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.orig_time.size = 8
 
 -- Display: Orig Time
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.orig_time.display = function(value)
-  return "Orig Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -2947,7 +3008,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.request_received_time.size = 8
 
 -- Display: Request Received Time
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.request_received_time.display = function(value)
-  return "Request Received Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Request Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Received Time
@@ -3290,11 +3355,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.size_modifier.size = 1
 
 -- Display: Size Modifier
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.size_modifier.display = function(value)
-  if value == "0x00" then
-    return "Size Modifier: New Quote Size (0x00)"
-  end
   if value == "R" then
     return "Size Modifier: Reduced Size (R)"
+  end
+  if value == 0 then
+    return "Size Modifier: New Quote Size"
   end
 
   return "Size Modifier: Unknown("..value..")"
@@ -3304,7 +3369,15 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.size_modifier.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.size_modifier.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.size_modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.size_modifier, range, value, display)
@@ -3372,14 +3445,14 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sub_liquidity_indicator.display = function(value)
-  if value == "0x00" then
-    return "Sub Liquidity Indicator: No Additional Information (0x00)"
-  end
   if value == "C" then
     return "Sub Liquidity Indicator: Carried Order Indicator (C)"
   end
   if value == "U" then
     return "Sub Liquidity Indicator: Qualifying Market Turner Order (U)"
+  end
+  if value == 0 then
+    return "Sub Liquidity Indicator: No Additional Information"
   end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"
@@ -3389,7 +3462,15 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sub_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sub_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sub_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.sub_liquidity_indicator, range, value, display)
@@ -3536,7 +3617,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.transaction_time.size = 8
 
 -- Display: Transaction Time
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.transaction_time.display = function(value)
-  return "Transaction Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transaction Time
@@ -5767,6 +5852,412 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement.dissect = fu
   end
 end
 
+-- Server Heartbeat
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message = {}
+
+-- Size: Logout Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.size =
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason_text.size
+
+-- Display: Logout Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
+  index, logout_reason = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason.dissect(buffer, index, packet, parent)
+
+  -- Logout Reason Text: 60 Byte Ascii String
+  index, logout_reason_text = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason_text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Complete
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete = {}
+
+-- Display: Replay Complete
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.display = function(packet, parent, length)
+  return "Replay Complete"
+end
+
+
+-- Dissect: Replay Complete
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Unit Sequence
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence = {}
+
+-- Size: Unit Sequence
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.size =
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_number.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.size
+
+-- Display: Unit Sequence
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequence
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields = function(buffer, offset, packet, parent, unit_sequence_index)
+  local index = offset
+
+  -- Implicit Unit Sequence Index
+  if unit_sequence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_sequence_index, unit_sequence_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: 1 Byte Unsigned Fixed Width Integer
+  index, unit_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Sequence
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_sequence, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
+  end
+end
+
+-- Login Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message = {}
+
+-- Calculate size of: Login Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_status.size
+
+  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_text.size
+
+  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_sequence.size
+
+  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.number_of_units.size
+
+  -- Calculate field size from count
+  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + unit_sequence_count * 5
+
+  return index
+end
+
+-- Display: Login Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
+  index, login_response_status = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_status.dissect(buffer, index, packet, parent)
+
+  -- Login Response Text: 60 Byte Ascii String
+  index, login_response_text = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_text.dissect(buffer, index, packet, parent)
+
+  -- Client Sequence: 4 Byte Unsigned Fixed Width Integer
+  index, client_sequence = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_sequence.dissect(buffer, index, packet, parent)
+
+  -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
+  index, number_of_units = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.number_of_units.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Unit Sequence
+  for unit_sequence_index = 1, number_of_units do
+    index, unit_sequence = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.dissect(buffer, index, packet, parent, unit_sequence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Login Response Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_message, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Exchange Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message = {}
+
+-- Dissect: Exchange Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
+  -- Dissect Login Response Message
+  if exchange_message_type == 501 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete
+  if exchange_message_type == 502 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response Message
+  if exchange_message_type == 503 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat
+  if exchange_message_type == 504 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgement
+  if exchange_message_type == 1501 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgement Option
+  if exchange_message_type == 1523 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement_option.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Rejected
+  if exchange_message_type == 1502 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified
+  if exchange_message_type == 1503 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_modified.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Rejected
+  if exchange_message_type == 1504 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution
+  if exchange_message_type == 1505 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution Option
+  if exchange_message_type == 1524 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution_option.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancelled
+  if exchange_message_type == 1506 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_cancelled.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Rejected
+  if exchange_message_type == 1507 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Acknowledgement
+  if exchange_message_type == 1508 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_acknowledgement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Rejected
+  if exchange_message_type == 1509 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Acknowledgement
+  if exchange_message_type == 1510 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_acknowledgement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Rejected
+  if exchange_message_type == 1511 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Correct
+  if exchange_message_type == 1512 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Correct Option
+  if exchange_message_type == 1525 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct_option.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tas Restatement
+  if exchange_message_type == 1513 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_restatement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Update Acknowledgement
+  if exchange_message_type == 1515 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_acknowledgement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Update Rejected
+  if exchange_message_type == 1516 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_rejected.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Restated
+  if exchange_message_type == 1517 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_restated.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Execution
+  if exchange_message_type == 1518 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_execution.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancelled
+  if exchange_message_type == 1519 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_cancelled.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tas Quote Restatement
+  if exchange_message_type == 1520 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_quote_restatement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Risk Acknowledgement
+  if exchange_message_type == 1522 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk_acknowledgement.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Complex Instrument Accepted Option
+  if exchange_message_type == 1526 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_accepted_option.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Complex Instrument Rejected Option
+  if exchange_message_type == 1527 then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_rejected_option.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Exchange Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header = {}
+
+-- Size: Exchange Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.size =
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.start_of_message.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_length.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.matching_unit.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reserved_field.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.size
+
+-- Display: Exchange Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Exchange Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
+  index, start_of_message = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.start_of_message.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_length.dissect(buffer, index, packet, parent)
+
+  -- Exchange Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 29 values
+  index, exchange_message_type = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_type.dissect(buffer, index, packet, parent)
+
+  -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  index, matching_unit = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.matching_unit.dissect(buffer, index, packet, parent)
+
+  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
+  index, reserved_field = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reserved_field.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Exchange Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_header, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Exchange Packet
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet = {}
+
+-- Verify required size of Tcp packet
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.size
+end
+
+-- Dissect Exchange Packet
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Exchange Message Header: Struct of 6 fields
+  index, exchange_message_header = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Exchange Message Type
+  local exchange_message_type = buffer(index - 8, 2):le_uint()
+
+  -- Exchange Message: Runtime Type with 29 branches
+  index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message.dissect(buffer, index, packet, parent, exchange_message_type)
+
+  return index
+end
+
 -- New Complex Instrument Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_option = {}
 
@@ -6858,203 +7349,6 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order.dissect = function(buffe
   end
 end
 
--- Server Heartbeat
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat = {}
-
--- Display: Server Heartbeat
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.display = function(packet, parent, length)
-  return "Server Heartbeat"
-end
-
-
--- Dissect: Server Heartbeat
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Logout Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message = {}
-
--- Size: Logout Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.size =
-  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason.size + 
-  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason_text.size
-
--- Display: Logout Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logout Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
-  index, logout_reason = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason.dissect(buffer, index, packet, parent)
-
-  -- Logout Reason Text: 60 Byte Ascii String
-  index, logout_reason_text = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_reason_text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logout Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Complete
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete = {}
-
--- Display: Replay Complete
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.display = function(packet, parent, length)
-  return "Replay Complete"
-end
-
-
--- Dissect: Replay Complete
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.dissect = function(buffer, offset, packet, parent)
-  local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Unit Sequence
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence = {}
-
--- Size: Unit Sequence
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.size =
-  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_number.size + 
-  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.size
-
--- Display: Unit Sequence
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unit Sequence
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields = function(buffer, offset, packet, parent, unit_sequence_index)
-  local index = offset
-
-  -- Implicit Unit Sequence Index
-  if unit_sequence_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_sequence_index, unit_sequence_index)
-    iteration:set_generated()
-  end
-
-  -- Unit Number: 1 Byte Unsigned Fixed Width Integer
-  index, unit_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_number.dissect(buffer, index, packet, parent)
-
-  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unit Sequence
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.dissect = function(buffer, offset, packet, parent, unit_sequence_index)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_sequence, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.fields(buffer, offset, packet, parent, unit_sequence_index)
-  end
-end
-
--- Login Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message = {}
-
--- Calculate size of: Login Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_status.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_text.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_sequence.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_20.number_of_units.size
-
-  -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + unit_sequence_count * 5
-
-  return index
-end
-
--- Display: Login Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
-  index, login_response_status = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_status.dissect(buffer, index, packet, parent)
-
-  -- Login Response Text: 60 Byte Ascii String
-  index, login_response_text = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_text.dissect(buffer, index, packet, parent)
-
-  -- Client Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, client_sequence = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_sequence.dissect(buffer, index, packet, parent)
-
-  -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.number_of_units.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Unit Sequence
-  for unit_sequence_index = 1, number_of_units do
-    index, unit_sequence = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.unit_sequence.dissect(buffer, index, packet, parent, unit_sequence_index)
-  end
-
-  return index
-end
-
--- Dissect: Login Response Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Client Heartbeat
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_heartbeat = {}
 
@@ -7163,202 +7457,86 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_request_message.dissect = fu
   end
 end
 
--- Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message = {}
+-- Firm Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message = {}
 
--- Dissect: Message
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Firm Message
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
   -- Dissect Login Request Message
-  if message_type == 1 then
+  if firm_message_type == 1 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
-  if message_type == 2 then
+  if firm_message_type == 2 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat
-  if message_type == 3 then
+  if firm_message_type == 3 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Response Message
-  if message_type == 501 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if message_type == 502 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if message_type == 503 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if message_type == 504 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect New Order
-  if message_type == 1008 then
+  if firm_message_type == 1008 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Option
-  if message_type == 1009 then
+  if firm_message_type == 1009 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order_option.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order
-  if message_type == 1002 then
+  if firm_message_type == 1002 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_order.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order
-  if message_type == 1003 then
+  if firm_message_type == 1003 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_order.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Order
-  if message_type == 1004 then
+  if firm_message_type == 1004 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_order.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Purge Orders
-  if message_type == 1005 then
+  if firm_message_type == 1005 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_orders.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update
-  if message_type == 1006 then
+  if firm_message_type == 1006 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Option
-  if message_type == 1010 then
+  if firm_message_type == 1010 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_option.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reset Risk
-  if message_type == 1007 then
+  if firm_message_type == 1007 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Complex Instrument Option
-  if message_type == 1011 then
+  if firm_message_type == 1011 then
     return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement
-  if message_type == 1501 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Option
-  if message_type == 1523 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected
-  if message_type == 1502 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified
-  if message_type == 1503 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_modified.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected
-  if message_type == 1504 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution
-  if message_type == 1505 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Option
-  if message_type == 1524 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled
-  if message_type == 1506 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_cancelled.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected
-  if message_type == 1507 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Acknowledgement
-  if message_type == 1508 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Rejected
-  if message_type == 1509 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement
-  if message_type == 1510 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected
-  if message_type == 1511 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct
-  if message_type == 1512 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct Option
-  if message_type == 1525 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tas Restatement
-  if message_type == 1513 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_restatement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Acknowledgement
-  if message_type == 1515 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Rejected
-  if message_type == 1516 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Restated
-  if message_type == 1517 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_restated.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution
-  if message_type == 1518 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_execution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancelled
-  if message_type == 1519 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_cancelled.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tas Quote Restatement
-  if message_type == 1520 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_quote_restatement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Acknowledgement
-  if message_type == 1522 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Instrument Accepted Option
-  if message_type == 1526 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_accepted_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Instrument Rejected Option
-  if message_type == 1527 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_rejected_option.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header = {}
+-- Firm Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header = {}
 
--- Size: Message Header
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.size =
+-- Size: Firm Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_1_20.start_of_message.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_length.size + 
-  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_1_20.matching_unit.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reserved_field.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_1_20.sequence_number.size
 
--- Display: Message Header
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.display = function(packet, parent, length)
+-- Display: Firm Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Firm Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
@@ -7367,8 +7545,8 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.fields = function(b
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 42 values
-  index, message_type = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_type.dissect(buffer, index, packet, parent)
+  -- Firm Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 13 values
+  index, firm_message_type = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_type.dissect(buffer, index, packet, parent)
 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.matching_unit.dissect(buffer, index, packet, parent)
@@ -7382,44 +7560,44 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.fields = function(b
   return index
 end
 
--- Dissect: Message Header
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Firm Message Header
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_header, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_header, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Packet
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.packet = {}
+-- Firm Packet
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet = {}
 
 -- Verify required size of Tcp packet
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.packet.requiredsize = function(buffer)
-  return buffer:len() >= cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.size
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.size
 end
 
--- Dissect Packet
-cboe_cfefutures_binaryorderentry_boe3_v1_1_20.packet.dissect = function(buffer, packet, parent)
+-- Dissect Firm Packet
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Message Header: Struct of 6 fields
-  index, message_header = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message_header.dissect(buffer, index, packet, parent)
+  -- Firm Message Header: Struct of 6 fields
+  index, firm_message_header = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 8, 2):le_uint()
+  -- Dependency element: Firm Message Type
+  local firm_message_type = buffer(index - 8, 2):le_uint()
 
-  -- Message: Runtime Type with 42 branches
-  index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.message.dissect(buffer, index, packet, parent, message_type)
+  -- Firm Message: Runtime Type with 13 branches
+  index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message.dissect(buffer, index, packet, parent, firm_message_type)
 
   return index
 end
@@ -7433,6 +7611,71 @@ end
 function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.init()
 end
 
+-- Connection roles for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20: Firm is the initiator, Exchange is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.role = function(packet)
+  if omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20
 function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.dissector(buffer, packet, parent)
 
@@ -7441,8 +7684,249 @@ function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.dissector(buffer, pac
 
   -- Dissect protocol
   local protocol = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20, buffer(), omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.description, "("..buffer:len().." Bytes)")
-  return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.packet.dissect(buffer, packet, protocol)
+  local role = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.role(packet)
+  if role == "initiator" then
+    return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.dissect(buffer, packet, protocol)
+  end
+  return cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Firm Packet: would its message dispatch accept this frame?
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local firm_message_type = buffer(4, 2):le_uint()
+
+  -- Login Request Message
+  if firm_message_type == 1 then
+    return true
+  end
+
+  -- Logout Request
+  if firm_message_type == 2 then
+    return true
+  end
+
+  -- Client Heartbeat
+  if firm_message_type == 3 then
+    return true
+  end
+
+  -- New Order
+  if firm_message_type == 1008 then
+    return true
+  end
+
+  -- New Order Option
+  if firm_message_type == 1009 then
+    return true
+  end
+
+  -- Modify Order
+  if firm_message_type == 1002 then
+    return true
+  end
+
+  -- Cancel Order
+  if firm_message_type == 1003 then
+    return true
+  end
+
+  -- Mass Cancel Order
+  if firm_message_type == 1004 then
+    return true
+  end
+
+  -- Purge Orders
+  if firm_message_type == 1005 then
+    return true
+  end
+
+  -- Quote Update
+  if firm_message_type == 1006 then
+    return true
+  end
+
+  -- Quote Update Option
+  if firm_message_type == 1010 then
+    return true
+  end
+
+  -- Reset Risk
+  if firm_message_type == 1007 then
+    return true
+  end
+
+  -- New Complex Instrument Option
+  if firm_message_type == 1011 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Exchange Packet: would its message dispatch accept this frame?
+cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local exchange_message_type = buffer(4, 2):le_uint()
+
+  -- Login Response Message
+  if exchange_message_type == 501 then
+    return true
+  end
+
+  -- Replay Complete
+  if exchange_message_type == 502 then
+    return true
+  end
+
+  -- Logout Response Message
+  if exchange_message_type == 503 then
+    return true
+  end
+
+  -- Server Heartbeat
+  if exchange_message_type == 504 then
+    return true
+  end
+
+  -- Order Acknowledgement
+  if exchange_message_type == 1501 then
+    return true
+  end
+
+  -- Order Acknowledgement Option
+  if exchange_message_type == 1523 then
+    return true
+  end
+
+  -- Order Rejected
+  if exchange_message_type == 1502 then
+    return true
+  end
+
+  -- Order Modified
+  if exchange_message_type == 1503 then
+    return true
+  end
+
+  -- Modify Rejected
+  if exchange_message_type == 1504 then
+    return true
+  end
+
+  -- Order Execution
+  if exchange_message_type == 1505 then
+    return true
+  end
+
+  -- Order Execution Option
+  if exchange_message_type == 1524 then
+    return true
+  end
+
+  -- Order Cancelled
+  if exchange_message_type == 1506 then
+    return true
+  end
+
+  -- Cancel Rejected
+  if exchange_message_type == 1507 then
+    return true
+  end
+
+  -- Mass Cancel Acknowledgement
+  if exchange_message_type == 1508 then
+    return true
+  end
+
+  -- Mass Cancel Rejected
+  if exchange_message_type == 1509 then
+    return true
+  end
+
+  -- Purge Acknowledgement
+  if exchange_message_type == 1510 then
+    return true
+  end
+
+  -- Purge Rejected
+  if exchange_message_type == 1511 then
+    return true
+  end
+
+  -- Trade Cancel Correct
+  if exchange_message_type == 1512 then
+    return true
+  end
+
+  -- Trade Cancel Correct Option
+  if exchange_message_type == 1525 then
+    return true
+  end
+
+  -- Tas Restatement
+  if exchange_message_type == 1513 then
+    return true
+  end
+
+  -- Quote Update Acknowledgement
+  if exchange_message_type == 1515 then
+    return true
+  end
+
+  -- Quote Update Rejected
+  if exchange_message_type == 1516 then
+    return true
+  end
+
+  -- Quote Restated
+  if exchange_message_type == 1517 then
+    return true
+  end
+
+  -- Quote Execution
+  if exchange_message_type == 1518 then
+    return true
+  end
+
+  -- Quote Cancelled
+  if exchange_message_type == 1519 then
+    return true
+  end
+
+  -- Tas Quote Restatement
+  if exchange_message_type == 1520 then
+    return true
+  end
+
+  -- Reset Risk Acknowledgement
+  if exchange_message_type == 1522 then
+    return true
+  end
+
+  -- New Complex Instrument Accepted Option
+  if exchange_message_type == 1526 then
+    return true
+  end
+
+  -- New Complex Instrument Rejected Option
+  if exchange_message_type == 1527 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -7450,9 +7934,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 (Tcp)
-local function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic(buffer, packet, parent)
+local function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cboe_cfefutures_binaryorderentry_boe3_v1_1_20.packet.requiredsize(buffer) then return false end
+  if not cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20
@@ -7461,12 +7948,44 @@ local function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic(b
   return true
 end
 
--- Register Heuristic for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20:register_heuristic("tcp", omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic)
+-- Dissector Heuristic for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 (Tcp)
+local function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.requiredsize(buffer) then return false end
 
--- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 for Decode As
-local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add_for_decode_as(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20)
+  -- Verify the frame matches this side's fingerprint
+  if not cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20
+  omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 (Tcp): apply the heuristic of the sender's connection role
+local function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic(buffer, packet, parent)
+  local role = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.role(packet)
+  local first, second = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_initiator_heuristic, omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  cboe_cfefutures_binaryorderentry_boe3_v1_1_20.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20:register_heuristic("tcp", omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

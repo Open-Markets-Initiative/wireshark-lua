@@ -14,6 +14,13 @@ local nyse_arcaequities_imbalancesfeed_pillar_v2_2_n = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Headers
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.STRING)
+
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Fields
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_status = ProtoField.new("Auction Status", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctionstatus", ftypes.UINT8)
@@ -38,8 +45,6 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.lower_collar = ProtoFi
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.marketid", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.market_state = ProtoField.new("Market State", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.marketstate", ftypes.STRING)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messagetype", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.mpv", ftypes.UINT16)
@@ -47,8 +52,6 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.nanoseconds = ProtoFie
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.numextensions", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.numbermsgs", ftypes.UINT8)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.pairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.pktsize", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.prevcloseprice", ftypes.DOUBLE)
@@ -68,7 +71,6 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.round_lot = ProtoField
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.securitystatus", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.securitytype", ftypes.STRING)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sessionstate", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sourceid", ftypes.STRING)

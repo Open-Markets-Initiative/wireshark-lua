@@ -14,6 +14,10 @@ local cboe_cxeequities_multicastdepthofbook_pitch_v6_67 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxeEquities MulticastDepthOfBook Pitch 6.67 Headers
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.packet", ftypes.STRING)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.packetheader", ftypes.STRING)
+
 -- Cboe CxeEquities MulticastDepthOfBook Pitch 6.67 Fields
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.addorderflags", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.algorithmicindicator", ftypes.STRING)
@@ -52,8 +56,6 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.negotiated_trade = 
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.offbookautomatedindicator", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.order_id = ProtoField.new("Order Id", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.orderid", ftypes.UINT64)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.outside_tolerance = ProtoField.new("Outside Tolerance", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.outsidetolerance", ftypes.STRING)
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.packet", ftypes.STRING)
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.packetheader", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.participant_id = ProtoField.new("Participant Id", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.participantid", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.pricebinarylongprice8", ftypes.DOUBLE)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.pricebinaryshortprice2", ftypes.DOUBLE)

@@ -14,6 +14,10 @@ local cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Headers
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packetheader", ftypes.STRING)
+
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Fields
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_cumulative_executed_volume_long = ProtoField.new("Cboe Cumulative Executed Volume Long", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboecumulativeexecutedvolumelong", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_cumulative_executed_volume_short = ProtoField.new("Cboe Cumulative Executed Volume Short", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboecumulativeexecutedvolumeshort", ftypes.UINT32)
@@ -40,8 +44,6 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message = ProtoFie
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagetype", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packetheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved1", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved5", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved8", ftypes.UINT64)

@@ -14,6 +14,13 @@ local otcmarkets_overnight_depthofbook_link_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets Overnight DepthOfBook Link 1.0 Headers
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.depthofbook.link.v1.0.message", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.depthofbook.link.v1.0.messageheader", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.depthofbook.link.v1.0.packet", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.overnight.depthofbook.link.v1.0.packetheader", ftypes.STRING)
+
 -- OtcMarkets Overnight DepthOfBook Link 1.0 Fields
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.overnight.depthofbook.link.v1.0.assetclass", ftypes.UINT8)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.caveat_flag = ProtoField.new("Caveat Flag", "otcmarkets.overnight.depthofbook.link.v1.0.caveatflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -29,8 +36,6 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.firm_id = ProtoField.new("
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.overnight.depthofbook.link.v1.0.fullclosingprice", ftypes.DOUBLE)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.overnight.depthofbook.link.v1.0.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.overnight.depthofbook.link.v1.0.lastupdatemilli", ftypes.UINT64)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.depthofbook.link.v1.0.message", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.depthofbook.link.v1.0.messageheader", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_size = ProtoField.new("Message Size", "otcmarkets.overnight.depthofbook.link.v1.0.messagesize", ftypes.UINT16)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_type = ProtoField.new("Message Type", "otcmarkets.overnight.depthofbook.link.v1.0.messagetype", ftypes.UINT8)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.messages = ProtoField.new("Messages", "otcmarkets.overnight.depthofbook.link.v1.0.messages", ftypes.UINT8)
@@ -39,9 +44,6 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.next_sequence_number = Pro
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.ocio_only_closing_price = ProtoField.new("Ocio Only Closing Price", "otcmarkets.overnight.depthofbook.link.v1.0.ocioonlyclosingprice", ftypes.DOUBLE)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.order_flags = ProtoField.new("Order Flags", "otcmarkets.overnight.depthofbook.link.v1.0.orderflags", ftypes.UINT16)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.order_id = ProtoField.new("Order Id", "otcmarkets.overnight.depthofbook.link.v1.0.orderid", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.depthofbook.link.v1.0.packet", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.overnight.depthofbook.link.v1.0.packetheader", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.overnight.depthofbook.link.v1.0.packetmilli", ftypes.UINT32)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.overnight.depthofbook.link.v1.0.packetsize", ftypes.UINT16)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.piggyback_flag = ProtoField.new("Piggyback Flag", "otcmarkets.overnight.depthofbook.link.v1.0.piggybackflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)

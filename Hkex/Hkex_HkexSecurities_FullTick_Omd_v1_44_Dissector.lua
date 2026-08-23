@@ -14,6 +14,12 @@ local hkex_hkexsecurities_fulltick_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities FullTick Omd 1.44 Headers
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.fulltick.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.fulltick.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.fulltick.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.fulltick.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities FullTick Omd 1.44 Fields
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.fulltick.omd.v1.44.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.fulltick.omd.v1.44.aggregatequantity", ftypes.UINT64)
@@ -62,9 +68,7 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.lp_broker_number = ProtoField.
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.fulltick.omd.v1.44.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.fulltick.omd.v1.44.marketname", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.fulltick.omd.v1.44.maturitydate", ftypes.UINT32)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.fulltick.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.fulltick.omd.v1.44.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.fulltick.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.fulltick.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.fulltick.omd.v1.44.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.new_seq_no = ProtoField.new("New Seq No", "hkex.hkexsecurities.fulltick.omd.v1.44.newseqno", ftypes.UINT32)
@@ -77,8 +81,6 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.order_id = ProtoField.new("Ord
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.order_imbalance_direction = ProtoField.new("Order Imbalance Direction", "hkex.hkexsecurities.fulltick.omd.v1.44.orderimbalancedirection", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.order_imbalance_quantity = ProtoField.new("Order Imbalance Quantity", "hkex.hkexsecurities.fulltick.omd.v1.44.orderimbalancequantity", ftypes.UINT64)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.order_type = ProtoField.new("Order Type", "hkex.hkexsecurities.fulltick.omd.v1.44.ordertype", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.fulltick.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.fulltick.omd.v1.44.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.fulltick.omd.v1.44.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.pos_flag = ProtoField.new("Pos Flag", "hkex.hkexsecurities.fulltick.omd.v1.44.posflag", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.pos_lower_limit = ProtoField.new("Pos Lower Limit", "hkex.hkexsecurities.fulltick.omd.v1.44.poslowerlimit", ftypes.DOUBLE)

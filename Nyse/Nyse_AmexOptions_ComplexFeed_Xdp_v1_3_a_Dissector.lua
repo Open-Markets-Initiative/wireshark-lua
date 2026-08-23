@@ -14,6 +14,12 @@ local nyse_amexoptions_complexfeed_xdp_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse AmexOptions ComplexFeed Xdp 1.3.a Headers
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a Fields
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.amexoptions.complexfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.amexoptions.complexfeed.xdp.v1.3.a.askprice", ftypes.INT32)
@@ -36,15 +42,11 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.n
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.amexoptions.complexfeed.xdp.v1.3.a.legratioqty", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.amexoptions.complexfeed.xdp.v1.3.a.legsecuritytype", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.market_id = ProtoField.new("Market Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.marketid", ftypes.UINT16)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_count = ProtoField.new("Message Count", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messagecount", ftypes.UINT8)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("Message Size", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messagesize", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.complexfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.no_of_legs = ProtoField.new("No Of Legs", "nyse.amexoptions.complexfeed.xdp.v1.3.a.nooflegs", ftypes.UINT16)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.amexoptions.complexfeed.xdp.v1.3.a.price", ftypes.INT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.productid", ftypes.UINT8)

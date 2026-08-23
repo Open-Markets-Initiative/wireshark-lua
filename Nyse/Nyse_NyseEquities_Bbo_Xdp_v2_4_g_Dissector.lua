@@ -14,6 +14,12 @@ local nyse_nyseequities_bbo_xdp_v2_4_g = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities Bbo Xdp 2.4.g Headers
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.xdp.v2.4.g.message", ftypes.STRING)
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.xdp.v2.4.g.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.xdp.v2.4.g.packet", ftypes.STRING)
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.xdp.v2.4.g.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities Bbo Xdp 2.4.g Fields
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseequities.bbo.xdp.v2.4.g.askprice", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.nyseequities.bbo.xdp.v2.4.g.askvolume", ftypes.UINT32)
@@ -33,17 +39,13 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.last_symbol_seq_num = ProtoField.new
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.bbo.xdp.v2.4.g.lotsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.bbo.xdp.v2.4.g.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bbo.xdp.v2.4.g.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.xdp.v2.4.g.message", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_count = ProtoField.new("Message Count", "nyse.nyseequities.bbo.xdp.v2.4.g.messagecount", ftypes.UINT8)
-omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.xdp.v2.4.g.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.bbo.xdp.v2.4.g.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.bbo.xdp.v2.4.g.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nyseequities.bbo.xdp.v2.4.g.messageunavailablemessage", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.bbo.xdp.v2.4.g.mpv", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseequities.bbo.xdp.v2.4.g.nanoseconds", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nyseequities.bbo.xdp.v2.4.g.nextsourceseqnum", ftypes.UINT32)
-omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.xdp.v2.4.g.packet", ftypes.STRING)
-omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.xdp.v2.4.g.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet_size = ProtoField.new("Packet Size", "nyse.nyseequities.bbo.xdp.v2.4.g.packetsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nyseequities.bbo.xdp.v2.4.g.prevcloseprice", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nyseequities.bbo.xdp.v2.4.g.prevclosevolume", ftypes.UINT32)

@@ -14,6 +14,10 @@ local cboe_cfefutures_multicasttop_pitch_v1_2_20 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CfeFutures MulticastTop Pitch 1.2.20 Headers
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.pitch.v1.2.20.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.pitch.v1.2.20.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastTop Pitch 1.2.20 Fields
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.pitch.v1.2.20.accrueddayvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.cfefutures.multicasttop.pitch.v1.2.20.askpricelong", ftypes.UINT64)
@@ -66,8 +70,6 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.num_final_returns = ProtoF
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.open_close_valid = ProtoField.new("Open Close Valid", "cboe.cfefutures.multicasttop.pitch.v1.2.20.openclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicasttop.pitch.v1.2.20.openinterest", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicasttop.pitch.v1.2.20.openprice", ftypes.UINT64)
-omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.pitch.v1.2.20.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.pitch.v1.2.20.packetheader", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicasttop.pitch.v1.2.20.priceincrement", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.price_long = ProtoField.new("Price Long", "cboe.cfefutures.multicasttop.pitch.v1.2.20.pricelong", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.price_short = ProtoField.new("Price Short", "cboe.cfefutures.multicasttop.pitch.v1.2.20.priceshort", ftypes.DOUBLE)

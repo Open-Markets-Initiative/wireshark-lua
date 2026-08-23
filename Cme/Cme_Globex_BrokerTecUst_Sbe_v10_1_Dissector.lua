@@ -14,8 +14,16 @@ local cme_globex_brokertecust_sbe_v10_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex BrokerTecUst Sbe 10.1 Fields
+-- Cme Globex BrokerTecUst Sbe 10.1 Headers
 omi_cme_globex_brokertecust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.brokertecust.sbe.v10.1.binarypacketheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.globex.brokertecust.sbe.v10.1.message", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.globex.brokertecust.sbe.v10.1.messageheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.brokertecust.sbe.v10.1.tcpmessage", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.brokertecust.sbe.v10.1.tcppacket", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.brokertecust.sbe.v10.1.technicalheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
+
+-- Cme Globex BrokerTecUst Sbe 10.1 Fields
 omi_cme_globex_brokertecust_sbe_v10_1.fields.block_length = ProtoField.new("Block Length", "cme.globex.brokertecust.sbe.v10.1.blocklength", ftypes.UINT16)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.globex.brokertecust.sbe.v10.1.couponrate", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.brokertecust.sbe.v10.1.encodingtype", ftypes.UINT16)
@@ -31,8 +39,6 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.md_entry_size = ProtoField.new("Md 
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.globex.brokertecust.sbe.v10.1.mdentrytype", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_price_level = ProtoField.new("Md Price Level", "cme.globex.brokertecust.sbe.v10.1.mdpricelevel", ftypes.UINT8)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_update_action = ProtoField.new("Md Update Action", "cme.globex.brokertecust.sbe.v10.1.mdupdateaction", ftypes.UINT8)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.globex.brokertecust.sbe.v10.1.message", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.globex.brokertecust.sbe.v10.1.messageheader", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.brokertecust.sbe.v10.1.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.message_size = ProtoField.new("Message Size", "cme.globex.brokertecust.sbe.v10.1.messagesize", ftypes.UINT16)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.num_in_group = ProtoField.new("Num In Group", "cme.globex.brokertecust.sbe.v10.1.numingroup", ftypes.UINT8)
@@ -43,17 +49,13 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.security_alt_id = ProtoField.new("S
 omi_cme_globex_brokertecust_sbe_v10_1.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.globex.brokertecust.sbe.v10.1.securityaltidsource", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.brokertecust.sbe.v10.1.sendingtime", ftypes.UINT64)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.symbol = ProtoField.new("Symbol", "cme.globex.brokertecust.sbe.v10.1.symbol", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.brokertecust.sbe.v10.1.tcpmessage", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.brokertecust.sbe.v10.1.tcpmessagesize", ftypes.UINT16)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.brokertecust.sbe.v10.1.tcppacket", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.brokertecust.sbe.v10.1.tcpsendingtime", ftypes.UINT64)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.brokertecust.sbe.v10.1.technicalheader", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.template_id = ProtoField.new("Template Id", "cme.globex.brokertecust.sbe.v10.1.templateid", ftypes.UINT16)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_condition = ProtoField.new("Trade Condition", "cme.globex.brokertecust.sbe.v10.1.tradecondition", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_date = ProtoField.new("Trade Date", "cme.globex.brokertecust.sbe.v10.1.tradedate", ftypes.UINT16)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trade Volume", "cme.globex.brokertecust.sbe.v10.1.tradevolume", ftypes.UINT32)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.brokertecust.sbe.v10.1.transacttime", ftypes.UINT64)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.globex.brokertecust.sbe.v10.1.version", ftypes.UINT16)
 
 -- Cme Globex BrokerTecUst 10.1 Application Messages
@@ -1640,11 +1642,11 @@ function omi_cme_globex_brokertecust_sbe_v10_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_brokertecust_sbe_v10_1, buffer(), omi_cme_globex_brokertecust_sbe_v10_1.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return cme_globex_brokertecust_sbe_v10_1.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return cme_globex_brokertecust_sbe_v10_1.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return cme_globex_brokertecust_sbe_v10_1.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

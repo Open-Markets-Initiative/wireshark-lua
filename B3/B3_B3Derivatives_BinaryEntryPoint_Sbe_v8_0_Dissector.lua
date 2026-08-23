@@ -14,6 +14,12 @@ local b3_b3derivatives_binaryentrypoint_sbe_v8_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Headers
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.messageheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.packet", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframe", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframingheader", ftypes.STRING)
+
 -- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Fields
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.account = ProtoField.new("Account", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.account", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.account_type = ProtoField.new("Account Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.accounttype", ftypes.UINT8)
@@ -118,7 +124,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.max_floor = ProtoField.new
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.memo = ProtoField.new("Memo", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.memo", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.memo_data = ProtoField.new("Memo Data", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.memodata", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.memo_length = ProtoField.new("Memo Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.memolength", ftypes.UINT8)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.messageheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.message_length = ProtoField.new("Message Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.messagelength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.min_qty = ProtoField.new("Min Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.minqty", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.mmprotectionreset", ftypes.UINT8)
@@ -152,7 +157,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.ordtype = ProtoField.new("
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.orig_pos_req_ref_id = ProtoField.new("Orig Pos Req Ref Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.origposreqrefid", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.origclordid = ProtoField.new("OrigClOrdId", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.origclordid", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.outbound_business_header = ProtoField.new("Outbound Business Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.outboundbusinessheader", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.packet", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.padding = ProtoField.new("Padding", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.padding", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.pos_maint_action = ProtoField.new("Pos Maint Action", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.posmaintaction", ftypes.STRING)
@@ -208,8 +212,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.side = ProtoField.new("Sid
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.side_optional = ProtoField.new("Side Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sideoptional", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sides_group = ProtoField.new("Sides Group", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sidesgroup", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sides_groups = ProtoField.new("Sides Groups", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sidesgroups", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframe", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframingheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_ordtype = ProtoField.new("Simple OrdType", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleordtype", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.single_cancel_restatement_reason = ProtoField.new("Single Cancel Restatement Reason", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.singlecancelrestatementreason", ftypes.UINT8)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.stop_px = ProtoField.new("Stop Px", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.stoppx", ftypes.DOUBLE)

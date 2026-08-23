@@ -14,6 +14,10 @@ local cboe_cxaequities_multicasttopofbook_spin_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Headers
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packet", ftypes.STRING)
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packetheader", ftypes.STRING)
+
 -- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Fields
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.ask_price = ProtoField.new("Ask Price", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.askprice", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.ask_quantity = ProtoField.new("Ask Quantity", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.askquantity", ftypes.UINT32)
@@ -29,8 +33,6 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_header = Pro
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.ordercount", ftypes.UINT32)
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packet", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packetheader", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.password = ProtoField.new("Password", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.password", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.price = ProtoField.new("Price", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.price", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.quantity = ProtoField.new("Quantity", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.quantity", ftypes.UINT32)

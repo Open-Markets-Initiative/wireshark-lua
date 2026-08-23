@@ -14,6 +14,10 @@ local cboe_edgxoptions_auctionfeed_pitch_v1_1_39 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe EdgxOptions AuctionFeed Pitch 1.1.39 Headers
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.packetheader", ftypes.STRING)
+
 -- Cboe EdgxOptions AuctionFeed Pitch 1.1.39 Fields
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionendoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.auction_id = ProtoField.new("Auction Id", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.auctionid", ftypes.UINT64)
@@ -37,8 +41,6 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.message_type = ProtoField.
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.multiplier = ProtoField.new("Multiplier", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.multiplier", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.openingcondition", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.osisymbol", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.packetheader", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.participantid", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.price = ProtoField.new("Price", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.price", ftypes.DOUBLE)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_39.fields.quantity = ProtoField.new("Quantity", "cboe.edgxoptions.auctionfeed.pitch.v1.1.39.quantity", ftypes.UINT32)

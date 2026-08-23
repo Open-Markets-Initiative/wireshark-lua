@@ -14,9 +14,17 @@ local cme_globex_ebsspectrum_sbe_v12_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cme Globex EbsSpectrum Sbe 12.0 Headers
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.ebsspectrum.sbe.v12.0.binarypacketheader", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.ebsspectrum.sbe.v12.0.message", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.ebsspectrum.sbe.v12.0.messageheader", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.ebsspectrum.sbe.v12.0.tcpmessage", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.ebsspectrum.sbe.v12.0.tcppacket", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.ebsspectrum.sbe.v12.0.technicalheader", ftypes.STRING)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.ebsspectrum.sbe.v12.0.udppacket", ftypes.STRING)
+
 -- Cme Globex EbsSpectrum Sbe 12.0 Fields
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.globex.ebsspectrum.sbe.v12.0.aggressorside", ftypes.UINT8)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.ebsspectrum.sbe.v12.0.binarypacketheader", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.globex.ebsspectrum.sbe.v12.0.blocklength", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.ebsspectrum.sbe.v12.0.encodingtype", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.globex.ebsspectrum.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
@@ -31,8 +39,6 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md E
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.globex.ebsspectrum.sbe.v12.0.mdentrytime", ftypes.UINT64)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.globex.ebsspectrum.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.globex.ebsspectrum.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.ebsspectrum.sbe.v12.0.message", ftypes.STRING)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.ebsspectrum.sbe.v12.0.messageheader", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.ebsspectrum.sbe.v12.0.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.globex.ebsspectrum.sbe.v12.0.messagesize", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.globex.ebsspectrum.sbe.v12.0.numingroup", ftypes.UINT8)
@@ -47,15 +53,11 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_groups = P
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group = ProtoField.new("Snapshot Refresh Ticker Group", "cme.globex.ebsspectrum.sbe.v12.0.snapshotrefreshtickergroup", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.snapshot_refresh_ticker_groups = ProtoField.new("Snapshot Refresh Ticker Groups", "cme.globex.ebsspectrum.sbe.v12.0.snapshotrefreshtickergroups", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.symbol = ProtoField.new("Symbol", "cme.globex.ebsspectrum.sbe.v12.0.symbol", ftypes.STRING)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.ebsspectrum.sbe.v12.0.tcpmessage", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.ebsspectrum.sbe.v12.0.tcpmessagesize", ftypes.UINT16)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.ebsspectrum.sbe.v12.0.tcppacket", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.ebsspectrum.sbe.v12.0.tcpsendingtime", ftypes.UINT64)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.ebsspectrum.sbe.v12.0.technicalheader", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.ebsspectrum.sbe.v12.0.templateid", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.globex.ebsspectrum.sbe.v12.0.tradingsessionid", ftypes.UINT8)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.ebsspectrum.sbe.v12.0.transacttime", ftypes.UINT64)
-omi_cme_globex_ebsspectrum_sbe_v12_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.ebsspectrum.sbe.v12.0.udppacket", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.ebsspectrum.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Globex EbsSpectrum 12.0 Application Messages
@@ -2147,11 +2149,11 @@ function omi_cme_globex_ebsspectrum_sbe_v12_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0, buffer(), omi_cme_globex_ebsspectrum_sbe_v12_0.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return cme_globex_ebsspectrum_sbe_v12_0.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

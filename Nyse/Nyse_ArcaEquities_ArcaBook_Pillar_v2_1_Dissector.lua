@@ -14,6 +14,13 @@ local nyse_arcaequities_arcabook_pillar_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse ArcaEquities ArcaBook Pillar 2.1 Headers
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
+
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontype", ftypes.STRING)
@@ -24,22 +31,17 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.firm_id = ProtoField.new("Firm
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.arcabook.pillar.v2.1.imbalanceside", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.arcabook.pillar.v2.1.indicativematchprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaequities.arcabook.pillar.v2.1.marketimbalanceqty", ftypes.UINT32)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.arcabook.pillar.v2.1.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.arcabook.pillar.v2.1.messagetype", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaequities.arcabook.pillar.v2.1.nanoseconds", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.arcaequities.arcabook.pillar.v2.1.numbermsgs", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.order_id = ProtoField.new("Order Id", "nyse.arcaequities.arcabook.pillar.v2.1.orderid", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.order_idgtc_indicator = ProtoField.new("Order Idgtc Indicator", "nyse.arcaequities.arcabook.pillar.v2.1.orderidgtcindicator", ftypes.UINT8)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaequities.arcabook.pillar.v2.1.pairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.arcabook.pillar.v2.1.pktsize", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.DOUBLE)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.UINT32)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side = ProtoField.new("Side", "nyse.arcaequities.arcabook.pillar.v2.1.side", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.UINT32)

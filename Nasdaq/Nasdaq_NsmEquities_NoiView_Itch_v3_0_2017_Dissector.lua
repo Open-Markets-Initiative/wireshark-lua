@@ -14,6 +14,10 @@ local nasdaq_nsmequities_noiview_itch_v3_0_2017 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq NsmEquities NoiView Itch 3.0.2017 Headers
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packetheader", ftypes.STRING)
+
 -- Nasdaq NsmEquities NoiView Itch 3.0.2017 Fields
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.itch.v3.0.2017.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.itch.v3.0.2017.crossprice", ftypes.DOUBLE)
@@ -43,8 +47,6 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_header = ProtoField
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.itch.v3.0.2017.nearprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.itch.v3.0.2017.pairedshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.itch.v3.0.2017.pricevariationindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.itch.v3.0.2017.reason", ftypes.STRING)

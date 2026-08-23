@@ -14,6 +14,15 @@ local cme_globex_streamlined_sbe_v5_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cme Globex Streamlined Sbe 5.9 Headers
+omi_cme_globex_streamlined_sbe_v5_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.9.binarypacketheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.9.message", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.9.messageheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.9.tcpmessage", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.streamlined.sbe.v5.9.tcppacket", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.9.technicalheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.9.udppacket", ftypes.STRING)
+
 -- Cme Globex Streamlined Sbe 5.9 Fields
 omi_cme_globex_streamlined_sbe_v5_9.fields.accrual_days = ProtoField.new("Accrual Days", "cme.globex.streamlined.sbe.v5.9.accrualdays", ftypes.UINT32)
 omi_cme_globex_streamlined_sbe_v5_9.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.globex.streamlined.sbe.v5.9.accruedcoupons", ftypes.STRING)
@@ -22,7 +31,6 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.aggressor_side = ProtoField.new("Aggr
 omi_cme_globex_streamlined_sbe_v5_9.fields.appl_id = ProtoField.new("Appl Id", "cme.globex.streamlined.sbe.v5.9.applid", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.globex.streamlined.sbe.v5.9.batchtotalmessages", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.batch_total_messages_optional = ProtoField.new("Batch Total Messages Optional", "cme.globex.streamlined.sbe.v5.9.batchtotalmessagesoptional", ftypes.UINT16)
-omi_cme_globex_streamlined_sbe_v5_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.9.binarypacketheader", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.block_length = ProtoField.new("Block Length", "cme.globex.streamlined.sbe.v5.9.blocklength", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.globex.streamlined.sbe.v5.9.calfutpx", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.cal_fut_px_optional = ProtoField.new("Cal Fut Px Optional", "cme.globex.streamlined.sbe.v5.9.calfutpxoptional", ftypes.STRING)
@@ -133,8 +141,6 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.md_feed_type_3 = ProtoField.new("Md F
 omi_cme_globex_streamlined_sbe_v5_9.fields.md_quote_type = ProtoField.new("Md Quote Type", "cme.globex.streamlined.sbe.v5.9.mdquotetype", ftypes.UINT8)
 omi_cme_globex_streamlined_sbe_v5_9.fields.md_update_action = ProtoField.new("Md Update Action", "cme.globex.streamlined.sbe.v5.9.mdupdateaction", ftypes.UINT8)
 omi_cme_globex_streamlined_sbe_v5_9.fields.md_update_action_char = ProtoField.new("Md Update Action Char", "cme.globex.streamlined.sbe.v5.9.mdupdateactionchar", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_9.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.9.message", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_9.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.9.messageheader", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.streamlined.sbe.v5.9.messagesequencenumber", ftypes.UINT32)
 omi_cme_globex_streamlined_sbe_v5_9.fields.message_size = ProtoField.new("Message Size", "cme.globex.streamlined.sbe.v5.9.messagesize", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.globex.streamlined.sbe.v5.9.minpriceincrement", ftypes.STRING)
@@ -224,11 +230,8 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.strike_price = ProtoField.new("Strike
 omi_cme_globex_streamlined_sbe_v5_9.fields.strike_price_decimal = ProtoField.new("Strike Price Decimal", "cme.globex.streamlined.sbe.v5.9.strikepricedecimal", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.strike_price_decimal_optional = ProtoField.new("Strike Price Decimal Optional", "cme.globex.streamlined.sbe.v5.9.strikepricedecimaloptional", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.symbol = ProtoField.new("Symbol", "cme.globex.streamlined.sbe.v5.9.symbol", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.9.tcpmessage", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.streamlined.sbe.v5.9.tcpmessagesize", ftypes.UINT16)
-omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.streamlined.sbe.v5.9.tcppacket", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.streamlined.sbe.v5.9.tcpsendingtime", ftypes.UINT64)
-omi_cme_globex_streamlined_sbe_v5_9.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.9.technicalheader", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.template_id = ProtoField.new("Template Id", "cme.globex.streamlined.sbe.v5.9.templateid", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.text = ProtoField.new("Text", "cme.globex.streamlined.sbe.v5.9.text", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.text_500 = ProtoField.new("Text 500", "cme.globex.streamlined.sbe.v5.9.text500", ftypes.STRING)
@@ -252,7 +255,6 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.trading_reference_date = ProtoField.n
 omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.streamlined.sbe.v5.9.transacttime", ftypes.UINT64)
 omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "cme.globex.streamlined.sbe.v5.9.transacttimeoptional", ftypes.UINT64)
 omi_cme_globex_streamlined_sbe_v5_9.fields.trd_type = ProtoField.new("Trd Type", "cme.globex.streamlined.sbe.v5.9.trdtype", ftypes.UINT8)
-omi_cme_globex_streamlined_sbe_v5_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.9.udppacket", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.streamlined.sbe.v5.9.underlyingmaturitymonthyear", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_security_exchange = ProtoField.new("Underlying Security Exchange Security Exchange", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchangesecurityexchange", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_string_4 = ProtoField.new("Underlying Security Exchange String 4", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchangestring4", ftypes.STRING)
@@ -13140,11 +13142,11 @@ function omi_cme_globex_streamlined_sbe_v5_9.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_streamlined_sbe_v5_9, buffer(), omi_cme_globex_streamlined_sbe_v5_9.description, "("..buffer:len().." Bytes)")
-  if packet.port_type == 2 then
-    return cme_globex_streamlined_sbe_v5_9.tcp_packet.dissect(buffer, packet, protocol)
-  end
   if packet.port_type == 3 then
     return cme_globex_streamlined_sbe_v5_9.udp_packet.dissect(buffer, packet, protocol)
+  end
+  if packet.port_type == 2 then
+    return cme_globex_streamlined_sbe_v5_9.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
 

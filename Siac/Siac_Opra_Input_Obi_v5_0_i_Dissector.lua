@@ -14,6 +14,13 @@ local siac_opra_input_obi_v5_0_i = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Siac Opra Input Obi 5.0.i Headers
+omi_siac_opra_input_obi_v5_0_i.fields.block_header = ProtoField.new("Block Header", "siac.opra.input.obi.v5.0.i.blockheader", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.message = ProtoField.new("Message", "siac.opra.input.obi.v5.0.i.message", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.message_header = ProtoField.new("Message Header", "siac.opra.input.obi.v5.0.i.messageheader", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.packet = ProtoField.new("Packet", "siac.opra.input.obi.v5.0.i.packet", ftypes.STRING)
+
 -- Siac Opra Input Obi 5.0.i Fields
 omi_siac_opra_input_obi_v5_0_i.fields.administrative_category = ProtoField.new("Administrative Category", "siac.opra.input.obi.v5.0.i.administrativecategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.input.obi.v5.0.i.administrativemessagetype", ftypes.STRING)
@@ -23,12 +30,10 @@ omi_siac_opra_input_obi_v5_0_i.fields.bid_price_short = ProtoField.new("Bid Pric
 omi_siac_opra_input_obi_v5_0_i.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.input.obi.v5.0.i.bidsize", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.input.obi.v5.0.i.bidsizeshort", ftypes.UINT16)
 omi_siac_opra_input_obi_v5_0_i.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.input.obi.v5.0.i.blockchecksum", ftypes.UINT16)
-omi_siac_opra_input_obi_v5_0_i.fields.block_header = ProtoField.new("Block Header", "siac.opra.input.obi.v5.0.i.blockheader", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.input.obi.v5.0.i.blockpadbyte", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.block_separator = ProtoField.new("Block Separator", "siac.opra.input.obi.v5.0.i.blockseparator", ftypes.UINT16)
 omi_siac_opra_input_obi_v5_0_i.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.input.obi.v5.0.i.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.block_size = ProtoField.new("Block Size", "siac.opra.input.obi.v5.0.i.blocksize", ftypes.UINT16)
-omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.control_category = ProtoField.new("Control Category", "siac.opra.input.obi.v5.0.i.controlcategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.input.obi.v5.0.i.controlmessagetype", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.equity_and_index_end_of_day_summary_category = ProtoField.new("Equity And Index End Of Day Summary Category", "siac.opra.input.obi.v5.0.i.equityandindexendofdaysummarycategory", ftypes.STRING)
@@ -46,12 +51,10 @@ omi_siac_opra_input_obi_v5_0_i.fields.last_price = ProtoField.new("Last Price", 
 omi_siac_opra_input_obi_v5_0_i.fields.long_equity_and_index_quote_category = ProtoField.new("Long Equity And Index Quote Category", "siac.opra.input.obi.v5.0.i.longequityandindexquotecategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.long_equity_and_index_quote_message_type = ProtoField.new("Long Equity And Index Quote Message Type", "siac.opra.input.obi.v5.0.i.longequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.low_price = ProtoField.new("Low Price", "siac.opra.input.obi.v5.0.i.lowprice", ftypes.INT32)
-omi_siac_opra_input_obi_v5_0_i.fields.message = ProtoField.new("Message", "siac.opra.input.obi.v5.0.i.message", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.message_category = ProtoField.new("Message Category", "siac.opra.input.obi.v5.0.i.messagecategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.message_count = ProtoField.new("Message Count", "siac.opra.input.obi.v5.0.i.messagecount", ftypes.UINT64)
 omi_siac_opra_input_obi_v5_0_i.fields.message_data = ProtoField.new("Message Data", "siac.opra.input.obi.v5.0.i.messagedata", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.message_data_length = ProtoField.new("Message Data Length", "siac.opra.input.obi.v5.0.i.messagedatalength", ftypes.UINT16)
-omi_siac_opra_input_obi_v5_0_i.fields.message_header = ProtoField.new("Message Header", "siac.opra.input.obi.v5.0.i.messageheader", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.opra.input.obi.v5.0.i.messagesinblock", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.opra.input.obi.v5.0.i.nanoseconds", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.net_change = ProtoField.new("Net Change", "siac.opra.input.obi.v5.0.i.netchange", ftypes.INT32)
@@ -62,7 +65,6 @@ omi_siac_opra_input_obi_v5_0_i.fields.offer_size = ProtoField.new("Offer Size", 
 omi_siac_opra_input_obi_v5_0_i.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.input.obi.v5.0.i.offersizeshort", ftypes.UINT16)
 omi_siac_opra_input_obi_v5_0_i.fields.open_interest_volume = ProtoField.new("Open Interest Volume", "siac.opra.input.obi.v5.0.i.openinterestvolume", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.open_price = ProtoField.new("Open Price", "siac.opra.input.obi.v5.0.i.openprice", ftypes.INT32)
-omi_siac_opra_input_obi_v5_0_i.fields.packet = ProtoField.new("Packet", "siac.opra.input.obi.v5.0.i.packet", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.participant_id = ProtoField.new("Participant Id", "siac.opra.input.obi.v5.0.i.participantid", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.opra.input.obi.v5.0.i.participantreferencenumber", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.input.obi.v5.0.i.premiumprice", ftypes.INT32)

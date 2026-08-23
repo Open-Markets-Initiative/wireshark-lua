@@ -14,13 +14,15 @@ local aquis_aquisequities_tcpheader_atp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities TcpHeader Atp 1.0 Fields
+-- Aquis AquisEquities TcpHeader Atp 1.0 Headers
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tcpheader.atp.v1.0.message", ftypes.STRING)
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.atp.v1.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.atp.v1.0.packet", ftypes.STRING)
+
+-- Aquis AquisEquities TcpHeader Atp 1.0 Fields
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tcpheader.atp.v1.0.msglength", ftypes.UINT16)
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_seq_no = ProtoField.new("Msg Seq No", "aquis.aquisequities.tcpheader.atp.v1.0.msgseqno", ftypes.UINT32)
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.tcpheader.atp.v1.0.msgtype", ftypes.UINT8)
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.atp.v1.0.packet", ftypes.STRING)
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.tcpheader.atp.v1.0.payload", ftypes.BYTES)
 
 -----------------------------------------------------------------------

@@ -14,6 +14,12 @@ local coinbase_coinbasederivatives_ordersapi_sbe_v1_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7 Headers
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.flags", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.messageheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.packet", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sbemessage", ftypes.STRING)
+
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.7 Fields
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.account = ProtoField.new("Account", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.account", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.available_qty = ProtoField.new("Available Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.availableqty", ftypes.INT32)
@@ -52,7 +58,6 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.leg_1_fill_price = Pr
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.leg2fillprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.limit_price = ProtoField.new("Limit Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.limitprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.match_id = ProtoField.new("Match Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.matchid", ftypes.INT64)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.messagelength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.min_qty = ProtoField.new("Min Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.minqty", ftypes.INT32)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.newlimitprice", ftypes.DOUBLE)
@@ -64,7 +69,6 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.order_id = ProtoField
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.orderidoptional", ftypes.INT64)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.order_reject_details = ProtoField.new("Order Reject Details", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.orderrejectdetails", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.orderrejectreason", ftypes.UINT8)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.packet", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.password", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.post_only = ProtoField.new("Post Only", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.postonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -80,7 +84,6 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved = ProtoField
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reservedbyte", ftypes.INT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resetseqnum", ftypes.INT8)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sbemessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.schemaid", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.security_type = ProtoField.new("Security Type", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.securitytype", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sendtimeepochnanos", ftypes.INT64)

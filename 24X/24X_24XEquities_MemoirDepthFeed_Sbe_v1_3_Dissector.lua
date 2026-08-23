@@ -14,10 +14,13 @@ local n24x_24xequities_memoirdepthfeed_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Headers
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+
 -- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Fields
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "24x.24xequities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "24x.24xequities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "24x.24xequities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.DOUBLE)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "24x.24xequities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "24x.24xequities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
@@ -30,7 +33,6 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv",
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "24x.24xequities.memoirdepthfeed.sbe.v1.3.orderid", ftypes.UINT64)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "24x.24xequities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "24x.24xequities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "24x.24xequities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "24x.24xequities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "24x.24xequities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)

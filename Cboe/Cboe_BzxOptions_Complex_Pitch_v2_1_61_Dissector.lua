@@ -14,6 +14,10 @@ local cboe_bzxoptions_complex_pitch_v2_1_61 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe BzxOptions Complex Pitch 2.1.61 Headers
+omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complex.pitch.v2.1.61.packet", ftypes.STRING)
+omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
+
 -- Cboe BzxOptions Complex Pitch 2.1.61 Fields
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.bzxoptions.complex.pitch.v2.1.61.auctionendoffset", ftypes.UINT32)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.auction_id = ProtoField.new("Auction Id", "cboe.bzxoptions.complex.pitch.v2.1.61.auctionid", ftypes.UINT64)
@@ -51,8 +55,6 @@ omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.notification_auction_type = Pro
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.bzxoptions.complex.pitch.v2.1.61.openingcondition", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.order_id = ProtoField.new("Order Id", "cboe.bzxoptions.complex.pitch.v2.1.61.orderid", ftypes.UINT64)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.bzxoptions.complex.pitch.v2.1.61.osisymbol", ftypes.STRING)
-omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complex.pitch.v2.1.61.packet", ftypes.STRING)
-omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzxoptions.complex.pitch.v2.1.61.participantid", ftypes.STRING)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.price_long = ProtoField.new("Price Long", "cboe.bzxoptions.complex.pitch.v2.1.61.pricelong", ftypes.DOUBLE)
 omi_cboe_bzxoptions_complex_pitch_v2_1_61.fields.price_short = ProtoField.new("Price Short", "cboe.bzxoptions.complex.pitch.v2.1.61.priceshort", ftypes.DOUBLE)

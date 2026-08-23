@@ -14,6 +14,9 @@ local cboe_cxeequities_lastsale_apf_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe CxeEquities LastSale Apf 1.3 Headers
+omi_cboe_cxeequities_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.3.packet", ftypes.STRING)
+
 -- Cboe CxeEquities LastSale Apf 1.3 Fields
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.cxeequities.lastsale.apf.v1.3.agencycrosstrade", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.cxeequities.lastsale.apf.v1.3.algorithmicindicator", ftypes.STRING)
@@ -27,7 +30,6 @@ omi_cboe_cxeequities_lastsale_apf_v1_3.fields.login_rejected_packet = ProtoField
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.cxeequities.lastsale.apf.v1.3.loginrequestpacket", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.cxeequities.lastsale.apf.v1.3.modificationindicator", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.cxeequities.lastsale.apf.v1.3.negotiationflag", ftypes.STRING)
-omi_cboe_cxeequities_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.3.packet", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.packet_type = ProtoField.new("Packet Type", "cboe.cxeequities.lastsale.apf.v1.3.packettype", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.password = ProtoField.new("Password", "cboe.cxeequities.lastsale.apf.v1.3.password", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "cboe.cxeequities.lastsale.apf.v1.3.posttradedeferralreason", ftypes.STRING)

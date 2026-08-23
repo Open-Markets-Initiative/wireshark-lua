@@ -14,6 +14,10 @@ local memx_memxoptions_memoirtop_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Memx MemxOptions MemoirTop Sbe 1.3 Headers
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirtop.sbe.v1.3.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirtop.sbe.v1.3.packet", ftypes.STRING)
+
 -- Memx MemxOptions MemoirTop Sbe 1.3 Fields
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.memxoptions.memoirtop.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "memx.memxoptions.memoirtop.sbe.v1.3.bidprice", ftypes.DOUBLE)
@@ -22,7 +26,6 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.block_length = ProtoField.new("Bl
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.capacity = ProtoField.new("Capacity", "memx.memxoptions.memoirtop.sbe.v1.3.capacity", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_only = ProtoField.new("Closing Only", "memx.memxoptions.memoirtop.sbe.v1.3.closingonly", ftypes.UINT8)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.3.closingtime", ftypes.UINT64)
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirtop.sbe.v1.3.commonheader", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.memxoptions.memoirtop.sbe.v1.3.correctedprice", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.correctedquantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.memxoptions.memoirtop.sbe.v1.3.custbidsize", ftypes.UINT32)
@@ -46,7 +49,6 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.options_product_type = ProtoField
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.memxoptions.memoirtop.sbe.v1.3.originalprice", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.originalquantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Root", "memx.memxoptions.memoirtop.sbe.v1.3.osiroot", ftypes.STRING)
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirtop.sbe.v1.3.packet", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.memxoptions.memoirtop.sbe.v1.3.price", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.quantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.memxoptions.memoirtop.sbe.v1.3.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)

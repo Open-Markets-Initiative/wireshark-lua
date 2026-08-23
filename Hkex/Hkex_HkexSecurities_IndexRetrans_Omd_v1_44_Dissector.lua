@@ -14,6 +14,12 @@ local hkex_hkexsecurities_indexretrans_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Hkex HkexSecurities IndexRetrans Omd 1.44 Headers
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexretrans.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexretrans.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexretrans.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities IndexRetrans Omd 1.44 Fields
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "hkex.hkexsecurities.indexretrans.omd.v1.44.beginseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.channel_id = ProtoField.new("Channel Id", "hkex.hkexsecurities.indexretrans.omd.v1.44.channelid", ftypes.UINT16)
@@ -37,17 +43,13 @@ omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.index_value = ProtoField.n
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.indexretrans.omd.v1.44.indexvolume", ftypes.INT64)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexsecurities.indexretrans.omd.v1.44.lastseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.low_value = ProtoField.new("Low Value", "hkex.hkexsecurities.indexretrans.omd.v1.44.lowvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexretrans.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgcount", ftypes.UINT8)
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgtype", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.indexretrans.omd.v1.44.netchgprevday", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.net_chg_prev_day_pct = ProtoField.new("Net Chg Prev Day Pct", "hkex.hkexsecurities.indexretrans.omd.v1.44.netchgprevdaypct", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.new_seq_no = ProtoField.new("New Seq No", "hkex.hkexsecurities.indexretrans.omd.v1.44.newseqno", ftypes.UINT32)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.indexretrans.omd.v1.44.openingvalue", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexretrans.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexretrans.omd.v1.44.packetheader", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.indexretrans.omd.v1.44.pktsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.previous_ses_close = ProtoField.new("Previous Ses Close", "hkex.hkexsecurities.indexretrans.omd.v1.44.previoussesclose", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexsecurities.indexretrans.omd.v1.44.retransstatus", ftypes.UINT8)

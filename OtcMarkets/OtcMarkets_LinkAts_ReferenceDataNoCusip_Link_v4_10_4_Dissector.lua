@@ -14,6 +14,13 @@ local otcmarkets_linkats_referencedatanocusip_link_v4_10_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets LinkAts ReferenceDataNoCusip Link 4.10.4 Headers
+omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.message", ftypes.STRING)
+omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packet", ftypes.STRING)
+omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts ReferenceDataNoCusip Link 4.10.4 Fields
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.adrlevel", ftypes.STRING)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.adrratio", ftypes.UINT64)
@@ -36,17 +43,12 @@ omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.market_close_tim
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.marketopen", ftypes.UINT64)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.maturitydatemilli", ftypes.UINT64)
-omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.message", ftypes.STRING)
-omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.messagetype", ftypes.UINT8)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.otc_issuer_id = ProtoField.new("Otc Issuer Id", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.otcissuerid", ftypes.UINT32)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.otclinkecneligible", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.otclinkmessagingdisabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
-omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packet", ftypes.STRING)
-omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetheader", ftypes.STRING)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.packetsize", ftypes.UINT16)
 omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.referencedatanocusip.link.v4.10.4.parvalue", ftypes.UINT64)

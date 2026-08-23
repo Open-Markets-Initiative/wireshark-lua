@@ -14,6 +14,10 @@ local nasdaq_phlxoptions_orders_itch_v1_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nasdaq PhlxOptions Orders Itch 1.9 Headers
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.orders.itch.v1.9.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.orders.itch.v1.9.packetheader", ftypes.STRING)
+
 -- Nasdaq PhlxOptions Orders Itch 1.9 Fields
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.action = ProtoField.new("Action", "nasdaq.phlxoptions.orders.itch.v1.9.action", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.all_or_none = ProtoField.new("All Or None", "nasdaq.phlxoptions.orders.itch.v1.9.allornone", ftypes.STRING)
@@ -53,8 +57,6 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_id = ProtoField.new("Order 
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_status = ProtoField.new("Order Status", "nasdaq.phlxoptions.orders.itch.v1.9.orderstatus", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_type = ProtoField.new("Order Type", "nasdaq.phlxoptions.orders.itch.v1.9.ordertype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlxoptions.orders.itch.v1.9.originalordervolume", ftypes.UINT32)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.orders.itch.v1.9.packet", ftypes.STRING)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.orders.itch.v1.9.packetheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlxoptions.orders.itch.v1.9.phlxtradable", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.orders.itch.v1.9.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.orders.itch.v1.9.reserved", ftypes.UINT32)

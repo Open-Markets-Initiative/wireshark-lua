@@ -14,6 +14,12 @@ local cboe_c1options_marketdatafeed_csm_v1_4_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe C1Options MarketDataFeed Csm 1.4.2 Headers
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.message", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.c1options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.packetheader", ftypes.STRING)
+
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Fields
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.c1options.marketdatafeed.csm.v1.4.2.applseqnum", ftypes.UINT32)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.class_key = ProtoField.new("Class Key", "cboe.c1options.marketdatafeed.csm.v1.4.2.classkey", ftypes.UINT32)
@@ -45,9 +51,7 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_mantissa = Proto
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_size = ProtoField.new("Md Entry Size", "cboe.c1options.marketdatafeed.csm.v1.4.2.mdentrysize", ftypes.UINT32)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_type = ProtoField.new("Md Entry Type", "cboe.c1options.marketdatafeed.csm.v1.4.2.mdentrytype", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_volume_type = ProtoField.new("Md Volume Type", "cboe.c1options.marketdatafeed.csm.v1.4.2.mdvolumetype", ftypes.UINT8)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.message", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.marketdatafeed.csm.v1.4.2.messagecount", ftypes.UINT8)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.marketdatafeed.csm.v1.4.2.messagelength", ftypes.UINT16)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.marketdatafeed.csm.v1.4.2.messagetype", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction = ProtoField.new("Minimum Above Premium Fraction", "cboe.c1options.marketdatafeed.csm.v1.4.2.minimumabovepremiumfraction", ftypes.STRING)
@@ -66,8 +70,6 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa = 
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.no_entries = ProtoField.new("No Entries", "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries", ftypes.UINT8)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.no_legs = ProtoField.new("No Legs", "cboe.c1options.marketdatafeed.csm.v1.4.2.nolegs", ftypes.UINT8)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.open_interest = ProtoField.new("Open Interest", "cboe.c1options.marketdatafeed.csm.v1.4.2.openinterest", ftypes.UINT32)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.c1options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.packetheader", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_length = ProtoField.new("Packet Length", "cboe.c1options.marketdatafeed.csm.v1.4.2.packetlength", ftypes.UINT16)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.premium_break_point = ProtoField.new("Premium Break Point", "cboe.c1options.marketdatafeed.csm.v1.4.2.premiumbreakpoint", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_exponent = ProtoField.new("Premium Break Point Exponent", "cboe.c1options.marketdatafeed.csm.v1.4.2.premiumbreakpointexponent", ftypes.INT8)

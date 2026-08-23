@@ -14,6 +14,13 @@ local nyse_nationalequities_trades_pillar_v2_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NationalEquities Trades Pillar 2.6 Headers
+omi_nyse_nationalequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nationalequities.trades.pillar.v2.6.message", ftypes.STRING)
+omi_nyse_nationalequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nationalequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
+omi_nyse_nationalequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.trades.pillar.v2.6.packet", ftypes.STRING)
+omi_nyse_nationalequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
+omi_nyse_nationalequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.trades.pillar.v2.6.sendtime", ftypes.STRING)
+
 -- Nyse NationalEquities Trades Pillar 2.6 Fields
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.nationalequities.trades.pillar.v2.6.beginseqnum", ftypes.UINT32)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.channel_id = ProtoField.new("Channel Id", "nyse.nationalequities.trades.pillar.v2.6.channelid", ftypes.UINT8)
@@ -34,8 +41,6 @@ omi_nyse_nationalequities_trades_pillar_v2_6.fields.lot_size = ProtoField.new("L
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.low_price = ProtoField.new("Low Price", "nyse.nationalequities.trades.pillar.v2.6.lowprice", ftypes.DOUBLE)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.market_id = ProtoField.new("Market Id", "nyse.nationalequities.trades.pillar.v2.6.marketid", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.market_state = ProtoField.new("Market State", "nyse.nationalequities.trades.pillar.v2.6.marketstate", ftypes.STRING)
-omi_nyse_nationalequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nationalequities.trades.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_nationalequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nationalequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.nationalequities.trades.pillar.v2.6.messagesize", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.nationalequities.trades.pillar.v2.6.messagetype", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.mpv = ProtoField.new("Mpv", "nyse.nationalequities.trades.pillar.v2.6.mpv", ftypes.UINT16)
@@ -44,8 +49,6 @@ omi_nyse_nationalequities_trades_pillar_v2_6.fields.next_source_seq_num = ProtoF
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nationalequities.trades.pillar.v2.6.numbermsgs", ftypes.UINT8)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.open = ProtoField.new("Open", "nyse.nationalequities.trades.pillar.v2.6.open", ftypes.UINT32)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.nationalequities.trades.pillar.v2.6.originaltradeid", ftypes.UINT32)
-omi_nyse_nationalequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.trades.pillar.v2.6.packet", ftypes.STRING)
-omi_nyse_nationalequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nationalequities.trades.pillar.v2.6.pktsize", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nationalequities.trades.pillar.v2.6.prevcloseprice", ftypes.DOUBLE)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nationalequities.trades.pillar.v2.6.prevclosevolume", ftypes.UINT32)
@@ -66,7 +69,6 @@ omi_nyse_nationalequities_trades_pillar_v2_6.fields.round_lot = ProtoField.new("
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nationalequities.trades.pillar.v2.6.seconds", ftypes.UINT32)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.security_status = ProtoField.new("Security Status", "nyse.nationalequities.trades.pillar.v2.6.securitystatus", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.security_type = ProtoField.new("Security Type", "nyse.nationalequities.trades.pillar.v2.6.securitytype", ftypes.STRING)
-omi_nyse_nationalequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.trades.pillar.v2.6.sendtime", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nationalequities.trades.pillar.v2.6.seqnum", ftypes.UINT32)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.session_state = ProtoField.new("Session State", "nyse.nationalequities.trades.pillar.v2.6.sessionstate", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6.fields.source_id = ProtoField.new("Source Id", "nyse.nationalequities.trades.pillar.v2.6.sourceid", ftypes.STRING)

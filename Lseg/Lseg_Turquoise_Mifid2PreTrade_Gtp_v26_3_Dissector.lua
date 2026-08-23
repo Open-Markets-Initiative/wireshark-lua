@@ -14,6 +14,12 @@ local lseg_turquoise_mifid2pretrade_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Headers
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2pretrade.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2pretrade.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Fields
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.mifid2pretrade.gtp.v26.3.aggregatednoofordersandquotes", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.mifid2pretrade.gtp.v26.3.allowedbooktypes", ftypes.STRING)
@@ -42,9 +48,7 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.level_identifier = ProtoField
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.listing_end_date = ProtoField.new("Listing End Date", "lseg.turquoise.mifid2pretrade.gtp.v26.3.listingenddate", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.listing_start_date = ProtoField.new("Listing Start Date", "lseg.turquoise.mifid2pretrade.gtp.v26.3.listingstartdate", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.turquoise.mifid2pretrade.gtp.v26.3.marketdatagroup", ftypes.STRING)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.message", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messagecount", ftypes.UINT8)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messageheader", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messagelength", ftypes.UINT16)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messagetype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.minimum_lot_minimum_execution_size = ProtoField.new("Minimum Lot Minimum Execution Size", "lseg.turquoise.mifid2pretrade.gtp.v26.3.minimumlotminimumexecutionsize", ftypes.DOUBLE)
@@ -53,7 +57,6 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.new_end_time = ProtoField.new
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_side = ProtoField.new("Order Book Side", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookside", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbooktype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_update = ProtoField.new("Order Book Update", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookupdate", ftypes.STRING)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2pretrade.gtp.v26.3.packet", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.previousdaysclosingprice", ftypes.DOUBLE)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price = ProtoField.new("Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.price", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricebandtolerances", ftypes.DOUBLE)
@@ -91,7 +94,6 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.timestamp = ProtoField.new("T
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingstatus", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system = ProtoField.new("Trading System", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingsystem", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system_phase = ProtoField.new("Trading System Phase", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingsystemphase", ftypes.STRING)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2pretrade.gtp.v26.3.unitheader", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.mifid2pretrade.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.mifid2pretrade.gtp.v26.3.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.update_date_and_time = ProtoField.new("Update Date And Time", "lseg.turquoise.mifid2pretrade.gtp.v26.3.updatedateandtime", ftypes.STRING)

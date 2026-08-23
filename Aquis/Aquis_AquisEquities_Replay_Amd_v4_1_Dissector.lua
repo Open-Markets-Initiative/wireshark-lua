@@ -14,14 +14,16 @@ local aquis_aquisequities_replay_amd_v4_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Aquis AquisEquities Replay Amd 4.1 Headers
+omi_aquis_aquisequities_replay_amd_v4_1.fields.message = ProtoField.new("Message", "aquis.aquisequities.replay.amd.v4.1.message", ftypes.STRING)
+omi_aquis_aquisequities_replay_amd_v4_1.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.replay.amd.v4.1.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_replay_amd_v4_1.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.replay.amd.v4.1.packet", ftypes.STRING)
+
 -- Aquis AquisEquities Replay Amd 4.1 Fields
 omi_aquis_aquisequities_replay_amd_v4_1.fields.begin_seq_no = ProtoField.new("Begin Seq No", "aquis.aquisequities.replay.amd.v4.1.beginseqno", ftypes.UINT32)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.end_seq_no = ProtoField.new("End Seq No", "aquis.aquisequities.replay.amd.v4.1.endseqno", ftypes.UINT32)
-omi_aquis_aquisequities_replay_amd_v4_1.fields.message = ProtoField.new("Message", "aquis.aquisequities.replay.amd.v4.1.message", ftypes.STRING)
-omi_aquis_aquisequities_replay_amd_v4_1.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.replay.amd.v4.1.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.replay.amd.v4.1.msglength", ftypes.UINT8)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.replay.amd.v4.1.msgtype", ftypes.UINT8)
-omi_aquis_aquisequities_replay_amd_v4_1.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.replay.amd.v4.1.packet", ftypes.STRING)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.password = ProtoField.new("Password", "aquis.aquisequities.replay.amd.v4.1.password", ftypes.STRING)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.response_code = ProtoField.new("Response Code", "aquis.aquisequities.replay.amd.v4.1.responsecode", ftypes.UINT8)
 omi_aquis_aquisequities_replay_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.replay.amd.v4.1.seqno", ftypes.UINT32)

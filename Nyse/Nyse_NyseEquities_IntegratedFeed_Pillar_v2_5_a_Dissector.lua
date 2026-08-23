@@ -14,6 +14,13 @@ local nyse_nyseequities_integratedfeed_pillar_v2_5_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Nyse NyseEquities IntegratedFeed Pillar 2.5.a Headers
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.message", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packet", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packetheader", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sendtime", ftypes.STRING)
+
 -- Nyse NyseEquities IntegratedFeed Pillar 2.5.a Fields
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.auctioninterestclearingprice", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.auction_status = ProtoField.new("Auction Status", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.auctionstatus", ftypes.UINT8)
@@ -44,8 +51,6 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.lower_collar = ProtoFi
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.message", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.mpv", ftypes.UINT16)
@@ -57,8 +62,6 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.num_extensions = Proto
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.numbermsgs", ftypes.UINT8)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.open = ProtoField.new("Open", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.open", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.order_id = ProtoField.new("Order Id", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.orderid", ftypes.UINT64)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packet", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.pairedqty", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.pktsize", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.position_change = ProtoField.new("Position Change", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.positionchange", ftypes.UINT8)
@@ -84,7 +87,6 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.rpi_indicator = ProtoF
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.securitytype", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sendtime", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.seqnum", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sessionstate", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.side = ProtoField.new("Side", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.side", ftypes.STRING)

@@ -14,6 +14,11 @@ local otcmarkets_moonats_retransmission_link_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- OtcMarkets MoonAts Retransmission Link 1.3 Headers
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.retransmission.link.v1.3.message", ftypes.STRING)
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.retransmission.link.v1.3.messageheader", ftypes.STRING)
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.retransmission.link.v1.3.packet", ftypes.STRING)
+
 -- OtcMarkets MoonAts Retransmission Link 1.3 Fields
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.moonats.retransmission.link.v1.3.askprice", ftypes.DOUBLE)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.ask_volume = ProtoField.new("Ask Volume", "otcmarkets.moonats.retransmission.link.v1.3.askvolume", ftypes.UINT32)
@@ -36,8 +41,6 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.full_closing_price = Prot
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_seq_num = ProtoField.new("Last Seq Num", "otcmarkets.moonats.retransmission.link.v1.3.lastseqnum", ftypes.UINT32)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.moonats.retransmission.link.v1.3.lastupdatemilli", ftypes.UINT64)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.login_status = ProtoField.new("Login Status", "otcmarkets.moonats.retransmission.link.v1.3.loginstatus", ftypes.UINT8)
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.retransmission.link.v1.3.message", ftypes.STRING)
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.retransmission.link.v1.3.messageheader", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_size = ProtoField.new("Message Size", "otcmarkets.moonats.retransmission.link.v1.3.messagesize", ftypes.UINT16)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_type = ProtoField.new("Message Type", "otcmarkets.moonats.retransmission.link.v1.3.messagetype", ftypes.UINT8)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.moc_shares_unmatched = ProtoField.new("Moc Shares Unmatched", "otcmarkets.moonats.retransmission.link.v1.3.mocsharesunmatched", ftypes.STRING)
@@ -46,7 +49,6 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.number_of_messages = Prot
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.ocio_only_closing_price = ProtoField.new("Ocio Only Closing Price", "otcmarkets.moonats.retransmission.link.v1.3.ocioonlyclosingprice", ftypes.DOUBLE)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.order_flags = ProtoField.new("Order Flags", "otcmarkets.moonats.retransmission.link.v1.3.orderflags", ftypes.UINT16)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.order_id = ProtoField.new("Order Id", "otcmarkets.moonats.retransmission.link.v1.3.orderid", ftypes.STRING)
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.retransmission.link.v1.3.packet", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.password = ProtoField.new("Password", "otcmarkets.moonats.retransmission.link.v1.3.password", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.piggyback_flag = ProtoField.new("Piggyback Flag", "otcmarkets.moonats.retransmission.link.v1.3.piggybackflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.price = ProtoField.new("Price", "otcmarkets.moonats.retransmission.link.v1.3.price", ftypes.DOUBLE)

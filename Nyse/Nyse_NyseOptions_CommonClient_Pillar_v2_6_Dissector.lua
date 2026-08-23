@@ -14,20 +14,22 @@ local nyse_nyseoptions_commonclient_pillar_v2_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseOptions CommonClient Pillar 2.6 Fields
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseoptions.commonclient.pillar.v2.6.deliveryflag", ftypes.UINT8)
+-- Nyse NyseOptions CommonClient Pillar 2.6 Headers
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nyseoptions.commonclient.pillar.v2.6.message", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nyseoptions.commonclient.pillar.v2.6.messageheader", ftypes.STRING)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.STRING)
+
+-- Nyse NyseOptions CommonClient Pillar 2.6 Fields
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseoptions.commonclient.pillar.v2.6.deliveryflag", ftypes.UINT8)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.nyseoptions.commonclient.pillar.v2.6.messagesize", ftypes.UINT16)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.nyseoptions.commonclient.pillar.v2.6.messagetype", ftypes.UINT16)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseoptions.commonclient.pillar.v2.6.nanoseconds", ftypes.UINT32)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseoptions.commonclient.pillar.v2.6.numbermsgs", ftypes.UINT8)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload = ProtoField.new("Payload", "nyse.nyseoptions.commonclient.pillar.v2.6.payload", ftypes.BYTES)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseoptions.commonclient.pillar.v2.6.pktsize", ftypes.UINT16)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.UINT32)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32)
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 generated fields

@@ -14,6 +14,10 @@ local cboe_matchnow_multicasttrades_pitch_v1_0_14 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
+-- Cboe MatchNow MulticastTrades Pitch 1.0.14 Headers
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packet", ftypes.STRING)
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packetheader", ftypes.STRING)
+
 -- Cboe MatchNow MulticastTrades Pitch 1.0.14 Fields
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "cboe.matchnow.multicasttrades.pitch.v1.0.14.buybrokernumber", ftypes.UINT16)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.conditional = ProtoField.new("Conditional", "cboe.matchnow.multicasttrades.pitch.v1.0.14.conditional", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -26,8 +30,6 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_header = ProtoFie
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagelength", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagetype", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.odd_lot = ProtoField.new("Odd Lot", "cboe.matchnow.multicasttrades.pitch.v1.0.14.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packet", ftypes.STRING)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packetheader", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.price = ProtoField.new("Price", "cboe.matchnow.multicasttrades.pitch.v1.0.14.price", ftypes.DOUBLE)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.quantity = ProtoField.new("Quantity", "cboe.matchnow.multicasttrades.pitch.v1.0.14.quantity", ftypes.UINT32)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.matchnow.multicasttrades.pitch.v1.0.14.reserved2", ftypes.UINT16)
