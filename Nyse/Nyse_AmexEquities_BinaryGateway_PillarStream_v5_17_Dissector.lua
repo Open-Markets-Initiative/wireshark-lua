@@ -266,7 +266,6 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_application_me
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
-
 -- Handle changed preferences
 function omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs_changed()
 

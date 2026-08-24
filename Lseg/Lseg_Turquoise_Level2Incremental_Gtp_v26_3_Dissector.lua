@@ -14,12 +14,6 @@ local lseg_turquoise_level2incremental_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Turquoise Level2Incremental Gtp 26.3 Headers
-omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.level2incremental.gtp.v26.3.message", ftypes.STRING)
-omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2incremental.gtp.v26.3.messageheader", ftypes.STRING)
-omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2incremental.gtp.v26.3.packet", ftypes.STRING)
-omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2incremental.gtp.v26.3.unitheader", ftypes.STRING)
-
 -- Lseg Turquoise Level2Incremental Gtp 26.3 Fields
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.level2incremental.gtp.v26.3.allowedbooktypes", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.auction_info = ProtoField.new("Auction Info", "lseg.turquoise.level2incremental.gtp.v26.3.auctioninfo", ftypes.STRING)
@@ -98,6 +92,12 @@ omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.volume_onbook_only = Proto
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level2incremental.gtp.v26.3.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level2incremental.gtp.v26.3.vwaponbookonly", ftypes.DOUBLE)
 
+-- Lseg Turquoise Level2Incremental Gtp 26.3 Headers
+omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.level2incremental.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level2incremental.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level2incremental.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.level2incremental.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Level2Incremental 26.3 Application Messages
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.level2incremental.gtp.v26.3.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.delete_order_message = ProtoField.new("Delete Order Message", "lseg.turquoise.level2incremental.gtp.v26.3.deleteordermessage", ftypes.STRING)
@@ -132,7 +132,6 @@ omi_lseg_turquoise_level2incremental_gtp_v26_3.prefs.show_application_messages =
 omi_lseg_turquoise_level2incremental_gtp_v26_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_level2incremental_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_level2incremental_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_turquoise_level2incremental_gtp_v26_3.prefs_changed()

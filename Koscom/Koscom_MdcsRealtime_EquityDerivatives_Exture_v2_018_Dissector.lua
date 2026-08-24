@@ -14,9 +14,6 @@ local koscom_mdcsrealtime_equityderivatives_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Koscom MdcsRealtime EquityDerivatives Exture 2.018 Headers
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.packet", ftypes.STRING)
-
 -- Koscom MdcsRealtime EquityDerivatives Exture 2.018 Fields
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.apricechangeagainstthepreviousday", ftypes.STRING)
@@ -315,6 +312,9 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.zero_re_investmen
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
 
+-- Koscom MdcsRealtime EquityDerivatives Exture 2.018 Headers
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime EquityDerivatives 2.018 Application Messages
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_index_krx_message = ProtoField.new("Bond Index Krx Message", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bondindexkrxmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_ktb_index_message = ProtoField.new("Bond Ktb Index Message", "koscom.mdcsrealtime.equityderivatives.exture.v2.018.bondktbindexmessage", ftypes.STRING)
@@ -364,7 +364,6 @@ show.structs = true
 -- Register Koscom MdcsRealtime EquityDerivatives Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.prefs_changed()

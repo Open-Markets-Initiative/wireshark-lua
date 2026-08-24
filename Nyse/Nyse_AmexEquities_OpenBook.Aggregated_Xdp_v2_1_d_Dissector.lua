@@ -14,12 +14,6 @@ local nyse_amexequities_openbookaggregated_xdp_v2_1_d = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Headers
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message = ProtoField.new("Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.message", ftypes.STRING)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageheader", ftypes.STRING)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.packet = ProtoField.new("Packet", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.packet", ftypes.STRING)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.packetheader", ftypes.STRING)
-
 -- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Fields
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.beginseqnum", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.channelid", ftypes.UINT8)
@@ -86,6 +80,12 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.unit_of_trade = Proto
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.update_count = ProtoField.new("Update Count", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.updatecount", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.volume = ProtoField.new("Volume", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.volume", ftypes.UINT32)
 
+-- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Headers
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message = ProtoField.new("Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.message", ftypes.STRING)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageheader", ftypes.STRING)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.packet = ProtoField.new("Packet", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.packet", ftypes.STRING)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.packetheader", ftypes.STRING)
+
 -- Nyse AmexEquities OpenBook.Aggregated 2.1.d Application Messages
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageunavailablemessage", ftypes.STRING)
@@ -122,7 +122,6 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_repeating_groups 
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs_changed()

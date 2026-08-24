@@ -14,10 +14,6 @@ local cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Headers
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packetheader", ftypes.STRING)
-
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Fields
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_cumulative_executed_volume_long = ProtoField.new("Cboe Cumulative Executed Volume Long", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboecumulativeexecutedvolumelong", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.cboe_cumulative_executed_volume_short = ProtoField.new("Cboe Cumulative Executed Volume Short", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.cboecumulativeexecutedvolumeshort", ftypes.UINT32)
@@ -55,6 +51,10 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.timestamp = ProtoF
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradecondition", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.transactiontime", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.unit", ftypes.UINT8)
+
+-- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Headers
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.packetheader", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.bestquoteupdatemessage", ftypes.STRING)

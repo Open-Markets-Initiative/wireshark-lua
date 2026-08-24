@@ -14,12 +14,6 @@ local aquis_aquisequities_realtime_amd_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities RealTime Amd 4.0 Headers
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.realtime.amd.v4.0.packetheader", ftypes.STRING)
-
 -- Aquis AquisEquities RealTime Amd 4.0 Fields
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "aquis.aquisequities.realtime.amd.v4.0.algorithmicindicator", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled = ProtoField.new("Aod Enabled", "aquis.aquisequities.realtime.amd.v4.0.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
@@ -84,6 +78,12 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.transaction_category = ProtoFie
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.umtf = ProtoField.new("Umtf", "aquis.aquisequities.realtime.amd.v4.0.umtf", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.unrestricted_liquidity_indicator = ProtoField.new("Unrestricted Liquidity Indicator", "aquis.aquisequities.realtime.amd.v4.0.unrestrictedliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
+-- Aquis AquisEquities RealTime Amd 4.0 Headers
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.realtime.amd.v4.0.packetheader", ftypes.STRING)
+
 -- Aquis AquisEquities RealTime 4.0 Application Messages
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.ao_d_update_message = ProtoField.new("Ao D Update Message", "aquis.aquisequities.realtime.amd.v4.0.aodupdatemessage", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.ma_c_update_message = ProtoField.new("Ma C Update Message", "aquis.aquisequities.realtime.amd.v4.0.macupdatemessage", ftypes.STRING)
@@ -116,7 +116,6 @@ omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_application_messages = Pref
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_realtime_amd_v4_0.prefs_changed()

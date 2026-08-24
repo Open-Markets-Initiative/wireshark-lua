@@ -265,7 +265,6 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_application_mes
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
-
 -- Handle changed preferences
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.prefs_changed()
 

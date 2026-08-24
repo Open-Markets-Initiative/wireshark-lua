@@ -14,13 +14,6 @@ local miax_pearlequities_topofmarket_mach_v1_1_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities TopOfMarket Mach 1.1.c Headers
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketheader", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmtcppacket", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.c.machmessage", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.tcppacket", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.udppacket", ftypes.STRING)
-
 -- Miax PearlEquities TopOfMarket Mach 1.1.c Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.topofmarket.mach.v1.1.c.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.topofmarket.mach.v1.1.c.applicationprotocol", ftypes.STRING)
@@ -91,6 +84,13 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_data_packet = 
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.topofmarket.mach.v1.1.c.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.username = ProtoField.new("Username", "miax.pearlequities.topofmarket.mach.v1.1.c.username", ftypes.STRING)
 
+-- Miax PearlEquities TopOfMarket Mach 1.1.c Headers
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.c.machmessage", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.tcppacket", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.udppacket", ftypes.STRING)
+
 -- Miax PearlEquities TopOfMarket 1.1.c Application Messages
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.compact_top_of_market_best_bid_and_offer_message = ProtoField.new("Compact Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.c.compacttopofmarketbestbidandoffermessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearlequities.topofmarket.mach.v1.1.c.endofrefreshnotificationmessage", ftypes.STRING)
@@ -120,7 +120,6 @@ show.application_messages = true
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.c Show Options
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs_changed()

@@ -14,12 +14,6 @@ local cboe_cfefutures_binaryorderentry_boe3_v1_1_18 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.18 Headers
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.exchangemessageheader", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.exchange_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.exchangepacket", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.firm_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.firmmessageheader", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.firm_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.firmpacket", ftypes.STRING)
-
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.18 Fields
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.account = ProtoField.new("Account", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.account", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.acknowledgementstyle", ftypes.STRING)
@@ -172,6 +166,12 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.unit_number = ProtoFiel
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.unitsequence", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.workingprice", ftypes.DOUBLE)
 
+-- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.18 Headers
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.exchangemessageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.exchange_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.exchangepacket", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.firm_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.firmmessageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.firm_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.firmpacket", ftypes.STRING)
+
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.18 generated fields
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.leg_position_effect_index = ProtoField.new("Leg Position Effect Index", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.legpositioneffectindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.option_accepted_leg_index = ProtoField.new("Option Accepted Leg Index", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.optionacceptedlegindex", ftypes.UINT16)
@@ -202,7 +202,6 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.assume_role = Pref.enum(
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs_changed()

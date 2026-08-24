@@ -14,10 +14,6 @@ local cboe_edgxoptions_multicasttop_pitch_v1_2_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions MulticastTop Pitch 1.2.54 Headers
-omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.packet", ftypes.STRING)
-omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions MulticastTop Pitch 1.2.54 Fields
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.aon = ProtoField.new("Aon", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.askcustomerquantitylong", ftypes.UINT32)
@@ -81,6 +77,10 @@ omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.underlying_alphanumeric_8
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.underlying_printable_ascii_8 = ProtoField.new("Underlying Printable Ascii 8", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.underlyingprintableascii8", ftypes.STRING)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.unit", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.width_type = ProtoField.new("Width Type", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.widthtype", ftypes.STRING)
+
+-- Cboe EdgxOptions MulticastTop Pitch 1.2.54 Headers
+omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.packet", ftypes.STRING)
+omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions MulticastTop 1.2.54 Application Messages
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.auctionsummarymessage", ftypes.STRING)

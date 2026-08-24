@@ -14,10 +14,6 @@ local cboe_edgxoptions_complex_pitch_v2_1_61 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions Complex Pitch 2.1.61 Headers
-omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complex.pitch.v2.1.61.packet", ftypes.STRING)
-omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions Complex Pitch 2.1.61 Fields
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.edgxoptions.complex.pitch.v2.1.61.auctionendoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.auction_id = ProtoField.new("Auction Id", "cboe.edgxoptions.complex.pitch.v2.1.61.auctionid", ftypes.UINT64)
@@ -78,6 +74,10 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.trade_condition = ProtoField.n
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgxoptions.complex.pitch.v2.1.61.tradingstatus", ftypes.STRING)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.underlying = ProtoField.new("Underlying", "cboe.edgxoptions.complex.pitch.v2.1.61.underlying", ftypes.STRING)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.complex.pitch.v2.1.61.unit", ftypes.UINT8)
+
+-- Cboe EdgxOptions Complex Pitch 2.1.61 Headers
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complex.pitch.v2.1.61.packet", ftypes.STRING)
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions Complex 2.1.61 Application Messages
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.edgxoptions.complex.pitch.v2.1.61.addorderexpandedmessage", ftypes.STRING)

@@ -14,12 +14,6 @@ local nasdaq_utp_input_utp_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Utp Input Utp 4.0 Headers
-omi_nasdaq_utp_input_utp_v4_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.clientpacket", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.serverpacket", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.servertcppacketheader", ftypes.STRING)
-
 -- Nasdaq Utp Input Utp 4.0 Fields
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.input.utp.v4.0.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.input.utp.v4.0.acceptedsession", ftypes.STRING)
@@ -133,6 +127,12 @@ omi_nasdaq_utp_input_utp_v4_0.fields.volume_int_4 = ProtoField.new("Volume Int 4
 omi_nasdaq_utp_input_utp_v4_0.fields.volume_long_8 = ProtoField.new("Volume Long 8", "nasdaq.utp.input.utp.v4.0.volumelong8", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.warning_code = ProtoField.new("Warning Code", "nasdaq.utp.input.utp.v4.0.warningcode", ftypes.UINT16)
 
+-- Nasdaq Utp Input Utp 4.0 Headers
+omi_nasdaq_utp_input_utp_v4_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.clientpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.input.utp.v4.0.serverpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.input.utp.v4.0.servertcppacketheader", ftypes.STRING)
+
 -- Nasdaq Utp Input 4.0 Application Messages
 omi_nasdaq_utp_input_utp_v4_0.fields.as_of_trade_report_message = ProtoField.new("As Of Trade Report Message", "nasdaq.utp.input.utp.v4.0.asoftradereportmessage", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utp.input.utp.v4.0.auctioncollarmessage", ftypes.STRING)
@@ -226,7 +226,6 @@ omi_nasdaq_utp_input_utp_v4_0.prefs.show_headers = Pref.bool("Show Headers", sho
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_utp_input_utp_v4_0.prefs_changed()

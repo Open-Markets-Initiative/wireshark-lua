@@ -14,11 +14,6 @@ local otcmarkets_moonats_retransmission_link_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets MoonAts Retransmission Link 1.3 Headers
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.retransmission.link.v1.3.message", ftypes.STRING)
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.retransmission.link.v1.3.messageheader", ftypes.STRING)
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.retransmission.link.v1.3.packet", ftypes.STRING)
-
 -- OtcMarkets MoonAts Retransmission Link 1.3 Fields
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.moonats.retransmission.link.v1.3.askprice", ftypes.DOUBLE)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.ask_volume = ProtoField.new("Ask Volume", "otcmarkets.moonats.retransmission.link.v1.3.askvolume", ftypes.UINT32)
@@ -83,6 +78,11 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited = ProtoField.
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.moonats.retransmission.link.v1.3.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.user_id = ProtoField.new("User Id", "otcmarkets.moonats.retransmission.link.v1.3.userid", ftypes.STRING)
 
+-- OtcMarkets MoonAts Retransmission Link 1.3 Headers
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.retransmission.link.v1.3.message", ftypes.STRING)
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.retransmission.link.v1.3.messageheader", ftypes.STRING)
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.retransmission.link.v1.3.packet", ftypes.STRING)
+
 -- OtcMarkets MoonAts Retransmission 1.3 Application Messages
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.moonats.retransmission.link.v1.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.enhanced_spin_request_message = ProtoField.new("Enhanced Spin Request Message", "otcmarkets.moonats.retransmission.link.v1.3.enhancedspinrequestmessage", ftypes.STRING)
@@ -120,7 +120,6 @@ show.structs = true
 -- Register OtcMarkets MoonAts Retransmission Link 1.3 Show Options
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_moonats_retransmission_link_v1_3.prefs_changed()

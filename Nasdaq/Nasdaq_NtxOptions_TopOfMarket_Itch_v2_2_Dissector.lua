@@ -14,16 +14,6 @@ local nasdaq_ntxoptions_topofmarket_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxOptions TopOfMarket Itch 2.2 Headers
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
-
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Fields
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.topofmarket.itch.v2.2.acceptedsession", ftypes.STRING)
@@ -108,6 +98,16 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.unsequenced_message_type = Pr
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.username = ProtoField.new("Username", "nasdaq.ntxoptions.topofmarket.itch.v2.2.username", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.topofmarket.itch.v2.2.volume", ftypes.UINT32)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.volume_notation = ProtoField.new("Volume Notation", "nasdaq.ntxoptions.topofmarket.itch.v2.2.volumenotation", ftypes.STRING)
+
+-- Nasdaq NtxOptions TopOfMarket Itch 2.2 Headers
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
 
 -- Nasdaq NtxOptions TopOfMarket 2.2 Application Messages
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.best_bid_and_ask_update_long_form_message = ProtoField.new("Best Bid And Ask Update Long Form Message", "nasdaq.ntxoptions.topofmarket.itch.v2.2.bestbidandaskupdatelongformmessage", ftypes.STRING)

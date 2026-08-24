@@ -14,10 +14,6 @@ local blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Headers
-omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
-
 -- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Fields
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
@@ -56,6 +52,10 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoFi
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
+-- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Headers
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+
 -- BlueOceanAts BlueEquities MemoirDepthFeed 1.3 Application Messages
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
@@ -91,7 +91,6 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_me
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.prefs_changed()

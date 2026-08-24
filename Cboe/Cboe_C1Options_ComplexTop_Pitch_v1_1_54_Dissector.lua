@@ -14,10 +14,6 @@ local cboe_c1options_complextop_pitch_v1_1_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options ComplexTop Pitch 1.1.54 Headers
-omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.pitch.v1.1.54.packet", ftypes.STRING)
-omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
-
 -- Cboe C1Options ComplexTop Pitch 1.1.54 Fields
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.c1options.complextop.pitch.v1.1.54.askcustomerquantitylong", ftypes.UINT32)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.ask_customer_quantity_short = ProtoField.new("Ask Customer Quantity Short", "cboe.c1options.complextop.pitch.v1.1.54.askcustomerquantityshort", ftypes.UINT16)
@@ -87,6 +83,10 @@ omi_cboe_c1options_complextop_pitch_v1_1_54.fields.trading_status = ProtoField.n
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.complextop.pitch.v1.1.54.underlying", ftypes.STRING)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.unit = ProtoField.new("Unit", "cboe.c1options.complextop.pitch.v1.1.54.unit", ftypes.UINT8)
 
+-- Cboe C1Options ComplexTop Pitch 1.1.54 Headers
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.complextop.pitch.v1.1.54.packet", ftypes.STRING)
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
+
 -- Cboe C1Options ComplexTop 1.1.54 Application Messages
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.complextop.pitch.v1.1.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.c1options.complextop.pitch.v1.1.54.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
@@ -127,7 +127,6 @@ omi_cboe_c1options_complextop_pitch_v1_1_54.prefs.show_application_messages = Pr
 omi_cboe_c1options_complextop_pitch_v1_1_54.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complextop_pitch_v1_1_54.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complextop_pitch_v1_1_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_complextop_pitch_v1_1_54.prefs_changed()

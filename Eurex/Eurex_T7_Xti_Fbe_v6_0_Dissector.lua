@@ -14,11 +14,6 @@ local eurex_t7_xti_fbe_v6_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Xti Fbe 6.0 Headers
-omi_eurex_t7_xti_fbe_v6_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v6.0.message", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v6.0.messageheader", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v6.0.packet", ftypes.STRING)
-
 -- Eurex T7 Xti Fbe 6.0 Fields
 omi_eurex_t7_xti_fbe_v6_0.fields.account = ProtoField.new("Account", "eurex.t7.xti.fbe.v6.0.account", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v6_0.fields.affected_ord_grp_comp = ProtoField.new("Affected Ord Grp Comp", "eurex.t7.xti.fbe.v6.0.affectedordgrpcomp", ftypes.STRING)
@@ -288,6 +283,11 @@ omi_eurex_t7_xti_fbe_v6_0.fields.var_text = ProtoField.new("Var Text", "eurex.t7
 omi_eurex_t7_xti_fbe_v6_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v6.0.vartextlen", ftypes.UINT16)
 omi_eurex_t7_xti_fbe_v6_0.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.t7.xti.fbe.v6.0.volumediscoveryprice", ftypes.DOUBLE)
 
+-- Eurex T7 Xti Fbe 6.0 Headers
+omi_eurex_t7_xti_fbe_v6_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v6.0.message", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v6_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v6.0.messageheader", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v6_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v6.0.packet", ftypes.STRING)
+
 -- Eurex T7 Xti 6.0 Application Messages
 omi_eurex_t7_xti_fbe_v6_0.fields.best_quote_execution_report = ProtoField.new("Best Quote Execution Report", "eurex.t7.xti.fbe.v6.0.bestquoteexecutionreport", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v6_0.fields.best_quote_response = ProtoField.new("Best Quote Response", "eurex.t7.xti.fbe.v6.0.bestquoteresponse", ftypes.STRING)
@@ -397,7 +397,6 @@ omi_eurex_t7_xti_fbe_v6_0.prefs.show_repeating_groups = Pref.bool("Show Repeatin
 omi_eurex_t7_xti_fbe_v6_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_xti_fbe_v6_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_xti_fbe_v6_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_xti_fbe_v6_0.prefs_changed()

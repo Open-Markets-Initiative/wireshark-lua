@@ -14,12 +14,6 @@ local siac_cqs_output_cta_v1_91 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Cqs Output Cta 1.91 Headers
-omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
-omi_siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
-
 -- Siac Cqs Output Cta 1.91 Fields
 omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v1.91.adftimestamp", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cqs.output.cta.v1.91.administrativemessage", ftypes.STRING)
@@ -111,6 +105,12 @@ omi_siac_cqs_output_cta_v1_91.fields.text = ProtoField.new("Text", "siac.cqs.out
 omi_siac_cqs_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v1.91.transactionid", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v1.91.version", ftypes.UINT8)
 
+-- Siac Cqs Output Cta 1.91 Headers
+omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
+omi_siac_cqs_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cqs Output 1.91 Application Messages
 omi_siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cqs.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v1.91.auctionstatusmessage", ftypes.STRING)
@@ -149,7 +149,6 @@ omi_siac_cqs_output_cta_v1_91.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_siac_cqs_output_cta_v1_91.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cqs_output_cta_v1_91.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v1_91.prefs_changed()

@@ -14,13 +14,6 @@ local otcmarkets_linkats_multicast_link_v4_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkAts Multicast Link 4.3 Headers
-omi_otcmarkets_linkats_multicast_link_v4_3.fields.message = ProtoField.new("Message", "otcmarkets.linkats.multicast.link.v4.3.message", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.multicast.link.v4.3.messageheader", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.multicast.link.v4.3.packet", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.multicast.link.v4.3.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.multicast.link.v4.3.packetheader", ftypes.STRING)
-
 -- OtcMarkets LinkAts Multicast Link 4.3 Fields
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.multicast.link.v4.3.adrlevel", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.multicast.link.v4.3.adrratio", ftypes.UINT64)
@@ -135,6 +128,13 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.trading_flat = ProtoField.new(
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.multicast.link.v4.3.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.multicast.link.v4.3.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
+-- OtcMarkets LinkAts Multicast Link 4.3 Headers
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.message = ProtoField.new("Message", "otcmarkets.linkats.multicast.link.v4.3.message", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.multicast.link.v4.3.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.multicast.link.v4.3.packet", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.multicast.link.v4.3.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.multicast.link.v4.3.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts Multicast 4.3 Application Messages
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.multicast.link.v4.3.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.extended_security_message = ProtoField.new("Extended Security Message", "otcmarkets.linkats.multicast.link.v4.3.extendedsecuritymessage", ftypes.STRING)
@@ -169,7 +169,6 @@ show.indexes = true
 omi_otcmarkets_linkats_multicast_link_v4_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linkats_multicast_link_v4_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_linkats_multicast_link_v4_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_linkats_multicast_link_v4_3.prefs_changed()

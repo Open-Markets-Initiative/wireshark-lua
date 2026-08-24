@@ -14,10 +14,6 @@ local cboe_edgxoptions_complextop_pitch_v1_1_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions ComplexTop Pitch 1.1.54 Headers
-omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complextop.pitch.v1.1.54.packet", ftypes.STRING)
-omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions ComplexTop Pitch 1.1.54 Fields
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.edgxoptions.complextop.pitch.v1.1.54.askcustomerquantitylong", ftypes.UINT32)
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.ask_customer_quantity_short = ProtoField.new("Ask Customer Quantity Short", "cboe.edgxoptions.complextop.pitch.v1.1.54.askcustomerquantityshort", ftypes.UINT16)
@@ -81,6 +77,10 @@ omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.trade_condition = ProtoFiel
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgxoptions.complextop.pitch.v1.1.54.tradingstatus", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.underlying = ProtoField.new("Underlying", "cboe.edgxoptions.complextop.pitch.v1.1.54.underlying", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.complextop.pitch.v1.1.54.unit", ftypes.UINT8)
+
+-- Cboe EdgxOptions ComplexTop Pitch 1.1.54 Headers
+omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complextop.pitch.v1.1.54.packet", ftypes.STRING)
+omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complextop.pitch.v1.1.54.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions ComplexTop 1.1.54 Application Messages
 omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.edgxoptions.complextop.pitch.v1.1.54.auctionsummarymessage", ftypes.STRING)

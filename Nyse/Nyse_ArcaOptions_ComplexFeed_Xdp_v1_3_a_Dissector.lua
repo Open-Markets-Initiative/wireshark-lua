@@ -14,12 +14,6 @@ local nyse_arcaoptions_complexfeed_xdp_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Headers
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
-
 -- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Fields
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.askcustomervolume", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.askprice", ftypes.INT32)
@@ -74,6 +68,12 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Tr
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
 
+-- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Headers
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
 -- Nyse ArcaOptions ComplexFeed Xdp 1.3.a generated fields
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.legdefinitionindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
@@ -91,7 +91,6 @@ show.indexes = true
 -- Register Nyse ArcaOptions ComplexFeed Xdp 1.3.a Show Options
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs_changed()

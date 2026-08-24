@@ -14,10 +14,6 @@ local cboe_c1options_multicastdepthofbook_pitch_v2_39_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Headers
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packet", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packetheader", ftypes.STRING)
-
 -- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Fields
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.add_flags = ProtoField.new("Add Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.addflags", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.auctionendoffset", ftypes.UINT32)
@@ -70,6 +66,10 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.time_offset = Proto
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.tradecondition", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.tradingstatus", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.unit = ProtoField.new("Unit", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.unit", ftypes.UINT8)
+
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Headers
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packet", ftypes.STRING)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.packetheader", ftypes.STRING)
 
 -- Cboe C1Options MulticastDepthOfBook 2.39.4 Application Messages
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.addorderexpandedmessage", ftypes.STRING)

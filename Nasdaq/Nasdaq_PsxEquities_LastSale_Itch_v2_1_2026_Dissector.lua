@@ -14,10 +14,6 @@ local nasdaq_psxequities_lastsale_itch_v2_1_2026 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq PsxEquities LastSale Itch 2.1.2026 Headers
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packet", ftypes.STRING)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packetheader", ftypes.STRING)
-
 -- Nasdaq PsxEquities LastSale Itch 2.1.2026 Fields
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.lastsale.itch.v2.1.2026.authenticity", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.lastsale.itch.v2.1.2026.breachedlevel", ftypes.STRING)
@@ -75,6 +71,10 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_control_number = Pro
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradesize", ftypes.UINT32)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradingactionreason", ftypes.STRING)
+
+-- Nasdaq PsxEquities LastSale Itch 2.1.2026 Headers
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packet", ftypes.STRING)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packetheader", ftypes.STRING)
 
 -- Nasdaq PsxEquities LastSale 2.1.2026 Application Messages
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.mwcb_breach_message = ProtoField.new("Mwcb Breach Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.mwcbbreachmessage", ftypes.STRING)

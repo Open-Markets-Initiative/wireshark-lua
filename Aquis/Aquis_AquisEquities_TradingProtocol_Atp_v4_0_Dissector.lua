@@ -14,11 +14,6 @@ local aquis_aquisequities_tradingprotocol_atp_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities TradingProtocol Atp 4.0 Headers
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.message", ftypes.STRING)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tradingprotocol.atp.v4.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tradingprotocol.atp.v4.0.packet", ftypes.STRING)
-
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Fields
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.account = ProtoField.new("Account", "aquis.aquisequities.tradingprotocol.atp.v4.0.account", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.algo_trade_flag = ProtoField.new("Algo Trade Flag", "aquis.aquisequities.tradingprotocol.atp.v4.0.algotradeflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -94,6 +89,11 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_ref = ProtoField.n
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradedquantity", ftypes.UINT32)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.user_tag = ProtoField.new("User Tag", "aquis.aquisequities.tradingprotocol.atp.v4.0.usertag", ftypes.UINT64)
 
+-- Aquis AquisEquities TradingProtocol Atp 4.0 Headers
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tradingprotocol.atp.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tradingprotocol.atp.v4.0.packet", ftypes.STRING)
+
 -- Aquis AquisEquities TradingProtocol 4.0 Application Messages
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "aquis.aquisequities.tradingprotocol.atp.v4.0.heartbeat", ftypes.BYTES)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.iceberg_order_refresh_message = ProtoField.new("Iceberg Order Refresh Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.icebergorderrefreshmessage", ftypes.STRING)
@@ -130,7 +130,6 @@ show.application_messages = true
 -- Register Aquis AquisEquities TradingProtocol Atp 4.0 Show Options
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()

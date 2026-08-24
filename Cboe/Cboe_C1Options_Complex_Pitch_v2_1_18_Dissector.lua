@@ -14,10 +14,6 @@ local cboe_c1options_complex_pitch_v2_1_18 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options Complex Pitch 2.1.18 Headers
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.18.packet", ftypes.STRING)
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.18.packetheader", ftypes.STRING)
-
 -- Cboe C1Options Complex Pitch 2.1.18 Fields
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.complex.pitch.v2.1.18.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.complex.pitch.v2.1.18.auctionid", ftypes.UINT64)
@@ -77,6 +73,10 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.trading_status = ProtoField.new(
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.complex.pitch.v2.1.18.underlying", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.unit = ProtoField.new("Unit", "cboe.c1options.complex.pitch.v2.1.18.unit", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.unused = ProtoField.new("Unused", "cboe.c1options.complex.pitch.v2.1.18.unused", ftypes.BYTES)
+
+-- Cboe C1Options Complex Pitch 2.1.18 Headers
+omi_cboe_c1options_complex_pitch_v2_1_18.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.18.packet", ftypes.STRING)
+omi_cboe_c1options_complex_pitch_v2_1_18.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.18.packetheader", ftypes.STRING)
 
 -- Cboe C1Options Complex 2.1.18 Application Messages
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.complex.pitch.v2.1.18.addorderexpandedmessage", ftypes.STRING)

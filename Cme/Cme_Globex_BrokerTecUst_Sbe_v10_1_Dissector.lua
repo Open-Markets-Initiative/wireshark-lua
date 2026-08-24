@@ -14,15 +14,6 @@ local cme_globex_brokertecust_sbe_v10_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex BrokerTecUst Sbe 10.1 Headers
-omi_cme_globex_brokertecust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.brokertecust.sbe.v10.1.binarypacketheader", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.globex.brokertecust.sbe.v10.1.message", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.globex.brokertecust.sbe.v10.1.messageheader", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.brokertecust.sbe.v10.1.tcpmessage", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.brokertecust.sbe.v10.1.tcppacket", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.brokertecust.sbe.v10.1.technicalheader", ftypes.STRING)
-omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
-
 -- Cme Globex BrokerTecUst Sbe 10.1 Fields
 omi_cme_globex_brokertecust_sbe_v10_1.fields.block_length = ProtoField.new("Block Length", "cme.globex.brokertecust.sbe.v10.1.blocklength", ftypes.UINT16)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.globex.brokertecust.sbe.v10.1.couponrate", ftypes.STRING)
@@ -58,6 +49,15 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trad
 omi_cme_globex_brokertecust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.brokertecust.sbe.v10.1.transacttime", ftypes.UINT64)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.globex.brokertecust.sbe.v10.1.version", ftypes.UINT16)
 
+-- Cme Globex BrokerTecUst Sbe 10.1 Headers
+omi_cme_globex_brokertecust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.brokertecust.sbe.v10.1.binarypacketheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.globex.brokertecust.sbe.v10.1.message", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.globex.brokertecust.sbe.v10.1.messageheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.brokertecust.sbe.v10.1.tcpmessage", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.brokertecust.sbe.v10.1.tcppacket", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.brokertecust.sbe.v10.1.technicalheader", ftypes.STRING)
+omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
+
 -- Cme Globex BrokerTecUst 10.1 Application Messages
 omi_cme_globex_brokertecust_sbe_v10_1.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.brokertecust.sbe.v10.1.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.globex.brokertecust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
@@ -84,7 +84,6 @@ omi_cme_globex_brokertecust_sbe_v10_1.prefs.show_structs = Pref.bool("Show Struc
 omi_cme_globex_brokertecust_sbe_v10_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_brokertecust_sbe_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_brokertecust_sbe_v10_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_brokertecust_sbe_v10_1.prefs_changed()

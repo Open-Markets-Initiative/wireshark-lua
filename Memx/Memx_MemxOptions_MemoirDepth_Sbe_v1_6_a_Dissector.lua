@@ -14,10 +14,6 @@ local memx_memxoptions_memoirdepth_sbe_v1_6_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxOptions MemoirDepth Sbe 1.6.a Headers
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.commonheader", ftypes.STRING)
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirdepth.sbe.v1.6.a.packet", ftypes.STRING)
-
 -- Memx MemxOptions MemoirDepth Sbe 1.6.a Fields
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.memxoptions.memoirdepth.sbe.v1.6.a.asofsequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.memoirdepth.sbe.v1.6.a.blocklength", ftypes.UINT16)
@@ -65,6 +61,10 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.trading_session = ProtoField.
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.memoirdepth.sbe.v1.6.a.underlier", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.memxoptions.memoirdepth.sbe.v1.6.a.version", ftypes.UINT16)
 
+-- Memx MemxOptions MemoirDepth Sbe 1.6.a Headers
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirdepth.sbe.v1.6.a.packet", ftypes.STRING)
+
 -- Memx MemxOptions MemoirDepth 1.6.a Application Messages
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.brokentrademessage", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.clearbookmessage", ftypes.STRING)
@@ -98,7 +98,6 @@ show.indexes = true
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs_changed()

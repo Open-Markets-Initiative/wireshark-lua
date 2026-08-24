@@ -14,12 +14,6 @@ local lseg_millennium_udpunitheader_mitch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Millennium UdpUnitHeader Mitch 1.0 Headers
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message = ProtoField.new("Message", "lseg.millennium.udpunitheader.mitch.v1.0.message", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
-
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Fields
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.length = ProtoField.new("Length", "lseg.millennium.udpunitheader.mitch.v1.0.length", ftypes.UINT16)
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.udpunitheader.mitch.v1.0.marketdatagroup", ftypes.STRING)
@@ -28,6 +22,12 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length = ProtoField.
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.udpunitheader.mitch.v1.0.messagetype", ftypes.UINT8)
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload = ProtoField.new("Payload", "lseg.millennium.udpunitheader.mitch.v1.0.payload", ftypes.BYTES)
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.udpunitheader.mitch.v1.0.sequencenumber", ftypes.UINT32)
+
+-- Lseg Millennium UdpUnitHeader Mitch 1.0 Headers
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message = ProtoField.new("Message", "lseg.millennium.udpunitheader.mitch.v1.0.message", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 generated fields
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.udpunitheader.mitch.v1.0.messageindex", ftypes.UINT16)
@@ -47,7 +47,6 @@ show.indexes = true
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()

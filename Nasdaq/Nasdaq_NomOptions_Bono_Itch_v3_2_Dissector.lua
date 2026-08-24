@@ -14,10 +14,6 @@ local nasdaq_nomoptions_bono_itch_v3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NomOptions Bono Itch 3.2 Headers
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.bono.itch.v3.2.packet", ftypes.STRING)
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.bono.itch.v3.2.packetheader", ftypes.STRING)
-
 -- Nasdaq NomOptions Bono Itch 3.2 Fields
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.nomoptions.bono.itch.v3.2.askprice2", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.nomoptions.bono.itch.v3.2.askprice4", ftypes.DOUBLE)
@@ -64,6 +60,10 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trade_condition = ProtoField.new("Tr
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.nomoptions.bono.itch.v3.2.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.version = ProtoField.new("Version", "nasdaq.nomoptions.bono.itch.v3.2.version", ftypes.UINT8)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.bono.itch.v3.2.volume", ftypes.UINT32)
+
+-- Nasdaq NomOptions Bono Itch 3.2 Headers
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.bono.itch.v3.2.packet", ftypes.STRING)
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.bono.itch.v3.2.packetheader", ftypes.STRING)
 
 -- Nasdaq NomOptions Bono 3.2 Application Messages
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.nomoptions.bono.itch.v3.2.brokentradereportmessage", ftypes.STRING)

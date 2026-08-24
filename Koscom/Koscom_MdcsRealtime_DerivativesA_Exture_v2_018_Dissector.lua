@@ -14,9 +14,6 @@ local koscom_mdcsrealtime_derivativesa_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Koscom MdcsRealtime DerivativesA Exture 2.018 Headers
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.derivativesa.exture.v2.018.packet", ftypes.STRING)
-
 -- Koscom MdcsRealtime DerivativesA Exture 2.018 Fields
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.derivativesa.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
@@ -305,6 +302,9 @@ omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_accumulated
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.derivativesa.exture.v2.018.yesterdaysclosingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.yesterdays_closing_price_type_code = ProtoField.new("Yesterdays Closing Price Type Code", "koscom.mdcsrealtime.derivativesa.exture.v2.018.yesterdaysclosingpricetypecode", ftypes.STRING)
 
+-- Koscom MdcsRealtime DerivativesA Exture 2.018 Headers
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.derivativesa.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime DerivativesA 2.018 Application Messages
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.commodity_futures_settlement_reference_ktb_message = ProtoField.new("Commodity Futures Settlement Reference Ktb Message", "koscom.mdcsrealtime.derivativesa.exture.v2.018.commodityfuturessettlementreferencektbmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.commodity_futures_spot_settlement_reference_message = ProtoField.new("Commodity Futures Spot Settlement Reference Message", "koscom.mdcsrealtime.derivativesa.exture.v2.018.commodityfuturesspotsettlementreferencemessage", ftypes.STRING)
@@ -356,7 +356,6 @@ show.structs = true
 -- Register Koscom MdcsRealtime DerivativesA Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.prefs_changed()

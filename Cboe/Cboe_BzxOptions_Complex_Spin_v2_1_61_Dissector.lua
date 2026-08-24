@@ -14,10 +14,6 @@ local cboe_bzxoptions_complex_spin_v2_1_61 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxOptions Complex Spin 2.1.61 Headers
-omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complex.spin.v2.1.61.packet", ftypes.STRING)
-omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complex.spin.v2.1.61.packetheader", ftypes.STRING)
-
 -- Cboe BzxOptions Complex Spin 2.1.61 Fields
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.bzxoptions.complex.spin.v2.1.61.complexinstrumentid", ftypes.STRING)
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.bzxoptions.complex.spin.v2.1.61.complexinstrumenttype", ftypes.STRING)
@@ -63,6 +59,10 @@ omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.underlying = ProtoField.new("Und
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.complex.spin.v2.1.61.unit", ftypes.UINT8)
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.username = ProtoField.new("Username", "cboe.bzxoptions.complex.spin.v2.1.61.username", ftypes.STRING)
 
+-- Cboe BzxOptions Complex Spin 2.1.61 Headers
+omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.complex.spin.v2.1.61.packet", ftypes.STRING)
+omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.complex.spin.v2.1.61.packetheader", ftypes.STRING)
+
 -- Cboe BzxOptions Complex 2.1.61 Application Messages
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzxoptions.complex.spin.v2.1.61.addorderlongmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complex_spin_v2_1_61.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzxoptions.complex.spin.v2.1.61.addordershortmessage", ftypes.STRING)
@@ -101,7 +101,6 @@ omi_cboe_bzxoptions_complex_spin_v2_1_61.prefs.show_application_messages = Pref.
 omi_cboe_bzxoptions_complex_spin_v2_1_61.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_bzxoptions_complex_spin_v2_1_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bzxoptions_complex_spin_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bzxoptions_complex_spin_v2_1_61.prefs_changed()

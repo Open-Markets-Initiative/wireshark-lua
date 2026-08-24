@@ -14,10 +14,6 @@ local cboe_cfefutures_multicasttop_spin_v1_2_20 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CfeFutures MulticastTop Spin 1.2.20 Headers
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.spin.v1.2.20.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.spin.v1.2.20.packetheader", ftypes.STRING)
-
 -- Cboe CfeFutures MulticastTop Spin 1.2.20 Fields
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.accrueddayvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_price_8 = ProtoField.new("Ask Price Binary Price 8", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricebinaryprice8", ftypes.UINT64)
@@ -96,6 +92,10 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.upper_price_limit = ProtoFi
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicasttop.spin.v1.2.20.username", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
+-- Cboe CfeFutures MulticastTop Spin 1.2.20 Headers
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.spin.v1.2.20.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.spin.v1.2.20.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastTop 1.2.20 Application Messages
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.cfefutures.multicasttop.spin.v1.2.20.endofdaysummarymessage", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.futures_instrument_definition_message = ProtoField.new("Futures Instrument Definition Message", "cboe.cfefutures.multicasttop.spin.v1.2.20.futuresinstrumentdefinitionmessage", ftypes.STRING)
@@ -135,7 +135,6 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.prefs.show_application_messages = 
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicasttop_spin_v1_2_20.prefs_changed()

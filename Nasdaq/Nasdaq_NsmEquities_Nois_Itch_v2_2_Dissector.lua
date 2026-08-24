@@ -14,10 +14,6 @@ local nasdaq_nsmequities_nois_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities Nois Itch 2.2 Headers
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities Nois Itch 2.2 Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.currentreferenceprice", ftypes.BYTES)
@@ -42,6 +38,10 @@ omi_nasdaq_nsmequities_nois_itch_v2_2.fields.session = ProtoField.new("Session",
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.nois.itch.v2.2.symbol", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.tradingstate", ftypes.STRING)
+
+-- Nasdaq NsmEquities Nois Itch 2.2 Headers
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities Nois 2.2 Application Messages
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.noismessage", ftypes.STRING)

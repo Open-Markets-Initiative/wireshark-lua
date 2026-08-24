@@ -14,10 +14,6 @@ local miax_pearlequities_topofmarket_mach_v1_1_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities TopOfMarket Mach 1.1.a Headers
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.a.machmessage", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
-
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.topofmarket.mach.v1.1.a.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price = ProtoField.new("Bid Price", "miax.pearlequities.topofmarket.mach.v1.1.a.bidprice", ftypes.DOUBLE)
@@ -52,6 +48,10 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.topofmarket.mach.v1.1.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.topofmarket.mach.v1.1.a.tradingstatus", ftypes.UINT8)
 
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Headers
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.a.machmessage", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities TopOfMarket 1.1.a Application Messages
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message = ProtoField.new("Compact Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.a.compacttopofmarketbestbidandoffermessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.pearlequities.topofmarket.mach.v1.1.a.lastsalemessage", ftypes.STRING)
@@ -78,7 +78,6 @@ show.application_messages = true
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.a Show Options
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()

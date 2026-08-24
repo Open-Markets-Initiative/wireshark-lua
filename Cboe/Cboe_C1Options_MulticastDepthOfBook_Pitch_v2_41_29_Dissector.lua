@@ -14,10 +14,6 @@ local cboe_c1options_multicastdepthofbook_pitch_v2_41_29 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 Headers
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
-
 -- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 Fields
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.aon = ProtoField.new("Aon", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -90,6 +86,10 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.widthtype", ftypes.STRING)
 
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 Headers
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
+
 -- Cboe C1Options MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.addorderlongmessage", ftypes.STRING)
@@ -141,7 +141,6 @@ show.indexes = true
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.prefs_changed()

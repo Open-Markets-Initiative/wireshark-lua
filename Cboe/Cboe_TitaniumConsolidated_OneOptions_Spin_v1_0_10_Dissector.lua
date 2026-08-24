@@ -14,10 +14,6 @@ local cboe_titaniumconsolidated_oneoptions_spin_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Headers
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packetheader", ftypes.STRING)
-
 -- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Fields
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.count", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.feedsymbol", ftypes.STRING)
@@ -42,6 +38,10 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_respon
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.underlying = ProtoField.new("Underlying", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.underlying", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.unit", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.username = ProtoField.new("Username", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.username", ftypes.STRING)
+
+-- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Headers
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packetheader", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated OneOptions 1.0.10 Application Messages
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionfinishedmessage", ftypes.BYTES)
@@ -76,7 +76,6 @@ show.indexes = true
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs_changed()

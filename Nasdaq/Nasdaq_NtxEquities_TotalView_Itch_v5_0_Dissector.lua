@@ -14,10 +14,6 @@ local nasdaq_ntxequities_totalview_itch_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxEquities TotalView Itch 5.0 Headers
-omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.totalview.itch.v5.0.packet", ftypes.STRING)
-omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.totalview.itch.v5.0.packetheader", ftypes.STRING)
-
 -- Nasdaq NtxEquities TotalView Itch 5.0 Fields
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.ntxequities.totalview.itch.v5.0.attribution", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.ntxequities.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
@@ -86,6 +82,10 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.tracking_number = ProtoField.n
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.ntxequities.totalview.itch.v5.0.tradingactionreason", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.ntxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.ntxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
+
+-- Nasdaq NtxEquities TotalView Itch 5.0 Headers
+omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.totalview.itch.v5.0.packet", ftypes.STRING)
+omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.totalview.itch.v5.0.packetheader", ftypes.STRING)
 
 -- Nasdaq NtxEquities TotalView 5.0 Application Messages
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.add_order_mpid_attribution_message = ProtoField.new("Add Order Mpid Attribution Message", "nasdaq.ntxequities.totalview.itch.v5.0.addordermpidattributionmessage", ftypes.STRING)

@@ -14,10 +14,6 @@ local odx_odxequities_pts_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Odx OdxEquities Pts Itch 2.2 Headers
-omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
-omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
-
 -- Odx OdxEquities Pts Itch 2.2 Fields
 omi_odx_odxequities_pts_itch_v2_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.itch.v2.2.buysellindicator", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "odx.odxequities.pts.itch.v2.2.executedquantity", ftypes.UINT32)
@@ -49,6 +45,10 @@ omi_odx_odxequities_pts_itch_v2_2.fields.short_selling_state = ProtoField.new("S
 omi_odx_odxequities_pts_itch_v2_2.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.itch.v2.2.systemevent", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "odx.odxequities.pts.itch.v2.2.tradingstate", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.itch.v2.2.upperpricelimit", ftypes.DOUBLE)
+
+-- Odx OdxEquities Pts Itch 2.2 Headers
+omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
+omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
 
 -- Odx OdxEquities Pts 2.2 Application Messages
 omi_odx_odxequities_pts_itch_v2_2.fields.order_added_message = ProtoField.new("Order Added Message", "odx.odxequities.pts.itch.v2.2.orderaddedmessage", ftypes.STRING)

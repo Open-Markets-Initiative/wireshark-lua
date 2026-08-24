@@ -14,10 +14,6 @@ local miax_pearlequities_depthofmarket_mach_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.a Headers
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
-
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.attributable_id = ProtoField.new("Attributable Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.attributableid", ftypes.STRING)
@@ -56,6 +52,10 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.ne
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused = ProtoField.new("Unused", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
+-- Miax PearlEquities DepthOfMarket Mach 1.3.a Headers
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
+
 -- Miax PearlEquities DepthOfMarket 1.3.a Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.addordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.deleteordermessage", ftypes.STRING)
@@ -85,7 +85,6 @@ show.structs = true
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.a Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.prefs_changed()

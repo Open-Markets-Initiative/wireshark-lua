@@ -14,10 +14,6 @@ local nasdaq_iseoptions_topcomboquotefeed_itch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Headers
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
-
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Fields
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_cust_size = ProtoField.new("Ask Cust Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.askcustsize", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_market_size = ProtoField.new("Ask Market Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.askmarketsize", ftypes.UINT32)
@@ -79,6 +75,10 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.trade_condition = Proto
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.version", ftypes.UINT8)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.volume = ProtoField.new("Volume", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.volume", ftypes.UINT32)
+
+-- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Headers
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
 
 -- Nasdaq IseOptions TopComboQuoteFeed 1.0 Application Messages
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.complexstrategydirectorymessage", ftypes.STRING)

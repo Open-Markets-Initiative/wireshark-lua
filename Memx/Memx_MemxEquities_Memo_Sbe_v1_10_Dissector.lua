@@ -14,10 +14,6 @@ local memx_memxequities_memo_sbe_v1_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxEquities Memo Sbe 1.10 Headers
-omi_memx_memxequities_memo_sbe_v1_10.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memo.sbe.v1.10.commonheader", ftypes.STRING)
-omi_memx_memxequities_memo_sbe_v1_10.fields.packet = ProtoField.new("Packet", "memx.memxequities.memo.sbe.v1.10.packet", ftypes.STRING)
-
 -- Memx MemxEquities Memo Sbe 1.10 Fields
 omi_memx_memxequities_memo_sbe_v1_10.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memo.sbe.v1.10.blocklength", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_10.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.memxequities.memo.sbe.v1.10.cancelgroupid", ftypes.UINT16)
@@ -118,6 +114,10 @@ omi_memx_memxequities_memo_sbe_v1_10.fields.trd_matching_id = ProtoField.new("Tr
 omi_memx_memxequities_memo_sbe_v1_10.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.memo.sbe.v1.10.unsequencedmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_10.fields.version = ProtoField.new("Version", "memx.memxequities.memo.sbe.v1.10.version", ftypes.UINT16)
 
+-- Memx MemxEquities Memo Sbe 1.10 Headers
+omi_memx_memxequities_memo_sbe_v1_10.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memo.sbe.v1.10.commonheader", ftypes.STRING)
+omi_memx_memxequities_memo_sbe_v1_10.fields.packet = ProtoField.new("Packet", "memx.memxequities.memo.sbe.v1.10.packet", ftypes.STRING)
+
 -- Memx MemxEquities Memo 1.10 Application Messages
 omi_memx_memxequities_memo_sbe_v1_10.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "memx.memxequities.memo.sbe.v1.10.executionreportcanceledmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_10.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "memx.memxequities.memo.sbe.v1.10.executionreportnewmessage", ftypes.STRING)
@@ -152,7 +152,6 @@ show.application_messages = true
 -- Register Memx MemxEquities Memo Sbe 1.10 Show Options
 omi_memx_memxequities_memo_sbe_v1_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_memo_sbe_v1_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxequities_memo_sbe_v1_10.prefs_changed()

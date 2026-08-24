@@ -14,11 +14,6 @@ local txse_txseequities_seed_rake_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Txse TxseEquities Seed Rake 1.0 Headers
-omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
-omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
-omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
-
 -- Txse TxseEquities Seed Rake 1.0 Fields
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_at_entry_if_crossed = ProtoField.new("Cancel At Entry If Crossed", "txse.txseequities.seed.rake.v1.0.cancelatentryifcrossed", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "txse.txseequities.seed.rake.v1.0.cancelreason", ftypes.INT8)
@@ -336,6 +331,11 @@ omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_presence_bits
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.INT64)
 
+-- Txse TxseEquities Seed Rake 1.0 Headers
+omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
+
 -- Txse TxseEquities Seed 1.0 Application Messages
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "txse.txseequities.seed.rake.v1.0.cancelordermessage", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "txse.txseequities.seed.rake.v1.0.cancelrejectedmessage", ftypes.STRING)
@@ -376,7 +376,6 @@ show.structs = true
 -- Register Txse TxseEquities Seed Rake 1.0 Show Options
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()

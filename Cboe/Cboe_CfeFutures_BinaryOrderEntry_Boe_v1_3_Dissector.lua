@@ -14,10 +14,6 @@ local cboe_cfefutures_binaryorderentry_boe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Headers
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe.v1.3.packet", ftypes.STRING)
-
 -- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Fields
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.account = ProtoField.new("Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.account", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.application_message_type = ProtoField.new("Application Message Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.applicationmessagetype", ftypes.UINT8)
@@ -744,6 +740,10 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_time_i
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_trade_date_exists = ProtoField.new("Variance Restatement Trade Date Exists", "cboe.cfefutures.binaryorderentry.boe.v1.3.variancerestatementtradedateexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.workingprice", ftypes.UINT64)
 
+-- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Headers
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe.v1.3.packet", ftypes.STRING)
+
 -- Cboe CfeFutures BinaryOrderEntry 1.3 Application Messages
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.cancelordermessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.cancelrejectedmessage", ftypes.STRING)
@@ -800,7 +800,6 @@ show.indexes = true
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_binaryorderentry_boe_v1_3.prefs_changed()

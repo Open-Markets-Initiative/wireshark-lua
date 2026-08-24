@@ -14,10 +14,6 @@ local cboe_edgxoptions_auctionfeed_pitch_v1_1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 Headers
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.packet", ftypes.STRING)
-omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 Fields
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctionendoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_id = ProtoField.new("Auction Id", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctionid", ftypes.UINT64)
@@ -43,6 +39,10 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timeoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
+
+-- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 Headers
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.packet", ftypes.STRING)
+omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions AuctionFeed 1.1.1 Application Messages
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)

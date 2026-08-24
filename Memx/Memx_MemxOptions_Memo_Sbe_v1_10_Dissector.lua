@@ -14,10 +14,6 @@ local memx_memxoptions_memo_sbe_v1_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxOptions Memo Sbe 1.10 Headers
-omi_memx_memxoptions_memo_sbe_v1_10.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.10.commonheader", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_10.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memo.sbe.v1.10.packet", ftypes.STRING)
-
 -- Memx MemxOptions Memo Sbe 1.10 Fields
 omi_memx_memxoptions_memo_sbe_v1_10.fields.alloc_canc_replace_reason = ProtoField.new("Alloc Canc Replace Reason", "memx.memxoptions.memo.sbe.v1.10.alloccancreplacereason", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_10.fields.alloc_id = ProtoField.new("Alloc Id", "memx.memxoptions.memo.sbe.v1.10.allocid", ftypes.STRING)
@@ -165,6 +161,10 @@ omi_memx_memxoptions_memo_sbe_v1_10.fields.unsequenced_message = ProtoField.new(
 omi_memx_memxoptions_memo_sbe_v1_10.fields.user_status = ProtoField.new("User Status", "memx.memxoptions.memo.sbe.v1.10.userstatus", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_10.fields.version = ProtoField.new("Version", "memx.memxoptions.memo.sbe.v1.10.version", ftypes.UINT16)
 
+-- Memx MemxOptions Memo Sbe 1.10 Headers
+omi_memx_memxoptions_memo_sbe_v1_10.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.10.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memo_sbe_v1_10.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memo.sbe.v1.10.packet", ftypes.STRING)
+
 -- Memx MemxOptions Memo 1.10 Application Messages
 omi_memx_memxoptions_memo_sbe_v1_10.fields.allocation_instruction_ack_message = ProtoField.new("Allocation Instruction Ack Message", "memx.memxoptions.memo.sbe.v1.10.allocationinstructionackmessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_10.fields.allocation_instruction_alert_message = ProtoField.new("Allocation Instruction Alert Message", "memx.memxoptions.memo.sbe.v1.10.allocationinstructionalertmessage", ftypes.STRING)
@@ -230,7 +230,6 @@ omi_memx_memxoptions_memo_sbe_v1_10.prefs.show_structs = Pref.bool("Show Structs
 omi_memx_memxoptions_memo_sbe_v1_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_10.prefs_changed()

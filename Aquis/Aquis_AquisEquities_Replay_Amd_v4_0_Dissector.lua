@@ -14,11 +14,6 @@ local aquis_aquisequities_replay_amd_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities Replay Amd 4.0 Headers
-omi_aquis_aquisequities_replay_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.replay.amd.v4.0.message", ftypes.STRING)
-omi_aquis_aquisequities_replay_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.replay.amd.v4.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_replay_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.replay.amd.v4.0.packet", ftypes.STRING)
-
 -- Aquis AquisEquities Replay Amd 4.0 Fields
 omi_aquis_aquisequities_replay_amd_v4_0.fields.begin_seq_no = ProtoField.new("Begin Seq No", "aquis.aquisequities.replay.amd.v4.0.beginseqno", ftypes.UINT32)
 omi_aquis_aquisequities_replay_amd_v4_0.fields.end_seq_no = ProtoField.new("End Seq No", "aquis.aquisequities.replay.amd.v4.0.endseqno", ftypes.UINT32)
@@ -28,6 +23,11 @@ omi_aquis_aquisequities_replay_amd_v4_0.fields.password = ProtoField.new("Passwo
 omi_aquis_aquisequities_replay_amd_v4_0.fields.response_code = ProtoField.new("Response Code", "aquis.aquisequities.replay.amd.v4.0.responsecode", ftypes.UINT8)
 omi_aquis_aquisequities_replay_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.replay.amd.v4.0.seqno", ftypes.UINT32)
 omi_aquis_aquisequities_replay_amd_v4_0.fields.username = ProtoField.new("Username", "aquis.aquisequities.replay.amd.v4.0.username", ftypes.STRING)
+
+-- Aquis AquisEquities Replay Amd 4.0 Headers
+omi_aquis_aquisequities_replay_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.replay.amd.v4.0.message", ftypes.STRING)
+omi_aquis_aquisequities_replay_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.replay.amd.v4.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_replay_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.replay.amd.v4.0.packet", ftypes.STRING)
 
 -- Aquis AquisEquities Replay 4.0 Application Messages
 omi_aquis_aquisequities_replay_amd_v4_0.fields.login_message = ProtoField.new("Login Message", "aquis.aquisequities.replay.amd.v4.0.loginmessage", ftypes.STRING)
@@ -47,7 +47,6 @@ show.structs = true
 -- Register Aquis AquisEquities Replay Amd 4.0 Show Options
 omi_aquis_aquisequities_replay_amd_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_aquisequities_replay_amd_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_replay_amd_v4_0.prefs_changed()

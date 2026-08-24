@@ -14,9 +14,6 @@ local cboe_byxequities_top_asciipitch_v1_3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe ByxEquities Top AsciiPitch 1.3.2 Headers
-omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.2.packet", ftypes.STRING)
-
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Fields
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.byxequities.top.asciipitch.v1.3.2.askpricelong", ftypes.DOUBLE)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.byxequities.top.asciipitch.v1.3.2.askpriceshort", ftypes.DOUBLE)
@@ -51,6 +48,9 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.symbol_short = ProtoField.new(
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.top.asciipitch.v1.3.2.timestamp", ftypes.STRING)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.top_lf = ProtoField.new("Top Lf", "cboe.byxequities.top.asciipitch.v1.3.2.toplf", ftypes.INT8)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.username = ProtoField.new("Username", "cboe.byxequities.top.asciipitch.v1.3.2.username", ftypes.STRING)
+
+-- Cboe ByxEquities Top AsciiPitch 1.3.2 Headers
+omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.2.packet", ftypes.STRING)
 
 -- Cboe ByxEquities Top 1.3.2 Application Messages
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.byxequities.top.asciipitch.v1.3.2.clientheartbeatmessage", ftypes.BYTES)
@@ -89,7 +89,6 @@ show.structs = true
 -- Register Cboe ByxEquities Top AsciiPitch 1.3.2 Show Options
 omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_byxequities_top_asciipitch_v1_3_2.prefs_changed()

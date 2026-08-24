@@ -14,12 +14,6 @@ local nyse_nyseequities_integratedfeed_xdp_v2_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities IntegratedFeed Xdp 2.3.a Headers
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
-
 -- Nyse NyseEquities IntegratedFeed Xdp 2.3.a Fields
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.addordermessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.addorderrefreshmessage", ftypes.STRING)
@@ -136,6 +130,12 @@ omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.unit_of_trade = ProtoFiel
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.uppercollar", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.volume", ftypes.UINT32)
 
+-- Nyse NyseEquities IntegratedFeed Xdp 2.3.a Headers
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.message", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packet", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities IntegratedFeed Xdp 2.3.a generated fields
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeed.xdp.v2.3.a.messageindex", ftypes.UINT16)
 
@@ -152,7 +152,6 @@ show.indexes = true
 -- Register Nyse NyseEquities IntegratedFeed Xdp 2.3.a Show Options
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a.prefs_changed()

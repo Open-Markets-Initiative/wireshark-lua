@@ -14,10 +14,6 @@ local jnx_jnxequities_pts_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jnx JnxEquities Pts Itch 2.0 Headers
-omi_jnx_jnxequities_pts_itch_v2_0.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v2.0.packet", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v2.0.packetheader", ftypes.STRING)
-
 -- Jnx JnxEquities Pts Itch 2.0 Fields
 omi_jnx_jnxequities_pts_itch_v2_0.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.itch.v2.0.attribution", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.itch.v2.0.buysellindicator", ftypes.STRING)
@@ -51,6 +47,10 @@ omi_jnx_jnxequities_pts_itch_v2_0.fields.short_selling_state = ProtoField.new("S
 omi_jnx_jnxequities_pts_itch_v2_0.fields.system_event = ProtoField.new("System Event", "jnx.jnxequities.pts.itch.v2.0.systemevent", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v2.0.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v2_0.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v2.0.upperpricelimit", ftypes.DOUBLE)
+
+-- Jnx JnxEquities Pts Itch 2.0 Headers
+omi_jnx_jnxequities_pts_itch_v2_0.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v2.0.packet", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v2.0.packetheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 2.0 Application Messages
 omi_jnx_jnxequities_pts_itch_v2_0.fields.order_added_message_no_attributes = ProtoField.new("Order Added Message No Attributes", "jnx.jnxequities.pts.itch.v2.0.orderaddedmessagenoattributes", ftypes.STRING)

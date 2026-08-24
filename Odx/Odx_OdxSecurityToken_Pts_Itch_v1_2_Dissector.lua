@@ -14,14 +14,6 @@ local odx_odxsecuritytoken_pts_itch_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Odx OdxSecurityToken Pts Itch 1.2 Headers
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet = ProtoField.new("Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientpacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxsecuritytoken.pts.itch.v1.2.clientpacketheader", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientsoupbintcppacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet = ProtoField.new("Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serverpacket", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxsecuritytoken.pts.itch.v1.2.serverpacketheader", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serversoupbintcppacket", ftypes.STRING)
-
 -- Odx OdxSecurityToken Pts Itch 1.2 Fields
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.attention_flag = ProtoField.new("Attention Flag", "odx.odxsecuritytoken.pts.itch.v1.2.attentionflag", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxsecuritytoken.pts.itch.v1.2.buysellindicator", ftypes.STRING)
@@ -67,6 +59,14 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_message = ProtoField.n
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxsecuritytoken.pts.itch.v1.2.unsequencedmessagetype", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxsecuritytoken.pts.itch.v1.2.upperpricelimit", ftypes.DOUBLE)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.username = ProtoField.new("Username", "odx.odxsecuritytoken.pts.itch.v1.2.username", ftypes.STRING)
+
+-- Odx OdxSecurityToken Pts Itch 1.2 Headers
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet = ProtoField.new("Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxsecuritytoken.pts.itch.v1.2.clientpacketheader", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxsecuritytoken.pts.itch.v1.2.clientsoupbintcppacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet = ProtoField.new("Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serverpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxsecuritytoken.pts.itch.v1.2.serverpacketheader", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serversoupbintcppacket", ftypes.STRING)
 
 -- Odx OdxSecurityToken Pts 1.2 Session Messages
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxsecuritytoken.pts.itch.v1.2.debugpacket", ftypes.STRING)

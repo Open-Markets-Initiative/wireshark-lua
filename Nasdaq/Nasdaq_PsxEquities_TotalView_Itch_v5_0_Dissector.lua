@@ -14,10 +14,6 @@ local nasdaq_psxequities_totalview_itch_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq PsxEquities TotalView Itch 5.0 Headers
-omi_nasdaq_psxequities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.totalview.itch.v5.0.packet", ftypes.STRING)
-omi_nasdaq_psxequities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.totalview.itch.v5.0.packetheader", ftypes.STRING)
-
 -- Nasdaq PsxEquities TotalView Itch 5.0 Fields
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.psxequities.totalview.itch.v5.0.attribution", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.psxequities.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
@@ -85,6 +81,10 @@ omi_nasdaq_psxequities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Ti
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.psxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.psxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
+
+-- Nasdaq PsxEquities TotalView Itch 5.0 Headers
+omi_nasdaq_psxequities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.totalview.itch.v5.0.packet", ftypes.STRING)
+omi_nasdaq_psxequities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.totalview.itch.v5.0.packetheader", ftypes.STRING)
 
 -- Nasdaq PsxEquities TotalView 5.0 Application Messages
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.psxequities.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)

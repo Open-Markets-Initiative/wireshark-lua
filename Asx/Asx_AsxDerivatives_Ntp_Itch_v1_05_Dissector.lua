@@ -14,10 +14,6 @@ local asx_asxderivatives_ntp_itch_v1_05 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Asx AsxDerivatives Ntp Itch 1.05 Headers
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.ntp.itch.v1.05.packet", ftypes.STRING)
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.ntp.itch.v1.05.packetheader", ftypes.STRING)
-
 -- Asx AsxDerivatives Ntp Itch 1.05 Fields
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.aot_lower_price = ProtoField.new("Aot Lower Price", "asx.asxderivatives.ntp.itch.v1.05.aotlowerprice", ftypes.DOUBLE)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.aot_price = ProtoField.new("Aot Price", "asx.asxderivatives.ntp.itch.v1.05.aotprice", ftypes.DOUBLE)
@@ -118,6 +114,10 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id 
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxderivatives.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.asxderivatives.ntp.itch.v1.05.volatility", ftypes.UINT64)
 
+-- Asx AsxDerivatives Ntp Itch 1.05 Headers
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.ntp.itch.v1.05.packet", ftypes.STRING)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.ntp.itch.v1.05.packetheader", ftypes.STRING)
+
 -- Asx AsxDerivatives Ntp 1.05 Application Messages
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.add_order_message = ProtoField.new("Add Order Message", "asx.asxderivatives.ntp.itch.v1.05.addordermessage", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.asxderivatives.ntp.itch.v1.05.anomalousorderthresholdpublishmessage", ftypes.STRING)
@@ -169,7 +169,6 @@ omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_application_messages = Pref.boo
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()

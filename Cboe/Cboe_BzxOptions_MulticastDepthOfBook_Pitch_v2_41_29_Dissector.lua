@@ -14,10 +14,6 @@ local cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.29 Headers
-omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
-omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
-
 -- Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.29 Fields
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.aon = ProtoField.new("Aon", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -76,6 +72,10 @@ omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.trading_status = 
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.underlying = ProtoField.new("Underlying", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.underlying", ftypes.STRING)
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.width_type = ProtoField.new("Width Type", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.widthtype", ftypes.STRING)
+
+-- Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.29 Headers
+omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
+omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
 
 -- Cboe BzxOptions MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)

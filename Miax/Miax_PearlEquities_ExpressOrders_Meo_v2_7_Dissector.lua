@@ -14,11 +14,6 @@ local miax_pearlequities_expressorders_meo_v2_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities ExpressOrders Meo 2.7 Headers
-omi_miax_pearlequities_expressorders_meo_v2_7.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.7.esesmpacketheader", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.7.esesmtcppacket", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.7.packet", ftypes.STRING)
-
 -- Miax PearlEquities ExpressOrders Meo 2.7 Fields
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.account = ProtoField.new("Account", "miax.pearlequities.expressorders.meo.v2.7.account", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.action = ProtoField.new("Action", "miax.pearlequities.expressorders.meo.v2.7.action", ftypes.STRING)
@@ -148,6 +143,11 @@ omi_miax_pearlequities_expressorders_meo_v2_7.fields.unused_5 = ProtoField.new("
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v2.7.username", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v2.7.workingprice", ftypes.DOUBLE)
 
+-- Miax PearlEquities ExpressOrders Meo 2.7 Headers
+omi_miax_pearlequities_expressorders_meo_v2_7.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.7.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.7.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.7.packet", ftypes.STRING)
+
 -- Miax PearlEquities ExpressOrders 2.7 Application Messages
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_request = ProtoField.new("Aggressive Side Purge Request", "miax.pearlequities.expressorders.meo.v2.7.aggressivesidepurgerequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7.fields.aggressive_side_purge_response = ProtoField.new("Aggressive Side Purge Response", "miax.pearlequities.expressorders.meo.v2.7.aggressivesidepurgeresponse", ftypes.STRING)
@@ -183,7 +183,6 @@ show.application_messages = true
 -- Register Miax PearlEquities ExpressOrders Meo 2.7 Show Options
 omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_7.prefs_changed()

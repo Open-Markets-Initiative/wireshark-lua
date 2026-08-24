@@ -14,10 +14,6 @@ local jpx_osederivatives_geniuminet_itch_v5_0_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jpx OseDerivatives GeniumInet Itch 5.0.6 Headers
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.itch.v5.0.6.packet", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.packetheader", ftypes.STRING)
-
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 Fields
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.available_ask_quantity_at_equilibrium_price = ProtoField.new("Available Ask Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.itch.v5.0.6.availableaskquantityatequilibriumprice", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.available_bid_quantity_at_equilibrium_price = ProtoField.new("Available Bid Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.itch.v5.0.6.availablebidquantityatequilibriumprice", ftypes.UINT64)
@@ -86,6 +82,10 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.underlying_orderbook_id = P
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.undisclosed = ProtoField.new("Undisclosed", "jpx.osederivatives.geniuminet.itch.v5.0.6.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.unused = ProtoField.new("Unused", "jpx.osederivatives.geniuminet.itch.v5.0.6.unused", ftypes.UINT16, nil, base.DEC, 0xFFC0)
 
+-- Jpx OseDerivatives GeniumInet Itch 5.0.6 Headers
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.itch.v5.0.6.packet", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.packetheader", ftypes.STRING)
+
 -- Jpx OseDerivatives GeniumInet 5.0.6 Application Messages
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.add_order_no_mpid = ProtoField.new("Add Order No Mpid", "jpx.osederivatives.geniuminet.itch.v5.0.6.addordernompid", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.add_order_with_mpid = ProtoField.new("Add Order With Mpid", "jpx.osederivatives.geniuminet.itch.v5.0.6.addorderwithmpid", ftypes.STRING)
@@ -123,7 +123,6 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages = 
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()

@@ -14,15 +14,6 @@ local cme_globex_derived_sbe_v12_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex Derived Sbe 12.0 Headers
-omi_cme_globex_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.derived.sbe.v12.0.message", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.derived.sbe.v12.0.messageheader", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.derived.sbe.v12.0.tcpmessage", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.derived.sbe.v12.0.tcppacket", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.derived.sbe.v12.0.technicalheader", ftypes.STRING)
-omi_cme_globex_derived_sbe_v12_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.derived.sbe.v12.0.udppacket", ftypes.STRING)
-
 -- Cme Globex Derived Sbe 12.0 Fields
 omi_cme_globex_derived_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.globex.derived.sbe.v12.0.aggressorside", ftypes.UINT8)
 omi_cme_globex_derived_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.globex.derived.sbe.v12.0.blocklength", ftypes.UINT16)
@@ -60,6 +51,15 @@ omi_cme_globex_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Tra
 omi_cme_globex_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime", ftypes.UINT64)
 omi_cme_globex_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.derived.sbe.v12.0.version", ftypes.UINT16)
 
+-- Cme Globex Derived Sbe 12.0 Headers
+omi_cme_globex_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.derived.sbe.v12.0.message", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.derived.sbe.v12.0.messageheader", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.derived.sbe.v12.0.tcpmessage", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.derived.sbe.v12.0.tcppacket", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.derived.sbe.v12.0.technicalheader", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.derived.sbe.v12.0.udppacket", ftypes.STRING)
+
 -- Cme Globex Derived 12.0 Application Messages
 omi_cme_globex_derived_sbe_v12_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.derived.sbe.v12.0.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.globex.derived.sbe.v12.0.globaldayroll", ftypes.STRING)
@@ -93,7 +93,6 @@ omi_cme_globex_derived_sbe_v12_0.prefs.show_application_messages = Pref.bool("Sh
 omi_cme_globex_derived_sbe_v12_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_derived_sbe_v12_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_derived_sbe_v12_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_derived_sbe_v12_0.prefs_changed()

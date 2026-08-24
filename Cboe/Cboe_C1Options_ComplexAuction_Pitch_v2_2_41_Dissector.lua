@@ -14,10 +14,6 @@ local cboe_c1options_complexauction_pitch_v2_2_41 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options ComplexAuction Pitch 2.2.41 Headers
-omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.c1options.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
-omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
-
 -- Cboe C1Options ComplexAuction Pitch 2.2.41 Fields
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.complexauction.pitch.v2.2.41.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.complexauction.pitch.v2.2.41.auctionid", ftypes.UINT64)
@@ -66,6 +62,10 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.trade_date = ProtoField.n
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.complexauction.pitch.v2.2.41.underlying", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.unit = ProtoField.new("Unit", "cboe.c1options.complexauction.pitch.v2.2.41.unit", ftypes.UINT8)
 
+-- Cboe C1Options ComplexAuction Pitch 2.2.41 Headers
+omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.c1options.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
+omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
+
 -- Cboe C1Options ComplexAuction 2.2.41 Application Messages
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.complexauction.pitch.v2.2.41.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1options.complexauction.pitch.v2.2.41.auctionnotificationmessage", ftypes.STRING)
@@ -100,7 +100,6 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_application_messages 
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs_changed()

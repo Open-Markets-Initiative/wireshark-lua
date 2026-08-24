@@ -14,10 +14,6 @@ local memx_memxoptions_memoirtop_sbe_v1_6_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxOptions MemoirTop Sbe 1.6.a Headers
-omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirtop.sbe.v1.6.a.commonheader", ftypes.STRING)
-omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
-
 -- Memx MemxOptions MemoirTop Sbe 1.6.a Fields
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "memx.memxoptions.memoirtop.sbe.v1.6.a.asofsequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.bid_price = ProtoField.new("Bid Price", "memx.memxoptions.memoirtop.sbe.v1.6.a.bidprice", ftypes.DOUBLE)
@@ -74,6 +70,10 @@ omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.trading_session = ProtoField.ne
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.memoirtop.sbe.v1.6.a.underlier", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.memxoptions.memoirtop.sbe.v1.6.a.version", ftypes.UINT16)
 
+-- Memx MemxOptions MemoirTop Sbe 1.6.a Headers
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirtop.sbe.v1.6.a.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirtop.sbe.v1.6.a.packet", ftypes.STRING)
+
 -- Memx MemxOptions MemoirTop 1.6.a Application Messages
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.memxoptions.memoirtop.sbe.v1.6.a.bestbidmessage", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "memx.memxoptions.memoirtop.sbe.v1.6.a.bestbidoffermessage", ftypes.STRING)
@@ -107,7 +107,6 @@ show.indexes = true
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memoirtop_sbe_v1_6_a.prefs_changed()

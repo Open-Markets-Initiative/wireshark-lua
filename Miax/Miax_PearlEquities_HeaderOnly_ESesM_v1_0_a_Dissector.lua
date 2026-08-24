@@ -14,11 +14,6 @@ local miax_pearlequities_headeronly_esesm_v1_0_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities HeaderOnly ESesM 1.0.a Headers
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
-omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
-
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Fields
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.headeronly.esesm.v1.0.a.applicationprotocol", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.headeronly.esesm.v1.0.a.computerid", ftypes.STRING)
@@ -53,6 +48,11 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message = Prot
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.headeronly.esesm.v1.0.a.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.username = ProtoField.new("Username", "miax.pearlequities.headeronly.esesm.v1.0.a.username", ftypes.STRING)
 
+-- Miax PearlEquities HeaderOnly ESesM 1.0.a Headers
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -64,7 +64,6 @@ show.structs = true
 
 -- Register Miax PearlEquities HeaderOnly ESesM 1.0.a Show Options
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()

@@ -14,11 +14,6 @@ local iex_iexoptions_binaryorderentry_sbe_v1_02 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexOptions BinaryOrderEntry Sbe 1.02 Headers
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.binaryorderentry.sbe.v1.02.messageheader", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet = ProtoField.new("Packet", "iex.iexoptions.binaryorderentry.sbe.v1.02.packet", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
-
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_account = ProtoField.new("Account Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountaccount", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_string_16 = ProtoField.new("Account string 16", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountstring16", ftypes.STRING)
@@ -173,6 +168,11 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_status = Proto
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_type = ProtoField.new("User Session Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.usersessiontype", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.version = ProtoField.new("Version", "iex.iexoptions.binaryorderentry.sbe.v1.02.version", ftypes.UINT16)
 
+-- Iex IexOptions BinaryOrderEntry Sbe 1.02 Headers
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.binaryorderentry.sbe.v1.02.messageheader", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet = ProtoField.new("Packet", "iex.iexoptions.binaryorderentry.sbe.v1.02.packet", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
+
 -- Iex IexOptions BinaryOrderEntry 1.02 Application Messages
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.applicationlayerrejectmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message = ProtoField.new("Bulk Quote Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessage", ftypes.STRING)
@@ -245,7 +245,6 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_headers = Pref.bool("Sh
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs_changed()

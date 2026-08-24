@@ -14,15 +14,6 @@ local cme_globex_mdp3_sbe_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex Mdp3 Sbe 1.11 Headers
-omi_cme_globex_mdp3_sbe_v1_11.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.11.binarypacketheader", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.11.message", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.11.messageheader", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.11.tcpmessage", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.11.tcppacket", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.11.technicalheader", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_11.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.11.udppacket", ftypes.STRING)
-
 -- Cme Globex Mdp3 Sbe 1.11 Fields
 omi_cme_globex_mdp3_sbe_v1_11.fields.actual = ProtoField.new("Actual", "cme.globex.mdp3.sbe.v1.11.actual", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cme_globex_mdp3_sbe_v1_11.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.globex.mdp3.sbe.v1.11.aggressorindicator", ftypes.UINT8)
@@ -300,6 +291,15 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.workup_trading_status = ProtoField.new("Wor
 omi_cme_globex_mdp3_sbe_v1_11.fields.year = ProtoField.new("Year", "cme.globex.mdp3.sbe.v1.11.year", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_11.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.globex.mdp3.sbe.v1.11.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
+-- Cme Globex Mdp3 Sbe 1.11 Headers
+omi_cme_globex_mdp3_sbe_v1_11.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.11.binarypacketheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.11.message", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.11.messageheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.11.tcpmessage", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.11.tcppacket", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.11.technicalheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_11.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.11.udppacket", ftypes.STRING)
+
 -- Cme Globex Mdp3 1.11 Application Messages
 omi_cme_globex_mdp3_sbe_v1_11.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.11.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_11.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.11.adminlogin", ftypes.STRING)
@@ -373,7 +373,6 @@ omi_cme_globex_mdp3_sbe_v1_11.prefs.show_headers = Pref.bool("Show Headers", sho
 omi_cme_globex_mdp3_sbe_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_mdp3_sbe_v1_11.prefs_changed()

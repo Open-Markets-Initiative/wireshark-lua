@@ -14,13 +14,6 @@ local nyse_texasequities_depthfeed_pillar_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse TexasEquities DepthFeed Pillar 1.6 Headers
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.texasequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet = ProtoField.new("Packet", "nyse.texasequities.depthfeed.pillar.v1.6.packet", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.depthfeed.pillar.v1.6.packetheader", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime", ftypes.STRING)
-
 -- Nyse TexasEquities DepthFeed Pillar 1.6 Fields
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.texasequities.depthfeed.pillar.v1.6.auctioninterestclearingprice", ftypes.DOUBLE)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.auction_status = ProtoField.new("Auction Status", "nyse.texasequities.depthfeed.pillar.v1.6.auctionstatus", ftypes.UINT8)
@@ -100,6 +93,13 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.ne
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.depthfeed.pillar.v1.6.uppercollar", ftypes.UINT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.texasequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
+-- Nyse TexasEquities DepthFeed Pillar 1.6 Headers
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.texasequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet = ProtoField.new("Packet", "nyse.texasequities.depthfeed.pillar.v1.6.packet", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.depthfeed.pillar.v1.6.packetheader", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime", ftypes.STRING)
+
 -- Nyse TexasEquities DepthFeed 1.6 Application Messages
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.texasequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.depthfeed.pillar.v1.6.heartbeatresponsemessage", ftypes.STRING)
@@ -140,7 +140,6 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.prefs.show_structs = Pref.bool("Sho
 omi_nyse_texasequities_depthfeed_pillar_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_texasequities_depthfeed_pillar_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_texasequities_depthfeed_pillar_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_texasequities_depthfeed_pillar_v1_6.prefs_changed()

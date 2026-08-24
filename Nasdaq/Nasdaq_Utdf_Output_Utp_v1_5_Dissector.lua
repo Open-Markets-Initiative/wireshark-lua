@@ -14,12 +14,6 @@ local nasdaq_utdf_output_utp_v1_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Utdf Output Utp 1.5 Headers
-omi_nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
-
 -- Nasdaq Utdf Output Utp 1.5 Fields
 omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.utdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.utdf.output.utp.v1.5.administrative", ftypes.STRING)
@@ -123,6 +117,12 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasd
 omi_nasdaq_utdf_output_utp_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.utdf.output.utp.v1.5.volume", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type = ProtoField.new("Volume Message Type", "nasdaq.utdf.output.utp.v1.5.volumemessagetype", ftypes.STRING)
 
+-- Nasdaq Utdf Output Utp 1.5 Headers
+omi_nasdaq_utdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v1.5.message", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v1.5.messageheader", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.utdf.output.utp.v1.5.packetheader", ftypes.STRING)
+
 -- Nasdaq Utdf Output 1.5 Application Messages
 omi_nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v1.5.closingtradesummaryreportmessage", ftypes.STRING)
@@ -168,7 +168,6 @@ show.indexes = true
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_utdf_output_utp_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v1_5.prefs_changed()

@@ -14,10 +14,6 @@ local nyse_nyseequities_openbook_ultra_v2_1_k = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities OpenBook Ultra 2.1.k Headers
-omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
-omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
-
 -- Nyse NyseEquities OpenBook Ultra 2.1.k Fields
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.nyseequities.openbook.ultra.v2.1.k.beginseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.nyseequities.openbook.ultra.v2.1.k.chgqty", ftypes.UINT32)
@@ -62,6 +58,10 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.trading_status = ProtoField.n
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.update_size = ProtoField.new("Update Size", "nyse.nyseequities.openbook.ultra.v2.1.k.updatesize", ftypes.UINT16)
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.ultra.v2.1.k.volume", ftypes.UINT32)
 
+-- Nyse NyseEquities OpenBook Ultra 2.1.k Headers
+omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
+omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities OpenBook 2.1.k Application Messages
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.book_refresh_request_message = ProtoField.new("Book Refresh Request Message", "nyse.nyseequities.openbook.ultra.v2.1.k.bookrefreshrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.nyseequities.openbook.ultra.v2.1.k.deltaupdatemessage", ftypes.STRING)
@@ -100,7 +100,6 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_repeating_groups = Pref.b
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs_changed()

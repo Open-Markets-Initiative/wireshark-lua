@@ -14,10 +14,6 @@ local nasdaq_nsmequities_aggregated_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities Aggregated Itch 2.0 Headers
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.aggregated.itch.v2.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.aggregated.itch.v2.0.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities Aggregated Itch 2.0 Fields
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.aggregate_shares = ProtoField.new("Aggregate Shares", "nasdaq.nsmequities.aggregated.itch.v2.0.aggregateshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.nsmequities.aggregated.itch.v2.0.auctioncollarextension", ftypes.UINT32)
@@ -83,6 +79,10 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.tracking_number = ProtoField.
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.aggregated.itch.v2.0.tradingstate", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.aggregated.itch.v2.0.upperauctioncollarprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.aggregated.itch.v2.0.upperpricerangecollar", ftypes.DOUBLE)
+
+-- Nasdaq NsmEquities Aggregated Itch 2.0 Headers
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.aggregated.itch.v2.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.aggregated.itch.v2.0.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities Aggregated 2.0 Application Messages
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.direct_listing_with_capital_raise_price_discovery_message = ProtoField.new("Direct Listing With Capital Raise Price Discovery Message", "nasdaq.nsmequities.aggregated.itch.v2.0.directlistingwithcapitalraisepricediscoverymessage", ftypes.STRING)

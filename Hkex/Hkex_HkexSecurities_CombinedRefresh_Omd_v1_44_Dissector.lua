@@ -14,12 +14,6 @@ local hkex_hkexsecurities_combinedrefresh_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexSecurities CombinedRefresh Omd 1.44 Headers
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.message", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.msgheader", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.packetheader", ftypes.STRING)
-
 -- Hkex HkexSecurities CombinedRefresh Omd 1.44 Fields
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.aggregatequantity", ftypes.UINT64)
@@ -181,6 +175,12 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.warrant_maturity_date =
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.yield", ftypes.DOUBLE)
 
+-- Hkex HkexSecurities CombinedRefresh Omd 1.44 Headers
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities CombinedRefresh 1.44 Application Messages
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.add_odd_lot_order_message = ProtoField.new("Add Odd Lot Order Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.addoddlotordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.addordermessage", ftypes.STRING)
@@ -237,7 +237,6 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_repeating_groups = 
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs_changed()

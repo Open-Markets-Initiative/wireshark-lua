@@ -14,13 +14,6 @@ local nyse_nyseequities_imbalancesfeed_pillar_v2_2_n = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities ImbalancesFeed Pillar 2.2.n Headers
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.STRING)
-
 -- Nyse NyseEquities ImbalancesFeed Pillar 2.2.n Fields
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingprice", ftypes.DOUBLE)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.auction_status = ProtoField.new("Auction Status", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.auctionstatus", ftypes.UINT8)
@@ -93,6 +86,13 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_qty = ProtoFi
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.unpairedside", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.uppercollar", ftypes.UINT32)
 
+-- Nyse NyseEquities ImbalancesFeed Pillar 2.2.n Headers
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.STRING)
+
 -- Nyse NyseEquities ImbalancesFeed 2.2.n Application Messages
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.imbalancemessage", ftypes.STRING)
@@ -128,7 +128,6 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messag
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()

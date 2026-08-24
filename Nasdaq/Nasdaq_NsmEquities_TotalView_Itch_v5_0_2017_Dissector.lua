@@ -14,10 +14,6 @@ local nasdaq_nsmequities_totalview_itch_v5_0_2017 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities TotalView Itch 5.0.2017 Headers
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2017.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v5.0.2017.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities TotalView Itch 5.0.2017 Fields
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.itch.v5.0.2017.attribution", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.nsmequities.totalview.itch.v5.0.2017.auctioncollarextension", ftypes.UINT32)
@@ -87,6 +83,10 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.timestamp = ProtoField.ne
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.totalview.itch.v5.0.2017.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.itch.v5.0.2017.tradingstate", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.totalview.itch.v5.0.2017.upperauctioncollarprice", ftypes.DOUBLE)
+
+-- Nasdaq NsmEquities TotalView Itch 5.0.2017 Headers
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2017.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v5.0.2017.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView 5.0.2017 Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.nsmequities.totalview.itch.v5.0.2017.addordernompidattributionmessage", ftypes.STRING)

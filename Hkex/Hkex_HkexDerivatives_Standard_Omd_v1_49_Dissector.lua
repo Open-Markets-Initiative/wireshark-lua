@@ -14,12 +14,6 @@ local hkex_hkexderivatives_standard_omd_v1_49 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexDerivatives Standard Omd 1.49 Headers
-omi_hkex_hkexderivatives_standard_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.standard.omd.v1.49.message", ftypes.STRING)
-omi_hkex_hkexderivatives_standard_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.standard.omd.v1.49.msgheader", ftypes.STRING)
-omi_hkex_hkexderivatives_standard_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.standard.omd.v1.49.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_standard_omd_v1_49.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.standard.omd.v1.49.packetheader", ftypes.STRING)
-
 -- Hkex HkexDerivatives Standard Omd 1.49 Fields
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.actual_start_date = ProtoField.new("Actual Start Date", "hkex.hkexderivatives.standard.omd.v1.49.actualstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.standard.omd.v1.49.actualstarttime", ftypes.STRING)
@@ -124,6 +118,12 @@ omi_hkex_hkexderivatives_standard_omd_v1_49.fields.underlying_price_unit = Proto
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.standard.omd.v1.49.underlyingtype", ftypes.UINT8)
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.standard.omd.v1.49.updateaction", ftypes.UINT8)
 
+-- Hkex HkexDerivatives Standard Omd 1.49 Headers
+omi_hkex_hkexderivatives_standard_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.standard.omd.v1.49.message", ftypes.STRING)
+omi_hkex_hkexderivatives_standard_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.standard.omd.v1.49.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_standard_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.standard.omd.v1.49.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_standard_omd_v1_49.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.standard.omd.v1.49.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives Standard 1.49 Application Messages
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.standard.omd.v1.49.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_standard_omd_v1_49.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.standard.omd.v1.49.calculatedopeningpricemessage", ftypes.STRING)
@@ -166,7 +166,6 @@ omi_hkex_hkexderivatives_standard_omd_v1_49.prefs.show_repeating_groups = Pref.b
 omi_hkex_hkexderivatives_standard_omd_v1_49.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexderivatives_standard_omd_v1_49.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_standard_omd_v1_49.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_standard_omd_v1_49.prefs_changed()

@@ -14,12 +14,6 @@ local coinbase_deribit_ordersapi_sbe_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Coinbase Deribit OrdersApi Sbe 1.0 Headers
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.message_header = ProtoField.new("Message Header", "coinbase.deribit.ordersapi.sbe.v1.0.messageheader", ftypes.STRING)
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.packet = ProtoField.new("Packet", "coinbase.deribit.ordersapi.sbe.v1.0.packet", ftypes.STRING)
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.deribit.ordersapi.sbe.v1.0.sbemessage", ftypes.STRING)
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.0.sessionflags", ftypes.STRING)
-
 -- Coinbase Deribit OrdersApi Sbe 1.0 Fields
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_fills_group = ProtoField.new("Amend Order Response Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.0.amendorderresponsemessagefillsgroup", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_response_message_fills_groups = ProtoField.new("Amend Order Response Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.0.amendorderresponsemessagefillsgroups", ftypes.STRING)
@@ -163,6 +157,12 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.unused_replace_order_flags_0 = Pr
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.0.vegalevel", ftypes.DOUBLE)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.0.visibleqty", ftypes.STRING)
 
+-- Coinbase Deribit OrdersApi Sbe 1.0 Headers
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.message_header = ProtoField.new("Message Header", "coinbase.deribit.ordersapi.sbe.v1.0.messageheader", ftypes.STRING)
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.packet = ProtoField.new("Packet", "coinbase.deribit.ordersapi.sbe.v1.0.packet", ftypes.STRING)
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.deribit.ordersapi.sbe.v1.0.sbemessage", ftypes.STRING)
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.0.sessionflags", ftypes.STRING)
+
 -- Coinbase Deribit OrdersApi 1.0 Application Messages
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_reject_message = ProtoField.new("Amend Order Reject Message", "coinbase.deribit.ordersapi.sbe.v1.0.amendorderrejectmessage", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.amend_order_request_message = ProtoField.new("Amend Order Request Message", "coinbase.deribit.ordersapi.sbe.v1.0.amendorderrequestmessage", ftypes.STRING)
@@ -236,7 +236,6 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_repeating_groups = Pref.bool(
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()

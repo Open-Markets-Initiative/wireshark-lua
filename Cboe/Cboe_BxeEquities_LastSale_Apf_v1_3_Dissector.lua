@@ -14,9 +14,6 @@ local cboe_bxeequities_lastsale_apf_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BxeEquities LastSale Apf 1.3 Headers
-omi_cboe_bxeequities_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.bxeequities.lastsale.apf.v1.3.packet", ftypes.STRING)
-
 -- Cboe BxeEquities LastSale Apf 1.3 Fields
 omi_cboe_bxeequities_lastsale_apf_v1_3.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.bxeequities.lastsale.apf.v1.3.agencycrosstrade", ftypes.STRING)
 omi_cboe_bxeequities_lastsale_apf_v1_3.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.bxeequities.lastsale.apf.v1.3.algorithmicindicator", ftypes.STRING)
@@ -57,6 +54,9 @@ omi_cboe_bxeequities_lastsale_apf_v1_3.fields.unsequenced_data_packet = ProtoFie
 omi_cboe_bxeequities_lastsale_apf_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bxeequities.lastsale.apf.v1.3.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bxeequities_lastsale_apf_v1_3.fields.username = ProtoField.new("Username", "cboe.bxeequities.lastsale.apf.v1.3.username", ftypes.STRING)
 
+-- Cboe BxeEquities LastSale Apf 1.3 Headers
+omi_cboe_bxeequities_lastsale_apf_v1_3.fields.packet = ProtoField.new("Packet", "cboe.bxeequities.lastsale.apf.v1.3.packet", ftypes.STRING)
+
 -- Cboe BxeEquities LastSale 1.3 Application Messages
 omi_cboe_bxeequities_lastsale_apf_v1_3.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.bxeequities.lastsale.apf.v1.3.lastsaleeuropemessage", ftypes.STRING)
 
@@ -73,7 +73,6 @@ show.application_messages = true
 -- Register Cboe BxeEquities LastSale Apf 1.3 Show Options
 omi_cboe_bxeequities_lastsale_apf_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bxeequities_lastsale_apf_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_lastsale_apf_v1_3.prefs_changed()

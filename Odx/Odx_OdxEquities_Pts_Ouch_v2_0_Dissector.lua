@@ -14,14 +14,6 @@ local odx_odxequities_pts_ouch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Odx OdxEquities Pts Ouch 2.0 Headers
-omi_odx_odxequities_pts_ouch_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.ouch.v2.0.clientpacket", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.ouch.v2.0.clientpacketheader", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.ouch.v2.0.clientsoupbintcppacket", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.server_packet = ProtoField.new("Packet", "odx.odxequities.pts.ouch.v2.0.serverpacket", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.ouch.v2.0.serverpacketheader", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.ouch.v2.0.serversoupbintcppacket", ftypes.STRING)
-
 -- Odx OdxEquities Pts Ouch 2.0 Fields
 omi_odx_odxequities_pts_ouch_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.ouch.v2.0.buysellindicator", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.capacity = ProtoField.new("Capacity", "odx.odxequities.pts.ouch.v2.0.capacity", ftypes.STRING)
@@ -65,6 +57,14 @@ omi_odx_odxequities_pts_ouch_v2_0.fields.time_in_force = ProtoField.new("Time In
 omi_odx_odxequities_pts_ouch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "odx.odxequities.pts.ouch.v2.0.timestamp", ftypes.UINT64)
 omi_odx_odxequities_pts_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxequities.pts.ouch.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.username = ProtoField.new("Username", "odx.odxequities.pts.ouch.v2.0.username", ftypes.STRING)
+
+-- Odx OdxEquities Pts Ouch 2.0 Headers
+omi_odx_odxequities_pts_ouch_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.ouch.v2.0.clientpacket", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.ouch.v2.0.clientpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.ouch.v2.0.clientsoupbintcppacket", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.server_packet = ProtoField.new("Packet", "odx.odxequities.pts.ouch.v2.0.serverpacket", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.ouch.v2.0.serverpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.ouch.v2.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Odx OdxEquities Pts 2.0 Application Messages
 omi_odx_odxequities_pts_ouch_v2_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "odx.odxequities.pts.ouch.v2.0.cancelordermessage", ftypes.STRING)

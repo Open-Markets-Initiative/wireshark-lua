@@ -14,10 +14,6 @@ local nasdaq_phlxoptions_depthofmarket_itch_v1_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Headers
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.packet", ftypes.STRING)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.packetheader", ftypes.STRING)
-
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Fields
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.ask", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.askprice", ftypes.DOUBLE)
@@ -84,6 +80,10 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.tradable = ProtoField.new(
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.trade_indicator = ProtoField.new("Trade Indicator", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.tradeindicator", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.volume", ftypes.UINT32)
+
+-- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 Headers
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.packetheader", ftypes.STRING)
 
 -- Nasdaq PhlxOptions DepthOfMarket 1.5 Application Messages
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.addordermessagelongform", ftypes.STRING)

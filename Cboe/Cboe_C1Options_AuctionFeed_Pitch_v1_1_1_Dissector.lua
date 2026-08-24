@@ -14,10 +14,6 @@ local cboe_c1options_auctionfeed_pitch_v1_1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options AuctionFeed Pitch 1.1.1 Headers
-omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.1.packet", ftypes.STRING)
-omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
-
 -- Cboe C1Options AuctionFeed Pitch 1.1.1 Fields
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.auctionfeed.pitch.v1.1.1.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.auctionfeed.pitch.v1.1.1.auctionid", ftypes.UINT64)
@@ -56,6 +52,10 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("T
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.auctionfeed.pitch.v1.1.1.underlying", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.unit = ProtoField.new("Unit", "cboe.c1options.auctionfeed.pitch.v1.1.1.unit", ftypes.UINT8)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.auctionfeed.pitch.v1.1.1.widthtype", ftypes.STRING)
+
+-- Cboe C1Options AuctionFeed Pitch 1.1.1 Headers
+omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.1.packet", ftypes.STRING)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
 
 -- Cboe C1Options AuctionFeed 1.1.1 Application Messages
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.auctionfeed.pitch.v1.1.1.auctioncancelmessage", ftypes.STRING)

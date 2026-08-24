@@ -14,13 +14,6 @@ local miax_miaxoptions_orderfeed_mach_v2_5_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax MiaxOptions OrderFeed Mach 2.5.b Headers
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.machmessage", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpacketheader", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmtcppacket", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.tcppacket", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.udppacket", ftypes.STRING)
-
 -- Miax MiaxOptions OrderFeed Mach 2.5.b Fields
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.action = ProtoField.new("Action", "miax.miaxoptions.orderfeed.mach.v2.5.b.action", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.orderfeed.mach.v2.5.b.activeonmiax", ftypes.STRING)
@@ -108,6 +101,13 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.unsequenced_message_type = Pro
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.orderfeed.mach.v2.5.b.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.username = ProtoField.new("Username", "miax.miaxoptions.orderfeed.mach.v2.5.b.username", ftypes.STRING)
 
+-- Miax MiaxOptions OrderFeed Mach 2.5.b Headers
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.orderfeed.mach.v2.5.b.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions OrderFeed 2.5.b Application Messages
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.complex_order_message = ProtoField.new("Complex Order Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.complexordermessage", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.complexstrategydefinitionupdatemessage", ftypes.STRING)
@@ -142,7 +142,6 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_structs = Pref.bool("Show 
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs_changed()

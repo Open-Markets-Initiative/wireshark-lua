@@ -14,13 +14,6 @@ local otcmarkets_linknqb_depthofbook_link_v1_18 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkNqb DepthOfBook Link 1.18 Headers
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message = ProtoField.new("Message", "otcmarkets.linknqb.depthofbook.link.v1.18.message", ftypes.STRING)
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linknqb.depthofbook.link.v1.18.messageheader", ftypes.STRING)
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet = ProtoField.new("Packet", "otcmarkets.linknqb.depthofbook.link.v1.18.packet", ftypes.STRING)
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linknqb.depthofbook.link.v1.18.packetflag", ftypes.STRING)
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linknqb.depthofbook.link.v1.18.packetheader", ftypes.STRING)
-
 -- OtcMarkets LinkNqb DepthOfBook Link 1.18 Fields
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.linknqb.depthofbook.link.v1.18.assetclass", ftypes.UINT8)
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.caveat_flag = ProtoField.new("Caveat Flag", "otcmarkets.linknqb.depthofbook.link.v1.18.caveatflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -79,6 +72,13 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.trading_session = ProtoFiel
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.linknqb.depthofbook.link.v1.18.unsolicited", ftypes.STRING)
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.linknqb.depthofbook.link.v1.18.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
+-- OtcMarkets LinkNqb DepthOfBook Link 1.18 Headers
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message = ProtoField.new("Message", "otcmarkets.linknqb.depthofbook.link.v1.18.message", ftypes.STRING)
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linknqb.depthofbook.link.v1.18.messageheader", ftypes.STRING)
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet = ProtoField.new("Packet", "otcmarkets.linknqb.depthofbook.link.v1.18.packet", ftypes.STRING)
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linknqb.depthofbook.link.v1.18.packetflag", ftypes.STRING)
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linknqb.depthofbook.link.v1.18.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkNqb DepthOfBook 1.18 Application Messages
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linknqb.depthofbook.link.v1.18.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.imbalance_message = ProtoField.new("Imbalance Message", "otcmarkets.linknqb.depthofbook.link.v1.18.imbalancemessage", ftypes.STRING)
@@ -111,7 +111,6 @@ show.indexes = true
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs_changed()

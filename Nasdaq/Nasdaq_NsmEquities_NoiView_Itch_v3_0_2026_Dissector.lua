@@ -14,10 +14,6 @@ local nasdaq_nsmequities_noiview_itch_v3_0_2026 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities NoiView Itch 3.0.2026 Headers
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities NoiView Itch 3.0.2026 Fields
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.itch.v3.0.2026.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.itch.v3.0.2026.crossprice", ftypes.DOUBLE)
@@ -68,6 +64,10 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_integer_6 = Proto
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_timestamp_6 = ProtoField.new("Timestamp Timestamp 6", "nasdaq.nsmequities.noiview.itch.v3.0.2026.timestamptimestamp6", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noiview.itch.v3.0.2026.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.noiview.itch.v3.0.2026.upperpricerangecollar", ftypes.DOUBLE)
+
+-- Nasdaq NsmEquities NoiView Itch 3.0.2026 Headers
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2026.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities NoiView 3.0.2026 Application Messages
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noiview.itch.v3.0.2026.crosstrademessage", ftypes.STRING)

@@ -14,10 +14,6 @@ local cboe_dxederivatives_multicastdepthofbook_pitch_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Headers
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packetheader", ftypes.STRING)
-
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Fields
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.algorithmicindicator", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.algorithmic_trade = ProtoField.new("Algorithmic Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.algorithmictrade", ftypes.STRING)
@@ -126,6 +122,10 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_1 = Proto
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3 = ProtoField.new("Unused 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unused3", ftypes.UINT8, nil, base.DEC, 0x38)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.volume = ProtoField.new("Volume", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.volume", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthtype", ftypes.UINT8)
+
+-- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Headers
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packetheader", ftypes.STRING)
 
 -- Cboe DxeDerivatives MulticastDepthOfBook 1.11 Application Messages
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.addorderlongmessage", ftypes.STRING)

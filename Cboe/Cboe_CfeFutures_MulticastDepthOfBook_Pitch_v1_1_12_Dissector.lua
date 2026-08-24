@@ -14,10 +14,6 @@ local cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Headers
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packetheader", ftypes.STRING)
-
 -- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Fields
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.blockvolume", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.canceled_long_quantity = ProtoField.new("Canceled Long Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.canceledlongquantity", ftypes.UINT32)
@@ -89,6 +85,10 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unused_3 = ProtoFi
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.variance", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.variance_block_offset = ProtoField.new("Variance Block Offset", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.varianceblockoffset", ftypes.UINT8)
 
+-- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Headers
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastDepthOfBook 1.1.12 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.addorderlongmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.addordershortmessage", ftypes.STRING)
@@ -134,7 +134,6 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_application_me
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs_changed()

@@ -14,10 +14,6 @@ local nasdaq_ntxoptions_depthofmarket_itch_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Headers
-omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packet", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
-
 -- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.ask = ProtoField.new("Ask", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.ask", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.askprice", ftypes.DOUBLE)
@@ -86,6 +82,10 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.tradable = ProtoField.new("
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.volume", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.volumelong", ftypes.UINT32)
+
+-- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Headers
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
 
 -- Nasdaq NtxOptions DepthOfMarket 1.3 Application Messages
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.add_order_message_long_form = ProtoField.new("Add Order Message Long Form", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.addordermessagelongform", ftypes.STRING)

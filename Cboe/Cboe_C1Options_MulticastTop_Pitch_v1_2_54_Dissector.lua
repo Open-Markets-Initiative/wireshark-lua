@@ -14,10 +14,6 @@ local cboe_c1options_multicasttop_pitch_v1_2_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options MulticastTop Pitch 1.2.54 Headers
-omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicasttop.pitch.v1.2.54.packet", ftypes.STRING)
-omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicasttop.pitch.v1.2.54.packetheader", ftypes.STRING)
-
 -- Cboe C1Options MulticastTop Pitch 1.2.54 Fields
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.aon = ProtoField.new("Aon", "cboe.c1options.multicasttop.pitch.v1.2.54.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.c1options.multicasttop.pitch.v1.2.54.askcustomerquantitylong", ftypes.UINT32)
@@ -87,6 +83,10 @@ omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.multicasttop.pitch.v1.2.54.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.multicasttop.pitch.v1.2.54.widthtype", ftypes.STRING)
 
+-- Cboe C1Options MulticastTop Pitch 1.2.54 Headers
+omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.c1options.multicasttop.pitch.v1.2.54.packet", ftypes.STRING)
+omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.multicasttop.pitch.v1.2.54.packetheader", ftypes.STRING)
+
 -- Cboe C1Options MulticastTop 1.2.54 Application Messages
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.multicasttop.pitch.v1.2.54.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.c1options.multicasttop.pitch.v1.2.54.constituentsymbolmappingmessage", ftypes.STRING)
@@ -124,7 +124,6 @@ show.indexes = true
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_multicasttop_pitch_v1_2_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_multicasttop_pitch_v1_2_54.prefs_changed()

@@ -14,11 +14,6 @@ local txse_txseequities_framing_tcp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Txse TxseEquities Framing Tcp 1.0 Headers
-omi_txse_txseequities_framing_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.tcp.v1.0.packet", ftypes.STRING)
-omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.framing.tcp.v1.0.rakemessageheader", ftypes.STRING)
-omi_txse_txseequities_framing_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.raketcpmessage", ftypes.STRING)
-
 -- Txse TxseEquities Framing Tcp 1.0 Fields
 omi_txse_txseequities_framing_tcp_v1_0.fields.debug_message = ProtoField.new("Debug Message", "txse.txseequities.framing.tcp.v1.0.debugmessage", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.highest_known_sequence_number = ProtoField.new("Highest Known Sequence Number", "txse.txseequities.framing.tcp.v1.0.highestknownsequencenumber", ftypes.UINT64)
@@ -41,6 +36,11 @@ omi_txse_txseequities_framing_tcp_v1_0.fields.text = ProtoField.new("Text", "txs
 omi_txse_txseequities_framing_tcp_v1_0.fields.token = ProtoField.new("Token", "txse.txseequities.framing.tcp.v1.0.token", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "txse.txseequities.framing.tcp.v1.0.unsequencedmessage", ftypes.BYTES)
 
+-- Txse TxseEquities Framing Tcp 1.0 Headers
+omi_txse_txseequities_framing_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.tcp.v1.0.packet", ftypes.STRING)
+omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.framing.tcp.v1.0.rakemessageheader", ftypes.STRING)
+omi_txse_txseequities_framing_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.raketcpmessage", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -52,7 +52,6 @@ show.structs = true
 
 -- Register Txse TxseEquities Framing Tcp 1.0 Show Options
 omi_txse_txseequities_framing_tcp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_txse_txseequities_framing_tcp_v1_0.prefs_changed()

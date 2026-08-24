@@ -14,13 +14,6 @@ local nyse_arcaoptions_topfeed_pillar_v1_2_j = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ArcaOptions TopFeed Pillar 1.2.j Headers
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.j.message", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.messageheader", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packet", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packetheader", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.STRING)
-
 -- Nyse ArcaOptions TopFeed Pillar 1.2.j Fields
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.arcaoptions.topfeed.pillar.v1.2.j.askcustomervolume", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaoptions.topfeed.pillar.v1.2.j.askprice", ftypes.DOUBLE)
@@ -134,6 +127,13 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.upper_collar = ProtoField.new(
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.volume = ProtoField.new("Volume", "nyse.arcaoptions.topfeed.pillar.v1.2.j.volume", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.topfeed.pillar.v1.2.j.workingprice", ftypes.DOUBLE)
 
+-- Nyse ArcaOptions TopFeed Pillar 1.2.j Headers
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.j.message", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packet", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packetheader", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.STRING)
+
 -- Nyse ArcaOptions TopFeed 1.2.j Application Messages
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.arcaoptions.topfeed.pillar.v1.2.j.complexseriesindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaoptions.topfeed.pillar.v1.2.j.heartbeatresponsemessage", ftypes.STRING)
@@ -181,7 +181,6 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_application_messages = Pre
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs_changed()

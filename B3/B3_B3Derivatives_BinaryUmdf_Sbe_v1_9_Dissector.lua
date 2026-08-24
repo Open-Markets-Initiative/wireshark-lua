@@ -14,13 +14,6 @@ local b3_b3derivatives_binaryumdf_sbe_v1_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- B3 B3Derivatives BinaryUmdf Sbe 1.9 Headers
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.framingheader", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.message = ProtoField.new("Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.message", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.messageheader", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryumdf.sbe.v1.9.packet", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet_header = ProtoField.new("Packet Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.packetheader", ftypes.STRING)
-
 -- B3 B3Derivatives BinaryUmdf Sbe 1.9 Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.aggressor_side = ProtoField.new("Aggressor Side", "b3.b3derivatives.binaryumdf.sbe.v1.9.aggressorside", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v1.9.aggressortime", ftypes.UINT64)
@@ -237,6 +230,13 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.vwap_px = ProtoField.new("Vwap P
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.week = ProtoField.new("Week", "b3.b3derivatives.binaryumdf.sbe.v1.9.week", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.year = ProtoField.new("Year", "b3.b3derivatives.binaryumdf.sbe.v1.9.year", ftypes.UINT16)
 
+-- B3 B3Derivatives BinaryUmdf Sbe 1.9 Headers
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.framingheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.message = ProtoField.new("Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.message", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.messageheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryumdf.sbe.v1.9.packet", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet_header = ProtoField.new("Packet Header", "b3.b3derivatives.binaryumdf.sbe.v1.9.packetheader", ftypes.STRING)
+
 -- B3 B3Derivatives BinaryUmdf 1.9 Application Messages
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.auction_imbalance_19_message = ProtoField.new("Auction Imbalance 19 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.auctionimbalance19message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.channel_reset_11_message = ProtoField.new("Channel Reset 11 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.channelreset11message", ftypes.STRING)
@@ -293,7 +293,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.prefs.show_structs = Pref.bool("Show St
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryumdf_sbe_v1_9.prefs_changed()

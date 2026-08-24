@@ -14,10 +14,6 @@ local nasdaq_nsmequities_level2_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities Level2 Itch 2.0 Headers
-omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.level2.itch.v2.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.level2.itch.v2.0.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities Level2 Itch 2.0 Fields
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.level2.itch.v2.0.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.nsmequities.level2.itch.v2.0.breachedlevel", ftypes.STRING)
@@ -63,6 +59,10 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.short_sale_threshold_indicator = 
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.level2.itch.v2.0.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.level2.itch.v2.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.level2.itch.v2.0.trackingnumber", ftypes.UINT16)
+
+-- Nasdaq NsmEquities Level2 Itch 2.0 Headers
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.level2.itch.v2.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.level2.itch.v2.0.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities Level2 2.0 Application Messages
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.level2.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)

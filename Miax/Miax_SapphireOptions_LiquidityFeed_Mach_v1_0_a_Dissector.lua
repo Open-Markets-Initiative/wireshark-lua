@@ -14,13 +14,6 @@ local miax_sapphireoptions_liquidityfeed_mach_v1_0_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax SapphireOptions LiquidityFeed Mach 1.0.a Headers
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.machmessage", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.tcppacket", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.udppacket", ftypes.STRING)
-
 -- Miax SapphireOptions LiquidityFeed Mach 1.0.a Fields
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.action = ProtoField.new("Action", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.action", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.active_on_sapphire = ProtoField.new("Active On Sapphire", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.activeonsapphire", ftypes.STRING)
@@ -106,6 +99,13 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.unsequenced_message_ty
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.update_reason = ProtoField.new("Update Reason", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.updatereason", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.username = ProtoField.new("Username", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.username", ftypes.STRING)
 
+-- Miax SapphireOptions LiquidityFeed Mach 1.0.a Headers
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.machmessage", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.tcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.udppacket", ftypes.STRING)
+
 -- Miax SapphireOptions LiquidityFeed 1.0.a Application Messages
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.complex_order_message = ProtoField.new("Complex Order Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.complexordermessage", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.complexstrategydefinitionupdatemessage", ftypes.STRING)
@@ -140,7 +140,6 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_structs = Pref.boo
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs_changed()

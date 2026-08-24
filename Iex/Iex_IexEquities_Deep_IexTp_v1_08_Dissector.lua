@@ -14,10 +14,6 @@ local iex_iexequities_deep_iextp_v1_08 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities Deep IexTp 1.08 Headers
-omi_iex_iexequities_deep_iextp_v1_08.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deep.iextp.v1.08.iextpheader", ftypes.STRING)
-omi_iex_iexequities_deep_iextp_v1_08.fields.packet = ProtoField.new("Packet", "iex.iexequities.deep.iextp.v1.08.packet", ftypes.STRING)
-
 -- Iex IexEquities Deep IexTp 1.08 Fields
 omi_iex_iexequities_deep_iextp_v1_08.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deep.iextp.v1.08.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deep_iextp_v1_08.fields.auction_book_clearing_price = ProtoField.new("Auction Book Clearing Price", "iex.iexequities.deep.iextp.v1.08.auctionbookclearingprice", ftypes.DOUBLE)
@@ -77,6 +73,10 @@ omi_iex_iexequities_deep_iextp_v1_08.fields.upper_auction_collar = ProtoField.ne
 omi_iex_iexequities_deep_iextp_v1_08.fields.version = ProtoField.new("Version", "iex.iexequities.deep.iextp.v1.08.version", ftypes.UINT8)
 omi_iex_iexequities_deep_iextp_v1_08.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deep.iextp.v1.08.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
+-- Iex IexEquities Deep IexTp 1.08 Headers
+omi_iex_iexequities_deep_iextp_v1_08.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deep.iextp.v1.08.iextpheader", ftypes.STRING)
+omi_iex_iexequities_deep_iextp_v1_08.fields.packet = ProtoField.new("Packet", "iex.iexequities.deep.iextp.v1.08.packet", ftypes.STRING)
+
 -- Iex IexEquities Deep 1.08 Application Messages
 omi_iex_iexequities_deep_iextp_v1_08.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.deep.iextp.v1.08.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.official_price_message = ProtoField.new("Official Price Message", "iex.iexequities.deep.iextp.v1.08.officialpricemessage", ftypes.STRING)
@@ -112,7 +112,6 @@ omi_iex_iexequities_deep_iextp_v1_08.prefs.show_application_messages = Pref.bool
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_deep_iextp_v1_08.prefs_changed()

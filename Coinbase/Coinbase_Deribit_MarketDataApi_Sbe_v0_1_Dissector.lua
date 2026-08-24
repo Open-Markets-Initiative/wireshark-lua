@@ -14,14 +14,6 @@ local coinbase_deribit_marketdataapi_sbe_v0_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Coinbase Deribit MarketDataApi Sbe 0.1 Headers
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessage", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_header = ProtoField.new("Md Message Header", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageheader", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet = ProtoField.new("Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.packet", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_header = ProtoField.new("Packet Header", "coinbase.deribit.marketdataapi.sbe.v0.1.packetheader", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
-
 -- Coinbase Deribit MarketDataApi Sbe 0.1 Fields
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.deribit.marketdataapi.sbe.v0.1.activeinstrumentcount", ftypes.INT32)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.base_currency = ProtoField.new("Base Currency", "coinbase.deribit.marketdataapi.sbe.v0.1.basecurrency", ftypes.STRING)
@@ -104,6 +96,14 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.type = ProtoField.new("Type",
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.deribit.marketdataapi.sbe.v0.1.weekofmonth", ftypes.INT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.year = ProtoField.new("Year", "coinbase.deribit.marketdataapi.sbe.v0.1.year", ftypes.INT16)
 
+-- Coinbase Deribit MarketDataApi Sbe 0.1 Headers
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessage", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_header = ProtoField.new("Md Message Header", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageheader", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet = ProtoField.new("Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.packet", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_header = ProtoField.new("Packet Header", "coinbase.deribit.marketdataapi.sbe.v0.1.packetheader", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
+
 -- Coinbase Deribit MarketDataApi 0.1 Application Messages
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_delete_message = ProtoField.new("Ask Delete Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askdeletemessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_put_message = ProtoField.new("Ask Put Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askputmessage", ftypes.STRING)
@@ -144,7 +144,6 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.prefs.show_application_messages = Pr
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_coinbase_deribit_marketdataapi_sbe_v0_1.prefs_changed()

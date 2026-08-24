@@ -14,9 +14,6 @@ local cboe_bzxequities_auctionfeed_asciipitch_v1_3_8 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Headers
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packet", ftypes.STRING)
-
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long_price_14 = ProtoField.new("Auction Only Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricelongprice14", ftypes.DOUBLE)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_numeric_10 = ProtoField.new("Auction Only Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricenumeric10", ftypes.STRING)
@@ -52,6 +49,9 @@ omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_data_packe
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.username", ftypes.STRING)
 
+-- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Headers
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packet", ftypes.STRING)
+
 -- Cboe BzxEquities AuctionFeed 1.3.8 Application Messages
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctionsummarymessage", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctionupdatemessage", ftypes.STRING)
@@ -71,7 +71,6 @@ show.structs = true
 -- Register Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Show Options
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.prefs_changed()

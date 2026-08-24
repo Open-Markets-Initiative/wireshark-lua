@@ -14,10 +14,6 @@ local nasdaq_common_mold64_udp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Common Mold64 Udp 1.0 Headers
-omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
-omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
-
 -- Nasdaq Common Mold64 Udp 1.0 Fields
 omi_nasdaq_common_mold64_udp_v1_0.fields.message = ProtoField.new("Message", "nasdaq.common.mold64.udp.v1.0.message", ftypes.STRING)
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.common.mold64.udp.v1.0.messagecount", ftypes.UINT16)
@@ -27,6 +23,10 @@ omi_nasdaq_common_mold64_udp_v1_0.fields.message_type = ProtoField.new("Message 
 omi_nasdaq_common_mold64_udp_v1_0.fields.payload = ProtoField.new("Payload", "nasdaq.common.mold64.udp.v1.0.payload", ftypes.BYTES)
 omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.mold64.udp.v1.0.sequencenumber", ftypes.UINT64)
 omi_nasdaq_common_mold64_udp_v1_0.fields.session = ProtoField.new("Session", "nasdaq.common.mold64.udp.v1.0.session", ftypes.STRING)
+
+-- Nasdaq Common Mold64 Udp 1.0 Headers
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
+omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
 
 -- Nasdaq Common Mold64 Udp 1.0 generated fields
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.common.mold64.udp.v1.0.messageindex", ftypes.UINT16)
@@ -46,7 +46,6 @@ show.indexes = true
 omi_nasdaq_common_mold64_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_common_mold64_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_common_mold64_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_common_mold64_udp_v1_0.prefs_changed()

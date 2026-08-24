@@ -14,12 +14,6 @@ local hkex_hkexderivatives_fulltickretrans_omd_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexDerivatives FullTickRetrans Omd 2.2 Headers
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.message", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.msgheader", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.packet", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.packetheader", ftypes.STRING)
-
 -- Hkex HkexDerivatives FullTickRetrans Omd 2.2 Fields
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.actualstarttime", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.alertid", ftypes.UINT64)
@@ -137,6 +131,12 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.vcm_lower_price = Proto
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.vcmupperprice", ftypes.INT64)
 
+-- Hkex HkexDerivatives FullTickRetrans Omd 2.2 Headers
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.message", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.msgheader", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.packet", ftypes.STRING)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.packetheader", ftypes.STRING)
+
 -- Hkex HkexDerivatives FullTickRetrans 2.2 Application Messages
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.add_order = ProtoField.new("Add Order", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.addorder", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.fulltickretrans.omd.v2.2.aggregateimpliedorder", ftypes.STRING)
@@ -187,7 +187,6 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.prefs.show_application_message
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_fulltickretrans_omd_v2_2.prefs_changed()

@@ -14,10 +14,6 @@ local miax_onyxfutures_topofmarket_mach_v1_0_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax OnyxFutures TopOfMarket Mach 1.0.b Headers
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.topofmarket.mach.v1.0.b.packet", ftypes.STRING)
-
 -- Miax OnyxFutures TopOfMarket Mach 1.0.b Fields
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.applicationmessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.correctionnumber", ftypes.UINT8)
@@ -72,6 +68,10 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset_type = Prot
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 
+-- Miax OnyxFutures TopOfMarket Mach 1.0.b Headers
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.topofmarket.mach.v1.0.b.packet", ftypes.STRING)
+
 -- Miax OnyxFutures TopOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.best_bid_and_offer_message = ProtoField.new("Best Bid And Offer Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.bestbidandoffermessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.complex_instrument_definition_message = ProtoField.new("Complex Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.complexinstrumentdefinitionmessage", ftypes.STRING)
@@ -101,7 +101,6 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_structs = Pref.bool("Sho
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()

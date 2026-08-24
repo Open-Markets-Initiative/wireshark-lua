@@ -14,12 +14,6 @@ local hkex_hkexsecurities_standardrefresh_omd_v1_45 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexSecurities StandardRefresh Omd 1.45 Headers
-omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.standardrefresh.omd.v1.45.message", ftypes.STRING)
-omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.standardrefresh.omd.v1.45.msgheader", ftypes.STRING)
-omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.standardrefresh.omd.v1.45.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.standardrefresh.omd.v1.45.packetheader", ftypes.STRING)
-
 -- Hkex HkexSecurities StandardRefresh Omd 1.45 Fields
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.standardrefresh.omd.v1.45.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.standardrefresh.omd.v1.45.aggregatequantity", ftypes.UINT64)
@@ -156,6 +150,12 @@ omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.warrant_maturity_date =
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.standardrefresh.omd.v1.45.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.standardrefresh.omd.v1.45.yield", ftypes.DOUBLE)
 
+-- Hkex HkexSecurities StandardRefresh Omd 1.45 Headers
+omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.standardrefresh.omd.v1.45.message", ftypes.STRING)
+omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.standardrefresh.omd.v1.45.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.standardrefresh.omd.v1.45.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.standardrefresh.omd.v1.45.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities StandardRefresh 1.45 Application Messages
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexsecurities.standardrefresh.omd.v1.45.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.fields.broker_queue_message = ProtoField.new("Broker Queue Message", "hkex.hkexsecurities.standardrefresh.omd.v1.45.brokerqueuemessage", ftypes.STRING)
@@ -206,7 +206,6 @@ omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.prefs.show_repeating_groups = 
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_standardrefresh_omd_v1_45.prefs_changed()

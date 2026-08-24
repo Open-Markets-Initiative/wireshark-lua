@@ -14,12 +14,6 @@ local aquis_aquisequities_snapshot_amd_v4_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities Snapshot Amd 4.1 Headers
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.1.message", ftypes.STRING)
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.snapshot.amd.v4.1.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.snapshot.amd.v4.1.packet", ftypes.STRING)
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.snapshot.amd.v4.1.packetheader", ftypes.STRING)
-
 -- Aquis AquisEquities Snapshot Amd 4.1 Fields
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingbuyqty", ftypes.UINT32)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.closing_sell_qty = ProtoField.new("Closing Sell Qty", "aquis.aquisequities.snapshot.amd.v4.1.closingsellqty", ftypes.UINT32)
@@ -43,6 +37,12 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.stream_seq_no = ProtoField.new(
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp", ftypes.UINT64)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.1.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.snapshot.amd.v4.1.tradingstatus", ftypes.UINT8)
+
+-- Aquis AquisEquities Snapshot Amd 4.1 Headers
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.1.message", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.snapshot.amd.v4.1.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.snapshot.amd.v4.1.packet", ftypes.STRING)
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.snapshot.amd.v4.1.packetheader", ftypes.STRING)
 
 -- Aquis AquisEquities Snapshot 4.1 Application Messages
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_entry_message = ProtoField.new("Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.bookentrymessage", ftypes.STRING)
@@ -70,7 +70,6 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_application_messages = Pref
 omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_snapshot_amd_v4_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_snapshot_amd_v4_1.prefs_changed()

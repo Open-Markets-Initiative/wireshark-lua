@@ -14,10 +14,6 @@ local currenex_currenexforex_esp_cbp_v9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Esp Cbp 9. Headers
-omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING)
-omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING)
-
 -- Currenex CurrenexForex Esp Cbp 9. Fields
 omi_currenex_currenexforex_esp_cbp_v9.fields.attributed = ProtoField.new("Attributed", "currenex.currenexforex.esp.cbp.v9.attributed", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.currenexforex.esp.cbp.v9.instrumentid", ftypes.STRING)
@@ -48,6 +44,10 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.timestamp = ProtoField.new("Timesta
 omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.transacttime", ftypes.INT64)
 omi_currenex_currenexforex_esp_cbp_v9.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.esp.cbp.v9.userid", ftypes.STRING)
 
+-- Currenex CurrenexForex Esp Cbp 9. Headers
+omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex Esp 9. Application Messages
 omi_currenex_currenexforex_esp_cbp_v9.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.esp.cbp.v9.heartbeat", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.esp.cbp.v9.instrumentinfo", ftypes.STRING)
@@ -74,7 +74,6 @@ show.structs = true
 -- Register Currenex CurrenexForex Esp Cbp 9. Show Options
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_currenex_currenexforex_esp_cbp_v9.prefs_changed()

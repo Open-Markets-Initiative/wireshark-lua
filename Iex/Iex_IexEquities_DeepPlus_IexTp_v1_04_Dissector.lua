@@ -14,10 +14,6 @@ local iex_iexequities_deepplus_iextp_v1_04 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities DeepPlus IexTp 1.04 Headers
-omi_iex_iexequities_deepplus_iextp_v1_04.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deepplus.iextp.v1.04.iextpheader", ftypes.STRING)
-omi_iex_iexequities_deepplus_iextp_v1_04.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.iextp.v1.04.packet", ftypes.STRING)
-
 -- Iex IexEquities DeepPlus IexTp 1.04 Fields
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deepplus.iextp.v1.04.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.channel_id = ProtoField.new("Channel Id", "iex.iexequities.deepplus.iextp.v1.04.channelid", ftypes.UINT32)
@@ -69,6 +65,10 @@ omi_iex_iexequities_deepplus_iextp_v1_04.fields.unused_7 = ProtoField.new("Unuse
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.version = ProtoField.new("Version", "iex.iexequities.deepplus.iextp.v1.04.version", ftypes.UINT8)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deepplus.iextp.v1.04.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
+-- Iex IexEquities DeepPlus IexTp 1.04 Headers
+omi_iex_iexequities_deepplus_iextp_v1_04.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deepplus.iextp.v1.04.iextpheader", ftypes.STRING)
+omi_iex_iexequities_deepplus_iextp_v1_04.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.iextp.v1.04.packet", ftypes.STRING)
+
 -- Iex IexEquities DeepPlus 1.04 Application Messages
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.add_order_message = ProtoField.new("Add Order Message", "iex.iexequities.deepplus.iextp.v1.04.addordermessage", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_04.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.iexequities.deepplus.iextp.v1.04.clearbookmessage", ftypes.STRING)
@@ -105,7 +105,6 @@ omi_iex_iexequities_deepplus_iextp_v1_04.prefs.show_application_messages = Pref.
 omi_iex_iexequities_deepplus_iextp_v1_04.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_deepplus_iextp_v1_04.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deepplus_iextp_v1_04.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_deepplus_iextp_v1_04.prefs_changed()

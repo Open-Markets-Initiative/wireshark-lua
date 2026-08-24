@@ -14,12 +14,6 @@ local siac_cqs_snapshot_cta_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Cqs Snapshot Cta 2.1 Headers
-omi_siac_cqs_snapshot_cta_v2_1.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v2.1.blockheader", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v2.1.message", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v2.1.packet", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.STRING)
-
 -- Siac Cqs Snapshot Cta 2.1 Fields
 omi_siac_cqs_snapshot_cta_v2_1.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.snapshot.cta.v2.1.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.snapshot.cta.v2.1.auctioncollarreferenceprice", ftypes.DOUBLE)
@@ -94,6 +88,12 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.totpubseqrollover = ProtoField.new("Totpub
 omi_siac_cqs_snapshot_cta_v2_1.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v2.1.upperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v2.1.version", ftypes.UINT8)
 
+-- Siac Cqs Snapshot Cta 2.1 Headers
+omi_siac_cqs_snapshot_cta_v2_1.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v2.1.blockheader", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v2_1.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v2.1.message", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v2_1.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v2.1.packet", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cqs Snapshot 2.1 Application Messages
 omi_siac_cqs_snapshot_cta_v2_1.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v2.1.consolidatedsnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.finra_snapshot_message = ProtoField.new("Finra Snapshot Message", "siac.cqs.snapshot.cta.v2.1.finrasnapshotmessage", ftypes.STRING)
@@ -122,7 +122,6 @@ omi_siac_cqs_snapshot_cta_v2_1.prefs.show_headers = Pref.bool("Show Headers", sh
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_cqs_snapshot_cta_v2_1.prefs_changed()

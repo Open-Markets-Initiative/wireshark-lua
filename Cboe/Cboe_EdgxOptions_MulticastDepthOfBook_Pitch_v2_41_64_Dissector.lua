@@ -14,10 +14,6 @@ local cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions MulticastDepthOfBook Pitch 2.41.64 Headers
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.packet", ftypes.STRING)
-omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions MulticastDepthOfBook Pitch 2.41.64 Fields
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.add_flags = ProtoField.new("Add Flags", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.addflags", ftypes.STRING)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.aon = ProtoField.new("Aon", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -85,6 +81,10 @@ omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.underlying = Pro
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.unit", ftypes.UINT8)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.width_type = ProtoField.new("Width Type", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.widthtype", ftypes.STRING)
+
+-- Cboe EdgxOptions MulticastDepthOfBook Pitch 2.41.64 Headers
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.packet", ftypes.STRING)
+omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions MulticastDepthOfBook 2.41.64 Application Messages
 omi_cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.fields.ox_add_order_expanded_message = ProtoField.new("Ox Add Order Expanded Message", "cboe.edgxoptions.multicastdepthofbook.pitch.v2.41.64.oxaddorderexpandedmessage", ftypes.STRING)

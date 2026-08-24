@@ -14,9 +14,6 @@ local cboe_cxeequities_lastsale_apf_v1_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CxeEquities LastSale Apf 1.7 Headers
-omi_cboe_cxeequities_lastsale_apf_v1_7.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.7.packet", ftypes.STRING)
-
 -- Cboe CxeEquities LastSale Apf 1.7 Fields
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.agency_cross_trade = ProtoField.new("Agency Cross Trade", "cboe.cxeequities.lastsale.apf.v1.7.agencycrosstrade", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.cxeequities.lastsale.apf.v1.7.algorithmicindicator", ftypes.STRING)
@@ -76,6 +73,9 @@ omi_cboe_cxeequities_lastsale_apf_v1_7.fields.unsequenced_data_packet = ProtoFie
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.cxeequities.lastsale.apf.v1.7.unsequencedmessage", ftypes.BYTES)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.username = ProtoField.new("Username", "cboe.cxeequities.lastsale.apf.v1.7.username", ftypes.STRING)
 
+-- Cboe CxeEquities LastSale Apf 1.7 Headers
+omi_cboe_cxeequities_lastsale_apf_v1_7.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.lastsale.apf.v1.7.packet", ftypes.STRING)
+
 -- Cboe CxeEquities LastSale 1.7 Application Messages
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.cxeequities.lastsale.apf.v1.7.lastsaleeuropemessage", ftypes.STRING)
 omi_cboe_cxeequities_lastsale_apf_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.cxeequities.lastsale.apf.v1.7.lastsaleeuropemessagenew", ftypes.STRING)
@@ -93,7 +93,6 @@ show.application_messages = true
 -- Register Cboe CxeEquities LastSale Apf 1.7 Show Options
 omi_cboe_cxeequities_lastsale_apf_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxeequities_lastsale_apf_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cxeequities_lastsale_apf_v1_7.prefs_changed()

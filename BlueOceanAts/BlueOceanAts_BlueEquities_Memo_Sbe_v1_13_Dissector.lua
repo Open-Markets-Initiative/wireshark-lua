@@ -14,10 +14,6 @@ local blueoceanats_blueequities_memo_sbe_v1_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- BlueOceanAts BlueEquities Memo Sbe 1.13 Headers
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
-
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "blueoceanats.blueequities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "blueoceanats.blueequities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
@@ -127,6 +123,10 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
+-- BlueOceanAts BlueEquities Memo Sbe 1.13 Headers
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
+
 -- BlueOceanAts BlueEquities Memo 1.13 Application Messages
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "blueoceanats.blueequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "blueoceanats.blueequities.memo.sbe.v1.13.executionreportnewmessage", ftypes.STRING)
@@ -170,7 +170,6 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs = Pref.bool("Sho
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs_changed()

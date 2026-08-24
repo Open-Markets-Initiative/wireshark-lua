@@ -14,11 +14,6 @@ local lseg_millennium_nativetradinggateway_ntgi_v21_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Millennium NativeTradingGateway Ntgi 21.2 Headers
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.message", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messageheader", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggateway.ntgi.v21.2.packet", ftypes.STRING)
-
 -- Lseg Millennium NativeTradingGateway Ntgi 21.2 Fields
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.account = ProtoField.new("Account", "lseg.millennium.nativetradinggateway.ntgi.v21.2.account", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.account_type = ProtoField.new("Account Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.accounttype", ftypes.UINT8)
@@ -156,6 +151,11 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.user_name = ProtoFiel
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.waiver_flags = ProtoField.new("Waiver Flags", "lseg.millennium.nativetradinggateway.ntgi.v21.2.waiverflags", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.waiver_flags_post_trade_flags = ProtoField.new("Waiver Flags Post Trade Flags", "lseg.millennium.nativetradinggateway.ntgi.v21.2.waiverflagsposttradeflags", ftypes.UINT8)
 
+-- Lseg Millennium NativeTradingGateway Ntgi 21.2 Headers
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.message", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggateway.ntgi.v21.2.messageheader", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggateway.ntgi.v21.2.packet", ftypes.STRING)
+
 -- Lseg Millennium NativeTradingGateway 21.2 Application Messages
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.business_reject_message = ProtoField.new("Business Reject Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.businessrejectmessage", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_report_message = ProtoField.new("Execution Report Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.executionreportmessage", ftypes.STRING)
@@ -195,7 +195,6 @@ show.headers = true
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs_changed()

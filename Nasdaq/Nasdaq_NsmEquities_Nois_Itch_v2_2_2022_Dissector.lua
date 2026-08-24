@@ -14,10 +14,6 @@ local nasdaq_nsmequities_nois_itch_v2_2_2022 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities Nois Itch 2.2.2022 Headers
-omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.2022.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.2022.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities Nois Itch 2.2.2022 Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.2022.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.2022.currentreferenceprice", ftypes.BYTES)
@@ -42,6 +38,10 @@ omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.session = ProtoField.new("Sess
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.nois.itch.v2.2.2022.symbol", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.2022.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.2022.tradingstate", ftypes.STRING)
+
+-- Nasdaq NsmEquities Nois Itch 2.2.2022 Headers
+omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.2022.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.2022.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities Nois 2.2.2022 Application Messages
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.2022.noismessage", ftypes.STRING)

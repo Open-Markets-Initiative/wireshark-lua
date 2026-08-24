@@ -14,15 +14,6 @@ local cme_globex_settlements_sbe_v7_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex Settlements Sbe 7.0 Headers
-omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.settlements.sbe.v7.0.tcpmessage", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.settlements.sbe.v7.0.tcppacket", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.settlements.sbe.v7.0.technicalheader", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
-
 -- Cme Globex Settlements Sbe 7.0 Fields
 omi_cme_globex_settlements_sbe_v7_0.fields.actual = ProtoField.new("Actual", "cme.globex.settlements.sbe.v7.0.actual", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cme_globex_settlements_sbe_v7_0.fields.block_length = ProtoField.new("Block Length", "cme.globex.settlements.sbe.v7.0.blocklength", ftypes.UINT16)
@@ -88,6 +79,15 @@ omi_cme_globex_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "
 omi_cme_globex_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.globex.settlements.sbe.v7.0.week", ftypes.UINT8)
 omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.globex.settlements.sbe.v7.0.year", ftypes.UINT16)
 
+-- Cme Globex Settlements Sbe 7.0 Headers
+omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.settlements.sbe.v7.0.tcpmessage", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.settlements.sbe.v7.0.tcppacket", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.settlements.sbe.v7.0.technicalheader", ftypes.STRING)
+omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
+
 -- Cme Globex Settlements 7.0 Application Messages
 omi_cme_globex_settlements_sbe_v7_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.settlements.sbe.v7.0.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
@@ -118,7 +118,6 @@ omi_cme_globex_settlements_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_settlements_sbe_v7_0.prefs_changed()

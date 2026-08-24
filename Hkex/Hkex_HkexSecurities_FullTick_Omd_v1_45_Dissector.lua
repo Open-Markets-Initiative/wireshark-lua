@@ -14,12 +14,6 @@ local hkex_hkexsecurities_fulltick_omd_v1_45 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexSecurities FullTick Omd 1.45 Headers
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.fulltick.omd.v1.45.message", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.fulltick.omd.v1.45.msgheader", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.fulltick.omd.v1.45.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.fulltick.omd.v1.45.packetheader", ftypes.STRING)
-
 -- Hkex HkexSecurities FullTick Omd 1.45 Fields
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.fulltick.omd.v1.45.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.fulltick.omd.v1.45.aggregatequantity", ftypes.UINT64)
@@ -126,6 +120,12 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.vcm_upper_price = ProtoField.n
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.warrant_maturity_date = ProtoField.new("Warrant Maturity Date", "hkex.hkexsecurities.fulltick.omd.v1.45.warrantmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.fulltick.omd.v1.45.warranttype", ftypes.STRING)
 
+-- Hkex HkexSecurities FullTick Omd 1.45 Headers
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.fulltick.omd.v1.45.message", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.fulltick.omd.v1.45.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.fulltick.omd.v1.45.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.fulltick.omd.v1.45.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities FullTick 1.45 Application Messages
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.add_order_message = ProtoField.new("Add Order Message", "hkex.hkexsecurities.fulltick.omd.v1.45.addordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.currency_rate_message = ProtoField.new("Currency Rate Message", "hkex.hkexsecurities.fulltick.omd.v1.45.currencyratemessage", ftypes.STRING)
@@ -169,7 +169,6 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.prefs.show_structs = Pref.bool("Show 
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_fulltick_omd_v1_45.prefs_changed()

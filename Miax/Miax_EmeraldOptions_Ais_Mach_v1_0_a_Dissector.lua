@@ -14,13 +14,6 @@ local miax_emeraldoptions_ais_mach_v1_0_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax EmeraldOptions Ais Mach 1.0.a Headers
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.ais.mach.v1.0.a.machmessage", ftypes.STRING)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.ais.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.tcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.udppacket", ftypes.STRING)
-
 -- Miax EmeraldOptions Ais Mach 1.0.a Fields
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.active_on_emerald = ProtoField.new("Active On Emerald", "miax.emeraldoptions.ais.mach.v1.0.a.activeonemerald", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.ais_version = ProtoField.new("Ais Version", "miax.emeraldoptions.ais.mach.v1.0.a.aisversion", ftypes.STRING)
@@ -105,6 +98,13 @@ omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.unsequenced_message_type = ProtoF
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.update_reason = ProtoField.new("Update Reason", "miax.emeraldoptions.ais.mach.v1.0.a.updatereason", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.username = ProtoField.new("Username", "miax.emeraldoptions.ais.mach.v1.0.a.username", ftypes.STRING)
 
+-- Miax EmeraldOptions Ais Mach 1.0.a Headers
+omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.ais.mach.v1.0.a.machmessage", ftypes.STRING)
+omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.ais.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
+omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.tcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.ais.mach.v1.0.a.udppacket", ftypes.STRING)
+
 -- Miax EmeraldOptions Ais 1.0.a Application Messages
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.complex_liquidity_seeking_event_notification_message = ProtoField.new("Complex Liquidity Seeking Event Notification Message", "miax.emeraldoptions.ais.mach.v1.0.a.complexliquidityseekingeventnotificationmessage", ftypes.STRING)
 omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.emeraldoptions.ais.mach.v1.0.a.complexstrategydefinitionupdatemessage", ftypes.STRING)
@@ -138,7 +138,6 @@ omi_miax_emeraldoptions_ais_mach_v1_0_a.prefs.show_structs = Pref.bool("Show Str
 omi_miax_emeraldoptions_ais_mach_v1_0_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_emeraldoptions_ais_mach_v1_0_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_emeraldoptions_ais_mach_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_emeraldoptions_ais_mach_v1_0_a.prefs_changed()

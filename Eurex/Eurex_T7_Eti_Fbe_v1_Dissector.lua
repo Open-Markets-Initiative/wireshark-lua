@@ -14,15 +14,15 @@ local eurex_t7_eti_fbe_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Eti Fbe 1. Headers
-omi_eurex_t7_eti_fbe_v1.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v1.message", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v1.packet", ftypes.STRING)
-
 -- Eurex T7 Eti Fbe 1. Fields
 omi_eurex_t7_eti_fbe_v1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eti.fbe.v1.bodylen", ftypes.UINT32)
 omi_eurex_t7_eti_fbe_v1.fields.payload = ProtoField.new("Payload", "eurex.t7.eti.fbe.v1.payload", ftypes.BYTES)
 omi_eurex_t7_eti_fbe_v1.fields.template_id = ProtoField.new("Template Id", "eurex.t7.eti.fbe.v1.templateid", ftypes.UINT16)
+
+-- Eurex T7 Eti Fbe 1. Headers
+omi_eurex_t7_eti_fbe_v1.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v1.message", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.messageheader", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v1.packet", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -35,7 +35,6 @@ show.structs = true
 
 -- Register Eurex T7 Eti Fbe 1. Show Options
 omi_eurex_t7_eti_fbe_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_eti_fbe_v1.prefs_changed()

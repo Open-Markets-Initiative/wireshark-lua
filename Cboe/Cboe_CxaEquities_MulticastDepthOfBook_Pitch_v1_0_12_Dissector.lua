@@ -14,10 +14,6 @@ local cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 Headers
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.packet", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.packetheader", ftypes.STRING)
-
 -- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 Fields
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.auction_type = ProtoField.new("Auction Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.auctiontype", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.buyshares", ftypes.UINT32)
@@ -65,6 +61,10 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value = ProtoFiel
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuetimestamp", ftypes.UINT64)
 
+-- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 Headers
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.packet", ftypes.STRING)
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.packetheader", ftypes.STRING)
+
 -- Cboe CxaEquities MulticastDepthOfBook 1.0.12 Application Messages
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.addordermessage", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.auctionsummarymessage", ftypes.STRING)
@@ -99,7 +99,6 @@ show.indexes = true
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.prefs_changed()

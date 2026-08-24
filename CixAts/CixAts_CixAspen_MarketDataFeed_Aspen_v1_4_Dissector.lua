@@ -14,12 +14,6 @@ local cixats_cixaspen_marketdatafeed_aspen_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- CixAts CixAspen MarketDataFeed Aspen 1.4 Headers
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header = ProtoField.new("Message Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageheader", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packet", ftypes.STRING)
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet_header = ProtoField.new("Packet Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packetheader", ftypes.STRING)
-
 -- CixAts CixAspen MarketDataFeed Aspen 1.4 Fields
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.board_lot_size = ProtoField.new("Board Lot Size", "cixats.cixaspen.marketdatafeed.aspen.v1.4.boardlotsize", ftypes.UINT32)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.broker = ProtoField.new("Broker", "cixats.cixaspen.marketdatafeed.aspen.v1.4.broker", ftypes.STRING)
@@ -53,6 +47,12 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol = ProtoField.new("Sy
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol_id = ProtoField.new("Symbol Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.symbolid", ftypes.UINT16)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.marketdatafeed.aspen.v1.4.timestamp", ftypes.UINT64)
 
+-- CixAts CixAspen MarketDataFeed Aspen 1.4 Headers
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header = ProtoField.new("Message Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageheader", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packet", ftypes.STRING)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet_header = ProtoField.new("Packet Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packetheader", ftypes.STRING)
+
 -- CixAts CixAspen MarketDataFeed 1.4 Application Messages
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.market_event_message = ProtoField.new("Market Event Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.marketeventmessage", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.new_order_add_message = ProtoField.new("New Order Add Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.neworderaddmessage", ftypes.STRING)
@@ -83,7 +83,6 @@ show.indexes = true
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs_changed()

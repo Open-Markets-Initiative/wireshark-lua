@@ -14,12 +14,6 @@ local nyse_arcaequities_bbo_xdp_v2_4_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ArcaEquities Bbo Xdp 2.4.c Headers
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", "nyse.arcaequities.bbo.xdp.v2.4.c.message", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bbo.xdp.v2.4.c.packetheader", ftypes.STRING)
-
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaequities.bbo.xdp.v2.4.c.askprice", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.arcaequities.bbo.xdp.v2.4.c.askvolume", ftypes.UINT32)
@@ -95,6 +89,12 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session = ProtoField.new("Tr
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsessionchangemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.bbo.xdp.v2.4.c.unitoftrade", ftypes.UINT16)
 
+-- Nyse ArcaEquities Bbo Xdp 2.4.c Headers
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", "nyse.arcaequities.bbo.xdp.v2.4.c.message", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bbo.xdp.v2.4.c.packetheader", ftypes.STRING)
+
 -- Nyse ArcaEquities Bbo Xdp 2.4.c generated fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.bbo.xdp.v2.4.c.messageindex", ftypes.UINT16)
 
@@ -111,7 +111,6 @@ show.indexes = true
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()

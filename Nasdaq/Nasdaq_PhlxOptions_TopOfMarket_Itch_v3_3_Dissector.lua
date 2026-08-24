@@ -14,10 +14,6 @@ local nasdaq_phlxoptions_topofmarket_itch_v3_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Headers
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packet", ftypes.STRING)
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packetheader", ftypes.STRING)
-
 -- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Fields
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlxoptions.topofmarket.itch.v3.3.askprice2", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlxoptions.topofmarket.itch.v3.3.askprice4", ftypes.DOUBLE)
@@ -64,6 +60,10 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.trade_condition = ProtoField
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.topofmarket.itch.v3.3.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.topofmarket.itch.v3.3.version", ftypes.UINT8)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.topofmarket.itch.v3.3.volume", ftypes.UINT32)
+
+-- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Headers
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packetheader", ftypes.STRING)
 
 -- Nasdaq PhlxOptions TopOfMarket 3.3 Application Messages
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.phlxoptions.topofmarket.itch.v3.3.brokentradereportmessage", ftypes.STRING)

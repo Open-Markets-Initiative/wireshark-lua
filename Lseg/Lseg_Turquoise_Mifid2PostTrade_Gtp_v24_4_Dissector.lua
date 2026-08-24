@@ -14,12 +14,6 @@ local lseg_turquoise_mifid2posttrade_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Headers
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.message", ftypes.STRING)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messageheader", ftypes.STRING)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2posttrade.gtp.v24.4.packet", ftypes.STRING)
-omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unitheader", ftypes.STRING)
-
 -- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Fields
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.agencycrossindicator", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.turquoise.mifid2posttrade.gtp.v24.4.algorithmicindicator", ftypes.STRING)
@@ -90,6 +84,12 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unused_4 = ProtoField.new("U
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid2posttrade.gtp.v24.4.venueinstrumentid", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.mifid2posttrade.gtp.v24.4.venueofexecution", ftypes.STRING)
 
+-- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Headers
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2posttrade.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.mifid2posttrade.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Mifid2PostTrade 24.4 Application Messages
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
@@ -117,7 +117,6 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.prefs.show_structs = Pref.bool("Sho
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.prefs_changed()

@@ -14,10 +14,6 @@ local n24x_24xequities_memoirtopofbook_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- 24X 24XEquities MemoirTopOfBook Sbe 1.3 Headers
-omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
-omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
-
 -- 24X 24XEquities MemoirTopOfBook Sbe 1.3 Fields
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "24x.24xequities.memoirtopofbook.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "24x.24xequities.memoirtopofbook.sbe.v1.3.bidprice", ftypes.DOUBLE)
@@ -54,6 +50,10 @@ omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new(
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.24xequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "24x.24xequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
+-- 24X 24XEquities MemoirTopOfBook Sbe 1.3 Headers
+omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
+omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
+
 -- 24X 24XEquities MemoirTopOfBook 1.3 Application Messages
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "24x.24xequities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "24x.24xequities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
@@ -85,7 +85,6 @@ show.indexes = true
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirtopofbook_sbe_v1_3.prefs_changed()

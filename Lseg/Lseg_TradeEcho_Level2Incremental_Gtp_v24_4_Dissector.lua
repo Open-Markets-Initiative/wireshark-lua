@@ -14,12 +14,6 @@ local lseg_tradeecho_level2incremental_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg TradeEcho Level2Incremental Gtp 24.4 Headers
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v24.4.message", ftypes.STRING)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v24.4.packet", ftypes.STRING)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
-
 -- Lseg TradeEcho Level2Incremental Gtp 24.4 Fields
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.tradeecho.level2incremental.gtp.v24.4.allowedbooktypes", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.average_daily_turnover = ProtoField.new("Average Daily Turnover", "lseg.tradeecho.level2incremental.gtp.v24.4.averagedailyturnover", ftypes.DOUBLE)
@@ -65,6 +59,12 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.venue_instrument_id = Prot
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2incremental.gtp.v24.4.venueofpublication", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2incremental.gtp.v24.4.yield", ftypes.DOUBLE)
 
+-- Lseg TradeEcho Level2Incremental Gtp 24.4 Headers
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.level2incremental.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg TradeEcho Level2Incremental 24.4 Application Messages
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.level2incremental.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.level2incremental.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
@@ -93,7 +93,6 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.prefs.show_structs = Pref.bool("S
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_level2incremental_gtp_v24_4.prefs_changed()

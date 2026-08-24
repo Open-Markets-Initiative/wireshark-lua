@@ -14,13 +14,6 @@ local eurex_t7_eobi_fbe_v13_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Eobi Fbe 13.0 Headers
-omi_eurex_t7_eobi_fbe_v13_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v13.0.eobiheader", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v13_0.fields.message = ProtoField.new("Message", "eurex.t7.eobi.fbe.v13.0.message", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v13_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v13.0.messageheadercomp", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v13_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eobi.fbe.v13.0.packet", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v13_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.t7.eobi.fbe.v13.0.packetheader", ftypes.STRING)
-
 -- Eurex T7 Eobi Fbe 13.0 Fields
 omi_eurex_t7_eobi_fbe_v13_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.t7.eobi.fbe.v13.0.aggressorside", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v13_0.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v13.0.aggressortime", ftypes.UINT64)
@@ -144,6 +137,13 @@ omi_eurex_t7_eobi_fbe_v13_0.fields.trd_reg_ts_prev_time_priority = ProtoField.ne
 omi_eurex_t7_eobi_fbe_v13_0.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v13_0.fields.trd_type = ProtoField.new("Trd Type", "eurex.t7.eobi.fbe.v13.0.trdtype", ftypes.UINT16)
 
+-- Eurex T7 Eobi Fbe 13.0 Headers
+omi_eurex_t7_eobi_fbe_v13_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v13.0.eobiheader", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v13_0.fields.message = ProtoField.new("Message", "eurex.t7.eobi.fbe.v13.0.message", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v13_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v13.0.messageheadercomp", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v13_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eobi.fbe.v13.0.packet", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v13_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.t7.eobi.fbe.v13.0.packetheader", ftypes.STRING)
+
 -- Eurex T7 Eobi 13.0 Application Messages
 omi_eurex_t7_eobi_fbe_v13_0.fields.add_complex_instrument = ProtoField.new("Add Complex Instrument", "eurex.t7.eobi.fbe.v13.0.addcomplexinstrument", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v13_0.fields.add_flexible_instrument = ProtoField.new("Add Flexible Instrument", "eurex.t7.eobi.fbe.v13.0.addflexibleinstrument", ftypes.STRING)
@@ -195,7 +195,6 @@ omi_eurex_t7_eobi_fbe_v13_0.prefs.show_application_messages = Pref.bool("Show Ap
 omi_eurex_t7_eobi_fbe_v13_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_eobi_fbe_v13_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eobi_fbe_v13_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_eobi_fbe_v13_0.prefs_changed()

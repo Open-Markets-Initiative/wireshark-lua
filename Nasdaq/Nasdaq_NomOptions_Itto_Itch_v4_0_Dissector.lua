@@ -14,16 +14,6 @@ local nasdaq_nomoptions_itto_itch_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NomOptions Itto Itch 4.0 Headers
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.nomoptions.itto.itch.v4.0.moldudp64packet", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.servertcppacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.servertcppacketheader", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.udppacketheader", ftypes.STRING)
-
 -- Nasdaq NomOptions Itto Itch 4.0 Fields
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nomoptions.itto.itch.v4.0.acceptedsession", ftypes.STRING)
@@ -102,6 +92,16 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.unsequenced_message_type = ProtoFiel
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.username = ProtoField.new("Username", "nasdaq.nomoptions.itto.itch.v4.0.username", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.nomoptions.itto.itch.v4.0.volumeshort", ftypes.UINT16)
+
+-- Nasdaq NomOptions Itto Itch 4.0 Headers
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.nomoptions.itto.itch.v4.0.moldudp64packet", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.serversoupbintcppacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.servertcppacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.servertcppacketheader", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.udppacketheader", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto 4.0 Application Messages
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.add_order_message_long_form_message = ProtoField.new("Add Order Message Long Form Message", "nasdaq.nomoptions.itto.itch.v4.0.addordermessagelongformmessage", ftypes.STRING)

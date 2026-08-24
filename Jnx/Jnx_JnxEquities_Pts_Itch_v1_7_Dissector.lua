@@ -14,16 +14,6 @@ local jnx_jnxequities_pts_itch_v1_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jnx JnxEquities Pts Itch 1.7 Headers
-omi_jnx_jnxequities_pts_itch_v1_7.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clientsoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clienttcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.clienttcppacketheader", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.serversoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.servertcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.servertcppacketheader", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
-
 -- Jnx JnxEquities Pts Itch 1.7 Fields
 omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxequities.pts.itch.v1.7.acceptedsequencenumber", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxequities.pts.itch.v1.7.acceptedsession", ftypes.STRING)
@@ -71,6 +61,16 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message = ProtoField.new("U
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.itch.v1.7.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v1.7.upperpricelimit", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.itch.v1.7.username", ftypes.STRING)
+
+-- Jnx JnxEquities Pts Itch 1.7 Headers
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clientsoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.clienttcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.clienttcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "jnx.jnxequities.pts.itch.v1.7.moldudp64packet", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.serversoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.itch.v1.7.servertcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.itch.v1.7.servertcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Session Messages
 omi_jnx_jnxequities_pts_itch_v1_7.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.clientheartbeatpacket", ftypes.BYTES)

@@ -14,12 +14,6 @@ local coinbase_coinbasederivatives_ordersapi_sbe_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.4 Headers
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.flags", ftypes.STRING)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
-
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.4 Fields
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.account = ProtoField.new("Account", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.account", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.availableqty", ftypes.INT32)
@@ -98,6 +92,12 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.username", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.version", ftypes.UINT16)
 
+-- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.4 Headers
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.flags", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
+
 -- Coinbase CoinbaseDerivatives OrdersApi 1.4 Application Messages
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
@@ -156,7 +156,6 @@ show.schema_messages = true
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_4.prefs_changed()

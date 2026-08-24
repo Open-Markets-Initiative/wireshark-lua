@@ -14,10 +14,6 @@ local miax_pearloptions_topofmarket_mach_v2_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlOptions TopOfMarket Mach 2.3 Headers
-omi_miax_pearloptions_topofmarket_mach_v2_3.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v2.3.machmessage", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v2_3.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v2.3.packet", ftypes.STRING)
-
 -- Miax PearlOptions TopOfMarket Mach 2.3 Fields
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.pearloptions.topofmarket.mach.v2.3.activeonmiax", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.application_message = ProtoField.new("Application Message", "miax.pearloptions.topofmarket.mach.v2.3.applicationmessage", ftypes.STRING)
@@ -79,6 +75,10 @@ omi_miax_pearloptions_topofmarket_mach_v2_3.fields.trade_size = ProtoField.new("
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.trading_status = ProtoField.new("Trading Status", "miax.pearloptions.topofmarket.mach.v2.3.tradingstatus", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.pearloptions.topofmarket.mach.v2.3.underlyingsymbol", ftypes.STRING)
 
+-- Miax PearlOptions TopOfMarket Mach 2.3 Headers
+omi_miax_pearloptions_topofmarket_mach_v2_3.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v2.3.machmessage", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v2_3.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v2.3.packet", ftypes.STRING)
+
 -- Miax PearlOptions TopOfMarket 2.3 Application Messages
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.pearloptions.topofmarket.mach.v2.3.lastsalemessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.simple_double_sided_top_of_market_compact_message = ProtoField.new("Simple Double Sided Top Of Market Compact Message", "miax.pearloptions.topofmarket.mach.v2.3.simpledoublesidedtopofmarketcompactmessage", ftypes.STRING)
@@ -109,7 +109,6 @@ show.application_messages = true
 -- Register Miax PearlOptions TopOfMarket Mach 2.3 Show Options
 omi_miax_pearloptions_topofmarket_mach_v2_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v2_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v2_3.prefs_changed()

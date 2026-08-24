@@ -14,13 +14,6 @@ local euronext_optiq_marketdatapacket_udp_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Euronext Optiq MarketDataPacket Udp 1. Headers
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatapacket.udp.v1.marketdatapacketheader", ftypes.STRING)
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.messageheader", ftypes.STRING)
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING)
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.packet", ftypes.STRING)
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
-
 -- Euronext Optiq MarketDataPacket Udp 1. Fields
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.block_length = ProtoField.new("Block Length", "euronext.optiq.marketdatapacket.udp.v1.blocklength", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.channel_id = ProtoField.new("Channel Id", "euronext.optiq.marketdatapacket.udp.v1.channelid", ftypes.UINT16)
@@ -39,6 +32,13 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.schema_id = ProtoField.new("Sc
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.marketdatapacket.udp.v1.templateid", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatapacket.udp.v1.version", ftypes.UINT16)
 
+-- Euronext Optiq MarketDataPacket Udp 1. Headers
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatapacket.udp.v1.marketdatapacketheader", ftypes.STRING)
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.messageheader", ftypes.STRING)
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING)
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.packet", ftypes.STRING)
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -52,7 +52,6 @@ show.structs = true
 -- Register Euronext Optiq MarketDataPacket Udp 1. Show Options
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1.prefs_changed()

@@ -14,12 +14,6 @@ local b3_b3derivatives_binaryentrypoint_sbe_v8_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Headers
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.messageheader", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.packet", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframe", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframingheader", ftypes.STRING)
-
 -- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Fields
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.account = ProtoField.new("Account", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.account", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.account_type = ProtoField.new("Account Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.accounttype", ftypes.UINT8)
@@ -235,6 +229,12 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.transact_time = ProtoField
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.version = ProtoField.new("Version", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.version", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.working_indicator = ProtoField.new("Working Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.workingindicator", ftypes.UINT8)
 
+-- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Headers
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.messageheader", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.packet", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframe", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simpleopenframingheader", ftypes.STRING)
+
 -- B3 B3Derivatives BinaryEntryPoint 8.0 Application Messages
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.allocation_instruction_message = ProtoField.new("Allocation Instruction Message", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.allocationinstructionmessage", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.allocation_report_message = ProtoField.new("Allocation Report Message", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.allocationreportmessage", ftypes.STRING)
@@ -301,7 +301,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_structs = Pref.bool("S
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs_changed()

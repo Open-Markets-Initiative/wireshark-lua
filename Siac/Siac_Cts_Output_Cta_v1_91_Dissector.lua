@@ -14,12 +14,6 @@ local siac_cts_output_cta_v1_91 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Cts Output Cta 1.91 Headers
-omi_siac_cts_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v1.91.blockheader", ftypes.STRING)
-omi_siac_cts_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v1.91.message", ftypes.STRING)
-omi_siac_cts_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v1.91.packet", ftypes.STRING)
-omi_siac_cts_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
-
 -- Siac Cts Output Cta 1.91 Fields
 omi_siac_cts_output_cta_v1_91.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cts.output.cta.v1.91.administrativemessage", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.output.cta.v1.91.administrativemessagetype", ftypes.STRING)
@@ -127,6 +121,12 @@ omi_siac_cts_output_cta_v1_91.fields.trade_volume_short = ProtoField.new("Trade 
 omi_siac_cts_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cts.output.cta.v1.91.transactionid", ftypes.UINT32)
 omi_siac_cts_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v1.91.version", ftypes.UINT8)
 
+-- Siac Cts Output Cta 1.91 Headers
+omi_siac_cts_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v1.91.blockheader", ftypes.STRING)
+omi_siac_cts_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v1.91.message", ftypes.STRING)
+omi_siac_cts_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v1.91.packet", ftypes.STRING)
+omi_siac_cts_output_cta_v1_91.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cts.output.cta.v1.91.sipblocktimestamp", ftypes.STRING)
+
 -- Siac Cts Output 1.91 Application Messages
 omi_siac_cts_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cts.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v1_91.fields.approximate_adjusted_volume_market_center_message = ProtoField.new("Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v1.91.approximateadjustedvolumemarketcentermessage", ftypes.STRING)
@@ -184,7 +184,6 @@ omi_siac_cts_output_cta_v1_91.prefs.show_application_messages = Pref.bool("Show 
 omi_siac_cts_output_cta_v1_91.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_output_cta_v1_91.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_siac_cts_output_cta_v1_91.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v1_91.prefs_changed()

@@ -14,9 +14,6 @@ local cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxEquities TcpDepthOfBook AsciiPitch 1.15.13 Headers
-omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.packet", ftypes.STRING)
-
 -- Cboe BzxEquities TcpDepthOfBook AsciiPitch 1.15.13 Fields
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.auction_only_price_long_price_14 = ProtoField.new("Auction Only Price Long Price 14", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.auctiononlypricelongprice14", ftypes.DOUBLE)
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.auction_only_price_price_10 = ProtoField.new("Auction Only Price Price 10", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.auctiononlypriceprice10", ftypes.DOUBLE)
@@ -68,6 +65,9 @@ omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.unsequenced_data_
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.username = ProtoField.new("Username", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.username", ftypes.STRING)
 
+-- Cboe BzxEquities TcpDepthOfBook AsciiPitch 1.15.13 Headers
+omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.packet", ftypes.STRING)
+
 -- Cboe BzxEquities TcpDepthOfBook 1.15.13 Application Messages
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.add_order_extended_message = ProtoField.new("Add Order Extended Message", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.addorderextendedmessage", ftypes.STRING)
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzxequities.tcpdepthofbook.asciipitch.v1.15.13.addorderlongmessage", ftypes.STRING)
@@ -99,7 +99,6 @@ show.structs = true
 -- Register Cboe BzxEquities TcpDepthOfBook AsciiPitch 1.15.13 Show Options
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.prefs_changed()

@@ -14,11 +14,6 @@ local euronext_optiq_dropcopygateway_sbe_v6_63 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Euronext Optiq DropCopyGateway Sbe 6.63 Headers
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.message = ProtoField.new("Message", "euronext.optiq.dropcopygateway.sbe.v6.63.message", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.dropcopygateway.sbe.v6.63.messageheader", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.packet = ProtoField.new("Packet", "euronext.optiq.dropcopygateway.sbe.v6.63.packet", ftypes.STRING)
-
 -- Euronext Optiq DropCopyGateway Sbe 6.63 Fields
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.access_flag = ProtoField.new("Access Flag", "euronext.optiq.dropcopygateway.sbe.v6.63.accessflag", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.account_number = ProtoField.new("Account Number", "euronext.optiq.dropcopygateway.sbe.v6.63.accountnumber", ftypes.STRING)
@@ -381,6 +376,11 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.version = ProtoField.new("Ve
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.wholesale_allowed = ProtoField.new("Wholesale Allowed", "euronext.optiq.dropcopygateway.sbe.v6.63.wholesaleallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.dropcopygateway.sbe.v6.63.wholesaletradetype", ftypes.UINT8)
 
+-- Euronext Optiq DropCopyGateway Sbe 6.63 Headers
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.message = ProtoField.new("Message", "euronext.optiq.dropcopygateway.sbe.v6.63.message", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.dropcopygateway.sbe.v6.63.messageheader", ftypes.STRING)
+omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.packet = ProtoField.new("Packet", "euronext.optiq.dropcopygateway.sbe.v6.63.packet", ftypes.STRING)
+
 -- Euronext Optiq DropCopyGateway 6.63 Application Messages
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_clear_book_message = ProtoField.new("Dc Clear Book Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcclearbookmessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.fields.dc_declaration_new_message = ProtoField.new("Dc Declaration New Message", "euronext.optiq.dropcopygateway.sbe.v6.63.dcdeclarationnewmessage", ftypes.STRING)
@@ -454,7 +454,6 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_repeating_groups = Pref.
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_euronext_optiq_dropcopygateway_sbe_v6_63.prefs_changed()

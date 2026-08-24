@@ -14,11 +14,6 @@ local euronext_optiq_orderentrygateway_sbe_v5_17 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Euronext Optiq OrderEntryGateway Sbe 5.17 Headers
-omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v5.17.message", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v5.17.messageheader", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v5.17.packet", ftypes.STRING)
-
 -- Euronext Optiq OrderEntryGateway Sbe 5.17 Fields
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.account_number = ProtoField.new("Account Number", "euronext.optiq.orderentrygateway.sbe.v5.17.accountnumber", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.account_number_cross = ProtoField.new("Account Number Cross", "euronext.optiq.orderentrygateway.sbe.v5.17.accountnumbercross", ftypes.STRING)
@@ -394,6 +389,11 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.wholesale_legs_groups = Pr
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.wholesale_side = ProtoField.new("Wholesale Side", "euronext.optiq.orderentrygateway.sbe.v5.17.wholesaleside", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.orderentrygateway.sbe.v5.17.wholesaletradetype", ftypes.UINT8)
 
+-- Euronext Optiq OrderEntryGateway Sbe 5.17 Headers
+omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v5.17.message", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v5.17.messageheader", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v5.17.packet", ftypes.STRING)
+
 -- Euronext Optiq OrderEntryGateway 5.17 Application Messages
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.ack_message = ProtoField.new("Ack Message", "euronext.optiq.orderentrygateway.sbe.v5.17.ackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.fields.ask_for_quote_message = ProtoField.new("Ask For Quote Message", "euronext.optiq.orderentrygateway.sbe.v5.17.askforquotemessage", ftypes.STRING)
@@ -499,7 +499,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_17.prefs.show_structs = Pref.bool("S
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v5_17.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v5_17.prefs_changed()

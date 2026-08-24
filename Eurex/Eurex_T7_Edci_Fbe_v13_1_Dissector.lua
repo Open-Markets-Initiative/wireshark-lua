@@ -14,11 +14,6 @@ local eurex_t7_edci_fbe_v13_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Edci Fbe 13.1 Headers
-omi_eurex_t7_edci_fbe_v13_1.fields.message = ProtoField.new("Message", "eurex.t7.edci.fbe.v13.1.message", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v13.1.messageheader", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v13.1.packet", ftypes.STRING)
-
 -- Eurex T7 Edci Fbe 13.1 Fields
 omi_eurex_t7_edci_fbe_v13_1.fields.affected_cl_ord_id = ProtoField.new("Affected Cl Ord Id", "eurex.t7.edci.fbe.v13.1.affectedclordid", ftypes.UINT64)
 omi_eurex_t7_edci_fbe_v13_1.fields.affected_fix_cl_ord_id = ProtoField.new("Affected Fix Cl Ord Id", "eurex.t7.edci.fbe.v13.1.affectedfixclordid", ftypes.STRING)
@@ -113,6 +108,11 @@ omi_eurex_t7_edci_fbe_v13_1.fields.triggered = ProtoField.new("Triggered", "eure
 omi_eurex_t7_edci_fbe_v13_1.fields.var_text = ProtoField.new("Var Text", "eurex.t7.edci.fbe.v13.1.vartext", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v13_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.edci.fbe.v13.1.vartextlen", ftypes.UINT16)
 
+-- Eurex T7 Edci Fbe 13.1 Headers
+omi_eurex_t7_edci_fbe_v13_1.fields.message = ProtoField.new("Message", "eurex.t7.edci.fbe.v13.1.message", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v13_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v13.1.messageheader", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v13_1.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v13.1.packet", ftypes.STRING)
+
 -- Eurex T7 Edci 13.1 Application Messages
 omi_eurex_t7_edci_fbe_v13_1.fields.delete_order_broadcast = ProtoField.new("Delete Order Broadcast", "eurex.t7.edci.fbe.v13.1.deleteorderbroadcast", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v13_1.fields.forced_logout_notification = ProtoField.new("Forced Logout Notification", "eurex.t7.edci.fbe.v13.1.forcedlogoutnotification", ftypes.STRING)
@@ -151,7 +151,6 @@ omi_eurex_t7_edci_fbe_v13_1.prefs.show_repeating_groups = Pref.bool("Show Repeat
 omi_eurex_t7_edci_fbe_v13_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_edci_fbe_v13_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_edci_fbe_v13_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_edci_fbe_v13_1.prefs_changed()

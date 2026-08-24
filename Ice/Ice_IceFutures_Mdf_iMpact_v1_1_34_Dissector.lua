@@ -14,12 +14,6 @@ local ice_icefutures_mdf_impact_v1_1_34 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ice IceFutures Mdf iMpact 1.1.34 Headers
-omi_ice_icefutures_mdf_impact_v1_1_34.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.34.message", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_34.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.34.messageheader", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_34.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.34.packet", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_34.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.34.packetheader", ftypes.STRING)
-
 -- Ice IceFutures Mdf iMpact 1.1.34 Fields
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.icefutures.mdf.impact.v1.1.34.aggbidqty", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.icefutures.mdf.impact.v1.1.34.aggofferqty", ftypes.INT32)
@@ -240,6 +234,12 @@ omi_ice_icefutures_mdf_impact_v1_1_34.fields.volatility = ProtoField.new("Volati
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.volume = ProtoField.new("Volume", "ice.icefutures.mdf.impact.v1.1.34.volume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.vwap = ProtoField.new("Vwap", "ice.icefutures.mdf.impact.v1.1.34.vwap", ftypes.INT64)
 
+-- Ice IceFutures Mdf iMpact 1.1.34 Headers
+omi_ice_icefutures_mdf_impact_v1_1_34.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.34.message", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_34.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.34.messageheader", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_34.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.34.packet", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_34.fields.packet_header = ProtoField.new("Packet Header", "ice.icefutures.mdf.impact.v1.1.34.packetheader", ftypes.STRING)
+
 -- Ice IceFutures Mdf 1.1.34 Application Messages
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.add_or_modify_order_message = ProtoField.new("Add Or Modify Order Message", "ice.icefutures.mdf.impact.v1.1.34.addormodifyordermessage", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.add_price_level_message = ProtoField.new("Add Price Level Message", "ice.icefutures.mdf.impact.v1.1.34.addpricelevelmessage", ftypes.STRING)
@@ -307,7 +307,6 @@ omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_repeating_groups = Pref.bool("S
 omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_34.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_ice_icefutures_mdf_impact_v1_1_34.prefs_changed()

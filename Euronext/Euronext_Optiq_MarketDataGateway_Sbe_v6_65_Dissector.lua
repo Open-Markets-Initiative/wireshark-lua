@@ -14,13 +14,6 @@ local euronext_optiq_marketdatagateway_sbe_v6_65 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Euronext Optiq MarketDataGateway Sbe 6.65 Headers
-omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatagateway.sbe.v6.65.marketdatapacketheader", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v6.65.messageheader", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v6.65.optiqmessage", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatagateway.sbe.v6.65.packet", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v6.65.packetflags", ftypes.STRING)
-
 -- Euronext Optiq MarketDataGateway Sbe 6.65 Fields
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.account_type = ProtoField.new("Account Type", "euronext.optiq.marketdatagateway.sbe.v6.65.accounttype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.action_type = ProtoField.new("Action Type", "euronext.optiq.marketdatagateway.sbe.v6.65.actiontype", ftypes.UINT8)
@@ -467,6 +460,13 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.volatility_trade = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.volume = ProtoField.new("Volume", "euronext.optiq.marketdatagateway.sbe.v6.65.volume", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.wholesale_allowed = ProtoField.new("Wholesale Allowed", "euronext.optiq.marketdatagateway.sbe.v6.65.wholesaleallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
+-- Euronext Optiq MarketDataGateway Sbe 6.65 Headers
+omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatagateway.sbe.v6.65.marketdatapacketheader", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v6.65.messageheader", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v6.65.optiqmessage", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatagateway.sbe.v6.65.packet", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v6.65.packetflags", ftypes.STRING)
+
 -- Euronext Optiq MarketDataGateway 6.65 Application Messages
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.apa_full_trade_information_message = ProtoField.new("Apa Full Trade Information Message", "euronext.optiq.marketdatagateway.sbe.v6.65.apafulltradeinformationmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.fields.apa_quotes_message = ProtoField.new("Apa Quotes Message", "euronext.optiq.marketdatagateway.sbe.v6.65.apaquotesmessage", ftypes.STRING)
@@ -532,7 +532,6 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_65.prefs.show_repeating_groups = Pre
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v6_65.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v6_65.prefs_changed()

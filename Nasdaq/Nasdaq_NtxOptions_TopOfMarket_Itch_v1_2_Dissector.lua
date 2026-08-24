@@ -14,10 +14,6 @@ local nasdaq_ntxoptions_topofmarket_itch_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxOptions TopOfMarket Itch 1.2 Headers
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packet", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
-
 -- Nasdaq NtxOptions TopOfMarket Itch 1.2 Fields
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ntxoptions.topofmarket.itch.v1.2.askprice", ftypes.DOUBLE)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.ntxoptions.topofmarket.itch.v1.2.askpricelong", ftypes.DOUBLE)
@@ -64,6 +60,10 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.trade_condition = ProtoField.
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.ntxoptions.topofmarket.itch.v1.2.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.version = ProtoField.new("Version", "nasdaq.ntxoptions.topofmarket.itch.v1.2.version", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.topofmarket.itch.v1.2.volume", ftypes.UINT32)
+
+-- Nasdaq NtxOptions TopOfMarket Itch 1.2 Headers
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
 
 -- Nasdaq NtxOptions TopOfMarket 1.2 Application Messages
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.bestaskupdatelongformmessage", ftypes.STRING)

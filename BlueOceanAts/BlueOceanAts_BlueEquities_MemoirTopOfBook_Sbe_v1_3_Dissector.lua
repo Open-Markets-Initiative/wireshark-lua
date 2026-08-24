@@ -14,10 +14,6 @@ local blueoceanats_blueequities_memoirtopofbook_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 Headers
-omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
-
 -- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 Fields
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.bid_price = ProtoField.new("Bid Price", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.bidprice", ftypes.DOUBLE)
@@ -54,6 +50,10 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoF
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
+-- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 Headers
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
+
 -- BlueOceanAts BlueEquities MemoirTopOfBook 1.3 Application Messages
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.best_bid_offer_message = ProtoField.new("Best Bid Offer Message", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.bestbidoffermessage", ftypes.STRING)
@@ -87,7 +87,6 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_application_me
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs_changed()

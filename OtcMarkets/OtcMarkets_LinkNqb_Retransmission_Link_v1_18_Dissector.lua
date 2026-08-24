@@ -14,11 +14,6 @@ local otcmarkets_linknqb_retransmission_link_v1_18 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkNqb Retransmission Link 1.18 Headers
-omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message = ProtoField.new("Message", "otcmarkets.linknqb.retransmission.link.v1.18.message", ftypes.STRING)
-omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linknqb.retransmission.link.v1.18.messageheader", ftypes.STRING)
-omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.packet = ProtoField.new("Packet", "otcmarkets.linknqb.retransmission.link.v1.18.packet", ftypes.STRING)
-
 -- OtcMarkets LinkNqb Retransmission Link 1.18 Fields
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linknqb.retransmission.link.v1.18.askprice", ftypes.DOUBLE)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.ask_volume = ProtoField.new("Ask Volume", "otcmarkets.linknqb.retransmission.link.v1.18.askvolume", ftypes.UINT32)
@@ -83,6 +78,11 @@ omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited = ProtoField
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.linknqb.retransmission.link.v1.18.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.user_id = ProtoField.new("User Id", "otcmarkets.linknqb.retransmission.link.v1.18.userid", ftypes.STRING)
 
+-- OtcMarkets LinkNqb Retransmission Link 1.18 Headers
+omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message = ProtoField.new("Message", "otcmarkets.linknqb.retransmission.link.v1.18.message", ftypes.STRING)
+omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linknqb.retransmission.link.v1.18.messageheader", ftypes.STRING)
+omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.packet = ProtoField.new("Packet", "otcmarkets.linknqb.retransmission.link.v1.18.packet", ftypes.STRING)
+
 -- OtcMarkets LinkNqb Retransmission 1.18 Application Messages
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linknqb.retransmission.link.v1.18.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.enhanced_spin_request_message = ProtoField.new("Enhanced Spin Request Message", "otcmarkets.linknqb.retransmission.link.v1.18.enhancedspinrequestmessage", ftypes.STRING)
@@ -120,7 +120,6 @@ show.structs = true
 -- Register OtcMarkets LinkNqb Retransmission Link 1.18 Show Options
 omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs_changed()

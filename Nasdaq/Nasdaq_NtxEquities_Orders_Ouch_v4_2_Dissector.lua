@@ -14,14 +14,6 @@ local nasdaq_ntxequities_orders_ouch_v4_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxEquities Orders Ouch 4.2 Headers
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacket", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacketheader", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacket", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacketheader", ftypes.STRING)
-omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serversoupbintcppacket", ftypes.STRING)
-
 -- Nasdaq NtxEquities Orders Ouch 4.2 Fields
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.aiq_canceled_reason = ProtoField.new("Aiq Canceled Reason", "nasdaq.ntxequities.orders.ouch.v4.2.aiqcanceledreason", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.ntxequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
@@ -66,6 +58,14 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("T
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.ntxequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.ntxequities.orders.ouch.v4.2.username", ftypes.STRING)
+
+-- Nasdaq NtxEquities Orders Ouch 4.2 Headers
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacketheader", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.serverpacketheader", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq NtxEquities Orders 4.2 Application Messages
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.accepted_message = ProtoField.new("Accepted Message", "nasdaq.ntxequities.orders.ouch.v4.2.acceptedmessage", ftypes.STRING)
@@ -117,7 +117,6 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.swap_sides = Pref.bool("Swap Sides
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs_changed()

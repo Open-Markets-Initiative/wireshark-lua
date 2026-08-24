@@ -14,12 +14,6 @@ local lseg_lse_analyticsreplay_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Lse AnalyticsReplay Gtp 26.2 Headers
-omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.analyticsreplay.gtp.v26.2.message", ftypes.STRING)
-omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.analyticsreplay.gtp.v26.2.messageheader", ftypes.STRING)
-omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.analyticsreplay.gtp.v26.2.packet", ftypes.STRING)
-omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.analyticsreplay.gtp.v26.2.unitheader", ftypes.STRING)
-
 -- Lseg Lse AnalyticsReplay Gtp 26.2 Fields
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse.analyticsreplay.gtp.v26.2.allowedbooktypes", ftypes.STRING)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.lse.analyticsreplay.gtp.v26.2.averagedailyturnoveradt", ftypes.DOUBLE)
@@ -82,6 +76,12 @@ omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.venue_instrument_id = ProtoField.n
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.lse.analyticsreplay.gtp.v26.2.vwapbuy", ftypes.DOUBLE)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.lse.analyticsreplay.gtp.v26.2.vwapsell", ftypes.DOUBLE)
 
+-- Lseg Lse AnalyticsReplay Gtp 26.2 Headers
+omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.analyticsreplay.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.analyticsreplay.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.analyticsreplay.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.analyticsreplay.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse AnalyticsReplay 26.2 Application Messages
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.lse.analyticsreplay.gtp.v26.2.analyticsmessage", ftypes.STRING)
 omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.analyticsreplay.gtp.v26.2.instrumentdirectorymessage", ftypes.STRING)
@@ -113,7 +113,6 @@ omi_lseg_lse_analyticsreplay_gtp_v26_2.prefs.show_structs = Pref.bool("Show Stru
 omi_lseg_lse_analyticsreplay_gtp_v26_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_analyticsreplay_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_lse_analyticsreplay_gtp_v26_2.prefs_changed()

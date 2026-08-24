@@ -14,10 +14,6 @@ local cboe_cfefutures_multicastdepthofbook_spin_v1_2_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 Headers
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.packet", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.packetheader", ftypes.STRING)
-
 -- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 Fields
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.accrueddayvariance", ftypes.INT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.blockvolume", ftypes.UINT32)
@@ -90,6 +86,10 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.upper_price_limit =
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.username", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
+-- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 Headers
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.packet", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.packetheader", ftypes.STRING)
+
 -- Cboe CfeFutures MulticastDepthOfBook 1.2.13 Application Messages
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.addorderlongmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.addordershortmessage", ftypes.STRING)
@@ -130,7 +130,6 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_application_mes
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.prefs_changed()

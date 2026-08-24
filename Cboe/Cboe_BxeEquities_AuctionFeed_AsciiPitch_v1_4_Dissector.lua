@@ -14,9 +14,6 @@ local cboe_bxeequities_auctionfeed_asciipitch_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Headers
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.packet = ProtoField.new("Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.packet", ftypes.STRING)
-
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Fields
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_type = ProtoField.new("Auction Type", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctiontype", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.debugpacket", ftypes.STRING)
@@ -47,6 +44,9 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.timestamp = ProtoField.n
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.unsequenceddatapacket", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.username = ProtoField.new("Username", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.username", ftypes.STRING)
+
+-- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Headers
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.packet = ProtoField.new("Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.packet", ftypes.STRING)
 
 -- Cboe BxeEquities AuctionFeed 1.4 Application Messages
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctionsummarymessage", ftypes.STRING)

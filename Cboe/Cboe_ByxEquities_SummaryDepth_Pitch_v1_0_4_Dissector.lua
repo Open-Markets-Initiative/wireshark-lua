@@ -14,10 +14,6 @@ local cboe_byxequities_summarydepth_pitch_v1_0_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe ByxEquities SummaryDepth Pitch 1.0.4 Headers
-omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.byxequities.summarydepth.pitch.v1.0.4.packet", ftypes.STRING)
-omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.byxequities.summarydepth.pitch.v1.0.4.packetheader", ftypes.STRING)
-
 -- Cboe ByxEquities SummaryDepth Pitch 1.0.4 Fields
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.adap_block = ProtoField.new("Adap Block", "cboe.byxequities.summarydepth.pitch.v1.0.4.adapblock", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.byxequities.summarydepth.pitch.v1.0.4.adapblocksize", ftypes.UINT8)
@@ -61,6 +57,10 @@ omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.unused_1 = ProtoField.new(
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.unused_5 = ProtoField.new("Unused 5", "cboe.byxequities.summarydepth.pitch.v1.0.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.unused_6 = ProtoField.new("Unused 6", "cboe.byxequities.summarydepth.pitch.v1.0.4.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
+-- Cboe ByxEquities SummaryDepth Pitch 1.0.4 Headers
+omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.byxequities.summarydepth.pitch.v1.0.4.packet", ftypes.STRING)
+omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.byxequities.summarydepth.pitch.v1.0.4.packetheader", ftypes.STRING)
+
 -- Cboe ByxEquities SummaryDepth 1.0.4 Application Messages
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.adap_message = ProtoField.new("Adap Message", "cboe.byxequities.summarydepth.pitch.v1.0.4.adapmessage", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.byxequities.summarydepth.pitch.v1.0.4.cboemarketstatusmessage", ftypes.STRING)
@@ -91,7 +91,6 @@ omi_cboe_byxequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups = Pre
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_byxequities_summarydepth_pitch_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_byxequities_summarydepth_pitch_v1_0_4.prefs_changed()

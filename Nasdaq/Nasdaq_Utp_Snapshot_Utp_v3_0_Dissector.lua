@@ -14,12 +14,6 @@ local nasdaq_utp_snapshot_utp_v3_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Utp Snapshot Utp 3.0 Headers
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.clientpacket", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.serverpacket", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.servertcppacketheader", ftypes.STRING)
-
 -- Nasdaq Utp Snapshot Utp 3.0 Fields
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.snapshot.utp.v3.0.acceptedsession", ftypes.STRING)
@@ -118,6 +112,12 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_state = ProtoField.new("Trading 
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.utp.snapshot.utp.v3.0.username", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.version = ProtoField.new("Version", "nasdaq.utp.snapshot.utp.v3.0.version", ftypes.UINT8)
 
+-- Nasdaq Utp Snapshot Utp 3.0 Headers
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.clientpacket", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.serverpacket", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.servertcppacketheader", ftypes.STRING)
+
 -- Nasdaq Utp Snapshot 3.0 Application Messages
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utp.snapshot.utp.v3.0.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utp.snapshot.utp.v3.0.crosssrotradingactionmessage", ftypes.STRING)
@@ -172,7 +172,6 @@ omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs = Pref.bool("Show Structs", 
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()

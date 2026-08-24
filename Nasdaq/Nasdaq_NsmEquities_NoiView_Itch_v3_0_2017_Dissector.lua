@@ -14,10 +14,6 @@ local nasdaq_nsmequities_noiview_itch_v3_0_2017 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities NoiView Itch 3.0.2017 Headers
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities NoiView Itch 3.0.2017 Fields
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.itch.v3.0.2017.authenticity", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.itch.v3.0.2017.crossprice", ftypes.DOUBLE)
@@ -60,6 +56,10 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.short_sale_threshold_indica
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noiview.itch.v3.0.2017.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.itch.v3.0.2017.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noiview.itch.v3.0.2017.trackingnumber", ftypes.UINT16)
+
+-- Nasdaq NsmEquities NoiView Itch 3.0.2017 Headers
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities NoiView 3.0.2017 Application Messages
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noiview.itch.v3.0.2017.crosstrademessage", ftypes.STRING)

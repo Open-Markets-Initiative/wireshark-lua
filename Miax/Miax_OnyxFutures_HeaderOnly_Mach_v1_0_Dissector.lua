@@ -14,10 +14,6 @@ local miax_onyxfutures_headeronly_mach_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax OnyxFutures HeaderOnly Mach 1.0 Headers
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.headeronly.mach.v1.0.machmessage", ftypes.STRING)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.headeronly.mach.v1.0.packet", ftypes.STRING)
-
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Fields
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.headeronly.mach.v1.0.applicationmessage", ftypes.STRING)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.headeronly.mach.v1.0.data", ftypes.BYTES)
@@ -26,6 +22,10 @@ omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_length = ProtoField.new(
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.headeronly.mach.v1.0.packettype", ftypes.UINT8)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.headeronly.mach.v1.0.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.headeronly.mach.v1.0.sessionnumber", ftypes.UINT8)
+
+-- Miax OnyxFutures HeaderOnly Mach 1.0 Headers
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.headeronly.mach.v1.0.machmessage", ftypes.STRING)
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.headeronly.mach.v1.0.packet", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -38,7 +38,6 @@ show.structs = true
 
 -- Register Miax OnyxFutures HeaderOnly Mach 1.0 Show Options
 omi_miax_onyxfutures_headeronly_mach_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_headeronly_mach_v1_0.prefs_changed()

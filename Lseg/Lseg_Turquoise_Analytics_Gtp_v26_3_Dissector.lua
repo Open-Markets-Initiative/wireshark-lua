@@ -14,12 +14,6 @@ local lseg_turquoise_analytics_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Turquoise Analytics Gtp 26.3 Headers
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v26.3.message", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v26.3.messageheader", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v26.3.packet", ftypes.STRING)
-omi_lseg_turquoise_analytics_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.analytics.gtp.v26.3.unitheader", ftypes.STRING)
-
 -- Lseg Turquoise Analytics Gtp 26.3 Fields
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.analytics.gtp.v26.3.allowedbooktypes", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.bid_ask_spread = ProtoField.new("Bid Ask Spread", "lseg.turquoise.analytics.gtp.v26.3.bidaskspread", ftypes.DOUBLE)
@@ -65,6 +59,12 @@ omi_lseg_turquoise_analytics_gtp_v26_3.fields.venue_instrument_id = ProtoField.n
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.turquoise.analytics.gtp.v26.3.vwapbuy", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.analytics.gtp.v26.3.vwapsell", ftypes.DOUBLE)
 
+-- Lseg Turquoise Analytics Gtp 26.3 Headers
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_analytics_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.analytics.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Analytics 26.3 Application Messages
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.turquoise.analytics.gtp.v26.3.analyticsmessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.turquoise.analytics.gtp.v26.3.instrumentdirectorymessage", ftypes.STRING)
@@ -91,7 +91,6 @@ omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_structs = Pref.bool("Show Stru
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_turquoise_analytics_gtp_v26_3.prefs_changed()

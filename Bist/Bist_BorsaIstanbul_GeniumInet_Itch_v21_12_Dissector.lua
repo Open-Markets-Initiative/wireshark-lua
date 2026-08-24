@@ -14,10 +14,6 @@ local bist_borsaistanbul_geniuminet_itch_v21_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Bist BorsaIstanbul GeniumInet Itch 21.12 Headers
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
-
 -- Bist BorsaIstanbul GeniumInet Itch 21.12 Fields
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.available_ask_quantity_at_equilibrium_price = ProtoField.new("Available Ask Quantity At Equilibrium Price", "bist.borsaistanbul.geniuminet.itch.v21.12.availableaskquantityatequilibriumprice", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.available_bid_quantity_at_equilibrium_price = ProtoField.new("Available Bid Quantity At Equilibrium Price", "bist.borsaistanbul.geniuminet.itch.v21.12.availablebidquantityatequilibriumprice", ftypes.UINT64)
@@ -86,6 +82,10 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trade_price = ProtoField.ne
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trading_currency = ProtoField.new("Trading Currency", "bist.borsaistanbul.geniuminet.itch.v21.12.tradingcurrency", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.underlying_order_book_id = ProtoField.new("Underlying Order Book Id", "bist.borsaistanbul.geniuminet.itch.v21.12.underlyingorderbookid", ftypes.UINT32)
 
+-- Bist BorsaIstanbul GeniumInet Itch 21.12 Headers
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
+
 -- Bist BorsaIstanbul GeniumInet 21.12 Application Messages
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.add_order_no_mpid_attribution = ProtoField.new("Add Order No Mpid Attribution", "bist.borsaistanbul.geniuminet.itch.v21.12.addordernompidattribution", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.add_order_with_mpid_attribution = ProtoField.new("Add Order With Mpid Attribution", "bist.borsaistanbul.geniuminet.itch.v21.12.addorderwithmpidattribution", ftypes.STRING)
@@ -125,7 +125,6 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_application_messages = 
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs_changed()

@@ -14,10 +14,6 @@ local nasdaq_nsmequities_nlsplus_itch_v4_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities NlsPlus Itch 4.0 Headers
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v4.0.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities NlsPlus Itch 4.0 Fields
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.adjusted_closing_price = ProtoField.new("Adjusted Closing Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.adjustedclosingprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.nlsplus.itch.v4.0.authenticity", ftypes.STRING)
@@ -81,6 +77,10 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.tracking_number = ProtoField.new
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradecontrolnumber", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradesize", ftypes.DOUBLE)
+
+-- Nasdaq NsmEquities NlsPlus Itch 4.0 Headers
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v4.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities NlsPlus 4.0 Application Messages
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.adjusted_closing_price_message = ProtoField.new("Adjusted Closing Price Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.adjustedclosingpricemessage", ftypes.STRING)

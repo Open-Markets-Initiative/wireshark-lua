@@ -14,12 +14,6 @@ local lseg_millennium_level2_mitch_v11_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Millennium Level2 Mitch 11.9 Headers
-omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
-
 -- Lseg Millennium Level2 Mitch 11.9 Fields
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_flags = ProtoField.new("Add Attributed Order Flags", "lseg.millennium.level2.mitch.v11.9.addattributedorderflags", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_flags = ProtoField.new("Add Order Flags", "lseg.millennium.level2.mitch.v11.9.addorderflags", ftypes.STRING)
@@ -93,6 +87,12 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5 = ProtoField.new("Unused 
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8 = ProtoField.new("Unused 8", "lseg.millennium.level2.mitch.v11.9.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
+-- Lseg Millennium Level2 Mitch 11.9 Headers
+omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.level2.mitch.v11.9.unitheader", ftypes.STRING)
+
 -- Lseg Millennium Level2 11.9 Application Messages
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_attributed_order_message = ProtoField.new("Add Attributed Order Message", "lseg.millennium.level2.mitch.v11.9.addattributedordermessage", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lseg.millennium.level2.mitch.v11.9.addordermessage", ftypes.STRING)
@@ -131,7 +131,6 @@ omi_lseg_millennium_level2_mitch_v11_9.prefs.show_structs = Pref.bool("Show Stru
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_level2_mitch_v11_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_millennium_level2_mitch_v11_9.prefs_changed()

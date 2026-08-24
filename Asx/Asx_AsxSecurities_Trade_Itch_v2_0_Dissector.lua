@@ -14,10 +14,6 @@ local asx_asxsecurities_trade_itch_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Asx AsxSecurities Trade Itch 2.0 Headers
-omi_asx_asxsecurities_trade_itch_v2_0.fields.packet = ProtoField.new("Packet", "asx.asxsecurities.trade.itch.v2.0.packet", ftypes.STRING)
-omi_asx_asxsecurities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.itch.v2.0.packetheader", ftypes.STRING)
-
 -- Asx AsxSecurities Trade Itch 2.0 Fields
 omi_asx_asxsecurities_trade_itch_v2_0.fields.ask_quantity = ProtoField.new("Ask Quantity", "asx.asxsecurities.trade.itch.v2.0.askquantity", ftypes.UINT64)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.best_ask_price = ProtoField.new("Best Ask Price", "asx.asxsecurities.trade.itch.v2.0.bestaskprice", ftypes.DOUBLE)
@@ -87,6 +83,10 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.trade_price = ProtoField.new("Trade
 omi_asx_asxsecurities_trade_itch_v2_0.fields.trading_currency = ProtoField.new("Trading Currency", "asx.asxsecurities.trade.itch.v2.0.tradingcurrency", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.undisclosed = ProtoField.new("Undisclosed", "asx.asxsecurities.trade.itch.v2.0.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
+-- Asx AsxSecurities Trade Itch 2.0 Headers
+omi_asx_asxsecurities_trade_itch_v2_0.fields.packet = ProtoField.new("Packet", "asx.asxsecurities.trade.itch.v2.0.packet", ftypes.STRING)
+omi_asx_asxsecurities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.itch.v2.0.packetheader", ftypes.STRING)
+
 -- Asx AsxSecurities Trade 2.0 Application Messages
 omi_asx_asxsecurities_trade_itch_v2_0.fields.add_order_no_participant_id_message = ProtoField.new("Add Order No Participant Id Message", "asx.asxsecurities.trade.itch.v2.0.addordernoparticipantidmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.add_order_participant_id_message = ProtoField.new("Add Order Participant Id Message", "asx.asxsecurities.trade.itch.v2.0.addorderparticipantidmessage", ftypes.STRING)
@@ -124,7 +124,6 @@ omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_application_messages = Pref.boo
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_itch_v2_0.prefs_changed()

@@ -14,10 +14,6 @@ local cboe_c1options_complex_pitch_v2_1_37 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options Complex Pitch 2.1.37 Headers
-omi_cboe_c1options_complex_pitch_v2_1_37.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.37.packet", ftypes.STRING)
-omi_cboe_c1options_complex_pitch_v2_1_37.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.37.packetheader", ftypes.STRING)
-
 -- Cboe C1Options Complex Pitch 2.1.37 Fields
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.complex.pitch.v2.1.37.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.complex.pitch.v2.1.37.auctionid", ftypes.UINT64)
@@ -82,6 +78,10 @@ omi_cboe_c1options_complex_pitch_v2_1_37.fields.underlying = ProtoField.new("Und
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.unit = ProtoField.new("Unit", "cboe.c1options.complex.pitch.v2.1.37.unit", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.unused = ProtoField.new("Unused", "cboe.c1options.complex.pitch.v2.1.37.unused", ftypes.BYTES)
 
+-- Cboe C1Options Complex Pitch 2.1.37 Headers
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.37.packet", ftypes.STRING)
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.37.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Complex 2.1.37 Application Messages
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.complex.pitch.v2.1.37.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c1options.complex.pitch.v2.1.37.addorderlongmessage", ftypes.STRING)
@@ -130,7 +130,6 @@ show.indexes = true
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_37.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_37.prefs_changed()

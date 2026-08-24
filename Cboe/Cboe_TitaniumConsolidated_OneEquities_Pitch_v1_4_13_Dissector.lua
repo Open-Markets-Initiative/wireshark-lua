@@ -14,10 +14,6 @@ local cboe_titaniumconsolidated_oneequities_pitch_v1_4_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Headers
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packet", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packetheader", ftypes.STRING)
-
 -- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Fields
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_block = ProtoField.new("Adap Block", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapblocksize", ftypes.UINT8)
@@ -78,6 +74,10 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unit = ProtoField
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7 = ProtoField.new("Unused 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+
+-- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Headers
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packet", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packetheader", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated OneEquities 1.4.13 Application Messages
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapmessage", ftypes.STRING)

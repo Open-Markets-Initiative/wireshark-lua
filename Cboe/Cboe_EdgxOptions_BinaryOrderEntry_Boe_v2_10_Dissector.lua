@@ -14,10 +14,6 @@ local cboe_edgxoptions_binaryorderentry_boe_v2_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions BinaryOrderEntry Boe 2.10 Headers
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
-
 -- Cboe EdgxOptions BinaryOrderEntry Boe 2.10 Fields
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.account = ProtoField.new("Account", "cboe.edgxoptions.binaryorderentry.boe.v2.10.account", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.alloc_qty = ProtoField.new("Alloc Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.allocqty", ftypes.UINT32)
@@ -1231,6 +1227,10 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.user_modify_rejected_rout
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.username = ProtoField.new("Username", "cboe.edgxoptions.binaryorderentry.boe.v2.10.username", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.edgxoptions.binaryorderentry.boe.v2.10.workingprice", ftypes.UINT64)
 
+-- Cboe EdgxOptions BinaryOrderEntry Boe 2.10 Headers
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
+
 -- Cboe EdgxOptions BinaryOrderEntry 2.10 Application Messages
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.cancelordermessage", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.cancelrejectedmessage", ftypes.STRING)
@@ -1294,7 +1294,6 @@ show.indexes = true
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.prefs_changed()

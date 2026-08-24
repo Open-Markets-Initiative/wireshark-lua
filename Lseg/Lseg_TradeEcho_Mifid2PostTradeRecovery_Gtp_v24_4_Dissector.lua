@@ -14,12 +14,6 @@ local lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Headers
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.message", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messageheader", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.packet", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.unitheader", ftypes.STRING)
-
 -- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Fields
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.agencycrossindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.agency_cross_trade_flag = ProtoField.new("Agency Cross Trade Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.agencycrosstradeflag", ftypes.STRING)
@@ -167,6 +161,12 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.volume_onbook_only =
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
+-- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Headers
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg TradeEcho Mifid2PostTradeRecovery 24.4 Application Messages
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.instrumentdirectorymessage", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.instrumentstatusmessage", ftypes.STRING)
@@ -199,7 +199,6 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_structs = Pref.b
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs_changed()

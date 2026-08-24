@@ -14,10 +14,6 @@ local cboe_c1options_openingprocess_pitch_v1_0_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options OpeningProcess Pitch 1.0.30 Headers
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingprocess.pitch.v1.0.30.packet", ftypes.STRING)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingprocess.pitch.v1.0.30.packetheader", ftypes.STRING)
-
 -- Cboe C1Options OpeningProcess Pitch 1.0.30 Fields
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.c1options.openingprocess.pitch.v1.0.30.auctiononlyprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_type = ProtoField.new("Auction Type", "cboe.c1options.openingprocess.pitch.v1.0.30.auctiontype", ftypes.STRING)
@@ -55,6 +51,10 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.unit = ProtoField.new("Un
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.openingprocess.pitch.v1.0.30.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.openingprocess.pitch.v1.0.30.widthtype", ftypes.STRING)
 
+-- Cboe C1Options OpeningProcess Pitch 1.0.30 Headers
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingprocess.pitch.v1.0.30.packet", ftypes.STRING)
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingprocess.pitch.v1.0.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options OpeningProcess 1.0.30 Application Messages
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1options.openingprocess.pitch.v1.0.30.auctionsummarymessage", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.constituent_symbol_mapping_message = ProtoField.new("Constituent Symbol Mapping Message", "cboe.c1options.openingprocess.pitch.v1.0.30.constituentsymbolmappingmessage", ftypes.STRING)
@@ -85,7 +85,6 @@ show.indexes = true
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs_changed()

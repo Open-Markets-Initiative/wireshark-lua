@@ -14,13 +14,6 @@ local otcmarkets_linkats_extendedtrade_link_v4_10_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkAts ExtendedTrade Link 4.10.4 Headers
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.message", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messageheader", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packet", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetheader", ftypes.STRING)
-
 -- OtcMarkets LinkAts ExtendedTrade Link 4.10.4 Fields
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otcmarkets.linkats.extendedtrade.link.v4.10.4.channelseqnum", ftypes.UINT32)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.deprecated_utf_85 = ProtoField.new("Deprecated Utf 85", "otcmarkets.linkats.extendedtrade.link.v4.10.4.deprecatedutf85", ftypes.STRING)
@@ -56,6 +49,13 @@ omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.trade_status = ProtoFie
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otcmarkets.linkats.extendedtrade.link.v4.10.4.tradetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.venue = ProtoField.new("Venue", "otcmarkets.linkats.extendedtrade.link.v4.10.4.venue", ftypes.STRING)
 
+-- OtcMarkets LinkAts ExtendedTrade Link 4.10.4 Headers
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.message", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packet", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.extendedtrade.link.v4.10.4.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts ExtendedTrade 4.10.4 Application Messages
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.extended_trade_message = ProtoField.new("Extended Trade Message", "otcmarkets.linkats.extendedtrade.link.v4.10.4.extendedtrademessage", ftypes.STRING)
@@ -81,7 +81,6 @@ show.indexes = true
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.prefs_changed()

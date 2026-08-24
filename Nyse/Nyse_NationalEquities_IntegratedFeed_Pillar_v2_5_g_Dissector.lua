@@ -14,13 +14,6 @@ local nyse_nationalequities_integratedfeed_pillar_v2_5_g = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NationalEquities IntegratedFeed Pillar 2.5.g Headers
-omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.message = ProtoField.new("Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.message", ftypes.STRING)
-omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.message_header = ProtoField.new("Message Header", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.messageheader", ftypes.STRING)
-omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.packet", ftypes.STRING)
-omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.packetheader", ftypes.STRING)
-omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.sendtime", ftypes.STRING)
-
 -- Nyse NationalEquities IntegratedFeed Pillar 2.5.g Fields
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingprice", ftypes.DOUBLE)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.auction_status = ProtoField.new("Auction Status", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.auctionstatus", ftypes.UINT8)
@@ -114,6 +107,13 @@ omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.unpaired_side = Pr
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.uppercollar", ftypes.UINT32)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.volume = ProtoField.new("Volume", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.volume", ftypes.UINT32)
 
+-- Nyse NationalEquities IntegratedFeed Pillar 2.5.g Headers
+omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.message = ProtoField.new("Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.message", ftypes.STRING)
+omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.message_header = ProtoField.new("Message Header", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.messageheader", ftypes.STRING)
+omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.packet", ftypes.STRING)
+omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.packetheader", ftypes.STRING)
+omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.sendtime", ftypes.STRING)
+
 -- Nyse NationalEquities IntegratedFeed 2.5.g Application Messages
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.addordermessage", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.nationalequities.integratedfeed.pillar.v2.5.g.addorderrefreshmessage", ftypes.STRING)
@@ -161,7 +161,6 @@ omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.prefs.show_application_me
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nationalequities_integratedfeed_pillar_v2_5_g.prefs_changed()

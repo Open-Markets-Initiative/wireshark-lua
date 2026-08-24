@@ -14,9 +14,6 @@ local cboe_edgxequities_top_asciipitch_v1_3_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxEquities Top AsciiPitch 1.3.9 Headers
-omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
-
 -- Cboe EdgxEquities Top AsciiPitch 1.3.9 Fields
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.ask_price_price_10 = ProtoField.new("Ask Price Price 10", "cboe.edgxequities.top.asciipitch.v1.3.9.askpriceprice10", ftypes.DOUBLE)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.ask_price_price_14 = ProtoField.new("Ask Price Price 14", "cboe.edgxequities.top.asciipitch.v1.3.9.askpriceprice14", ftypes.DOUBLE)
@@ -56,6 +53,9 @@ omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_8 = ProtoField.n
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxequities.top.asciipitch.v1.3.9.timestamp", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.top_lf = ProtoField.new("Top Lf", "cboe.edgxequities.top.asciipitch.v1.3.9.toplf", ftypes.INT8)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.edgxequities.top.asciipitch.v1.3.9.username", ftypes.STRING)
+
+-- Cboe EdgxEquities Top AsciiPitch 1.3.9 Headers
+omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 
 -- Cboe EdgxEquities Top 1.3.9 Application Messages
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "cboe.edgxequities.top.asciipitch.v1.3.9.clientheartbeatmessage", ftypes.BYTES)
@@ -99,7 +99,6 @@ show.structs = true
 -- Register Cboe EdgxEquities Top AsciiPitch 1.3.9 Show Options
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_edgxequities_top_asciipitch_v1_3_9.prefs_changed()

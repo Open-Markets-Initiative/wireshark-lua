@@ -14,12 +14,6 @@ local hkex_hkexsecurities_indexrefresh_omd_v1_44 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexSecurities IndexRefresh Omd 1.44 Headers
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.message", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgheader", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packet", ftypes.STRING)
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packetheader", ftypes.STRING)
-
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.closing_value = ProtoField.new("Closing Value", "hkex.hkexsecurities.indexrefresh.omd.v1.44.closingvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.currency_code = ProtoField.new("Currency Code", "hkex.hkexsecurities.indexrefresh.omd.v1.44.currencycode", ftypes.STRING)
@@ -49,6 +43,12 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.previous_ses_close = Proto
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.44.sendtime", ftypes.UINT64)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.indexrefresh.omd.v1.44.seqnum", ftypes.UINT32)
 
+-- Hkex HkexSecurities IndexRefresh Omd 1.44 Headers
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.message", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.msgheader", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packet", ftypes.STRING)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexsecurities.indexrefresh.omd.v1.44.packetheader", ftypes.STRING)
+
 -- Hkex HkexSecurities IndexRefresh 1.44 Application Messages
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.indexdefinitionmessage", ftypes.STRING)
@@ -74,7 +74,6 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_application_messages =
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs_changed()

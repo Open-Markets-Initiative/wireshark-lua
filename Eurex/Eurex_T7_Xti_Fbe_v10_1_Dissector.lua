@@ -14,11 +14,6 @@ local eurex_t7_xti_fbe_v10_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Xti Fbe 10.1 Headers
-omi_eurex_t7_xti_fbe_v10_1.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v10.1.message", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v10_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v10.1.messageheader", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v10_1.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v10.1.packet", ftypes.STRING)
-
 -- Eurex T7 Xti Fbe 10.1 Fields
 omi_eurex_t7_xti_fbe_v10_1.fields.account = ProtoField.new("Account", "eurex.t7.xti.fbe.v10.1.account", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_1.fields.accrued_interes_amt = ProtoField.new("Accrued Interes Amt", "eurex.t7.xti.fbe.v10.1.accruedinteresamt", ftypes.DOUBLE)
@@ -389,6 +384,11 @@ omi_eurex_t7_xti_fbe_v10_1.fields.var_text_len = ProtoField.new("Var Text Len", 
 omi_eurex_t7_xti_fbe_v10_1.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.t7.xti.fbe.v10.1.volumediscoveryprice", ftypes.DOUBLE)
 omi_eurex_t7_xti_fbe_v10_1.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.t7.xti.fbe.v10.1.xetraenlighttargetpartiescomp", ftypes.STRING)
 
+-- Eurex T7 Xti Fbe 10.1 Headers
+omi_eurex_t7_xti_fbe_v10_1.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v10.1.message", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v10_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v10.1.messageheader", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v10_1.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v10.1.packet", ftypes.STRING)
+
 -- Eurex T7 Xti 10.1 Application Messages
 omi_eurex_t7_xti_fbe_v10_1.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.t7.xti.fbe.v10.1.approvetestraderequest", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v10_1.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.xti.fbe.v10.1.broadcasterrornotification", ftypes.STRING)
@@ -546,7 +546,6 @@ omi_eurex_t7_xti_fbe_v10_1.prefs.show_repeating_groups = Pref.bool("Show Repeati
 omi_eurex_t7_xti_fbe_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_xti_fbe_v10_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_xti_fbe_v10_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_xti_fbe_v10_1.prefs_changed()

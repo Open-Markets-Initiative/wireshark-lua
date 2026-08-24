@@ -14,11 +14,6 @@ local iex_iexequities_deepplus_snap_v1_05 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities DeepPlus Snap 1.05 Headers
-omi_iex_iexequities_deepplus_snap_v1_05.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.snap.v1.05.message", ftypes.STRING)
-omi_iex_iexequities_deepplus_snap_v1_05.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deepplus.snap.v1.05.messageheader", ftypes.STRING)
-omi_iex_iexequities_deepplus_snap_v1_05.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.snap.v1.05.packet", ftypes.STRING)
-
 -- Iex IexEquities DeepPlus Snap 1.05 Fields
 omi_iex_iexequities_deepplus_snap_v1_05.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.deepplus.snap.v1.05.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.authentication_token = ProtoField.new("Authentication Token", "iex.iexequities.deepplus.snap.v1.05.authenticationtoken", ftypes.STRING)
@@ -69,6 +64,11 @@ omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_5 = ProtoField.new("Unused
 omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_7 = ProtoField.new("Unused 7", "iex.iexequities.deepplus.snap.v1.05.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deepplus.snap.v1.05.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
+-- Iex IexEquities DeepPlus Snap 1.05 Headers
+omi_iex_iexequities_deepplus_snap_v1_05.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.snap.v1.05.message", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_05.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deepplus.snap.v1.05.messageheader", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_05.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.snap.v1.05.packet", ftypes.STRING)
+
 -- Iex IexEquities DeepPlus 1.05 Application Messages
 omi_iex_iexequities_deepplus_snap_v1_05.fields.add_order_message = ProtoField.new("Add Order Message", "iex.iexequities.deepplus.snap.v1.05.addordermessage", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.clear_book_message = ProtoField.new("Clear Book Message", "iex.iexequities.deepplus.snap.v1.05.clearbookmessage", ftypes.STRING)
@@ -105,7 +105,6 @@ show.headers = true
 omi_iex_iexequities_deepplus_snap_v1_05.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexequities_deepplus_snap_v1_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deepplus_snap_v1_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_deepplus_snap_v1_05.prefs_changed()

@@ -14,13 +14,6 @@ local nyse_arcaequities_arcabook_pillar_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ArcaEquities ArcaBook Pillar 2.1 Headers
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
-
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontype", ftypes.STRING)
@@ -54,6 +47,13 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_id = ProtoField.new("Tra
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_session = ProtoField.new("Trade Session", "nyse.arcaequities.arcabook.pillar.v2.1.tradesession", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.arcabook.pillar.v2.1.volume", ftypes.UINT32)
 
+-- Nyse ArcaEquities ArcaBook Pillar 2.1 Headers
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
+
 -- Nyse ArcaEquities ArcaBook 2.1 Application Messages
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.addordermessage", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.arcaequities.arcabook.pillar.v2.1.addorderrefreshmessage", ftypes.STRING)
@@ -84,7 +84,6 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_application_messages = Pre
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs_changed()

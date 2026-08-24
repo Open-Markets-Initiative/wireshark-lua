@@ -14,10 +14,6 @@ local cboe_bzxoptions_multicasttop_spin_v1_2_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxOptions MulticastTop Spin 1.2.54 Headers
-omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.multicasttop.spin.v1.2.54.packet", ftypes.STRING)
-omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.multicasttop.spin.v1.2.54.packetheader", ftypes.STRING)
-
 -- Cboe BzxOptions MulticastTop Spin 1.2.54 Fields
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.aon = ProtoField.new("Aon", "cboe.bzxoptions.multicasttop.spin.v1.2.54.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.ask_customer_quantity_binary_2 = ProtoField.new("Ask Customer Quantity Binary 2", "cboe.bzxoptions.multicasttop.spin.v1.2.54.askcustomerquantitybinary2", ftypes.UINT16)
@@ -76,6 +72,10 @@ omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.underlying = ProtoField.new
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.multicasttop.spin.v1.2.54.unit", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.username = ProtoField.new("Username", "cboe.bzxoptions.multicasttop.spin.v1.2.54.username", ftypes.STRING)
 
+-- Cboe BzxOptions MulticastTop Spin 1.2.54 Headers
+omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.multicasttop.spin.v1.2.54.packet", ftypes.STRING)
+omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.multicasttop.spin.v1.2.54.packetheader", ftypes.STRING)
+
 -- Cboe BzxOptions MulticastTop 1.2.54 Application Messages
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.bzxoptions.multicasttop.spin.v1.2.54.instrumentdefinitionfinishedmessage", ftypes.BYTES)
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.instrument_definition_request_message = ProtoField.new("Instrument Definition Request Message", "cboe.bzxoptions.multicasttop.spin.v1.2.54.instrumentdefinitionrequestmessage", ftypes.STRING)
@@ -113,7 +113,6 @@ show.indexes = true
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.prefs_changed()

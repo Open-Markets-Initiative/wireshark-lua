@@ -14,12 +14,6 @@ local lseg_lse_level2incrementalrecovery_gtp_v26_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Lse Level2IncrementalRecovery Gtp 26.2 Headers
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.level2incrementalrecovery.gtp.v26.2.message", ftypes.STRING)
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.level2incrementalrecovery.gtp.v26.2.messageheader", ftypes.STRING)
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.level2incrementalrecovery.gtp.v26.2.packet", ftypes.STRING)
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.level2incrementalrecovery.gtp.v26.2.unitheader", ftypes.STRING)
-
 -- Lseg Lse Level2IncrementalRecovery Gtp 26.2 Fields
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse.level2incrementalrecovery.gtp.v26.2.allowedbooktypes", ftypes.STRING)
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.auction_type = ProtoField.new("Auction Type", "lseg.lse.level2incrementalrecovery.gtp.v26.2.auctiontype", ftypes.STRING)
@@ -143,6 +137,12 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.volume_onbook_only = Pro
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.level2incrementalrecovery.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.level2incrementalrecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
+-- Lseg Lse Level2IncrementalRecovery Gtp 26.2 Headers
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.level2incrementalrecovery.gtp.v26.2.message", ftypes.STRING)
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.level2incrementalrecovery.gtp.v26.2.messageheader", ftypes.STRING)
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.level2incrementalrecovery.gtp.v26.2.packet", ftypes.STRING)
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.level2incrementalrecovery.gtp.v26.2.unitheader", ftypes.STRING)
+
 -- Lseg Lse Level2IncrementalRecovery 26.2 Application Messages
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.lse.level2incrementalrecovery.gtp.v26.2.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.instrument_directory_equities_message = ProtoField.new("Instrument Directory Equities Message", "lseg.lse.level2incrementalrecovery.gtp.v26.2.instrumentdirectoryequitiesmessage", ftypes.STRING)
@@ -177,7 +177,6 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_application_messages
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs_changed()

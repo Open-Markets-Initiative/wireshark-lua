@@ -14,14 +14,6 @@ local jnx_jnxbonds_pts_ouch_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jnx JnxBonds Pts Ouch 1.4 Headers
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientpacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.ouch.v1.4.clientpacketheader", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientsoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.ouch.v1.4.serverpacket", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.ouch.v1.4.serverpacketheader", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxbonds.pts.ouch.v1.4.serversoupbintcppacket", ftypes.STRING)
-
 -- Jnx JnxBonds Pts Ouch 1.4 Fields
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxbonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.jnxbonds.pts.ouch.v1.4.capacity", ftypes.STRING)
@@ -66,6 +58,14 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Fo
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxbonds.pts.ouch.v1.4.timestamp", ftypes.UINT64)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxbonds.pts.ouch.v1.4.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.username = ProtoField.new("Username", "jnx.jnxbonds.pts.ouch.v1.4.username", ftypes.STRING)
+
+-- Jnx JnxBonds Pts Ouch 1.4 Headers
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.ouch.v1.4.clientpacketheader", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxbonds.pts.ouch.v1.4.clientsoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.ouch.v1.4.serverpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.ouch.v1.4.serverpacketheader", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxbonds.pts.ouch.v1.4.serversoupbintcppacket", ftypes.STRING)
 
 -- Jnx JnxBonds Pts 1.4 Application Messages
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.jnxbonds.pts.ouch.v1.4.cancelordermessage", ftypes.STRING)

@@ -14,13 +14,6 @@ local miax_pearlequities_depthofmarket_mach_v1_3_d = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.d Headers
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.tcppacket", ftypes.STRING)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.udppacket", ftypes.STRING)
-
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_message = ProtoField.new("Application Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.applicationmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.depthofmarket.mach.v1.3.d.applicationprotocol", ftypes.STRING)
@@ -92,6 +85,13 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_data_packet 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.username = ProtoField.new("Username", "miax.pearlequities.depthofmarket.mach.v1.3.d.username", ftypes.STRING)
 
+-- Miax PearlEquities DepthOfMarket Mach 1.3.d Headers
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.tcppacket", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.udppacket", ftypes.STRING)
+
 -- Miax PearlEquities DepthOfMarket 1.3.d Application Messages
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.add_order_message = ProtoField.new("Add Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.addordermessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.delete_order_message = ProtoField.new("Delete Order Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.deleteordermessage", ftypes.STRING)
@@ -124,7 +124,6 @@ show.structs = true
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()

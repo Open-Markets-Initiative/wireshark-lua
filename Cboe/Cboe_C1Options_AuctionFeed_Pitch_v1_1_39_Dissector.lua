@@ -14,10 +14,6 @@ local cboe_c1options_auctionfeed_pitch_v1_1_39 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options AuctionFeed Pitch 1.1.39 Headers
-omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
-omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.auctionfeed.pitch.v1.1.39.packetheader", ftypes.STRING)
-
 -- Cboe C1Options AuctionFeed Pitch 1.1.39 Fields
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctionid", ftypes.UINT64)
@@ -63,6 +59,10 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.unit = ProtoField.new("Unit"
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.auctionfeed.pitch.v1.1.39.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.auctionfeed.pitch.v1.1.39.widthtype", ftypes.STRING)
 
+-- Cboe C1Options AuctionFeed Pitch 1.1.39 Headers
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.auctionfeed.pitch.v1.1.39.packetheader", ftypes.STRING)
+
 -- Cboe C1Options AuctionFeed 1.1.39 Application Messages
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.auctionnotificationmessage", ftypes.STRING)
@@ -97,7 +97,6 @@ show.indexes = true
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs_changed()

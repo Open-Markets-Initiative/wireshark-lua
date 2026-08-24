@@ -14,10 +14,6 @@ local nyse_nyseequities_openbook_ultra_v2_1_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities OpenBook Ultra 2.1.b Headers
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
-
 -- Nyse NyseEquities OpenBook Ultra 2.1.b Fields
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.nyseequities.openbook.ultra.v2.1.b.chgqty", ftypes.INT32)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_price_point = ProtoField.new("Delta Price Point", "nyse.nyseequities.openbook.ultra.v2.1.b.deltapricepoint", ftypes.STRING)
@@ -56,6 +52,10 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.trading_status = ProtoField.n
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.update_size = ProtoField.new("Update Size", "nyse.nyseequities.openbook.ultra.v2.1.b.updatesize", ftypes.INT16)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.ultra.v2.1.b.volume", ftypes.INT32)
 
+-- Nyse NyseEquities OpenBook Ultra 2.1.b Headers
+omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.ultra.v2.1.b.packet", ftypes.STRING)
+omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.ultra.v2.1.b.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities OpenBook 2.1.b Application Messages
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_update_message = ProtoField.new("Delta Update Message", "nyse.nyseequities.openbook.ultra.v2.1.b.deltaupdatemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
@@ -75,7 +75,6 @@ show.application_messages = true
 -- Register Nyse NyseEquities OpenBook Ultra 2.1.b Show Options
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs_changed()

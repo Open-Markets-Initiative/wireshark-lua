@@ -14,13 +14,6 @@ local miax_miaxoptions_ais_mach_v2_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax MiaxOptions Ais Mach 2.5 Headers
-omi_miax_miaxoptions_ais_mach_v2_5.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.ais.mach.v2.5.machmessage", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.ais.mach.v2.5.sesmpacketheader", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.ais.mach.v2.5.sesmtcppacket", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.ais.mach.v2.5.tcppacket", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.ais.mach.v2.5.udppacket", ftypes.STRING)
-
 -- Miax MiaxOptions Ais Mach 2.5 Fields
 omi_miax_miaxoptions_ais_mach_v2_5.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.ais.mach.v2.5.activeonmiax", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.ais_version = ProtoField.new("Ais Version", "miax.miaxoptions.ais.mach.v2.5.aisversion", ftypes.STRING)
@@ -125,6 +118,13 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.unsequenced_message_type = ProtoField.
 omi_miax_miaxoptions_ais_mach_v2_5.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.ais.mach.v2.5.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.username = ProtoField.new("Username", "miax.miaxoptions.ais.mach.v2.5.username", ftypes.STRING)
 
+-- Miax MiaxOptions Ais Mach 2.5 Headers
+omi_miax_miaxoptions_ais_mach_v2_5.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.ais.mach.v2.5.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.ais.mach.v2.5.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.ais.mach.v2.5.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.ais.mach.v2.5.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.ais.mach.v2.5.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions Ais 2.5 Application Messages
 omi_miax_miaxoptions_ais_mach_v2_5.fields.complex_liquidity_seeking_event_notification_message = ProtoField.new("Complex Liquidity Seeking Event Notification Message", "miax.miaxoptions.ais.mach.v2.5.complexliquidityseekingeventnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.miaxoptions.ais.mach.v2.5.complexstrategydefinitionupdatemessage", ftypes.STRING)
@@ -160,7 +160,6 @@ omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs = Pref.bool("Show Structs"
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_ais_mach_v2_5.prefs_changed()

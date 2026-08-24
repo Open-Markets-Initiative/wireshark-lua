@@ -14,10 +14,6 @@ local iex_iexequities_tops_iextp_v1_64 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities Tops IexTp 1.64 Headers
-omi_iex_iexequities_tops_iextp_v1_64.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.tops.iextp.v1.64.iextpheader", ftypes.STRING)
-omi_iex_iexequities_tops_iextp_v1_64.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.iextp.v1.64.packet", ftypes.STRING)
-
 -- Iex IexEquities Tops IexTp 1.64 Fields
 omi_iex_iexequities_tops_iextp_v1_64.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.tops.iextp.v1.64.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_tops_iextp_v1_64.fields.ask_price = ProtoField.new("Ask Price", "iex.iexequities.tops.iextp.v1.64.askprice", ftypes.DOUBLE)
@@ -83,6 +79,10 @@ omi_iex_iexequities_tops_iextp_v1_64.fields.upper_auction_collar = ProtoField.ne
 omi_iex_iexequities_tops_iextp_v1_64.fields.version = ProtoField.new("Version", "iex.iexequities.tops.iextp.v1.64.version", ftypes.UINT8)
 omi_iex_iexequities_tops_iextp_v1_64.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.tops.iextp.v1.64.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
+-- Iex IexEquities Tops IexTp 1.64 Headers
+omi_iex_iexequities_tops_iextp_v1_64.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.tops.iextp.v1.64.iextpheader", ftypes.STRING)
+omi_iex_iexequities_tops_iextp_v1_64.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.iextp.v1.64.packet", ftypes.STRING)
+
 -- Iex IexEquities Tops 1.64 Application Messages
 omi_iex_iexequities_tops_iextp_v1_64.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.tops.iextp.v1.64.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_64.fields.official_price_message = ProtoField.new("Official Price Message", "iex.iexequities.tops.iextp.v1.64.officialpricemessage", ftypes.STRING)
@@ -116,7 +116,6 @@ omi_iex_iexequities_tops_iextp_v1_64.prefs.show_application_messages = Pref.bool
 omi_iex_iexequities_tops_iextp_v1_64.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_tops_iextp_v1_64.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_tops_iextp_v1_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_tops_iextp_v1_64.prefs_changed()

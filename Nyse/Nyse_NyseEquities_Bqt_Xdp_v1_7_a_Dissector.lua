@@ -14,12 +14,6 @@ local nyse_nyseequities_bqt_xdp_v1_7_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities Bqt Xdp 1.7.a Headers
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.bqt.xdp.v1.7.a.message", ftypes.STRING)
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bqt.xdp.v1.7.a.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bqt.xdp.v1.7.a.packet", ftypes.STRING)
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bqt.xdp.v1.7.a.packetheader", ftypes.STRING)
-
 -- Nyse NyseEquities Bqt Xdp 1.7.a Fields
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseequities.bqt.xdp.v1.7.a.askprice", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.nyseequities.bqt.xdp.v1.7.a.askquotecondition", ftypes.STRING)
@@ -125,6 +119,12 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.trade_session = ProtoField.new("Trad
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.bqt.xdp.v1.7.a.unitoftrade", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.bqt.xdp.v1.7.a.volume", ftypes.UINT32)
 
+-- Nyse NyseEquities Bqt Xdp 1.7.a Headers
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message = ProtoField.new("Message", "nyse.nyseequities.bqt.xdp.v1.7.a.message", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bqt.xdp.v1.7.a.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bqt.xdp.v1.7.a.packet", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bqt.xdp.v1.7.a.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities Bqt Xdp 1.7.a generated fields
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v1.7.a.messageindex", ftypes.UINT16)
 
@@ -141,7 +141,6 @@ show.indexes = true
 -- Register Nyse NyseEquities Bqt Xdp 1.7.a Show Options
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()

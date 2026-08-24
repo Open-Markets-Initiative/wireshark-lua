@@ -14,13 +14,6 @@ local siac_opra_input_obi_v5_0_i = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Opra Input Obi 5.0.i Headers
-omi_siac_opra_input_obi_v5_0_i.fields.block_header = ProtoField.new("Block Header", "siac.opra.input.obi.v5.0.i.blockheader", ftypes.STRING)
-omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.STRING)
-omi_siac_opra_input_obi_v5_0_i.fields.message = ProtoField.new("Message", "siac.opra.input.obi.v5.0.i.message", ftypes.STRING)
-omi_siac_opra_input_obi_v5_0_i.fields.message_header = ProtoField.new("Message Header", "siac.opra.input.obi.v5.0.i.messageheader", ftypes.STRING)
-omi_siac_opra_input_obi_v5_0_i.fields.packet = ProtoField.new("Packet", "siac.opra.input.obi.v5.0.i.packet", ftypes.STRING)
-
 -- Siac Opra Input Obi 5.0.i Fields
 omi_siac_opra_input_obi_v5_0_i.fields.administrative_category = ProtoField.new("Administrative Category", "siac.opra.input.obi.v5.0.i.administrativecategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.input.obi.v5.0.i.administrativemessagetype", ftypes.STRING)
@@ -95,6 +88,13 @@ omi_siac_opra_input_obi_v5_0_i.fields.underlying_value_message_message_type = Pr
 omi_siac_opra_input_obi_v5_0_i.fields.version = ProtoField.new("Version", "siac.opra.input.obi.v5.0.i.version", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.volume = ProtoField.new("Volume", "siac.opra.input.obi.v5.0.i.volume", ftypes.UINT32)
 
+-- Siac Opra Input Obi 5.0.i Headers
+omi_siac_opra_input_obi_v5_0_i.fields.block_header = ProtoField.new("Block Header", "siac.opra.input.obi.v5.0.i.blockheader", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.message = ProtoField.new("Message", "siac.opra.input.obi.v5.0.i.message", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.message_header = ProtoField.new("Message Header", "siac.opra.input.obi.v5.0.i.messageheader", ftypes.STRING)
+omi_siac_opra_input_obi_v5_0_i.fields.packet = ProtoField.new("Packet", "siac.opra.input.obi.v5.0.i.packet", ftypes.STRING)
+
 -- Siac Opra Input 5.0.i Application Messages
 omi_siac_opra_input_obi_v5_0_i.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.input.obi.v5.0.i.administrativemessage", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.block_sequence_number_status_inquiry_request_message = ProtoField.new("Block Sequence Number Status Inquiry Request Message", "siac.opra.input.obi.v5.0.i.blocksequencenumberstatusinquiryrequestmessage", ftypes.STRING)
@@ -129,7 +129,6 @@ omi_siac_opra_input_obi_v5_0_i.prefs.show_structs = Pref.bool("Show Structs", sh
 omi_siac_opra_input_obi_v5_0_i.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_opra_input_obi_v5_0_i.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_opra_input_obi_v5_0_i.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_opra_input_obi_v5_0_i.prefs_changed()

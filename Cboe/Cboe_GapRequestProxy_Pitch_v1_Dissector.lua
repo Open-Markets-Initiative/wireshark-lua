@@ -14,10 +14,6 @@ local cboe_gaprequestproxy_pitch_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe GapRequestProxy Pitch 1. Headers
-omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
-
 -- Cboe GapRequestProxy Pitch 1. Fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16)
 omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING)
@@ -33,6 +29,10 @@ omi_cboe_gaprequestproxy_pitch_v1.fields.sequence = ProtoField.new("Sequence", "
 omi_cboe_gaprequestproxy_pitch_v1.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.gaprequestproxy.pitch.v1.sessionsubid", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.unit = ProtoField.new("Unit", "cboe.gaprequestproxy.pitch.v1.unit", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.username = ProtoField.new("Username", "cboe.gaprequestproxy.pitch.v1.username", ftypes.STRING)
+
+-- Cboe GapRequestProxy Pitch 1. Headers
+omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
 
 -- Cboe GapRequestProxy 1. Application Messages
 omi_cboe_gaprequestproxy_pitch_v1.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.gaprequestproxy.pitch.v1.gaprequestmessage", ftypes.STRING)
@@ -58,7 +58,6 @@ show.indexes = true
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_gaprequestproxy_pitch_v1.prefs_changed()

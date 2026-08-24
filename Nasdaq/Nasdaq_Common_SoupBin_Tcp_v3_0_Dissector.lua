@@ -14,14 +14,6 @@ local nasdaq_common_soupbin_tcp_v3_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Common SoupBin Tcp 3.0 Headers
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.clientpacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.clientpacketheader", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.serverpacket", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.serverpacketheader", ftypes.STRING)
-omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.serversoupbintcppacket", ftypes.STRING)
-
 -- Nasdaq Common SoupBin Tcp 3.0 Fields
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.common.soupbin.tcp.v3.0.clientpackettype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbin.tcp.v3.0.packetlength", ftypes.UINT16)
@@ -38,6 +30,14 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.text = ProtoField.new("Text", "nasdaq.
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
+
+-- Nasdaq Common SoupBin Tcp 3.0 Headers
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.clientpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.clientpacketheader", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.serverpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.serverpacketheader", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq Common SoupBin 3.0 Session Messages
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
@@ -68,7 +68,6 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.assume_role = Pref.enum("Assume Role", 
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()

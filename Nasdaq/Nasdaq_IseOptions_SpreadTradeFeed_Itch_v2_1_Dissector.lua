@@ -14,16 +14,6 @@ local nasdaq_iseoptions_spreadtradefeed_itch_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq IseOptions SpreadTradeFeed Itch 2.1 Headers
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clienttcppacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.moldudp64packet", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.servertcppacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.servertcppacketheader", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.udppacketheader", ftypes.STRING)
-
 -- Nasdaq IseOptions SpreadTradeFeed Itch 2.1 Fields
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.acceptedsession", ftypes.STRING)
@@ -70,6 +60,16 @@ omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_message = Pro
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.username", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.volume = ProtoField.new("Volume", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.volume", ftypes.UINT32)
+
+-- Nasdaq IseOptions SpreadTradeFeed Itch 2.1 Headers
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clienttcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.moldudp64packet", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.serversoupbintcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.servertcppacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.servertcppacketheader", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.udppacketheader", ftypes.STRING)
 
 -- Nasdaq IseOptions SpreadTradeFeed 2.1 Session Messages
 omi_nasdaq_iseoptions_spreadtradefeed_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.iseoptions.spreadtradefeed.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)

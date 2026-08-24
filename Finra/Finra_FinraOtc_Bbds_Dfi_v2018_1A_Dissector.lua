@@ -14,10 +14,6 @@ local finra_finraotc_bbds_dfi_v2018_1a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Finra FinraOtc Bbds Dfi 2018.1A Headers
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.finraotc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
-
 -- Finra FinraOtc Bbds Dfi 2018.1A Fields
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.finraotc.bbds.dfi.v2018.1a.action", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraotc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
@@ -71,6 +67,10 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.n
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.finraotc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.finraotc.bbds.dfi.v2018.1a.year", ftypes.STRING)
 
+-- Finra FinraOtc Bbds Dfi 2018.1A Headers
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.finraotc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
+
 -- Finra FinraOtc Bbds 2018.1A Application Messages
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.end_of_day_message = ProtoField.new("End Of Day Message", "finra.finraotc.bbds.dfi.v2018.1a.endofdaymessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.end_of_retransmission_requests_message = ProtoField.new("End Of Retransmission Requests Message", "finra.finraotc.bbds.dfi.v2018.1a.endofretransmissionrequestsmessage", ftypes.STRING)
@@ -98,7 +98,6 @@ show.application_messages = true
 -- Register Finra FinraOtc Bbds Dfi 2018.1A Show Options
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()

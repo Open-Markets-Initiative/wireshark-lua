@@ -14,10 +14,6 @@ local nasdaq_iseoptions_ordercombofeed_itch_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq IseOptions OrderComboFeed Itch 1.1 Headers
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
-
 -- Nasdaq IseOptions OrderComboFeed Itch 1.1 Fields
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_event = ProtoField.new("Auction Event", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionevent", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionid", ftypes.UINT32)
@@ -68,6 +64,10 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.subversion = ProtoField.ne
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.timestamp", ftypes.UINT64)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8)
+
+-- Nasdaq IseOptions OrderComboFeed Itch 1.1 Headers
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
 
 -- Nasdaq IseOptions OrderComboFeed 1.1 Application Messages
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.complexstrategyauctionmessage", ftypes.STRING)

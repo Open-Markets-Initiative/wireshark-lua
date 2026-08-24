@@ -14,10 +14,6 @@ local miax_pearloptions_topofmarket_mach_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlOptions TopOfMarket Mach 1.0 Headers
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v1.0.machmessage", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v1.0.packet", ftypes.STRING)
-
 -- Miax PearlOptions TopOfMarket Mach 1.0 Fields
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.active_on_pearl = ProtoField.new("Active On Pearl", "miax.pearloptions.topofmarket.mach.v1.0.activeonpearl", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.pearloptions.topofmarket.mach.v1.0.applicationmessage", ftypes.STRING)
@@ -78,6 +74,10 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_price = ProtoField.
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_priority_customer_size = ProtoField.new("Wide Pbbo Priority Customer Size", "miax.pearloptions.topofmarket.mach.v1.0.widepbboprioritycustomersize", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.wide_pbbo_size = ProtoField.new("Wide Pbbo Size", "miax.pearloptions.topofmarket.mach.v1.0.widepbbosize", ftypes.UINT32)
 
+-- Miax PearlOptions TopOfMarket Mach 1.0 Headers
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v1.0.machmessage", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v1.0.packet", ftypes.STRING)
+
 -- Miax PearlOptions TopOfMarket 1.0 Application Messages
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_double_sided_top_of_market_message = ProtoField.new("Compact Double Sided Top Of Market Message", "miax.pearloptions.topofmarket.mach.v1.0.compactdoublesidedtopofmarketmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.compact_top_of_market_best_offer_message = ProtoField.new("Compact Top Of Market Best Offer Message", "miax.pearloptions.topofmarket.mach.v1.0.compacttopofmarketbestoffermessage", ftypes.STRING)
@@ -108,7 +108,6 @@ show.application_messages = true
 -- Register Miax PearlOptions TopOfMarket Mach 1.0 Show Options
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_0.prefs_changed()

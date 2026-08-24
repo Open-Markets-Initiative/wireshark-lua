@@ -14,13 +14,6 @@ local miax_emeraldoptions_orderfeed_mach_v1_1_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax EmeraldOptions OrderFeed Mach 1.1.a Headers
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.machmessage", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmpacketheader", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmtcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.tcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.udppacket", ftypes.STRING)
-
 -- Miax EmeraldOptions OrderFeed Mach 1.1.a Fields
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.action = ProtoField.new("Action", "miax.emeraldoptions.orderfeed.mach.v1.1.a.action", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.active_on_emerald = ProtoField.new("Active On Emerald", "miax.emeraldoptions.orderfeed.mach.v1.1.a.activeonemerald", ftypes.STRING)
@@ -108,6 +101,13 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.unsequenced_message_type = 
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.update_reason = ProtoField.new("Update Reason", "miax.emeraldoptions.orderfeed.mach.v1.1.a.updatereason", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.username = ProtoField.new("Username", "miax.emeraldoptions.orderfeed.mach.v1.1.a.username", ftypes.STRING)
 
+-- Miax EmeraldOptions OrderFeed Mach 1.1.a Headers
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.machmessage", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmpacketheader", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmtcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.tcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.udppacket", ftypes.STRING)
+
 -- Miax EmeraldOptions OrderFeed 1.1.a Application Messages
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.complex_order_message = ProtoField.new("Complex Order Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.complexordermessage", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.complex_strategy_definition_update_message = ProtoField.new("Complex Strategy Definition Update Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.complexstrategydefinitionupdatemessage", ftypes.STRING)
@@ -142,7 +142,6 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs = Pref.bool("Sh
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs_changed()

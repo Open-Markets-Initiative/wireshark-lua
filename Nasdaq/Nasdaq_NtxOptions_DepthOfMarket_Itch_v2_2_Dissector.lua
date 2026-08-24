@@ -14,16 +14,6 @@ local nasdaq_ntxoptions_depthofmarket_itch_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Headers
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
-
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsession", ftypes.STRING)
@@ -114,6 +104,16 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.username = ProtoField.new("
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumelong", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_notation = ProtoField.new("Volume Notation", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumenotation", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumeshort", ftypes.UINT16)
+
+-- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Headers
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
 
 -- Nasdaq NtxOptions DepthOfMarket 2.2 Application Messages
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.addorderlongformmessage", ftypes.STRING)

@@ -14,14 +14,6 @@ local tmx_quantumfeed_alphalevel2_xmt_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Tmx QuantumFeed AlphaLevel2 Xmt 2.2 Headers
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body = ProtoField.new("Body", "tmx.quantumfeed.alphalevel2.xmt.v2.2.body", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.bodyheader", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.alphalevel2.xmt.v2.2.bodymessage", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.businessheader", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.frameheader", ftypes.STRING)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.alphalevel2.xmt.v2.2.packet", ftypes.STRING)
-
 -- Tmx QuantumFeed AlphaLevel2 Xmt 2.2 Fields
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.alphalevel2.xmt.v2.2.ackrequiredpossdup", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.alphalevel2.xmt.v2.2.boardlot", ftypes.UINT16)
@@ -74,6 +66,14 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.trade_time_stamp = ProtoField.ne
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.alphalevel2.xmt.v2.2.tradingsystemtimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.alphalevel2.xmt.v2.2.volume", ftypes.UINT32)
 
+-- Tmx QuantumFeed AlphaLevel2 Xmt 2.2 Headers
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body = ProtoField.new("Body", "tmx.quantumfeed.alphalevel2.xmt.v2.2.body", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.bodyheader", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.alphalevel2.xmt.v2.2.bodymessage", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.alphalevel2.xmt.v2.2.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.alphalevel2.xmt.v2.2.packet", ftypes.STRING)
+
 -- Tmx QuantumFeed AlphaLevel2 2.2 Application Messages
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.market_state_update_message = ProtoField.new("Market State Update Message", "tmx.quantumfeed.alphalevel2.xmt.v2.2.marketstateupdatemessage", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.fields.order_book_message = ProtoField.new("Order Book Message", "tmx.quantumfeed.alphalevel2.xmt.v2.2.orderbookmessage", ftypes.STRING)
@@ -107,7 +107,6 @@ show.indexes = true
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_alphalevel2_xmt_v2_2.prefs_changed()

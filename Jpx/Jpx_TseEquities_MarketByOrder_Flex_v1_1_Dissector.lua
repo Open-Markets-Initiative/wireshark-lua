@@ -14,13 +14,6 @@ local jpx_tseequities_marketbyorder_flex_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jpx TseEquities MarketByOrder Flex 1.1 Headers
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Message", "jpx.tseequities.marketbyorder.flex.v1.1.message", ftypes.STRING)
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.tseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.tseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "jpx.tseequities.marketbyorder.flex.v1.1.tcppacket", ftypes.STRING)
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "jpx.tseequities.marketbyorder.flex.v1.1.udppacket", ftypes.STRING)
-
 -- Jpx TseEquities MarketByOrder Flex 1.1 Fields
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.adopted_pricing_method = ProtoField.new("Adopted Pricing Method", "jpx.tseequities.marketbyorder.flex.v1.1.adoptedpricingmethod", ftypes.UINT8)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.best_bid = ProtoField.new("Best Bid", "jpx.tseequities.marketbyorder.flex.v1.1.bestbid", ftypes.DOUBLE)
@@ -67,6 +60,13 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.user_id = ProtoField.new("Use
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.utility_flag = ProtoField.new("Utility Flag", "jpx.tseequities.marketbyorder.flex.v1.1.utilityflag", ftypes.UINT8)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.volume = ProtoField.new("Volume", "jpx.tseequities.marketbyorder.flex.v1.1.volume", ftypes.UINT64)
 
+-- Jpx TseEquities MarketByOrder Flex 1.1 Headers
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Message", "jpx.tseequities.marketbyorder.flex.v1.1.message", ftypes.STRING)
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.tseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.tseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "jpx.tseequities.marketbyorder.flex.v1.1.tcppacket", ftypes.STRING)
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "jpx.tseequities.marketbyorder.flex.v1.1.udppacket", ftypes.STRING)
+
 -- Jpx TseEquities MarketByOrder 1.1 Application Messages
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.add_order_message = ProtoField.new("Add Order Message", "jpx.tseequities.marketbyorder.flex.v1.1.addordermessage", ftypes.STRING)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.communication_control_message = ProtoField.new("Communication Control Message", "jpx.tseequities.marketbyorder.flex.v1.1.communicationcontrolmessage", ftypes.STRING)
@@ -103,7 +103,6 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_application_messages = Pr
 omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs_changed()

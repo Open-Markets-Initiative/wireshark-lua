@@ -14,14 +14,6 @@ local asx_asxsecurities_trade_ouch_v3_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Asx AsxSecurities Trade Ouch 3.6 Headers
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet = ProtoField.new("Packet", "asx.asxsecurities.trade.ouch.v3.6.clientpacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.ouch.v3.6.clientpacketheader", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.asxsecurities.trade.ouch.v3.6.clientsoupbintcppacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet = ProtoField.new("Packet", "asx.asxsecurities.trade.ouch.v3.6.serverpacket", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.ouch.v3.6.serverpacketheader", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.asxsecurities.trade.ouch.v3.6.serversoupbintcppacket", ftypes.STRING)
-
 -- Asx AsxSecurities Trade Ouch 3.6 Fields
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.asxsecurities.trade.ouch.v3.6.capacityofparticipant", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.asxsecurities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
@@ -75,6 +67,14 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("T
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.asxsecurities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.username = ProtoField.new("Username", "asx.asxsecurities.trade.ouch.v3.6.username", ftypes.STRING)
 
+-- Asx AsxSecurities Trade Ouch 3.6 Headers
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet = ProtoField.new("Packet", "asx.asxsecurities.trade.ouch.v3.6.clientpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.ouch.v3.6.clientpacketheader", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.asxsecurities.trade.ouch.v3.6.clientsoupbintcppacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet = ProtoField.new("Packet", "asx.asxsecurities.trade.ouch.v3.6.serverpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.ouch.v3.6.serverpacketheader", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.asxsecurities.trade.ouch.v3.6.serversoupbintcppacket", ftypes.STRING)
+
 -- Asx AsxSecurities Trade 3.6 Application Messages
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.cancel_by_order_id_message = ProtoField.new("Cancel By Order Id Message", "asx.asxsecurities.trade.ouch.v3.6.cancelbyorderidmessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "asx.asxsecurities.trade.ouch.v3.6.cancelordermessage", ftypes.STRING)
@@ -117,7 +117,6 @@ omi_asx_asxsecurities_trade_ouch_v3_6.prefs.swap_sides = Pref.bool("Swap Sides",
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()

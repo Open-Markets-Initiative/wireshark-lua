@@ -14,10 +14,6 @@ local ltse_commonheader_udp_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ltse CommonHeader Udp 1.1 Headers
-omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
-omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
-
 -- Ltse CommonHeader Udp 1.1 Fields
 omi_ltse_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.udp.v1.1.blocklength", ftypes.UINT16)
 omi_ltse_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "ltse.commonheader.udp.v1.1.headerlength", ftypes.UINT8)
@@ -35,6 +31,10 @@ omi_ltse_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", 
 omi_ltse_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "ltse.commonheader.udp.v1.1.templateid", ftypes.UINT8)
 omi_ltse_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "ltse.commonheader.udp.v1.1.version", ftypes.UINT16)
 
+-- Ltse CommonHeader Udp 1.1 Headers
+omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
+omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
+
 -- Ltse CommonHeader Udp 1.1 generated fields
 omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "ltse.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
 
@@ -51,7 +51,6 @@ show.indexes = true
 -- Register Ltse CommonHeader Udp 1.1 Show Options
 omi_ltse_commonheader_udp_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ltse_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_ltse_commonheader_udp_v1_1.prefs_changed()

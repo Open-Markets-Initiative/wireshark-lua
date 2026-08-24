@@ -14,10 +14,6 @@ local miax_onyxfutures_depthofmarket_mach_v1_0_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax OnyxFutures DepthOfMarket Mach 1.0.b Headers
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
-
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Fields
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.aggressor_side = ProtoField.new("Aggressor Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.aggressorside", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price = ProtoField.new("Anticipated Opening Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.anticipatedopeningprice", ftypes.DOUBLE)
@@ -79,6 +75,10 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoFie
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused = ProtoField.new("Unused", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
+-- Miax OnyxFutures DepthOfMarket Mach 1.0.b Headers
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
+
 -- Miax OnyxFutures DepthOfMarket 1.0.b Application Messages
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.add_order_message = ProtoField.new("Add Order Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.addordermessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.anticipated_opening_price_message = ProtoField.new("Anticipated Opening Price Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.anticipatedopeningpricemessage", ftypes.STRING)
@@ -115,7 +115,6 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_application_messages =
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.prefs_changed()

@@ -14,17 +14,17 @@ local a2x_a2xequities_udpheader_amd_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- A2X A2XEquities UdpHeader Amd 1. Headers
-omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", "a2x.a2xequities.udpheader.amd.v1.message", ftypes.STRING)
-omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
-omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
-
 -- A2X A2XEquities UdpHeader Amd 1. Fields
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.udpheader.amd.v1.messagecount", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.udpheader.amd.v1.msglength", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.udpheader.amd.v1.msgtype", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.payload = ProtoField.new("Payload", "a2x.a2xequities.udpheader.amd.v1.payload", ftypes.BYTES)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.udpheader.amd.v1.seqno", ftypes.UINT32)
+
+-- A2X A2XEquities UdpHeader Amd 1. Headers
+omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", "a2x.a2xequities.udpheader.amd.v1.message", ftypes.STRING)
+omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
+omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
 
 -- A2X A2XEquities UdpHeader Amd 1. generated fields
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.udpheader.amd.v1.messageindex", ftypes.UINT16)
@@ -42,7 +42,6 @@ show.indexes = true
 -- Register A2X A2XEquities UdpHeader Amd 1. Show Options
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_udpheader_amd_v1.prefs_changed()

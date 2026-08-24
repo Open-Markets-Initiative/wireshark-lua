@@ -14,10 +14,6 @@ local cboe_edgxoptions_complexauction_pitch_v2_2_41 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxOptions ComplexAuction Pitch 2.2.41 Headers
-omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
-omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
-
 -- Cboe EdgxOptions ComplexAuction Pitch 2.2.41 Fields
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.edgxoptions.complexauction.pitch.v2.2.41.auctionendoffset", ftypes.UINT32)
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.auction_id = ProtoField.new("Auction Id", "cboe.edgxoptions.complexauction.pitch.v2.2.41.auctionid", ftypes.UINT64)
@@ -63,6 +59,10 @@ omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.time_offset = ProtoFiel
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.complexauction.pitch.v2.2.41.timestamp", ftypes.UINT32)
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.underlying = ProtoField.new("Underlying", "cboe.edgxoptions.complexauction.pitch.v2.2.41.underlying", ftypes.STRING)
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.unit = ProtoField.new("Unit", "cboe.edgxoptions.complexauction.pitch.v2.2.41.unit", ftypes.UINT8)
+
+-- Cboe EdgxOptions ComplexAuction Pitch 2.2.41 Headers
+omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.packet = ProtoField.new("Packet", "cboe.edgxoptions.complexauction.pitch.v2.2.41.packet", ftypes.STRING)
+omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxoptions.complexauction.pitch.v2.2.41.packetheader", ftypes.STRING)
 
 -- Cboe EdgxOptions ComplexAuction 2.2.41 Application Messages
 omi_cboe_edgxoptions_complexauction_pitch_v2_2_41.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.edgxoptions.complexauction.pitch.v2.2.41.auctioncancelmessage", ftypes.STRING)

@@ -14,12 +14,6 @@ local cboe_c1options_marketdatafeed_csm_v1_4_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options MarketDataFeed Csm 1.4.2 Headers
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.message", ftypes.STRING)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.c1options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.packetheader", ftypes.STRING)
-
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Fields
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.c1options.marketdatafeed.csm.v1.4.2.applseqnum", ftypes.UINT32)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.class_key = ProtoField.new("Class Key", "cboe.c1options.marketdatafeed.csm.v1.4.2.classkey", ftypes.UINT32)
@@ -116,6 +110,12 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_type_length = Pro
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.marketdatafeed.csm.v1.4.2.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.version = ProtoField.new("Version", "cboe.c1options.marketdatafeed.csm.v1.4.2.version", ftypes.UINT8)
 
+-- Cboe C1Options MarketDataFeed Csm 1.4.2 Headers
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message = ProtoField.new("Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.message", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.messageheader", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet = ProtoField.new("Packet", "cboe.c1options.marketdatafeed.csm.v1.4.2.packet", ftypes.STRING)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketdatafeed.csm.v1.4.2.packetheader", ftypes.STRING)
+
 -- Cboe C1Options MarketDataFeed 1.4.2 Application Messages
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message = ProtoField.new("Current Market Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
@@ -155,7 +155,6 @@ show.indexes = true
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs_changed()

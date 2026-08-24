@@ -14,10 +14,6 @@ local tmx_mx_sola_multicast_hsvf_v1_14 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Tmx Mx Sola Multicast Hsvf 1.14 Headers
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_header = ProtoField.new("Message Header", "tmx.mx.sola.multicast.hsvf.v1.14.messageheader", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.packet = ProtoField.new("Packet", "tmx.mx.sola.multicast.hsvf.v1.14.packet", ftypes.STRING)
-
 -- Tmx Mx Sola Multicast Hsvf 1.14 Fields
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price = ProtoField.new("Ask Price", "tmx.mx.sola.multicast.hsvf.v1.14.askprice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.askpricefractionindicator", ftypes.STRING)
@@ -188,6 +184,10 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_year = ProtoField.
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.variable_legs_strategy_code = ProtoField.new("Variable Legs Strategy Code", "tmx.mx.sola.multicast.hsvf.v1.14.variablelegsstrategycode", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.volume = ProtoField.new("Volume", "tmx.mx.sola.multicast.hsvf.v1.14.volume", ftypes.STRING)
 
+-- Tmx Mx Sola Multicast Hsvf 1.14 Headers
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_header = ProtoField.new("Message Header", "tmx.mx.sola.multicast.hsvf.v1.14.messageheader", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.packet = ProtoField.new("Packet", "tmx.mx.sola.multicast.hsvf.v1.14.packet", ftypes.STRING)
+
 -- Tmx Mx Multicast 1.14 Application Messages
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.sola.multicast.hsvf.v1.14.beginningoffutureoptionssummarymessage", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.beginning_of_futures_summary_message = ProtoField.new("Beginning Of Futures Summary Message", "tmx.mx.sola.multicast.hsvf.v1.14.beginningoffuturessummarymessage", ftypes.STRING)
@@ -267,7 +267,6 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_structs = Pref.bool("Show Struct
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_tmx_mx_sola_multicast_hsvf_v1_14.prefs_changed()

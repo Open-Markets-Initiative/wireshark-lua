@@ -14,10 +14,6 @@ local nasdaq_psxequities_bbo_itch_v2_1_2018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq PsxEquities Bbo Itch 2.1.2018 Headers
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
-
 -- Nasdaq PsxEquities Bbo Itch 2.1.2018 Fields
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.bbo.itch.v2.1.2018.authenticity", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.itch.v2.1.2018.breachedlevel", ftypes.STRING)
@@ -59,6 +55,10 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.short_sale_threshold_indicator 
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.itch.v2.1.2018.stock", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.itch.v2.1.2018.timestamp", ftypes.UINT64)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.bbo.itch.v2.1.2018.trackingnumber", ftypes.UINT16)
+
+-- Nasdaq PsxEquities Bbo Itch 2.1.2018 Headers
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
 
 -- Nasdaq PsxEquities Bbo 2.1.2018 Application Messages
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.mwcbdeclinelevelmessage", ftypes.STRING)

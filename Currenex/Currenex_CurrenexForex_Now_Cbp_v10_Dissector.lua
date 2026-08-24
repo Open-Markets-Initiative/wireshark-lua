@@ -14,10 +14,6 @@ local currenex_currenexforex_now_cbp_v10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Now Cbp 10. Headers
-omi_currenex_currenexforex_now_cbp_v10.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.now.cbp.v10.messageheader", ftypes.STRING)
-omi_currenex_currenexforex_now_cbp_v10.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.now.cbp.v10.packet", ftypes.STRING)
-
 -- Currenex CurrenexForex Now Cbp 10. Fields
 omi_currenex_currenexforex_now_cbp_v10.fields.activity_indicator = ProtoField.new("Activity Indicator", "currenex.currenexforex.now.cbp.v10.activityindicator", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.INT64)
@@ -56,6 +52,10 @@ omi_currenex_currenexforex_now_cbp_v10.fields.transact_time = ProtoField.new("Tr
 omi_currenex_currenexforex_now_cbp_v10.fields.type = ProtoField.new("Type", "currenex.currenexforex.now.cbp.v10.type", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.now.cbp.v10.userid", ftypes.STRING)
 
+-- Currenex CurrenexForex Now Cbp 10. Headers
+omi_currenex_currenexforex_now_cbp_v10.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.now.cbp.v10.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_now_cbp_v10.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.now.cbp.v10.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex Now 10. Application Messages
 omi_currenex_currenexforex_now_cbp_v10.fields.depth_of_book_message = ProtoField.new("Depth Of Book Message", "currenex.currenexforex.now.cbp.v10.depthofbookmessage", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "currenex.currenexforex.now.cbp.v10.heartbeatmessage", ftypes.STRING)
@@ -90,7 +90,6 @@ show.indexes = true
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_currenex_currenexforex_now_cbp_v10.prefs_changed()

@@ -14,12 +14,6 @@ local cme_common_mdp_udp_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Common Mdp Udp 1. Headers
-omi_cme_common_mdp_udp_v1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.common.mdp.udp.v1.binarypacketheader", ftypes.STRING)
-omi_cme_common_mdp_udp_v1.fields.message = ProtoField.new("Message", "cme.common.mdp.udp.v1.message", ftypes.STRING)
-omi_cme_common_mdp_udp_v1.fields.message_header = ProtoField.new("Message Header", "cme.common.mdp.udp.v1.messageheader", ftypes.STRING)
-omi_cme_common_mdp_udp_v1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.common.mdp.udp.v1.udppacket", ftypes.STRING)
-
 -- Cme Common Mdp Udp 1. Fields
 omi_cme_common_mdp_udp_v1.fields.block_length = ProtoField.new("Block Length", "cme.common.mdp.udp.v1.blocklength", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.message_size = ProtoField.new("Message Size", "cme.common.mdp.udp.v1.messagesize", ftypes.UINT16)
@@ -29,6 +23,12 @@ omi_cme_common_mdp_udp_v1.fields.schema_id = ProtoField.new("Schema Id", "cme.co
 omi_cme_common_mdp_udp_v1.fields.sending_time = ProtoField.new("Sending Time", "cme.common.mdp.udp.v1.sendingtime", ftypes.UINT64)
 omi_cme_common_mdp_udp_v1.fields.template_id = ProtoField.new("Template Id", "cme.common.mdp.udp.v1.templateid", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.version = ProtoField.new("Version", "cme.common.mdp.udp.v1.version", ftypes.UINT16)
+
+-- Cme Common Mdp Udp 1. Headers
+omi_cme_common_mdp_udp_v1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.common.mdp.udp.v1.binarypacketheader", ftypes.STRING)
+omi_cme_common_mdp_udp_v1.fields.message = ProtoField.new("Message", "cme.common.mdp.udp.v1.message", ftypes.STRING)
+omi_cme_common_mdp_udp_v1.fields.message_header = ProtoField.new("Message Header", "cme.common.mdp.udp.v1.messageheader", ftypes.STRING)
+omi_cme_common_mdp_udp_v1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.common.mdp.udp.v1.udppacket", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -43,7 +43,6 @@ show.structs = true
 -- Register Cme Common Mdp Udp 1. Show Options
 omi_cme_common_mdp_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_common_mdp_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_common_mdp_udp_v1.prefs_changed()

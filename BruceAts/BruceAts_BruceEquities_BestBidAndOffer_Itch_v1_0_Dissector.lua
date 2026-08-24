@@ -14,10 +14,6 @@ local bruceats_bruceequities_bestbidandoffer_itch_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Headers
-omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packet", ftypes.STRING)
-omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packetheader", ftypes.STRING)
-
 -- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Fields
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.authenticity = ProtoField.new("Authenticity", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.authenticity", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.best_bid_price = ProtoField.new("Best Bid Price", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.bestbidprice", ftypes.DOUBLE)
@@ -39,6 +35,10 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock = ProtoField.n
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock_locate = ProtoField.new("Stock Locate", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.stocklocate", ftypes.UINT16)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.timestamp", ftypes.UINT64)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.tradingstate", ftypes.STRING)
+
+-- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Headers
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packet", ftypes.STRING)
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packetheader", ftypes.STRING)
 
 -- BruceAts BruceEquities BestBidAndOffer 1.0 Application Messages
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.quotation_message = ProtoField.new("Quotation Message", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.quotationmessage", ftypes.STRING)
@@ -67,7 +67,6 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_structs = Pref.b
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs_changed()

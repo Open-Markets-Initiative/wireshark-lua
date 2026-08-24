@@ -14,11 +14,6 @@ local iex_iexequities_tops_snap_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities Tops Snap 1.6 Headers
-omi_iex_iexequities_tops_snap_v1_6.fields.message = ProtoField.new("Message", "iex.iexequities.tops.snap.v1.6.message", ftypes.STRING)
-omi_iex_iexequities_tops_snap_v1_6.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.tops.snap.v1.6.messageheader", ftypes.STRING)
-omi_iex_iexequities_tops_snap_v1_6.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.snap.v1.6.packet", ftypes.STRING)
-
 -- Iex IexEquities Tops Snap 1.6 Fields
 omi_iex_iexequities_tops_snap_v1_6.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.iexequities.tops.snap.v1.6.adjustedpocprice", ftypes.DOUBLE)
 omi_iex_iexequities_tops_snap_v1_6.fields.ask_price = ProtoField.new("Ask Price", "iex.iexequities.tops.snap.v1.6.askprice", ftypes.DOUBLE)
@@ -83,6 +78,11 @@ omi_iex_iexequities_tops_snap_v1_6.fields.unused_6 = ProtoField.new("Unused 6", 
 omi_iex_iexequities_tops_snap_v1_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.iexequities.tops.snap.v1.6.upperauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_tops_snap_v1_6.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.tops.snap.v1.6.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
+-- Iex IexEquities Tops Snap 1.6 Headers
+omi_iex_iexequities_tops_snap_v1_6.fields.message = ProtoField.new("Message", "iex.iexequities.tops.snap.v1.6.message", ftypes.STRING)
+omi_iex_iexequities_tops_snap_v1_6.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.tops.snap.v1.6.messageheader", ftypes.STRING)
+omi_iex_iexequities_tops_snap_v1_6.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.snap.v1.6.packet", ftypes.STRING)
+
 -- Iex IexEquities Tops 1.6 Application Messages
 omi_iex_iexequities_tops_snap_v1_6.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.iexequities.tops.snap.v1.6.auctioninformationmessage", ftypes.STRING)
 omi_iex_iexequities_tops_snap_v1_6.fields.error_response_message = ProtoField.new("Error Response Message", "iex.iexequities.tops.snap.v1.6.errorresponsemessage", ftypes.STRING)
@@ -116,7 +116,6 @@ show.headers = true
 omi_iex_iexequities_tops_snap_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexequities_tops_snap_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_tops_snap_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_tops_snap_v1_6.prefs_changed()

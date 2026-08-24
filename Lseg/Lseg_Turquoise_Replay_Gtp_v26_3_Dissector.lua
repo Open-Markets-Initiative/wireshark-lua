@@ -14,12 +14,6 @@ local lseg_turquoise_replay_gtp_v26_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Turquoise Replay Gtp 26.3 Headers
-omi_lseg_turquoise_replay_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.replay.gtp.v26.3.message", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.replay.gtp.v26.3.messageheader", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.replay.gtp.v26.3.packet", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.replay.gtp.v26.3.unitheader", ftypes.STRING)
-
 -- Lseg Turquoise Replay Gtp 26.3 Fields
 omi_lseg_turquoise_replay_gtp_v26_3.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.replay.gtp.v26.3.agencycrossindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.replay.gtp.v26.3.aggregatednoofordersandquotes", ftypes.STRING)
@@ -181,6 +175,12 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.vwap_buy = ProtoField.new("Vwap Buy",
 omi_lseg_turquoise_replay_gtp_v26_3.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.replay.gtp.v26.3.vwaponbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.replay.gtp.v26.3.vwapsell", ftypes.DOUBLE)
 
+-- Lseg Turquoise Replay Gtp 26.3 Headers
+omi_lseg_turquoise_replay_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.replay.gtp.v26.3.message", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.replay.gtp.v26.3.messageheader", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.replay.gtp.v26.3.packet", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.replay.gtp.v26.3.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Replay 26.3 Application Messages
 omi_lseg_turquoise_replay_gtp_v26_3.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.replay.gtp.v26.3.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.turquoise.replay.gtp.v26.3.analyticsmessage", ftypes.STRING)
@@ -225,7 +225,6 @@ omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_application_messages = Pref.bool(
 omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_turquoise_replay_gtp_v26_3.prefs_changed()

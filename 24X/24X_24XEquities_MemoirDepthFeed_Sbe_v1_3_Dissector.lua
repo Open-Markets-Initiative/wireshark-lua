@@ -14,10 +14,6 @@ local n24x_24xequities_memoirdepthfeed_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Headers
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
-omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
-
 -- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Fields
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "24x.24xequities.memoirdepthfeed.sbe.v1.3.asofsequencenumber", ftypes.UINT64)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "24x.24xequities.memoirdepthfeed.sbe.v1.3.blocklength", ftypes.UINT16)
@@ -56,6 +52,10 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoField.new("
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "24x.24xequities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "24x.24xequities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
+-- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Headers
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "24x.24xequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+
 -- 24X 24XEquities MemoirDepthFeed 1.3 Application Messages
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "24x.24xequities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "24x.24xequities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
@@ -89,7 +89,6 @@ show.indexes = true
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.prefs_changed()

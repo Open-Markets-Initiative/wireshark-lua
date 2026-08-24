@@ -14,9 +14,6 @@ local cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Headers
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packet", ftypes.STRING)
-
 -- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Fields
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.auction_type = ProtoField.new("Auction Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.auctiontype", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_10 = ProtoField.new("Cancelled Shares Numeric 10", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesnumeric10", ftypes.STRING)
@@ -76,6 +73,9 @@ omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.trade_time = ProtoFi
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.unsequenceddatapacket", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.unsequencedmessage", ftypes.BYTES)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.username = ProtoField.new("Username", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.username", ftypes.STRING)
+
+-- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Headers
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packet", ftypes.STRING)
 
 -- Cboe CxeEquities TcpDepthOfBook 4.34 Application Messages
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.addordermessage", ftypes.STRING)

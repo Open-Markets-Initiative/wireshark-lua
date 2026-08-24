@@ -14,9 +14,6 @@ local cboe_edgaequities_lastsale_asciipitch_v1_2_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgaEquities LastSale AsciiPitch 1.2.4 Headers
-omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("Packet", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.packet", ftypes.STRING)
-
 -- Cboe EdgaEquities LastSale AsciiPitch 1.2.4 Fields
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.debugpacket", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.executedshares", ftypes.STRING)
@@ -44,6 +41,9 @@ omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_data_packet 
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.username = ProtoField.new("Username", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.username", ftypes.STRING)
 
+-- Cboe EdgaEquities LastSale AsciiPitch 1.2.4 Headers
+omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("Packet", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.packet", ftypes.STRING)
+
 -- Cboe EdgaEquities LastSale 1.2.4 Application Messages
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.last_sale_extended_message = ProtoField.new("Last Sale Extended Message", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.lastsaleextendedmessage", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.last_sale_message = ProtoField.new("Last Sale Message", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.lastsalemessage", ftypes.STRING)
@@ -62,7 +62,6 @@ show.application_messages = true
 -- Register Cboe EdgaEquities LastSale AsciiPitch 1.2.4 Show Options
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.prefs_changed()

@@ -14,13 +14,6 @@ local otcmarkets_linkats_quotebook_link_v4_10_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkAts QuoteBook Link 4.10.4 Headers
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.quotebook.link.v4.10.4.message", ftypes.STRING)
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.quotebook.link.v4.10.4.messageheader", ftypes.STRING)
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.quotebook.link.v4.10.4.packet", ftypes.STRING)
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.quotebook.link.v4.10.4.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.quotebook.link.v4.10.4.packetheader", ftypes.STRING)
-
 -- OtcMarkets LinkAts QuoteBook Link 4.10.4 Fields
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.ask_bid_wanted = ProtoField.new("Ask Bid Wanted", "otcmarkets.linkats.quotebook.link.v4.10.4.askbidwanted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.quotebook.link.v4.10.4.askprice", ftypes.UINT64)
@@ -91,6 +84,13 @@ omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.tier = ProtoField.new("Tier
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otcmarkets.linkats.quotebook.link.v4.10.4.unsolicitedonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.update_side = ProtoField.new("Update Side", "otcmarkets.linkats.quotebook.link.v4.10.4.updateside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
+-- OtcMarkets LinkAts QuoteBook Link 4.10.4 Headers
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message = ProtoField.new("Message", "otcmarkets.linkats.quotebook.link.v4.10.4.message", ftypes.STRING)
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.quotebook.link.v4.10.4.messageheader", ftypes.STRING)
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.quotebook.link.v4.10.4.packet", ftypes.STRING)
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.quotebook.link.v4.10.4.packetflag", ftypes.STRING)
+omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.quotebook.link.v4.10.4.packetheader", ftypes.STRING)
+
 -- OtcMarkets LinkAts QuoteBook 4.10.4 Application Messages
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.linkats.quotebook.link.v4.10.4.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.fields.market_close_message = ProtoField.new("Market Close Message", "otcmarkets.linkats.quotebook.link.v4.10.4.marketclosemessage", ftypes.STRING)
@@ -118,7 +118,6 @@ show.indexes = true
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_linkats_quotebook_link_v4_10_4.prefs_changed()

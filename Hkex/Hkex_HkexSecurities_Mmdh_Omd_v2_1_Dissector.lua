@@ -14,11 +14,6 @@ local hkex_hkexsecurities_mmdh_omd_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex HkexSecurities Mmdh Omd 2.1 Headers
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.mmdh.omd.v2.1.message", ftypes.STRING)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message_header = ProtoField.new("Message Header", "hkex.hkexsecurities.mmdh.omd.v2.1.messageheader", ftypes.STRING)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.mmdh.omd.v2.1.packet", ftypes.STRING)
-
 -- Hkex HkexSecurities Mmdh Omd 2.1 Fields
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.mmdh.omd.v2.1.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.mmdh.omd.v2.1.aggregatequantity", ftypes.UINT64)
@@ -199,6 +194,11 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_maturity_date = ProtoField.
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.mmdh.omd.v2.1.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.mmdh.omd.v2.1.yield", ftypes.DOUBLE)
 
+-- Hkex HkexSecurities Mmdh Omd 2.1 Headers
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.mmdh.omd.v2.1.message", ftypes.STRING)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.message_header = ProtoField.new("Message Header", "hkex.hkexsecurities.mmdh.omd.v2.1.messageheader", ftypes.STRING)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.mmdh.omd.v2.1.packet", ftypes.STRING)
+
 -- Hkex HkexSecurities Mmdh 2.1 Application Messages
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.add_odd_lot_order_message = ProtoField.new("Add Odd Lot Order Message", "hkex.hkexsecurities.mmdh.omd.v2.1.addoddlotordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexsecurities.mmdh.omd.v2.1.aggregateorderbookupdatemessage", ftypes.STRING)
@@ -261,7 +261,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_repeating_groups = Pref.bool("S
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_mmdh_omd_v2_1.prefs_changed()

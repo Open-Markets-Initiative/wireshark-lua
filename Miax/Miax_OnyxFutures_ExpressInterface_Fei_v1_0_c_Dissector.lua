@@ -14,11 +14,6 @@ local miax_onyxfutures_expressinterface_fei_v1_0_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax OnyxFutures ExpressInterface Fei 1.0.c Headers
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
-
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Fields
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account = ProtoField.new("Account", "miax.onyxfutures.expressinterface.fei.v1.0.c.account", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action = ProtoField.new("Action", "miax.onyxfutures.expressinterface.fei.v1.0.c.action", ftypes.STRING)
@@ -113,6 +108,11 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoFie
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
 
+-- Miax OnyxFutures ExpressInterface Fei 1.0.c Headers
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
+
 -- Miax OnyxFutures ExpressInterface 1.0.c Application Messages
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_request_message = ProtoField.new("Cancel Order Request Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderrequestmessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelorderresponse", ftypes.STRING)
@@ -152,7 +152,6 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs = Pref.bool(
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()

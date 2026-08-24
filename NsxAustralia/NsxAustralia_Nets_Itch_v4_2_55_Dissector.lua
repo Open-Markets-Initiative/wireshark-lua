@@ -14,14 +14,6 @@ local nsxaustralia_nets_itch_v4_2_55 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- NsxAustralia Nets Itch 4.2.55 Headers
-omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.clientpacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.clientpacketheader", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.clientsoupbintcppacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.serverpacket", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.serverpacketheader", ftypes.STRING)
-omi_nsxaustralia_nets_itch_v4_2_55.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.serversoupbintcppacket", ftypes.STRING)
-
 -- NsxAustralia Nets Itch 4.2.55 Fields
 omi_nsxaustralia_nets_itch_v4_2_55.fields.aggressor_firm_id = ProtoField.new("Aggressor Firm Id", "nsxaustralia.nets.itch.v4.2.55.aggressorfirmid", ftypes.UINT32)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.asset_type = ProtoField.new("Asset Type", "nsxaustralia.nets.itch.v4.2.55.assettype", ftypes.STRING)
@@ -102,6 +94,14 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message_type = ProtoField.
 omi_nsxaustralia_nets_itch_v4_2_55.fields.username = ProtoField.new("Username", "nsxaustralia.nets.itch.v4.2.55.username", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.weight = ProtoField.new("Weight", "nsxaustralia.nets.itch.v4.2.55.weight", ftypes.UINT64)
 
+-- NsxAustralia Nets Itch 4.2.55 Headers
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.clientpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.clientpacketheader", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.clientsoupbintcppacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.serverpacket", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.serverpacketheader", ftypes.STRING)
+omi_nsxaustralia_nets_itch_v4_2_55.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.serversoupbintcppacket", ftypes.STRING)
+
 -- NsxAustralia Nets 4.2.55 Application Messages
 omi_nsxaustralia_nets_itch_v4_2_55.fields.add_order_message = ProtoField.new("Add Order Message", "nsxaustralia.nets.itch.v4.2.55.addordermessage", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nsxaustralia.nets.itch.v4.2.55.brokentrademessage", ftypes.STRING)
@@ -157,7 +157,6 @@ omi_nsxaustralia_nets_itch_v4_2_55.prefs.swap_sides = Pref.bool("Swap Sides", fa
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_nsxaustralia_nets_itch_v4_2_55.prefs_changed()

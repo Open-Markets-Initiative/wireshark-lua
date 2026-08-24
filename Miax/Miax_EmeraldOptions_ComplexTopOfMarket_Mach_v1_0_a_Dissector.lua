@@ -14,13 +14,6 @@ local miax_emeraldoptions_complextopofmarket_mach_v1_0_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax EmeraldOptions ComplexTopOfMarket Mach 1.0.a Headers
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.machmessage", ftypes.STRING)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.tcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.udppacket", ftypes.STRING)
-
 -- Miax EmeraldOptions ComplexTopOfMarket Mach 1.0.a Fields
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.active_on_emerald = ProtoField.new("Active On Emerald", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.activeonemerald", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.application_message = ProtoField.new("Application Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.applicationmessage", ftypes.STRING)
@@ -116,6 +109,13 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.unsequenced_messag
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.update_reason = ProtoField.new("Update Reason", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.updatereason", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.username = ProtoField.new("Username", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.username", ftypes.STRING)
 
+-- Miax EmeraldOptions ComplexTopOfMarket Mach 1.0.a Headers
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.machmessage", ftypes.STRING)
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.tcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.udppacket", ftypes.STRING)
+
 -- Miax EmeraldOptions ComplexTopOfMarket 1.0.a Application Messages
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_double_sided_top_of_market_best_bid_and_offer_compact_format_message = ProtoField.new("Complex Double Sided Top Of Market Best Bid And Offer Compact Format Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.complexdoublesidedtopofmarketbestbidandoffercompactformatmessage", ftypes.STRING)
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.fields.complex_double_sided_top_of_market_best_bid_and_offer_wide_format_message = ProtoField.new("Complex Double Sided Top Of Market Best Bid And Offer Wide Format Message", "miax.emeraldoptions.complextopofmarket.mach.v1.0.a.complexdoublesidedtopofmarketbestbidandofferwideformatmessage", ftypes.STRING)
@@ -154,7 +154,6 @@ omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.prefs.show_structs = Pref
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_emeraldoptions_complextopofmarket_mach_v1_0_a.prefs_changed()

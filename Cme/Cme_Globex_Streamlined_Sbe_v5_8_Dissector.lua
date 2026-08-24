@@ -14,15 +14,6 @@ local cme_globex_streamlined_sbe_v5_8 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex Streamlined Sbe 5.8 Headers
-omi_cme_globex_streamlined_sbe_v5_8.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.8.binarypacketheader", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.8.message", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.8.messageheader", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.8.tcpmessage", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.streamlined.sbe.v5.8.tcppacket", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.8.technicalheader", ftypes.STRING)
-omi_cme_globex_streamlined_sbe_v5_8.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.8.udppacket", ftypes.STRING)
-
 -- Cme Globex Streamlined Sbe 5.8 Fields
 omi_cme_globex_streamlined_sbe_v5_8.fields.accrual_days = ProtoField.new("Accrual Days", "cme.globex.streamlined.sbe.v5.8.accrualdays", ftypes.UINT32)
 omi_cme_globex_streamlined_sbe_v5_8.fields.accrued_coupons = ProtoField.new("Accrued Coupons", "cme.globex.streamlined.sbe.v5.8.accruedcoupons", ftypes.STRING)
@@ -266,6 +257,15 @@ omi_cme_globex_streamlined_sbe_v5_8.fields.year = ProtoField.new("Year", "cme.gl
 omi_cme_globex_streamlined_sbe_v5_8.fields.yield = ProtoField.new("Yield", "cme.globex.streamlined.sbe.v5.8.yield", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_8.fields.yield_type = ProtoField.new("Yield Type", "cme.globex.streamlined.sbe.v5.8.yieldtype", ftypes.STRING)
 
+-- Cme Globex Streamlined Sbe 5.8 Headers
+omi_cme_globex_streamlined_sbe_v5_8.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.8.binarypacketheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.8.message", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.8.messageheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.8.tcpmessage", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.streamlined.sbe.v5.8.tcppacket", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.8.technicalheader", ftypes.STRING)
+omi_cme_globex_streamlined_sbe_v5_8.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.8.udppacket", ftypes.STRING)
+
 -- Cme Globex Streamlined 5.8 Application Messages
 omi_cme_globex_streamlined_sbe_v5_8.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.streamlined.sbe.v5.8.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_streamlined_sbe_v5_8.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.streamlined.sbe.v5.8.adminlogin", ftypes.STRING)
@@ -324,7 +324,6 @@ omi_cme_globex_streamlined_sbe_v5_8.prefs.show_application_messages = Pref.bool(
 omi_cme_globex_streamlined_sbe_v5_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_globex_streamlined_sbe_v5_8.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_streamlined_sbe_v5_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_streamlined_sbe_v5_8.prefs_changed()

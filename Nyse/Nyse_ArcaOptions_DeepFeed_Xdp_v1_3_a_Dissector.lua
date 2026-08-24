@@ -14,12 +14,6 @@ local nyse_arcaoptions_deepfeed_xdp_v1_3_a = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse ArcaOptions DeepFeed Xdp 1.3.a Headers
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.message", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
-omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
-
 -- Nyse ArcaOptions DeepFeed Xdp 1.3.a Fields
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.contractmultiplier", ftypes.UINT16)
@@ -82,6 +76,12 @@ omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
 
+-- Nyse ArcaOptions DeepFeed Xdp 1.3.a Headers
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.message", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
+omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
 -- Nyse ArcaOptions DeepFeed Xdp 1.3.a generated fields
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.deepfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
@@ -98,7 +98,6 @@ show.indexes = true
 -- Register Nyse ArcaOptions DeepFeed Xdp 1.3.a Show Options
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a.prefs_changed()

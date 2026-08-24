@@ -14,10 +14,6 @@ local cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxEquities MulticastDepthOfBook Pitch 2.41.29 Headers
-omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
-omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
-
 -- Cboe EdgxEquities MulticastDepthOfBook Pitch 2.41.29 Fields
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
@@ -54,6 +50,10 @@ omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.trading_status 
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7 = ProtoField.new("Unused 7", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+
+-- Cboe EdgxEquities MulticastDepthOfBook Pitch 2.41.29 Headers
+omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
+omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
 
 -- Cboe EdgxEquities MulticastDepthOfBook 2.41.29 Application Messages
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_29.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.29.addorderexpandedmessage", ftypes.STRING)

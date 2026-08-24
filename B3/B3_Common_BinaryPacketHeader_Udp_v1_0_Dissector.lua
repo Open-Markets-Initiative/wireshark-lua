@@ -14,13 +14,6 @@ local b3_common_binarypacketheader_udp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- B3 Common BinaryPacketHeader Udp 1.0 Headers
-omi_b3_common_binarypacketheader_udp_v1_0.fields.framing_header = ProtoField.new("Framing Header", "b3.common.binarypacketheader.udp.v1.0.framingheader", ftypes.STRING)
-omi_b3_common_binarypacketheader_udp_v1_0.fields.message = ProtoField.new("Message", "b3.common.binarypacketheader.udp.v1.0.message", ftypes.STRING)
-omi_b3_common_binarypacketheader_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "b3.common.binarypacketheader.udp.v1.0.messageheader", ftypes.STRING)
-omi_b3_common_binarypacketheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "b3.common.binarypacketheader.udp.v1.0.packet", ftypes.STRING)
-omi_b3_common_binarypacketheader_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "b3.common.binarypacketheader.udp.v1.0.packetheader", ftypes.STRING)
-
 -- B3 Common BinaryPacketHeader Udp 1.0 Fields
 omi_b3_common_binarypacketheader_udp_v1_0.fields.block_length = ProtoField.new("Block Length", "b3.common.binarypacketheader.udp.v1.0.blocklength", ftypes.UINT16)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "b3.common.binarypacketheader.udp.v1.0.channelid", ftypes.UINT8)
@@ -35,6 +28,13 @@ omi_b3_common_binarypacketheader_udp_v1_0.fields.sequence_version = ProtoField.n
 omi_b3_common_binarypacketheader_udp_v1_0.fields.template_id = ProtoField.new("Template Id", "b3.common.binarypacketheader.udp.v1.0.templateid", ftypes.UINT16)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.version = ProtoField.new("Version", "b3.common.binarypacketheader.udp.v1.0.version", ftypes.UINT16)
 
+-- B3 Common BinaryPacketHeader Udp 1.0 Headers
+omi_b3_common_binarypacketheader_udp_v1_0.fields.framing_header = ProtoField.new("Framing Header", "b3.common.binarypacketheader.udp.v1.0.framingheader", ftypes.STRING)
+omi_b3_common_binarypacketheader_udp_v1_0.fields.message = ProtoField.new("Message", "b3.common.binarypacketheader.udp.v1.0.message", ftypes.STRING)
+omi_b3_common_binarypacketheader_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "b3.common.binarypacketheader.udp.v1.0.messageheader", ftypes.STRING)
+omi_b3_common_binarypacketheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "b3.common.binarypacketheader.udp.v1.0.packet", ftypes.STRING)
+omi_b3_common_binarypacketheader_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "b3.common.binarypacketheader.udp.v1.0.packetheader", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -48,7 +48,6 @@ show.headers = true
 -- Register B3 Common BinaryPacketHeader Udp 1.0 Show Options
 omi_b3_common_binarypacketheader_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_b3_common_binarypacketheader_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-
 
 -- Handle changed preferences
 function omi_b3_common_binarypacketheader_udp_v1_0.prefs_changed()

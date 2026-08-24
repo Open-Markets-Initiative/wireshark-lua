@@ -14,9 +14,6 @@ local koscom_mdcsrealtime_indexproduct1_exture_v1_39 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Koscom MdcsRealtime IndexProduct1 Exture 1.39 Headers
-omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.packet", ftypes.STRING)
-
 -- Koscom MdcsRealtime IndexProduct1 Exture 1.39 Fields
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.accumulatedcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.accumulatedtradingvalue", ftypes.STRING)
@@ -85,6 +82,9 @@ omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_ind
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.zeroreinvestmentindexweight", ftypes.STRING)
 
+-- Koscom MdcsRealtime IndexProduct1 Exture 1.39 Headers
+omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime IndexProduct1 1.39 Application Messages
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_index_krx_message = ProtoField.new("Bond Index Krx Message", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.bondindexkrxmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_ktb_index_message = ProtoField.new("Bond Ktb Index Message", "koscom.mdcsrealtime.indexproduct1.exture.v1.39.bondktbindexmessage", ftypes.STRING)
@@ -116,7 +116,6 @@ show.structs = true
 -- Register Koscom MdcsRealtime IndexProduct1 Exture 1.39 Show Options
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.prefs_changed()

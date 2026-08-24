@@ -14,12 +14,6 @@ local cme_globex_ilink3_sbe_v8_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Globex iLink3 Sbe 8.3 Headers
-omi_cme_globex_ilink3_sbe_v8_3.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.3.messageheader", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_3.fields.packet = ProtoField.new("Packet", "cme.globex.ilink3.sbe.v8.3.packet", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.globex.ilink3.sbe.v8.3.simpleopenframe", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.3.simpleopenframingheader", ftypes.STRING)
-
 -- Cme Globex iLink3 Sbe 8.3 Fields
 omi_cme_globex_ilink3_sbe_v8_3.fields.access_key_id = ProtoField.new("Access Key Id", "cme.globex.ilink3.sbe.v8.3.accesskeyid", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.affected_order_id = ProtoField.new("Affected Order Id", "cme.globex.ilink3.sbe.v8.3.affectedorderid", ftypes.UINT64)
@@ -310,6 +304,12 @@ omi_cme_globex_ilink3_sbe_v8_3.fields.volatility = ProtoField.new("Volatility", 
 omi_cme_globex_ilink3_sbe_v8_3.fields.week = ProtoField.new("Week", "cme.globex.ilink3.sbe.v8.3.week", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_3.fields.year = ProtoField.new("Year", "cme.globex.ilink3.sbe.v8.3.year", ftypes.UINT16)
 
+-- Cme Globex iLink3 Sbe 8.3 Headers
+omi_cme_globex_ilink3_sbe_v8_3.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.3.messageheader", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_3.fields.packet = ProtoField.new("Packet", "cme.globex.ilink3.sbe.v8.3.packet", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.globex.ilink3.sbe.v8.3.simpleopenframe", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.3.simpleopenframingheader", ftypes.STRING)
+
 -- Cme Globex iLink3 8.3 Application Messages
 omi_cme_globex_ilink3_sbe_v8_3.fields.business_reject = ProtoField.new("Business Reject", "cme.globex.ilink3.sbe.v8.3.businessreject", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.establish = ProtoField.new("Establish", "cme.globex.ilink3.sbe.v8.3.establish", ftypes.STRING)
@@ -404,7 +404,6 @@ omi_cme_globex_ilink3_sbe_v8_3.prefs.show_structs = Pref.bool("Show Structs", sh
 omi_cme_globex_ilink3_sbe_v8_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cme_globex_ilink3_sbe_v8_3.prefs_changed()

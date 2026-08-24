@@ -14,13 +14,6 @@ local nyse_nyseequities_bbo_pillar_v2_5_b = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities Bbo Pillar 2.5.b Headers
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.b.message", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.b.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.b.packet", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.b.packetheader", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.b.sendtime", ftypes.STRING)
-
 -- Nyse NyseEquities Bbo Pillar 2.5.b Fields
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.ask_price = ProtoField.new("Ask Price", "nyse.nyseequities.bbo.pillar.v2.5.b.askprice", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.nyseequities.bbo.pillar.v2.5.b.askvolume", ftypes.UINT32)
@@ -81,6 +74,13 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.time = ProtoField.new("Time", "ny
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.nyseequities.bbo.pillar.v2.5.b.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.bbo.pillar.v2.5.b.unitoftrade", ftypes.UINT16)
 
+-- Nyse NyseEquities Bbo Pillar 2.5.b Headers
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.b.message", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.b.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.b.packet", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.b.packetheader", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.b.sendtime", ftypes.STRING)
+
 -- Nyse NyseEquities Bbo 2.5.b Application Messages
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.bbo.pillar.v2.5.b.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nyseequities.bbo.pillar.v2.5.b.messageunavailablemessage", ftypes.STRING)
@@ -116,7 +116,6 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_b.prefs.show_application_messages = Pref.b
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bbo_pillar_v2_5_b.prefs_changed()

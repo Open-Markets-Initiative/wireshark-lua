@@ -14,12 +14,6 @@ local cboe_c1options_openingauction_csm_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options OpeningAuction Csm 1.0 Headers
-omi_cboe_c1options_openingauction_csm_v1_0.fields.message = ProtoField.new("Message", "cboe.c1options.openingauction.csm.v1.0.message", ftypes.STRING)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingauction.csm.v1.0.messageheader", ftypes.STRING)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingauction.csm.v1.0.packet", ftypes.STRING)
-omi_cboe_c1options_openingauction_csm_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingauction.csm.v1.0.packetheader", ftypes.STRING)
-
 -- Cboe C1Options OpeningAuction Csm 1.0 Fields
 omi_cboe_c1options_openingauction_csm_v1_0.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "cboe.c1options.openingauction.csm.v1.0.applseqnum", ftypes.UINT32)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.class_key = ProtoField.new("Class Key", "cboe.c1options.openingauction.csm.v1.0.classkey", ftypes.UINT32)
@@ -100,6 +94,12 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.underlying_type_length = Proto
 omi_cboe_c1options_openingauction_csm_v1_0.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.openingauction.csm.v1.0.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.version = ProtoField.new("Version", "cboe.c1options.openingauction.csm.v1.0.version", ftypes.UINT8)
 
+-- Cboe C1Options OpeningAuction Csm 1.0 Headers
+omi_cboe_c1options_openingauction_csm_v1_0.fields.message = ProtoField.new("Message", "cboe.c1options.openingauction.csm.v1.0.message", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingauction.csm.v1.0.messageheader", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingauction.csm.v1.0.packet", ftypes.STRING)
+omi_cboe_c1options_openingauction_csm_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingauction.csm.v1.0.packetheader", ftypes.STRING)
+
 -- Cboe C1Options OpeningAuction 1.0 Application Messages
 omi_cboe_c1options_openingauction_csm_v1_0.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.openingauction.csm.v1.0.currentmarketupdatemessage", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.c1options.openingauction.csm.v1.0.expectedopeningpriceandsizemessage", ftypes.STRING)
@@ -127,7 +127,6 @@ show.indexes = true
 omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_openingauction_csm_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_openingauction_csm_v1_0.prefs_changed()

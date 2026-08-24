@@ -14,12 +14,6 @@ local nyse_nyseequities_imbalancesfeed_xdp_v2_1_f = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Headers
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.message", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.packet", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.packetheader", ftypes.STRING)
-
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Fields
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.auction_status = ProtoField.new("Auction Status", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.auctionstatus", ftypes.UINT8)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.auction_time = ProtoField.new("Auction Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.auctiontime", ftypes.UINT16)
@@ -101,6 +95,12 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts = Prot
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.unitoftrade", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.uppercollar", ftypes.UINT32)
 
+-- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Headers
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.message", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageheader", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.packet", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.packetheader", ftypes.STRING)
+
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f generated fields
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageindex", ftypes.UINT16)
 
@@ -117,7 +117,6 @@ show.indexes = true
 -- Register Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Show Options
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs_changed()

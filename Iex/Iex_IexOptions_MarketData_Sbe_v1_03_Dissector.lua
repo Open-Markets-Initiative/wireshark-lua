@@ -14,11 +14,6 @@ local iex_iexoptions_marketdata_sbe_v1_03 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexOptions MarketData Sbe 1.03 Headers
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.marketdata.sbe.v1.03.messageheader", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet = ProtoField.new("Packet", "iex.iexoptions.marketdata.sbe.v1.03.packet", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.03.sbemessage", ftypes.STRING)
-
 -- Iex IexOptions MarketData Sbe 1.03 Fields
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.as_of_sequence_number = ProtoField.new("As Of Sequence Number", "iex.iexoptions.marketdata.sbe.v1.03.asofsequencenumber", ftypes.UINT64)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.ask_customer_size = ProtoField.new("Ask Customer Size", "iex.iexoptions.marketdata.sbe.v1.03.askcustomersize", ftypes.UINT32)
@@ -82,6 +77,11 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_id = ProtoField.new("U
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "iex.iexoptions.marketdata.sbe.v1.03.underlyingsymbol", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.version = ProtoField.new("Version", "iex.iexoptions.marketdata.sbe.v1.03.version", ftypes.UINT16)
 
+-- Iex IexOptions MarketData Sbe 1.03 Headers
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.marketdata.sbe.v1.03.messageheader", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet = ProtoField.new("Packet", "iex.iexoptions.marketdata.sbe.v1.03.packet", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.03.sbemessage", ftypes.STRING)
+
 -- Iex IexOptions MarketData 1.03 Application Messages
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_customer_message = ProtoField.new("Add Order Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordercustomermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_non_customer_message = ProtoField.new("Add Order Non Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordernoncustomermessage", ftypes.STRING)
@@ -132,7 +132,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_application_messages = Pref.b
 omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexoptions_marketdata_sbe_v1_03.prefs_changed()

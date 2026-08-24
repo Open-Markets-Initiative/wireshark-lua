@@ -14,10 +14,6 @@ local cboe_matchnow_multicasttrades_pitch_v1_0_14 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe MatchNow MulticastTrades Pitch 1.0.14 Headers
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packet", ftypes.STRING)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packetheader", ftypes.STRING)
-
 -- Cboe MatchNow MulticastTrades Pitch 1.0.14 Fields
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "cboe.matchnow.multicasttrades.pitch.v1.0.14.buybrokernumber", ftypes.UINT16)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.conditional = ProtoField.new("Conditional", "cboe.matchnow.multicasttrades.pitch.v1.0.14.conditional", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -46,6 +42,10 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trading_status = ProtoFie
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unit", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
+-- Cboe MatchNow MulticastTrades Pitch 1.0.14 Headers
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packet", ftypes.STRING)
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packetheader", ftypes.STRING)
+
 -- Cboe MatchNow MulticastTrades 1.0.14 Application Messages
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trade_message = ProtoField.new("Trade Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.trademessage", ftypes.STRING)
@@ -70,7 +70,6 @@ show.indexes = true
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs_changed()

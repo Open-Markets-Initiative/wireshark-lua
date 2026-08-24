@@ -14,13 +14,6 @@ local miax_emeraldoptions_topofmarket_mach_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax EmeraldOptions TopOfMarket Mach 1.3 Headers
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.topofmarket.mach.v1.3.machmessage", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketheader", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmtcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.tcppacket", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.udppacket", ftypes.STRING)
-
 -- Miax EmeraldOptions TopOfMarket Mach 1.3 Fields
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.emeraldoptions.topofmarket.mach.v1.3.activeonmiax", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.application_message = ProtoField.new("Application Message", "miax.emeraldoptions.topofmarket.mach.v1.3.applicationmessage", ftypes.STRING)
@@ -112,6 +105,13 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_data_packet = P
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.unsequencedmessagetype", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.username = ProtoField.new("Username", "miax.emeraldoptions.topofmarket.mach.v1.3.username", ftypes.STRING)
 
+-- Miax EmeraldOptions TopOfMarket Mach 1.3 Headers
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.topofmarket.mach.v1.3.machmessage", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketheader", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmtcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.tcppacket", ftypes.STRING)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.udp_packet = ProtoField.new("Udp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.udppacket", ftypes.STRING)
+
 -- Miax EmeraldOptions TopOfMarket 1.3 Application Messages
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.emeraldoptions.topofmarket.mach.v1.3.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.emeraldoptions.topofmarket.mach.v1.3.lastsalemessage", ftypes.STRING)
@@ -149,7 +149,6 @@ show.application_messages = true
 -- Register Miax EmeraldOptions TopOfMarket Mach 1.3 Show Options
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs_changed()

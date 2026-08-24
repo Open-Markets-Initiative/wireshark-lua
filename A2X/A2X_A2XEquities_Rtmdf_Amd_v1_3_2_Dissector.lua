@@ -14,11 +14,6 @@ local a2x_a2xequities_rtmdf_amd_v1_3_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- A2X A2XEquities Rtmdf Amd 1.3.2 Headers
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
-
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Fields
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.aod_enabled = ProtoField.new("Aod Enabled", "a2x.a2xequities.rtmdf.amd.v1.3.2.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "a2x.a2xequities.rtmdf.amd.v1.3.2.closingbuyqty", ftypes.UINT32)
@@ -58,6 +53,11 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1"
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_10 = ProtoField.new("Unused 10", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused10", ftypes.UINT16, nil, base.DEC, 0x03FF)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Headers
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
+
 -- A2X A2XEquities Rtmdf 1.3.2 Application Messages
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.heartbeatmessage", ftypes.BYTES)
@@ -89,7 +89,6 @@ show.indexes = true
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()

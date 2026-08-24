@@ -14,14 +14,6 @@ local tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Headers
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.body", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.bodyheader", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.bodymessage", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.businessheader", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.frameheader", ftypes.STRING)
-omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.packet", ftypes.STRING)
-
 -- Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Fields
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.ackrequiredpossdup", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.boardlot", ftypes.UINT16)
@@ -93,6 +85,14 @@ omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.trade_time_stamp = ProtoField.
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.tradingsystemtimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.volume", ftypes.UINT32)
 
+-- Tmx QuantumFeed TsxTsxvLevel2 Xmt 2.1 Headers
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.body", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.bodyheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.bodymessage", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.business_header = ProtoField.new("Business Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.businessheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.frameheader", ftypes.STRING)
+omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.packet", ftypes.STRING)
+
 -- Tmx QuantumFeed TsxTsxvLevel2 2.1 Application Messages
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.assign_cop_no_orders_message = ProtoField.new("Assign Cop No Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.assigncopnoordersmessage", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.fields.assign_cop_orders_message = ProtoField.new("Assign Cop Orders Message", "tmx.quantumfeed.tsxtsxvlevel2.xmt.v2.1.assigncopordersmessage", ftypes.STRING)
@@ -136,7 +136,6 @@ show.indexes = true
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_tmx_quantumfeed_tsxtsxvlevel2_xmt_v2_1.prefs_changed()

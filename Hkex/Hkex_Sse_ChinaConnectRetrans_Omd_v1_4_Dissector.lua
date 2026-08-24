@@ -14,12 +14,6 @@ local hkex_sse_chinaconnectretrans_omd_v1_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Hkex Sse ChinaConnectRetrans Omd 1.4 Headers
-omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.sse.chinaconnectretrans.omd.v1.4.message", ftypes.STRING)
-omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.sse.chinaconnectretrans.omd.v1.4.msgheader", ftypes.STRING)
-omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.sse.chinaconnectretrans.omd.v1.4.packet", ftypes.STRING)
-omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.packet_header = ProtoField.new("Packet Header", "hkex.sse.chinaconnectretrans.omd.v1.4.packetheader", ftypes.STRING)
-
 -- Hkex Sse ChinaConnectRetrans Omd 1.4 Fields
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.aggregate_ask_quantity = ProtoField.new("Aggregate Ask Quantity", "hkex.sse.chinaconnectretrans.omd.v1.4.aggregateaskquantity", ftypes.UINT64)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.aggregate_bid_quantity = ProtoField.new("Aggregate Bid Quantity", "hkex.sse.chinaconnectretrans.omd.v1.4.aggregatebidquantity", ftypes.UINT64)
@@ -70,6 +64,12 @@ omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.trading_phase_code = ProtoField
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.turnover = ProtoField.new("Turnover", "hkex.sse.chinaconnectretrans.omd.v1.4.turnover", ftypes.DOUBLE)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.username = ProtoField.new("Username", "hkex.sse.chinaconnectretrans.omd.v1.4.username", ftypes.STRING)
 
+-- Hkex Sse ChinaConnectRetrans Omd 1.4 Headers
+omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.sse.chinaconnectretrans.omd.v1.4.message", ftypes.STRING)
+omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.sse.chinaconnectretrans.omd.v1.4.msgheader", ftypes.STRING)
+omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.sse.chinaconnectretrans.omd.v1.4.packet", ftypes.STRING)
+omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.packet_header = ProtoField.new("Packet Header", "hkex.sse.chinaconnectretrans.omd.v1.4.packetheader", ftypes.STRING)
+
 -- Hkex Sse ChinaConnectRetrans 1.4 Application Messages
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.sse.chinaconnectretrans.omd.v1.4.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.logon_message = ProtoField.new("Logon Message", "hkex.sse.chinaconnectretrans.omd.v1.4.logonmessage", ftypes.STRING)
@@ -103,7 +103,6 @@ omi_hkex_sse_chinaconnectretrans_omd_v1_4.prefs.show_application_messages = Pref
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_hkex_sse_chinaconnectretrans_omd_v1_4.prefs_changed()

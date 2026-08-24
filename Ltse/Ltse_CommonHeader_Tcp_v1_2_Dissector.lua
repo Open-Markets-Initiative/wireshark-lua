@@ -14,10 +14,6 @@ local ltse_commonheader_tcp_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ltse CommonHeader Tcp 1.2 Headers
-omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
-
 -- Ltse CommonHeader Tcp 1.2 Fields
 omi_ltse_commonheader_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.tcp.v1.2.blocklength", ftypes.UINT16)
 omi_ltse_commonheader_tcp_v1_2.fields.count = ProtoField.new("Count", "ltse.commonheader.tcp.v1.2.count", ftypes.UINT32)
@@ -57,6 +53,10 @@ omi_ltse_commonheader_tcp_v1_2.fields.total_sequence_count = ProtoField.new("Tot
 omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.version = ProtoField.new("Version", "ltse.commonheader.tcp.v1.2.version", ftypes.UINT16)
 
+-- Ltse CommonHeader Tcp 1.2 Headers
+omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -68,7 +68,6 @@ show.structs = true
 
 -- Register Ltse CommonHeader Tcp 1.2 Show Options
 omi_ltse_commonheader_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_ltse_commonheader_tcp_v1_2.prefs_changed()

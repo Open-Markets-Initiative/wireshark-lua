@@ -14,10 +14,6 @@ local cboe_bzxequities_binaryorderentry_boe_v2_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe BzxEquities BinaryOrderEntry Boe 2.3 Headers
-omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.binaryorderentry.boe.v2.3.messageheader", ftypes.STRING)
-omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.binaryorderentry.boe.v2.3.packet", ftypes.STRING)
-
 -- Cboe BzxEquities BinaryOrderEntry Boe 2.3 Fields
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.account = ProtoField.new("Account", "cboe.bzxequities.binaryorderentry.boe.v2.3.account", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.attributed_quote = ProtoField.new("Attributed Quote", "cboe.bzxequities.binaryorderentry.boe.v2.3.attributedquote", ftypes.STRING)
@@ -377,6 +373,10 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.unit_sequence = ProtoField
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.username = ProtoField.new("Username", "cboe.bzxequities.binaryorderentry.boe.v2.3.username", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.working_price = ProtoField.new("Working Price", "cboe.bzxequities.binaryorderentry.boe.v2.3.workingprice", ftypes.DOUBLE)
 
+-- Cboe BzxEquities BinaryOrderEntry Boe 2.3 Headers
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.binaryorderentry.boe.v2.3.messageheader", ftypes.STRING)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.binaryorderentry.boe.v2.3.packet", ftypes.STRING)
+
 -- Cboe BzxEquities BinaryOrderEntry 2.3 Application Messages
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.bzxequities.binaryorderentry.boe.v2.3.cancelordermessage", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.bzxequities.binaryorderentry.boe.v2.3.cancelrejectedmessage", ftypes.STRING)
@@ -421,7 +421,6 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.prefs.show_structs = Pref.bool("S
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_binaryorderentry_boe_v2_3.prefs_changed()

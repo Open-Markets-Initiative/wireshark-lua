@@ -14,13 +14,6 @@ local miax_sapphireoptions_topofmarket_mach_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax SapphireOptions TopOfMarket Mach 2.0 Headers
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.topofmarket.mach.v2.0.machmessage", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpacketheader", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmtcppacket", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.tcppacket", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.udppacket", ftypes.STRING)
-
 -- Miax SapphireOptions TopOfMarket Mach 2.0 Fields
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.active_on_sapphire = ProtoField.new("Active On Sapphire", "miax.sapphireoptions.topofmarket.mach.v2.0.activeonsapphire", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.application_message = ProtoField.new("Application Message", "miax.sapphireoptions.topofmarket.mach.v2.0.applicationmessage", ftypes.STRING)
@@ -111,6 +104,13 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_data_packet = 
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.sapphireoptions.topofmarket.mach.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.username = ProtoField.new("Username", "miax.sapphireoptions.topofmarket.mach.v2.0.username", ftypes.STRING)
 
+-- Miax SapphireOptions TopOfMarket Mach 2.0 Headers
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.topofmarket.mach.v2.0.machmessage", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpacketheader", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmtcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.tcppacket", ftypes.STRING)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.udp_packet = ProtoField.new("Udp Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.udppacket", ftypes.STRING)
+
 -- Miax SapphireOptions TopOfMarket 2.0 Application Messages
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.sapphireoptions.topofmarket.mach.v2.0.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.last_sale_message = ProtoField.new("Last Sale Message", "miax.sapphireoptions.topofmarket.mach.v2.0.lastsalemessage", ftypes.STRING)
@@ -148,7 +148,6 @@ show.application_messages = true
 -- Register Miax SapphireOptions TopOfMarket Mach 2.0 Show Options
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_sapphireoptions_topofmarket_mach_v2_0.prefs_changed()

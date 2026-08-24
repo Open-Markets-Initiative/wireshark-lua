@@ -14,11 +14,6 @@ local asx_asxderivatives_t24_itch_v1_13 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Asx AsxDerivatives T24 Itch 1.13 Headers
-omi_asx_asxderivatives_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.t24.itch.v1.13.packet", ftypes.STRING)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.t24.itch.v1.13.packetheader", ftypes.STRING)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
-
 -- Asx AsxDerivatives T24 Itch 1.13 Fields
 omi_asx_asxderivatives_t24_itch_v1_13.fields.activated = ProtoField.new("Activated", "asx.asxderivatives.t24.itch.v1.13.activated", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.all_fields = ProtoField.new("All Fields", "asx.asxderivatives.t24.itch.v1.13.allfields", ftypes.UINT8, nil, base.DEC, 0xC0)
@@ -127,6 +122,11 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.underlying_contract_number = ProtoF
 omi_asx_asxderivatives_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxderivatives.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.asxderivatives.t24.itch.v1.13.volatility", ftypes.UINT32)
 
+-- Asx AsxDerivatives T24 Itch 1.13 Headers
+omi_asx_asxderivatives_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.t24.itch.v1.13.packet", ftypes.STRING)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.t24.itch.v1.13.packetheader", ftypes.STRING)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
+
 -- Asx AsxDerivatives T24 1.13 Application Messages
 omi_asx_asxderivatives_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.asxderivatives.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.anomalous_order_threshold_publish_message = ProtoField.new("Anomalous Order Threshold Publish Message", "asx.asxderivatives.t24.itch.v1.13.anomalousorderthresholdpublishmessage", ftypes.STRING)
@@ -181,7 +181,6 @@ omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_application_messages = Pref.boo
 omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_asx_asxderivatives_t24_itch_v1_13.prefs_changed()

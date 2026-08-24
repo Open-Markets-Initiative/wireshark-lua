@@ -14,10 +14,6 @@ local cboe_c1options_flex_spin_v1_1_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options Flex Spin 1.1.30 Headers
-omi_cboe_c1options_flex_spin_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.spin.v1.1.30.packet", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.spin.v1.1.30.packetheader", ftypes.STRING)
-
 -- Cboe C1Options Flex Spin 1.1.30 Fields
 omi_cboe_c1options_flex_spin_v1_1_30.fields.bit_fields = ProtoField.new("Bit Fields", "cboe.c1options.flex.spin.v1.1.30.bitfields", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.call_put_indicator = ProtoField.new("Call Put Indicator", "cboe.c1options.flex.spin.v1.1.30.callputindicator", ftypes.STRING)
@@ -77,6 +73,10 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.unit = ProtoField.new("Unit", "cboe.
 omi_cboe_c1options_flex_spin_v1_1_30.fields.username = ProtoField.new("Username", "cboe.c1options.flex.spin.v1.1.30.username", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.year = ProtoField.new("Year", "cboe.c1options.flex.spin.v1.1.30.year", ftypes.STRING)
 
+-- Cboe C1Options Flex Spin 1.1.30 Headers
+omi_cboe_c1options_flex_spin_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.spin.v1.1.30.packet", ftypes.STRING)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.spin.v1.1.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Flex 1.1.30 Application Messages
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_flex_instrument_definition_message = ProtoField.new("Complex Flex Instrument Definition Message", "cboe.c1options.flex.spin.v1.1.30.complexflexinstrumentdefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.flex_instrument_definition_message = ProtoField.new("Flex Instrument Definition Message", "cboe.c1options.flex.spin.v1.1.30.flexinstrumentdefinitionmessage", ftypes.STRING)
@@ -114,7 +114,6 @@ omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_structs = Pref.bool("Show Struct
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_flex_spin_v1_1_30.prefs_changed()

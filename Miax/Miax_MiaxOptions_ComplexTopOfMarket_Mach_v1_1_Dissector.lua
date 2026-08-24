@@ -14,10 +14,6 @@ local miax_miaxoptions_complextopofmarket_mach_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Headers
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.machmessage", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.1.packet", ftypes.STRING)
-
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.complextopofmarket.mach.v1.1.activeonmiax", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.application_message = ProtoField.new("Application Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.applicationmessage", ftypes.STRING)
@@ -85,6 +81,10 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_offer_size = Proto
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_price = ProtoField.new("Wide Price", "miax.miaxoptions.complextopofmarket.mach.v1.1.wideprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.miaxoptions.complextopofmarket.mach.v1.1.widesize", ftypes.UINT32)
 
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Headers
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.1.packet", ftypes.STRING)
+
 -- Miax MiaxOptions ComplexTopOfMarket 1.1 Application Messages
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_complex_double_sided_top_of_market_message = ProtoField.new("Compact Complex Double Sided Top Of Market Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactcomplexdoublesidedtopofmarketmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_complex_top_of_market_bid_message = ProtoField.new("Compact Complex Top Of Market Bid Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactcomplextopofmarketbidmessage", ftypes.STRING)
@@ -120,7 +120,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_structs = Pref.bool
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_1.prefs_changed()

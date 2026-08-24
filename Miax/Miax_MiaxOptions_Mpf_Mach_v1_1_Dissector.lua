@@ -14,13 +14,6 @@ local miax_miaxoptions_mpf_mach_v1_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax MiaxOptions Mpf Mach 1.1 Headers
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.mpf.mach.v1.1.machmessage", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketheader", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.sesmtcppacket", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.tcppacket", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.mpf.mach.v1.1.udppacket", ftypes.STRING)
-
 -- Miax MiaxOptions Mpf Mach 1.1 Fields
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.application_message = ProtoField.new("Application Message", "miax.miaxoptions.mpf.mach.v1.1.applicationmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.application_protocol = ProtoField.new("Application Protocol", "miax.miaxoptions.mpf.mach.v1.1.applicationprotocol", ftypes.STRING)
@@ -68,6 +61,13 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.unsequenced_message_type = ProtoField.
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.username = ProtoField.new("Username", "miax.miaxoptions.mpf.mach.v1.1.username", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.value = ProtoField.new("Value", "miax.miaxoptions.mpf.mach.v1.1.value", ftypes.DOUBLE)
 
+-- Miax MiaxOptions Mpf Mach 1.1 Headers
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.mpf.mach.v1.1.machmessage", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketheader", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.sesmtcppacket", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.tcppacket", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "miax.miaxoptions.mpf.mach.v1.1.udppacket", ftypes.STRING)
+
 -- Miax MiaxOptions Mpf 1.1 Application Messages
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.miaxoptions.mpf.mach.v1.1.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.index_value_message = ProtoField.new("Index Value Message", "miax.miaxoptions.mpf.mach.v1.1.indexvaluemessage", ftypes.STRING)
@@ -93,7 +93,6 @@ show.application_messages = true
 -- Register Miax MiaxOptions Mpf Mach 1.1 Show Options
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_mpf_mach_v1_1.prefs_changed()

@@ -14,10 +14,6 @@ local cboe_cxaequities_multicasttopofbook_spin_v1_0_10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Headers
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packet", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packetheader", ftypes.STRING)
-
 -- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Fields
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.ask_price = ProtoField.new("Ask Price", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.askprice", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.ask_quantity = ProtoField.new("Ask Quantity", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.askquantity", ftypes.UINT32)
@@ -51,6 +47,10 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value = ProtoField.n
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp", ftypes.UINT64)
 
+-- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Headers
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packet", ftypes.STRING)
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packetheader", ftypes.STRING)
+
 -- Cboe CxaEquities MulticastTopOfBook 1.0.10 Application Messages
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.calculated_value_message = ProtoField.new("Calculated Value Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.calculatedvaluemessage", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.login_message = ProtoField.new("Login Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.loginmessage", ftypes.STRING)
@@ -81,7 +81,6 @@ show.indexes = true
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs_changed()

@@ -14,13 +14,6 @@ local smallx_orderbookfeed_sbe_v2_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- SmallX OrderBookFeed Sbe 2.2 Headers
-omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header = ProtoField.new("Message Header", "smallx.orderbookfeed.sbe.v2.2.messageheader", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
-
 -- SmallX OrderBookFeed Sbe 2.2 Fields
 omi_smallx_orderbookfeed_sbe_v2_2.fields.administrative = ProtoField.new("Administrative", "smallx.orderbookfeed.sbe.v2.2.administrative", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.aggressor_side = ProtoField.new("Aggressor Side", "smallx.orderbookfeed.sbe.v2.2.aggressorside", ftypes.STRING)
@@ -142,6 +135,13 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6 
 omi_smallx_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.orderbookfeed.sbe.v2.2.version", ftypes.UINT16)
 
+-- SmallX OrderBookFeed Sbe 2.2 Headers
+omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header = ProtoField.new("Message Header", "smallx.orderbookfeed.sbe.v2.2.messageheader", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
+
 -- SmallX OrderBookFeed 2.2 Application Messages
 omi_smallx_orderbookfeed_sbe_v2_2.fields.index_value_snapshot_message = ProtoField.new("Index Value Snapshot Message", "smallx.orderbookfeed.sbe.v2.2.indexvaluesnapshotmessage", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status_incremental_message = ProtoField.new("Instrument Trading Status Incremental Message", "smallx.orderbookfeed.sbe.v2.2.instrumenttradingstatusincrementalmessage", ftypes.STRING)
@@ -184,7 +184,6 @@ omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_repeating_groups = Pref.bool("Show 
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_smallx_orderbookfeed_sbe_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_smallx_orderbookfeed_sbe_v2_2.prefs_changed()

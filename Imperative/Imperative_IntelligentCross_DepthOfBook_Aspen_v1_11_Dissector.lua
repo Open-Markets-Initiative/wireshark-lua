@@ -14,12 +14,6 @@ local imperative_intelligentcross_depthofbook_aspen_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Imperative IntelligentCross DepthOfBook Aspen 1.11 Headers
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.message", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageheader", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.depthofbook.aspen.v1.11.packet", ftypes.STRING)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.packetheader", ftypes.STRING)
-
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Fields
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.count = ProtoField.new("Count", "imperative.intelligentcross.depthofbook.aspen.v1.11.count", ftypes.UINT16)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.event = ProtoField.new("Event", "imperative.intelligentcross.depthofbook.aspen.v1.11.event", ftypes.STRING)
@@ -45,6 +39,12 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.state = ProtoFiel
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol = ProtoField.new("Symbol", "imperative.intelligentcross.depthofbook.aspen.v1.11.symbol", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.depthofbook.aspen.v1.11.symbolid", ftypes.UINT16)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.depthofbook.aspen.v1.11.timestamp", ftypes.UINT64)
+
+-- Imperative IntelligentCross DepthOfBook Aspen 1.11 Headers
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.message", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_header = ProtoField.new("Message Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageheader", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet = ProtoField.new("Packet", "imperative.intelligentcross.depthofbook.aspen.v1.11.packet", ftypes.STRING)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.packet_header = ProtoField.new("Packet Header", "imperative.intelligentcross.depthofbook.aspen.v1.11.packetheader", ftypes.STRING)
 
 -- Imperative IntelligentCross DepthOfBook 1.11 Application Messages
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_event_message = ProtoField.new("Market Event Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.marketeventmessage", ftypes.STRING)
@@ -76,7 +76,6 @@ show.indexes = true
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs_changed()

@@ -14,13 +14,6 @@ local miax_pearloptions_liquidityfeed_mach_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Miax PearlOptions LiquidityFeed Mach 1.2 Headers
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.tcppacket", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.udppacket", ftypes.STRING)
-
 -- Miax PearlOptions LiquidityFeed Mach 1.2 Fields
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.action = ProtoField.new("Action", "miax.pearloptions.liquidityfeed.mach.v1.2.action", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.active_on_pearl = ProtoField.new("Active On Pearl", "miax.pearloptions.liquidityfeed.mach.v1.2.activeonpearl", ftypes.STRING)
@@ -95,6 +88,13 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_data_packet = P
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.username = ProtoField.new("Username", "miax.pearloptions.liquidityfeed.mach.v1.2.username", ftypes.STRING)
 
+-- Miax PearlOptions LiquidityFeed Mach 1.2 Headers
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.tcppacket", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.udppacket", ftypes.STRING)
+
 -- Miax PearlOptions LiquidityFeed 1.2 Application Messages
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.end_of_refresh_notification_message = ProtoField.new("End Of Refresh Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.endofrefreshnotificationmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.order_close_message = ProtoField.new("Order Close Message", "miax.pearloptions.liquidityfeed.mach.v1.2.orderclosemessage", ftypes.STRING)
@@ -122,7 +122,6 @@ show.application_messages = true
 -- Register Miax PearlOptions LiquidityFeed Mach 1.2 Show Options
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs_changed()

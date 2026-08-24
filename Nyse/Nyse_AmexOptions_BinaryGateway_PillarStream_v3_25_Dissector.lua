@@ -261,7 +261,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_session_message
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-
 -- Handle changed preferences
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
 

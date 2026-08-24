@@ -14,10 +14,6 @@ local cboe_c1options_complex_pitch_v2_1_61 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options Complex Pitch 2.1.61 Headers
-omi_cboe_c1options_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.61.packet", ftypes.STRING)
-omi_cboe_c1options_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
-
 -- Cboe C1Options Complex Pitch 2.1.61 Fields
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.complex.pitch.v2.1.61.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.complex.pitch.v2.1.61.auctionid", ftypes.UINT64)
@@ -84,6 +80,10 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.trading_status = ProtoField.new(
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.complex.pitch.v2.1.61.underlying", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.unit = ProtoField.new("Unit", "cboe.c1options.complex.pitch.v2.1.61.unit", ftypes.UINT8)
 
+-- Cboe C1Options Complex Pitch 2.1.61 Headers
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.packet = ProtoField.new("Packet", "cboe.c1options.complex.pitch.v2.1.61.packet", ftypes.STRING)
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.complex.pitch.v2.1.61.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Complex 2.1.61 Application Messages
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.c1options.complex.pitch.v2.1.61.addorderexpandedmessage", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.c1options.complex.pitch.v2.1.61.addorderlongmessage", ftypes.STRING)
@@ -136,7 +136,6 @@ omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_application_messages = Pref.
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_61.prefs_changed()

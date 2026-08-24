@@ -14,10 +14,6 @@ local memx_memxequities_memoirlastsale_sbe_v1_3 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxEquities MemoirLastSale Sbe 1.3 Headers
-omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
-omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
-
 -- Memx MemxEquities MemoirLastSale Sbe 1.3 Fields
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memoirlastsale.sbe.v1.3.blocklength", ftypes.UINT16)
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1 = ProtoField.new("Corrected Sale Condition 1", "memx.memxequities.memoirlastsale.sbe.v1.3.correctedsalecondition1", ftypes.STRING)
@@ -65,6 +61,10 @@ omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new(
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.memxequities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxequities.memoirlastsale.sbe.v1.3.version", ftypes.UINT16)
 
+-- Memx MemxEquities MemoirLastSale Sbe 1.3 Headers
+omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirlastsale.sbe.v1.3.commonheader", ftypes.STRING)
+omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
+
 -- Memx MemxEquities MemoirLastSale 1.3 Application Messages
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.memxequities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.memxequities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
@@ -92,7 +92,6 @@ show.indexes = true
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxequities_memoirlastsale_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxequities_memoirlastsale_sbe_v1_3.prefs_changed()

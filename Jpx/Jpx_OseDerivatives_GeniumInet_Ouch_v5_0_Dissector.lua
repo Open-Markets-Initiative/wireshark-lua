@@ -14,14 +14,6 @@ local jpx_osederivatives_geniuminet_ouch_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jpx OseDerivatives GeniumInet Ouch 5.0 Headers
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacketheader", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientsoupbintcppacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacket", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacketheader", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serversoupbintcppacket", ftypes.STRING)
-
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelreason", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.new("Client Account", "jpx.osederivatives.geniuminet.ouch.v5.0.clientaccount", ftypes.STRING)
@@ -62,6 +54,14 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.username = ProtoField.new("Username", "jpx.osederivatives.geniuminet.ouch.v5.0.username", ftypes.STRING)
+
+-- Jpx OseDerivatives GeniumInet Ouch 5.0 Headers
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpacketheader", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.clientsoupbintcppacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacket", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpacketheader", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jpx.osederivatives.geniuminet.ouch.v5.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Jpx OseDerivatives GeniumInet 5.0 Application Messages
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_by_order_id = ProtoField.new("Cancel By Order Id", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelbyorderid", ftypes.STRING)
@@ -108,7 +108,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.swap_sides = Pref.bool("Swap S
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()

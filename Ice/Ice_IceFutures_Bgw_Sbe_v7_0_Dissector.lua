@@ -14,13 +14,6 @@ local ice_icefutures_bgw_sbe_v7_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ice IceFutures Bgw Sbe 7.0 Headers
-omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.bgw.sbe.v7.0.messageheader", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.packet = ProtoField.new("Packet", "ice.icefutures.bgw.sbe.v7.0.packet", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "ice.icefutures.bgw.sbe.v7.0.simpleopenframe", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "ice.icefutures.bgw.sbe.v7.0.simpleopenframingheader", ftypes.STRING)
-
 -- Ice IceFutures Bgw Sbe 7.0 Fields
 omi_ice_icefutures_bgw_sbe_v7_0.fields.alloc_handl_inst = ProtoField.new("Alloc Handl Inst", "ice.icefutures.bgw.sbe.v7.0.allochandlinst", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.allocation_account = ProtoField.new("Allocation Account", "ice.icefutures.bgw.sbe.v7.0.allocationaccount", ftypes.STRING)
@@ -369,6 +362,13 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.user_id = ProtoField.new("User Id", "ice.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.version = ProtoField.new("Version", "ice.icefutures.bgw.sbe.v7.0.version", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "ice.icefutures.bgw.sbe.v7.0.waiverindicator", ftypes.UINT8)
 
+-- Ice IceFutures Bgw Sbe 7.0 Headers
+omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.bgw.sbe.v7.0.messageheader", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.packet = ProtoField.new("Packet", "ice.icefutures.bgw.sbe.v7.0.packet", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "ice.icefutures.bgw.sbe.v7.0.simpleopenframe", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "ice.icefutures.bgw.sbe.v7.0.simpleopenframingheader", ftypes.STRING)
+
 -- Ice IceFutures Bgw 7.0 Application Messages
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_replace_request_message = ProtoField.new("Cancel Replace Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelreplacerequestmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_request_message = ProtoField.new("Cancel Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelrequestmessage", ftypes.STRING)
@@ -447,7 +447,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", s
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()

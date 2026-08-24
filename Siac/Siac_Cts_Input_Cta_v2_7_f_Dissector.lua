@@ -14,13 +14,6 @@ local siac_cts_input_cta_v2_7_f = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Cts Input Cta 2.7.f Headers
-omi_siac_cts_input_cta_v2_7_f.fields.block_header = ProtoField.new("Block Header", "siac.cts.input.cta.v2.7.f.blockheader", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.message = ProtoField.new("Message", "siac.cts.input.cta.v2.7.f.message", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.message_header = ProtoField.new("Message Header", "siac.cts.input.cta.v2.7.f.messageheader", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.packet = ProtoField.new("Packet", "siac.cts.input.cta.v2.7.f.packet", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.input.cta.v2.7.f.timestamp1", ftypes.STRING)
-
 -- Siac Cts Input Cta 2.7.f Fields
 omi_siac_cts_input_cta_v2_7_f.fields.administrative_message = ProtoField.new("Administrative Message", "siac.cts.input.cta.v2.7.f.administrativemessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.cts.input.cta.v2.7.f.administrativemessagetype", ftypes.STRING)
@@ -115,6 +108,13 @@ omi_siac_cts_input_cta_v2_7_f.fields.trade_volume = ProtoField.new("Trade Volume
 omi_siac_cts_input_cta_v2_7_f.fields.trading_status_id = ProtoField.new("Trading Status Id", "siac.cts.input.cta.v2.7.f.tradingstatusid", ftypes.UINT32)
 omi_siac_cts_input_cta_v2_7_f.fields.version = ProtoField.new("Version", "siac.cts.input.cta.v2.7.f.version", ftypes.UINT8)
 
+-- Siac Cts Input Cta 2.7.f Headers
+omi_siac_cts_input_cta_v2_7_f.fields.block_header = ProtoField.new("Block Header", "siac.cts.input.cta.v2.7.f.blockheader", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.message = ProtoField.new("Message", "siac.cts.input.cta.v2.7.f.message", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.message_header = ProtoField.new("Message Header", "siac.cts.input.cta.v2.7.f.messageheader", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.packet = ProtoField.new("Packet", "siac.cts.input.cta.v2.7.f.packet", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.input.cta.v2.7.f.timestamp1", ftypes.STRING)
+
 -- Siac Cts Input 2.7.f Application Messages
 omi_siac_cts_input_cta_v2_7_f.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.input.cta.v2.7.f.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.input.cta.v2.7.f.auctionstatusmessage", ftypes.STRING)
@@ -164,7 +164,6 @@ omi_siac_cts_input_cta_v2_7_f.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_cts_input_cta_v2_7_f.prefs_changed()

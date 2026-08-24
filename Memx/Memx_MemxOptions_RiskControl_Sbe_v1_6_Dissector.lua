@@ -14,10 +14,6 @@ local memx_memxoptions_riskcontrol_sbe_v1_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Memx MemxOptions RiskControl Sbe 1.6 Headers
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.memxoptions.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
-
 -- Memx MemxOptions RiskControl Sbe 1.6 Fields
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.allow_iso_orders = ProtoField.new("Allow Iso Orders", "memx.memxoptions.riskcontrol.sbe.v1.6.allowisoorders", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.allow_orders = ProtoField.new("Allow Orders", "memx.memxoptions.riskcontrol.sbe.v1.6.alloworders", ftypes.UINT8)
@@ -96,6 +92,10 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_op
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.version = ProtoField.new("Version", "memx.memxoptions.riskcontrol.sbe.v1.6.version", ftypes.UINT16)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.volume = ProtoField.new("Volume", "memx.memxoptions.riskcontrol.sbe.v1.6.volume", ftypes.UINT64)
 
+-- Memx MemxOptions RiskControl Sbe 1.6 Headers
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.6.commonheader", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.memxoptions.riskcontrol.sbe.v1.6.packet", ftypes.STRING)
+
 -- Memx MemxOptions RiskControl 1.6 Application Messages
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.active_risk_acknowledge_rej_message = ProtoField.new("Active Risk Acknowledge Rej Message", "memx.memxoptions.riskcontrol.sbe.v1.6.activeriskacknowledgerejmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.active_risk_acknowledged_message = ProtoField.new("Active Risk Acknowledged Message", "memx.memxoptions.riskcontrol.sbe.v1.6.activeriskacknowledgedmessage", ftypes.STRING)
@@ -160,7 +160,6 @@ show.structs = true
 -- Register Memx MemxOptions RiskControl Sbe 1.6 Show Options
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs_changed()

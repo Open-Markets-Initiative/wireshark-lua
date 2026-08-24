@@ -14,12 +14,6 @@ local lseg_turquoise_recovery_gtp_v24_4 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Lseg Turquoise Recovery Gtp 24.4 Headers
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.recovery.gtp.v24.4.message", ftypes.STRING)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.recovery.gtp.v24.4.messageheader", ftypes.STRING)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.recovery.gtp.v24.4.packet", ftypes.STRING)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.recovery.gtp.v24.4.unitheader", ftypes.STRING)
-
 -- Lseg Turquoise Recovery Gtp 24.4 Fields
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.turquoise.recovery.gtp.v24.4.agencycrossindicator", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.turquoise.recovery.gtp.v24.4.algorithmicindicator", ftypes.STRING)
@@ -185,6 +179,12 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.volume_onbook_only = ProtoField.new
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.recovery.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.recovery.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
+-- Lseg Turquoise Recovery Gtp 24.4 Headers
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.recovery.gtp.v24.4.message", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.recovery.gtp.v24.4.messageheader", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.recovery.gtp.v24.4.packet", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.unit_header = ProtoField.new("Unit Header", "lseg.turquoise.recovery.gtp.v24.4.unitheader", ftypes.STRING)
+
 -- Lseg Turquoise Recovery 24.4 Application Messages
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.add_order_incremental_message = ProtoField.new("Add Order Incremental Message", "lseg.turquoise.recovery.gtp.v24.4.addorderincrementalmessage", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.instrument_directory_equities_message = ProtoField.new("Instrument Directory Equities Message", "lseg.turquoise.recovery.gtp.v24.4.instrumentdirectoryequitiesmessage", ftypes.STRING)
@@ -223,7 +223,6 @@ omi_lseg_turquoise_recovery_gtp_v24_4.prefs.show_application_messages = Pref.boo
 omi_lseg_turquoise_recovery_gtp_v24_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_lseg_turquoise_recovery_gtp_v24_4.prefs_changed()

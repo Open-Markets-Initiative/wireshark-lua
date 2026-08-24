@@ -14,9 +14,6 @@ local koscom_mdcsrealtime_securitiesa_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Koscom MdcsRealtime SecuritiesA Exture 2.018 Headers
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.securitiesa.exture.v2.018.packet", ftypes.STRING)
-
 -- Koscom MdcsRealtime SecuritiesA Exture 2.018 Fields
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerdynamicvi", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerstaticvi", ftypes.STRING)
@@ -591,6 +588,9 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_inde
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.securitiesa.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
 
+-- Koscom MdcsRealtime SecuritiesA Exture 2.018 Headers
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.securitiesa.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime SecuritiesA 2.018 Application Messages
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_all_market_message = ProtoField.new("Announcement All Market Message", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementallmarketmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_konex_message = ProtoField.new("Announcement Konex Message", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementkonexmessage", ftypes.STRING)
@@ -680,7 +680,6 @@ show.structs = true
 -- Register Koscom MdcsRealtime SecuritiesA Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.prefs_changed()

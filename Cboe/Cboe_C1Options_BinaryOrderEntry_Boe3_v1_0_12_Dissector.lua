@@ -14,12 +14,6 @@ local cboe_c1options_binaryorderentry_boe3_v1_0_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Headers
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangemessageheader", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangepacket", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmmessageheader", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmpacket", ftypes.STRING)
-
 -- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Fields
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.account = ProtoField.new("Account", "cboe.c1options.binaryorderentry.boe3.v1.0.12.account", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.acknowledgement_allocation = ProtoField.new("Acknowledgement Allocation", "cboe.c1options.binaryorderentry.boe3.v1.0.12.acknowledgementallocation", ftypes.STRING)
@@ -241,6 +235,12 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_number = ProtoField
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.c1options.binaryorderentry.boe3.v1.0.12.unitsequence", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.working_price = ProtoField.new("Working Price", "cboe.c1options.binaryorderentry.boe3.v1.0.12.workingprice", ftypes.DOUBLE)
 
+-- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 Headers
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangemessageheader", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.exchange_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.exchangepacket", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmmessageheader", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.firm_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.12.firmpacket", ftypes.STRING)
+
 -- Cboe C1Options BinaryOrderEntry Boe3 1.0.12 generated fields
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.acknowledgement_allocation_index = ProtoField.new("Acknowledgement Allocation Index", "cboe.c1options.binaryorderentry.boe3.v1.0.12.acknowledgementallocationindex", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.fields.allocation_index = ProtoField.new("Allocation Index", "cboe.c1options.binaryorderentry.boe3.v1.0.12.allocationindex", ftypes.UINT16)
@@ -274,7 +274,6 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.assume_role = Pref.enum("
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_binaryorderentry_boe3_v1_0_12.prefs_changed()

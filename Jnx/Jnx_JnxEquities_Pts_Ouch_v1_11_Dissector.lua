@@ -14,14 +14,6 @@ local jnx_jnxequities_pts_ouch_v1_11 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jnx JnxEquities Pts Ouch 1.11 Headers
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet = ProtoField.new("Packet", "jnx.jnxequities.pts.ouch.v1.11.clientpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.ouch.v1.11.clientpacketheader", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.ouch.v1.11.clientsoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_packet = ProtoField.new("Packet", "jnx.jnxequities.pts.ouch.v1.11.serverpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.ouch.v1.11.serverpacketheader", ftypes.STRING)
-omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.ouch.v1.11.serversoupbintcppacket", ftypes.STRING)
-
 -- Jnx JnxEquities Pts Ouch 1.11 Fields
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.ouch.v1.11.buysellindicator", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.capacity = ProtoField.new("Capacity", "jnx.jnxequities.pts.ouch.v1.11.capacity", ftypes.STRING)
@@ -65,6 +57,14 @@ omi_jnx_jnxequities_pts_ouch_v1_11.fields.time_in_force = ProtoField.new("Time I
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.ouch.v1.11.timestamp", ftypes.UINT64)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.ouch.v1.11.username", ftypes.STRING)
+
+-- Jnx JnxEquities Pts Ouch 1.11 Headers
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet = ProtoField.new("Packet", "jnx.jnxequities.pts.ouch.v1.11.clientpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.ouch.v1.11.clientpacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.ouch.v1.11.clientsoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_packet = ProtoField.new("Packet", "jnx.jnxequities.pts.ouch.v1.11.serverpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.ouch.v1.11.serverpacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.ouch.v1.11.serversoupbintcppacket", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.11 Application Messages
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "jnx.jnxequities.pts.ouch.v1.11.cancelordermessage", ftypes.STRING)

@@ -14,12 +14,6 @@ local siac_opra_recipient_obi_v6_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Siac Opra Recipient Obi 6.1 Headers
-omi_siac_opra_recipient_obi_v6_1.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v6.1.blockheader", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_1.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v6.1.blocktimestamp", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_1.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v6.1.message", ftypes.STRING)
-omi_siac_opra_recipient_obi_v6_1.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v6.1.packet", ftypes.STRING)
-
 -- Siac Opra Recipient Obi 6.1 Fields
 omi_siac_opra_recipient_obi_v6_1.fields.administrative_category = ProtoField.new("Administrative Category", "siac.opra.recipient.obi.v6.1.administrativecategory", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "siac.opra.recipient.obi.v6.1.administrativemessagetype", ftypes.STRING)
@@ -106,6 +100,12 @@ omi_siac_opra_recipient_obi_v6_1.fields.underlying_value_message_type = ProtoFie
 omi_siac_opra_recipient_obi_v6_1.fields.version = ProtoField.new("Version", "siac.opra.recipient.obi.v6.1.version", ftypes.UINT8)
 omi_siac_opra_recipient_obi_v6_1.fields.volume = ProtoField.new("Volume", "siac.opra.recipient.obi.v6.1.volume", ftypes.UINT32)
 
+-- Siac Opra Recipient Obi 6.1 Headers
+omi_siac_opra_recipient_obi_v6_1.fields.block_header = ProtoField.new("Block Header", "siac.opra.recipient.obi.v6.1.blockheader", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_1.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.recipient.obi.v6.1.blocktimestamp", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_1.fields.message = ProtoField.new("Message", "siac.opra.recipient.obi.v6.1.message", ftypes.STRING)
+omi_siac_opra_recipient_obi_v6_1.fields.packet = ProtoField.new("Packet", "siac.opra.recipient.obi.v6.1.packet", ftypes.STRING)
+
 -- Siac Opra Recipient 6.1 Application Messages
 omi_siac_opra_recipient_obi_v6_1.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v6.1.administrativemessage", ftypes.STRING)
 omi_siac_opra_recipient_obi_v6_1.fields.control_message = ProtoField.new("Control Message", "siac.opra.recipient.obi.v6.1.controlmessage", ftypes.STRING)
@@ -135,7 +135,6 @@ show.indexes = true
 omi_siac_opra_recipient_obi_v6_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_opra_recipient_obi_v6_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_opra_recipient_obi_v6_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_siac_opra_recipient_obi_v6_1.prefs_changed()

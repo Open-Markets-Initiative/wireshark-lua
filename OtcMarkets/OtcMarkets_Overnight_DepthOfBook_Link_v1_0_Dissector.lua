@@ -14,13 +14,6 @@ local otcmarkets_overnight_depthofbook_link_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets Overnight DepthOfBook Link 1.0 Headers
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.depthofbook.link.v1.0.message", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.depthofbook.link.v1.0.messageheader", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.depthofbook.link.v1.0.packet", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.overnight.depthofbook.link.v1.0.packetheader", ftypes.STRING)
-
 -- OtcMarkets Overnight DepthOfBook Link 1.0 Fields
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.overnight.depthofbook.link.v1.0.assetclass", ftypes.UINT8)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.caveat_flag = ProtoField.new("Caveat Flag", "otcmarkets.overnight.depthofbook.link.v1.0.caveatflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -79,6 +72,13 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.trading_session = ProtoFie
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicited", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
+-- OtcMarkets Overnight DepthOfBook Link 1.0 Headers
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.depthofbook.link.v1.0.message", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.depthofbook.link.v1.0.messageheader", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.depthofbook.link.v1.0.packet", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.overnight.depthofbook.link.v1.0.packetheader", ftypes.STRING)
+
 -- OtcMarkets Overnight DepthOfBook 1.0 Application Messages
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otcmarkets.overnight.depthofbook.link.v1.0.endofspinmessage", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.imbalance_message = ProtoField.new("Imbalance Message", "otcmarkets.overnight.depthofbook.link.v1.0.imbalancemessage", ftypes.STRING)
@@ -111,7 +111,6 @@ show.indexes = true
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs_changed()

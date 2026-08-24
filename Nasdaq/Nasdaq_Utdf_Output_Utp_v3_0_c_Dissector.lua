@@ -14,10 +14,6 @@ local nasdaq_utdf_output_utp_v3_0_c = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq Utdf Output Utp 3.0.c Headers
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.utdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.utdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
-
 -- Nasdaq Utdf Output Utp 3.0.c Fields
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Time", "nasdaq.utdf.output.utp.v3.0.c.actiontime", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utdf.output.utp.v3.0.c.administrativemessage", ftypes.STRING)
@@ -121,6 +117,10 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("U
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.utdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v3.0.c.version", ftypes.STRING)
 
+-- Nasdaq Utdf Output Utp 3.0.c Headers
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.utdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.utdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
+
 -- Nasdaq Utdf Output 3.0.c Application Messages
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v3.0.c.auctioncollarmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v3.0.c.closingtradesummaryreportmessage", ftypes.STRING)
@@ -175,7 +175,6 @@ omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_application_messages = Pref.bool("S
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v3_0_c.prefs_changed()

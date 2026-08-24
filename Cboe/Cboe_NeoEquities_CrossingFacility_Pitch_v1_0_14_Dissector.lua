@@ -14,10 +14,6 @@ local cboe_neoequities_crossingfacility_pitch_v1_0_14 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe NeoEquities CrossingFacility Pitch 1.0.14 Headers
-omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packet", ftypes.STRING)
-omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packetheader", ftypes.STRING)
-
 -- Cboe NeoEquities CrossingFacility Pitch 1.0.14 Fields
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.active_market_maker = ProtoField.new("Active Market Maker", "cboe.neoequities.crossingfacility.pitch.v1.0.14.activemarketmaker", ftypes.UINT16)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "cboe.neoequities.crossingfacility.pitch.v1.0.14.allowedbooktypes", ftypes.STRING)
@@ -73,6 +69,10 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unit = ProtoField.new
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unused_3 = ProtoField.new("Unused 3", "cboe.neoequities.crossingfacility.pitch.v1.0.14.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.neoequities.crossingfacility.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
+-- Cboe NeoEquities CrossingFacility Pitch 1.0.14 Headers
+omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packet", ftypes.STRING)
+omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.neoequities.crossingfacility.pitch.v1.0.14.packetheader", ftypes.STRING)
+
 -- Cboe NeoEquities CrossingFacility 1.0.14 Application Messages
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.neoequities.crossingfacility.pitch.v1.0.14.endofsessionmessage", ftypes.STRING)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "cboe.neoequities.crossingfacility.pitch.v1.0.14.instrumentdirectorymessage", ftypes.STRING)
@@ -100,7 +100,6 @@ show.indexes = true
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.prefs_changed()

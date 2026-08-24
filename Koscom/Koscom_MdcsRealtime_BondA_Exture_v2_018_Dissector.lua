@@ -14,9 +14,6 @@ local koscom_mdcsrealtime_bonda_exture_v2_018 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Koscom MdcsRealtime BondA Exture 2.018 Headers
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
-
 -- Koscom MdcsRealtime BondA Exture 2.018 Fields
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.bonda.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
@@ -429,6 +426,9 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_doub
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
 
+-- Koscom MdcsRealtime BondA Exture 2.018 Headers
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
+
 -- Koscom MdcsRealtime BondA 2.018 Application Messages
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_order_filled_plus_quote_message = ProtoField.new("Baby Bonds Order Filled Plus Quote Message", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondsorderfilledplusquotemessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_quote_message = ProtoField.new("Baby Bonds Quote Message", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondsquotemessage", ftypes.STRING)
@@ -491,7 +491,6 @@ show.structs = true
 -- Register Koscom MdcsRealtime BondA Exture 2.018 Show Options
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs_changed()

@@ -14,10 +14,6 @@ local currenex_currenexforex_orderservice_cbp_v26 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex OrderService Cbp 26. Headers
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
-omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
-
 -- Currenex CurrenexForex OrderService Cbp 26. Fields
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.ack_status = ProtoField.new("Ack Status", "currenex.currenexforex.orderservice.cbp.v26.ackstatus", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.aggressor_flag = ProtoField.new("Aggressor Flag", "currenex.currenexforex.orderservice.cbp.v26.aggressorflag", ftypes.STRING)
@@ -63,6 +59,10 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.transact_time = ProtoFiel
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.type = ProtoField.new("Type", "currenex.currenexforex.orderservice.cbp.v26.type", ftypes.INT16)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.orderservice.cbp.v26.userid", ftypes.STRING)
 
+-- Currenex CurrenexForex OrderService Cbp 26. Headers
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
+
 -- Currenex CurrenexForex OrderService 26. Application Messages
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.gap_fill = ProtoField.new("Gap Fill", "currenex.currenexforex.orderservice.cbp.v26.gapfill", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.orderservice.cbp.v26.heartbeat", ftypes.STRING)
@@ -96,7 +96,6 @@ show.structs = true
 -- Register Currenex CurrenexForex OrderService Cbp 26. Show Options
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-
 
 -- Handle changed preferences
 function omi_currenex_currenexforex_orderservice_cbp_v26.prefs_changed()

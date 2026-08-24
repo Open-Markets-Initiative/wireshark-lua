@@ -14,11 +14,6 @@ local eurex_t7_xti_fbe_v5_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Xti Fbe 5.0 Headers
-omi_eurex_t7_xti_fbe_v5_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v5.0.message", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v5_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v5.0.messageheader", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v5_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v5.0.packet", ftypes.STRING)
-
 -- Eurex T7 Xti Fbe 5.0 Fields
 omi_eurex_t7_xti_fbe_v5_0.fields.account = ProtoField.new("Account", "eurex.t7.xti.fbe.v5.0.account", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.affected_ord_grp_comp = ProtoField.new("Affected Ord Grp Comp", "eurex.t7.xti.fbe.v5.0.affectedordgrpcomp", ftypes.STRING)
@@ -265,6 +260,11 @@ omi_eurex_t7_xti_fbe_v5_0.fields.username = ProtoField.new("Username", "eurex.t7
 omi_eurex_t7_xti_fbe_v5_0.fields.var_text = ProtoField.new("Var Text", "eurex.t7.xti.fbe.v5.0.vartext", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v5.0.vartextlen", ftypes.UINT16)
 
+-- Eurex T7 Xti Fbe 5.0 Headers
+omi_eurex_t7_xti_fbe_v5_0.fields.message = ProtoField.new("Message", "eurex.t7.xti.fbe.v5.0.message", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v5_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v5.0.messageheader", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v5_0.fields.packet = ProtoField.new("Packet", "eurex.t7.xti.fbe.v5.0.packet", ftypes.STRING)
+
 -- Eurex T7 Xti 5.0 Application Messages
 omi_eurex_t7_xti_fbe_v5_0.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.t7.xti.fbe.v5.0.broadcasterrornotification", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v5_0.fields.cross_request = ProtoField.new("Cross Request", "eurex.t7.xti.fbe.v5.0.crossrequest", ftypes.STRING)
@@ -370,7 +370,6 @@ omi_eurex_t7_xti_fbe_v5_0.prefs.show_repeating_groups = Pref.bool("Show Repeatin
 omi_eurex_t7_xti_fbe_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_xti_fbe_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_xti_fbe_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_xti_fbe_v5_0.prefs_changed()

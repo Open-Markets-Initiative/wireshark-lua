@@ -14,11 +14,6 @@ local eurex_t7_eti_fbe_v2_5 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Eti Fbe 2.5 Headers
-omi_eurex_t7_eti_fbe_v2_5.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v2.5.message", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v2.5.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v2.5.packet", ftypes.STRING)
-
 -- Eurex T7 Eti Fbe 2.5 Fields
 omi_eurex_t7_eti_fbe_v2_5.fields.account = ProtoField.new("Account", "eurex.t7.eti.fbe.v2.5.account", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "eurex.t7.eti.fbe.v2.5.aggressorindicator", ftypes.UINT8)
@@ -295,6 +290,11 @@ omi_eurex_t7_eti_fbe_v2_5.fields.var_text = ProtoField.new("Var Text", "eurex.t7
 omi_eurex_t7_eti_fbe_v2_5.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.eti.fbe.v2.5.vartextlen", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v2_5.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v2.5.vega", ftypes.INT32)
 
+-- Eurex T7 Eti Fbe 2.5 Headers
+omi_eurex_t7_eti_fbe_v2_5.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v2.5.message", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v2.5.messageheader", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v2.5.packet", ftypes.STRING)
+
 -- Eurex T7 Eti 2.5 Application Messages
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentrequest", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_response = ProtoField.new("Add Complex Instrument Response", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentresponse", ftypes.STRING)
@@ -411,7 +411,6 @@ omi_eurex_t7_eti_fbe_v2_5.prefs.show_application_messages = Pref.bool("Show Appl
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_eurex_t7_eti_fbe_v2_5.prefs_changed()

@@ -14,10 +14,6 @@ local nasdaq_nsmequities_totalview_itch_v4_1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NsmEquities TotalView Itch 4.1 Headers
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v4.1.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v4.1.packetheader", ftypes.STRING)
-
 -- Nasdaq NsmEquities TotalView Itch 4.1 Fields
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.itch.v4.1.attribution", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.itch.v4.1.canceledshares", ftypes.UINT32)
@@ -60,6 +56,10 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.session = ProtoField.new("Sess
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.itch.v4.1.shares", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v4.1.side", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v4.1.stock", ftypes.STRING)
+
+-- Nasdaq NsmEquities TotalView Itch 4.1 Headers
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v4.1.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v4.1.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView 4.1 Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.itch.v4.1.addordermessage", ftypes.STRING)

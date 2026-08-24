@@ -14,13 +14,6 @@ local nyse_amexequities_trades_pillar_v2_6 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Nyse AmexEquities Trades Pillar 2.6 Headers
-omi_nyse_amexequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.amexequities.trades.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.amexequities.trades.pillar.v2.6.packet", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime", ftypes.STRING)
-
 -- Nyse AmexEquities Trades Pillar 2.6 Fields
 omi_nyse_amexequities_trades_pillar_v2_6.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexequities.trades.pillar.v2.6.beginseqnum", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexequities.trades.pillar.v2.6.channelid", ftypes.UINT8)
@@ -93,6 +86,13 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.trade_id = ProtoField.new("Trade
 omi_nyse_amexequities_trades_pillar_v2_6.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.trades.pillar.v2.6.unitoftrade", ftypes.UINT16)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.volume = ProtoField.new("Volume", "nyse.amexequities.trades.pillar.v2.6.volume", ftypes.UINT32)
 
+-- Nyse AmexEquities Trades Pillar 2.6 Headers
+omi_nyse_amexequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.amexequities.trades.pillar.v2.6.message", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.amexequities.trades.pillar.v2.6.packet", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime", ftypes.STRING)
+
 -- Nyse AmexEquities Trades 2.6 Application Messages
 omi_nyse_amexequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.trades.pillar.v2.6.messageunavailablemessage", ftypes.STRING)
@@ -136,7 +136,6 @@ omi_nyse_amexequities_trades_pillar_v2_6.prefs.show_application_messages = Pref.
 omi_nyse_amexequities_trades_pillar_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_trades_pillar_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexequities_trades_pillar_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_nyse_amexequities_trades_pillar_v2_6.prefs_changed()

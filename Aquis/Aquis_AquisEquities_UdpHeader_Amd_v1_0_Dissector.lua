@@ -14,18 +14,18 @@ local aquis_aquisequities_udpheader_amd_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Aquis AquisEquities UdpHeader Amd 1.0 Headers
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
-
 -- Aquis AquisEquities UdpHeader Amd 1.0 Fields
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.udpheader.amd.v1.0.msglength", ftypes.UINT8)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.udpheader.amd.v1.0.msgtype", ftypes.UINT8)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.udpheader.amd.v1.0.payload", ftypes.BYTES)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.udpheader.amd.v1.0.seqno", ftypes.UINT32)
+
+-- Aquis AquisEquities UdpHeader Amd 1.0 Headers
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 generated fields
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.udpheader.amd.v1.0.messageindex", ftypes.UINT16)
@@ -45,7 +45,6 @@ show.indexes = true
 omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisequities_udpheader_amd_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_udpheader_amd_v1_0.prefs_changed()

@@ -14,14 +14,6 @@ local odx_odxequities_pts_glimpse_v2_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Odx OdxEquities Pts Glimpse 2.0 Headers
-omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.clientpacket", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.clientpacketheader", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.clientsoupbintcppacket", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.serverpacket", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.serverpacketheader", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.serversoupbintcppacket", ftypes.STRING)
-
 -- Odx OdxEquities Pts Glimpse 2.0 Fields
 omi_odx_odxequities_pts_glimpse_v2_0.fields.attribution = ProtoField.new("Attribution", "odx.odxequities.pts.glimpse.v2.0.attribution", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.glimpse.v2.0.buysellindicator", ftypes.STRING)
@@ -58,6 +50,14 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message = ProtoField.new
 omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxequities.pts.glimpse.v2.0.unsequencedmessagetype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.glimpse.v2.0.upperpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.username = ProtoField.new("Username", "odx.odxequities.pts.glimpse.v2.0.username", ftypes.STRING)
+
+-- Odx OdxEquities Pts Glimpse 2.0 Headers
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.clientpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.clientpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.clientsoupbintcppacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.serverpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.serverpacketheader", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Odx OdxEquities Pts 2.0 Session Messages
 omi_odx_odxequities_pts_glimpse_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxequities.pts.glimpse.v2.0.debugpacket", ftypes.STRING)

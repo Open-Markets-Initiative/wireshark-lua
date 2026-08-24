@@ -14,10 +14,6 @@ local cboe_c2options_complextop_spin_v1_1_54 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C2Options ComplexTop Spin 1.1.54 Headers
-omi_cboe_c2options_complextop_spin_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c2options.complextop.spin.v1.1.54.packet", ftypes.STRING)
-omi_cboe_c2options_complextop_spin_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c2options.complextop.spin.v1.1.54.packetheader", ftypes.STRING)
-
 -- Cboe C2Options ComplexTop Spin 1.1.54 Fields
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_2 = ProtoField.new("Ask Customer Quantity Binary 2", "cboe.c2options.complextop.spin.v1.1.54.askcustomerquantitybinary2", ftypes.UINT16)
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_4 = ProtoField.new("Ask Customer Quantity Binary 4", "cboe.c2options.complextop.spin.v1.1.54.askcustomerquantitybinary4", ftypes.UINT32)
@@ -80,6 +76,10 @@ omi_cboe_c2options_complextop_spin_v1_1_54.fields.underlying = ProtoField.new("U
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.unit = ProtoField.new("Unit", "cboe.c2options.complextop.spin.v1.1.54.unit", ftypes.UINT8)
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.username = ProtoField.new("Username", "cboe.c2options.complextop.spin.v1.1.54.username", ftypes.STRING)
 
+-- Cboe C2Options ComplexTop Spin 1.1.54 Headers
+omi_cboe_c2options_complextop_spin_v1_1_54.fields.packet = ProtoField.new("Packet", "cboe.c2options.complextop.spin.v1.1.54.packet", ftypes.STRING)
+omi_cboe_c2options_complextop_spin_v1_1_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.c2options.complextop.spin.v1.1.54.packetheader", ftypes.STRING)
+
 -- Cboe C2Options ComplexTop 1.1.54 Application Messages
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.c2options.complextop.spin.v1.1.54.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
 omi_cboe_c2options_complextop_spin_v1_1_54.fields.instrument_definition_finished_message = ProtoField.new("Instrument Definition Finished Message", "cboe.c2options.complextop.spin.v1.1.54.instrumentdefinitionfinishedmessage", ftypes.BYTES)
@@ -121,7 +121,6 @@ omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_structs = Pref.bool("Show 
 omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c2options_complextop_spin_v1_1_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c2options_complextop_spin_v1_1_54.prefs_changed()

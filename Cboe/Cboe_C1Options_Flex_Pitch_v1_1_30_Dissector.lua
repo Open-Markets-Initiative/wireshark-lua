@@ -14,10 +14,6 @@ local cboe_c1options_flex_pitch_v1_1_30 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe C1Options Flex Pitch 1.1.30 Headers
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.pitch.v1.1.30.packet", ftypes.STRING)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.pitch.v1.1.30.packetheader", ftypes.STRING)
-
 -- Cboe C1Options Flex Pitch 1.1.30 Fields
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.flex.pitch.v1.1.30.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.flex.pitch.v1.1.30.auctionid", ftypes.UINT64)
@@ -92,6 +88,10 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.underlying = ProtoField.new("Underl
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.unit = ProtoField.new("Unit", "cboe.c1options.flex.pitch.v1.1.30.unit", ftypes.UINT8)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.year = ProtoField.new("Year", "cboe.c1options.flex.pitch.v1.1.30.year", ftypes.STRING)
 
+-- Cboe C1Options Flex Pitch 1.1.30 Headers
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.flex.pitch.v1.1.30.packet", ftypes.STRING)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.flex.pitch.v1.1.30.packetheader", ftypes.STRING)
+
 -- Cboe C1Options Flex 1.1.30 Application Messages
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.c1options.flex.pitch.v1.1.30.auctioncancelmessage", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1options.flex.pitch.v1.1.30.auctionnotificationmessage", ftypes.STRING)
@@ -132,7 +132,6 @@ omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages = Pref.boo
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()

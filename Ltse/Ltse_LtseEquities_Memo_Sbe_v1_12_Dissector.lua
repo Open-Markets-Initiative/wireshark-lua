@@ -14,10 +14,6 @@ local ltse_ltseequities_memo_sbe_v1_12 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Ltse LtseEquities Memo Sbe 1.12 Headers
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memo.sbe.v1.12.commonheader", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memo.sbe.v1.12.packet", ftypes.STRING)
-
 -- Ltse LtseEquities Memo Sbe 1.12 Fields
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.block_length = ProtoField.new("Block Length", "ltse.ltseequities.memo.sbe.v1.12.blocklength", ftypes.UINT16)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "ltse.ltseequities.memo.sbe.v1.12.cancelgroupid", ftypes.UINT16)
@@ -120,6 +116,10 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_matching_id = ProtoField.new("Tr
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v1.12.unsequencedmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.version = ProtoField.new("Version", "ltse.ltseequities.memo.sbe.v1.12.version", ftypes.UINT16)
 
+-- Ltse LtseEquities Memo Sbe 1.12 Headers
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.common_header = ProtoField.new("Common Header", "ltse.ltseequities.memo.sbe.v1.12.commonheader", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.packet = ProtoField.new("Packet", "ltse.ltseequities.memo.sbe.v1.12.packet", ftypes.STRING)
+
 -- Ltse LtseEquities Memo 1.12 Application Messages
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "ltse.ltseequities.memo.sbe.v1.12.executionreportcanceledmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "ltse.ltseequities.memo.sbe.v1.12.executionreportnewmessage", ftypes.STRING)
@@ -154,7 +154,6 @@ show.application_messages = true
 -- Register Ltse LtseEquities Memo Sbe 1.12 Show Options
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_ltse_ltseequities_memo_sbe_v1_12.prefs_changed()

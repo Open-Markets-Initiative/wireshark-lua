@@ -14,13 +14,6 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Headers
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.messageheader", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packet", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sbemessage", ftypes.STRING)
-
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressororderid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressorreceivetime", ftypes.INT64)
@@ -115,6 +108,13 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoFi
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE)
 
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Headers
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.messageheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packet", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sbemessage", ftypes.STRING)
+
 -- Coinbase CoinbaseDerivatives MarketDataApi 1.2 Application Messages
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.endofsnapshotmessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.impliedorderupdatemessage", ftypes.STRING)
@@ -150,7 +150,6 @@ show.application_messages = true
 -- Register Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Show Options
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()

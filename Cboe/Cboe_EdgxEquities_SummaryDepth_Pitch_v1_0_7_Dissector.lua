@@ -14,10 +14,6 @@ local cboe_edgxequities_summarydepth_pitch_v1_0_7 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe EdgxEquities SummaryDepth Pitch 1.0.7 Headers
-omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.summarydepth.pitch.v1.0.7.packet", ftypes.STRING)
-omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxequities.summarydepth.pitch.v1.0.7.packetheader", ftypes.STRING)
-
 -- Cboe EdgxEquities SummaryDepth Pitch 1.0.7 Fields
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.adap_block = ProtoField.new("Adap Block", "cboe.edgxequities.summarydepth.pitch.v1.0.7.adapblock", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.edgxequities.summarydepth.pitch.v1.0.7.adapblocksize", ftypes.UINT8)
@@ -62,6 +58,10 @@ omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.unit = ProtoField.new("Un
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.unused_1 = ProtoField.new("Unused 1", "cboe.edgxequities.summarydepth.pitch.v1.0.7.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgxequities.summarydepth.pitch.v1.0.7.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.unused_8 = ProtoField.new("Unused 8", "cboe.edgxequities.summarydepth.pitch.v1.0.7.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
+
+-- Cboe EdgxEquities SummaryDepth Pitch 1.0.7 Headers
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.summarydepth.pitch.v1.0.7.packet", ftypes.STRING)
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgxequities.summarydepth.pitch.v1.0.7.packetheader", ftypes.STRING)
 
 -- Cboe EdgxEquities SummaryDepth 1.0.7 Application Messages
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_7.fields.adap_message = ProtoField.new("Adap Message", "cboe.edgxequities.summarydepth.pitch.v1.0.7.adapmessage", ftypes.STRING)

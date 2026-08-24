@@ -14,10 +14,6 @@ local iex_iexequities_iextpheader_udp_v1_0 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Iex IexEquities IexTpHeader Udp 1.0 Headers
-omi_iex_iexequities_iextpheader_udp_v1_0.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.iextpheader.udp.v1.0.iextpheader", ftypes.STRING)
-omi_iex_iexequities_iextpheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexequities.iextpheader.udp.v1.0.packet", ftypes.STRING)
-
 -- Iex IexEquities IexTpHeader Udp 1.0 Fields
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.iexequities.iextpheader.udp.v1.0.channelid", ftypes.UINT32)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.iextpheader.udp.v1.0.firstmessagesequencenumber", ftypes.UINT64)
@@ -34,6 +30,10 @@ omi_iex_iexequities_iextpheader_udp_v1_0.fields.send_time = ProtoField.new("Send
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.iextpheader.udp.v1.0.sessionid", ftypes.UINT32)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.iextpheader.udp.v1.0.streamoffset", ftypes.UINT64)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.version = ProtoField.new("Version", "iex.iexequities.iextpheader.udp.v1.0.version", ftypes.UINT8)
+
+-- Iex IexEquities IexTpHeader Udp 1.0 Headers
+omi_iex_iexequities_iextpheader_udp_v1_0.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.iextpheader.udp.v1.0.iextpheader", ftypes.STRING)
+omi_iex_iexequities_iextpheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexequities.iextpheader.udp.v1.0.packet", ftypes.STRING)
 
 -- Iex IexEquities IexTpHeader Udp 1.0 generated fields
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "iex.iexequities.iextpheader.udp.v1.0.messageindex", ftypes.UINT16)
@@ -53,7 +53,6 @@ show.indexes = true
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_iex_iexequities_iextpheader_udp_v1_0.prefs_changed()

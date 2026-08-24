@@ -14,10 +14,6 @@ local box_options_sola_multicast_hsvf_v1_9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Box Options Sola Multicast Hsvf 1.9 Headers
-omi_box_options_sola_multicast_hsvf_v1_9.fields.message_header = ProtoField.new("Message Header", "box.options.sola.multicast.hsvf.v1.9.messageheader", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_9.fields.packet = ProtoField.new("Packet", "box.options.sola.multicast.hsvf.v1.9.packet", ftypes.STRING)
-
 -- Box Options Sola Multicast Hsvf 1.9 Fields
 omi_box_options_sola_multicast_hsvf_v1_9.fields.ask_price = ProtoField.new("Ask Price", "box.options.sola.multicast.hsvf.v1.9.askprice", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_9.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.options.sola.multicast.hsvf.v1.9.askpricefractionindicator", ftypes.STRING)
@@ -151,6 +147,10 @@ omi_box_options_sola_multicast_hsvf_v1_9.fields.underlying_symbol = ProtoField.n
 omi_box_options_sola_multicast_hsvf_v1_9.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.options.sola.multicast.hsvf.v1.9.underlyingsymbolroot", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_9.fields.volume = ProtoField.new("Volume", "box.options.sola.multicast.hsvf.v1.9.volume", ftypes.STRING)
 
+-- Box Options Sola Multicast Hsvf 1.9 Headers
+omi_box_options_sola_multicast_hsvf_v1_9.fields.message_header = ProtoField.new("Message Header", "box.options.sola.multicast.hsvf.v1.9.messageheader", ftypes.STRING)
+omi_box_options_sola_multicast_hsvf_v1_9.fields.packet = ProtoField.new("Packet", "box.options.sola.multicast.hsvf.v1.9.packet", ftypes.STRING)
+
 -- Box Options Multicast 1.9 Application Messages
 omi_box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_complex_order_summary_message = ProtoField.new("Beginning Of Complex Order Summary Message", "box.options.sola.multicast.hsvf.v1.9.beginningofcomplexordersummarymessage", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_9.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "box.options.sola.multicast.hsvf.v1.9.beginningofoptionssummarymessage", ftypes.STRING)
@@ -204,7 +204,6 @@ omi_box_options_sola_multicast_hsvf_v1_9.prefs.show_application_messages = Pref.
 omi_box_options_sola_multicast_hsvf_v1_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_box_options_sola_multicast_hsvf_v1_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_box_options_sola_multicast_hsvf_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
-
 
 -- Handle changed preferences
 function omi_box_options_sola_multicast_hsvf_v1_9.prefs_changed()
