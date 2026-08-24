@@ -17,6 +17,8 @@ local cme_globex_ilink3_sbe_v8_4 = {}
 -- Cme Globex iLink3 Sbe 8.4 Fields
 omi_cme_globex_ilink3_sbe_v8_4.fields.access_key_id = ProtoField.new("Access Key Id", "cme.globex.ilink3.sbe.v8.4.accesskeyid", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.affected_order_id = ProtoField.new("Affected Order Id", "cme.globex.ilink3.sbe.v8.4.affectedorderid", ftypes.UINT64)
+omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_group = ProtoField.new("Affected Orders Group", "cme.globex.ilink3.sbe.v8.4.affectedordersgroup", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_groups = ProtoField.new("Affected Orders Groups", "cme.globex.ilink3.sbe.v8.4.affectedordersgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "cme.globex.ilink3.sbe.v8.4.aggressorindicator", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_4.fields.aon = ProtoField.new("Aon", "cme.globex.ilink3.sbe.v8.4.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cme_globex_ilink3_sbe_v8_4.fields.auto_quote_request = ProtoField.new("Auto Quote Request", "cme.globex.ilink3.sbe.v8.4.autoquoterequest", ftypes.UINT8)
@@ -152,8 +154,6 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.order_event_reason = ProtoField.new("Order
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_event_text = ProtoField.new("Order Event Text", "cme.globex.ilink3.sbe.v8.4.ordereventtext", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_event_type = ProtoField.new("Order Event Type", "cme.globex.ilink3.sbe.v8.4.ordereventtype", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_id = ProtoField.new("Order Id", "cme.globex.ilink3.sbe.v8.4.orderid", ftypes.UINT64)
-omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_group = ProtoField.new("Order Mass Action Report 558 No Affected Orders Group", "cme.globex.ilink3.sbe.v8.4.ordermassactionreport558noaffectedordersgroup", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_groups = ProtoField.new("Order Mass Action Report 558 No Affected Orders Groups", "cme.globex.ilink3.sbe.v8.4.ordermassactionreport558noaffectedordersgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_qty = ProtoField.new("Order Qty", "cme.globex.ilink3.sbe.v8.4.orderqty", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "cme.globex.ilink3.sbe.v8.4.orderqtyoptional", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_4.fields.order_request_id = ProtoField.new("Order Request Id", "cme.globex.ilink3.sbe.v8.4.orderrequestid", ftypes.UINT64)
@@ -188,10 +188,10 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.price_optional = ProtoField.new("Price Opt
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_ack_entries_group = ProtoField.new("Quote Ack Entries Group", "cme.globex.ilink3.sbe.v8.4.quoteackentriesgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_ack_entries_groups = ProtoField.new("Quote Ack Entries Groups", "cme.globex.ilink3.sbe.v8.4.quoteackentriesgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "cme.globex.ilink3.sbe.v8.4.quoteackstatus", ftypes.UINT8)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_group = ProtoField.new("Quote Cancel Ack 547 No Quote Entries Group", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquoteentriesgroup", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_groups = ProtoField.new("Quote Cancel Ack 547 No Quote Entries Groups", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquoteentriesgroups", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_group = ProtoField.new("Quote Cancel Ack 547 No Quote Sets Group", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquotesetsgroup", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_groups = ProtoField.new("Quote Cancel Ack 547 No Quote Sets Groups", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquotesetsgroups", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_group = ProtoField.new("Quote Cancel Ack Entries Group", "cme.globex.ilink3.sbe.v8.4.quotecancelackentriesgroup", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_groups = ProtoField.new("Quote Cancel Ack Entries Groups", "cme.globex.ilink3.sbe.v8.4.quotecancelackentriesgroups", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_group = ProtoField.new("Quote Cancel Ack Sets Group", "cme.globex.ilink3.sbe.v8.4.quotecancelacksetsgroup", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_groups = ProtoField.new("Quote Cancel Ack Sets Groups", "cme.globex.ilink3.sbe.v8.4.quotecancelacksetsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_entries_group = ProtoField.new("Quote Cancel Entries Group", "cme.globex.ilink3.sbe.v8.4.quotecancelentriesgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_entries_groups = ProtoField.new("Quote Cancel Entries Groups", "cme.globex.ilink3.sbe.v8.4.quotecancelentriesgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_sets_group = ProtoField.new("Quote Cancel Sets Group", "cme.globex.ilink3.sbe.v8.4.quotecancelsetsgroup", ftypes.STRING)
@@ -362,15 +362,15 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.sequence = ProtoField.new("Sequence", "cme
 omi_cme_globex_ilink3_sbe_v8_4.fields.terminate = ProtoField.new("Terminate", "cme.globex.ilink3.sbe.v8.4.terminate", ftypes.STRING)
 
 -- Cme Globex iLink3 Sbe 8.4 generated fields
+omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_group_index = ProtoField.new("Affected Orders Group Index", "cme.globex.ilink3.sbe.v8.4.affectedordersgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.fills_group_index = ProtoField.new("Fills Group Index", "cme.globex.ilink3.sbe.v8.4.fillsgroupindex", ftypes.UINT16)
-omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_group_index = ProtoField.new("Order Mass Action Report 558 No Affected Orders Group Index", "cme.globex.ilink3.sbe.v8.4.ordermassactionreport558noaffectedordersgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.outright_order_events_group_index = ProtoField.new("Outright Order Events Group Index", "cme.globex.ilink3.sbe.v8.4.outrightordereventsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.outright_trade_events_group_index = ProtoField.new("Outright Trade Events Group Index", "cme.globex.ilink3.sbe.v8.4.outrighttradeeventsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.party_details_group_index = ProtoField.new("Party Details Group Index", "cme.globex.ilink3.sbe.v8.4.partydetailsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.party_ids_group_index = ProtoField.new("Party Ids Group Index", "cme.globex.ilink3.sbe.v8.4.partyidsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_ack_entries_group_index = ProtoField.new("Quote Ack Entries Group Index", "cme.globex.ilink3.sbe.v8.4.quoteackentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_group_index = ProtoField.new("Quote Cancel Ack 547 No Quote Entries Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquoteentriesgroupindex", ftypes.UINT16)
-omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_group_index = ProtoField.new("Quote Cancel Ack 547 No Quote Sets Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelack547noquotesetsgroupindex", ftypes.UINT16)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_group_index = ProtoField.new("Quote Cancel Ack Entries Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelackentriesgroupindex", ftypes.UINT16)
+omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_group_index = ProtoField.new("Quote Cancel Ack Sets Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelacksetsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_entries_group_index = ProtoField.new("Quote Cancel Entries Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelentriesgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_sets_group_index = ProtoField.new("Quote Cancel Sets Group Index", "cme.globex.ilink3.sbe.v8.4.quotecancelsetsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_4.fields.quote_entries_group_index = ProtoField.new("Quote Entries Group Index", "cme.globex.ilink3.sbe.v8.4.quoteentriesgroupindex", ftypes.UINT16)
@@ -393,17 +393,17 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.trd_reg_publications_group_index = ProtoFi
 local show = {}
 
 -- Cme Globex iLink3 Sbe 8.4 Element Dissection Options
-show.application_messages = true
-show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.application_messages = true
+show.structs = true
 show.indexes = true
 
 -- Register Cme Globex iLink3 Sbe 8.4 Show Options
-omi_cme_globex_ilink3_sbe_v8_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_cme_globex_ilink3_sbe_v8_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cme_globex_ilink3_sbe_v8_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cme_globex_ilink3_sbe_v8_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -8174,27 +8174,27 @@ cme_globex_ilink3_sbe_v8_4.security_definition_request.dissect = function(buffer
   end
 end
 
--- Order Mass Action Report 558 No Affected Orders Group
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group = {}
+-- Affected Orders Group
+cme_globex_ilink3_sbe_v8_4.affected_orders_group = {}
 
--- Size: Order Mass Action Report 558 No Affected Orders Group
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.size =
+-- Size: Affected Orders Group
+cme_globex_ilink3_sbe_v8_4.affected_orders_group.size =
   cme_globex_ilink3_sbe_v8_4.origclordid.size + 
   cme_globex_ilink3_sbe_v8_4.affected_order_id.size + 
   cme_globex_ilink3_sbe_v8_4.cxl_quantity.size
 
--- Display: Order Mass Action Report 558 No Affected Orders Group
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.display = function(packet, parent, length)
+-- Display: Affected Orders Group
+cme_globex_ilink3_sbe_v8_4.affected_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Mass Action Report 558 No Affected Orders Group
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.fields = function(buffer, offset, packet, parent, order_mass_action_report_558_no_affected_orders_group_index)
+-- Dissect Fields: Affected Orders Group
+cme_globex_ilink3_sbe_v8_4.affected_orders_group.fields = function(buffer, offset, packet, parent, affected_orders_group_index)
   local index = offset
 
-  -- Implicit Order Mass Action Report 558 No Affected Orders Group Index
-  if order_mass_action_report_558_no_affected_orders_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_group_index, order_mass_action_report_558_no_affected_orders_group_index)
+  -- Implicit Affected Orders Group Index
+  if affected_orders_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_group_index, affected_orders_group_index)
     iteration:set_generated()
   end
 
@@ -8210,47 +8210,47 @@ cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group
   return index
 end
 
--- Dissect: Order Mass Action Report 558 No Affected Orders Group
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.dissect = function(buffer, offset, packet, parent, order_mass_action_report_558_no_affected_orders_group_index)
+-- Dissect: Affected Orders Group
+cme_globex_ilink3_sbe_v8_4.affected_orders_group.dissect = function(buffer, offset, packet, parent, affected_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.fields(buffer, offset, packet, parent, order_mass_action_report_558_no_affected_orders_group_index)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.affected_orders_group.fields(buffer, offset, packet, parent, affected_orders_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.affected_orders_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.fields(buffer, offset, packet, parent, order_mass_action_report_558_no_affected_orders_group_index)
+    return cme_globex_ilink3_sbe_v8_4.affected_orders_group.fields(buffer, offset, packet, parent, affected_orders_group_index)
   end
 end
 
--- Order Mass Action Report 558 No Affected Orders Groups
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups = {}
+-- Affected Orders Groups
+cme_globex_ilink3_sbe_v8_4.affected_orders_groups = {}
 
--- Calculate size of: Order Mass Action Report 558 No Affected Orders Groups
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.size = function(buffer, offset)
+-- Calculate size of: Affected Orders Groups
+cme_globex_ilink3_sbe_v8_4.affected_orders_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_ilink3_sbe_v8_4.group_size.size
 
   -- Calculate field size from count
-  local order_mass_action_report_558_no_affected_orders_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + order_mass_action_report_558_no_affected_orders_group_count * 32
+  local affected_orders_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + affected_orders_group_count * 32
 
   return index
 end
 
--- Display: Order Mass Action Report 558 No Affected Orders Groups
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.display = function(packet, parent, length)
+-- Display: Affected Orders Groups
+cme_globex_ilink3_sbe_v8_4.affected_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Mass Action Report 558 No Affected Orders Groups
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Affected Orders Groups
+cme_globex_ilink3_sbe_v8_4.affected_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -8259,29 +8259,29 @@ cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Order Mass Action Report 558 No Affected Orders Group
-  for order_mass_action_report_558_no_affected_orders_group_index = 1, num_in_group do
-    index, order_mass_action_report_558_no_affected_orders_group = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_group.dissect(buffer, index, packet, parent, order_mass_action_report_558_no_affected_orders_group_index)
+  -- Repeating: Affected Orders Group
+  for affected_orders_group_index = 1, num_in_group do
+    index, affected_orders_group = cme_globex_ilink3_sbe_v8_4.affected_orders_group.dissect(buffer, index, packet, parent, affected_orders_group_index)
   end
 
   return index
 end
 
--- Dissect: Order Mass Action Report 558 No Affected Orders Groups
-cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Affected Orders Groups
+cme_globex_ilink3_sbe_v8_4.affected_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.order_mass_action_report_558_no_affected_orders_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.affected_orders_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.affected_orders_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.affected_orders_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_ilink3_sbe_v8_4.affected_orders_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8346,7 +8346,7 @@ cme_globex_ilink3_sbe_v8_4.order_mass_action_report.size = function(buffer, offs
 
   index = index + cme_globex_ilink3_sbe_v8_4.delay_to_time.size
 
-  index = index + cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.size(buffer, offset + index)
+  index = index + cme_globex_ilink3_sbe_v8_4.affected_orders_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8441,8 +8441,8 @@ cme_globex_ilink3_sbe_v8_4.order_mass_action_report.fields = function(buffer, of
   -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_globex_ilink3_sbe_v8_4.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Order Mass Action Report 558 No Affected Orders Groups: Struct of 2 fields
-  index, order_mass_action_report_558_no_affected_orders_groups = cme_globex_ilink3_sbe_v8_4.order_mass_action_report_558_no_affected_orders_groups.dissect(buffer, index, packet, parent)
+  -- Affected Orders Groups: Struct of 2 fields
+  index, affected_orders_groups = cme_globex_ilink3_sbe_v8_4.affected_orders_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9614,26 +9614,26 @@ cme_globex_ilink3_sbe_v8_4.execution_report_trade_addendum_outright.dissect = fu
   end
 end
 
--- Quote Cancel Ack 547 No Quote Sets Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group = {}
+-- Quote Cancel Ack Sets Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group = {}
 
--- Size: Quote Cancel Ack 547 No Quote Sets Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.size =
+-- Size: Quote Cancel Ack Sets Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.size =
   cme_globex_ilink3_sbe_v8_4.quote_set_id.size + 
   cme_globex_ilink3_sbe_v8_4.quote_error_code.size
 
--- Display: Quote Cancel Ack 547 No Quote Sets Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Sets Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack 547 No Quote Sets Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_sets_group_index)
+-- Dissect Fields: Quote Cancel Ack Sets Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Ack 547 No Quote Sets Group Index
-  if quote_cancel_ack_547_no_quote_sets_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_group_index, quote_cancel_ack_547_no_quote_sets_group_index)
+  -- Implicit Quote Cancel Ack Sets Group Index
+  if quote_cancel_ack_sets_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_group_index, quote_cancel_ack_sets_group_index)
     iteration:set_generated()
   end
 
@@ -9646,47 +9646,47 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.fields = fun
   return index
 end
 
--- Dissect: Quote Cancel Ack 547 No Quote Sets Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_sets_group_index)
+-- Dissect: Quote Cancel Ack Sets Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_sets_group_index)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_sets_group_index)
+    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.fields(buffer, offset, packet, parent, quote_cancel_ack_sets_group_index)
   end
 end
 
--- Quote Cancel Ack 547 No Quote Sets Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups = {}
+-- Quote Cancel Ack Sets Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups = {}
 
--- Calculate size of: Quote Cancel Ack 547 No Quote Sets Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Sets Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_ilink3_sbe_v8_4.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_547_no_quote_sets_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_ack_547_no_quote_sets_group_count * 4
+  local quote_cancel_ack_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_sets_group_count * 4
 
   return index
 end
 
--- Display: Quote Cancel Ack 547 No Quote Sets Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Sets Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack 547 No Quote Sets Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Sets Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -9695,53 +9695,53 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Ack 547 No Quote Sets Group
-  for quote_cancel_ack_547_no_quote_sets_group_index = 1, num_in_group do
-    index, quote_cancel_ack_547_no_quote_sets_group = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_group.dissect(buffer, index, packet, parent, quote_cancel_ack_547_no_quote_sets_group_index)
+  -- Repeating: Quote Cancel Ack Sets Group
+  for quote_cancel_ack_sets_group_index = 1, num_in_group do
+    index, quote_cancel_ack_sets_group = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_group.dissect(buffer, index, packet, parent, quote_cancel_ack_sets_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Ack 547 No Quote Sets Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Sets Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_sets_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_sets_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Cancel Ack 547 No Quote Entries Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group = {}
+-- Quote Cancel Ack Entries Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group = {}
 
--- Size: Quote Cancel Ack 547 No Quote Entries Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.size =
+-- Size: Quote Cancel Ack Entries Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.size =
   cme_globex_ilink3_sbe_v8_4.quote_entry_id.size + 
   cme_globex_ilink3_sbe_v8_4.security_id.size + 
   cme_globex_ilink3_sbe_v8_4.quote_entry_reject_reason.size
 
--- Display: Quote Cancel Ack 547 No Quote Entries Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Entries Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack 547 No Quote Entries Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_entries_group_index)
+-- Dissect Fields: Quote Cancel Ack Entries Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Ack 547 No Quote Entries Group Index
-  if quote_cancel_ack_547_no_quote_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_group_index, quote_cancel_ack_547_no_quote_entries_group_index)
+  -- Implicit Quote Cancel Ack Entries Group Index
+  if quote_cancel_ack_entries_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_group_index, quote_cancel_ack_entries_group_index)
     iteration:set_generated()
   end
 
@@ -9757,47 +9757,47 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.fields = 
   return index
 end
 
--- Dissect: Quote Cancel Ack 547 No Quote Entries Group
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_entries_group_index)
+-- Dissect: Quote Cancel Ack Entries Group
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_entries_group_index)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_547_no_quote_entries_group_index)
+    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.fields(buffer, offset, packet, parent, quote_cancel_ack_entries_group_index)
   end
 end
 
--- Quote Cancel Ack 547 No Quote Entries Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups = {}
+-- Quote Cancel Ack Entries Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups = {}
 
--- Calculate size of: Quote Cancel Ack 547 No Quote Entries Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.size = function(buffer, offset)
+-- Calculate size of: Quote Cancel Ack Entries Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_ilink3_sbe_v8_4.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_547_no_quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_ack_547_no_quote_entries_group_count * 9
+  local quote_cancel_ack_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_ack_entries_group_count * 9
 
   return index
 end
 
--- Display: Quote Cancel Ack 547 No Quote Entries Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.display = function(packet, parent, length)
+-- Display: Quote Cancel Ack Entries Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Ack 547 No Quote Entries Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancel Ack Entries Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -9806,29 +9806,29 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Quote Cancel Ack 547 No Quote Entries Group
-  for quote_cancel_ack_547_no_quote_entries_group_index = 1, num_in_group do
-    index, quote_cancel_ack_547_no_quote_entries_group = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_group.dissect(buffer, index, packet, parent, quote_cancel_ack_547_no_quote_entries_group_index)
+  -- Repeating: Quote Cancel Ack Entries Group
+  for quote_cancel_ack_entries_group_index = 1, num_in_group do
+    index, quote_cancel_ack_entries_group = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_group.dissect(buffer, index, packet, parent, quote_cancel_ack_entries_group_index)
   end
 
   return index
 end
 
--- Dissect: Quote Cancel Ack 547 No Quote Entries Groups
-cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancel Ack Entries Groups
+cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_547_no_quote_entries_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_4.fields.quote_cancel_ack_entries_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9883,9 +9883,9 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack.size = function(buffer, offset)
 
   index = index + cme_globex_ilink3_sbe_v8_4.delay_to_time.size
 
-  index = index + cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.size(buffer, offset + index)
+  index = index + cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.size(buffer, offset + index)
+  index = index + cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9965,11 +9965,11 @@ cme_globex_ilink3_sbe_v8_4.quote_cancel_ack.fields = function(buffer, offset, pa
   -- Delay To Time: uInt64NULL
   index, delay_to_time = cme_globex_ilink3_sbe_v8_4.delay_to_time.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Ack 547 No Quote Entries Groups: Struct of 2 fields
-  index, quote_cancel_ack_547_no_quote_entries_groups = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_entries_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Ack Entries Groups: Struct of 2 fields
+  index, quote_cancel_ack_entries_groups = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_entries_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Ack 547 No Quote Sets Groups: Struct of 2 fields
-  index, quote_cancel_ack_547_no_quote_sets_groups = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_547_no_quote_sets_groups.dissect(buffer, index, packet, parent)
+  -- Quote Cancel Ack Sets Groups: Struct of 2 fields
+  index, quote_cancel_ack_sets_groups = cme_globex_ilink3_sbe_v8_4.quote_cancel_ack_sets_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
