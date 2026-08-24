@@ -52,6 +52,9 @@ jobs:
       - name: Run Cboe C1Options MarketLevel2 Csm 1.0.4 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-MarketLevel2-Csm-v1-0-4-Test.sh
 
+      - name: Run Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-BinaryOrderEntry-Boe3-v1-1-20-Test.sh
+
       - name: Run Cme Globex Mdp3 Sbe 1.5 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-5-Test.sh
 

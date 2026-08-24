@@ -707,7 +707,11 @@ cme_globex_mdp3_sbe_v1_6.encoding_type.size = 2
 
 -- Display: Encoding Type
 cme_globex_mdp3_sbe_v1_6.encoding_type.display = function(value)
-  return "Encoding Type: "..value
+  if value == 51966 then
+    return "Encoding Type: Cme Sbe Message"
+  end
+
+  return "Encoding Type: Unknown("..value..")"
 end
 
 -- Dissect: Encoding Type
@@ -8379,7 +8383,7 @@ end
 cme_globex_mdp3_sbe_v1_6.technical_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
   index, encoding_type = cme_globex_mdp3_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
 
   -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
@@ -8621,6 +8625,18 @@ cme_globex_mdp3_sbe_v1_6.version.udp_packet_verify = function(buffer)
   return false
 end
 
+-- Verify Encoding Type Field
+cme_globex_mdp3_sbe_v1_6.encoding_type.tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 2):le_uint()
+
+  if value == 51966 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify = function(buffer)
   -- Attempt to read field
@@ -8667,6 +8683,9 @@ end
 local function omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_globex_mdp3_sbe_v1_6.tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not cme_globex_mdp3_sbe_v1_6.encoding_type.tcp_packet_verify(buffer) then return false end
 
   -- Verify Schema Id
   if not cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify(buffer) then return false end
