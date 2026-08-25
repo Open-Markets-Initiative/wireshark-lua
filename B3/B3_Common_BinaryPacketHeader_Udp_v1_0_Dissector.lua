@@ -465,7 +465,7 @@ b3_common_binarypacketheader_udp_v1_0.message.fields = function(buffer, offset, 
   local message_length = buffer(index - 12, 2):le_uint()
 
   -- Runtime Size Of: Payload
-  local size_of_payload = message_length - 16
+  local size_of_payload = message_length - 12
 
   -- Payload: 0 Byte
   index, payload = b3_common_binarypacketheader_udp_v1_0.payload.dissect(buffer, index, packet, parent, size_of_payload)
