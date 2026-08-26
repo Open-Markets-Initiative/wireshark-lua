@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/DeleteOrderMessage.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/DeleteOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json.stderr \
@@ -15,7 +15,39 @@ grep "ice.icefutures.mdf.impact.v1.1.33.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.
 grep "ice.icefutures.mdf.impact.v1.1.33.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketSnapshotOrderMessage.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/MarketSnapShotMessage.pcap" \
+  -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
+  -T json \
+  > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json.stderr \
+  || { echo "--- tshark FAILED (MarketSnapShotMessage) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json.stderr; exit 1; }
+
+grep "ice.icefutures.mdf.impact.v1.1.33.marketid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.markettype" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.tradingstatus" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.volume" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.blockvolume" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.efsvolume" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.efpvolume" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.openinterest" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.openingprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.settlementpricewithdealpriceprecision" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.high" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.low" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.vwap" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.numofbookentries" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.lasttradeprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.lasttradequantity" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.lasttradedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.settlepricedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.lastmessagesequenceid" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.reserved2" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.openinterestdate" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.issettlepriceofficial" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.settlementprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.haspreviousdaysettlementprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+grep "ice.icefutures.mdf.impact.v1.1.33.previousdaysettlementprice" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/MarketSnapshotOrderMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json.stderr \
@@ -32,7 +64,7 @@ grep "ice.icefutures.mdf.impact.v1.1.33.isrfq" Ice.IceFutures.Mdf.iMpact.v1.1.33
 grep "ice.icefutures.mdf.impact.v1.1.33.orderentrydatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketSnapshotOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MarketStatisticsMessage.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/MarketStatisticsMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json.stderr \
@@ -48,7 +80,7 @@ grep "ice.icefutures.mdf.impact.v1.1.33.low" Ice.IceFutures.Mdf.iMpact.v1.1.33.M
 grep "ice.icefutures.mdf.impact.v1.1.33.vwap" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.MarketStatisticsMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/MessageBundleMarker.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/MessageBundleMarker.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json.stderr \
@@ -56,7 +88,7 @@ runuser -u tester -- tshark \
 
 grep "ice.icefutures.mdf.impact.v1.1.33.startorend" Ice.IceFutures.Mdf.iMpact.v1.1.33.MessageBundleMarker.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/SpecialFieldMessage.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/SpecialFieldMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json.stderr \
@@ -64,7 +96,7 @@ runuser -u tester -- tshark \
 
 grep "ice.icefutures.mdf.impact.v1.1.33.numberofspecialfields" Ice.IceFutures.Mdf.iMpact.v1.1.33.SpecialFieldMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Ice/Mdf.iMpact.v1.1.33/TradeMessage.pcap" \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.v1.1.33/TradeMessage.pcap" \
   -X "lua_script:Ice/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \
   > Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.TradeMessage.json.stderr \

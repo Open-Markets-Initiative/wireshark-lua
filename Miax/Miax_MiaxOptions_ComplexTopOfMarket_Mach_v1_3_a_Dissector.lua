@@ -138,6 +138,14 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition_index 
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -154,6 +162,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs = Pref.bo
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs_changed()
@@ -170,6 +179,9 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs_changed()
   end
   if show.indexes ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes then
     show.indexes = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes
+  end
+  if miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp then
+    miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp
   end
 end
 
@@ -2573,10 +2585,12 @@ end
 
 -- Dissect: Timestamp
 miax_miaxoptions_complextopofmarket_mach_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = miax_miaxoptions_complextopofmarket_mach_v1_3_a.seconds.current
+  if miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp then
+    local stored_seconds = miax_miaxoptions_complextopofmarket_mach_v1_3_a.seconds.current
 
-  if stored_seconds ~= nil then
-    return miax_miaxoptions_complextopofmarket_mach_v1_3_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return miax_miaxoptions_complextopofmarket_mach_v1_3_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return miax_miaxoptions_complextopofmarket_mach_v1_3_a.nanoseconds.dissect(buffer, offset, packet, parent)

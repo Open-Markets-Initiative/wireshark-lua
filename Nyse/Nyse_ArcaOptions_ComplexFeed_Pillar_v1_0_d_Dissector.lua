@@ -133,6 +133,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.time_reference_message = P
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d generated fields
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.legdefinitionindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageindex", ftypes.UINT16)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -145,12 +146,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse ArcaOptions ComplexFeed Pillar 1.0.d Show Options
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
@@ -167,6 +170,9 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes then
     show.indexes = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences then
+    show.sequences = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences
   end
 end
 
@@ -4119,6 +4125,12 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_header.dissect(buffer, index, packet, parent)
 
@@ -4243,6 +4255,9 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_header.fields = function(buffe
 
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence = seq_num
 
   return index
 end

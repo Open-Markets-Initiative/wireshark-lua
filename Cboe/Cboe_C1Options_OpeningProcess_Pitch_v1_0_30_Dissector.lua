@@ -71,6 +71,14 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_index = ProtoFiel
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.openingprocess.pitch.v1.0.30.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe C1Options OpeningProcess Pitch 1.0.30 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_c1options_openingprocess_pitch_v1_0_30.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -85,6 +93,7 @@ show.indexes = true
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs_changed()
@@ -98,6 +107,9 @@ function omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_indexes
+  end
+  if cboe_c1options_openingprocess_pitch_v1_0_30.format_timestamp ~= omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.format_timestamp then
+    cboe_c1options_openingprocess_pitch_v1_0_30.format_timestamp = omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.format_timestamp
   end
 end
 

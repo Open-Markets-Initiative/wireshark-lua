@@ -126,6 +126,14 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.leg_definition_index = ProtoFi
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.orderfeed.mach.v2.5.b.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Miax MiaxOptions OrderFeed Mach 2.5.b Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+miax_miaxoptions_orderfeed_mach_v2_5_b.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -142,6 +150,7 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_structs = Pref.bool("Show 
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs_changed()
@@ -158,6 +167,9 @@ function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs_changed()
   end
   if show.indexes ~= omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_indexes then
     show.indexes = omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.show_indexes
+  end
+  if miax_miaxoptions_orderfeed_mach_v2_5_b.format_timestamp ~= omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.format_timestamp then
+    miax_miaxoptions_orderfeed_mach_v2_5_b.format_timestamp = omi_miax_miaxoptions_orderfeed_mach_v2_5_b.prefs.format_timestamp
   end
 end
 
@@ -2347,10 +2359,12 @@ end
 
 -- Dissect: Timestamp
 miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = miax_miaxoptions_orderfeed_mach_v2_5_b.seconds.current
+  if miax_miaxoptions_orderfeed_mach_v2_5_b.format_timestamp then
+    local stored_seconds = miax_miaxoptions_orderfeed_mach_v2_5_b.seconds.current
 
-  if stored_seconds ~= nil then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return miax_miaxoptions_orderfeed_mach_v2_5_b.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return miax_miaxoptions_orderfeed_mach_v2_5_b.nanoseconds.dissect(buffer, offset, packet, parent)

@@ -87,6 +87,9 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.fields.login_request_packet = ProtoField.new("Lo
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxbonds.pts.ouch.v2.01.sequenceddatapacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxbonds.pts.ouch.v2.01.unsequenceddatapacket", ftypes.STRING)
 
+-- Jnx JnxBonds Pts Ouch 2.01 generated fields
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jnx.jnxbonds.pts.ouch.v2.01.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Jnx JnxBonds Pts Ouch 2.01 Formatting
 -----------------------------------------------------------------------
@@ -115,6 +118,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Jnx JnxBonds Pts Ouch 2.01 Show Options
 local role_enum = {
@@ -128,6 +132,7 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.swap_sides = Pref.bool("Swap Sides", false
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -145,6 +150,9 @@ function omi_jnx_jnxbonds_pts_ouch_v2_01.prefs_changed()
   if show.structs ~= omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_structs then
     show.structs = omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_structs
   end
+  if show.sequences ~= omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_sequences then
+    show.sequences = omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_sequences
+  end
   if jnx_jnxbonds_pts_ouch_v2_01.timestamp_format ~= omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.timestamp_format then
     jnx_jnxbonds_pts_ouch_v2_01.timestamp_format = omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.timestamp_format
   end
@@ -152,6 +160,41 @@ function omi_jnx_jnxbonds_pts_ouch_v2_01.prefs_changed()
     jnx_jnxbonds_pts_ouch_v2_01.utc_offset_hours = omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+jnx_jnxbonds_pts_ouch_v2_01.conversation = {}
+jnx_jnxbonds_pts_ouch_v2_01.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+jnx_jnxbonds_pts_ouch_v2_01.stream_frame = nil
+jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+jnx_jnxbonds_pts_ouch_v2_01.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+jnx_jnxbonds_pts_ouch_v2_01.conversation.data = function(packet)
+  local key = jnx_jnxbonds_pts_ouch_v2_01.conversation.key(packet)
+  local data = jnx_jnxbonds_pts_ouch_v2_01.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    jnx_jnxbonds_pts_ouch_v2_01.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jnx_jnxbonds_pts_ouch_v2_01.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -2024,6 +2067,40 @@ end
 jnx_jnxbonds_pts_ouch_v2_01.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = jnx_jnxbonds_pts_ouch_v2_01.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if jnx_jnxbonds_pts_ouch_v2_01.stream_frame ~= packet.number or jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence >= #memo then
+          jnx_jnxbonds_pts_ouch_v2_01.stream_frame = packet.number
+          jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence = 0
+        end
+        jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence = jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence + 1
+        local value = memo[jnx_jnxbonds_pts_ouch_v2_01.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 7 values
   index, sequenced_message_type = jnx_jnxbonds_pts_ouch_v2_01.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2117,6 +2194,15 @@ jnx_jnxbonds_pts_ouch_v2_01.login_accepted_packet.fields = function(buffer, offs
 
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = jnx_jnxbonds_pts_ouch_v2_01.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = jnx_jnxbonds_pts_ouch_v2_01.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end

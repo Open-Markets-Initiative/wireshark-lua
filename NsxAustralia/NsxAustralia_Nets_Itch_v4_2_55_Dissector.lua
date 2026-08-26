@@ -132,7 +132,16 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet = ProtoField.new
 omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nsxaustralia.nets.itch.v4.2.55.unsequenceddatapacket", ftypes.STRING)
 
 -- NsxAustralia Nets Itch 4.2.55 generated fields
+omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nsxaustralia.nets.itch.v4.2.55.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.composite_timestamp = ProtoField.new("Composite Timestamp", "nsxaustralia.nets.itch.v4.2.55.compositetimestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- NsxAustralia Nets Itch 4.2.55 Formatting
+-----------------------------------------------------------------------
+
+-- Composite Timestamp format (true = decimal-scaled, false = raw mantissa)
+nsxaustralia_nets_itch_v4_2_55.format_composite_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -144,6 +153,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register NsxAustralia Nets Itch 4.2.55 Show Options
 local role_enum = {
@@ -157,6 +167,8 @@ omi_nsxaustralia_nets_itch_v4_2_55.prefs.swap_sides = Pref.bool("Swap Sides", fa
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.format_composite_timestamp = Pref.bool("Format Composite Timestamp", true, "Compose Composite Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_nsxaustralia_nets_itch_v4_2_55.prefs_changed()
@@ -171,6 +183,12 @@ function omi_nsxaustralia_nets_itch_v4_2_55.prefs_changed()
   if show.structs ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs then
     show.structs = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs
   end
+  if show.sequences ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_sequences then
+    show.sequences = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_sequences
+  end
+  if nsxaustralia_nets_itch_v4_2_55.format_composite_timestamp ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.format_composite_timestamp then
+    nsxaustralia_nets_itch_v4_2_55.format_composite_timestamp = omi_nsxaustralia_nets_itch_v4_2_55.prefs.format_composite_timestamp
+  end
 end
 
 
@@ -181,6 +199,11 @@ end
 -- State, keyed by src/dst tuple
 nsxaustralia_nets_itch_v4_2_55.conversation = {}
 nsxaustralia_nets_itch_v4_2_55.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nsxaustralia_nets_itch_v4_2_55.stream_frame = nil
+nsxaustralia_nets_itch_v4_2_55.stream_occurrence = 0
 
 -- Conversation key for the current packet (src/dst tuple)
 nsxaustralia_nets_itch_v4_2_55.conversation.key = function(packet)
@@ -193,7 +216,7 @@ nsxaustralia_nets_itch_v4_2_55.conversation.data = function(packet)
   local key = nsxaustralia_nets_itch_v4_2_55.conversation.key(packet)
   local data = nsxaustralia_nets_itch_v4_2_55.conversation.flows[key]
   if data == nil then
-    data = { nanosecond = { last = nil, frames = {} } }
+    data = { nanosecond = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nsxaustralia_nets_itch_v4_2_55.conversation.flows[key] = data
   end
   return data
@@ -2426,10 +2449,12 @@ end
 
 -- Dissect: Composite Timestamp
 nsxaustralia_nets_itch_v4_2_55.composite_timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_nanosecond = nsxaustralia_nets_itch_v4_2_55.nanosecond.current
+  if nsxaustralia_nets_itch_v4_2_55.format_composite_timestamp then
+    local stored_nanosecond = nsxaustralia_nets_itch_v4_2_55.nanosecond.current
 
-  if stored_nanosecond ~= nil then
-    return nsxaustralia_nets_itch_v4_2_55.composite_timestamp.composite(buffer, offset, stored_nanosecond, packet, parent)
+    if stored_nanosecond ~= nil then
+      return nsxaustralia_nets_itch_v4_2_55.composite_timestamp.composite(buffer, offset, stored_nanosecond, packet, parent)
+    end
   end
 
   return nsxaustralia_nets_itch_v4_2_55.timestamp.dissect(buffer, offset, packet, parent)
@@ -3708,6 +3733,40 @@ end
 nsxaustralia_nets_itch_v4_2_55.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nsxaustralia_nets_itch_v4_2_55.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nsxaustralia_nets_itch_v4_2_55.stream_frame ~= packet.number or nsxaustralia_nets_itch_v4_2_55.stream_occurrence >= #memo then
+          nsxaustralia_nets_itch_v4_2_55.stream_frame = packet.number
+          nsxaustralia_nets_itch_v4_2_55.stream_occurrence = 0
+        end
+        nsxaustralia_nets_itch_v4_2_55.stream_occurrence = nsxaustralia_nets_itch_v4_2_55.stream_occurrence + 1
+        local value = memo[nsxaustralia_nets_itch_v4_2_55.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 19 values
   index, sequenced_message_type = nsxaustralia_nets_itch_v4_2_55.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -3801,6 +3860,15 @@ nsxaustralia_nets_itch_v4_2_55.login_accepted_packet.fields = function(buffer, o
 
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = nsxaustralia_nets_itch_v4_2_55.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = nsxaustralia_nets_itch_v4_2_55.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end

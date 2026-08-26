@@ -66,6 +66,14 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bi
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -78,6 +86,7 @@ show.application_messages = true
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.a Show Options
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
@@ -88,6 +97,9 @@ function omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs_changed()
   end
   if show.structs ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.show_structs
+  end
+  if miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp ~= omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp then
+    miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp = omi_miax_pearlequities_topofmarket_mach_v1_1_a.prefs.format_timestamp
   end
 end
 
@@ -1067,10 +1079,12 @@ end
 
 -- Dissect: Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current
+  if miax_pearlequities_topofmarket_mach_v1_1_a.format_timestamp then
+    local stored_seconds = miax_pearlequities_topofmarket_mach_v1_1_a.seconds.current
 
-  if stored_seconds ~= nil then
-    return miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return miax_pearlequities_topofmarket_mach_v1_1_a.nanoseconds.dissect(buffer, offset, packet, parent)

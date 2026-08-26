@@ -19,28 +19,22 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clear
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_status = ProtoField.new("Auction Status", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctionstatus", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_time = ProtoField.new("Auction Time", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctiontime", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_type = ProtoField.new("Auction Type", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctiontype", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.beginseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.channelid", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.close = ProtoField.new("Close", "nyse.amexequities.integratedfeed.pillar.v2.5.g.close", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.continuousbookclearingprice", ftypes.DOUBLE)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_id = ProtoField.new("Cross Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crossid", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_type = ProtoField.new("Cross Type", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crosstype", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.amexequities.integratedfeed.pillar.v2.5.g.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexequities.integratedfeed.pillar.v2.5.g.deliveryflag", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.endseqnum", ftypes.UINT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.eth_eligible = ProtoField.new("Eth Eligible", "nyse.amexequities.integratedfeed.pillar.v2.5.g.etheligible", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexequities.integratedfeed.pillar.v2.5.g.exchangecode", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.firm_id = ProtoField.new("Firm Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.firmid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.amexequities.integratedfeed.pillar.v2.5.g.freezestatus", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexequities.integratedfeed.pillar.v2.5.g.haltcondition", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.high_price = ProtoField.new("High Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.highprice", ftypes.DOUBLE)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.id = ProtoField.new("Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.id", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.integratedfeed.pillar.v2.5.g.imbalanceside", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.indicativematchprice", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lastseqnum", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.late_close_eligible = ProtoField.new("Late Close Eligible", "nyse.amexequities.integratedfeed.pillar.v2.5.g.latecloseeligible", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lotsize", ftypes.UINT16)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.low_price = ProtoField.new("Low Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lowprice", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lowercollar", ftypes.UINT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lowercollar", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.market_id = ProtoField.new("Market Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.marketid", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.amexequities.integratedfeed.pillar.v2.5.g.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.market_state = ProtoField.new("Market State", "nyse.amexequities.integratedfeed.pillar.v2.5.g.marketstate", ftypes.STRING)
@@ -52,7 +46,6 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.new_order_id = ProtoFi
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.amexequities.integratedfeed.pillar.v2.5.g.numextensions", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.amexequities.integratedfeed.pillar.v2.5.g.numbermsgs", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.open = ProtoField.new("Open", "nyse.amexequities.integratedfeed.pillar.v2.5.g.open", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.order_id = ProtoField.new("Order Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.orderid", ftypes.UINT64)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pairedqty", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pktsize", ftypes.UINT16)
@@ -67,11 +60,8 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_scale_code = Pro
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.amexequities.integratedfeed.pillar.v2.5.g.printableflag", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.productid", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.referenceprice", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.requestseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.reserved1", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.integratedfeed.pillar.v2.5.g.reserved2", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.integratedfeed.pillar.v2.5.g.reserved4", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.integratedfeed.pillar.v2.5.g.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.integratedfeed.pillar.v2.5.g.roundlot", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.amexequities.integratedfeed.pillar.v2.5.g.rpiindicator", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeed.pillar.v2.5.g.seconds", ftypes.UINT32)
@@ -80,22 +70,18 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.security_type = ProtoF
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.seqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.session_state = ProtoField.new("Session State", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sessionstate", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.side = ProtoField.new("Side", "nyse.amexequities.integratedfeed.pillar.v2.5.g.side", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_id = ProtoField.new("Source Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourceid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time = ProtoField.new("Source Time", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetime", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetimens", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrfilingprice", ftypes.DOUBLE)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrstate", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrtriggeringvolume", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.status = ProtoField.new("Status", "nyse.amexequities.integratedfeed.pillar.v2.5.g.status", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol = ProtoField.new("Symbol", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbol", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolindex", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.system_id = ProtoField.new("System Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.systemid", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.time = ProtoField.new("Time", "nyse.amexequities.integratedfeed.pillar.v2.5.g.time", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.amexequities.integratedfeed.pillar.v2.5.g.totalimbalanceqty", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.amexequities.integratedfeed.pillar.v2.5.g.totalrefreshpkts", ftypes.UINT16)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_volume = ProtoField.new("Total Volume", "nyse.amexequities.integratedfeed.pillar.v2.5.g.totalvolume", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.tradecond1", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.amexequities.integratedfeed.pillar.v2.5.g.tradecond2", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.trade_cond_3 = ProtoField.new("Trade Cond 3", "nyse.amexequities.integratedfeed.pillar.v2.5.g.tradecond3", ftypes.STRING)
@@ -104,7 +90,7 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.trade_id = ProtoField.
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.integratedfeed.pillar.v2.5.g.unitoftrade", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.amexequities.integratedfeed.pillar.v2.5.g.unpairedqty", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.amexequities.integratedfeed.pillar.v2.5.g.unpairedside", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexequities.integratedfeed.pillar.v2.5.g.uppercollar", ftypes.UINT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexequities.integratedfeed.pillar.v2.5.g.uppercollar", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.volume = ProtoField.new("Volume", "nyse.amexequities.integratedfeed.pillar.v2.5.g.volume", ftypes.UINT32)
 
 -- Nyse AmexEquities IntegratedFeed Pillar 2.5.g Headers
@@ -120,29 +106,63 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.add_order_refresh_mess
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crosscorrectionmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crosstrademessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.delete_order_message = ProtoField.new("Delete Order Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.deleteordermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.imbalancemessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.messageunavailablemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.modifyordermessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.non_displayed_trade_message = ProtoField.new("Non Displayed Trade Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.nondisplayedtrademessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.orderexecutionmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.refreshheadermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.refreshrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.replaceordermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.requestresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.retailpriceimprovementmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.securitystatusmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetimereferencemessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.stock_summary_message = ProtoField.new("Stock Summary Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.stocksummarymessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolclearmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolindexmappingmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.amexequities.integratedfeed.pillar.v2.5.g.tradecancelmessage", ftypes.STRING)
 
 -- Nyse AmexEquities IntegratedFeed Pillar 2.5.g generated fields
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.integratedfeed.pillar.v2.5.g.messageindex", ftypes.UINT16)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexequities.integratedfeed.pillar.v2.5.g.messagesequencenumber", ftypes.UINT64)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price_calculate = ProtoField.new("Continuous Book Clearing Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.continuousbookclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.indicativematchpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar_calculate = ProtoField.new("Lower Collar Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lowercollarcalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price_calculate = ProtoField.new("Reference Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.referencepricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexequities.integratedfeed.pillar.v2.5.g.timestamp", ftypes.UINT64)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price_calculate = ProtoField.new("SSR Filing Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrfilingpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar_calculate = ProtoField.new("Upper Collar Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.g.uppercollarcalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse AmexEquities IntegratedFeed Pillar 2.5.g Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_timestamp = true
+
+-- Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_price_calculate = true
+
+-- Reference Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_reference_price_calculate = true
+
+-- Continuous Book Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_continuous_book_clearing_price_calculate = true
+
+-- Auction Interest Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_auction_interest_clearing_price_calculate = true
+
+-- SSR Filing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_ssr_filing_price_calculate = true
+
+-- Indicative Match Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_indicative_match_price_calculate = true
+
+-- Upper Collar Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_upper_collar_calculate = true
+
+-- Lower Collar Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.format_lower_collar_calculate = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -151,21 +171,37 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_index = ProtoF
 local show = {}
 
 -- Nyse AmexEquities IntegratedFeed Pillar 2.5.g Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse AmexEquities IntegratedFeed Pillar 2.5.g Show Options
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_price_calculate = Pref.bool("Format Price Calculate", true, "Format Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_reference_price_calculate = Pref.bool("Format Reference Price Calculate", true, "Format Reference Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate = Pref.bool("Format Continuous Book Clearing Price Calculate", true, "Format Continuous Book Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate = Pref.bool("Format Auction Interest Clearing Price Calculate", true, "Format Auction Interest Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate = Pref.bool("Format SSR Filing Price Calculate", true, "Format SSR Filing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_indicative_match_price_calculate = Pref.bool("Format Indicative Match Price Calculate", true, "Format Indicative Match Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_upper_collar_calculate = Pref.bool("Format Upper Collar Calculate", true, "Format Upper Collar Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_lower_collar_calculate = Pref.bool("Format Lower Collar Calculate", true, "Format Lower Collar Calculate as decimal-scaled value (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.resolve_records then
+    show.records = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_application_messages
   end
@@ -178,7 +214,67 @@ function omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs_changed()
   if show.indexes ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_indexes then
     show.indexes = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_indexes
   end
+  if show.sequences ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_sequences then
+    show.sequences = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.show_sequences
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_timestamp ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_timestamp then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_timestamp = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_timestamp
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_reference_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_reference_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_reference_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_reference_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_continuous_book_clearing_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_continuous_book_clearing_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_auction_interest_clearing_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_auction_interest_clearing_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_ssr_filing_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_ssr_filing_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_indicative_match_price_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_indicative_match_price_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_indicative_match_price_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_indicative_match_price_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_upper_collar_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_upper_collar_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_upper_collar_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_upper_collar_calculate
+  end
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_lower_collar_calculate ~= omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_lower_collar_calculate then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.format_lower_collar_calculate = omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.prefs.format_lower_collar_calculate
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation = {}
+nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.data = function(packet)
+  local key = nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.key(packet)
+  local data = nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.flows[key]
+  if data == nil then
+    data = { source_time = { last = nil, frames = {} }, symbol_index_mapping_message = {} }
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -315,29 +411,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_type.dissect = function(b
   return offset + length, value
 end
 
--- Begin Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num = {}
-
--- Size: Begin Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Channel Id
 nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id = {}
 
@@ -357,29 +430,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect = function(buf
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Close
-nyse_amexequities_integratedfeed_pillar_v2_5_g.close = {}
-
--- Size: Close
-nyse_amexequities_integratedfeed_pillar_v2_5_g.close.size = 4
-
--- Display: Close
-nyse_amexequities_integratedfeed_pillar_v2_5_g.close.display = function(value)
-  return "Close: "..value
-end
-
--- Dissect: Close
-nyse_amexequities_integratedfeed_pillar_v2_5_g.close.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.close.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.close, range, value, display)
 
   return offset + length, value
 end
@@ -472,29 +522,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.cross_type.dissect = function(buf
   return offset + length, value
 end
 
--- Current Refresh Pkt
-nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt = {}
-
--- Size: Current Refresh Pkt
-nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.size = 2
-
--- Display: Current Refresh Pkt
-nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.display = function(value)
-  return "Current Refresh Pkt: "..value
-end
-
--- Dissect: Current Refresh Pkt
-nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.current_refresh_pkt, range, value, display)
-
-  return offset + length, value
-end
-
 -- Delivery Flag
 nyse_amexequities_integratedfeed_pillar_v2_5_g.delivery_flag = {}
 
@@ -552,25 +579,32 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.delivery_flag.dissect = function(
   return offset + length, value
 end
 
--- End Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num = {}
+-- Eth Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible = {}
 
--- Size: End Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.size = 4
+-- Size: Eth Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.size = 1
 
--- Display: End Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
+-- Display: Eth Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.display = function(value)
+  if value == 0 then
+    return "Eth Eligible: Not Eligible (0)"
+  end
+  if value == 1 then
+    return "Eth Eligible: Eligible (1)"
+  end
+
+  return "Eth Eligible: Unknown("..value..")"
 end
 
--- Dissect: End Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.size
+-- Dissect: Eth Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.display(value, buffer, offset, packet, parent)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.end_seq_num, range, value, display)
+  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.eth_eligible, range, value, display)
 
   return offset + length, value
 end
@@ -583,6 +617,9 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_amexequities_integratedfeed_pillar_v2_5_g.exchange_code.display = function(value)
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
+  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -719,7 +756,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.halt_condition.display = function
     return "Halt Condition: Equipment Changeover (X)"
   end
   if value == "A" then
-    return "Halt Condition: Additional Information Requested (A)"
+    return "Halt Condition: Sip Outage Material Sip Latency Or Extraordinary Market Activity (A)"
   end
   if value == "C" then
     return "Halt Condition: Regulatory Concern (C)"
@@ -728,7 +765,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.halt_condition.display = function
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Component Prices Not Available (F)"
+    return "Halt Condition: Etf Iiv Etf Component Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -737,10 +774,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.halt_condition.display = function
     return "Halt Condition: New Security Offering (O)"
   end
   if value == "V" then
-    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+    return "Halt Condition: Primary Listing Exchange Discretionary Halt (V)"
   end
   if value == "6" then
-    return "Halt Condition: Suspend (6)"
+    return "Halt Condition: Suspend Operational Halt (6)"
   end
   if value == "1" then
     return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
@@ -763,35 +800,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.halt_condition.dissect = function
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.halt_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price = {}
-
--- Size: High Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.size = 4
-
--- Display: High Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.display = function(value)
-  return "High Price: "..value
-end
-
--- Translate: High Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.translate = function(raw)
-  return raw/100000000
-end
-
--- Dissect: High Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.translate(raw)
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -881,48 +889,32 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.dissect = 
   return offset + length, value
 end
 
--- Last Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num = {}
+-- Late Close Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible = {}
 
--- Size: Last Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.size = 4
+-- Size: Late Close Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.size = 1
 
--- Display: Last Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
+-- Display: Late Close Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.display = function(value)
+  if value == 0 then
+    return "Late Close Eligible: Not Eligible (0)"
+  end
+  if value == 1 then
+    return "Late Close Eligible: Eligible (1)"
+  end
+
+  return "Late Close Eligible: Unknown("..value..")"
 end
 
--- Dissect: Last Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.size
+-- Dissect: Late Close Eligible
+nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.display(value, buffer, offset, packet, parent)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Symbol Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num = {}
-
--- Size: Last Symbol Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.size = 4
-
--- Display: Last Symbol Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.display = function(value)
-  return "Last Symbol Seq Num: "..value
-end
-
--- Dissect: Last Symbol Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.last_symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.late_close_eligible, range, value, display)
 
   return offset + length, value
 end
@@ -950,35 +942,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.lot_size.dissect = function(buffe
   return offset + length, value
 end
 
--- Low Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price = {}
-
--- Size: Low Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.size = 4
-
--- Display: Low Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.display = function(value)
-  return "Low Price: "..value
-end
-
--- Translate: Low Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.translate = function(raw)
-  return raw/100000000
-end
-
--- Dissect: Low Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.translate(raw)
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.low_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Lower Collar
 nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar = {}
 
@@ -994,7 +957,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar, range, value, display)
@@ -1015,15 +978,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.market_id.display = function(valu
   end
   if value == 3 then
     return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
     return "Market Id: Nyse American Equities (9)"
@@ -1158,27 +1112,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.message_type.display = function(v
   if value == 34 then
     return "Message Type: Security Status Message (34)"
   end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
   if value == 100 then
     return "Message Type: Add Order Message (100)"
   end
@@ -1214,9 +1147,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.message_type.display = function(v
   end
   if value == 114 then
     return "Message Type: Retail Price Improvement Message (114)"
-  end
-  if value == 223 then
-    return "Message Type: Stock Summary Message (223)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -1368,29 +1298,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.number_msgs.dissect = function(bu
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.number_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Open
-nyse_amexequities_integratedfeed_pillar_v2_5_g.open = {}
-
--- Size: Open
-nyse_amexequities_integratedfeed_pillar_v2_5_g.open.size = 4
-
--- Display: Open
-nyse_amexequities_integratedfeed_pillar_v2_5_g.open.display = function(value)
-  return "Open: "..value
-end
-
--- Dissect: Open
-nyse_amexequities_integratedfeed_pillar_v2_5_g.open.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.open.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.open.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.open, range, value, display)
 
   return offset + length, value
 end
@@ -1754,29 +1661,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.dissect = functio
   return offset + length, value
 end
 
--- Request Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num = {}
-
--- Size: Request Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.size = 4
-
--- Display: Request Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.display = function(value)
-  return "Request Seq Num: "..value
-end
-
--- Dissect: Request Seq Num
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.request_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 1
 nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_1 = {}
 
@@ -1800,29 +1684,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_1.dissect = function(buf
   return offset + length, value
 end
 
--- Reserved 2
-nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 4
 nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_4 = {}
 
@@ -1842,29 +1703,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_4.dissect = function(buf
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmit Method
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method = {}
-
--- Size: Retransmit Method
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.size = 1
-
--- Display: Retransmit Method
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
-end
-
--- Dissect: Retransmit Method
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -1973,7 +1811,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.security_status.display = functio
     return "Security Status: Resume (5)"
   end
   if value == "6" then
-    return "Security Status: Suspend (6)"
+    return "Security Status: Suspend Operational Halt (6)"
   end
   if value == "A" then
     return "Security Status: Short Sale Restriction Activated Day 1 (A)"
@@ -2172,50 +2010,21 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.side.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Source Id
-nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id = {}
-
--- Size: Source Id
-nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size = 10
-
--- Display: Source Id
-nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Source Id: No Value"
-  end
-
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Source Time
 nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time = {}
 
 -- Size: Source Time
 nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.size = 4
+
+-- Store: Source Time
+nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = nil
+
+-- Generated: Source Time
+nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.generated = function(value, range, packet, parent)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.display(value)
+  local source_time = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time, range, value, display)
+  source_time:set_generated()
+end
 
 -- Display: Source Time
 nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.display = function(value)
@@ -2328,7 +2137,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_triggering_exchange_id.displa
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -2426,57 +2235,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_triggering_volume.dissect = f
   return offset + length, value
 end
 
--- Status
-nyse_amexequities_integratedfeed_pillar_v2_5_g.status = {}
-
--- Size: Status
-nyse_amexequities_integratedfeed_pillar_v2_5_g.status.size = 1
-
--- Display: Status
-nyse_amexequities_integratedfeed_pillar_v2_5_g.status.display = function(value)
-  if value == "0" then
-    return "Status: Message Was Accepted (0)"
-  end
-  if value == "1" then
-    return "Status: Rejected Due To An Invalid Source Id (1)"
-  end
-  if value == "3" then
-    return "Status: Rejected Due To Maximum Sequence Range See Threshold Limits (3)"
-  end
-  if value == "4" then
-    return "Status: Rejected Due To Maximum Request In A Day (4)"
-  end
-  if value == "5" then
-    return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
-  end
-  if value == "6" then
-    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
-  end
-  if value == "7" then
-    return "Status: Rejected Due To An Invalid Channel Id (7)"
-  end
-  if value == "8" then
-    return "Status: Rejected Due To An Invalid Product Id (8)"
-  end
-  if value == "9" then
-    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_amexequities_integratedfeed_pillar_v2_5_g.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol
 nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol = {}
 
@@ -2534,9 +2292,37 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect = function(b
   local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.symbol_index_mapping_message[value]
+  if record ~= nil and record.symbol ~= nil then
+    display = "Symbol Index: " .. tostring(record.symbol) .. " (" .. tostring(value) .. ")"
+  end
+
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Symbol Seq Num
@@ -2627,52 +2413,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.total_imbalance_qty.dissect = fun
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_imbalance_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Refresh Pkts
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts = {}
-
--- Size: Total Refresh Pkts
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.size = 2
-
--- Display: Total Refresh Pkts
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.display = function(value)
-  return "Total Refresh Pkts: "..value
-end
-
--- Dissect: Total Refresh Pkts
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_refresh_pkts, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Volume
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume = {}
-
--- Size: Total Volume
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.size = 4
-
--- Display: Total Volume
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.display = function(value)
-  return "Total Volume: "..value
-end
-
--- Dissect: Total Volume
-nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2935,7 +2675,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar, range, value, display)
@@ -2966,78 +2706,357 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Auction Interest Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate = {}
+
+-- Display: Auction Interest Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.display = function(value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Auction Interest Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Auction Interest Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_auction_interest_clearing_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Continuous Book Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate = {}
+
+-- Display: Continuous Book Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.display = function(value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Continuous Book Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Continuous Book Clearing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_continuous_book_clearing_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Indicative Match Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate = {}
+
+-- Display: Indicative Match Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.display = function(value)
+  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Indicative Match Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Indicative Match Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_indicative_match_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Lower Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate = {}
+
+-- Display: Lower Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.display = function(value)
+  return "Lower Collar Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Lower Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Lower Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_lower_collar_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.dissect(buffer, offset, packet, parent)
+end
+
+-- Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate = {}
+
+-- Display: Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.display = function(value)
+  return "Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Reference Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate = {}
+
+-- Display: Reference Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.display = function(value)
+  return "Reference Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Reference Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Reference Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_reference_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Timestamp
+nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp = {}
+
+-- Translate: Timestamp
+nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time * 1000000000 + source_time_ns)
+end
+
+-- Display: Timestamp
+nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.display = function(source_time_ns, stored_source_time)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", stored_source_time)..string.format("%09d", source_time_ns)
+end
+
+-- Composite: Timestamp
+nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.timestamp, range, value, display)
+
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_timestamp then
+    local stored_source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
+-- SSR Filing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate = {}
+
+-- Display: SSR Filing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.display = function(value)
+  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: SSR Filing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: SSR Filing Price Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_ssr_filing_price_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Upper Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate = {}
+
+-- Display: Upper Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.display = function(value)
+  return "Upper Collar Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Upper Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.upper_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Upper Collar Calculate
+nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_integratedfeed_pillar_v2_5_g.format_upper_collar_calculate then
+    local record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse AmexEquities IntegratedFeed Pillar 2.5.g
 -----------------------------------------------------------------------
-
--- Stock Summary Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message = {}
-
--- Size: Stock Summary Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.open.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.close.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.size
-
--- Display: Stock Summary Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stock Summary Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Time: Binary
-  index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
-
-  -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
-
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- High Price: Binary
-  index, high_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.high_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price: Binary
-  index, low_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.low_price.dissect(buffer, index, packet, parent)
-
-  -- Open: Binary
-  index, open = nyse_amexequities_integratedfeed_pillar_v2_5_g.open.dissect(buffer, index, packet, parent)
-
-  -- Close: Binary
-  index, close = nyse_amexequities_integratedfeed_pillar_v2_5_g.close.dissect(buffer, index, packet, parent)
-
-  -- Total Volume: Binary
-  index, total_volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_volume.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stock Summary Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.stock_summary_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Retail Price Improvement Message
 nyse_amexequities_integratedfeed_pillar_v2_5_g.retail_price_improvement_message = {}
@@ -3059,10 +3078,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.retail_price_improvement_message.
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3112,10 +3131,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.cross_correction_message.fields =
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3167,10 +3186,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.trade_cancel_message.fields = fun
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3222,10 +3241,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.cross_trade_message.fields = func
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3234,7 +3253,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.cross_trade_message.fields = func
   index, cross_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.cross_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3290,10 +3309,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.non_displayed_trade_message.field
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3302,7 +3321,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.non_displayed_trade_message.field
   index, trade_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3372,10 +3391,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_refresh_message.fields 
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3384,7 +3403,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_refresh_message.fields 
   index, order_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3397,6 +3416,13 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_refresh_message.fields 
 
   -- Reserved 1: Binary
   index, reserved_1 = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
 
   return index
 end
@@ -3461,16 +3487,16 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.imbalance_message.fields = functi
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reference Price: Binary
-  index, reference_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.dissect(buffer, index, packet, parent)
+  index, reference_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_amexequities_integratedfeed_pillar_v2_5_g.paired_qty.dissect(buffer, index, packet, parent)
@@ -3491,22 +3517,22 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.imbalance_message.fields = functi
   index, imbalance_side = nyse_amexequities_integratedfeed_pillar_v2_5_g.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: Binary
-  index, continuous_book_clearing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Interest Clearing Price: Binary
-  index, auction_interest_clearing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
+  index, auction_interest_clearing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Filing Price: Binary
-  index, ssr_filing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.dissect(buffer, index, packet, parent)
+  index, ssr_filing_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Binary
-  index, indicative_match_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.dissect(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: Binary
-  index, upper_collar = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar.dissect(buffer, index, packet, parent)
+  index, upper_collar = nyse_amexequities_integratedfeed_pillar_v2_5_g.upper_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Lower Collar: Binary
-  index, lower_collar = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar.dissect(buffer, index, packet, parent)
+  index, lower_collar = nyse_amexequities_integratedfeed_pillar_v2_5_g.lower_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Status: Binary
   index, auction_status = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_status.dissect(buffer, index, packet, parent)
@@ -3525,6 +3551,13 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.imbalance_message.fields = functi
 
   -- Reserved 1: Binary
   index, reserved_1 = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
 
   return index
 end
@@ -3572,10 +3605,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.replace_order_message.fields = fu
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3587,7 +3620,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.replace_order_message.fields = fu
   index, new_order_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.new_order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3648,10 +3681,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.order_execution_message.fields = 
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3663,7 +3696,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.order_execution_message.fields = 
   index, trade_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3728,10 +3761,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.delete_order_message.fields = fun
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3788,10 +3821,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.modify_order_message.fields = fun
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3800,7 +3833,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.modify_order_message.fields = fun
   index, order_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3860,10 +3893,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_message.fields = functi
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3872,7 +3905,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_message.fields = functi
   index, order_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_pillar_v2_5_g.volume.dissect(buffer, index, packet, parent)
@@ -3904,378 +3937,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_message.dissect = funct
   else
     -- Skip element, add fields directly
     return nyse_amexequities_integratedfeed_pillar_v2_5_g.add_order_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Heartbeat Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message = {}
-
--- Size: Heartbeat Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size
-
--- Display: Heartbeat Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Id: ASCII
-  index, source_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Request Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message = {}
-
--- Size: Request Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.status.size
-
--- Display: Request Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Request Seq Num: Binary
-  index, request_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.request_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Status: ASCII
-  index, status = nyse_amexequities_integratedfeed_pillar_v2_5_g.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Response Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Refresh Header Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message = {}
-
--- Size: Refresh Header Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.size
-
--- Display: Refresh Header Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Header Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Current Refresh Pkt: Binary
-  index, current_refresh_pkt = nyse_amexequities_integratedfeed_pillar_v2_5_g.current_refresh_pkt.dissect(buffer, index, packet, parent)
-
-  -- Total Refresh Pkts: Binary
-  index, total_refresh_pkts = nyse_amexequities_integratedfeed_pillar_v2_5_g.total_refresh_pkts.dissect(buffer, index, packet, parent)
-
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.last_symbol_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Header Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message Unavailable Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message = {}
-
--- Size: Message Unavailable Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.size
-
--- Display: Message Unavailable Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Unavailable Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Unavailable Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Refresh Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message = {}
-
--- Size: Refresh Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.size
-
--- Display: Refresh Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Symbol Index Mapping Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message = {}
-
--- Size: Symbol Index Mapping Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.size
-
--- Display: Symbol Index Mapping Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Symbol Index Mapping Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Retransmit Method: Binary
-  index, retransmit_method = nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmit_method.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Symbol Index Mapping Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message = {}
-
--- Size: Retransmission Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.size =
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.size
-
--- Display: Retransmission Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Request Message
-nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4313,10 +3974,10 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.security_status_message.fields = 
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4353,6 +4014,13 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.security_status_message.fields = 
 
   -- Session State: ASCII
   index, session_state = nyse_amexequities_integratedfeed_pillar_v2_5_g.session_state.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
 
   return index
 end
@@ -4398,13 +4066,20 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_clear_message.fields = fun
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_amexequities_integratedfeed_pillar_v2_5_g.next_source_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
 
   return index
 end
@@ -4447,7 +4122,8 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.size
   nyse_amexequities_integratedfeed_pillar_v2_5_g.round_lot.size + 
   nyse_amexequities_integratedfeed_pillar_v2_5_g.mpv.size + 
   nyse_amexequities_integratedfeed_pillar_v2_5_g.unit_of_trade.size + 
-  nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.size
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.size + 
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.size
 
 -- Display: Symbol Index Mapping Message
 nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -4458,8 +4134,8 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol.dissect(buffer, index, packet, parent)
@@ -4503,8 +4179,20 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_message.fiel
   -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_amexequities_integratedfeed_pillar_v2_5_g.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexequities_integratedfeed_pillar_v2_5_g.reserved_2.dissect(buffer, index, packet, parent)
+  -- Late Close Eligible: Binary
+  index, late_close_eligible = nyse_amexequities_integratedfeed_pillar_v2_5_g.late_close_eligible.dissect(buffer, index, packet, parent)
+
+  -- Eth Eligible: Binary
+  index, eth_eligible = nyse_amexequities_integratedfeed_pillar_v2_5_g.eth_eligible.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -4554,6 +4242,13 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_reference_message.fie
   -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
+
   return index
 end
 
@@ -4598,13 +4293,20 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.sequence_number_reset_message.fie
   index, source_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexequities_integratedfeed_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.product_id.dissect(buffer, index, packet, parent)
 
   -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
 
   return index
 end
@@ -4651,34 +4353,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.payload.dissect = function(buffer
   -- Dissect Security Status Message
   if message_type == 34 then
     return nyse_amexequities_integratedfeed_pillar_v2_5_g.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.heartbeat_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
   if message_type == 100 then
@@ -4728,10 +4402,6 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.payload.dissect = function(buffer
   if message_type == 114 then
     return nyse_amexequities_integratedfeed_pillar_v2_5_g.retail_price_improvement_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Stock Summary Message
-  if message_type == 223 then
-    return nyse_amexequities_integratedfeed_pillar_v2_5_g.stock_summary_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
@@ -4756,7 +4426,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.message_header.fields = function(
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
   index, message_size = nyse_amexequities_integratedfeed_pillar_v2_5_g.message_size.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 25 values
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
   index, message_type = nyse_amexequities_integratedfeed_pillar_v2_5_g.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -4798,13 +4468,19 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.message.fields = function(buffer,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_amexequities_integratedfeed_pillar_v2_5_g.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.message_sequence_number, UInt64.new(nyse_amexequities_integratedfeed_pillar_v2_5_g.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_amexequities_integratedfeed_pillar_v2_5_g.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 25 branches
+  -- Payload: Runtime Type with 17 branches
   index = nyse_amexequities_integratedfeed_pillar_v2_5_g.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -4923,6 +4599,9 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.packet_header.fields = function(b
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_amexequities_integratedfeed_pillar_v2_5_g.send_time.dissect(buffer, index, packet, parent)
 
+  -- Sequence base for the packet's messages
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.sequence = seq_num
+
   return index
 end
 
@@ -4954,6 +4633,24 @@ end
 
 -- Dissect Packet
 nyse_amexequities_integratedfeed_pillar_v2_5_g.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.data(packet)
+  if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+  end
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields
@@ -4984,6 +4681,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.init()
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.source_time.current = nil
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.current = nil
+  nyse_amexequities_integratedfeed_pillar_v2_5_g.conversation.flows = {}
 end
 
 -- Dissector for Nyse AmexEquities IntegratedFeed Pillar 2.5.g

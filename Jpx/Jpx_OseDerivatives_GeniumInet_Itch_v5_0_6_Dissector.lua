@@ -104,7 +104,16 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.trade_message = ProtoField.
 
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 generated fields
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_index = ProtoField.new("Message Index", "jpx.osederivatives.geniuminet.itch.v5.0.6.messageindex", ftypes.UINT16)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagesequencenumber", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v5.0.6.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Jpx OseDerivatives GeniumInet Itch 5.0.6 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -117,12 +126,15 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Jpx OseDerivatives GeniumInet Itch 5.0.6 Show Options
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
@@ -139,6 +151,12 @@ function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
   end
   if show.indexes ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes then
     show.indexes = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes
+  end
+  if show.sequences ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences then
+    show.sequences = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences
+  end
+  if jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp then
+    jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp
   end
 end
 
@@ -1689,10 +1707,12 @@ end
 
 -- Dissect: Timestamp
 jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.current
+  if jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp then
+    local stored_seconds = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.current
 
-  if stored_seconds ~= nil then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return jpx_osederivatives_geniuminet_itch_v5_0_6.nanoseconds.dissect(buffer, offset, packet, parent)
@@ -2845,6 +2865,12 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.message.fields = function(buffer, offs
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and jpx_osederivatives_geniuminet_itch_v5_0_6.sequence ~= nil then
+    local sequence = parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_sequence_number, UInt64.new(jpx_osederivatives_geniuminet_itch_v5_0_6.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = jpx_osederivatives_geniuminet_itch_v5_0_6.message_header.dissect(buffer, index, packet, parent)
 
@@ -2968,6 +2994,9 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.packet_header.fields = function(buffer
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = jpx_osederivatives_geniuminet_itch_v5_0_6.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  jpx_osederivatives_geniuminet_itch_v5_0_6.sequence = sequence_number
 
   return index
 end

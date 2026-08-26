@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" \
+  -r "omi-data-packets/Cme/Globex.Mdp3.v1.5/MdIncrementalRefreshBook.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr \
@@ -14,7 +14,7 @@ grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncremen
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
+  -r "omi-data-packets/Cme/Globex.Mdp3.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr \
@@ -24,7 +24,7 @@ grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncremen
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
+  -r "omi-data-packets/Cme/Globex.Mdp3.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr \
@@ -34,7 +34,7 @@ grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncremen
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
+  -r "omi-data-packets/Cme/Globex.Mdp3.v1.5/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr \
@@ -44,7 +44,7 @@ grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncremen
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
+  -r "omi-data-packets/Cme/Globex.Mdp3.v1.5/MdInstrumentDefinitionSpread.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr \

@@ -94,6 +94,9 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.login_request_packet = ProtoField.n
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.asxsecurities.trade.ouch.v3.6.sequenceddatapacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.asxsecurities.trade.ouch.v3.6.unsequenceddatapacket", ftypes.STRING)
 
+-- Asx AsxSecurities Trade Ouch 3.6 generated fields
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "asx.asxsecurities.trade.ouch.v3.6.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -104,6 +107,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Asx AsxSecurities Trade Ouch 3.6 Show Options
 local role_enum = {
@@ -117,6 +121,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.prefs.swap_sides = Pref.bool("Swap Sides",
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
@@ -131,7 +136,45 @@ function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
   if show.structs ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs then
     show.structs = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs
   end
+  if show.sequences ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences then
+    show.sequences = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+asx_asxsecurities_trade_ouch_v3_6.conversation = {}
+asx_asxsecurities_trade_ouch_v3_6.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+asx_asxsecurities_trade_ouch_v3_6.stream_frame = nil
+asx_asxsecurities_trade_ouch_v3_6.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+asx_asxsecurities_trade_ouch_v3_6.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+asx_asxsecurities_trade_ouch_v3_6.conversation.data = function(packet)
+  local key = asx_asxsecurities_trade_ouch_v3_6.conversation.key(packet)
+  local data = asx_asxsecurities_trade_ouch_v3_6.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    asx_asxsecurities_trade_ouch_v3_6.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+asx_asxsecurities_trade_ouch_v3_6.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -2072,6 +2115,40 @@ end
 asx_asxsecurities_trade_ouch_v3_6.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = asx_asxsecurities_trade_ouch_v3_6.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if asx_asxsecurities_trade_ouch_v3_6.stream_frame ~= packet.number or asx_asxsecurities_trade_ouch_v3_6.stream_occurrence >= #memo then
+          asx_asxsecurities_trade_ouch_v3_6.stream_frame = packet.number
+          asx_asxsecurities_trade_ouch_v3_6.stream_occurrence = 0
+        end
+        asx_asxsecurities_trade_ouch_v3_6.stream_occurrence = asx_asxsecurities_trade_ouch_v3_6.stream_occurrence + 1
+        local value = memo[asx_asxsecurities_trade_ouch_v3_6.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 5 values
   index, sequenced_message_type = asx_asxsecurities_trade_ouch_v3_6.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2165,6 +2242,15 @@ asx_asxsecurities_trade_ouch_v3_6.login_accepted_packet.fields = function(buffer
 
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = asx_asxsecurities_trade_ouch_v3_6.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = asx_asxsecurities_trade_ouch_v3_6.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end

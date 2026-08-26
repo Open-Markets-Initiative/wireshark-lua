@@ -86,6 +86,9 @@ omi_odx_odxequities_pts_ouch_v2_0.fields.login_request_packet = ProtoField.new("
 omi_odx_odxequities_pts_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxequities.pts.ouch.v2.0.sequenceddatapacket", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxequities.pts.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 
+-- Odx OdxEquities Pts Ouch 2.0 generated fields
+omi_odx_odxequities_pts_ouch_v2_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "odx.odxequities.pts.ouch.v2.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Odx OdxEquities Pts Ouch 2.0 Formatting
 -----------------------------------------------------------------------
@@ -114,6 +117,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Odx OdxEquities Pts Ouch 2.0 Show Options
 local role_enum = {
@@ -127,6 +131,7 @@ omi_odx_odxequities_pts_ouch_v2_0.prefs.swap_sides = Pref.bool("Swap Sides", fal
 omi_odx_odxequities_pts_ouch_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxequities_pts_ouch_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_odx_odxequities_pts_ouch_v2_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_odx_odxequities_pts_ouch_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_odx_odxequities_pts_ouch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_odx_odxequities_pts_ouch_v2_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -144,6 +149,9 @@ function omi_odx_odxequities_pts_ouch_v2_0.prefs_changed()
   if show.structs ~= omi_odx_odxequities_pts_ouch_v2_0.prefs.show_structs then
     show.structs = omi_odx_odxequities_pts_ouch_v2_0.prefs.show_structs
   end
+  if show.sequences ~= omi_odx_odxequities_pts_ouch_v2_0.prefs.show_sequences then
+    show.sequences = omi_odx_odxequities_pts_ouch_v2_0.prefs.show_sequences
+  end
   if odx_odxequities_pts_ouch_v2_0.timestamp_format ~= omi_odx_odxequities_pts_ouch_v2_0.prefs.timestamp_format then
     odx_odxequities_pts_ouch_v2_0.timestamp_format = omi_odx_odxequities_pts_ouch_v2_0.prefs.timestamp_format
   end
@@ -151,6 +159,41 @@ function omi_odx_odxequities_pts_ouch_v2_0.prefs_changed()
     odx_odxequities_pts_ouch_v2_0.utc_offset_hours = omi_odx_odxequities_pts_ouch_v2_0.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+odx_odxequities_pts_ouch_v2_0.conversation = {}
+odx_odxequities_pts_ouch_v2_0.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+odx_odxequities_pts_ouch_v2_0.stream_frame = nil
+odx_odxequities_pts_ouch_v2_0.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+odx_odxequities_pts_ouch_v2_0.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+odx_odxequities_pts_ouch_v2_0.conversation.data = function(packet)
+  local key = odx_odxequities_pts_ouch_v2_0.conversation.key(packet)
+  local data = odx_odxequities_pts_ouch_v2_0.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    odx_odxequities_pts_ouch_v2_0.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+odx_odxequities_pts_ouch_v2_0.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -2019,6 +2062,40 @@ end
 odx_odxequities_pts_ouch_v2_0.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = odx_odxequities_pts_ouch_v2_0.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_odx_odxequities_pts_ouch_v2_0.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if odx_odxequities_pts_ouch_v2_0.stream_frame ~= packet.number or odx_odxequities_pts_ouch_v2_0.stream_occurrence >= #memo then
+          odx_odxequities_pts_ouch_v2_0.stream_frame = packet.number
+          odx_odxequities_pts_ouch_v2_0.stream_occurrence = 0
+        end
+        odx_odxequities_pts_ouch_v2_0.stream_occurrence = odx_odxequities_pts_ouch_v2_0.stream_occurrence + 1
+        local value = memo[odx_odxequities_pts_ouch_v2_0.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_odx_odxequities_pts_ouch_v2_0.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 7 values
   index, sequenced_message_type = odx_odxequities_pts_ouch_v2_0.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2112,6 +2189,15 @@ odx_odxequities_pts_ouch_v2_0.login_accepted_packet.fields = function(buffer, of
 
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = odx_odxequities_pts_ouch_v2_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = odx_odxequities_pts_ouch_v2_0.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end

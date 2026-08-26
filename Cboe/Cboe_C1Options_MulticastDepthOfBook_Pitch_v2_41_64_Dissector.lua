@@ -126,6 +126,14 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.message_index = Pr
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.41.64 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_c1options_multicastdepthofbook_pitch_v2_41_64.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -140,6 +148,7 @@ show.indexes = true
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs_changed()
@@ -153,6 +162,9 @@ function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.show_indexes
+  end
+  if cboe_c1options_multicastdepthofbook_pitch_v2_41_64.format_timestamp ~= omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.format_timestamp then
+    cboe_c1options_multicastdepthofbook_pitch_v2_41_64.format_timestamp = omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_64.prefs.format_timestamp
   end
 end
 

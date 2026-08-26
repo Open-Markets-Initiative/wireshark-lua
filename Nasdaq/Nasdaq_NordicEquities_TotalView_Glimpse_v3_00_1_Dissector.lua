@@ -125,6 +125,9 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.login_request_packet 
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.unsequenceddatapacket", ftypes.STRING)
 
+-- Nasdaq NordicEquities TotalView Glimpse 3.00.1 generated fields
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Formatting
 -----------------------------------------------------------------------
@@ -153,6 +156,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Nasdaq NordicEquities TotalView Glimpse 3.00.1 Show Options
 local role_enum = {
@@ -166,6 +170,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.swap_sides = Pref.bool
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -183,6 +188,9 @@ function omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs_changed()
   if show.structs ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_structs then
     show.structs = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_structs
   end
+  if show.sequences ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_sequences then
+    show.sequences = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_sequences
+  end
   if nasdaq_nordicequities_totalview_glimpse_v3_00_1.timestamp_format ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.timestamp_format then
     nasdaq_nordicequities_totalview_glimpse_v3_00_1.timestamp_format = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.timestamp_format
   end
@@ -190,6 +198,41 @@ function omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs_changed()
     nasdaq_nordicequities_totalview_glimpse_v3_00_1.utc_offset_hours = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation = {}
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_frame = nil
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.data = function(packet)
+  local key = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.key(packet)
+  local data = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1440,6 +1483,15 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_snapshot_message.fields =
   -- Sequence Number: Numeric
   index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
 
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
+
   return index
 end
 
@@ -2409,6 +2461,40 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_frame ~= packet.number or nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence >= #memo then
+          nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_frame = packet.number
+          nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence = 0
+        end
+        nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence = nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence + 1
+        local value = memo[nasdaq_nordicequities_totalview_glimpse_v3_00_1.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 6 values
   index, sequenced_message_type = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2502,6 +2588,15 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.fields = f
 
   -- Sequence Number: Numeric
   index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end

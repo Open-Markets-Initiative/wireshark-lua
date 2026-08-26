@@ -35,12 +35,11 @@ For more information on lua dissectors: [How Lua fits into Wireshark](https://ww
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
 
-
-For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 829 | 6,103,411 |
+| 844 | 6,156,746 |
 
+For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
 
 [![Test](https://github.com/Open-Markets-Initiative/wireshark-lua/actions/workflows/github-action-lua.yml/badge.svg)](https://github.com/Open-Markets-Initiative/wireshark-lua/actions//workflows/github-action-lua.yml)
@@ -505,6 +504,21 @@ Enjoy.
 [Nyse.ArcaEquities.IntegratedFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/IntegratedFeed.md "Integrated Feed"
 [Nyse.NationalEquities.IntegratedFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/IntegratedFeed.md "Integrated Feed"
 [Nyse.TexasEquities.IntegratedFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/IntegratedFeed.md "Integrated Feed"
+[Nyse.AmexEquities.IntegratedFeedRefresh]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/IntegratedFeedRefresh.md "Integrated Feed Refresh"
+[Nyse.ArcaEquities.IntegratedFeedRefresh]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/IntegratedFeedRefresh.md "Integrated Feed Refresh"
+[Nyse.NationalEquities.IntegratedFeedRefresh]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/IntegratedFeedRefresh.md "Integrated Feed Refresh"
+[Nyse.NyseEquities.IntegratedFeedRefresh]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/IntegratedFeedRefresh.md "Integrated Feed Refresh"
+[Nyse.TexasEquities.IntegratedFeedRefresh]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/IntegratedFeedRefresh.md "Integrated Feed Refresh"
+[Nyse.AmexEquities.IntegratedFeedRequest]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/IntegratedFeedRequest.md "Integrated Feed Request"
+[Nyse.ArcaEquities.IntegratedFeedRequest]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/IntegratedFeedRequest.md "Integrated Feed Request"
+[Nyse.NationalEquities.IntegratedFeedRequest]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/IntegratedFeedRequest.md "Integrated Feed Request"
+[Nyse.NyseEquities.IntegratedFeedRequest]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/IntegratedFeedRequest.md "Integrated Feed Request"
+[Nyse.TexasEquities.IntegratedFeedRequest]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/IntegratedFeedRequest.md "Integrated Feed Request"
+[Nyse.AmexEquities.IntegratedFeedRetransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/IntegratedFeedRetransmission.md "Integrated Feed Retransmission"
+[Nyse.ArcaEquities.IntegratedFeedRetransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/IntegratedFeedRetransmission.md "Integrated Feed Retransmission"
+[Nyse.NationalEquities.IntegratedFeedRetransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/IntegratedFeedRetransmission.md "Integrated Feed Retransmission"
+[Nyse.NyseEquities.IntegratedFeedRetransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/IntegratedFeedRetransmission.md "Integrated Feed Retransmission"
+[Nyse.TexasEquities.IntegratedFeedRetransmission]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/IntegratedFeedRetransmission.md "Integrated Feed Retransmission"
 [Nyse.AmexEquities.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/BinaryGateway.md "Binary Gateway"
 [Nyse.ArcaEquities.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/BinaryGateway.md "Binary Gateway"
 [Nyse.NationalEquities.BinaryGateway]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/BinaryGateway.md "Binary Gateway"

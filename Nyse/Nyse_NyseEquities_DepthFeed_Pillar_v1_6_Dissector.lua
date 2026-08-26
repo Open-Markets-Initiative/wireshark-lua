@@ -34,7 +34,7 @@ omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.indicative_match_price = Prot
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.nyseequities.depthfeed.pillar.v1.6.lastseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.nyseequities.depthfeed.pillar.v1.6.lastsymbolseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.depthfeed.pillar.v1.6.lotsize", ftypes.UINT16)
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.nyseequities.depthfeed.pillar.v1.6.lowercollar", ftypes.UINT32)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.nyseequities.depthfeed.pillar.v1.6.lowercollar", ftypes.INT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.depthfeed.pillar.v1.6.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.nyseequities.depthfeed.pillar.v1.6.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.depthfeed.pillar.v1.6.marketstate", ftypes.STRING)
@@ -90,7 +90,7 @@ omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.unit_of_trade = ProtoField.ne
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.nyseequities.depthfeed.pillar.v1.6.unpairedqty", ftypes.UINT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.nyseequities.depthfeed.pillar.v1.6.unpairedside", ftypes.STRING)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.new("Update Count", "nyse.nyseequities.depthfeed.pillar.v1.6.updatecount", ftypes.UINT8)
-omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.depthfeed.pillar.v1.6.uppercollar", ftypes.UINT32)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.depthfeed.pillar.v1.6.uppercollar", ftypes.INT32)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
 -- Nyse NyseEquities DepthFeed Pillar 1.6 Headers
@@ -120,6 +120,44 @@ omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.symbol_index_mapping_request_
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.depthfeed.pillar.v1.6.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.participant_index = ProtoField.new("Participant Index", "nyse.nyseequities.depthfeed.pillar.v1.6.participantindex", ftypes.UINT16)
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_point_index = ProtoField.new("Price Point Index", "nyse.nyseequities.depthfeed.pillar.v1.6.pricepointindex", ftypes.UINT16)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.depthfeed.pillar.v1.6.messagesequencenumber", ftypes.UINT64)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.continuous_book_clearing_price_calculate = ProtoField.new("Continuous Book Clearing Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.continuousbookclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.indicativematchpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar_calculate = ProtoField.new("Lower Collar Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.lowercollarcalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.pricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.reference_price_calculate = ProtoField.new("Reference Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.referencepricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.ssr_filing_price_calculate = ProtoField.new("SSR Filing Price Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.ssrfilingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar_calculate = ProtoField.new("Upper Collar Calculate", "nyse.nyseequities.depthfeed.pillar.v1.6.uppercollarcalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse NyseEquities DepthFeed Pillar 1.6 Formatting
+-----------------------------------------------------------------------
+
+-- Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_price_calculate = true
+
+-- Reference Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_reference_price_calculate = true
+
+-- Continuous Book Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_continuous_book_clearing_price_calculate = true
+
+-- Auction Interest Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_auction_interest_clearing_price_calculate = true
+
+-- SSR Filing Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_ssr_filing_price_calculate = true
+
+-- Indicative Match Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_indicative_match_price_calculate = true
+
+-- Upper Collar Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_upper_collar_calculate = true
+
+-- Lower Collar Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_depthfeed_pillar_v1_6.format_lower_collar_calculate = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -128,23 +166,38 @@ omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_point_index = ProtoFiel
 local show = {}
 
 -- Nyse NyseEquities DepthFeed Pillar 1.6 Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
 show.repeating_groups = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse NyseEquities DepthFeed Pillar 1.6 Show Options
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_price_calculate = Pref.bool("Format Price Calculate", true, "Format Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_reference_price_calculate = Pref.bool("Format Reference Price Calculate", true, "Format Reference Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_continuous_book_clearing_price_calculate = Pref.bool("Format Continuous Book Clearing Price Calculate", true, "Format Continuous Book Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_auction_interest_clearing_price_calculate = Pref.bool("Format Auction Interest Clearing Price Calculate", true, "Format Auction Interest Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_ssr_filing_price_calculate = Pref.bool("Format SSR Filing Price Calculate", true, "Format SSR Filing Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_indicative_match_price_calculate = Pref.bool("Format Indicative Match Price Calculate", true, "Format Indicative Match Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_upper_collar_calculate = Pref.bool("Format Upper Collar Calculate", true, "Format Upper Collar Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_lower_collar_calculate = Pref.bool("Format Lower Collar Calculate", true, "Format Lower Collar Calculate as decimal-scaled value (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.resolve_records then
+    show.records = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_application_messages
   end
@@ -160,7 +213,64 @@ function omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs_changed()
   if show.indexes ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_indexes
   end
+  if show.sequences ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_sequences then
+    show.sequences = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.show_sequences
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_reference_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_reference_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_reference_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_reference_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_continuous_book_clearing_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_continuous_book_clearing_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_continuous_book_clearing_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_continuous_book_clearing_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_auction_interest_clearing_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_auction_interest_clearing_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_auction_interest_clearing_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_auction_interest_clearing_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_ssr_filing_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_ssr_filing_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_ssr_filing_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_ssr_filing_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_indicative_match_price_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_indicative_match_price_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_indicative_match_price_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_indicative_match_price_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_upper_collar_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_upper_collar_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_upper_collar_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_upper_collar_calculate
+  end
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_lower_collar_calculate ~= omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_lower_collar_calculate then
+    nyse_nyseequities_depthfeed_pillar_v1_6.format_lower_collar_calculate = omi_nyse_nyseequities_depthfeed_pillar_v1_6.prefs.format_lower_collar_calculate
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_nyseequities_depthfeed_pillar_v1_6.conversation = {}
+nyse_nyseequities_depthfeed_pillar_v1_6.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_nyseequities_depthfeed_pillar_v1_6.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_nyseequities_depthfeed_pillar_v1_6.conversation.data = function(packet)
+  local key = nyse_nyseequities_depthfeed_pillar_v1_6.conversation.key(packet)
+  local data = nyse_nyseequities_depthfeed_pillar_v1_6.conversation.flows[key]
+  if data == nil then
+    data = { symbol_index_mapping_message = {} }
+    nyse_nyseequities_depthfeed_pillar_v1_6.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_nyseequities_depthfeed_pillar_v1_6.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -797,7 +907,7 @@ end
 nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_int()
   local display = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar, range, value, display)
@@ -2179,9 +2289,37 @@ nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect = function(buffer, 
   local value = range:le_uint()
   local display = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.symbol_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.symbol_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_nyseequities_depthfeed_pillar_v1_6.conversation.current.symbol_index_mapping_message[value]
+  if record ~= nil and record.symbol ~= nil then
+    display = "Symbol Index: " .. tostring(record.symbol) .. " (" .. tostring(value) .. ")"
+  end
+
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Symbol Seq Num
@@ -2416,7 +2554,7 @@ end
 nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_int()
   local display = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar, range, value, display)
@@ -2445,6 +2583,310 @@ nyse_nyseequities_depthfeed_pillar_v1_6.volume.dissect = function(buffer, offset
   parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.volume, range, value, display)
 
   return offset + length, value
+end
+
+-- Auction Interest Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate = {}
+
+-- Display: Auction Interest Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.display = function(value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Auction Interest Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.auction_interest_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.auction_interest_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Auction Interest Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_auction_interest_clearing_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Continuous Book Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate = {}
+
+-- Display: Continuous Book Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.display = function(value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Continuous Book Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.continuous_book_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.continuous_book_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Continuous Book Clearing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_continuous_book_clearing_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Indicative Match Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate = {}
+
+-- Display: Indicative Match Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.display = function(value)
+  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Indicative Match Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.indicative_match_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.indicative_match_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Indicative Match Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_indicative_match_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Lower Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate = {}
+
+-- Display: Lower Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.display = function(value)
+  return "Lower Collar Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Lower Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.lower_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Lower Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_lower_collar_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.dissect(buffer, offset, packet, parent)
+end
+
+-- Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate = {}
+
+-- Display: Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.display = function(value)
+  return "Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Reference Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate = {}
+
+-- Display: Reference Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.display = function(value)
+  return "Reference Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Reference Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.reference_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.reference_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.reference_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.reference_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Reference Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_reference_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.reference_price.dissect(buffer, offset, packet, parent)
+end
+
+-- SSR Filing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate = {}
+
+-- Display: SSR Filing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.display = function(value)
+  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: SSR Filing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.ssr_filing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.ssr_filing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: SSR Filing Price Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_ssr_filing_price_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Upper Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate = {}
+
+-- Display: Upper Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.display = function(value)
+  return "Upper Collar Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Upper Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.upper_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Upper Collar Calculate
+nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_depthfeed_pillar_v1_6.format_upper_collar_calculate then
+    local record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -2497,14 +2939,14 @@ nyse_nyseequities_depthfeed_pillar_v1_6.imbalance_message.fields = function(buff
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_depthfeed_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reference Price: Binary
-  index, reference_price = nyse_nyseequities_depthfeed_pillar_v1_6.reference_price.dissect(buffer, index, packet, parent)
+  index, reference_price = nyse_nyseequities_depthfeed_pillar_v1_6.reference_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_nyseequities_depthfeed_pillar_v1_6.paired_qty.dissect(buffer, index, packet, parent)
@@ -2525,22 +2967,22 @@ nyse_nyseequities_depthfeed_pillar_v1_6.imbalance_message.fields = function(buff
   index, imbalance_side = nyse_nyseequities_depthfeed_pillar_v1_6.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: Binary
-  index, continuous_book_clearing_price = nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_nyseequities_depthfeed_pillar_v1_6.continuous_book_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Interest Clearing Price: Binary
-  index, auction_interest_clearing_price = nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
+  index, auction_interest_clearing_price = nyse_nyseequities_depthfeed_pillar_v1_6.auction_interest_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Filing Price: Binary
-  index, ssr_filing_price = nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price.dissect(buffer, index, packet, parent)
+  index, ssr_filing_price = nyse_nyseequities_depthfeed_pillar_v1_6.ssr_filing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Binary
-  index, indicative_match_price = nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price.dissect(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_nyseequities_depthfeed_pillar_v1_6.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: Binary
-  index, upper_collar = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar.dissect(buffer, index, packet, parent)
+  index, upper_collar = nyse_nyseequities_depthfeed_pillar_v1_6.upper_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Lower Collar: Binary
-  index, lower_collar = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar.dissect(buffer, index, packet, parent)
+  index, lower_collar = nyse_nyseequities_depthfeed_pillar_v1_6.lower_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Status: Binary
   index, auction_status = nyse_nyseequities_depthfeed_pillar_v1_6.auction_status.dissect(buffer, index, packet, parent)
@@ -2679,7 +3121,7 @@ nyse_nyseequities_depthfeed_pillar_v1_6.price_point.fields = function(buffer, of
   end
 
   -- Price: Binary
-  index, price = nyse_nyseequities_depthfeed_pillar_v1_6.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nyseequities_depthfeed_pillar_v1_6.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Side: ASCII
   index, side = nyse_nyseequities_depthfeed_pillar_v1_6.side.dissect(buffer, index, packet, parent)
@@ -2766,8 +3208,8 @@ nyse_nyseequities_depthfeed_pillar_v1_6.delta_message.fields = function(buffer, 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_depthfeed_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3036,8 +3478,8 @@ end
 nyse_nyseequities_depthfeed_pillar_v1_6.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
@@ -3089,8 +3531,8 @@ end
 nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
@@ -3218,8 +3660,8 @@ nyse_nyseequities_depthfeed_pillar_v1_6.security_status_message.fields = functio
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_depthfeed_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3307,8 +3749,8 @@ nyse_nyseequities_depthfeed_pillar_v1_6.symbol_clear_message.fields = function(b
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_depthfeed_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_depthfeed_pillar_v1_6.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -3368,8 +3810,8 @@ end
 nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_nyseequities_depthfeed_pillar_v1_6.symbol.dissect(buffer, index, packet, parent)
@@ -3415,6 +3857,15 @@ nyse_nyseequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.fields = fu
 
   -- Reserved 2: Binary
   index, reserved_2 = nyse_nyseequities_depthfeed_pillar_v1_6.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_nyseequities_depthfeed_pillar_v1_6.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -3664,6 +4115,12 @@ nyse_nyseequities_depthfeed_pillar_v1_6.message.fields = function(buffer, offset
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_nyseequities_depthfeed_pillar_v1_6.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_nyseequities_depthfeed_pillar_v1_6.fields.message_sequence_number, UInt64.new(nyse_nyseequities_depthfeed_pillar_v1_6.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_nyseequities_depthfeed_pillar_v1_6.message_header.dissect(buffer, index, packet, parent)
 
@@ -3788,6 +4245,9 @@ nyse_nyseequities_depthfeed_pillar_v1_6.packet_header.fields = function(buffer, 
 
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_nyseequities_depthfeed_pillar_v1_6.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nyse_nyseequities_depthfeed_pillar_v1_6.sequence = seq_num
 
   return index
 end

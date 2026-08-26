@@ -59,6 +59,13 @@ grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.ownerid" Nasdaq.IseOptions.Orde
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.giveup" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
 grep "nasdaq.iseoptions.ordercombofeed.itch.v1.1.cmta" Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.ComplexStrategyOrderOnBookMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/IseOptions.OrderComboFeed.v1.1/Heartbeat.pcap" \
+  -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
+  -T json \
+  > Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.Heartbeat.json 2> Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.Heartbeat.json.stderr \
+  || { echo "--- tshark FAILED (Heartbeat) ---"; cat Nasdaq.IseOptions.OrderComboFeed.Itch.v1.1.Heartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/IseOptions.OrderComboFeed.v1.1/StrategyOpenClosedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_OrderComboFeed_Itch_v1_1_Dissector.lua" \
   -T json \

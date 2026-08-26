@@ -87,6 +87,14 @@ omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.message_index = ProtoField.ne
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.nseequities.marketbyorder.flex.v1.1.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Jpx NseEquities MarketByOrder Flex 1.1 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+jpx_nseequities_marketbyorder_flex_v1_1.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -103,6 +111,7 @@ omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_application_messages = Pr
 omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs_changed()
@@ -119,6 +128,9 @@ function omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs_changed()
   end
   if show.indexes ~= omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_indexes then
     show.indexes = omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.show_indexes
+  end
+  if jpx_nseequities_marketbyorder_flex_v1_1.format_timestamp ~= omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.format_timestamp then
+    jpx_nseequities_marketbyorder_flex_v1_1.format_timestamp = omi_jpx_nseequities_marketbyorder_flex_v1_1.prefs.format_timestamp
   end
 end
 
@@ -1455,10 +1467,12 @@ end
 
 -- Dissect: Timestamp
 jpx_nseequities_marketbyorder_flex_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_time_seconds = jpx_nseequities_marketbyorder_flex_v1_1.time_seconds.current
+  if jpx_nseequities_marketbyorder_flex_v1_1.format_timestamp then
+    local stored_time_seconds = jpx_nseequities_marketbyorder_flex_v1_1.time_seconds.current
 
-  if stored_time_seconds ~= nil then
-    return jpx_nseequities_marketbyorder_flex_v1_1.timestamp.composite(buffer, offset, stored_time_seconds, packet, parent)
+    if stored_time_seconds ~= nil then
+      return jpx_nseequities_marketbyorder_flex_v1_1.timestamp.composite(buffer, offset, stored_time_seconds, packet, parent)
+    end
   end
 
   return jpx_nseequities_marketbyorder_flex_v1_1.time_microseconds.dissect(buffer, offset, packet, parent)

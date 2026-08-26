@@ -93,6 +93,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trading_action_message = P
 
 -- Nasdaq PsxEquities LastSale Itch 2.1.2026 generated fields
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messageindex", ftypes.UINT16)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities LastSale Itch 2.1.2026 Formatting
@@ -123,12 +124,14 @@ show.structs = true
 show.headers = true
 show.application_messages = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq PsxEquities LastSale Itch 2.1.2026 Show Options
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -148,6 +151,9 @@ function omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_indexes then
     show.indexes = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_sequences then
+    show.sequences = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_sequences
   end
   if nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format ~= omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format then
     nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format
@@ -3253,6 +3259,12 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_psxequities_lastsale_itch_v2_1_2026.sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_sequence_number, UInt64.new(nasdaq_psxequities_lastsale_itch_v2_1_2026.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_psxequities_lastsale_itch_v2_1_2026.message_header.dissect(buffer, index, packet, parent)
 
@@ -3376,6 +3388,9 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.packet_header.fields = function(buffe
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_psxequities_lastsale_itch_v2_1_2026.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_psxequities_lastsale_itch_v2_1_2026.sequence = sequence_number
 
   return index
 end

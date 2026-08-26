@@ -150,7 +150,16 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.volume_and_open_interest_message = 
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.asxderivatives.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.asxderivatives.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.ntp.itch.v1.05.messageindex", ftypes.UINT16)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxderivatives.ntp.itch.v1.05.messagesequencenumber", ftypes.UINT64)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "asx.asxderivatives.ntp.itch.v1.05.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Asx AsxDerivatives Ntp Itch 1.05 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+asx_asxderivatives_ntp_itch_v1_05.format_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -163,12 +172,15 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Asx AsxDerivatives Ntp Itch 1.05 Show Options
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
@@ -185,6 +197,12 @@ function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
   end
   if show.indexes ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes then
     show.indexes = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes
+  end
+  if show.sequences ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences then
+    show.sequences = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences
+  end
+  if asx_asxderivatives_ntp_itch_v1_05.format_timestamp ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp then
+    asx_asxderivatives_ntp_itch_v1_05.format_timestamp = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp
   end
 end
 
@@ -2802,10 +2820,12 @@ end
 
 -- Dissect: Timestamp
 asx_asxderivatives_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_second = asx_asxderivatives_ntp_itch_v1_05.second.current
+  if asx_asxderivatives_ntp_itch_v1_05.format_timestamp then
+    local stored_second = asx_asxderivatives_ntp_itch_v1_05.second.current
 
-  if stored_second ~= nil then
-    return asx_asxderivatives_ntp_itch_v1_05.timestamp.composite(buffer, offset, stored_second, packet, parent)
+    if stored_second ~= nil then
+      return asx_asxderivatives_ntp_itch_v1_05.timestamp.composite(buffer, offset, stored_second, packet, parent)
+    end
   end
 
   return asx_asxderivatives_ntp_itch_v1_05.nanoseconds.dissect(buffer, offset, packet, parent)
@@ -5036,6 +5056,12 @@ asx_asxderivatives_ntp_itch_v1_05.message.fields = function(buffer, offset, pack
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and asx_asxderivatives_ntp_itch_v1_05.sequence ~= nil then
+    local sequence = parent:add(omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_sequence_number, UInt64.new(asx_asxderivatives_ntp_itch_v1_05.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = asx_asxderivatives_ntp_itch_v1_05.message_header.dissect(buffer, index, packet, parent)
 
@@ -5159,6 +5185,9 @@ asx_asxderivatives_ntp_itch_v1_05.packet_header.fields = function(buffer, offset
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = asx_asxderivatives_ntp_itch_v1_05.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  asx_asxderivatives_ntp_itch_v1_05.sequence = sequence_number
 
   return index
 end

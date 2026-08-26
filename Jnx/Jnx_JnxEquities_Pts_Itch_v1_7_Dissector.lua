@@ -118,6 +118,9 @@ jnx_jnxequities_pts_itch_v1_7.timestamp_format = 2
 -- Hours ahead of UTC (JST) for midnight calculation
 jnx_jnxequities_pts_itch_v1_7.utc_offset_hours = 9
 
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+jnx_jnxequities_pts_itch_v1_7.format_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -146,6 +149,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show 
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
@@ -168,6 +172,9 @@ function omi_jnx_jnxequities_pts_itch_v1_7.prefs_changed()
   end
   if show.indexes ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes then
     show.indexes = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes
+  end
+  if jnx_jnxequities_pts_itch_v1_7.format_timestamp ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp then
+    jnx_jnxequities_pts_itch_v1_7.format_timestamp = omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp
   end
   if jnx_jnxequities_pts_itch_v1_7.timestamp_format ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format then
     jnx_jnxequities_pts_itch_v1_7.timestamp_format = omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format
@@ -1495,10 +1502,12 @@ end
 
 -- Dissect: Timestamp
 jnx_jnxequities_pts_itch_v1_7.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = jnx_jnxequities_pts_itch_v1_7.seconds.current
+  if jnx_jnxequities_pts_itch_v1_7.format_timestamp then
+    local stored_seconds = jnx_jnxequities_pts_itch_v1_7.seconds.current
 
-  if stored_seconds ~= nil then
-    return jnx_jnxequities_pts_itch_v1_7.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return jnx_jnxequities_pts_itch_v1_7.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return jnx_jnxequities_pts_itch_v1_7.nanoseconds.dissect(buffer, offset, packet, parent)

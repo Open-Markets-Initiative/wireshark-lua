@@ -31,29 +31,50 @@ jobs:
       - name: Run B3 B3Derivatives BinaryEntryPoint Sbe 8.1 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryEntryPoint-Sbe-v8-1-Test.sh
 
+      - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.6 Dissector Tests
+        run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-6-Test.sh
+
       - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-8-Test.sh
+
+      - name: Run Box Options Sola Multicast Hsvf 1.8 Dissector Tests
+        run: bash -x .github/tests/Box-Options-Sola-Multicast-Hsvf-v1-8-Test.sh
 
       - name: Run Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-ByxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
 
+      - name: Run Cboe BzxEquities BinaryOrderEntry Boe 2.3 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxEquities-BinaryOrderEntry-Boe-v2-3-Test.sh
+
+      - name: Run Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
+
       - name: Run Cboe BzxOptions BinaryOrderEntry Boe 2.10 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxOptions-BinaryOrderEntry-Boe-v2-10-Test.sh
-
-      - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
-        run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
 
       - name: Run Cboe C1Options Complex Pitch 2.1.18 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-Complex-Pitch-v2-1-18-Test.sh
 
-      - name: Run Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Dissector Tests
-        run: bash -x .github/tests/Cboe-C1Options-MulticastDepthOfBook-Pitch-v2-39-4-Test.sh
+      - name: Run Cboe C1Options MarketDataFeed Csm 1.4.2 Dissector Tests
+        run: bash -x .github/tests/Cboe-C1Options-MarketDataFeed-Csm-v1-4-2-Test.sh
 
       - name: Run Cboe C1Options MarketLevel2 Csm 1.0.4 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-MarketLevel2-Csm-v1-0-4-Test.sh
 
+      - name: Run Cboe C1Options MulticastDepthOfBook Pitch 2.39.4 Dissector Tests
+        run: bash -x .github/tests/Cboe-C1Options-MulticastDepthOfBook-Pitch-v2-39-4-Test.sh
+
       - name: Run Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-BinaryOrderEntry-Boe3-v1-1-20-Test.sh
+
+      - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-12-Test.sh
+
+      - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
+
+      - name: Run Cme Globex Mdp3 Sbe 1.12 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-12-Test.sh
 
       - name: Run Cme Globex Mdp3 Sbe 1.5 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-5-Test.sh
@@ -67,9 +88,6 @@ jobs:
       - name: Run Cme Globex iLink3 Sbe 8.5 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-iLink3-Sbe-v8-5-Test.sh
 
-      - name: Run Cme Globex Mdp3 Sbe 1.12 Dissector Tests
-        run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-12-Test.sh
-
       - name: Run Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Dissector Tests
         run: bash -x .github/tests/Coinbase-CoinbaseDerivatives-MarketDataApi-Sbe-v1-2-Test.sh
 
@@ -82,14 +100,17 @@ jobs:
       - name: Run Coinbase Deribit OrdersApi Sbe 0.1 Dissector Tests
         run: bash -x .github/tests/Coinbase-Deribit-OrdersApi-Sbe-v0-1-Test.sh
 
-      - name: Run Eurex T7 Xti Fbe 10.0 Dissector Tests
-        run: bash -x .github/tests/Eurex-T7-Xti-Fbe-v10-0-Test.sh
-
       - name: Run Eurex T7 Eobi Fbe 3.0 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v3-0-Test.sh
 
       - name: Run Eurex T7 Eobi Fbe 6.0 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v6-0-Test.sh
+
+      - name: Run Eurex T7 Eti Fbe 6.1 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Eti-Fbe-v6-1-Test.sh
+
+      - name: Run Eurex T7 Xti Fbe 10.0 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Xti-Fbe-v10-0-Test.sh
 
       - name: Run Ice IceFutures Mdf iMpact 1.1.24 Dissector Tests
         run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-24-Test.sh
@@ -99,6 +120,9 @@ jobs:
 
       - name: Run Iex IexEquities Deep IexTp 1.06 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Deep-IexTp-v1-06-Test.sh
+
+      - name: Run Iex IexEquities DeepPlus IexTp 1.01 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-01-Test.sh
 
       - name: Run Iex IexEquities Tops IexTp 1.56 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-56-Test.sh
@@ -118,6 +142,9 @@ jobs:
       - name: Run Memx MemxEquities MemoirDepthFeed Sbe 1.3 Dissector Tests
         run: bash -x .github/tests/Memx-MemxEquities-MemoirDepthFeed-Sbe-v1-3-Test.sh
 
+      - name: Run Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Dissector Tests
+        run: bash -x .github/tests/Miax-MiaxOptions-ComplexTopOfMarket-Mach-v1-1-Test.sh
+
       - name: Run Miax OnyxFutures TopOfMarket Mach 1.0.b Dissector Tests
         run: bash -x .github/tests/Miax-OnyxFutures-TopOfMarket-Mach-v1-0-b-Test.sh
 
@@ -130,14 +157,32 @@ jobs:
       - name: Run Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-IseOptions-TopComboQuoteFeed-Itch-v1-0-Test.sh
 
+      - name: Run Nasdaq NsmEquities NlsPlus Itch 4.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-NlsPlus-Itch-v4-0-Test.sh
+
       - name: Run Nasdaq NsmEquities Orders Ouch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-Orders-Ouch-v5-0-Test.sh
 
       - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
 
+      - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
+
+      - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
+
+      - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
+
+      - name: Run Nasdaq PsxEquities TotalView Itch 5.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-PsxEquities-TotalView-Itch-v5-0-Test.sh
+
       - name: Run Nasdaq Uqdf Output Utp 1.5 Dissector Tests
         run: bash -x .github/tests/Nasdaq-Uqdf-Output-Utp-v1-5-Test.sh
+
+      - name: Run Nyse AmexEquities IntegratedFeed Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
 
       - name: Run Nyse AmexEquities IntegratedFeed Xdp 2.1.g Dissector Tests
         run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeed-Xdp-v2-1-g-Test.sh
@@ -151,23 +196,44 @@ jobs:
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 
+      - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.17 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-17-Test.sh
+
       - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
 
-      - name: Run Nyse NyseEquities IntegratedFeed Pillar 2.5.a Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Pillar-v2-5-a-Test.sh
+      - name: Run Nyse NyseEquities IntegratedFeed Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
 
       - name: Run Nyse NyseEquities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-OpenBook-Ultra-v2-1-b-Test.sh
 
+      - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
+        run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
+
+      - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
+        run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
+
       - name: Run Siac Cqs Output Cta 1.91 Dissector Tests
         run: bash -x .github/tests/Siac-Cqs-Output-Cta-v1-91-Test.sh
+
+      - name: Run Siac Cqs Output Cta 2.10.a Dissector Tests
+        run: bash -x .github/tests/Siac-Cqs-Output-Cta-v2-10-a-Test.sh
+
+      - name: Run Siac Cts Output Cta 1.91 Dissector Tests
+        run: bash -x .github/tests/Siac-Cts-Output-Cta-v1-91-Test.sh
 
       - name: Run Siac Cts Output Cta 2.10 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-10-Test.sh
 
+      - name: Run Siac Cts Output Cta 2.11.b Dissector Tests
+        run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-11-b-Test.sh
+
       - name: Run Siac Cts Output Cta 2.9 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-9-Test.sh
+
+      - name: Run Siac Opra Recipient Obi 6.1 Dissector Tests
+        run: bash -x .github/tests/Siac-Opra-Recipient-Obi-v6-1-Test.sh
 
       - name: Run Tmx Mx Sola Multicast Hsvf 1.14 Dissector Tests
         run: bash -x .github/tests/Tmx-Mx-Sola-Multicast-Hsvf-v1-14-Test.sh

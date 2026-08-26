@@ -147,6 +147,7 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.trade_cancel_message =
 
 -- Nyse NyseEquities IntegratedFeed Pillar 2.5.a generated fields
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messageindex", ftypes.UINT16)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -159,12 +160,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse NyseEquities IntegratedFeed Pillar 2.5.a Show Options
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs_changed()
@@ -181,6 +184,9 @@ function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences then
+    show.sequences = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences
   end
 end
 
@@ -4793,6 +4799,12 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.message.fields = function(buffer,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number, UInt64.new(nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_nyseequities_integratedfeed_pillar_v2_5_a.message_header.dissect(buffer, index, packet, parent)
 
@@ -4917,6 +4929,9 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.packet_header.fields = function(b
 
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence = seq_num
 
   return index
 end

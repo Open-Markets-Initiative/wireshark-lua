@@ -62,6 +62,7 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Tr
 
 -- Jnx JnxBonds Pts Itch 1.2 generated fields
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "jnx.jnxbonds.pts.itch.v1.2.messageindex", ftypes.UINT16)
+omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxbonds.pts.itch.v1.2.messagesequencenumber", ftypes.UINT64)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxbonds.pts.itch.v1.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -81,6 +82,9 @@ jnx_jnxbonds_pts_itch_v1_2.timestamp_format = 2
 -- Hours ahead of UTC (JST) for midnight calculation
 jnx_jnxbonds_pts_itch_v1_2.utc_offset_hours = 9
 
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+jnx_jnxbonds_pts_itch_v1_2.format_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -93,12 +97,15 @@ show.structs = true
 show.headers = true
 show.application_messages = true
 show.indexes = true
+show.sequences = true
 
 -- Register Jnx JnxBonds Pts Itch 1.2 Show Options
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_jnx_jnxbonds_pts_itch_v1_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
 omi_jnx_jnxbonds_pts_itch_v1_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
@@ -118,6 +125,12 @@ function omi_jnx_jnxbonds_pts_itch_v1_2.prefs_changed()
   end
   if show.indexes ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes then
     show.indexes = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_indexes
+  end
+  if show.sequences ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_sequences then
+    show.sequences = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.show_sequences
+  end
+  if jnx_jnxbonds_pts_itch_v1_2.format_timestamp ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.format_timestamp then
+    jnx_jnxbonds_pts_itch_v1_2.format_timestamp = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.format_timestamp
   end
   if jnx_jnxbonds_pts_itch_v1_2.timestamp_format ~= omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format then
     jnx_jnxbonds_pts_itch_v1_2.timestamp_format = omi_jnx_jnxbonds_pts_itch_v1_2.prefs.timestamp_format
@@ -945,10 +958,12 @@ end
 
 -- Dissect: Timestamp
 jnx_jnxbonds_pts_itch_v1_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = jnx_jnxbonds_pts_itch_v1_2.seconds.current
+  if jnx_jnxbonds_pts_itch_v1_2.format_timestamp then
+    local stored_seconds = jnx_jnxbonds_pts_itch_v1_2.seconds.current
 
-  if stored_seconds ~= nil then
-    return jnx_jnxbonds_pts_itch_v1_2.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return jnx_jnxbonds_pts_itch_v1_2.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return jnx_jnxbonds_pts_itch_v1_2.nanoseconds.dissect(buffer, offset, packet, parent)
@@ -1563,6 +1578,12 @@ jnx_jnxbonds_pts_itch_v1_2.message.fields = function(buffer, offset, packet, par
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and jnx_jnxbonds_pts_itch_v1_2.sequence ~= nil then
+    local sequence = parent:add(omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_sequence_number, UInt64.new(jnx_jnxbonds_pts_itch_v1_2.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = jnx_jnxbonds_pts_itch_v1_2.message_header.dissect(buffer, index, packet, parent)
 
@@ -1686,6 +1707,9 @@ jnx_jnxbonds_pts_itch_v1_2.packet_header.fields = function(buffer, offset, packe
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = jnx_jnxbonds_pts_itch_v1_2.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  jnx_jnxbonds_pts_itch_v1_2.sequence = sequence_number
 
   return index
 end

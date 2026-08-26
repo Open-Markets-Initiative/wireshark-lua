@@ -151,6 +151,7 @@ omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.fields.trade_message 
 
 -- Nasdaq NordicEquities TotalViewPureStream Itch 3.04.X generated fields
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.fields.message_index = ProtoField.new("Message Index", "nasdaq.nordicequities.totalviewpurestream.itch.v3.04.x.messageindex", ftypes.UINT16)
+omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nordicequities.totalviewpurestream.itch.v3.04.x.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NordicEquities TotalViewPureStream Itch 3.04.X Formatting
@@ -181,12 +182,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq NordicEquities TotalViewPureStream Itch 3.04.X Show Options
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -206,6 +209,9 @@ function omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs_change
   end
   if show.indexes ~= omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_indexes then
     show.indexes = omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_sequences then
+    show.sequences = omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.show_sequences
   end
   if nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.timestamp_format ~= omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.timestamp_format then
     nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.timestamp_format = omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.prefs.timestamp_format
@@ -3824,6 +3830,12 @@ nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.message.fields = function
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.fields.message_sequence_number, UInt64.new(nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.message_header.dissect(buffer, index, packet, parent)
 
@@ -3947,6 +3959,9 @@ nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.packet_header.fields = fu
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_nordicequities_totalviewpurestream_itch_v3_04_x.sequence = sequence_number
 
   return index
 end

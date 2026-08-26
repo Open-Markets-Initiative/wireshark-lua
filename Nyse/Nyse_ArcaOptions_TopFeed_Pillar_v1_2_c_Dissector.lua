@@ -154,6 +154,7 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.time_reference_message = Proto
 
 -- Nyse ArcaOptions TopFeed Pillar 1.2.c generated fields
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageindex", ftypes.UINT16)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -166,12 +167,14 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse ArcaOptions TopFeed Pillar 1.2.c Show Options
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs_changed()
@@ -188,6 +191,9 @@ function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_indexes then
     show.indexes = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_sequences then
+    show.sequences = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.prefs.show_sequences
   end
 end
 
@@ -4877,6 +4883,12 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.message.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_arcaoptions_topfeed_pillar_v1_2_c.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_topfeed_pillar_v1_2_c.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_arcaoptions_topfeed_pillar_v1_2_c.message_header.dissect(buffer, index, packet, parent)
 
@@ -5001,6 +5013,9 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.packet_header.fields = function(buffer, o
 
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_arcaoptions_topfeed_pillar_v1_2_c.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nyse_arcaoptions_topfeed_pillar_v1_2_c.sequence = seq_num
 
   return index
 end

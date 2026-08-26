@@ -97,6 +97,14 @@ omi_miax_pearloptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_mess
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.9.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Miax PearlOptions TopOfMarket Mach 1.9 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+miax_pearloptions_topofmarket_mach_v1_9.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -109,6 +117,7 @@ show.application_messages = true
 -- Register Miax PearlOptions TopOfMarket Mach 1.9 Show Options
 omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_9.prefs_changed()
@@ -119,6 +128,9 @@ function omi_miax_pearloptions_topofmarket_mach_v1_9.prefs_changed()
   end
   if show.structs ~= omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.show_structs then
     show.structs = omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.show_structs
+  end
+  if miax_pearloptions_topofmarket_mach_v1_9.format_timestamp ~= omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.format_timestamp then
+    miax_pearloptions_topofmarket_mach_v1_9.format_timestamp = omi_miax_pearloptions_topofmarket_mach_v1_9.prefs.format_timestamp
   end
 end
 
@@ -1807,10 +1819,12 @@ end
 
 -- Dissect: Timestamp
 miax_pearloptions_topofmarket_mach_v1_9.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_seconds = miax_pearloptions_topofmarket_mach_v1_9.seconds.current
+  if miax_pearloptions_topofmarket_mach_v1_9.format_timestamp then
+    local stored_seconds = miax_pearloptions_topofmarket_mach_v1_9.seconds.current
 
-  if stored_seconds ~= nil then
-    return miax_pearloptions_topofmarket_mach_v1_9.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    if stored_seconds ~= nil then
+      return miax_pearloptions_topofmarket_mach_v1_9.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
   end
 
   return miax_pearloptions_topofmarket_mach_v1_9.nanoseconds.dissect(buffer, offset, packet, parent)

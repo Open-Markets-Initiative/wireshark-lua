@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/AuctionInformationMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/AuctionInformationMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.AuctionInformationMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.AuctionInformationMessage.json.stderr \
@@ -25,7 +25,7 @@ grep "iex.iexequities.tops.iextp.v1.56.collarreferenceprice" Iex.IexEquities.Top
 grep "iex.iexequities.tops.iextp.v1.56.lowerauctioncollar" Iex.IexEquities.Tops.IexTp.v1.56.AuctionInformationMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.upperauctioncollar" Iex.IexEquities.Tops.IexTp.v1.56.AuctionInformationMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OfficialPriceMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/OfficialPriceMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.OfficialPriceMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.OfficialPriceMessage.json.stderr \
@@ -36,7 +36,7 @@ grep "iex.iexequities.tops.iextp.v1.56.timestamp" Iex.IexEquities.Tops.IexTp.v1.
 grep "iex.iexequities.tops.iextp.v1.56.symbol" Iex.IexEquities.Tops.IexTp.v1.56.OfficialPriceMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.officialprice" Iex.IexEquities.Tops.IexTp.v1.56.OfficialPriceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/OperationalHaltStatusMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/OperationalHaltStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.OperationalHaltStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.OperationalHaltStatusMessage.json.stderr \
@@ -46,7 +46,7 @@ grep "iex.iexequities.tops.iextp.v1.56.operationalhaltstatus" Iex.IexEquities.To
 grep "iex.iexequities.tops.iextp.v1.56.timestamp" Iex.IexEquities.Tops.IexTp.v1.56.OperationalHaltStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.symbol" Iex.IexEquities.Tops.IexTp.v1.56.OperationalHaltStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/QuoteUpdateMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/QuoteUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.QuoteUpdateMessage.json.stderr \
@@ -60,7 +60,7 @@ grep "iex.iexequities.tops.iextp.v1.56.bidprice" Iex.IexEquities.Tops.IexTp.v1.5
 grep "iex.iexequities.tops.iextp.v1.56.askprice" Iex.IexEquities.Tops.IexTp.v1.56.QuoteUpdateMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.asksize" Iex.IexEquities.Tops.IexTp.v1.56.QuoteUpdateMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SecurityDirectoryMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/SecurityDirectoryMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.SecurityDirectoryMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.SecurityDirectoryMessage.json.stderr \
@@ -73,7 +73,7 @@ grep "iex.iexequities.tops.iextp.v1.56.roundlotsize" Iex.IexEquities.Tops.IexTp.
 grep "iex.iexequities.tops.iextp.v1.56.adjustedpocprice" Iex.IexEquities.Tops.IexTp.v1.56.SecurityDirectoryMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.luldtier" Iex.IexEquities.Tops.IexTp.v1.56.SecurityDirectoryMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/ShortSalePriceTestStatusMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/ShortSalePriceTestStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.ShortSalePriceTestStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.ShortSalePriceTestStatusMessage.json.stderr \
@@ -84,7 +84,7 @@ grep "iex.iexequities.tops.iextp.v1.56.timestamp" Iex.IexEquities.Tops.IexTp.v1.
 grep "iex.iexequities.tops.iextp.v1.56.symbol" Iex.IexEquities.Tops.IexTp.v1.56.ShortSalePriceTestStatusMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.detail" Iex.IexEquities.Tops.IexTp.v1.56.ShortSalePriceTestStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/SystemEventMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/SystemEventMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.SystemEventMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.SystemEventMessage.json.stderr \
@@ -93,7 +93,7 @@ runuser -u tester -- tshark \
 grep "iex.iexequities.tops.iextp.v1.56.systemevent" Iex.IexEquities.Tops.IexTp.v1.56.SystemEventMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.timestamp" Iex.IexEquities.Tops.IexTp.v1.56.SystemEventMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradeReportMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/TradeReportMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json.stderr \
@@ -106,7 +106,7 @@ grep "iex.iexequities.tops.iextp.v1.56.size" Iex.IexEquities.Tops.IexTp.v1.56.Tr
 grep "iex.iexequities.tops.iextp.v1.56.price" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json
 grep "iex.iexequities.tops.iextp.v1.56.tradeid" Iex.IexEquities.Tops.IexTp.v1.56.TradeReportMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/Tops.IexTp.v1.5/TradingStatusMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.5/TradingStatusMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_56_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.56.TradingStatusMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.56.TradingStatusMessage.json.stderr \

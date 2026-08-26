@@ -94,6 +94,7 @@ omi_iex_iexequities_deep_iextp_v1_08.fields.trading_status_message = ProtoField.
 
 -- Iex IexEquities Deep IexTp 1.08 generated fields
 omi_iex_iexequities_deep_iextp_v1_08.fields.message_index = ProtoField.new("Message Index", "iex.iexequities.deep.iextp.v1.08.messageindex", ftypes.UINT16)
+omi_iex_iexequities_deep_iextp_v1_08.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "iex.iexequities.deep.iextp.v1.08.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -106,12 +107,14 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.indexes = true
+show.sequences = true
 
 -- Register Iex IexEquities Deep IexTp 1.08 Show Options
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deep_iextp_v1_08.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_iex_iexequities_deep_iextp_v1_08.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_iex_iexequities_deep_iextp_v1_08.prefs_changed()
@@ -128,6 +131,9 @@ function omi_iex_iexequities_deep_iextp_v1_08.prefs_changed()
   end
   if show.indexes ~= omi_iex_iexequities_deep_iextp_v1_08.prefs.show_indexes then
     show.indexes = omi_iex_iexequities_deep_iextp_v1_08.prefs.show_indexes
+  end
+  if show.sequences ~= omi_iex_iexequities_deep_iextp_v1_08.prefs.show_sequences then
+    show.sequences = omi_iex_iexequities_deep_iextp_v1_08.prefs.show_sequences
   end
 end
 
@@ -2376,6 +2382,12 @@ iex_iexequities_deep_iextp_v1_08.message.fields = function(buffer, offset, packe
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and iex_iexequities_deep_iextp_v1_08.sequence ~= nil then
+    local sequence = parent:add(omi_iex_iexequities_deep_iextp_v1_08.fields.message_sequence_number, UInt64.new(iex_iexequities_deep_iextp_v1_08.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = iex_iexequities_deep_iextp_v1_08.message_header.dissect(buffer, index, packet, parent)
 
@@ -2506,6 +2518,9 @@ iex_iexequities_deep_iextp_v1_08.iextp_header.fields = function(buffer, offset, 
 
   -- Send Time: 8 Byte Unsigned Fixed Width Integer
   index, send_time = iex_iexequities_deep_iextp_v1_08.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  iex_iexequities_deep_iextp_v1_08.sequence = first_message_sequence_number
 
   return index
 end

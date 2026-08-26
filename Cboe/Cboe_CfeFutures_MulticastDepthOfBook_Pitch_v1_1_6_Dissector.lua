@@ -117,6 +117,14 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.message_index = Pro
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -133,6 +141,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_application_mes
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs_changed()
@@ -149,6 +158,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_indexes then
     show.indexes = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_indexes
+  end
+  if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.format_timestamp ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.format_timestamp then
+    cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.format_timestamp = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.format_timestamp
   end
 end
 

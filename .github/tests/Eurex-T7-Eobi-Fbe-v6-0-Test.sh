@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/ExecutionSummary.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/ExecutionSummary.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -23,7 +23,7 @@ grep "eurex.t7.eobi.fbe.v6.0.lastpx" Eurex.T7.Eobi.Fbe.v6.0.ExecutionSummary.jso
 grep "eurex.t7.eobi.fbe.v6.0.restinghiddenqty" Eurex.T7.Eobi.Fbe.v6.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v6.0.restingcxlqty" Eurex.T7.Eobi.Fbe.v6.0.ExecutionSummary.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/FullOrderExecution.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/FullOrderExecution.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -41,7 +41,7 @@ grep "eurex.t7.eobi.fbe.v6.0.trdmatchid" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecuti
 grep "eurex.t7.eobi.fbe.v6.0.lastqty" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.lastpx" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/Heartbeat.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/Heartbeat.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -51,7 +51,7 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v6.0.lastmsgseqnumprocessed" Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json
 grep "eurex.t7.eobi.fbe.v6.0.pad4" Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/InstrumentSummary.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/InstrumentSummary.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -69,7 +69,7 @@ grep "eurex.t7.eobi.fbe.v6.0.fastmarketindicator" Eurex.T7.Eobi.Fbe.v6.0.Instrum
 grep "eurex.t7.eobi.fbe.v6.0.securitytradingevent" Eurex.T7.Eobi.Fbe.v6.0.InstrumentSummary.json
 grep "eurex.t7.eobi.fbe.v6.0.nomdentries" Eurex.T7.Eobi.Fbe.v6.0.InstrumentSummary.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/OrderAdd.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/OrderAdd.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -79,7 +79,7 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v6.0.trdregtstimein" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v6.0.securityid" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/OrderModify.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/OrderModify.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -93,7 +93,7 @@ grep "eurex.t7.eobi.fbe.v6.0.prevdisplayqty" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.
 grep "eurex.t7.eobi.fbe.v6.0.pad4" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v6.0.securityid" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/PartialOrderExecution.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/PartialOrderExecution.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -111,7 +111,7 @@ grep "eurex.t7.eobi.fbe.v6.0.trdmatchid" Eurex.T7.Eobi.Fbe.v6.0.PartialOrderExec
 grep "eurex.t7.eobi.fbe.v6.0.lastqty" Eurex.T7.Eobi.Fbe.v6.0.PartialOrderExecution.json
 grep "eurex.t7.eobi.fbe.v6.0.lastpx" Eurex.T7.Eobi.Fbe.v6.0.PartialOrderExecution.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/ProductSummary.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/ProductSummary.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
@@ -126,7 +126,7 @@ grep "eurex.t7.eobi.fbe.v6.0.marketcondition" Eurex.T7.Eobi.Fbe.v6.0.ProductSumm
 grep "eurex.t7.eobi.fbe.v6.0.fastmarketindicator" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 grep "eurex.t7.eobi.fbe.v6.0.pad7" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Eobi.Fbe.v6.0/SnapshotOrder.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.v6.0/SnapshotOrder.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \

@@ -120,6 +120,14 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_index = ProtoField.new("
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.complex.pitch.v2.1.61.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe C1Options Complex Pitch 2.1.61 Formatting
+-----------------------------------------------------------------------
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_c1options_complex_pitch_v2_1_61.format_timestamp = true
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -136,6 +144,7 @@ omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_application_messages = Pref.
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_61.prefs_changed()
@@ -152,6 +161,9 @@ function omi_cboe_c1options_complex_pitch_v2_1_61.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_indexes
+  end
+  if cboe_c1options_complex_pitch_v2_1_61.format_timestamp ~= omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp then
+    cboe_c1options_complex_pitch_v2_1_61.format_timestamp = omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp
   end
 end
 

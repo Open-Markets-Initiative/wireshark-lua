@@ -127,6 +127,9 @@ cboe_c1options_complex_pitch_v2_1_18.timestamp_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 cboe_c1options_complex_pitch_v2_1_18.utc_offset_hours = 5
 
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_c1options_complex_pitch_v2_1_18.format_timestamp = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -143,6 +146,7 @@ show.indexes = true
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_c1options_complex_pitch_v2_1_18.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -159,6 +163,9 @@ function omi_cboe_c1options_complex_pitch_v2_1_18.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_indexes
+  end
+  if cboe_c1options_complex_pitch_v2_1_18.format_timestamp ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.format_timestamp then
+    cboe_c1options_complex_pitch_v2_1_18.format_timestamp = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.format_timestamp
   end
   if cboe_c1options_complex_pitch_v2_1_18.timestamp_format ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.timestamp_format then
     cboe_c1options_complex_pitch_v2_1_18.timestamp_format = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.timestamp_format
@@ -1738,10 +1745,12 @@ end
 
 -- Dissect: Timestamp
 cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect = function(buffer, offset, packet, parent)
-  local stored_time = cboe_c1options_complex_pitch_v2_1_18.time.current
+  if cboe_c1options_complex_pitch_v2_1_18.format_timestamp then
+    local stored_time = cboe_c1options_complex_pitch_v2_1_18.time.current
 
-  if stored_time ~= nil then
-    return cboe_c1options_complex_pitch_v2_1_18.timestamp.composite(buffer, offset, stored_time, packet, parent)
+    if stored_time ~= nil then
+      return cboe_c1options_complex_pitch_v2_1_18.timestamp.composite(buffer, offset, stored_time, packet, parent)
+    end
   end
 
   return cboe_c1options_complex_pitch_v2_1_18.time_offset.dissect(buffer, offset, packet, parent)

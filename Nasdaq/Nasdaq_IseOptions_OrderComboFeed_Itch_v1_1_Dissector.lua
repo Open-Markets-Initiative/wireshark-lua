@@ -81,6 +81,7 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message = Pro
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.leginformationindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messageindex", ftypes.UINT16)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq IseOptions OrderComboFeed Itch 1.1 Formatting
@@ -111,12 +112,14 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq IseOptions OrderComboFeed Itch 1.1 Show Options
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -136,6 +139,9 @@ function omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_indexes then
     show.indexes = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_sequences then
+    show.sequences = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.show_sequences
   end
   if nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format ~= omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format then
     nasdaq_iseoptions_ordercombofeed_itch_v1_1.timestamp_format = omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.prefs.timestamp_format
@@ -2133,6 +2139,12 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_iseoptions_ordercombofeed_itch_v1_1.sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_sequence_number, UInt64.new(nasdaq_iseoptions_ordercombofeed_itch_v1_1.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_iseoptions_ordercombofeed_itch_v1_1.message_header.dissect(buffer, index, packet, parent)
 
@@ -2256,6 +2268,9 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.packet_header.fields = function(buffe
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_iseoptions_ordercombofeed_itch_v1_1.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_iseoptions_ordercombofeed_itch_v1_1.sequence = sequence_number
 
   return index
 end

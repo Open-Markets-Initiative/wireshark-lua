@@ -49,6 +49,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.system_event_message
 
 -- BruceAts BruceEquities BestBidAndOffer Itch 1.0 generated fields
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_index = ProtoField.new("Message Index", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messageindex", ftypes.UINT16)
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -61,12 +62,14 @@ show.structs = true
 show.headers = true
 show.application_messages = true
 show.indexes = true
+show.sequences = true
 
 -- Register BruceAts BruceEquities BestBidAndOffer Itch 1.0 Show Options
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs_changed()
@@ -83,6 +86,9 @@ function omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs_changed()
   end
   if show.indexes ~= omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_indexes then
     show.indexes = omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_indexes
+  end
+  if show.sequences ~= omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_sequences then
+    show.sequences = omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.prefs.show_sequences
   end
 end
 
@@ -1018,6 +1024,12 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.message.fields = function(buffe
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and bruceats_bruceequities_bestbidandoffer_itch_v1_0.sequence ~= nil then
+    local sequence = parent:add(omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_sequence_number, UInt64.new(bruceats_bruceequities_bestbidandoffer_itch_v1_0.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_header.dissect(buffer, index, packet, parent)
 
@@ -1141,6 +1153,9 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.packet_header.fields = function
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  bruceats_bruceequities_bestbidandoffer_itch_v1_0.sequence = sequence_number
 
   return index
 end

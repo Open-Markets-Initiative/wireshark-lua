@@ -33,6 +33,13 @@ grep "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.low" Nasdaq.IseOptions.TopCo
 grep "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.first" Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyTickerMessage.json
 grep "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.tradecondition" Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.ComplexStrategyTickerMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/IseOptions.TopComboQuoteFeed.v1.0/Heartbeat.pcap" \
+  -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
+  -T json \
+  > Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.Heartbeat.json 2> Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.Heartbeat.json.stderr \
+  || { echo "--- tshark FAILED (Heartbeat) ---"; cat Nasdaq.IseOptions.TopComboQuoteFeed.Itch.v1.0.Heartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/IseOptions.TopComboQuoteFeed.v1.0/StrategyBestAskUpdate.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_IseOptions_TopComboQuoteFeed_Itch_v1_0_Dissector.lua" \
   -T json \

@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/Xti.Fbe.v10.0/OrderExecResponse.pcap" \
+  -r "omi-data-packets/Eurex/T7.Xti.v10.0/OrderExecResponse.pcap" \
   --disable-protocol eti \
   -X "lua_script:Eurex/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
   -T json \

@@ -47,6 +47,9 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new(
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
 
+-- Nasdaq Common SoupBin Tcp 3.0 generated fields
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -56,6 +59,7 @@ local show = {}
 -- Nasdaq Common SoupBin Tcp 3.0 Element Dissection Options
 show.structs = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Nasdaq Common SoupBin Tcp 3.0 Show Options
 local role_enum = {
@@ -68,6 +72,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.assume_role = Pref.enum("Assume Role", 
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
@@ -79,7 +84,45 @@ function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
   if show.structs ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs then
     show.structs = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs
   end
+  if show.sequences ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequences then
+    show.sequences = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequences
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_common_soupbin_tcp_v3_0.conversation = {}
+nasdaq_common_soupbin_tcp_v3_0.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nasdaq_common_soupbin_tcp_v3_0.stream_frame = nil
+nasdaq_common_soupbin_tcp_v3_0.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_common_soupbin_tcp_v3_0.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_common_soupbin_tcp_v3_0.conversation.data = function(packet)
+  local key = nasdaq_common_soupbin_tcp_v3_0.conversation.key(packet)
+  local data = nasdaq_common_soupbin_tcp_v3_0.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    nasdaq_common_soupbin_tcp_v3_0.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_common_soupbin_tcp_v3_0.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -561,6 +604,40 @@ end
 nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nasdaq_common_soupbin_tcp_v3_0.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nasdaq_common_soupbin_tcp_v3_0.stream_frame ~= packet.number or nasdaq_common_soupbin_tcp_v3_0.stream_occurrence >= #memo then
+          nasdaq_common_soupbin_tcp_v3_0.stream_frame = packet.number
+          nasdaq_common_soupbin_tcp_v3_0.stream_occurrence = 0
+        end
+        nasdaq_common_soupbin_tcp_v3_0.stream_occurrence = nasdaq_common_soupbin_tcp_v3_0.stream_occurrence + 1
+        local value = memo[nasdaq_common_soupbin_tcp_v3_0.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String
   index, sequenced_message_type = nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -660,6 +737,15 @@ nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.fields = function(buffer, o
 
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = nasdaq_common_soupbin_tcp_v3_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Stream sequence anchor: the next sequenced message's number
+  if not packet.visited then
+    local flow = nasdaq_common_soupbin_tcp_v3_0.conversation.current
+    local anchor = tonumber(sequence_number)
+    if flow ~= nil and anchor ~= nil then
+      flow.sequence.next = anchor
+    end
+  end
 
   return index
 end
