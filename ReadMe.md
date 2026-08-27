@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 844 | 6,156,746 |
+| 842 | 6,142,170 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -115,6 +115,7 @@ Enjoy.
 [Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
 [Omi.Encoding.Pitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Pitch.md "Pitch Encoding"
 [Omi.Encoding.AsciiPitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/AsciiPitch.md "AsciiPitch Encoding"
+[Omi.Encoding.Cgif]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Cgif.md "Cgif Encoding"
 [Omi.Encoding.Boe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Boe.md "Boe Encoding"
 [Omi.Encoding.Boe3]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Boe3.md "Boe3 Encoding"
 [Omi.Encoding.Spin]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Spin.md "Spin Encoding"
@@ -191,6 +192,7 @@ Enjoy.
 [Cboe.EdgaEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgaEquities/TcpDepthOfBook.md "Tcp Depth Of Book"
 [Cboe.EdgxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgxEquities/TcpDepthOfBook.md "Tcp Depth Of Book"
 [Cboe.TitaniumConsolidated.OneEquities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/OneEquities.md "One Equities"
+[Cboe.TitaniumConsolidated.Indices]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/TitaniumConsolidated/Indices.md "Global Indices Feed"
 [Cboe.ByxEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/ByxEquities/LastSale.md "Last Sale"
 [Cboe.BzxEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/BzxEquities/LastSale.md "Last Sale"
 [Cboe.EdgaEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Cboe/Protocols/EdgaEquities/LastSale.md "Last Sale"
@@ -443,6 +445,7 @@ Enjoy.
 [Nasdaq.NomOptions.Itto]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NomOptions/Itto.md "Itch To Trade Options"
 [Nasdaq.NtxEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/TotalView.md "TX TotalView Itch"
 [Nasdaq.NtxEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/Orders.md "BX Orders"
+[Nasdaq.NtxEquities.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxEquities/Qbbo.md "Quoted Best Bid And Offer"
 [Nasdaq.NtxOptions.TopOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TopOfMarket.md "Top Of Market"
 [Nasdaq.NtxOptions.TradeFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/TradeFeed.md "Trade Feed"
 [Nasdaq.NtxOptions.DepthOfMarket]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NtxOptions/DepthOfMarket.md "Depth Of Market"
@@ -464,6 +467,7 @@ Enjoy.
 [Nasdaq.NsmEquities.Nois]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Nois.md "Net Order Imbalance Snapshot"
 [Nasdaq.NsmEquities.NoiView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/NoiView.md "Net Order Imbalance View"
 [Nasdaq.NsmEquities.Orders]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Orders.md "Orders"
+[Nasdaq.NsmEquities.Qbbo]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/Qbbo.md "Quoted Best Bid And Offer"
 [Nasdaq.NsmEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NsmEquities/TotalView.md "TotalView Itch"
 [Nasdaq.Uqdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Uqdf/Output.md "Output"
 [Nasdaq.Utdf.Output]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Utdf/Output.md "Output"
@@ -490,11 +494,6 @@ Enjoy.
 [Nyse.ArcaEquities.Bqt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/Bqt.md "Best Quote And Trade"
 [Nyse.NationalEquities.Bqt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/Bqt.md "Best Quote And Trade"
 [Nyse.TexasEquities.Bqt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/Bqt.md "Best Quote And Trade"
-[Nyse.AmexEquities.DepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/DepthFeed.md "Depth Feed"
-[Nyse.ArcaEquities.DepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/DepthFeed.md "Depth Feed"
-[Nyse.NationalEquities.DepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NationalEquities/DepthFeed.md "Depth Feed"
-[Nyse.NyseEquities.DepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/DepthFeed.md "Depth Feed"
-[Nyse.TexasEquities.DepthFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/TexasEquities/DepthFeed.md "Depth Feed"
 [Nyse.NyseEquities.ImbalancesFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/NyseEquities/ImbalancesFeed.md "Imbalances Feed"
 [Nyse.AmexEquities.ImbalancesFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/AmexEquities/ImbalancesFeed.md "Imbalances Feed"
 [Nyse.ArcaEquities.ImbalancesFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nyse/Protocols/ArcaEquities/ImbalancesFeed.md "Imbalances Feed"

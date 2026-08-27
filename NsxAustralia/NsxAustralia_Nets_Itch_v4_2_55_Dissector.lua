@@ -216,7 +216,7 @@ nsxaustralia_nets_itch_v4_2_55.conversation.data = function(packet)
   local key = nsxaustralia_nets_itch_v4_2_55.conversation.key(packet)
   local data = nsxaustralia_nets_itch_v4_2_55.conversation.flows[key]
   if data == nil then
-    data = { nanosecond = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, nanosecond = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nsxaustralia_nets_itch_v4_2_55.conversation.flows[key] = data
   end
   return data
@@ -3738,6 +3738,9 @@ nsxaustralia_nets_itch_v4_2_55.sequenced_data_packet.fields = function(buffer, o
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nsxaustralia_nets_itch_v4_2_55.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -3861,13 +3864,11 @@ nsxaustralia_nets_itch_v4_2_55.login_accepted_packet.fields = function(buffer, o
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = nsxaustralia_nets_itch_v4_2_55.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  nsxaustralia_nets_itch_v4_2_55.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = nsxaustralia_nets_itch_v4_2_55.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    nsxaustralia_nets_itch_v4_2_55.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -4087,8 +4088,10 @@ nsxaustralia_nets_itch_v4_2_55.server_packet.dissect = function(buffer, packet, 
   -- establish frame context from the conversation's stored values
   local data = nsxaustralia_nets_itch_v4_2_55.conversation.data(packet)
   if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
     data.nanosecond.frames[packet.number] = data.nanosecond.last
   end
+  nsxaustralia_nets_itch_v4_2_55.sequence_number.current = data.sequence_number.frames[packet.number]
   nsxaustralia_nets_itch_v4_2_55.nanosecond.current = data.nanosecond.frames[packet.number]
   nsxaustralia_nets_itch_v4_2_55.conversation.current = data
 
@@ -4443,6 +4446,7 @@ end
 
 -- Initialize Dissector
 function omi_nsxaustralia_nets_itch_v4_2_55.init()
+  nsxaustralia_nets_itch_v4_2_55.sequence_number.current = nil
   nsxaustralia_nets_itch_v4_2_55.nanosecond.current = nil
   nsxaustralia_nets_itch_v4_2_55.conversation.current = nil
   nsxaustralia_nets_itch_v4_2_55.conversation.flows = {}
@@ -4668,6 +4672,9 @@ end
 
 -- Register Heuristics for NsxAustralia Nets Itch 4.2.55
 omi_nsxaustralia_nets_itch_v4_2_55:register_heuristic("tcp", omi_nsxaustralia_nets_itch_v4_2_55_tcp_heuristic)
+-- Register NsxAustralia Nets Itch 4.2.55 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nsxaustralia_nets_itch_v4_2_55)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

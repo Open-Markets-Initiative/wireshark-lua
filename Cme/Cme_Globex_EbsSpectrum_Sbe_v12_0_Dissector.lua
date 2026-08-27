@@ -2267,6 +2267,12 @@ end
 -- Register Heuristics for Cme Globex EbsSpectrum Sbe 12.0
 omi_cme_globex_ebsspectrum_sbe_v12_0:register_heuristic("udp", omi_cme_globex_ebsspectrum_sbe_v12_0_udp_heuristic)
 omi_cme_globex_ebsspectrum_sbe_v12_0:register_heuristic("tcp", omi_cme_globex_ebsspectrum_sbe_v12_0_tcp_heuristic)
+-- Register Cme Globex EbsSpectrum Sbe 12.0 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cme_globex_ebsspectrum_sbe_v12_0)
+-- Register Cme Globex EbsSpectrum Sbe 12.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cme_globex_ebsspectrum_sbe_v12_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

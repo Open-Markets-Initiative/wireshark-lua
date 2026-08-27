@@ -4186,6 +4186,12 @@ end
 -- Register Heuristics for Miax EmeraldOptions OrderFeed Mach 1.1.a
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a:register_heuristic("udp", omi_miax_emeraldoptions_orderfeed_mach_v1_1_a_udp_heuristic)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a:register_heuristic("tcp", omi_miax_emeraldoptions_orderfeed_mach_v1_1_a_tcp_heuristic)
+-- Register Miax EmeraldOptions OrderFeed Mach 1.1.a for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a)
+-- Register Miax EmeraldOptions OrderFeed Mach 1.1.a for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

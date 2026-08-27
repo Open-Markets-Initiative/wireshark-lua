@@ -73,6 +73,15 @@ jobs:
       - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
 
+      - name: Run Cboe EdgaEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
+        run: bash -x .github/tests/Cboe-EdgaEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
+
+      - name: Run Cboe EdgxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
+        run: bash -x .github/tests/Cboe-EdgxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
+
+      - name: Run Cboe TitaniumConsolidated Indices Cgif 1.4.13 Dissector Tests
+        run: bash -x .github/tests/Cboe-TitaniumConsolidated-Indices-Cgif-v1-4-13-Test.sh
+
       - name: Run Cme Globex Mdp3 Sbe 1.12 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-12-Test.sh
 
@@ -163,6 +172,9 @@ jobs:
       - name: Run Nasdaq NsmEquities Orders Ouch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-Orders-Ouch-v5-0-Test.sh
 
+      - name: Run Nasdaq NsmEquities Qbbo Itch 2.1 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-Qbbo-Itch-v2-1-Test.sh
+
       - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
 
@@ -187,6 +199,9 @@ jobs:
       - name: Run Nyse AmexEquities IntegratedFeed Xdp 2.1.g Dissector Tests
         run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeed-Xdp-v2-1-g-Test.sh
 
+      - name: Run Nyse AmexEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
+
       - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
 
@@ -207,6 +222,12 @@ jobs:
 
       - name: Run Nyse NyseEquities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-OpenBook-Ultra-v2-1-b-Test.sh
+
+      - name: Run Nyse TexasEquities IntegratedFeed Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-TexasEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse TexasEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-TexasEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
       - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
         run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh

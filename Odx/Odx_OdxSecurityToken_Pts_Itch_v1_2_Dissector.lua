@@ -196,7 +196,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.conversation.data = function(packet)
   local key = odx_odxsecuritytoken_pts_itch_v1_2.conversation.key(packet)
   local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key]
   if data == nil then
-    data = { seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key] = data
   end
   return data
@@ -2256,6 +2256,9 @@ odx_odxsecuritytoken_pts_itch_v1_2.sequenced_data_packet.fields = function(buffe
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2379,13 +2382,11 @@ odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet.fields = function(buffe
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = odx_odxsecuritytoken_pts_itch_v1_2.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    odx_odxsecuritytoken_pts_itch_v1_2.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2605,8 +2606,10 @@ odx_odxsecuritytoken_pts_itch_v1_2.server_packet.dissect = function(buffer, pack
   -- establish frame context from the conversation's stored values
   local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.data(packet)
   if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
     data.seconds.frames[packet.number] = data.seconds.last
   end
+  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = data.sequence_number.frames[packet.number]
   odx_odxsecuritytoken_pts_itch_v1_2.seconds.current = data.seconds.frames[packet.number]
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = data
 
@@ -2961,6 +2964,7 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxsecuritytoken_pts_itch_v1_2.init()
+  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.seconds.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows = {}
@@ -3186,6 +3190,9 @@ end
 
 -- Register Heuristics for Odx OdxSecurityToken Pts Itch 1.2
 omi_odx_odxsecuritytoken_pts_itch_v1_2:register_heuristic("tcp", omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic)
+-- Register Odx OdxSecurityToken Pts Itch 1.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_odx_odxsecuritytoken_pts_itch_v1_2)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

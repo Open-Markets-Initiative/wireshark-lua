@@ -2456,6 +2456,12 @@ end
 -- Register Heuristics for Jpx TseEquities MarketByOrder Flex 1.1
 omi_jpx_tseequities_marketbyorder_flex_v1_1:register_heuristic("udp", omi_jpx_tseequities_marketbyorder_flex_v1_1_udp_heuristic)
 omi_jpx_tseequities_marketbyorder_flex_v1_1:register_heuristic("tcp", omi_jpx_tseequities_marketbyorder_flex_v1_1_tcp_heuristic)
+-- Register Jpx TseEquities MarketByOrder Flex 1.1 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_jpx_tseequities_marketbyorder_flex_v1_1)
+-- Register Jpx TseEquities MarketByOrder Flex 1.1 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_jpx_tseequities_marketbyorder_flex_v1_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

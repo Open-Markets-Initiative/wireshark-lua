@@ -166,7 +166,7 @@ asx_asxsecurities_trade_ouch_v3_6.conversation.data = function(packet)
   local key = asx_asxsecurities_trade_ouch_v3_6.conversation.key(packet)
   local data = asx_asxsecurities_trade_ouch_v3_6.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     asx_asxsecurities_trade_ouch_v3_6.conversation.flows[key] = data
   end
   return data
@@ -2120,6 +2120,9 @@ asx_asxsecurities_trade_ouch_v3_6.sequenced_data_packet.fields = function(buffer
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(asx_asxsecurities_trade_ouch_v3_6.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2243,13 +2246,11 @@ asx_asxsecurities_trade_ouch_v3_6.login_accepted_packet.fields = function(buffer
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = asx_asxsecurities_trade_ouch_v3_6.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  asx_asxsecurities_trade_ouch_v3_6.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = asx_asxsecurities_trade_ouch_v3_6.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    asx_asxsecurities_trade_ouch_v3_6.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2466,6 +2467,14 @@ end
 
 -- Dissect Server Packet
 asx_asxsecurities_trade_ouch_v3_6.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = asx_asxsecurities_trade_ouch_v3_6.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  asx_asxsecurities_trade_ouch_v3_6.sequence_number.current = data.sequence_number.frames[packet.number]
+  asx_asxsecurities_trade_ouch_v3_6.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -3104,6 +3113,9 @@ end
 
 -- Initialize Dissector
 function omi_asx_asxsecurities_trade_ouch_v3_6.init()
+  asx_asxsecurities_trade_ouch_v3_6.sequence_number.current = nil
+  asx_asxsecurities_trade_ouch_v3_6.conversation.current = nil
+  asx_asxsecurities_trade_ouch_v3_6.conversation.flows = {}
 end
 
 -- Connection roles for Asx AsxSecurities Trade Ouch 3.6: Client is the initiator, Server is the acceptor
@@ -3326,6 +3338,9 @@ end
 
 -- Register Heuristics for Asx AsxSecurities Trade Ouch 3.6
 omi_asx_asxsecurities_trade_ouch_v3_6:register_heuristic("tcp", omi_asx_asxsecurities_trade_ouch_v3_6_tcp_heuristic)
+-- Register Asx AsxSecurities Trade Ouch 3.6 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_asx_asxsecurities_trade_ouch_v3_6)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

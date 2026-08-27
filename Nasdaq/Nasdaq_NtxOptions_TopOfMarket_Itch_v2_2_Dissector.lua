@@ -4258,6 +4258,12 @@ end
 -- Register Heuristics for Nasdaq NtxOptions TopOfMarket Itch 2.2
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2:register_heuristic("tcp", omi_nasdaq_ntxoptions_topofmarket_itch_v2_2_tcp_heuristic)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2:register_heuristic("udp", omi_nasdaq_ntxoptions_topofmarket_itch_v2_2_udp_heuristic)
+-- Register Nasdaq NtxOptions TopOfMarket Itch 2.2 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2)
+-- Register Nasdaq NtxOptions TopOfMarket Itch 2.2 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

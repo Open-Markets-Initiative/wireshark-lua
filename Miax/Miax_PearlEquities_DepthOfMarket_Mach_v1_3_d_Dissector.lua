@@ -3632,6 +3632,12 @@ end
 -- Register Heuristics for Miax PearlEquities DepthOfMarket Mach 1.3.d
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d:register_heuristic("udp", omi_miax_pearlequities_depthofmarket_mach_v1_3_d_udp_heuristic)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d:register_heuristic("tcp", omi_miax_pearlequities_depthofmarket_mach_v1_3_d_tcp_heuristic)
+-- Register Miax PearlEquities DepthOfMarket Mach 1.3.d for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)
+-- Register Miax PearlEquities DepthOfMarket Mach 1.3.d for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

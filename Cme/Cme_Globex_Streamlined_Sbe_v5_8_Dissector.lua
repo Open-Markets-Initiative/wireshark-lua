@@ -12148,6 +12148,12 @@ end
 -- Register Heuristics for Cme Globex Streamlined Sbe 5.8
 omi_cme_globex_streamlined_sbe_v5_8:register_heuristic("udp", omi_cme_globex_streamlined_sbe_v5_8_udp_heuristic)
 omi_cme_globex_streamlined_sbe_v5_8:register_heuristic("tcp", omi_cme_globex_streamlined_sbe_v5_8_tcp_heuristic)
+-- Register Cme Globex Streamlined Sbe 5.8 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cme_globex_streamlined_sbe_v5_8)
+-- Register Cme Globex Streamlined Sbe 5.8 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cme_globex_streamlined_sbe_v5_8)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

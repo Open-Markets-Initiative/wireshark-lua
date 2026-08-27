@@ -202,7 +202,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.conversation.data = function(packet)
   local key = nasdaq_nsmequities_orders_ouch_v5_0.conversation.key(packet)
   local data = nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows[key] = data
   end
   return data
@@ -3923,6 +3923,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields = function(buff
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -4046,13 +4049,11 @@ nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.fields = function(buff
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = nasdaq_nsmequities_orders_ouch_v5_0.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    nasdaq_nsmequities_orders_ouch_v5_0.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -4269,6 +4270,14 @@ end
 
 -- Dissect Server Packet
 nasdaq_nsmequities_orders_ouch_v5_0.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nsmequities_orders_ouch_v5_0.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nsmequities_orders_ouch_v5_0.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -5066,6 +5075,9 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.init()
+  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = nil
+  nasdaq_nsmequities_orders_ouch_v5_0.conversation.current = nil
+  nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows = {}
 end
 
 -- Connection roles for Nasdaq NsmEquities Orders Ouch 5.0: Client is the initiator, Server is the acceptor
@@ -5288,6 +5300,9 @@ end
 
 -- Register Heuristics for Nasdaq NsmEquities Orders Ouch 5.0
 omi_nasdaq_nsmequities_orders_ouch_v5_0:register_heuristic("tcp", omi_nasdaq_nsmequities_orders_ouch_v5_0_tcp_heuristic)
+-- Register Nasdaq NsmEquities Orders Ouch 5.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_nsmequities_orders_ouch_v5_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

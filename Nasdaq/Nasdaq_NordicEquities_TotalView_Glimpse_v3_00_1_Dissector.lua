@@ -224,7 +224,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.data = function(pac
   local key = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.key(packet)
   local data = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key] = data
   end
   return data
@@ -1483,13 +1483,11 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_snapshot_message.fields =
   -- Sequence Number: Numeric
   index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2466,6 +2464,9 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_data_packet.fields = f
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2589,13 +2590,11 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.fields = f
   -- Sequence Number: Numeric
   index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2812,6 +2811,16 @@ end
 
 -- Dissect Server Packet
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -3163,6 +3172,9 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.init()
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = nil
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current = nil
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows = {}
 end
 
 -- Connection roles for Nasdaq NordicEquities TotalView Glimpse 3.00.1: Client is the initiator, Server is the acceptor
@@ -3385,6 +3397,9 @@ end
 
 -- Register Heuristics for Nasdaq NordicEquities TotalView Glimpse 3.00.1
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1:register_heuristic("tcp", omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1_tcp_heuristic)
+-- Register Nasdaq NordicEquities TotalView Glimpse 3.00.1 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

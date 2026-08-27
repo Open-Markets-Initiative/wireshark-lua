@@ -4830,6 +4830,12 @@ end
 -- Register Heuristics for Miax MiaxOptions Ais Mach 2.6
 omi_miax_miaxoptions_ais_mach_v2_6:register_heuristic("udp", omi_miax_miaxoptions_ais_mach_v2_6_udp_heuristic)
 omi_miax_miaxoptions_ais_mach_v2_6:register_heuristic("tcp", omi_miax_miaxoptions_ais_mach_v2_6_tcp_heuristic)
+-- Register Miax MiaxOptions Ais Mach 2.6 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_6)
+-- Register Miax MiaxOptions Ais Mach 2.6 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_6)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

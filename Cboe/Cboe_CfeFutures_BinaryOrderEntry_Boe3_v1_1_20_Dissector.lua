@@ -7985,6 +7985,9 @@ end
 
 -- Register Heuristics for Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20:register_heuristic("tcp", omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20_tcp_heuristic)
+-- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

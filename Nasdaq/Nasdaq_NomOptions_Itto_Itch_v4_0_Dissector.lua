@@ -5085,6 +5085,12 @@ end
 -- Register Heuristics for Nasdaq NomOptions Itto Itch 4.0
 omi_nasdaq_nomoptions_itto_itch_v4_0:register_heuristic("tcp", omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_heuristic)
 omi_nasdaq_nomoptions_itto_itch_v4_0:register_heuristic("udp", omi_nasdaq_nomoptions_itto_itch_v4_0_udp_heuristic)
+-- Register Nasdaq NomOptions Itto Itch 4.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nasdaq_nomoptions_itto_itch_v4_0)
+-- Register Nasdaq NomOptions Itto Itch 4.0 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_nasdaq_nomoptions_itto_itch_v4_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

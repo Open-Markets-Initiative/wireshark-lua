@@ -1760,6 +1760,12 @@ end
 -- Register Heuristics for Cme Globex BrokerTecUst Sbe 10.1
 omi_cme_globex_brokertecust_sbe_v10_1:register_heuristic("udp", omi_cme_globex_brokertecust_sbe_v10_1_udp_heuristic)
 omi_cme_globex_brokertecust_sbe_v10_1:register_heuristic("tcp", omi_cme_globex_brokertecust_sbe_v10_1_tcp_heuristic)
+-- Register Cme Globex BrokerTecUst Sbe 10.1 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cme_globex_brokertecust_sbe_v10_1)
+-- Register Cme Globex BrokerTecUst Sbe 10.1 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cme_globex_brokertecust_sbe_v10_1)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

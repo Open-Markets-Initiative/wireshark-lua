@@ -17482,6 +17482,12 @@ end
 -- Register Heuristics for Cme Globex Mdp3 Sbe 1.12
 omi_cme_globex_mdp3_sbe_v1_12:register_heuristic("udp", omi_cme_globex_mdp3_sbe_v1_12_udp_heuristic)
 omi_cme_globex_mdp3_sbe_v1_12:register_heuristic("tcp", omi_cme_globex_mdp3_sbe_v1_12_tcp_heuristic)
+-- Register Cme Globex Mdp3 Sbe 1.12 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cme_globex_mdp3_sbe_v1_12)
+-- Register Cme Globex Mdp3 Sbe 1.12 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cme_globex_mdp3_sbe_v1_12)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

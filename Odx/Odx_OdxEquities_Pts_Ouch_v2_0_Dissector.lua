@@ -185,7 +185,7 @@ odx_odxequities_pts_ouch_v2_0.conversation.data = function(packet)
   local key = odx_odxequities_pts_ouch_v2_0.conversation.key(packet)
   local data = odx_odxequities_pts_ouch_v2_0.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     odx_odxequities_pts_ouch_v2_0.conversation.flows[key] = data
   end
   return data
@@ -2067,6 +2067,9 @@ odx_odxequities_pts_ouch_v2_0.sequenced_data_packet.fields = function(buffer, of
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(odx_odxequities_pts_ouch_v2_0.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2190,13 +2193,11 @@ odx_odxequities_pts_ouch_v2_0.login_accepted_packet.fields = function(buffer, of
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = odx_odxequities_pts_ouch_v2_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  odx_odxequities_pts_ouch_v2_0.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = odx_odxequities_pts_ouch_v2_0.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    odx_odxequities_pts_ouch_v2_0.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2413,6 +2414,14 @@ end
 
 -- Dissect Server Packet
 odx_odxequities_pts_ouch_v2_0.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = odx_odxequities_pts_ouch_v2_0.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  odx_odxequities_pts_ouch_v2_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  odx_odxequities_pts_ouch_v2_0.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -2979,6 +2988,9 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxequities_pts_ouch_v2_0.init()
+  odx_odxequities_pts_ouch_v2_0.sequence_number.current = nil
+  odx_odxequities_pts_ouch_v2_0.conversation.current = nil
+  odx_odxequities_pts_ouch_v2_0.conversation.flows = {}
 end
 
 -- Connection roles for Odx OdxEquities Pts Ouch 2.0: Client is the initiator, Server is the acceptor
@@ -3201,6 +3213,9 @@ end
 
 -- Register Heuristics for Odx OdxEquities Pts Ouch 2.0
 omi_odx_odxequities_pts_ouch_v2_0:register_heuristic("tcp", omi_odx_odxequities_pts_ouch_v2_0_tcp_heuristic)
+-- Register Odx OdxEquities Pts Ouch 2.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_odx_odxequities_pts_ouch_v2_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

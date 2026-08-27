@@ -122,28 +122,7 @@ omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.fields.upper_collar_ca
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_timestamp = true
 
 -- Reference Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_reference_price_calculate = true
-
--- Continuous Book Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_continuous_book_clearing_price_calculate = true
-
--- Auction Interest Clearing Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_auction_interest_clearing_price_calculate = true
-
--- SSR Filing Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_ssr_filing_price_calculate = true
-
--- Indicative Match Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_indicative_match_price_calculate = true
-
--- Upper Collar Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_upper_collar_calculate = true
-
--- Lower Collar Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_lower_collar_calculate = true
-
--- Price Calculate format (true = decimal-scaled, false = raw mantissa)
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_price_calculate = true
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals = true
 
 
 -----------------------------------------------------------------------
@@ -168,14 +147,7 @@ omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.show_headers = P
 omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_reference_price_calculate = Pref.bool("Format Reference Price Calculate", true, "Format Reference Price Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate = Pref.bool("Format Continuous Book Clearing Price Calculate", true, "Format Continuous Book Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate = Pref.bool("Format Auction Interest Clearing Price Calculate", true, "Format Auction Interest Clearing Price Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate = Pref.bool("Format SSR Filing Price Calculate", true, "Format SSR Filing Price Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_indicative_match_price_calculate = Pref.bool("Format Indicative Match Price Calculate", true, "Format Indicative Match Price Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_upper_collar_calculate = Pref.bool("Format Upper Collar Calculate", true, "Format Upper Collar Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_lower_collar_calculate = Pref.bool("Format Lower Collar Calculate", true, "Format Lower Collar Calculate as decimal-scaled value (off = raw mantissa)")
-omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_price_calculate = Pref.bool("Format Price Calculate", true, "Format Price Calculate as decimal-scaled value (off = raw mantissa)")
+omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs_changed()
@@ -202,29 +174,8 @@ function omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs_changed
   if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_timestamp ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_timestamp then
     nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_timestamp = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_timestamp
   end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_reference_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_reference_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_reference_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_reference_price_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_continuous_book_clearing_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_continuous_book_clearing_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_continuous_book_clearing_price_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_auction_interest_clearing_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_auction_interest_clearing_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_auction_interest_clearing_price_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_ssr_filing_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_ssr_filing_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_ssr_filing_price_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_indicative_match_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_indicative_match_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_indicative_match_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_indicative_match_price_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_upper_collar_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_upper_collar_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_upper_collar_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_upper_collar_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_lower_collar_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_lower_collar_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_lower_collar_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_lower_collar_calculate
-  end
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_price_calculate ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_price_calculate then
-    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_price_calculate = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_price_calculate
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals ~= omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_decimals then
+    nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals = omi_nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.prefs.format_decimals
   end
 end
 
@@ -2420,7 +2371,7 @@ end
 
 -- Dissect: Auction Interest Clearing Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.auction_interest_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_auction_interest_clearing_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.auction_interest_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2458,7 +2409,7 @@ end
 
 -- Dissect: Continuous Book Clearing Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_continuous_book_clearing_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2496,7 +2447,7 @@ end
 
 -- Dissect: Indicative Match Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_indicative_match_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2534,7 +2485,7 @@ end
 
 -- Dissect: Lower Collar Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.lower_collar_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_lower_collar_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.lower_collar_calculate.composite(buffer, offset, record, packet, parent)
@@ -2572,7 +2523,7 @@ end
 
 -- Dissect: Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2610,7 +2561,7 @@ end
 
 -- Dissect: Reference Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.reference_price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_reference_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.reference_price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2691,7 +2642,7 @@ end
 
 -- Dissect: SSR Filing Price Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.ssr_filing_price_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_ssr_filing_price_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.ssr_filing_price_calculate.composite(buffer, offset, record, packet, parent)
@@ -2729,7 +2680,7 @@ end
 
 -- Dissect: Upper Collar Calculate
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.upper_collar_calculate.dissect = function(buffer, offset, packet, parent)
-  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_upper_collar_calculate then
+  if nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.format_decimals then
     local record = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.symbol_index_mapping_message.current
     if record ~= nil and record.price_scale_code ~= nil then
       return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_g.upper_collar_calculate.composite(buffer, offset, record, packet, parent)

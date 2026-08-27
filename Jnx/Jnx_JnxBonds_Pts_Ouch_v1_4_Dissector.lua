@@ -186,7 +186,7 @@ jnx_jnxbonds_pts_ouch_v1_4.conversation.data = function(packet)
   local key = jnx_jnxbonds_pts_ouch_v1_4.conversation.key(packet)
   local data = jnx_jnxbonds_pts_ouch_v1_4.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jnx_jnxbonds_pts_ouch_v1_4.conversation.flows[key] = data
   end
   return data
@@ -2072,6 +2072,9 @@ jnx_jnxbonds_pts_ouch_v1_4.sequenced_data_packet.fields = function(buffer, offse
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2195,13 +2198,11 @@ jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.fields = function(buffer, offse
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = jnx_jnxbonds_pts_ouch_v1_4.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = jnx_jnxbonds_pts_ouch_v1_4.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    jnx_jnxbonds_pts_ouch_v1_4.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2418,6 +2419,14 @@ end
 
 -- Dissect Server Packet
 jnx_jnxbonds_pts_ouch_v1_4.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jnx_jnxbonds_pts_ouch_v1_4.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = data.sequence_number.frames[packet.number]
+  jnx_jnxbonds_pts_ouch_v1_4.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -2984,6 +2993,9 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxbonds_pts_ouch_v1_4.init()
+  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = nil
+  jnx_jnxbonds_pts_ouch_v1_4.conversation.current = nil
+  jnx_jnxbonds_pts_ouch_v1_4.conversation.flows = {}
 end
 
 -- Connection roles for Jnx JnxBonds Pts Ouch 1.4: Client is the initiator, Server is the acceptor
@@ -3206,6 +3218,9 @@ end
 
 -- Register Heuristics for Jnx JnxBonds Pts Ouch 1.4
 omi_jnx_jnxbonds_pts_ouch_v1_4:register_heuristic("tcp", omi_jnx_jnxbonds_pts_ouch_v1_4_tcp_heuristic)
+-- Register Jnx JnxBonds Pts Ouch 1.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_jnx_jnxbonds_pts_ouch_v1_4)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.

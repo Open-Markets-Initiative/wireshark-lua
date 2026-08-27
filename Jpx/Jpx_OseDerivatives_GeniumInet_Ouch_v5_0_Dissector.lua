@@ -157,7 +157,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.conversation.data = function(packet)
   local key = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.key(packet)
   local data = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows[key]
   if data == nil then
-    data = { sequence = { next = nil, frames = {} } }
+    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows[key] = data
   end
   return data
@@ -2332,6 +2332,9 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields = function(
   if flow ~= nil then
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current)
+      end
       local value = flow.sequence.next
       if value ~= nil then
         if memo == nil then
@@ -2455,13 +2458,11 @@ jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.fields = function(
   -- Sequence Number: 20 Byte Ascii String
   index, sequence_number = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Stream sequence anchor: the next sequenced message's number
+  -- Store Sequence Number Value
+  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = sequence_number
+
   if not packet.visited then
-    local flow = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current
-    local anchor = tonumber(sequence_number)
-    if flow ~= nil and anchor ~= nil then
-      flow.sequence.next = anchor
-    end
+    jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current.sequence_number.last = sequence_number
   end
 
   return index
@@ -2678,6 +2679,14 @@ end
 
 -- Dissect Server Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.data(packet)
+  if not packet.visited then
+    data.sequence_number.frames[packet.number] = data.sequence_number.last
+  end
+  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -3404,6 +3413,9 @@ end
 
 -- Initialize Dissector
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.init()
+  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = nil
+  jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current = nil
+  jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows = {}
 end
 
 -- Connection roles for Jpx OseDerivatives GeniumInet Ouch 5.0: Client is the initiator, Server is the acceptor
@@ -3626,6 +3638,9 @@ end
 
 -- Register Heuristics for Jpx OseDerivatives GeniumInet Ouch 5.0
 omi_jpx_osederivatives_geniuminet_ouch_v5_0:register_heuristic("tcp", omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic)
+-- Register Jpx OseDerivatives GeniumInet Ouch 5.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_jpx_osederivatives_geniuminet_ouch_v5_0)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross-platform dissection solution.
