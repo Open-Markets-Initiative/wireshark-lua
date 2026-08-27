@@ -8632,7 +8632,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.text.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.text_length.size
 
-  local text_length = buffer(offset + index - 1, 1):le_uint()
+  local text_length = buffer(offset + 0, 1):le_uint()
 
   if text_length > 0 then
     -- Parse runtime size of: Text Data
@@ -9155,7 +9155,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.memo.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.memo_length.size
 
-  local memo_length = buffer(offset + index - 1, 1):le_uint()
+  local memo_length = buffer(offset + 0, 1):le_uint()
 
   if memo_length > 0 then
     -- Parse runtime size of: Memo Data
@@ -9226,7 +9226,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.desk_id.size = function(buffer, offse
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.desk_id_length.size
 
-  local desk_id_length = buffer(offset + index - 1, 1):le_uint()
+  local desk_id_length = buffer(offset + 0, 1):le_uint()
 
   if desk_id_length > 0 then
     -- Parse runtime size of: Desk Id Data
@@ -13797,7 +13797,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.credentials.size = function(buffer, o
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.credentials_length.size
 
-  local credentials_length = buffer(offset + index - 1, 1):le_uint()
+  local credentials_length = buffer(offset + 0, 1):le_uint()
 
   if credentials_length > 0 then
     -- Parse runtime size of: Credentials Data
@@ -14125,7 +14125,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_app_version.size = function(bu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_app_version_length.size
 
-  local client_app_version_length = buffer(offset + index - 1, 1):le_uint()
+  local client_app_version_length = buffer(offset + 0, 1):le_uint()
 
   if client_app_version_length > 0 then
     -- Parse runtime size of: Client App Version Data
@@ -14196,7 +14196,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_app_name.size = function(buffe
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_app_name_length.size
 
-  local client_app_name_length = buffer(offset + index - 1, 1):le_uint()
+  local client_app_name_length = buffer(offset + 0, 1):le_uint()
 
   if client_app_name_length > 0 then
     -- Parse runtime size of: Client App Name Data
@@ -14267,7 +14267,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_ip.size = function(buffer, off
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.client_ip_length.size
 
-  local client_ip_length = buffer(offset + index - 1, 1):le_uint()
+  local client_ip_length = buffer(offset + 0, 1):le_uint()
 
   if client_ip_length > 0 then
     -- Parse runtime size of: Client Ip Data

@@ -31,9 +31,6 @@ jobs:
       - name: Run B3 B3Derivatives BinaryEntryPoint Sbe 8.1 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryEntryPoint-Sbe-v8-1-Test.sh
 
-      - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.6 Dissector Tests
-        run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-6-Test.sh
-
       - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-8-Test.sh
 
@@ -211,8 +208,8 @@ jobs:
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 
-      - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.17 Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-17-Test.sh
+      - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.8 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-8-Test.sh
 
       - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
@@ -252,9 +249,6 @@ jobs:
 
       - name: Run Siac Cts Output Cta 2.9 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-9-Test.sh
-
-      - name: Run Siac Opra Recipient Obi 6.1 Dissector Tests
-        run: bash -x .github/tests/Siac-Opra-Recipient-Obi-v6-1-Test.sh
 
       - name: Run Tmx Mx Sola Multicast Hsvf 1.14 Dissector Tests
         run: bash -x .github/tests/Tmx-Mx-Sola-Multicast-Hsvf-v1-14-Test.sh

@@ -4541,7 +4541,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.details.size = function(buffer, offset)
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_0.details_length.size
 
-  local details_length = buffer(offset + index - 1, 1):le_uint()
+  local details_length = buffer(offset + 0, 1):le_uint()
 
   if details_length > 0 then
     -- Parse runtime size of: Details Data
@@ -7698,7 +7698,7 @@ coinbase_deribit_ordersapi_sbe_v1_0.reason.size = function(buffer, offset)
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_0.reason_length.size
 
-  local reason_length = buffer(offset + index - 1, 1):le_uint()
+  local reason_length = buffer(offset + 0, 1):le_uint()
 
   if reason_length > 0 then
     -- Parse runtime size of: Reason Data

@@ -7027,7 +7027,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.execution_report.size = functi
 
   index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.open_close.size
 
-  local seq_msg_length = buffer(offset + index - 134, 2):le_uint()
+  local seq_msg_length = buffer(offset + 2, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.size
@@ -7679,7 +7679,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_acknowledgement.size = f
 
   index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 139, 2):le_uint()
+  local seq_msg_length = buffer(offset + 2, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.size
@@ -8800,7 +8800,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.covered.size = function(buffer
 
   index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 255, 2):le_uint()
+  local seq_msg_length = buffer(offset - 151, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.size
@@ -9364,7 +9364,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_request.size = function(
 
   index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
+  local seq_msg_length = buffer(offset + 2, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_15.optional_order_add_on.size

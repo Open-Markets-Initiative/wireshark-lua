@@ -17233,7 +17233,7 @@ cme_globex_ilink3_sbe_v8_6.credentials.size = function(buffer, offset)
 
   index = index + cme_globex_ilink3_sbe_v8_6.credentials_length.size
 
-  local credentials_length = buffer(offset + index - 2, 2):le_uint()
+  local credentials_length = buffer(offset + 0, 2):le_uint()
 
   if credentials_length > 0 then
     -- Parse runtime size of: Credentials Data

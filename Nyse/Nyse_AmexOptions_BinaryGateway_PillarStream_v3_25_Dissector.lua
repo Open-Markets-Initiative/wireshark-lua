@@ -8697,7 +8697,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.covered.size = function(buffer
 
   index = index + nyse_amexoptions_binarygateway_pillarstream_v3_25.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 326, 2):le_uint()
+  local seq_msg_length = buffer(offset - 226, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_amexoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.size
@@ -8826,7 +8826,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.exposed.size = function(buffer
 
   index = index + nyse_amexoptions_binarygateway_pillarstream_v3_25.auction_id.size
 
-  local seq_msg_length = buffer(offset + index - 179, 2):le_uint()
+  local seq_msg_length = buffer(offset - 79, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_amexoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.size

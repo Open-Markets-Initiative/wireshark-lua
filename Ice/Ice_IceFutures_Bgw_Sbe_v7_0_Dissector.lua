@@ -8624,7 +8624,7 @@ ice_icefutures_bgw_sbe_v7_0.text.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.text_length.size
 
-  local text_length = buffer(offset + index - 2, 2):le_uint()
+  local text_length = buffer(offset + 0, 2):le_uint()
 
   if text_length > 0 then
     -- Parse runtime size of: Text Data
@@ -12622,7 +12622,7 @@ ice_icefutures_bgw_sbe_v7_0.product_group.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.product_group_length.size
 
-  local product_group_length = buffer(offset + index - 2, 2):le_uint()
+  local product_group_length = buffer(offset + 0, 2):le_uint()
 
   if product_group_length > 0 then
     -- Parse runtime size of: Product Group Data
@@ -12693,7 +12693,7 @@ ice_icefutures_bgw_sbe_v7_0.product_desc.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.product_desc_length.size
 
-  local product_desc_length = buffer(offset + index - 2, 2):le_uint()
+  local product_desc_length = buffer(offset + 0, 2):le_uint()
 
   if product_desc_length > 0 then
     -- Parse runtime size of: Product Desc Data
@@ -12764,7 +12764,7 @@ ice_icefutures_bgw_sbe_v7_0.product_name.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.product_name_length.size
 
-  local product_name_length = buffer(offset + index - 2, 2):le_uint()
+  local product_name_length = buffer(offset + 0, 2):le_uint()
 
   if product_name_length > 0 then
     -- Parse runtime size of: Product Name Data
@@ -13113,7 +13113,7 @@ ice_icefutures_bgw_sbe_v7_0.home_exchange.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.home_exchange_length.size
 
-  local home_exchange_length = buffer(offset + index - 2, 2):le_uint()
+  local home_exchange_length = buffer(offset + 0, 2):le_uint()
 
   if home_exchange_length > 0 then
     -- Parse runtime size of: Home Exchange Data
@@ -13184,7 +13184,7 @@ ice_icefutures_bgw_sbe_v7_0.physical_code.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.physical_code_length.size
 
-  local physical_code_length = buffer(offset + index - 2, 2):le_uint()
+  local physical_code_length = buffer(offset + 0, 2):le_uint()
 
   if physical_code_length > 0 then
     -- Parse runtime size of: Physical Code Data
@@ -13255,7 +13255,7 @@ ice_icefutures_bgw_sbe_v7_0.security_exchange.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.security_exchange_length.size
 
-  local security_exchange_length = buffer(offset + index - 2, 2):le_uint()
+  local security_exchange_length = buffer(offset + 0, 2):le_uint()
 
   if security_exchange_length > 0 then
     -- Parse runtime size of: Security Exchange Data
@@ -13326,7 +13326,7 @@ ice_icefutures_bgw_sbe_v7_0.hub_alias.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.hub_alias_length.size
 
-  local hub_alias_length = buffer(offset + index - 2, 2):le_uint()
+  local hub_alias_length = buffer(offset + 0, 2):le_uint()
 
   if hub_alias_length > 0 then
     -- Parse runtime size of: Hub Alias Data
@@ -13397,7 +13397,7 @@ ice_icefutures_bgw_sbe_v7_0.hub_name.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.hub_name_length.size
 
-  local hub_name_length = buffer(offset + index - 2, 2):le_uint()
+  local hub_name_length = buffer(offset + 0, 2):le_uint()
 
   if hub_name_length > 0 then
     -- Parse runtime size of: Hub Name Data
@@ -13468,7 +13468,7 @@ ice_icefutures_bgw_sbe_v7_0.strip_name.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.strip_name_length.size
 
-  local strip_name_length = buffer(offset + index - 2, 2):le_uint()
+  local strip_name_length = buffer(offset + 0, 2):le_uint()
 
   if strip_name_length > 0 then
     -- Parse runtime size of: Strip Name Data
@@ -13539,7 +13539,7 @@ ice_icefutures_bgw_sbe_v7_0.price_unit.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.price_unit_length.size
 
-  local price_unit_length = buffer(offset + index - 2, 2):le_uint()
+  local price_unit_length = buffer(offset + 0, 2):le_uint()
 
   if price_unit_length > 0 then
     -- Parse runtime size of: Price Unit Data
@@ -13610,7 +13610,7 @@ ice_icefutures_bgw_sbe_v7_0.security_desc.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.security_desc_length.size
 
-  local security_desc_length = buffer(offset + index - 2, 2):le_uint()
+  local security_desc_length = buffer(offset + 0, 2):le_uint()
 
   if security_desc_length > 0 then
     -- Parse runtime size of: Security Desc Data
@@ -13681,7 +13681,7 @@ ice_icefutures_bgw_sbe_v7_0.cleared_alias.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.cleared_alias_length.size
 
-  local cleared_alias_length = buffer(offset + index - 2, 2):le_uint()
+  local cleared_alias_length = buffer(offset + 0, 2):le_uint()
 
   if cleared_alias_length > 0 then
     -- Parse runtime size of: Cleared Alias Data
@@ -13752,7 +13752,7 @@ ice_icefutures_bgw_sbe_v7_0.price_denomination.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.price_denomination_length.size
 
-  local price_denomination_length = buffer(offset + index - 2, 2):le_uint()
+  local price_denomination_length = buffer(offset + 0, 2):le_uint()
 
   if price_denomination_length > 0 then
     -- Parse runtime size of: Price Denomination Data
@@ -13823,7 +13823,7 @@ ice_icefutures_bgw_sbe_v7_0.unit_of_measure.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.unit_of_measure_length.size
 
-  local unit_of_measure_length = buffer(offset + index - 2, 2):le_uint()
+  local unit_of_measure_length = buffer(offset + 0, 2):le_uint()
 
   if unit_of_measure_length > 0 then
     -- Parse runtime size of: Unit Of Measure Data
@@ -13894,7 +13894,7 @@ ice_icefutures_bgw_sbe_v7_0.security_id.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.security_id_length.size
 
-  local security_id_length = buffer(offset + index - 2, 2):le_uint()
+  local security_id_length = buffer(offset + 0, 2):le_uint()
 
   if security_id_length > 0 then
     -- Parse runtime size of: Security Id Data
@@ -14608,7 +14608,7 @@ ice_icefutures_bgw_sbe_v7_0.strategy_security_id.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.strategy_security_id_length.size
 
-  local strategy_security_id_length = buffer(offset + index - 2, 2):le_uint()
+  local strategy_security_id_length = buffer(offset + 0, 2):le_uint()
 
   if strategy_security_id_length > 0 then
     -- Parse runtime size of: Strategy Security Id Data

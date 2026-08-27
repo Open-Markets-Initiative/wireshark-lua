@@ -2250,7 +2250,7 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size = 
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.size
 
-  local inside_appendage_indicator = buffer(offset + index - 1, 1):string()
+  local inside_appendage_indicator = buffer(offset + 62, 1):string()
 
   if inside_appendage_indicator == "3" then
     index = index + finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.size

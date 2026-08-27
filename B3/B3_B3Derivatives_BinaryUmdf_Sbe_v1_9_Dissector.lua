@@ -7429,7 +7429,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.url_link.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.url_link_length.size
 
-  local url_link_length = buffer(offset + index - 2, 2):le_uint()
+  local url_link_length = buffer(offset + 0, 2):le_uint()
 
   if url_link_length > 0 then
     -- Parse runtime size of: Url Link Data
@@ -7493,7 +7493,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.text.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.text_length.size
 
-  local text_length = buffer(offset + index - 2, 2):le_uint()
+  local text_length = buffer(offset + 0, 2):le_uint()
 
   if text_length > 0 then
     -- Parse runtime size of: Text Data
@@ -7557,7 +7557,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.headline.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.headline_length.size
 
-  local headline_length = buffer(offset + index - 2, 2):le_uint()
+  local headline_length = buffer(offset + 0, 2):le_uint()
 
   if headline_length > 0 then
     -- Parse runtime size of: Headline Data
@@ -7721,7 +7721,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_desc.size = function(buffer, offse
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.security_desc_length.size
 
-  local security_desc_length = buffer(offset + index - 1, 1):le_uint()
+  local security_desc_length = buffer(offset + 0, 1):le_uint()
 
   if security_desc_length > 0 then
     -- Parse runtime size of: Security Desc Data

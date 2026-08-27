@@ -2221,7 +2221,7 @@ otcmarkets_linkats_multicast_link_v4_3.issuer.size = function(buffer, offset)
 
   index = index + otcmarkets_linkats_multicast_link_v4_3.issuer_size.size
 
-  local issuer_size = buffer(offset + index - 1, 1):uint()
+  local issuer_size = buffer(offset + 0, 1):uint()
 
   if issuer_size > 0 then
     -- Parse runtime size of: Issuer Name
@@ -2285,7 +2285,7 @@ otcmarkets_linkats_multicast_link_v4_3.security_detail.size = function(buffer, o
 
   index = index + otcmarkets_linkats_multicast_link_v4_3.security_detail_size.size
 
-  local security_detail_size = buffer(offset + index - 1, 1):uint()
+  local security_detail_size = buffer(offset + 0, 1):uint()
 
   if security_detail_size > 0 then
     -- Parse runtime size of: Security Detail Name

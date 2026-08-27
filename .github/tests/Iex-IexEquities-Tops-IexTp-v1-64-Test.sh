@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Iex/IexEquities.Tops.v1.6/QuoteUpdateMessage.pcap" \
+  -r "omi-data-packets/Iex/IexEquities.Tops.v1.64/QuoteUpdateMessage.pcap" \
   -X "lua_script:Iex/Iex_IexEquities_Tops_IexTp_v1_64_Dissector.lua" \
   -T json \
   > Iex.IexEquities.Tops.IexTp.v1.64.QuoteUpdateMessage.json 2> Iex.IexEquities.Tops.IexTp.v1.64.QuoteUpdateMessage.json.stderr \

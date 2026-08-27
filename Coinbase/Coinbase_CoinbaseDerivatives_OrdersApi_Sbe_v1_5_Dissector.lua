@@ -3892,7 +3892,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.data.size = function(buffer, off
 
   index = index + coinbase_coinbasederivatives_ordersapi_sbe_v1_5.data_length.size
 
-  local data_length = buffer(offset + index - 1, 1):le_uint()
+  local data_length = buffer(offset + 0, 1):le_uint()
 
   if data_length > 0 then
     -- Parse runtime size of: Data Value

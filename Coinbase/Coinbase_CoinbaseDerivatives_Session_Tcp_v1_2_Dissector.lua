@@ -800,7 +800,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.size = function(b
 
   index = index + coinbase_coinbasederivatives_session_tcp_v1_2.new_sequence_number.size
 
-  local message_length = buffer(offset + index - 34, 2):le_uint()
+  local message_length = buffer(offset - 30, 2):le_uint()
 
   if message_length - (index - offset) > 0 then
     -- Parse runtime size of: Padding

@@ -5127,21 +5127,21 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.size = fun
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
 
-  local bolo_appendage_indicator = buffer(offset + index - 4, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 46, 1):string()
 
   if bolo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 14, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 46, 1):string()
 
   if bolo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 36, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 46, 1):string()
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
@@ -5268,21 +5268,21 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.size = fu
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
 
-  local bolo_appendage_indicator = buffer(offset + index - 4, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 32, 1):string()
 
   if bolo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 14, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 32, 1):string()
 
   if bolo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 36, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 32, 1):string()
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
@@ -5600,42 +5600,42 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.size = fu
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
 
-  local nbbo_appendage_indicator = buffer(offset + index - 7, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
 
   end
 
-  local nbbo_appendage_indicator = buffer(offset + index - 18, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
 
   end
 
-  local finra_adf_mpid_appendage_indicator = buffer(offset + index - 43, 1):string()
+  local finra_adf_mpid_appendage_indicator = buffer(offset + 75, 1):string()
 
   if finra_adf_mpid_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 50, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 76, 1):string()
 
   if bolo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 60, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 76, 1):string()
 
   if bolo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 82, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 76, 1):string()
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
@@ -5837,35 +5837,35 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.size = f
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_count.size
 
-  local nbbo_appendage_indicator = buffer(offset + index - 6, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
 
   end
 
-  local nbbo_appendage_indicator = buffer(offset + index - 17, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 42, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 45, 1):string()
 
   if bolo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_short_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 52, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 45, 1):string()
 
   if bolo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_long_form.size
 
   end
 
-  local bolo_appendage_indicator = buffer(offset + index - 74, 1):string()
+  local bolo_appendage_indicator = buffer(offset + 45, 1):string()
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
@@ -6138,14 +6138,14 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.size = function(buffer,
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.finra_adf_mpid_appendage_indicator.size
 
-  local nbbo_appendage_indicator = buffer(offset + index - 3, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
 
   end
 
-  local nbbo_appendage_indicator = buffer(offset + index - 14, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
 
   if nbbo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
@@ -6296,14 +6296,14 @@ nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.size = function(buffer
 
   index = index + nasdaq_uqdf_output_utp_v3_0_c.luld_national_bbo_indicator.size
 
-  local nbbo_appendage_indicator = buffer(offset + index - 2, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "2" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_shortform.size
 
   end
 
-  local nbbo_appendage_indicator = buffer(offset + index - 13, 1):string()
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
 
   if nbbo_appendage_indicator == "3" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.national_bbo_appendage_longform.size
