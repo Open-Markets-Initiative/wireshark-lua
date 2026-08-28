@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.v2.5.g/AddOrderRefreshMessage.pcap" \
+  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/AddOrderRefreshMessage.pcap" \
   -X "lua_script:Nyse/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json 2> Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr \
@@ -21,7 +21,7 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.side" Nyse.TexasEqu
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.firmid" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.v2.5.g/RefreshHeaderMessage.pcap" \
+  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json 2> Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json.stderr \
@@ -32,7 +32,7 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.totalrefreshpkts" N
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.lastseqnum" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.lastsymbolseqnum" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.v2.5.g/SecurityStatusMessage.pcap" \
+  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json 2> Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json.stderr \
@@ -54,7 +54,7 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.ssrstate" Nyse.Texa
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.marketstate" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.sessionstate" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.v2.5.g/SymbolIndexMappingMessage.pcap" \
+  -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json 2> Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr \

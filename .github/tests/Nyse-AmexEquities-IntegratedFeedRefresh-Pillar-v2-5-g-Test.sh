@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.v2.5.g/AddOrderRefreshMessage.pcap" \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/AddOrderRefreshMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json 2> Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr \
@@ -21,7 +21,7 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.side" Nyse.AmexEquit
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.firmid" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.v2.5.g/ImbalanceMessage.pcap" \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json 2> Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json.stderr \
@@ -51,7 +51,7 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unpairedqty" Nyse.Am
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unpairedside" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.v2.5.g/RefreshHeaderMessage.pcap" \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/RefreshHeaderMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json 2> Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json.stderr \
@@ -62,7 +62,7 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.totalrefreshpkts" Ny
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.lastseqnum" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.lastsymbolseqnum" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.v2.5.g/SecurityStatusMessage.pcap" \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json 2> Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json.stderr \
@@ -84,7 +84,7 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.ssrstate" Nyse.AmexE
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.marketstate" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.sessionstate" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.v2.5.g/SymbolIndexMappingMessage.pcap" \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json 2> Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr \

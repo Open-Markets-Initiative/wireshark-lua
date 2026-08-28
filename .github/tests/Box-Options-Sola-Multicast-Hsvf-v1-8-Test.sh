@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Box/Options.Sola.Multicast.v1.8/OptionQuoteMessage.pcap" \
+  -r "omi-data-packets/Box/Options.Sola.Multicast.Hsvf.v1.8/OptionQuoteMessage.pcap" \
   -X "lua_script:Box/Box_Options_Sola_Multicast_Hsvf_v1_8_Dissector.lua" \
   -T json \
   > Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json 2> Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json.stderr \

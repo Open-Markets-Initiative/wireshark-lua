@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/AskDeleteMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/AskDeleteMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskDeleteMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskDeleteMessage.json.stderr \
@@ -13,7 +13,7 @@ runuser -u tester -- tshark \
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.orderid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskDeleteMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskDeleteMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/AskPutMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/AskPutMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskPutMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskPutMessage.json.stderr \
@@ -24,7 +24,7 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.Mar
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskPutMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.price" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskPutMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/AskQtyReducedMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/AskQtyReducedMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskQtyReducedMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskQtyReducedMessage.json.stderr \
@@ -34,7 +34,7 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.orderid" Coinbase.Deribit.MarketDa
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskQtyReducedMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.AskQtyReducedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/BidDeleteMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/BidDeleteMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidDeleteMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidDeleteMessage.json.stderr \
@@ -43,7 +43,7 @@ runuser -u tester -- tshark \
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.orderid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidDeleteMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidDeleteMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/BidPutMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/BidPutMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidPutMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidPutMessage.json.stderr \
@@ -54,7 +54,7 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.Mar
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidPutMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.price" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidPutMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/BidQtyReducedMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/BidQtyReducedMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidQtyReducedMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidQtyReducedMessage.json.stderr \
@@ -64,7 +64,7 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.orderid" Coinbase.Deribit.MarketDa
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidQtyReducedMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.BidQtyReducedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/EndOfCycleMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/EndOfCycleMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.EndOfCycleMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.EndOfCycleMessage.json.stderr \
@@ -72,7 +72,7 @@ runuser -u tester -- tshark \
 
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.activeinstrumentcount" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.EndOfCycleMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/InstrumentMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/InstrumentMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json.stderr \
@@ -97,7 +97,7 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.type" Coinbase.Deribit.MarketDataA
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.status" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantityexponent" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.v0.1/SnapshotTrailerMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/SnapshotTrailerMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotTrailerMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotTrailerMessage.json.stderr \

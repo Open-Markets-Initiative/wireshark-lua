@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.v1.1.20/QuoteUpdate.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.Boe3.v1.1.20/QuoteUpdate.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_BinaryOrderEntry_Boe3_v1_1_20_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdate.json 2> Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdate.json.stderr \
@@ -23,7 +23,7 @@ grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.oeoid" Cboe.CfeFutures.Binar
 grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.sizemodifier" Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdate.json
 grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotecnt" Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdate.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.v1.1.20/QuoteUpdateAcknowledgement.pcap" \
+  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.Boe3.v1.1.20/QuoteUpdateAcknowledgement.pcap" \
   -X "lua_script:Cboe/Cboe_CfeFutures_BinaryOrderEntry_Boe3_v1_1_20_Dissector.lua" \
   -T json \
   > Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdateAcknowledgement.json 2> Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdateAcknowledgement.json.stderr \

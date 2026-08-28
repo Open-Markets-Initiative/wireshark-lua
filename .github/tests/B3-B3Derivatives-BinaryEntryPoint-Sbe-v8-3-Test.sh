@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/BusinessMessageRejectMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/BusinessMessageRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json.stderr \
@@ -16,7 +16,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.refseqnum" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.businessrejectrefid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.businessrejectreason" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/EstablishAckMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/EstablishAckMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishAckMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishAckMessage.json.stderr \
@@ -29,7 +29,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.keepaliveinterval" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.nextseqno" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishAckMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.lastincomingseqno" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishAckMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/EstablishMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/EstablishMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishMessage.json.stderr \
@@ -44,7 +44,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.cancelondisconnecttype" B3.B3De
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset33padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.codtimeoutwindow" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/EstablishRejectMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/EstablishRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishRejectMessage.json.stderr \
@@ -57,7 +57,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.establishmentrejectcode" B3.B3D
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset21padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.lastincomingseqnooptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.EstablishRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/ExecutionReportCancelMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/ExecutionReportCancelMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json.stderr \
@@ -94,7 +94,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.actionrequestedfromsessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/ExecutionReportModifyMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/ExecutionReportModifyMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json.stderr \
@@ -133,7 +133,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset179padding3" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/ExecutionReportNewMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/ExecutionReportNewMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json.stderr \
@@ -172,7 +172,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset165padding3" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/ExecutionReportRejectMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/ExecutionReportRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json.stderr \
@@ -205,7 +205,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/ExecutionReportTradeMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/ExecutionReportTradeMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json.stderr \
@@ -247,7 +247,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset159padding1" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/NegotiateMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NegotiateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateMessage.json.stderr \
@@ -259,7 +259,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timestamp" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.enteringfirm" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.onbehalffirm" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/NegotiateRejectMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NegotiateRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateRejectMessage.json.stderr \
@@ -273,7 +273,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.negotiationrejectcode" B3.B3Der
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset25padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.currentsessionverid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NegotiateRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/NewOrderCrossMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NewOrderCrossMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json.stderr \
@@ -292,7 +292,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crosstype" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxsweepqty" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/NewOrderSingleMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NewOrderSingleMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json.stderr \
@@ -320,7 +320,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.expiredate" B3.B3Derivatives.Bi
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/OrderCancelReplaceRequestMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/OrderCancelReplaceRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json.stderr \
@@ -351,7 +351,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.expiredate" B3.B3Derivatives.Bi
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/OrderCancelRequestMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/OrderCancelRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json.stderr \
@@ -369,7 +369,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivative
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.enteringtrader" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.executingtraderoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/OrderMassActionReportMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/OrderMassActionReportMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json.stderr \
@@ -389,7 +389,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset49padding1" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.asset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.securityidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/OrderMassActionRequestMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/OrderMassActionRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json.stderr \
@@ -405,7 +405,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset31padding1" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.asset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.securityidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/RetransmissionMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/RetransmissionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmissionMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmissionMessage.json.stderr \
@@ -416,7 +416,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.requesttimestamp" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.nextseqno" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmissionMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.count" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmissionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/RetransmitRejectMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/RetransmitRejectMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRejectMessage.json.stderr \
@@ -426,7 +426,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.requesttimestamp" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.retransmitrejectcode" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/RetransmitRequestMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/RetransmitRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRequestMessage.json.stderr \
@@ -437,7 +437,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timestamp" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.fromseqno" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.count" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.RetransmitRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/SequenceMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/SequenceMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SequenceMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SequenceMessage.json.stderr \
@@ -445,7 +445,7 @@ runuser -u tester -- tshark \
 
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.nextseqno" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SequenceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/SimpleModifyOrderMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/SimpleModifyOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json.stderr \
@@ -468,7 +468,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.priceoptional" B3.B3Derivatives
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.origclordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/SimpleNewOrderMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json.stderr \
@@ -489,7 +489,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.routinginstruction" B3.B3Deriva
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderqty" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.priceoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.v8.3/TerminateMessage.pcap" \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/TerminateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
   -T json \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.TerminateMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.TerminateMessage.json.stderr \

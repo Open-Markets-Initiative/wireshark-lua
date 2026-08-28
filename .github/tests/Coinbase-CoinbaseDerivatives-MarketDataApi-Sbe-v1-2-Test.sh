@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.v1.2/OrderDeleteMessage.pcap" \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/OrderDeleteMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr \
@@ -12,7 +12,7 @@ runuser -u tester -- tshark \
 
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.v1.2/OrderPutMessage.pcap" \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/OrderPutMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr \
@@ -22,7 +22,7 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.Coin
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.quantity" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.v1.2/OrderSnapshotMessage.pcap" \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/OrderSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json.stderr \
@@ -34,7 +34,7 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime" Coinbase
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderSnapshotMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.v1.2/StartOfOutrightInstrumentSnapshotMessage.pcap" \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/StartOfOutrightInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json.stderr \
@@ -57,7 +57,7 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingsessiondate" Co
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.productgroup" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfOutrightInstrumentSnapshotMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.v1.2/StartOfSpreadInstrumentSnapshotMessage.pcap" \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/StartOfSpreadInstrumentSnapshotMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json.stderr \

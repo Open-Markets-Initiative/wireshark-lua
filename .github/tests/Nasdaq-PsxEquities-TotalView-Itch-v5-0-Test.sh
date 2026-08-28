@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/AddOrderNoMpidAttributionMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/AddOrderNoMpidAttributionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json.stderr \
@@ -19,7 +19,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/AddOrderWithMpidAttributionMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/AddOrderWithMpidAttributionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json.stderr \
@@ -35,7 +35,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.attribution" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/OrderCancelMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/OrderCancelMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderCancelMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderCancelMessage.json.stderr \
@@ -47,7 +47,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.Total
 grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderCancelMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.cancelledshares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderCancelMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/OrderDeleteMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/OrderDeleteMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json.stderr \
@@ -58,7 +58,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderDeleteMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/OrderExecutedMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/OrderExecutedMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json.stderr \
@@ -71,7 +71,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEqu
 grep "nasdaq.psxequities.totalview.itch.v5.0.executedshares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.matchnumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/OrderExecutedWithPriceMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/OrderExecutedWithPriceMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedWithPriceMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedWithPriceMessage.json.stderr \
@@ -86,7 +86,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.matchnumber" Nasdaq.PsxEquities.Tot
 grep "nasdaq.psxequities.totalview.itch.v5.0.printable" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedWithPriceMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.executionprice" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderExecutedWithPriceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/OrderReplaceMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/OrderReplaceMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json.stderr \
@@ -100,7 +100,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.neworderreferencenumber" Nasdaq.Psx
 grep "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/RegShoShortSalePriceTestRestrictedIndicatorMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/RegShoShortSalePriceTestRestrictedIndicatorMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.RegShoShortSalePriceTestRestrictedIndicatorMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.RegShoShortSalePriceTestRestrictedIndicatorMessage.json.stderr \
@@ -112,7 +112,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.Total
 grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.RegShoShortSalePriceTestRestrictedIndicatorMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.regshoaction" Nasdaq.PsxEquities.TotalView.Itch.v5.0.RegShoShortSalePriceTestRestrictedIndicatorMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/StockTradingActionMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/StockTradingActionMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json.stderr \
@@ -126,7 +126,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.tradingstate" Nasdaq.PsxEquities.To
 grep "nasdaq.psxequities.totalview.itch.v5.0.reserved" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.reason" Nasdaq.PsxEquities.TotalView.Itch.v5.0.StockTradingActionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.v5.0.20230822/SystemEventMessage.pcap" \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0.20230822/SystemEventMessage.pcap" \
   -X "lua_script:Nasdaq/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
   -T json \
   > Nasdaq.PsxEquities.TotalView.Itch.v5.0.SystemEventMessage.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.SystemEventMessage.json.stderr \

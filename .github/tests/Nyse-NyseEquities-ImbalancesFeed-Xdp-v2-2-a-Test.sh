@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.v2.2.a/ImbalanceMessage.pcap" \
+  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/ImbalanceMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json.stderr \
@@ -34,7 +34,7 @@ grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.unpairedqty" Nyse.NyseEquities
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.unpairedside" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.significantimbalance" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.v2.2.a/SecurityStatusMessage.pcap" \
+  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json.stderr \
@@ -56,7 +56,7 @@ grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.ssrstate" Nyse.NyseEquities.Im
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.marketstate" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sessionstate" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.v2.2.a/SymbolIndexMappingMessage.pcap" \
+  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SymbolIndexMappingMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SymbolIndexMappingMessage.json.stderr \

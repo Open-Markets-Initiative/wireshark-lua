@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Siac/Cts.Output.v2.10/TradeCorrectionMessage.pcap" \
+  -r "omi-data-packets/Siac/Cts.Output.Cta.v2.10/TradeCorrectionMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json 2> Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr \

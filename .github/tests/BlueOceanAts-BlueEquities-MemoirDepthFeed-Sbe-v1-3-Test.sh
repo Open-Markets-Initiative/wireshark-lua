@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.v1.3/OrderAddedMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.Sbe.v1.3/OrderAddedMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json 2> BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json.stderr \
@@ -17,7 +17,7 @@ grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.side" BlueOceanAts.Blue
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.quantity" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.price" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderAddedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.v1.3/OrderDeletedMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.Sbe.v1.3/OrderDeletedMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json 2> BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json.stderr \
@@ -27,7 +27,7 @@ grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.timestamp" BlueOceanAts
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.securityid" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.orderid" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderDeletedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.v1.3/OrderExecutedMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.Sbe.v1.3/OrderExecutedMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json 2> BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json.stderr \
@@ -40,7 +40,7 @@ grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.tradeid" BlueOceanAts.B
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.quantity" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json
 grep "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.price" BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderExecutedMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.v1.3/OrderReducedMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirDepthFeed.Sbe.v1.3/OrderReducedMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json 2> BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json.stderr \

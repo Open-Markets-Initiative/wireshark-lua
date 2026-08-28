@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Txse/TxseEquities.Seed.v1.0/DefineSymbolMessage.pcap" \
+  -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/DefineSymbolMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua" \
   -T json \
   > Txse.TxseEquities.Seed.Rake.v1.0.DefineSymbolMessage.json 2> Txse.TxseEquities.Seed.Rake.v1.0.DefineSymbolMessage.json.stderr \
@@ -19,7 +19,7 @@ grep "txse.txseequities.seed.rake.v1.0.definesymbolbitfields" Txse.TxseEquities.
 grep "txse.txseequities.seed.rake.v1.0.lotsize" Txse.TxseEquities.Seed.Rake.v1.0.DefineSymbolMessage.json
 grep "txse.txseequities.seed.rake.v1.0.listingmarket" Txse.TxseEquities.Seed.Rake.v1.0.DefineSymbolMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Txse/TxseEquities.Seed.v1.0/LimitOrderMessage.pcap" \
+  -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/LimitOrderMessage.pcap" \
   -X "lua_script:Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua" \
   -T json \
   > Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json 2> Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json.stderr \

@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/AmendOrderRejectMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/AmendOrderRejectMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRejectMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRejectMessage.json.stderr \
@@ -18,7 +18,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.orderid" Coinbase.Deribit.OrdersApi.Sb
 grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRejectMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.reasonorderrejectreason" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/AmendOrderRequestMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/AmendOrderRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json.stderr \
@@ -30,7 +30,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersA
 grep "coinbase.deribit.ordersapi.sbe.v0.1.price" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.flagsreplaceorderflags" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/AmendOrderResponseMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/AmendOrderResponseMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderResponseMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderResponseMessage.json.stderr \
@@ -47,7 +47,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.receivetime" Coinbase.Deribit.OrdersAp
 grep "coinbase.deribit.ordersapi.sbe.v0.1.status" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderResponseMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.cancelreason" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderResponseMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/CancelOrderRequestMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/CancelOrderRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderRequestMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderRequestMessage.json.stderr \
@@ -57,7 +57,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.clientorderid" Coinbase.Deribit.Orders
 grep "coinbase.deribit.ordersapi.sbe.v0.1.correlationid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/CancelOrderResponseMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/CancelOrderResponseMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderResponseMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderResponseMessage.json.stderr \
@@ -71,7 +71,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.orderid" Coinbase.Deribit.OrdersApi.Sb
 grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderResponseMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.receivetime" Coinbase.Deribit.OrdersApi.Sbe.v0.1.CancelOrderResponseMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/MassQuoteRejectMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/MassQuoteRejectMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRejectMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRejectMessage.json.stderr \
@@ -84,7 +84,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.correlationid" Coinbase.Deribit.Orders
 grep "coinbase.deribit.ordersapi.sbe.v0.1.mmpgroupid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRejectMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.reasonmassquoterejectreason" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/MassQuoteRequestMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/MassQuoteRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRequestMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRequestMessage.json.stderr \
@@ -96,7 +96,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.mmpgroupid" Coinbase.Deribit.OrdersApi
 grep "coinbase.deribit.ordersapi.sbe.v0.1.selfmatchpreventionid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.flagsmassquoteflags" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/MassQuoteResponseMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/MassQuoteResponseMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteResponseMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteResponseMessage.json.stderr \
@@ -109,7 +109,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.correlationid" Coinbase.Deribit.Orders
 grep "coinbase.deribit.ordersapi.sbe.v0.1.mmpgroupid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteResponseMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.receivetime" Coinbase.Deribit.OrdersApi.Sbe.v0.1.MassQuoteResponseMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/NewOrderRejectMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/NewOrderRejectMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRejectMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRejectMessage.json.stderr \
@@ -123,7 +123,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.orderid" Coinbase.Deribit.OrdersApi.Sb
 grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRejectMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.reasonorderrejectreason" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/NewOrderRequestMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/NewOrderRequestMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json.stderr \
@@ -139,7 +139,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.timeinforce" Coinbase.Deribit.OrdersAp
 grep "coinbase.deribit.ordersapi.sbe.v0.1.flagsorderflags" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.selftradingmode" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/NewOrderResponseMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/NewOrderResponseMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderResponseMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderResponseMessage.json.stderr \
@@ -157,7 +157,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.side" Coinbase.Deribit.OrdersApi.Sbe.v
 grep "coinbase.deribit.ordersapi.sbe.v0.1.status" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderResponseMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.cancelreason" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderResponseMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.v0.1/OrderFilledMessage.pcap" \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/OrderFilledMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
   -T json \
   > Coinbase.Deribit.OrdersApi.Sbe.v0.1.OrderFilledMessage.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.OrderFilledMessage.json.stderr \

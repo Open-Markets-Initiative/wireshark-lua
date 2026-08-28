@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.v2.4.c/QuoteMessage.pcap" \
+  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/QuoteMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr \
@@ -21,7 +21,7 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.quotecondition" Nyse.ArcaEquities.Bbo.Xdp
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved4" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.v2.4.c/SequenceNumberResetMessage.pcap" \
+  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/SequenceNumberResetMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr \
@@ -32,7 +32,7 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimens" Nyse.ArcaEquities.Bbo.Xdp.v
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.productid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.channelid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.v2.4.c/SymbolIndexMappingMessage.pcap" \
+  -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/SymbolIndexMappingMessage.pcap" \
   -X "lua_script:Nyse/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr \

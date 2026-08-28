@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/T7.Eobi.v3.0/Heartbeat.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v3.0/Heartbeat.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v3_0_Dissector.lua" \
   -T json \
@@ -14,7 +14,7 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v3.0.lastmsgseqnumprocessed" Eurex.T7.Eobi.Fbe.v3.0.Heartbeat.json
 grep "eurex.t7.eobi.fbe.v3.0.pad4" Eurex.T7.Eobi.Fbe.v3.0.Heartbeat.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/T7.Eobi.v3.0/OrderAdd.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v3.0/OrderAdd.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v3_0_Dissector.lua" \
   -T json \
@@ -24,7 +24,7 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v3.0.trdregtstimein" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v3.0.securityid" Eurex.T7.Eobi.Fbe.v3.0.OrderAdd.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Eurex/T7.Eobi.v3.0/SnapshotOrder.pcap" \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v3.0/SnapshotOrder.pcap" \
   --disable-protocol eobi \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v3_0_Dissector.lua" \
   -T json \

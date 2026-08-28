@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Globex.iLink3.v8.5/ExecutionReportStatus.pcap" \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/ExecutionReportStatus.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr \
@@ -49,7 +49,7 @@ grep "cme.globex.ilink3.sbe.v8.5.liquidityflag" Cme.Globex.iLink3.Sbe.v8.5.Execu
 grep "cme.globex.ilink3.sbe.v8.5.managedorder" Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 grep "cme.globex.ilink3.sbe.v8.5.shortsaletype" Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Globex.iLink3.v8.5/QuoteCancel.pcap" \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/QuoteCancel.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json.stderr \
@@ -65,7 +65,7 @@ grep "cme.globex.ilink3.sbe.v8.5.quoteid" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel
 grep "cme.globex.ilink3.sbe.v8.5.quotecanceltype" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.globex.ilink3.sbe.v8.5.liquidityflag" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Globex.iLink3.v8.5/QuoteCancelAck.pcap" \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/QuoteCancelAck.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr \
@@ -94,7 +94,7 @@ grep "cme.globex.ilink3.sbe.v8.5.liquidityflag" Cme.Globex.iLink3.Sbe.v8.5.Quote
 grep "cme.globex.ilink3.sbe.v8.5.possretransflag" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.globex.ilink3.sbe.v8.5.delaytotime" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cme/Globex.iLink3.v8.5/Sequence.pcap" \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Sequence.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.Sequence.json 2> Cme.Globex.iLink3.Sbe.v8.5.Sequence.json.stderr \

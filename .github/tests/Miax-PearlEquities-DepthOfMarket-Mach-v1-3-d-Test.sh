@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/AddOrderMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/AddOrderMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.AddOrderMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.AddOrderMessage.json.stderr \
@@ -18,7 +18,7 @@ grep "miax.pearlequities.depthofmarket.mach.v1.3.d.price" Miax.PearlEquities.Dep
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.size" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.AddOrderMessage.json
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.attributableid" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.AddOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/DeleteOrderMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/DeleteOrderMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.DeleteOrderMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.DeleteOrderMessage.json.stderr \
@@ -28,7 +28,7 @@ grep "miax.pearlequities.depthofmarket.mach.v1.3.d.nanoseconds" Miax.PearlEquiti
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.symbolid" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.DeleteOrderMessage.json
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.orderid" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.DeleteOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/ModifyOrderMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/ModifyOrderMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.ModifyOrderMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.ModifyOrderMessage.json.stderr \
@@ -41,7 +41,7 @@ grep "miax.pearlequities.depthofmarket.mach.v1.3.d.price" Miax.PearlEquities.Dep
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.size" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.ModifyOrderMessage.json
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.modifyorderflags" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.ModifyOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/OrderExecutionMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/OrderExecutionMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.OrderExecutionMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.OrderExecutionMessage.json.stderr \
@@ -55,7 +55,7 @@ grep "miax.pearlequities.depthofmarket.mach.v1.3.d.price" Miax.PearlEquities.Dep
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.size" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.OrderExecutionMessage.json
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.orderexecutionflags" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.OrderExecutionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/SecurityTradingStatusNotificationMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/SecurityTradingStatusNotificationMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SecurityTradingStatusNotificationMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SecurityTradingStatusNotificationMessage.json.stderr \
@@ -67,7 +67,7 @@ grep "miax.pearlequities.depthofmarket.mach.v1.3.d.tradingstatus" Miax.PearlEqui
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.marketstate" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SecurityTradingStatusNotificationMessage.json
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.shortsalerestriction" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SecurityTradingStatusNotificationMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/SystemTimeMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/SystemTimeMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SystemTimeMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SystemTimeMessage.json.stderr \
@@ -75,7 +75,7 @@ runuser -u tester -- tshark \
 
 grep "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds" Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.SystemTimeMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.v1.3/TradeMessage.pcap" \
+  -r "omi-data-packets/Miax/PearlEquities.DepthOfMarket.Mach.v1.3/TradeMessage.pcap" \
   -X "lua_script:Miax/Miax_PearlEquities_DepthOfMarket_Mach_v1_3_d_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.TradeMessage.json 2> Miax.PearlEquities.DepthOfMarket.Mach.v1.3.d.TradeMessage.json.stderr \

@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Siac/Cts.Output.v2.9/LineIntegrityMessage.pcap" \
+  -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/LineIntegrityMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr \
@@ -15,7 +15,7 @@ grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LineIntegrity
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Siac/Cts.Output.v2.9/LongTradeMessage.pcap" \
+  -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/LongTradeMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr \
@@ -40,7 +40,7 @@ grep "siac.cts.output.cta.v2.9.heldtradeindicator" Siac.Cts.Output.Cta.v2.9.Long
 grep "siac.cts.output.cta.v2.9.consolidatedhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Siac/Cts.Output.v2.9/TradingStatusMessage.pcap" \
+  -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/TradingStatusMessage.pcap" \
   -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr \

@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.v1.3/InstrumentDirectoryMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.Sbe.v1.3/InstrumentDirectoryMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.InstrumentDirectoryMessage.json 2> BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.InstrumentDirectoryMessage.json.stderr \
@@ -18,7 +18,7 @@ grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.roundlot" BlueOceanAts.B
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.istestsymbol" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.InstrumentDirectoryMessage.json
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.mpv" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.InstrumentDirectoryMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.v1.3/SecurityTradingStatusMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.Sbe.v1.3/SecurityTradingStatusMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.SecurityTradingStatusMessage.json 2> BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.SecurityTradingStatusMessage.json.stderr \
@@ -29,7 +29,7 @@ grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.securityid" BlueOceanAts
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.securitytradingstatus" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.SecurityTradingStatusMessage.json
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.securitytradingstatusreason" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.SecurityTradingStatusMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.v1.3/TradeReportMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.Sbe.v1.3/TradeReportMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradeReportMessage.json 2> BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradeReportMessage.json.stderr \
@@ -45,7 +45,7 @@ grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.salecondition2" BlueOcea
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.salecondition3" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradeReportMessage.json
 grep "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.salecondition4" BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradeReportMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.v1.3/TradingSessionStatusMessage.pcap" \
+  -r "omi-data-packets/BlueOceanAts/BlueEquities.MemoirLastSale.Sbe.v1.3/TradingSessionStatusMessage.pcap" \
   -X "lua_script:BlueOceanAts/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua" \
   -T json \
   > BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradingSessionStatusMessage.json 2> BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.TradingSessionStatusMessage.json.stderr \

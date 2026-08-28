@@ -259,9 +259,6 @@ jobs:
       - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
         run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
 
-      - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
-        run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
-
       - name: Run Siac Cqs Output Cta 1.91 Dissector Tests
         run: bash -x .github/tests/Siac-Cqs-Output-Cta-v1-91-Test.sh
 
