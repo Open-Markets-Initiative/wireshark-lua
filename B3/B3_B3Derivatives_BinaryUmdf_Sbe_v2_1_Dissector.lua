@@ -1960,6 +1960,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.size = 8
 
 -- Display: Md Entry Size Quantity Optional
 b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_size_quantity_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Md Entry Size Quantity Optional: No Value"
+  end
+
   return "Md Entry Size Quantity Optional: "..value
 end
 
@@ -3665,6 +3670,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_id_optional.size = 8
 
 -- Display: Security Id Optional
 b3_b3derivatives_binaryumdf_sbe_v2_1.security_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Security Id Optional: No Value"
+  end
+
   return "Security Id Optional: "..value
 end
 

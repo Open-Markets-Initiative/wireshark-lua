@@ -31,6 +31,9 @@ jobs:
       - name: Run B3 B3Derivatives BinaryEntryPoint Sbe 8.1 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryEntryPoint-Sbe-v8-1-Test.sh
 
+      - name: Run B3 B3Derivatives BinaryEntryPoint Sbe 8.3 Dissector Tests
+        run: bash -x .github/tests/B3-B3Derivatives-BinaryEntryPoint-Sbe-v8-3-Test.sh
+
       - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-8-Test.sh
 
