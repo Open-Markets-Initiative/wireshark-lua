@@ -26,6 +26,32 @@ runuser -u tester -- tshark \
 
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.InstrumentInfoRequestMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.4/LoggedOutMessage.pcap" \
+  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json.stderr \
+  || { echo "--- tshark FAILED (LoggedOutMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.reason" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.4/LogonConfMessage.pcap" \
+  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonConfMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonConfMessage.json.stderr \
+  || { echo "--- tshark FAILED (LogonConfMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonConfMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonConfMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.4/LogonMessage.pcap" \
+  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json.stderr \
+  || { echo "--- tshark FAILED (LogonMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.username" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.password" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.resetseqnum" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LogonMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.4/MassCancelOrderAckMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \
   -T json \

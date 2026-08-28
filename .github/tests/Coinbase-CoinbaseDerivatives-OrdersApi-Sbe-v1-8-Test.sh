@@ -27,15 +27,6 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.orderidoptional" Coinbase.
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.cancelorderrejectreason" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.CancelOrderRejectMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.cancelorderrejectdetails" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.CancelOrderRejectMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/GapFillMessage.pcap" \
-  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
-  -T json \
-  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.GapFillMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.GapFillMessage.json.stderr \
-  || { echo "--- tshark FAILED (GapFillMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.GapFillMessage.json.stderr; exit 1; }
-
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.newsequencenumber" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.GapFillMessage.json
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.gapfillpadding" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.GapFillMessage.json
-runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/LastExecIdMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
   -T json \
@@ -217,6 +208,26 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.totalfilled" Coinbase.Coin
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.availableqty" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.OrderReplacedMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.OrderReplacedMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/PingMessage.pcap" \
+  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PingMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PingMessage.json.stderr \
+  || { echo "--- tshark FAILED (PingMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PingMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PingMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.requesttime" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PingMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/PongMessage.pcap" \
+  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json.stderr \
+  || { echo "--- tshark FAILED (PongMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.requesttime" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.servertime" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.tradinginstrumentstatus" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.PongMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/ReplaceOrderMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
   -T json \
@@ -230,15 +241,6 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.newquantity" Coinbase.Coin
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ReplaceOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.goodtildate" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ReplaceOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.timeinforce" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ReplaceOrderMessage.json
-runuser -u tester -- tshark \
-  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/ResendRequestMessage.pcap" \
-  -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
-  -T json \
-  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ResendRequestMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ResendRequestMessage.json.stderr \
-  || { echo "--- tshark FAILED (ResendRequestMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ResendRequestMessage.json.stderr; exit 1; }
-
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.fromsequencenumber" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ResendRequestMessage.json
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.tosequencenumber" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.ResendRequestMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/SetAccountMessage.pcap" \
   -X "lua_script:Coinbase/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
