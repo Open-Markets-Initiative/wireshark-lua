@@ -202,11 +202,8 @@ jobs:
       - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
 
-      - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2017 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2017-Test.sh
-
-      - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
+      - name: Run Nasdaq NsmEquities TotalView Itch 5.0.2023 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v5-0-2023-Test.sh
 
       - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
