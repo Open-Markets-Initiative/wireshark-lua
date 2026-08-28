@@ -33,9 +33,9 @@ Txse: [website](https://www.txse.com "Go to Texas Stock Exchange")
 [Txse.TxseEquities.Framing]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Framing.md ""
 [Txse.TxseEquities.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Seed.md "Session Enabled Entry Daemon"
 
-[Txse.TxseEquities.Framing.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_TxseEquities_Framing_Tcp_v1_0_Dissector.lua "Txse TxseEquities Framing Tcp v1.0 Wireshark Dissector"
+[Txse.TxseEquities.Framing.Tcp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Txse/Txse_TxseEquities_Framing_Tcp_v1_0_Dissector.lua "Txse TxseEquities Framing Tcp v1.0 Wireshark Dissector"
 [Txse.TxseEquities.Framing.Tcp.v1.0.Url]: https://www.txse.com "Texas Stock Exchange 1.0 Url"
 [Txse.TxseEquities.Framing.Tcp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Rake\Txse.Equities.Rake.v1.0.pdf "Texas Stock Exchange 1.0 Pdf"
-[Txse.TxseEquities.Seed.Rake.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua "Txse TxseEquities Seed Rake v1.0 Wireshark Dissector"
+[Txse.TxseEquities.Seed.Rake.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua "Txse TxseEquities Seed Rake v1.0 Wireshark Dissector"
 [Txse.TxseEquities.Seed.Rake.v1.0.Url]: https://www.txse.com "Texas Stock Exchange 1.0 Url"
 [Txse.TxseEquities.Seed.Rake.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Specifications/Seed\Txse.Equities.OrderEntry.Seed.v1.0.pdf "Texas Stock Exchange 1.0 Pdf"

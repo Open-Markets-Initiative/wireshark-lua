@@ -37,18 +37,19 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 863 | 6,207,451 |
+| 863 | 6,209,533 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
 
-[![Test](https://github.com/Open-Markets-Initiative/wireshark-lua/actions/workflows/github-action-lua.yml/badge.svg)](https://github.com/Open-Markets-Initiative/wireshark-lua/actions//workflows/github-action-lua.yml)
+[![Test](https://github.com/Open-Markets-Initiative/omi-wireshark-lua/actions/workflows/github-action-lua.yml/badge.svg)](https://github.com/Open-Markets-Initiative/omi-wireshark-lua/actions//workflows/github-action-lua.yml)
 
-Please report any dissection errors as an [issue](https://github.com/Open-Markets-Initiative/wireshark-lua/issues "Omi Lua Wireshark Issues").  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
+Please report any dissection errors as an [issue](https://github.com/Open-Markets-Initiative/omi-wireshark-lua/issues "Omi Lua Wireshark Issues").  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
 
 Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project.
 
-List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
+List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/omi-wireshark-lua/wiki/Data "Unverified Protocol Data List")
+For the example captures: [Omi Example Data](https://github.com/Open-Markets-Initiative/omi-data-packets "Omi Example Data Packet Captures")
 ## Support Wireshark
 
 Wireshark is free and open source, maintained under the nonprofit Wireshark Foundation, which relies on donations to fund development, infrastructure, and education.
@@ -88,9 +89,6 @@ The Open Markets Initiative provides protocol definitions in several formats:
 - [Spicy Definitions][Spicy.Definitions.Repository] — declarative Spicy grammars for the spicy toolchain and the zeek network security monitor
 - [FIX Dictionaries][Fix.Dictionaries.Repository] — QuickFIX format xml data dictionaries, one per FIX version
 - [Xml Specifications][Xml.Specifications.Repository] — the exchange protocol specification xmls, matching the original files
-## Example Packets
-
-For the example captures: [Omi Example Data](https://github.com/Open-Markets-Initiative/omi-data-packets "Omi Example Data Packet Captures")
 ## Disclaimer
 
 Any similarities between existing people, places and/or protocols is purely incidental.
@@ -600,43 +598,43 @@ Enjoy.
 [Txse.TxseEquities.Framing]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Framing.md ""
 [Txse.TxseEquities.Seed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Txse/Protocols/TxseEquities/Seed.md "Session Enabled Entry Daemon"
 
-[24X.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/24X "24 National Exchange"
-[A2X.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/A2X "A2X Markets"
-[Aquis.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Aquis "Aquis Exchange"
-[Asx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Asx "Australian Securities Exchange"
-[B3.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/B3 "Brasil, Bolsa, Balcão"
-[Bist.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Bist "Borsa İstanbul A.Ş."
-[BlueOceanAts.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/BlueOceanAts "Blue Ocean Technologies"
-[Box.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Box "Box Options Market"
-[BruceAts.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/BruceAts "Bruce ATS"
-[Cboe.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Cboe "Chicago Board Options Exchange"
-[CixAts.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/CixAts "CIX Trading Inc."
-[Cme.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Cme "CME Group"
-[Coinbase.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Coinbase "Coinbase"
-[Currenex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Currenex "Currenex"
-[Eurex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Eurex "Eurex Exchange"
-[Euronext.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Euronext "Euronext"
-[Finra.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
-[Hkex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Hkex "Hong Kong Exchanges and Clearing"
-[Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ice "Intercontinental Exchange"
-[Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
-[Imperative.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Imperative "Imperative Execution"
-[Jnx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jnx "Japannext Securities"
-[Jpx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Jpx "Japan Exchange Group"
-[Koscom.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Koscom "Koscom Co., Ltd."
-[Lseg.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Lseg "London Stock Exchange"
-[Ltse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ltse "Long-Term Stock Exchange"
-[Memx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Memx "The Members Exchange"
-[Miax.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Miax "Miami International Holdings"
-[Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nasdaq "National Association of Securities Dealers Automated Quotations (Nasdaq)"
-[NsxAustralia.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/NsxAustralia "Nation Stock Exchange of Australia"
-[Nyse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Nyse "New York Stock Exchange"
-[Odx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Odx "Osaka Digital Exchange"
-[OtcMarkets.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/OtcMarkets "OTC Markets Group"
-[Siac.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Siac "The Securities Industry Automation Corporation"
-[SmallX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/SmallX "The Small Exchange"
-[Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "TMX Group"
-[Txse.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Txse "Texas Stock Exchange"
+[24X.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/24X "24 National Exchange"
+[A2X.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/A2X "A2X Markets"
+[Aquis.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Aquis "Aquis Exchange"
+[Asx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Asx "Australian Securities Exchange"
+[B3.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/B3 "Brasil, Bolsa, Balcão"
+[Bist.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Bist "Borsa İstanbul A.Ş."
+[BlueOceanAts.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/BlueOceanAts "Blue Ocean Technologies"
+[Box.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Box "Box Options Market"
+[BruceAts.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/BruceAts "Bruce ATS"
+[Cboe.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Cboe "Chicago Board Options Exchange"
+[CixAts.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/CixAts "CIX Trading Inc."
+[Cme.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Cme "CME Group"
+[Coinbase.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Coinbase "Coinbase"
+[Currenex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Currenex "Currenex"
+[Eurex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Eurex "Eurex Exchange"
+[Euronext.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Euronext "Euronext"
+[Finra.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
+[Hkex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Hkex "Hong Kong Exchanges and Clearing"
+[Ice.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Ice "Intercontinental Exchange"
+[Iex.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Iex "Investors Exchange"
+[Imperative.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Imperative "Imperative Execution"
+[Jnx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Jnx "Japannext Securities"
+[Jpx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Jpx "Japan Exchange Group"
+[Koscom.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Koscom "Koscom Co., Ltd."
+[Lseg.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Lseg "London Stock Exchange"
+[Ltse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Ltse "Long-Term Stock Exchange"
+[Memx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Memx "The Members Exchange"
+[Miax.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Miax "Miami International Holdings"
+[Nasdaq.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Nasdaq "National Association of Securities Dealers Automated Quotations (Nasdaq)"
+[NsxAustralia.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/NsxAustralia "Nation Stock Exchange of Australia"
+[Nyse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Nyse "New York Stock Exchange"
+[Odx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Odx "Osaka Digital Exchange"
+[OtcMarkets.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/OtcMarkets "OTC Markets Group"
+[Siac.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Siac "The Securities Industry Automation Corporation"
+[SmallX.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/SmallX "The Small Exchange"
+[Tmx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Tmx "TMX Group"
+[Txse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Txse "Texas Stock Exchange"
 
 [24XEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/24X/Protocols/24XEquities "24X Equities"
 [AmexEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/AmexEquities "Nyse Amex Equities"

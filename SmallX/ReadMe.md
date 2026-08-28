@@ -29,7 +29,7 @@ SmallX: [website](https://www.thesmallexchange.com "Go to The Small Exchange")
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Sbe.md "Sbe Encoding"
 [SmallX.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Protocols/OrderBookFeed.md "Order Book Feed"
 
-[SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
+[SmallX.OrderBookFeed.Sbe.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/SmallX/SmallX_OrderBookFeed_Sbe_v2_2_Dissector.lua "SmallX OrderBookFeed Sbe v2.2 Wireshark Dissector"
 [SmallX.OrderBookFeed.Sbe.v2.2.Url]: https://smallexchange.com/reference/info-hub "The Small Exchange 2.2 Url"
 [SmallX.OrderBookFeed.Sbe.v2.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.pdf "The Small Exchange 2.2 Pdf"
 [SmallX.OrderBookFeed.Sbe.v2.2.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/SmallX/Specifications/SmallX.OrderDataFeed.Sbe.v2.2.xml "The Small Exchange 2.2 Xml"

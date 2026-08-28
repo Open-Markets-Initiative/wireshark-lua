@@ -138,6 +138,18 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.symbol_index_mapping_reque
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagesequencenumber", ftypes.UINT64)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.amexoptions.complexfeed.pillar.v1.0.h.askpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.amexoptions.complexfeed.pillar.v1.0.h.bidpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.trade_price_calculate = ProtoField.new("Trade Price Calculate", "nyse.amexoptions.complexfeed.pillar.v1.0.h.tradepricecalculate", ftypes.DOUBLE)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price_calculate = ProtoField.new("Working Price Calculate", "nyse.amexoptions.complexfeed.pillar.v1.0.h.workingpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse AmexOptions ComplexFeed Pillar 1.0.h Formatting
+-----------------------------------------------------------------------
+
+-- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -146,6 +158,7 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_sequence_number = 
 local show = {}
 
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Element Dissection Options
+show.records = true
 show.repeating_groups = true
 show.application_messages = true
 show.structs = true
@@ -154,17 +167,22 @@ show.indexes = true
 show.sequences = true
 
 -- Register Nyse AmexOptions ComplexFeed Pillar 1.0.h Show Options
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.resolve_records = Pref.bool("Outright Series Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.resolve_records then
+    show.records = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_application_messages
   end
@@ -183,7 +201,40 @@ function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
   if show.sequences ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences then
     show.sequences = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences
   end
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation = {}
+nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.data = function(packet)
+  local key = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.key(packet)
+  local data = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.flows[key]
+  if data == nil then
+    data = { outright_series_index_mapping_message = {} }
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1998,9 +2049,34 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect = function(buffe
   local value = range:le_uint()
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Outright Series Index Mapping Message record
+  local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current.outright_series_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
+
+  if record ~= nil then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current = record
+    if record.series_index ~= nil then
+      local entry_series_index = field_tree:add("Series Index: " .. tostring(record.series_index))
+      entry_series_index:set_generated()
+    end
+    if record.option_symbol_root ~= nil then
+      local entry_option_symbol_root = field_tree:add("Option Symbol Root: " .. tostring(record.option_symbol_root))
+      entry_option_symbol_root:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Series Seq Num
@@ -2963,6 +3039,158 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price.dissect = function(buff
   return offset + length, value
 end
 
+-- Ask Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate = {}
+
+-- Display: Ask Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.display = function(value)
+  return "Ask Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.ask_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.ask_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals then
+    local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate = {}
+
+-- Display: Bid Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.display = function(value)
+  return "Bid Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.bid_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.bid_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals then
+    local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Trade Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate = {}
+
+-- Display: Trade Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.display = function(value)
+  return "Trade Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Trade Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.trade_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.trade_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Trade Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals then
+    local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Working Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate = {}
+
+-- Display: Working Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.display = function(value)
+  return "Working Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Working Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Working Price Calculate
+nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals then
+    local record = nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse AmexOptions ComplexFeed Pillar 1.0.h
@@ -3001,8 +3229,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_rfq_message.fields = function(
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3020,7 +3248,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_rfq_message.fields = function(
   index, total_quantity = nyse_amexoptions_complexfeed_pillar_v1_0_h.total_quantity.dissect(buffer, index, packet, parent)
 
   -- Working Price: Signed Binary
-  index, working_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price.dissect(buffer, index, packet, parent)
+  index, working_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.working_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Participant: Binary
   index, participant = nyse_amexoptions_complexfeed_pillar_v1_0_h.participant.dissect(buffer, index, packet, parent)
@@ -3084,8 +3312,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_trade_message.fields = functi
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3094,7 +3322,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_trade_message.fields = functi
   index, trade_id = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_id.dissect(buffer, index, packet, parent)
 
   -- Trade Price: Signed Binary
-  index, trade_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.trade_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_amexoptions_complexfeed_pillar_v1_0_h.volume.dissect(buffer, index, packet, parent)
@@ -3161,20 +3389,20 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_quote_message.fields = functi
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
 
   -- Ask Price: Signed Binary
-  index, ask_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ask Volume: Binary
   index, ask_volume = nyse_amexoptions_complexfeed_pillar_v1_0_h.ask_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Price: Signed Binary
-  index, bid_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Bid Volume: Binary
   index, bid_volume = nyse_amexoptions_complexfeed_pillar_v1_0_h.bid_volume.dissect(buffer, index, packet, parent)
@@ -3673,8 +3901,8 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.complex_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Market Id: Binary
   index, market_id = nyse_amexoptions_complexfeed_pillar_v1_0_h.market_id.dissect(buffer, index, packet, parent)
@@ -3739,8 +3967,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_status_message.fields = funct
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3804,8 +4032,8 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary
-  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Type: Binary
   index, series_type = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_type.dissect(buffer, index, packet, parent)
@@ -3845,6 +4073,15 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message
 
   -- Reserved 1: ASCII
   index, reserved_1 = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Cache Outright Series Index Mapping Message record by series_index
+  if show.records and not packet.visited then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current.outright_series_index_mapping_message[series_index] = {
+      series_index = series_index,
+      option_symbol_root = option_symbol_root,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -4523,6 +4760,12 @@ end
 
 -- Dissect Packet
 nyse_amexoptions_complexfeed_pillar_v1_0_h.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_amexoptions_complexfeed_pillar_v1_0_h.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields

@@ -167,6 +167,21 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.symbol_index_mapping_request_
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.messageindex", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.messagesequencenumber", ftypes.UINT64)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price_calculate = ProtoField.new("Continuous Book Clearing Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.continuousbookclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.high_price_calculate = ProtoField.new("High Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.highpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.indicativematchpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.low_price_calculate = ProtoField.new("Low Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.lowpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.pricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.working_price_calculate = ProtoField.new("Working Price Calculate", "nyse.arcaoptions.deepfeed.pillar.v1.2.l.workingpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaOptions DeepFeed Pillar 1.2.l Formatting
+-----------------------------------------------------------------------
+
+-- Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -175,6 +190,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.message_sequence_number = Pro
 local show = {}
 
 -- Nyse ArcaOptions DeepFeed Pillar 1.2.l Element Dissection Options
+show.records = true
 show.repeating_groups = true
 show.application_messages = true
 show.structs = true
@@ -183,17 +199,22 @@ show.indexes = true
 show.sequences = true
 
 -- Register Nyse ArcaOptions DeepFeed Pillar 1.2.l Show Options
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.resolve_records = Pref.bool("Outright Series Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.resolve_records then
+    show.records = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_application_messages
   end
@@ -212,7 +233,40 @@ function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs_changed()
   if show.sequences ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_sequences then
     show.sequences = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.show_sequences
   end
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals ~= omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals then
+    nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation = {}
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.data = function(packet)
+  local key = nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.key(packet)
+  local data = nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.flows[key]
+  if data == nil then
+    data = { outright_series_index_mapping_message = {} }
+    nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -2620,9 +2674,34 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Outright Series Index Mapping Message record
+  local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.current.outright_series_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
+
+  if record ~= nil then
+    nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current = record
+    if record.series_index ~= nil then
+      local entry_series_index = field_tree:add("Series Index: " .. tostring(record.series_index))
+      entry_series_index:set_generated()
+    end
+    if record.option_symbol_root ~= nil then
+      local entry_option_symbol_root = field_tree:add("Option Symbol Root: " .. tostring(record.option_symbol_root))
+      entry_option_symbol_root:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Series Seq Num
@@ -3608,6 +3687,272 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Auction Interest Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate = {}
+
+-- Display: Auction Interest Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.display = function(value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Auction Interest Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Auction Interest Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Continuous Book Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate = {}
+
+-- Display: Continuous Book Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.display = function(value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Continuous Book Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Continuous Book Clearing Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- High Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate = {}
+
+-- Display: High Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.display = function(value)
+  return "High Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: High Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.high_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.high_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: High Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Indicative Match Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate = {}
+
+-- Display: Indicative Match Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.display = function(value)
+  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Indicative Match Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Indicative Match Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Low Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate = {}
+
+-- Display: Low Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.display = function(value)
+  return "Low Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Low Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.low_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.low_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Low Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate = {}
+
+-- Display: Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.display = function(value)
+  return "Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Working Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate = {}
+
+-- Display: Working Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.display = function(value)
+  return "Working Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Working Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.working_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.working_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Working Price Calculate
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_deepfeed_pillar_v1_2_l.format_decimals then
+    local record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse ArcaOptions DeepFeed Pillar 1.2.l
@@ -3642,14 +3987,14 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_outright_series_summary_message.
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- High Price: Signed Binary
-  index, high_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Low Price: Signed Binary
-  index, low_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.low_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Open: Signed Binary
   index, open = nyse_arcaoptions_deepfeed_pillar_v1_2_l.open.dissect(buffer, index, packet, parent)
@@ -3703,8 +4048,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_trade_cancel_message.fields = fu
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3758,8 +4103,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_cross_trade_message.fields = fun
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3768,7 +4113,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_cross_trade_message.fields = fun
   index, cross_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.cross_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -3825,8 +4170,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_non_displayed_trade_message.fiel
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3835,7 +4180,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_non_displayed_trade_message.fiel
   index, trade_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -3906,8 +4251,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_series_rfq_message.fields = func
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3925,7 +4270,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_series_rfq_message.fields = func
   index, total_quantity = nyse_arcaoptions_deepfeed_pillar_v1_2_l.total_quantity.dissect(buffer, index, packet, parent)
 
   -- Working Price: Signed Binary
-  index, working_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price.dissect(buffer, index, packet, parent)
+  index, working_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.working_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Participant: Binary
   index, participant = nyse_arcaoptions_deepfeed_pillar_v1_2_l.participant.dissect(buffer, index, packet, parent)
@@ -3989,8 +4334,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_refresh_message.fields
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3999,7 +4344,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_refresh_message.fields
   index, order_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -4076,8 +4421,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4104,16 +4449,16 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   index, imbalance_side = nyse_arcaoptions_deepfeed_pillar_v1_2_l.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: Signed Binary
-  index, continuous_book_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Interest Clearing Price: Signed Binary
-  index, auction_interest_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
+  index, auction_interest_clearing_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 4: Binary
   index, second_reserved_4 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Signed Binary
-  index, indicative_match_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price.dissect(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: Signed Binary
   index, upper_collar = nyse_arcaoptions_deepfeed_pillar_v1_2_l.upper_collar.dissect(buffer, index, packet, parent)
@@ -4173,8 +4518,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_replace_order_message.fields = f
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4186,7 +4531,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_replace_order_message.fields = f
   index, new_order_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.new_order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -4250,8 +4595,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_order_execution_message.fields =
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4263,7 +4608,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_order_execution_message.fields =
   index, trade_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -4324,8 +4669,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_delete_order_message.fields = fu
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4384,8 +4729,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_modify_order_message.fields = fu
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4394,7 +4739,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_modify_order_message.fields = fu
   index, order_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -4457,8 +4802,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_message.fields = funct
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4467,7 +4812,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_message.fields = funct
   index, order_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.order_id.dissect(buffer, index, packet, parent)
 
   -- Price: Signed Binary
-  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_arcaoptions_deepfeed_pillar_v1_2_l.volume.dissect(buffer, index, packet, parent)
@@ -4966,8 +5311,8 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.complex_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Market Id: Binary
   index, market_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.market_id.dissect(buffer, index, packet, parent)
@@ -5032,8 +5377,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_status_message.fields = function
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -5097,8 +5442,8 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary
-  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary (record lookup)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Type: Binary
   index, series_type = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_type.dissect(buffer, index, packet, parent)
@@ -5138,6 +5483,15 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.fi
 
   -- Reserved 1: ASCII
   index, reserved_1 = nyse_arcaoptions_deepfeed_pillar_v1_2_l.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Cache Outright Series Index Mapping Message record by series_index
+  if show.records and not packet.visited then
+    nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.current.outright_series_index_mapping_message[series_index] = {
+      series_index = series_index,
+      option_symbol_root = option_symbol_root,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -5852,6 +6206,12 @@ end
 
 -- Dissect Packet
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields
