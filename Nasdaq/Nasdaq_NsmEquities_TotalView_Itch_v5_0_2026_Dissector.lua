@@ -4892,6 +4892,12 @@ end
 
 -- Dissect Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2026.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.data(packet)
+  if not packet.visited then
+  end
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields

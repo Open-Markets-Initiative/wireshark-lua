@@ -4231,6 +4231,12 @@ end
 
 -- Dissect Packet
 nyse_amexequities_depthfeed_pillar_v1_6.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_amexequities_depthfeed_pillar_v1_6.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_amexequities_depthfeed_pillar_v1_6.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields
