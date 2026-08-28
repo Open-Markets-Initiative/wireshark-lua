@@ -1576,7 +1576,7 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.display = function(ran
   local flags = {}
 
   -- Is Trade From Converted Order flag set?
-  if bit.band(value, 0x00000000000100) ~= 0 then
+  if value:band(0x00000000000100) ~= UInt64(0) then
     flags[#flags + 1] = "Trade From Converted Order"
   end
 
@@ -1615,7 +1615,7 @@ end
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.dissect = function(buffer, offset, packet, parent)
   local size = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.flags, range, display)
 

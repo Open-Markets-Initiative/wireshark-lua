@@ -13987,195 +13987,195 @@ euronext_optiq_marketdatagateway_sbe_v4_6.strategy_authorized.display = function
   local flags = {}
 
   -- Is Jelly Roll flag set?
-  if bit.band(value, 0x0000000000000001) ~= 0 then
+  if value:band(0x0000000000000001) ~= UInt64(0) then
     flags[#flags + 1] = "Jelly Roll"
   end
   -- Is Butterfly flag set?
-  if bit.band(value, 0x0000000000000002) ~= 0 then
+  if value:band(0x0000000000000002) ~= UInt64(0) then
     flags[#flags + 1] = "Butterfly"
   end
   -- Is Call Or Put Cabinet flag set?
-  if bit.band(value, 0x0000000000000004) ~= 0 then
+  if value:band(0x0000000000000004) ~= UInt64(0) then
     flags[#flags + 1] = "Call Or Put Cabinet"
   end
   -- Is Spread flag set?
-  if bit.band(value, 0x0000000000000008) ~= 0 then
+  if value:band(0x0000000000000008) ~= UInt64(0) then
     flags[#flags + 1] = "Spread"
   end
   -- Is Calendar Spread flag set?
-  if bit.band(value, 0x0000000000000010) ~= 0 then
+  if value:band(0x0000000000000010) ~= UInt64(0) then
     flags[#flags + 1] = "Calendar Spread"
   end
   -- Is Diagonal Calendar Spread flag set?
-  if bit.band(value, 0x0000000000000020) ~= 0 then
+  if value:band(0x0000000000000020) ~= UInt64(0) then
     flags[#flags + 1] = "Diagonal Calendar Spread"
   end
   -- Is Guts flag set?
-  if bit.band(value, 0x0000000000000040) ~= 0 then
+  if value:band(0x0000000000000040) ~= UInt64(0) then
     flags[#flags + 1] = "Guts"
   end
   -- Is Two By One Ratio Spread flag set?
-  if bit.band(value, 0x0000000000000080) ~= 0 then
+  if value:band(0x0000000000000080) ~= UInt64(0) then
     flags[#flags + 1] = "Two By One Ratio Spread"
   end
   -- Is Iron Butterfly flag set?
-  if bit.band(value, 0x0000000000000100) ~= 0 then
+  if value:band(0x0000000000000100) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Butterfly"
   end
   -- Is Combo flag set?
-  if bit.band(value, 0x0000000000000200) ~= 0 then
+  if value:band(0x0000000000000200) ~= UInt64(0) then
     flags[#flags + 1] = "Combo"
   end
   -- Is Strangle flag set?
-  if bit.band(value, 0x0000000000000400) ~= 0 then
+  if value:band(0x0000000000000400) ~= UInt64(0) then
     flags[#flags + 1] = "Strangle"
   end
   -- Is Ladder flag set?
-  if bit.band(value, 0x0000000000000800) ~= 0 then
+  if value:band(0x0000000000000800) ~= UInt64(0) then
     flags[#flags + 1] = "Ladder"
   end
   -- Is Strip flag set?
-  if bit.band(value, 0x0000000000001000) ~= 0 then
+  if value:band(0x0000000000001000) ~= UInt64(0) then
     flags[#flags + 1] = "Strip"
   end
   -- Is Straddle Calendar Spread flag set?
-  if bit.band(value, 0x0000000000002000) ~= 0 then
+  if value:band(0x0000000000002000) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle Calendar Spread"
   end
   -- Is Pack flag set?
-  if bit.band(value, 0x0000000000004000) ~= 0 then
+  if value:band(0x0000000000004000) ~= UInt64(0) then
     flags[#flags + 1] = "Pack"
   end
   -- Is Diagonal Straddle Calendar Spread flag set?
-  if bit.band(value, 0x0000000000008000) ~= 0 then
+  if value:band(0x0000000000008000) ~= UInt64(0) then
     flags[#flags + 1] = "Diagonal Straddle Calendar Spread"
   end
   -- Is Simple Inter Commodity Spread flag set?
-  if bit.band(value, 0x0000000000010000) ~= 0 then
+  if value:band(0x0000000000010000) ~= UInt64(0) then
     flags[#flags + 1] = "Simple Inter Commodity Spread"
   end
   -- Is Conversion Reversal flag set?
-  if bit.band(value, 0x0000000000020000) ~= 0 then
+  if value:band(0x0000000000020000) ~= UInt64(0) then
     flags[#flags + 1] = "Conversion Reversal"
   end
   -- Is Straddle flag set?
-  if bit.band(value, 0x0000000000040000) ~= 0 then
+  if value:band(0x0000000000040000) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle"
   end
   -- Is Volatility Trade flag set?
-  if bit.band(value, 0x0000000000080000) ~= 0 then
+  if value:band(0x0000000000080000) ~= UInt64(0) then
     flags[#flags + 1] = "Volatility Trade"
   end
   -- Is Condor flag set?
-  if bit.band(value, 0x0000000000100000) ~= 0 then
+  if value:band(0x0000000000100000) ~= UInt64(0) then
     flags[#flags + 1] = "Condor"
   end
   -- Is Box flag set?
-  if bit.band(value, 0x0000000000200000) ~= 0 then
+  if value:band(0x0000000000200000) ~= UInt64(0) then
     flags[#flags + 1] = "Box"
   end
   -- Is Bundle flag set?
-  if bit.band(value, 0x0000000000400000) ~= 0 then
+  if value:band(0x0000000000400000) ~= UInt64(0) then
     flags[#flags + 1] = "Bundle"
   end
   -- Is Reduced Tick Spread flag set?
-  if bit.band(value, 0x0000000000800000) ~= 0 then
+  if value:band(0x0000000000800000) ~= UInt64(0) then
     flags[#flags + 1] = "Reduced Tick Spread"
   end
   -- Is Ladder Versus Underlying flag set?
-  if bit.band(value, 0x0000000001000000) ~= 0 then
+  if value:band(0x0000000001000000) ~= UInt64(0) then
     flags[#flags + 1] = "Ladder Versus Underlying"
   end
   -- Is Butterfly Versus Underlying flag set?
-  if bit.band(value, 0x0000000002000000) ~= 0 then
+  if value:band(0x0000000002000000) ~= UInt64(0) then
     flags[#flags + 1] = "Butterfly Versus Underlying"
   end
   -- Is Call Spread Versus Put Versus Underlying flag set?
-  if bit.band(value, 0x0000000004000000) ~= 0 then
+  if value:band(0x0000000004000000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Spread Versus Put Versus Underlying"
   end
   -- Is Call Or Put Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000008000000) ~= 0 then
+  if value:band(0x0000000008000000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Or Put Spread Versus Underlying"
   end
   -- Is Call Or Put Calendar Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000010000000) ~= 0 then
+  if value:band(0x0000000010000000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Or Put Calendar Spread Versus Underlying"
   end
   -- Is Call Put Diagonal Calendar Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000020000000) ~= 0 then
+  if value:band(0x0000000020000000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Put Diagonal Calendar Spread Versus Underlying"
   end
   -- Is Guts Versus Underlying flag set?
-  if bit.band(value, 0x0000000040000000) ~= 0 then
+  if value:band(0x0000000040000000) ~= UInt64(0) then
     flags[#flags + 1] = "Guts Versus Underlying"
   end
   -- Is Two By One Call Or Put Ratio Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000080000000) ~= 0 then
+  if value:band(0x0000000080000000) ~= UInt64(0) then
     flags[#flags + 1] = "Two By One Call Or Put Ratio Spread Versus Underlying"
   end
   -- Is Iron Butterfly Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000001) ~= 0 then
+  if value:band(0x0000000000000001) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Butterfly Versus Underlying"
   end
   -- Is Combo Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000002) ~= 0 then
+  if value:band(0x0000000000000002) ~= UInt64(0) then
     flags[#flags + 1] = "Combo Versus Underlying"
   end
   -- Is Strangle Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000004) ~= 0 then
+  if value:band(0x0000000000000004) ~= UInt64(0) then
     flags[#flags + 1] = "Strangle Versus Underlying"
   end
   -- Is Exchange For Physical flag set?
-  if bit.band(value, 0x0000000000000008) ~= 0 then
+  if value:band(0x0000000000000008) ~= UInt64(0) then
     flags[#flags + 1] = "Exchange For Physical"
   end
   -- Is Straddle Calendar Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000010) ~= 0 then
+  if value:band(0x0000000000000010) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle Calendar Spread Versus Underlying"
   end
   -- Is Put Spread Versus Call Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000020) ~= 0 then
+  if value:band(0x0000000000000020) ~= UInt64(0) then
     flags[#flags + 1] = "Put Spread Versus Call Versus Underlying"
   end
   -- Is Diagonal Straddle Calendar Spread Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000040) ~= 0 then
+  if value:band(0x0000000000000040) ~= UInt64(0) then
     flags[#flags + 1] = "Diagonal Straddle Calendar Spread Versus Underlying"
   end
   -- Is Synthetic flag set?
-  if bit.band(value, 0x0000000000000080) ~= 0 then
+  if value:band(0x0000000000000080) ~= UInt64(0) then
     flags[#flags + 1] = "Synthetic"
   end
   -- Is Straddle Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000100) ~= 0 then
+  if value:band(0x0000000000000100) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle Versus Underlying"
   end
   -- Is Condor Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000200) ~= 0 then
+  if value:band(0x0000000000000200) ~= UInt64(0) then
     flags[#flags + 1] = "Condor Versus Underlying"
   end
   -- Is Buy Write flag set?
-  if bit.band(value, 0x0000000000000400) ~= 0 then
+  if value:band(0x0000000000000400) ~= UInt64(0) then
     flags[#flags + 1] = "Buy Write"
   end
   -- Is Iron Condor Versus Underlying flag set?
-  if bit.band(value, 0x0000000000000800) ~= 0 then
+  if value:band(0x0000000000000800) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Condor Versus Underlying"
   end
   -- Is Iron Condor flag set?
-  if bit.band(value, 0x0000000000001000) ~= 0 then
+  if value:band(0x0000000000001000) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Condor"
   end
   -- Is Call Spread Versus Sell A Put flag set?
-  if bit.band(value, 0x0000000000002000) ~= 0 then
+  if value:band(0x0000000000002000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Spread Versus Sell A Put"
   end
   -- Is Put Spread Versus Sell A Call flag set?
-  if bit.band(value, 0x0000000000004000) ~= 0 then
+  if value:band(0x0000000000004000) ~= UInt64(0) then
     flags[#flags + 1] = "Put Spread Versus Sell A Call"
   end
   -- Is Put Straddle Versus Sell A Call Or A Put flag set?
-  if bit.band(value, 0x0000000000008000) ~= 0 then
+  if value:band(0x0000000000008000) ~= UInt64(0) then
     flags[#flags + 1] = "Put Straddle Versus Sell A Call Or A Put"
   end
 
@@ -14337,7 +14337,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v4_6.strategy_authorized.dissect = function(buffer, offset, packet, parent)
   local size = euronext_optiq_marketdatagateway_sbe_v4_6.strategy_authorized.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = euronext_optiq_marketdatagateway_sbe_v4_6.strategy_authorized.display(range, value, packet, parent)
   local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v4_6.fields.strategy_authorized, range, display)
 
