@@ -211,6 +211,12 @@ jobs:
       - name: Run Nyse AmexEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
+      - name: Run Nyse AmexOptions ComplexFeed Xdp 1.3.a Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexOptions-ComplexFeed-Xdp-v1-3-a-Test.sh
+
+      - name: Run Nyse AmexOptions DeepFeed Xdp 1.3.a Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexOptions-DeepFeed-Xdp-v1-3-a-Test.sh
+
       - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
 
@@ -220,14 +226,26 @@ jobs:
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 
-      - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.8 Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-8-Test.sh
+      - name: Run Nyse NyseEquities Bbo Xdp 2.4.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Xdp-v2-4-g-Test.sh
+
+      - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.17 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-17-Test.sh
 
       - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
 
+      - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.2.a Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-2-a-Test.sh
+
       - name: Run Nyse NyseEquities IntegratedFeed Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse NyseEquities IntegratedFeed Xdp 2.1.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Xdp-v2-1-g-Test.sh
+
+      - name: Run Nyse NyseEquities IntegratedFeed Xdp 2.3.a Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Xdp-v2-3-a-Test.sh
 
       - name: Run Nyse NyseEquities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-OpenBook-Ultra-v2-1-b-Test.sh

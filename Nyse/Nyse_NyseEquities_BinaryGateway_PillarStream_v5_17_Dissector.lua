@@ -7368,15 +7368,15 @@ nyse_nyseequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.d
   local flags = {}
 
   -- Is Sub Id Indicator flag set?
-  if bit.band(value, 0x0000000000001000) ~= 0 then
+  if value:band(0x0000000000001000) ~= UInt64(0) then
     flags[#flags + 1] = "Sub Id Indicator"
   end
   -- Is Locate Reqd flag set?
-  if bit.band(value, 0x0000000000020000) ~= 0 then
+  if value:band(0x0000000000020000) ~= UInt64(0) then
     flags[#flags + 1] = "Locate Reqd"
   end
   -- Is Retail Indicator flag set?
-  if bit.band(value, 0x0000000000040000) ~= 0 then
+  if value:band(0x0000000000040000) ~= UInt64(0) then
     flags[#flags + 1] = "Retail Indicator"
   end
 
@@ -7445,7 +7445,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.dissect = function(buffer, offset, packet, parent)
   local size = nyse_nyseequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.display(range, value, packet, parent)
   local element = parent:add_le(omi_nyse_nyseequities_binarygateway_pillarstream_v5_17.fields.bitfield_order_instructions, range, display)
 

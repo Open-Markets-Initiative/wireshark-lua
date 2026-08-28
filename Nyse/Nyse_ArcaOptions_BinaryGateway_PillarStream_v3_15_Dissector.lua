@@ -7615,7 +7615,7 @@ end
 nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.dissect = function(buffer, offset, packet, parent)
   local size = nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_15.order_instructions.display(range, value, packet, parent)
   local element = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_15.fields.order_instructions, range, display)
 

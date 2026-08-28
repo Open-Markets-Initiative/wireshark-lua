@@ -19,20 +19,14 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.auction_interest_clearing_pri
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.auction_status = ProtoField.new("Auction Status", "nyse.arcaequities.depthfeed.pillar.v1.6.auctionstatus", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.depthfeed.pillar.v1.6.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.depthfeed.pillar.v1.6.auctiontype", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.beginseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaequities.depthfeed.pillar.v1.6.channelid", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.depthfeed.pillar.v1.6.continuousbookclearingprice", ftypes.DOUBLE)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.arcaequities.depthfeed.pillar.v1.6.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.depthfeed.pillar.v1.6.deliveryflag", ftypes.UINT8)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.endseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arcaequities.depthfeed.pillar.v1.6.exchangecode", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.arcaequities.depthfeed.pillar.v1.6.freezestatus", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaequities.depthfeed.pillar.v1.6.haltcondition", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.id = ProtoField.new("Id", "nyse.arcaequities.depthfeed.pillar.v1.6.id", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.depthfeed.pillar.v1.6.imbalanceside", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.depthfeed.pillar.v1.6.indicativematchprice", ftypes.DOUBLE)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.lastseqnum", ftypes.UINT32)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.lastsymbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.lot_size = ProtoField.new("Lot Size", "nyse.arcaequities.depthfeed.pillar.v1.6.lotsize", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.arcaequities.depthfeed.pillar.v1.6.lowercollar", ftypes.INT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.depthfeed.pillar.v1.6.marketid", ftypes.UINT16)
@@ -60,10 +54,8 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_resolution = ProtoField
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.depthfeed.pillar.v1.6.pricescalecode", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.depthfeed.pillar.v1.6.productid", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reference_price = ProtoField.new("Reference Price", "nyse.arcaequities.depthfeed.pillar.v1.6.referenceprice", ftypes.DOUBLE)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.requestseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.depthfeed.pillar.v1.6.reserved1", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.depthfeed.pillar.v1.6.reserved2", ftypes.UINT16)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.depthfeed.pillar.v1.6.retransmitmethod", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.depthfeed.pillar.v1.6.roundlot", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeed.pillar.v1.6.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.depthfeed.pillar.v1.6.securitystatus", ftypes.STRING)
@@ -71,21 +63,18 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_type = ProtoField.ne
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.depthfeed.pillar.v1.6.sessionstate", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.side = ProtoField.new("Side", "nyse.arcaequities.depthfeed.pillar.v1.6.side", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.depthfeed.pillar.v1.6.sourceid", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sourcetime", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.depthfeed.pillar.v1.6.sourcetimens", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.depthfeed.pillar.v1.6.ssrfilingprice", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.depthfeed.pillar.v1.6.ssrstate", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaequities.depthfeed.pillar.v1.6.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arcaequities.depthfeed.pillar.v1.6.ssrtriggeringvolume", ftypes.UINT32)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.status = ProtoField.new("Status", "nyse.arcaequities.depthfeed.pillar.v1.6.status", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol = ProtoField.new("Symbol", "nyse.arcaequities.depthfeed.pillar.v1.6.symbol", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.depthfeed.pillar.v1.6.symbolindex", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.system_id = ProtoField.new("System Id", "nyse.arcaequities.depthfeed.pillar.v1.6.systemid", ftypes.UINT8)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.time = ProtoField.new("Time", "nyse.arcaequities.depthfeed.pillar.v1.6.time", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arcaequities.depthfeed.pillar.v1.6.totalimbalanceqty", ftypes.UINT32)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arcaequities.depthfeed.pillar.v1.6.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.depthfeed.pillar.v1.6.unitoftrade", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.arcaequities.depthfeed.pillar.v1.6.unpairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.arcaequities.depthfeed.pillar.v1.6.unpairedside", ftypes.STRING)
@@ -102,19 +91,11 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("S
 
 -- Nyse ArcaEquities DepthFeed 1.6 Application Messages
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.arcaequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.depthfeed.pillar.v1.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.arcaequities.depthfeed.pillar.v1.6.imbalancemessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.depthfeed.pillar.v1.6.messageunavailablemessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaequities.depthfeed.pillar.v1.6.refreshheadermessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arcaequities.depthfeed.pillar.v1.6.refreshrequestmessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arcaequities.depthfeed.pillar.v1.6.requestresponsemessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.depthfeed.pillar.v1.6.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arcaequities.depthfeed.pillar.v1.6.securitystatusmessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaequities.depthfeed.pillar.v1.6.sequencenumberresetmessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.arcaequities.depthfeed.pillar.v1.6.sourcetimereferencemessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arcaequities.depthfeed.pillar.v1.6.symbolclearmessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaequities.depthfeed.pillar.v1.6.symbolindexmappingmessage", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.depthfeed.pillar.v1.6.symbolindexmappingrequestmessage", ftypes.STRING)
 
 -- Nyse ArcaEquities DepthFeed Pillar 1.6 generated fields
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.depthfeed.pillar.v1.6.messageindex", ftypes.UINT16)
@@ -358,29 +339,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.auction_type.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Begin Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num = {}
-
--- Size: Begin Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Channel Id
 nyse_arcaequities_depthfeed_pillar_v1_6.channel_id = {}
 
@@ -429,29 +387,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.dissect =
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.continuous_book_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Refresh Pkt
-nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt = {}
-
--- Size: Current Refresh Pkt
-nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.size = 2
-
--- Display: Current Refresh Pkt
-nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.display = function(value)
-  return "Current Refresh Pkt: "..value
-end
-
--- Dissect: Current Refresh Pkt
-nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.current_refresh_pkt, range, value, display)
 
   return offset + length, value
 end
@@ -513,29 +448,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.delivery_flag.dissect = function(buffer,
   return offset + length, value
 end
 
--- End Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num = {}
-
--- Size: End Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.size = 4
-
--- Display: End Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exchange Code
 nyse_arcaequities_depthfeed_pillar_v1_6.exchange_code = {}
 
@@ -544,6 +456,9 @@ nyse_arcaequities_depthfeed_pillar_v1_6.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_arcaequities_depthfeed_pillar_v1_6.exchange_code.display = function(value)
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
+  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -641,7 +556,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.halt_condition.display = function(value)
     return "Halt Condition: Equipment Changeover (X)"
   end
   if value == "A" then
-    return "Halt Condition: Additional Information Requested (A)"
+    return "Halt Condition: Sip Outage Material Sip Latency Or Extraordinary Market Activity (A)"
   end
   if value == "C" then
     return "Halt Condition: Regulatory Concern (C)"
@@ -650,7 +565,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.halt_condition.display = function(value)
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Component Prices Not Available (F)"
+    return "Halt Condition: Etf Iiv Etf Component Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -659,10 +574,10 @@ nyse_arcaequities_depthfeed_pillar_v1_6.halt_condition.display = function(value)
     return "Halt Condition: New Security Offering (O)"
   end
   if value == "V" then
-    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+    return "Halt Condition: Primary Listing Exchange Discretionary Halt (V)"
   end
   if value == "6" then
-    return "Halt Condition: Suspend (6)"
+    return "Halt Condition: Suspend Operational Halt (6)"
   end
   if value == "1" then
     return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
@@ -685,29 +600,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.halt_condition.dissect = function(buffer
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.halt_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Id
-nyse_arcaequities_depthfeed_pillar_v1_6.id = {}
-
--- Size: Id
-nyse_arcaequities_depthfeed_pillar_v1_6.id.size = 4
-
--- Display: Id
-nyse_arcaequities_depthfeed_pillar_v1_6.id.display = function(value)
-  return "Id: "..value
-end
-
--- Dissect: Id
-nyse_arcaequities_depthfeed_pillar_v1_6.id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.id, range, value, display)
 
   return offset + length, value
 end
@@ -774,52 +666,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.indicative_match_price.dissect = functio
   return offset + length, value
 end
 
--- Last Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num = {}
-
--- Size: Last Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.size = 4
-
--- Display: Last Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Symbol Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num = {}
-
--- Size: Last Symbol Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.size = 4
-
--- Display: Last Symbol Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.display = function(value)
-  return "Last Symbol Seq Num: "..value
-end
-
--- Dissect: Last Symbol Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.last_symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Lot Size
 nyse_arcaequities_depthfeed_pillar_v1_6.lot_size = {}
 
@@ -879,15 +725,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.market_id.display = function(value)
   end
   if value == 3 then
     return "Market Id: Nyse Arca (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
     return "Market Id: Nyse American (9)"
@@ -1010,9 +847,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.message_type.display = function(value)
   if value == 1 then
     return "Message Type: Sequence Number Reset Message (1)"
   end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
   if value == 3 then
     return "Message Type: Symbol Index Mapping Message (3)"
   end
@@ -1021,27 +855,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.message_type.display = function(value)
   end
   if value == 34 then
     return "Message Type: Security Status Message (34)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
   end
   if value == 115 then
     return "Message Type: Delta Message (115)"
@@ -1519,29 +1332,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.reference_price.dissect = function(buffe
   return offset + length, value
 end
 
--- Request Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num = {}
-
--- Size: Request Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.size = 4
-
--- Display: Request Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.display = function(value)
-  return "Request Seq Num: "..value
-end
-
--- Dissect: Request Seq Num
-nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.request_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 1
 nyse_arcaequities_depthfeed_pillar_v1_6.reserved_1 = {}
 
@@ -1584,29 +1374,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.reserved_2.dissect = function(buffer, of
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmit Method
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method = {}
-
--- Size: Retransmit Method
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.size = 1
-
--- Display: Retransmit Method
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
-end
-
--- Dissect: Retransmit Method
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.retransmit_method, range, value, display)
 
   return offset + length, value
 end
@@ -1679,7 +1446,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_status.display = function(value
     return "Security Status: Resume (5)"
   end
   if value == "6" then
-    return "Security Status: Suspend (6)"
+    return "Security Status: Suspend Operational Halt (6)"
   end
   if value == "A" then
     return "Security Status: Short Sale Restriction Activated Day 1 (A)"
@@ -1739,7 +1506,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_type.size = 1
 -- Display: Security Type
 nyse_arcaequities_depthfeed_pillar_v1_6.security_type.display = function(value)
   if value == "A" then
-    return "Security Type: Adr (A)"
+    return "Security Type: American Depositary Receipts (A)"
   end
   if value == "C" then
     return "Security Type: Common Stock (C)"
@@ -1748,13 +1515,13 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_type.display = function(value)
     return "Security Type: Debentures (D)"
   end
   if value == "E" then
-    return "Security Type: Etf (E)"
+    return "Security Type: Exchange Traded Funds (E)"
   end
   if value == "F" then
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
+    return "Security Type: American Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
@@ -1763,7 +1530,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_type.display = function(value)
     return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
+    return "Security Type: Other Blank (M)"
   end
   if value == "O" then
     return "Security Type: Ordinary Shares (O)"
@@ -1775,7 +1542,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_type.display = function(value)
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
+    return "Security Type: Shares Of Beneficial Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -1784,7 +1551,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.security_type.display = function(value)
     return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
-    return "Security Type: Warrant (W)"
+    return "Security Type: Warrants (W)"
   end
 
   return "Security Type: Unknown("..value..")"
@@ -1874,45 +1641,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.side.dissect = function(buffer, offset, 
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Id
-nyse_arcaequities_depthfeed_pillar_v1_6.source_id = {}
-
--- Size: Source Id
-nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size = 10
-
--- Display: Source Id
-nyse_arcaequities_depthfeed_pillar_v1_6.source_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Source Id: No Value"
-  end
-
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_id, range, value, display)
 
   return offset + length, value
 end
@@ -2034,7 +1762,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.ssr_triggering_exchange_id.display = fun
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -2128,57 +1856,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.ssr_triggering_volume.dissect = function
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.ssr_triggering_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Status
-nyse_arcaequities_depthfeed_pillar_v1_6.status = {}
-
--- Size: Status
-nyse_arcaequities_depthfeed_pillar_v1_6.status.size = 1
-
--- Display: Status
-nyse_arcaequities_depthfeed_pillar_v1_6.status.display = function(value)
-  if value == "0" then
-    return "Status: Message Was Accepted (0)"
-  end
-  if value == "1" then
-    return "Status: Rejected Due To An Invalid Source Id (1)"
-  end
-  if value == "3" then
-    return "Status: Rejected Due To Maximum Sequence Range See Threshold Limits (3)"
-  end
-  if value == "4" then
-    return "Status: Rejected Due To Maximum Request In A Day (4)"
-  end
-  if value == "5" then
-    return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
-  end
-  if value == "6" then
-    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
-  end
-  if value == "7" then
-    return "Status: Rejected Due To An Invalid Channel Id (7)"
-  end
-  if value == "8" then
-    return "Status: Rejected Due To An Invalid Product Id (8)"
-  end
-  if value == "9" then
-    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_arcaequities_depthfeed_pillar_v1_6.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -2361,29 +2038,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.total_imbalance_qty.dissect = function(b
   local display = nyse_arcaequities_depthfeed_pillar_v1_6.total_imbalance_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.total_imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Refresh Pkts
-nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts = {}
-
--- Size: Total Refresh Pkts
-nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.size = 2
-
--- Display: Total Refresh Pkts
-nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.display = function(value)
-  return "Total Refresh Pkts: "..value
-end
-
--- Dissect: Total Refresh Pkts
-nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.total_refresh_pkts, range, value, display)
 
   return offset + length, value
 end
@@ -3202,378 +2856,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.delta_message.dissect = function(buffer,
   end
 end
 
--- Heartbeat Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message = {}
-
--- Size: Heartbeat Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size
-
--- Display: Heartbeat Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Id: ASCII
-  index, source_id = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.heartbeat_response_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Request Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message = {}
-
--- Size: Request Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.product_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.status.size
-
--- Display: Request Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Request Seq Num: Binary
-  index, request_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.request_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_arcaequities_depthfeed_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Status: ASCII
-  index, status = nyse_arcaequities_depthfeed_pillar_v1_6.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Response Message
-nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Refresh Header Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message = {}
-
--- Size: Refresh Header Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.size
-
--- Display: Refresh Header Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Header Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Current Refresh Pkt: Binary
-  index, current_refresh_pkt = nyse_arcaequities_depthfeed_pillar_v1_6.current_refresh_pkt.dissect(buffer, index, packet, parent)
-
-  -- Total Refresh Pkts: Binary
-  index, total_refresh_pkts = nyse_arcaequities_depthfeed_pillar_v1_6.total_refresh_pkts.dissect(buffer, index, packet, parent)
-
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.last_symbol_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Header Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message Unavailable Message
-nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message = {}
-
--- Size: Message Unavailable Message
-nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.product_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.size
-
--- Display: Message Unavailable Message
-nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Unavailable Message
-nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_arcaequities_depthfeed_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Unavailable Message
-nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_unavailable_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Refresh Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message = {}
-
--- Size: Refresh Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.product_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.size
-
--- Display: Refresh Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_arcaequities_depthfeed_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.refresh_request_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Symbol Index Mapping Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message = {}
-
--- Size: Symbol Index Mapping Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.product_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.size
-
--- Display: Symbol Index Mapping Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Symbol Index Mapping Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_arcaequities_depthfeed_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Retransmit Method: Binary
-  index, retransmit_method = nyse_arcaequities_depthfeed_pillar_v1_6.retransmit_method.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Symbol Index Mapping Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.symbol_index_mapping_request_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message = {}
-
--- Size: Retransmission Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.product_id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.size
-
--- Display: Retransmission Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_arcaequities_depthfeed_pillar_v1_6.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_arcaequities_depthfeed_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_arcaequities_depthfeed_pillar_v1_6.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission Request Message
-nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.retransmission_request_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Security Status Message
 nyse_arcaequities_depthfeed_pillar_v1_6.security_status_message = {}
 
@@ -3839,54 +3121,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.dissect = f
   end
 end
 
--- Source Time Reference Message
-nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message = {}
-
--- Size: Source Time Reference Message
-nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.size =
-  nyse_arcaequities_depthfeed_pillar_v1_6.id.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.symbol_seq_num.size + 
-  nyse_arcaequities_depthfeed_pillar_v1_6.source_time.size
-
--- Display: Source Time Reference Message
-nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Source Time Reference Message
-nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Id: Binary
-  index, id = nyse_arcaequities_depthfeed_pillar_v1_6.id.dissect(buffer, index, packet, parent)
-
-  -- Symbol Seq Num: Binary
-  index, symbol_seq_num = nyse_arcaequities_depthfeed_pillar_v1_6.symbol_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Time: Binary
-  index, source_time = nyse_arcaequities_depthfeed_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Source Time Reference Message
-nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.source_time_reference_message, buffer(offset, 0))
-    local index = nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Sequence Number Reset Message
 nyse_arcaequities_depthfeed_pillar_v1_6.sequence_number_reset_message = {}
 
@@ -3948,10 +3182,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.payload.dissect = function(buffer, offse
   if message_type == 1 then
     return nyse_arcaequities_depthfeed_pillar_v1_6.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Symbol Index Mapping Message
   if message_type == 3 then
     return nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
@@ -3963,34 +3193,6 @@ nyse_arcaequities_depthfeed_pillar_v1_6.payload.dissect = function(buffer, offse
   -- Dissect Security Status Message
   if message_type == 34 then
     return nyse_arcaequities_depthfeed_pillar_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_arcaequities_depthfeed_pillar_v1_6.heartbeat_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delta Message
   if message_type == 115 then
@@ -4024,7 +3226,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.message_header.fields = function(buffer,
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
   index, message_size = nyse_arcaequities_depthfeed_pillar_v1_6.message_size.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 14 values
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, message_type = nyse_arcaequities_depthfeed_pillar_v1_6.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -4078,7 +3280,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.message.fields = function(buffer, offset
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 14 branches
+  -- Payload: Runtime Type with 6 branches
   index = nyse_arcaequities_depthfeed_pillar_v1_6.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
