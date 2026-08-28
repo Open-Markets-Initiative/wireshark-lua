@@ -3189,21 +3189,21 @@ siac_opra_output_obi_v6_3_a.short_equity_and_index_quote_message.size = function
 
   index = index + siac_opra_output_obi_v6_3_a.offer_size_short.size
 
-  local bbo_indicator = buffer(offset + index - 26, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_output_obi_v6_3_a.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 36, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_output_obi_v6_3_a.best_offer_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 46, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_output_obi_v6_3_a.best_bid_and_offer_appendage.size
@@ -3399,21 +3399,21 @@ siac_opra_output_obi_v6_3_a.long_equity_and_index_quote_message.size = function(
 
   index = index + siac_opra_output_obi_v6_3_a.offer_size.size
 
-  local bbo_indicator = buffer(offset + index - 40, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_output_obi_v6_3_a.best_bid_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 50, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_output_obi_v6_3_a.best_offer_appendage.size
 
   end
 
-  local bbo_indicator = buffer(offset + index - 60, 1):string()
+  local bbo_indicator = buffer(offset + 0, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_output_obi_v6_3_a.best_bid_and_offer_appendage.size

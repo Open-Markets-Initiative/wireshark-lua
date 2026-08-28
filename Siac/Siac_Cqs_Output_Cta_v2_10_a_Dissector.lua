@@ -3468,42 +3468,42 @@ siac_cqs_output_cta_v2_10_a.special_long_quote_message.size = function(buffer, o
 
   index = index + siac_cqs_output_cta_v2_10_a.national_bbo_indicator.size
 
-  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "Q" or national_bbo_indicator == "S" or national_bbo_indicator == "W" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "I" or national_bbo_indicator == "N" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "U" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 73, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "P" or national_bbo_indicator == "R" or national_bbo_indicator == "V" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 78, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "H" or national_bbo_indicator == "M" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 83, 1):string()
+  local national_bbo_indicator = buffer(offset + 115, 1):string()
 
   if national_bbo_indicator == "T" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_short_appendage.size
@@ -3727,42 +3727,42 @@ siac_cqs_output_cta_v2_10_a.short_quote_message.size = function(buffer, offset)
 
   index = index + siac_cqs_output_cta_v2_10_a.national_bbo_indicator.size
 
-  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "Q" or national_bbo_indicator == "S" or national_bbo_indicator == "W" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "I" or national_bbo_indicator == "N" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "U" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 73, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "P" or national_bbo_indicator == "R" or national_bbo_indicator == "V" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 78, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "H" or national_bbo_indicator == "M" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 83, 1):string()
+  local national_bbo_indicator = buffer(offset + 42, 1):string()
 
   if national_bbo_indicator == "T" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_short_appendage.size
@@ -3951,42 +3951,42 @@ siac_cqs_output_cta_v2_10_a.long_quote_message.size = function(buffer, offset)
 
   index = index + siac_cqs_output_cta_v2_10_a.national_bbo_indicator.size
 
-  local national_bbo_indicator = buffer(offset + index - 1, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "Q" or national_bbo_indicator == "S" or national_bbo_indicator == "W" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 19, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "I" or national_bbo_indicator == "N" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 37, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "U" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_long_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 73, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "P" or national_bbo_indicator == "R" or national_bbo_indicator == "V" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 78, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "H" or national_bbo_indicator == "M" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_offer_short_appendage.size
 
   end
 
-  local national_bbo_indicator = buffer(offset + index - 83, 1):string()
+  local national_bbo_indicator = buffer(offset + 82, 1):string()
 
   if national_bbo_indicator == "T" then
     index = index + siac_cqs_output_cta_v2_10_a.national_best_bid_and_offer_short_appendage.size

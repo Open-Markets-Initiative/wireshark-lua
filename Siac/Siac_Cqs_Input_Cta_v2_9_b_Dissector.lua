@@ -4771,7 +4771,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   index = index + siac_cqs_input_cta_v2_9_b.count_of_odd_lot_offer_appendages.size
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 3, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "S" then
     -- Calculate field size from count
@@ -4780,7 +4780,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   end
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 6, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "S" then
     -- Calculate field size from count
@@ -4789,7 +4789,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   end
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 9, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "L" then
     -- Calculate field size from count
@@ -4798,7 +4798,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   end
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 18, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "L" then
     -- Calculate field size from count
@@ -4807,7 +4807,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   end
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 27, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "E" then
     -- Calculate field size from count
@@ -4816,7 +4816,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   end
 
-  local odd_lot_quote_appendage_type = buffer(offset + index - 40, 1):string()
+  local odd_lot_quote_appendage_type = buffer(offset + 14, 1):string()
 
   if odd_lot_quote_appendage_type == "E" then
     -- Calculate field size from count
