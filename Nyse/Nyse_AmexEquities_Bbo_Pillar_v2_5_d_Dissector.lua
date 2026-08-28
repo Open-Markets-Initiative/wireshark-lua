@@ -15,10 +15,10 @@ local nyse_amexequities_bbo_pillar_v2_5_d = {}
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities Bbo Pillar 2.5.d Fields
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price = ProtoField.new("Ask Price", "nyse.amexequities.bbo.pillar.v2.5.d.askprice", ftypes.DOUBLE)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price = ProtoField.new("Ask Price", "nyse.amexequities.bbo.pillar.v2.5.d.askprice", ftypes.INT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.amexequities.bbo.pillar.v2.5.d.askvolume", ftypes.UINT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexequities.bbo.pillar.v2.5.d.beginseqnum", ftypes.UINT32)
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price = ProtoField.new("Bid Price", "nyse.amexequities.bbo.pillar.v2.5.d.bidprice", ftypes.DOUBLE)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price = ProtoField.new("Bid Price", "nyse.amexequities.bbo.pillar.v2.5.d.bidprice", ftypes.INT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.amexequities.bbo.pillar.v2.5.d.bidvolume", ftypes.UINT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexequities.bbo.pillar.v2.5.d.channelid", ftypes.UINT8)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.amexequities.bbo.pillar.v2.5.d.currentrefreshpkt", ftypes.UINT16)
@@ -39,10 +39,10 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.nanoseconds = ProtoField.new("Nan
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.amexequities.bbo.pillar.v2.5.d.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.amexequities.bbo.pillar.v2.5.d.numbermsgs", ftypes.UINT8)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.amexequities.bbo.pillar.v2.5.d.pktsize", ftypes.UINT16)
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexequities.bbo.pillar.v2.5.d.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexequities.bbo.pillar.v2.5.d.prevcloseprice", ftypes.UINT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.amexequities.bbo.pillar.v2.5.d.prevclosevolume", ftypes.UINT32)
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.bbo.pillar.v2.5.d.price1", ftypes.DOUBLE)
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.bbo.pillar.v2.5.d.price2", ftypes.DOUBLE)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.bbo.pillar.v2.5.d.price1", ftypes.UINT32)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.bbo.pillar.v2.5.d.price2", ftypes.UINT32)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.bbo.pillar.v2.5.d.priceresolution", ftypes.UINT8)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.bbo.pillar.v2.5.d.pricescalecode", ftypes.UINT8)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.bbo.pillar.v2.5.d.productid", ftypes.UINT8)
@@ -99,6 +99,16 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.symbol_index_mapping_request_mess
 -- Nyse AmexEquities Bbo Pillar 2.5.d generated fields
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.bbo.pillar.v2.5.d.messageindex", ftypes.UINT16)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexequities.bbo.pillar.v2.5.d.messagesequencenumber", ftypes.UINT64)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.amexequities.bbo.pillar.v2.5.d.askpricecalculate", ftypes.DOUBLE)
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.amexequities.bbo.pillar.v2.5.d.bidpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse AmexEquities Bbo Pillar 2.5.d Formatting
+-----------------------------------------------------------------------
+
+-- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_amexequities_bbo_pillar_v2_5_d.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -107,6 +117,7 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_sequence_number = ProtoFi
 local show = {}
 
 -- Nyse AmexEquities Bbo Pillar 2.5.d Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
@@ -114,16 +125,21 @@ show.indexes = true
 show.sequences = true
 
 -- Register Nyse AmexEquities Bbo Pillar 2.5.d Show Options
+omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.resolve_records then
+    show.records = omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_application_messages
   end
@@ -139,7 +155,40 @@ function omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs_changed()
   if show.sequences ~= omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_sequences then
     show.sequences = omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.show_sequences
   end
+  if nyse_amexequities_bbo_pillar_v2_5_d.format_decimals ~= omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.format_decimals then
+    nyse_amexequities_bbo_pillar_v2_5_d.format_decimals = omi_nyse_amexequities_bbo_pillar_v2_5_d.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_amexequities_bbo_pillar_v2_5_d.conversation = {}
+nyse_amexequities_bbo_pillar_v2_5_d.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_amexequities_bbo_pillar_v2_5_d.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_amexequities_bbo_pillar_v2_5_d.conversation.data = function(packet)
+  local key = nyse_amexequities_bbo_pillar_v2_5_d.conversation.key(packet)
+  local data = nyse_amexequities_bbo_pillar_v2_5_d.conversation.flows[key]
+  if data == nil then
+    data = { symbol_index_mapping_message = {} }
+    nyse_amexequities_bbo_pillar_v2_5_d.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_amexequities_bbo_pillar_v2_5_d.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -157,17 +206,11 @@ nyse_amexequities_bbo_pillar_v2_5_d.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
--- Translate: Ask Price
-nyse_amexequities_bbo_pillar_v2_5_d.ask_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ask Price
 nyse_amexequities_bbo_pillar_v2_5_d.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price, range, value, display)
@@ -232,17 +275,11 @@ nyse_amexequities_bbo_pillar_v2_5_d.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
--- Translate: Bid Price
-nyse_amexequities_bbo_pillar_v2_5_d.bid_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Bid Price
 nyse_amexequities_bbo_pillar_v2_5_d.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price, range, value, display)
@@ -913,17 +950,11 @@ nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.display = function(value)
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.prev_close_price, range, value, display)
@@ -965,17 +996,11 @@ nyse_amexequities_bbo_pillar_v2_5_d.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_amexequities_bbo_pillar_v2_5_d.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_amexequities_bbo_pillar_v2_5_d.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bbo_pillar_v2_5_d.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_1, range, value, display)
@@ -994,17 +1019,11 @@ nyse_amexequities_bbo_pillar_v2_5_d.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_amexequities_bbo_pillar_v2_5_d.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_amexequities_bbo_pillar_v2_5_d.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_bbo_pillar_v2_5_d.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.price_2, range, value, display)
@@ -1832,9 +1851,34 @@ nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect = function(buffer, offs
   local value = range:le_uint()
   local display = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.symbol_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.symbol_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_amexequities_bbo_pillar_v2_5_d.conversation.current.symbol_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Symbol Seq Num
@@ -1962,6 +2006,82 @@ nyse_amexequities_bbo_pillar_v2_5_d.unit_of_trade.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Ask Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate = {}
+
+-- Display: Ask Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.display = function(value)
+  return "Ask Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.ask_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_bbo_pillar_v2_5_d.format_decimals then
+    local record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_bbo_pillar_v2_5_d.ask_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate = {}
+
+-- Display: Bid Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.display = function(value)
+  return "Bid Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price_calculate, range, value, display)
+  local mantissa_display = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.display(mantissa)
+
+  field_tree:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.bid_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexequities_bbo_pillar_v2_5_d.format_decimals then
+    local record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_amexequities_bbo_pillar_v2_5_d.bid_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse AmexEquities Bbo Pillar 2.5.d
@@ -1994,20 +2114,20 @@ nyse_amexequities_bbo_pillar_v2_5_d.quote_message.fields = function(buffer, offs
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_bbo_pillar_v2_5_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_bbo_pillar_v2_5_d.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Ask Price: Binary
-  index, ask_price = nyse_amexequities_bbo_pillar_v2_5_d.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = nyse_amexequities_bbo_pillar_v2_5_d.ask_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ask Volume: Binary
   index, ask_volume = nyse_amexequities_bbo_pillar_v2_5_d.ask_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Price: Binary
-  index, bid_price = nyse_amexequities_bbo_pillar_v2_5_d.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = nyse_amexequities_bbo_pillar_v2_5_d.bid_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Bid Volume: Binary
   index, bid_volume = nyse_amexequities_bbo_pillar_v2_5_d.bid_volume.dissect(buffer, index, packet, parent)
@@ -2266,8 +2386,8 @@ end
 nyse_amexequities_bbo_pillar_v2_5_d.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_amexequities_bbo_pillar_v2_5_d.source_id.dissect(buffer, index, packet, parent)
@@ -2319,8 +2439,8 @@ end
 nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_amexequities_bbo_pillar_v2_5_d.source_id.dissect(buffer, index, packet, parent)
@@ -2447,8 +2567,8 @@ nyse_amexequities_bbo_pillar_v2_5_d.security_status_message.fields = function(bu
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_bbo_pillar_v2_5_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_bbo_pillar_v2_5_d.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2532,8 +2652,8 @@ nyse_amexequities_bbo_pillar_v2_5_d.symbol_clear_message.fields = function(buffe
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_bbo_pillar_v2_5_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_amexequities_bbo_pillar_v2_5_d.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -2590,8 +2710,8 @@ end
 nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_amexequities_bbo_pillar_v2_5_d.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_amexequities_bbo_pillar_v2_5_d.symbol.dissect(buffer, index, packet, parent)
@@ -2637,6 +2757,15 @@ nyse_amexequities_bbo_pillar_v2_5_d.symbol_index_mapping_message.fields = functi
 
   -- Reserved 2: Binary
   index, reserved_2 = nyse_amexequities_bbo_pillar_v2_5_d.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_amexequities_bbo_pillar_v2_5_d.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -3047,6 +3176,12 @@ end
 
 -- Dissect Packet
 nyse_amexequities_bbo_pillar_v2_5_d.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_amexequities_bbo_pillar_v2_5_d.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_amexequities_bbo_pillar_v2_5_d.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields

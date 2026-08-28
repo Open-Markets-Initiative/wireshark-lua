@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 863 | 6,204,442 |
+| 863 | 6,207,451 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -72,11 +72,11 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Consolidators and Sips
 
-> [Cqs][Cqs.Consolidator] · [Cts][Cts.Consolidator] · [MdcsRealtime][MdcsRealtime.Consolidator] · [NyseConsolidated][NyseConsolidated.Consolidator] · [Opra][Opra.Consolidator] · [Uqdf][Uqdf.Consolidator] · [Utdf][Utdf.Consolidator] · [Utp][Utp.Consolidator]
+> [Cqs][Cqs.Consolidator] · [Cts][Cts.Consolidator] · [MdcsRealtime][MdcsRealtime.Consolidator] · [NyseConsolidated][NyseConsolidated.Consolidator] · [Opra][Opra.Consolidator] · [TitaniumConsolidated][TitaniumConsolidated.Consolidator] · [Uqdf][Uqdf.Consolidator] · [Utdf][Utdf.Consolidator] · [Utp][Utp.Consolidator]
 
 ## Platforms
 
-> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Cboe TitaniumConsolidated][TitaniumConsolidated.Platform]
+> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform]
 
 ## Related Definitions
 
@@ -88,6 +88,9 @@ The Open Markets Initiative provides protocol definitions in several formats:
 - [Spicy Definitions][Spicy.Definitions.Repository] — declarative Spicy grammars for the spicy toolchain and the zeek network security monitor
 - [FIX Dictionaries][Fix.Dictionaries.Repository] — QuickFIX format xml data dictionaries, one per FIX version
 - [Xml Specifications][Xml.Specifications.Repository] — the exchange protocol specification xmls, matching the original files
+## Example Packets
+
+For the example captures: [Omi Example Data](https://github.com/Open-Markets-Initiative/omi-data-packets "Omi Example Data Packet Captures")
 ## Disclaimer
 
 Any similarities between existing people, places and/or protocols is purely incidental.
@@ -715,7 +718,7 @@ Enjoy.
 [Szse.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Hkex/Protocols/Szse "Shenzhen Stock Exchange"
 [T7.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Eurex/Protocols/T7 "T7"
 [TexasEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nyse/Protocols/TexasEquities "Nyse Texas Equities"
-[TitaniumConsolidated.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/TitaniumConsolidated "Cboe Titanium Consolidated"
+[TitaniumConsolidated.Consolidator]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Cboe/Protocols/TitaniumConsolidated "Cboe Titanium Consolidated"
 [TradeEcho.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Lseg/Protocols/TradeEcho "TRADEcho"
 [Turquoise.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Lseg/Protocols/Turquoise "Turquoise"
 [TxseEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Txse/Protocols/TxseEquities "Txse Equities"

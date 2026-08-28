@@ -15,19 +15,19 @@ local nyse_texasequities_depthfeedrefresh_pillar_v1_6 = {}
 -----------------------------------------------------------------------
 
 -- Nyse TexasEquities DepthFeedRefresh Pillar 1.6 Fields
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.auctioninterestclearingprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.auctioninterestclearingprice", ftypes.INT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_status = ProtoField.new("Auction Status", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.auctionstatus", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_time = ProtoField.new("Auction Time", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.auctiontime", ftypes.UINT16)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_type = ProtoField.new("Auction Type", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.auctiontype", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.channel_id = ProtoField.new("Channel Id", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.channelid", ftypes.UINT8)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.continuousbookclearingprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.continuousbookclearingprice", ftypes.INT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.deliveryflag", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.exchangecode", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.freezestatus", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.haltcondition", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.imbalanceside", ftypes.STRING)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.indicativematchprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.indicativematchprice", ftypes.INT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.lastseqnum", ftypes.UINT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.lastsymbolseqnum", ftypes.UINT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.lot_size = ProtoField.new("Lot Size", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.lotsize", ftypes.UINT16)
@@ -46,16 +46,16 @@ omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.paired_qty = ProtoFie
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.participant = ProtoField.new("Participant", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.participant", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.participants = ProtoField.new("Participants", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.participants", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.pktsize", ftypes.UINT16)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.prevcloseprice", ftypes.UINT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.prevclosevolume", ftypes.UINT32)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price = ProtoField.new("Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price", ftypes.DOUBLE)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_1 = ProtoField.new("Price 1", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price1", ftypes.DOUBLE)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_2 = ProtoField.new("Price 2", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price2", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price = ProtoField.new("Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price", ftypes.INT32)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_1 = ProtoField.new("Price 1", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price1", ftypes.UINT32)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_2 = ProtoField.new("Price 2", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.price2", ftypes.UINT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_point = ProtoField.new("Price Point", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.pricepoint", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.priceresolution", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.pricescalecode", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.product_id = ProtoField.new("Product Id", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.productid", ftypes.UINT8)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.reference_price = ProtoField.new("Reference Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.referenceprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.reference_price = ProtoField.new("Reference Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.referenceprice", ftypes.INT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.reserved1", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.reserved2", ftypes.UINT16)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.round_lot = ProtoField.new("Round Lot", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.roundlot", ftypes.STRING)
@@ -67,7 +67,7 @@ omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.session_state = Proto
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.side = ProtoField.new("Side", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.side", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.source_time = ProtoField.new("Source Time", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.sourcetime", ftypes.UINT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.sourcetimens", ftypes.UINT32)
-omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.ssrfilingprice", ftypes.DOUBLE)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.ssrfilingprice", ftypes.INT32)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_state = ProtoField.new("Ssr State", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.ssrstate", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.texasequities.depthfeedrefresh.pillar.v1.6.ssrtriggeringvolume", ftypes.UINT32)
@@ -223,17 +223,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.
   return "Auction Interest Clearing Price: "..value
 end
 
--- Translate: Auction Interest Clearing Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Auction Interest Clearing Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.auction_interest_clearing_price, range, value, display)
@@ -376,17 +370,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.d
   return "Continuous Book Clearing Price: "..value
 end
 
--- Translate: Continuous Book Clearing Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Continuous Book Clearing Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.continuous_book_clearing_price, range, value, display)
@@ -674,17 +662,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.display =
   return "Indicative Match Price: "..value
 end
 
--- Translate: Indicative Match Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Indicative Match Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.indicative_match_price, range, value, display)
@@ -1145,17 +1127,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.display = funct
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.prev_close_price, range, value, display)
@@ -1197,17 +1173,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.display = function(value)
   return "Price: "..value
 end
 
--- Translate: Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price, range, value, display)
@@ -1226,17 +1196,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.display = function(value
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_1, range, value, display)
@@ -1255,17 +1219,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.display = function(value
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.price_2, range, value, display)
@@ -1363,17 +1321,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.display = functi
   return "Reference Price: "..value
 end
 
--- Translate: Reference Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Reference Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.reference_price, range, value, display)
@@ -1751,17 +1703,11 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.display = funct
   return "Ssr Filing Price: "..value
 end
 
--- Translate: Ssr Filing Price
-nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ssr Filing Price
 nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_texasequities_depthfeedrefresh_pillar_v1_6.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_6.fields.ssr_filing_price, range, value, display)

@@ -17,12 +17,12 @@ local nyse_arcaequities_arcabook_pillar_v2_1 = {}
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.arcabook.pillar.v2.1.auctiontype", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.closingonlyclearingprice", ftypes.DOUBLE)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.continuousbookclearingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.closingonlyclearingprice", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.arcabook.pillar.v2.1.continuousbookclearingprice", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.arcabook.pillar.v2.1.deliveryflag", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.firm_id = ProtoField.new("Firm Id", "nyse.arcaequities.arcabook.pillar.v2.1.firmid", ftypes.BYTES)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.arcabook.pillar.v2.1.imbalanceside", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.arcabook.pillar.v2.1.indicativematchprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.arcabook.pillar.v2.1.indicativematchprice", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaequities.arcabook.pillar.v2.1.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.arcabook.pillar.v2.1.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.arcabook.pillar.v2.1.messagetype", ftypes.UINT16)
@@ -32,14 +32,14 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.order_id = ProtoField.new("Ord
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.order_idgtc_indicator = ProtoField.new("Order Idgtc Indicator", "nyse.arcaequities.arcabook.pillar.v2.1.orderidgtcindicator", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaequities.arcabook.pillar.v2.1.pairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.arcabook.pillar.v2.1.pktsize", ftypes.UINT16)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.DOUBLE)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side = ProtoField.new("Side", "nyse.arcaequities.arcabook.pillar.v2.1.side", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetimens", ftypes.UINT32)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.arcabook.pillar.v2.1.ssrfilingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.arcabook.pillar.v2.1.ssrfilingprice", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.arcabook.pillar.v2.1.symbolindex", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.arcaequities.arcabook.pillar.v2.1.totalimbalanceqty", ftypes.UINT32)
@@ -178,17 +178,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.display = fun
   return "Closing Only Clearing Price: "..value
 end
 
--- Translate: Closing Only Clearing Price
-nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Closing Only Clearing Price
 nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.closing_only_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.closing_only_clearing_price, range, value, display)
@@ -207,17 +201,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.display = 
   return "Continuous Book Clearing Price: "..value
 end
 
--- Translate: Continuous Book Clearing Price
-nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Continuous Book Clearing Price
 nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.continuous_book_clearing_price, range, value, display)
@@ -339,17 +327,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.display = function
   return "Indicative Match Price: "..value
 end
 
--- Translate: Indicative Match Price
-nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Indicative Match Price
 nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.indicative_match_price, range, value, display)
@@ -607,17 +589,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.price.display = function(value)
   return "Price: "..value
 end
 
--- Translate: Price
-nyse_arcaequities_arcabook_pillar_v2_1.price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price
 nyse_arcaequities_arcabook_pillar_v2_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_arcabook_pillar_v2_1.price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price, range, value, display)
@@ -781,17 +757,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.display = function(value
   return "Ssr Filing Price: "..value
 end
 
--- Translate: Ssr Filing Price
-nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ssr Filing Price
 nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price, range, value, display)

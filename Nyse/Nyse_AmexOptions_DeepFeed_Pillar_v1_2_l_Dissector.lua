@@ -16,7 +16,7 @@ local nyse_amexoptions_deepfeed_pillar_v1_2_l = {}
 
 -- Nyse AmexOptions DeepFeed Pillar 1.2.l Fields
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_id = ProtoField.new("Auction Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.auctionid", ftypes.UINT64)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.auctioninterestclearingprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.auctioninterestclearingprice", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_status = ProtoField.new("Auction Status", "nyse.amexoptions.deepfeed.pillar.v1.2.l.auctionstatus", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_type = ProtoField.new("Auction Type", "nyse.amexoptions.deepfeed.pillar.v1.2.l.auctiontype", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.amexoptions.deepfeed.pillar.v1.2.l.beginseqnum", ftypes.UINT32)
@@ -25,7 +25,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.channel_id = ProtoField.new("
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.close = ProtoField.new("Close", "nyse.amexoptions.deepfeed.pillar.v1.2.l.close", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.closing_only_indicator = ProtoField.new("Closing Only Indicator", "nyse.amexoptions.deepfeed.pillar.v1.2.l.closingonlyindicator", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.complex_series_index_mapping_leg = ProtoField.new("Complex Series Index Mapping Leg", "nyse.amexoptions.deepfeed.pillar.v1.2.l.complexseriesindexmappingleg", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.continuousbookclearingprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.continuousbookclearingprice", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "nyse.amexoptions.deepfeed.pillar.v1.2.l.contractmultiplier", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.cross_id = ProtoField.new("Cross Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.crossid", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.cross_type = ProtoField.new("Cross Type", "nyse.amexoptions.deepfeed.pillar.v1.2.l.crosstype", ftypes.STRING)
@@ -36,17 +36,17 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.end_seq_num = ProtoField.new(
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexoptions.deepfeed.pillar.v1.2.l.exchangecode", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.firm_id = ProtoField.new("Firm Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.firmid", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexoptions.deepfeed.pillar.v1.2.l.haltcondition", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.high_price = ProtoField.new("High Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.highprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.high_price = ProtoField.new("High Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.highprice", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.id = ProtoField.new("Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.id", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexoptions.deepfeed.pillar.v1.2.l.imbalanceside", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.indicativematchprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.indicativematchprice", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lastseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lastsymbolseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "nyse.amexoptions.deepfeed.pillar.v1.2.l.legratioqty", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.leg_security_type = ProtoField.new("Leg Security Type", "nyse.amexoptions.deepfeed.pillar.v1.2.l.legsecuritytype", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.leg_side = ProtoField.new("Leg Side", "nyse.amexoptions.deepfeed.pillar.v1.2.l.legside", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.lot_size = ProtoField.new("Lot Size", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lotsize", ftypes.UINT16)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.low_price = ProtoField.new("Low Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lowprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.low_price = ProtoField.new("Low Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lowprice", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lowercollar", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.market_id = ProtoField.new("Market Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.marketid", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.amexoptions.deepfeed.pillar.v1.2.l.marketimbalanceqty", ftypes.UINT32)
@@ -68,11 +68,11 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.paired_qty = ProtoField.new("
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.participant = ProtoField.new("Participant", "nyse.amexoptions.deepfeed.pillar.v1.2.l.participant", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.amexoptions.deepfeed.pillar.v1.2.l.pktsize", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.position_change = ProtoField.new("Position Change", "nyse.amexoptions.deepfeed.pillar.v1.2.l.positionchange", ftypes.UINT8)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.prevcloseprice", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.amexoptions.deepfeed.pillar.v1.2.l.prevclosevolume", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price = ProtoField.new("Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price", ftypes.DOUBLE)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_1 = ProtoField.new("Price 1", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price1", ftypes.DOUBLE)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_2 = ProtoField.new("Price 2", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price2", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price = ProtoField.new("Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price", ftypes.INT32)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_1 = ProtoField.new("Price 1", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price1", ftypes.UINT32)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_2 = ProtoField.new("Price 2", "nyse.amexoptions.deepfeed.pillar.v1.2.l.price2", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexoptions.deepfeed.pillar.v1.2.l.priceresolution", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexoptions.deepfeed.pillar.v1.2.l.pricescalecode", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_type = ProtoField.new("Price Type", "nyse.amexoptions.deepfeed.pillar.v1.2.l.pricetype", ftypes.UINT8)
@@ -125,7 +125,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.underlying_index = ProtoField
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.amexoptions.deepfeed.pillar.v1.2.l.underlyingsymbol", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexoptions.deepfeed.pillar.v1.2.l.uppercollar", ftypes.INT32)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.volume = ProtoField.new("Volume", "nyse.amexoptions.deepfeed.pillar.v1.2.l.volume", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.workingprice", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.deepfeed.pillar.v1.2.l.workingprice", ftypes.INT32)
 
 -- Nyse AmexOptions DeepFeed Pillar 1.2.l Headers
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.message = ProtoField.new("Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.message", ftypes.STRING)
@@ -253,17 +253,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.display 
   return "Auction Interest Clearing Price: "..value
 end
 
--- Translate: Auction Interest Clearing Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Auction Interest Clearing Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.auction_interest_clearing_price, range, value, display)
@@ -489,17 +483,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.display =
   return "Continuous Book Clearing Price: "..value
 end
 
--- Translate: Continuous Book Clearing Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Continuous Book Clearing Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.continuous_book_clearing_price, range, value, display)
@@ -895,17 +883,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.display = function(value)
   return "High Price: "..value
 end
 
--- Translate: High Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: High Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.high_price, range, value, display)
@@ -980,17 +962,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.display = functio
   return "Indicative Match Price: "..value
 end
 
--- Translate: Indicative Match Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Indicative Match Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price, range, value, display)
@@ -1164,17 +1140,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.display = function(value)
   return "Low Price: "..value
 end
 
--- Translate: Low Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Low Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.low_price, range, value, display)
@@ -1887,17 +1857,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.display = function(valu
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.prev_close_price, range, value, display)
@@ -1939,17 +1903,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.price.display = function(value)
   return "Price: "..value
 end
 
--- Translate: Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price, range, value, display)
@@ -1968,17 +1926,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_1, range, value, display)
@@ -1997,17 +1949,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_2, range, value, display)
@@ -3650,17 +3596,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.display = function(value)
   return "Working Price: "..value
 end
 
--- Translate: Working Price
-nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Working Price
 nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price, range, value, display)

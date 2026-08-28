@@ -15,12 +15,12 @@ local nyse_amexequities_integratedfeed_pillar_v2_5_g = {}
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities IntegratedFeed Pillar 2.5.g Fields
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingprice", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_status = ProtoField.new("Auction Status", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctionstatus", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_time = ProtoField.new("Auction Time", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctiontime", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_type = ProtoField.new("Auction Type", "nyse.amexequities.integratedfeed.pillar.v2.5.g.auctiontype", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.channelid", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.continuousbookclearingprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.continuousbookclearingprice", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_id = ProtoField.new("Cross Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crossid", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.cross_type = ProtoField.new("Cross Type", "nyse.amexequities.integratedfeed.pillar.v2.5.g.crosstype", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexequities.integratedfeed.pillar.v2.5.g.deliveryflag", ftypes.UINT8)
@@ -31,7 +31,7 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.freeze_status = ProtoF
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexequities.integratedfeed.pillar.v2.5.g.haltcondition", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.id = ProtoField.new("Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.id", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.integratedfeed.pillar.v2.5.g.imbalanceside", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.indicativematchprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.indicativematchprice", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.late_close_eligible = ProtoField.new("Late Close Eligible", "nyse.amexequities.integratedfeed.pillar.v2.5.g.latecloseeligible", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lotsize", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.amexequities.integratedfeed.pillar.v2.5.g.lowercollar", ftypes.INT32)
@@ -50,16 +50,16 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.order_id = ProtoField.
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pairedqty", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pktsize", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.position_change = ProtoField.new("Position Change", "nyse.amexequities.integratedfeed.pillar.v2.5.g.positionchange", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.prevcloseprice", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.amexequities.integratedfeed.pillar.v2.5.g.prevclosevolume", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price = ProtoField.new("Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price1", ftypes.DOUBLE)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price2", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price = ProtoField.new("Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price", ftypes.INT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_1 = ProtoField.new("Price 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price1", ftypes.UINT32)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_2 = ProtoField.new("Price 2", "nyse.amexequities.integratedfeed.pillar.v2.5.g.price2", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexequities.integratedfeed.pillar.v2.5.g.priceresolution", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexequities.integratedfeed.pillar.v2.5.g.pricescalecode", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.amexequities.integratedfeed.pillar.v2.5.g.printableflag", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.productid", ftypes.UINT8)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.referenceprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.referenceprice", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.integratedfeed.pillar.v2.5.g.reserved1", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.integratedfeed.pillar.v2.5.g.reserved4", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.integratedfeed.pillar.v2.5.g.roundlot", ftypes.STRING)
@@ -72,7 +72,7 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.session_state = ProtoF
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.side = ProtoField.new("Side", "nyse.amexequities.integratedfeed.pillar.v2.5.g.side", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time = ProtoField.new("Source Time", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetime", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetimens", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrfilingprice", ftypes.DOUBLE)
+omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrfilingprice", ftypes.INT32)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrstate", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.amexequities.integratedfeed.pillar.v2.5.g.ssrtriggeringvolume", ftypes.UINT32)
@@ -243,17 +243,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.d
   return "Auction Interest Clearing Price: "..value
 end
 
--- Translate: Auction Interest Clearing Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Auction Interest Clearing Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price, range, value, display)
@@ -396,17 +390,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.di
   return "Continuous Book Clearing Price: "..value
 end
 
--- Translate: Continuous Book Clearing Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Continuous Book Clearing Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.continuous_book_clearing_price, range, value, display)
@@ -822,17 +810,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.display = 
   return "Indicative Match Price: "..value
 end
 
--- Translate: Indicative Match Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Indicative Match Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.indicative_match_price, range, value, display)
@@ -1356,17 +1338,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.display = functi
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.prev_close_price, range, value, display)
@@ -1408,17 +1384,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.price.display = function(value)
   return "Price: "..value
 end
 
--- Translate: Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price, range, value, display)
@@ -1437,17 +1407,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_1, range, value, display)
@@ -1466,17 +1430,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.price_2, range, value, display)
@@ -1594,17 +1552,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.display = functio
   return "Reference Price: "..value
 end
 
--- Translate: Reference Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Reference Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.reference_price, range, value, display)
@@ -2028,17 +1980,11 @@ nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.display = functi
   return "Ssr Filing Price: "..value
 end
 
--- Translate: Ssr Filing Price
-nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ssr Filing Price
 nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_g.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_g.fields.ssr_filing_price, range, value, display)

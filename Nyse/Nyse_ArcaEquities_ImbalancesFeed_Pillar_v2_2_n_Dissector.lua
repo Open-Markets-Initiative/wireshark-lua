@@ -15,13 +15,13 @@ local nyse_arcaequities_imbalancesfeed_pillar_v2_2_n = {}
 -----------------------------------------------------------------------
 
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Fields
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price = ProtoField.new("Auction Interest Clearing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingprice", ftypes.INT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_status = ProtoField.new("Auction Status", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctionstatus", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_time = ProtoField.new("Auction Time", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctiontime", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_type = ProtoField.new("Auction Type", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctiontype", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.beginseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.channelid", ftypes.UINT8)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.continuousbookclearingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.continuousbookclearingprice", ftypes.INT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.deliveryflag", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.endseqnum", ftypes.UINT32)
@@ -30,7 +30,7 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.freeze_status = ProtoF
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.haltcondition", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.id = ProtoField.new("Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.id", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.imbalanceside", ftypes.STRING)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.indicativematchprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.indicativematchprice", ftypes.INT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.lastseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.lastsymbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.lot_size = ProtoField.new("Lot Size", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.lotsize", ftypes.UINT16)
@@ -47,14 +47,14 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.num_extensions = Proto
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.numbermsgs", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.pairedqty", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.pktsize", ftypes.UINT16)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.prevcloseprice", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.prevclosevolume", ftypes.UINT32)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.price1", ftypes.DOUBLE)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.price2", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.price1", ftypes.UINT32)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.price2", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.priceresolution", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.pricescalecode", ftypes.UINT8)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.productid", ftypes.UINT8)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price = ProtoField.new("Reference Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.referenceprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price = ProtoField.new("Reference Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.referenceprice", ftypes.INT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.requestseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.reserved1", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.reserved2", ftypes.UINT16)
@@ -69,7 +69,7 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.session_state = ProtoF
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sourceid", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sourcetime", ftypes.UINT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.sourcetimens", ftypes.UINT32)
-omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrfilingprice", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrfilingprice", ftypes.INT32)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrstate", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrtriggeringvolume", ftypes.UINT32)
@@ -111,6 +111,19 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index_mapping_r
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n generated fields
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.messagesequencenumber", ftypes.UINT64)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price_calculate = ProtoField.new("Continuous Book Clearing Price Calculate", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.continuousbookclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.indicativematchpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price_calculate = ProtoField.new("Reference Price Calculate", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.referencepricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price_calculate = ProtoField.new("SSR Filing Price Calculate", "nyse.arcaequities.imbalancesfeed.pillar.v2.2.n.ssrfilingpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Formatting
+-----------------------------------------------------------------------
+
+-- Reference Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -119,6 +132,7 @@ omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.message_sequence_numbe
 local show = {}
 
 -- Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
@@ -126,16 +140,21 @@ show.indexes = true
 show.sequences = true
 
 -- Register Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n Show Options
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.resolve_records then
+    show.records = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_application_messages
   end
@@ -151,7 +170,40 @@ function omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs_changed()
   if show.sequences ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_sequences then
     show.sequences = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.show_sequences
   end
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals ~= omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals then
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals = omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation = {}
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.data = function(packet)
+  local key = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.key(packet)
+  local data = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.flows[key]
+  if data == nil then
+    data = { symbol_index_mapping_message = {} }
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -169,17 +221,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.d
   return "Auction Interest Clearing Price: "..value
 end
 
--- Translate: Auction Interest Clearing Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Auction Interest Clearing Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price, range, value, display)
@@ -345,17 +391,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.di
   return "Continuous Book Clearing Price: "..value
 end
 
--- Translate: Continuous Book Clearing Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Continuous Book Clearing Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price, range, value, display)
@@ -686,17 +726,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.display = 
   return "Indicative Match Price: "..value
 end
 
--- Translate: Indicative Match Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Indicative Match Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price, range, value, display)
@@ -1164,17 +1198,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.display = functi
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.prev_close_price, range, value, display)
@@ -1216,17 +1244,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_1, range, value, display)
@@ -1245,17 +1267,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.price_2, range, value, display)
@@ -1343,17 +1359,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.display = functio
   return "Reference Price: "..value
 end
 
--- Translate: Reference Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Reference Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price, range, value, display)
@@ -1809,17 +1819,11 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.display = functi
   return "Ssr Filing Price: "..value
 end
 
--- Translate: Ssr Filing Price
-nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ssr Filing Price
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price, range, value, display)
@@ -2075,9 +2079,34 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect = function(b
   local value = range:le_uint()
   local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current.symbol_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Symbol Seq Num
@@ -2297,6 +2326,196 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.upper_collar.dissect = function(b
   return offset + length, value
 end
 
+-- Auction Interest Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate = {}
+
+-- Display: Auction Interest Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.display = function(value)
+  return "Auction Interest Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Auction Interest Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Auction Interest Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals then
+    local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Continuous Book Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate = {}
+
+-- Display: Continuous Book Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.display = function(value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Continuous Book Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.continuous_book_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Continuous Book Clearing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals then
+    local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Indicative Match Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate = {}
+
+-- Display: Indicative Match Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.display = function(value)
+  return "Indicative Match Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Indicative Match Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.indicative_match_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Indicative Match Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals then
+    local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Reference Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate = {}
+
+-- Display: Reference Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.display = function(value)
+  return "Reference Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Reference Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Reference Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals then
+    local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.dissect(buffer, offset, packet, parent)
+end
+
+-- SSR Filing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate = {}
+
+-- Display: SSR Filing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.display = function(value)
+  return "SSR Filing Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: SSR Filing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.fields.ssr_filing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: SSR Filing Price Calculate
+nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.format_decimals then
+    local record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse ArcaEquities ImbalancesFeed Pillar 2.2.n
@@ -2346,14 +2565,14 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.imbalance_message.fields = functi
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reference Price: Binary
-  index, reference_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price.dissect(buffer, index, packet, parent)
+  index, reference_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reference_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.paired_qty.dissect(buffer, index, packet, parent)
@@ -2374,16 +2593,16 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.imbalance_message.fields = functi
   index, imbalance_side = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: Binary
-  index, continuous_book_clearing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.continuous_book_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Interest Clearing Price: Binary
-  index, auction_interest_clearing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
+  index, auction_interest_clearing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.auction_interest_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Filing Price: Binary
-  index, ssr_filing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price.dissect(buffer, index, packet, parent)
+  index, ssr_filing_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.ssr_filing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Binary
-  index, indicative_match_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price.dissect(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: Binary
   index, upper_collar = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.upper_collar.dissect(buffer, index, packet, parent)
@@ -2657,8 +2876,8 @@ end
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.source_id.dissect(buffer, index, packet, parent)
@@ -2710,8 +2929,8 @@ end
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.source_id.dissect(buffer, index, packet, parent)
@@ -2838,8 +3057,8 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.security_status_message.fields = 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2923,8 +3142,8 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_clear_message.fields = fun
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -2981,8 +3200,8 @@ end
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol.dissect(buffer, index, packet, parent)
@@ -3028,6 +3247,15 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.symbol_index_mapping_message.fiel
 
   -- Reserved 2: Binary
   index, reserved_2 = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -3438,6 +3666,12 @@ end
 
 -- Dissect Packet
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields

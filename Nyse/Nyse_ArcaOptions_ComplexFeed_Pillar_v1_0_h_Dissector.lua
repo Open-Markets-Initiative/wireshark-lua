@@ -16,12 +16,12 @@ local nyse_arcaoptions_complexfeed_pillar_v1_0_h = {}
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.h Fields
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.ask_customer_volume = ProtoField.new("Ask Customer Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.askcustomervolume", ftypes.UINT32)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.askprice", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.askprice", ftypes.INT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.askvolume", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.auction_id = ProtoField.new("Auction Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.auctionid", ftypes.UINT64)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.beginseqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.bid_customer_volume = ProtoField.new("Bid Customer Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.bidcustomervolume", ftypes.UINT32)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.bid_price = ProtoField.new("Bid Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.bidprice", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.bid_price = ProtoField.new("Bid Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.bidprice", ftypes.INT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.bidvolume", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.capacity = ProtoField.new("Capacity", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.capacity", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.channelid", ftypes.UINT8)
@@ -53,10 +53,10 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.option_symbol_root = Proto
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.options_status_halt_condition = ProtoField.new("Options Status Halt Condition", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.optionsstatushaltcondition", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.participant = ProtoField.new("Participant", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.participant", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.pktsize", ftypes.UINT16)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.prevcloseprice", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.prevclosevolume", ftypes.UINT32)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.price1", ftypes.DOUBLE)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.price2", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.price1", ftypes.UINT32)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.price2", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.priceresolution", ftypes.UINT8)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.pricescalecode", ftypes.UINT8)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.product_id = ProtoField.new("Product Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.productid", ftypes.UINT8)
@@ -100,12 +100,12 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.total_quantity = ProtoFiel
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.tradecond1", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.trade_id = ProtoField.new("Trade Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.tradeid", ftypes.UINT32)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.trade_price = ProtoField.new("Trade Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.tradeprice", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.trade_price = ProtoField.new("Trade Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.tradeprice", ftypes.INT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.type = ProtoField.new("Type", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.type", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.underlyingindex", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.underlyingsymbol", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.volume = ProtoField.new("Volume", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.volume", ftypes.UINT32)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.workingprice", ftypes.DOUBLE)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.workingprice", ftypes.INT32)
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.h Headers
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.message", ftypes.STRING)
@@ -224,17 +224,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
--- Translate: Ask Price
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ask Price
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.ask_price, range, value, display)
@@ -345,17 +339,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
--- Translate: Bid Price
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Bid Price
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.bid_price, range, value, display)
@@ -1353,17 +1341,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.display = function(v
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.prev_close_price, range, value, display)
@@ -1405,17 +1387,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_1, range, value, display)
@@ -1434,17 +1410,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.price_2, range, value, display)
@@ -2831,17 +2801,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
--- Translate: Trade Price
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Trade Price
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.trade_price, range, value, display)
@@ -2987,17 +2951,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.display = function(valu
   return "Working Price: "..value
 end
 
--- Translate: Working Price
-nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Working Price
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.working_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.working_price, range, value, display)

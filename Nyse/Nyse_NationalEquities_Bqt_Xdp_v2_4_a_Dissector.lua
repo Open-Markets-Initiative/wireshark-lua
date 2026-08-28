@@ -15,19 +15,19 @@ local nyse_nationalequities_bqt_xdp_v2_4_a = {}
 -----------------------------------------------------------------------
 
 -- Nyse NationalEquities Bqt Xdp 2.4.a Fields
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.nationalequities.bqt.xdp.v2.4.a.askprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price = ProtoField.new("Ask Price", "nyse.nationalequities.bqt.xdp.v2.4.a.askprice", ftypes.INT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.nationalequities.bqt.xdp.v2.4.a.askquotecondition", ftypes.STRING)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.nationalequities.bqt.xdp.v2.4.a.askvolume", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.nationalequities.bqt.xdp.v2.4.a.beginseqnum", ftypes.UINT32)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.nationalequities.bqt.xdp.v2.4.a.bidprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.nationalequities.bqt.xdp.v2.4.a.bidprice", ftypes.INT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.nationalequities.bqt.xdp.v2.4.a.bidquotecondition", ftypes.STRING)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.nationalequities.bqt.xdp.v2.4.a.bidvolume", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.nationalequities.bqt.xdp.v2.4.a.channelid", ftypes.UINT8)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.complete = ProtoField.new("Complete", "nyse.nationalequities.bqt.xdp.v2.4.a.complete", ftypes.UINT8)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price = ProtoField.new("Consolidated First Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedfirstprice", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedhighprice", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlastprice", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlowprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price = ProtoField.new("Consolidated First Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedfirstprice", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedhighprice", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlastprice", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlowprice", ftypes.INT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.nationalequities.bqt.xdp.v2.4.a.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nationalequities.bqt.xdp.v2.4.a.deliveryflag", ftypes.UINT8)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.nationalequities.bqt.xdp.v2.4.a.endseqnum", ftypes.UINT32)
@@ -54,22 +54,22 @@ omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.mpv = ProtoField.new("Mpv", "nys
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nationalequities.bqt.xdp.v2.4.a.nanoseconds", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nationalequities.bqt.xdp.v2.4.a.nextsourceseqnum", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.nationalequities.bqt.xdp.v2.4.a.numcloseprices", ftypes.UINT8)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price = ProtoField.new("Nyse Group High Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouphighprice", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price = ProtoField.new("Nyse Group Low Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouplowprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price = ProtoField.new("Nyse Group High Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouphighprice", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price = ProtoField.new("Nyse Group Low Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouplowprice", ftypes.INT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_high_price = ProtoField.new("Nyse Group Market Id Of High Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegroupmarketidofhighprice", ftypes.UINT16)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegroupmarketidoflowprice", ftypes.UINT16)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_market_id_of_the_close = ProtoField.new("Nyse Group Market Id Of The Close", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegroupmarketidoftheclose", ftypes.UINT16)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.nationalequities.bqt.xdp.v2.4.a.originaltradeid", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.nationalequities.bqt.xdp.v2.4.a.packetsize", ftypes.UINT16)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nationalequities.bqt.xdp.v2.4.a.prevcloseprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.nationalequities.bqt.xdp.v2.4.a.prevcloseprice", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.nationalequities.bqt.xdp.v2.4.a.prevclosevolume", ftypes.UINT32)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price = ProtoField.new("Price", "nyse.nationalequities.bqt.xdp.v2.4.a.price", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_1 = ProtoField.new("Price 1", "nyse.nationalequities.bqt.xdp.v2.4.a.price1", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_2 = ProtoField.new("Price 2", "nyse.nationalequities.bqt.xdp.v2.4.a.price2", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price = ProtoField.new("Price", "nyse.nationalequities.bqt.xdp.v2.4.a.price", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_1 = ProtoField.new("Price 1", "nyse.nationalequities.bqt.xdp.v2.4.a.price1", ftypes.UINT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_2 = ProtoField.new("Price 2", "nyse.nationalequities.bqt.xdp.v2.4.a.price2", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.nationalequities.bqt.xdp.v2.4.a.priceresolution", ftypes.UINT8)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.nationalequities.bqt.xdp.v2.4.a.pricescalecode", ftypes.UINT8)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price = ProtoField.new("Primary Listing Market Official Close Price", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialcloseprice", ftypes.DOUBLE)
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price = ProtoField.new("Primary Listing Market Official Open Price", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialopenprice", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price = ProtoField.new("Primary Listing Market Official Close Price", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialcloseprice", ftypes.INT32)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price = ProtoField.new("Primary Listing Market Official Open Price", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialopenprice", ftypes.INT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prior_day_time = ProtoField.new("Prior Day Time", "nyse.nationalequities.bqt.xdp.v2.4.a.priordaytime", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prior_day_time_ns = ProtoField.new("Prior Day Time Ns", "nyse.nationalequities.bqt.xdp.v2.4.a.priordaytimens", ftypes.UINT32)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.product_id = ProtoField.new("Product Id", "nyse.nationalequities.bqt.xdp.v2.4.a.productid", ftypes.UINT8)
@@ -149,6 +149,25 @@ omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.trf_fractional_trade_message = P
 
 -- Nyse NationalEquities Bqt Xdp 2.4.a generated fields
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.message_index = ProtoField.new("Message Index", "nyse.nationalequities.bqt.xdp.v2.4.a.messageindex", ftypes.UINT16)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.askpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.bidpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price_calculate = ProtoField.new("Consolidated First Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedfirstpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price_calculate = ProtoField.new("Consolidated High Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedhighpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price_calculate = ProtoField.new("Consolidated Last Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlastpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price_calculate = ProtoField.new("Consolidated Low Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.consolidatedlowpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price_calculate = ProtoField.new("NYSE Group High Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouphighpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price_calculate = ProtoField.new("NYSE Group Low Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.nysegrouplowpricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.pricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price_calculate = ProtoField.new("Primary Listing Market Official Close Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialclosepricecalculate", ftypes.DOUBLE)
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price_calculate = ProtoField.new("Primary Listing Market Official Open Price Calculate", "nyse.nationalequities.bqt.xdp.v2.4.a.primarylistingmarketofficialopenpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse NationalEquities Bqt Xdp 2.4.a Formatting
+-----------------------------------------------------------------------
+
+-- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -157,19 +176,25 @@ omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.message_index = ProtoField.new("
 local show = {}
 
 -- Nyse NationalEquities Bqt Xdp 2.4.a Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.indexes = true
 
 -- Register Nyse NationalEquities Bqt Xdp 2.4.a Show Options
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.resolve_records then
+    show.records = omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_application_messages then
     show.application_messages = omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_application_messages
   end
@@ -179,7 +204,40 @@ function omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs_changed()
   if show.indexes ~= omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_indexes then
     show.indexes = omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.show_indexes
   end
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals ~= omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.format_decimals then
+    nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals = omi_nyse_nationalequities_bqt_xdp_v2_4_a.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_nationalequities_bqt_xdp_v2_4_a.conversation = {}
+nyse_nationalequities_bqt_xdp_v2_4_a.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_nationalequities_bqt_xdp_v2_4_a.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_nationalequities_bqt_xdp_v2_4_a.conversation.data = function(packet)
+  local key = nyse_nationalequities_bqt_xdp_v2_4_a.conversation.key(packet)
+  local data = nyse_nationalequities_bqt_xdp_v2_4_a.conversation.flows[key]
+  if data == nil then
+    data = { symbol_index_mapping_message = {} }
+    nyse_nationalequities_bqt_xdp_v2_4_a.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_nationalequities_bqt_xdp_v2_4_a.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -197,17 +255,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
--- Translate: Ask Price
-nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Ask Price
 nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price, range, value, display)
@@ -308,17 +360,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
--- Translate: Bid Price
-nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Bid Price
 nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price, range, value, display)
@@ -449,17 +495,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.display = function
   return "Consolidated First Price: "..value
 end
 
--- Translate: Consolidated First Price
-nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Consolidated First Price
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price, range, value, display)
@@ -478,17 +518,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.display = function(
   return "Consolidated High Price: "..value
 end
 
--- Translate: Consolidated High Price
-nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Consolidated High Price
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price, range, value, display)
@@ -507,17 +541,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.display = function(
   return "Consolidated Last Price: "..value
 end
 
--- Translate: Consolidated Last Price
-nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Consolidated Last Price
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price, range, value, display)
@@ -536,17 +564,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.display = function(v
   return "Consolidated Low Price: "..value
 end
 
--- Translate: Consolidated Low Price
-nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Consolidated Low Price
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price, range, value, display)
@@ -1391,17 +1413,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.display = function(va
   return "Nyse Group High Price: "..value
 end
 
--- Translate: Nyse Group High Price
-nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Nyse Group High Price
 nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price, range, value, display)
@@ -1420,17 +1436,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.display = function(val
   return "Nyse Group Low Price: "..value
 end
 
--- Translate: Nyse Group Low Price
-nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Nyse Group Low Price
 nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price, range, value, display)
@@ -1564,17 +1574,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.display = function(value)
   return "Prev Close Price: "..value
 end
 
--- Translate: Prev Close Price
-nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Prev Close Price
 nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.prev_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.prev_close_price, range, value, display)
@@ -1616,17 +1620,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.price.display = function(value)
   return "Price: "..value
 end
 
--- Translate: Price
-nyse_nationalequities_bqt_xdp_v2_4_a.price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price
 nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price, range, value, display)
@@ -1645,17 +1643,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.price_1.display = function(value)
   return "Price 1: "..value
 end
 
--- Translate: Price 1
-nyse_nationalequities_bqt_xdp_v2_4_a.price_1.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 1
 nyse_nationalequities_bqt_xdp_v2_4_a.price_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.price_1.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.price_1.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.price_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_1, range, value, display)
@@ -1674,17 +1666,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.price_2.display = function(value)
   return "Price 2: "..value
 end
 
--- Translate: Price 2
-nyse_nationalequities_bqt_xdp_v2_4_a.price_2.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Price 2
 nyse_nationalequities_bqt_xdp_v2_4_a.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.price_2.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.price_2.translate(raw)
+  local value = range:le_uint()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.price_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_2, range, value, display)
@@ -1759,17 +1745,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price
   return "Primary Listing Market Official Close Price: "..value
 end
 
--- Translate: Primary Listing Market Official Close Price
-nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Primary Listing Market Official Close Price
 nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price, range, value, display)
@@ -1788,17 +1768,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.
   return "Primary Listing Market Official Open Price: "..value
 end
 
--- Translate: Primary Listing Market Official Open Price
-nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.translate = function(raw)
-  return raw/100000000
-end
-
 -- Dissect: Primary Listing Market Official Open Price
 nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.translate(raw)
+  local value = range:le_int()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price, range, value, display)
@@ -2619,9 +2593,34 @@ nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect = function(buffer, off
   local value = range:le_uint()
   local display = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.symbol_index, range, value, display)
+  if not show.records then
+    parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.symbol_index, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_nationalequities_bqt_xdp_v2_4_a.conversation.current.symbol_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Symbol Seq Num
@@ -3164,6 +3163,424 @@ nyse_nationalequities_bqt_xdp_v2_4_a.volume.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Ask Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate = {}
+
+-- Display: Ask Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.display = function(value)
+  return "Ask Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.ask_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate = {}
+
+-- Display: Bid Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.display = function(value)
+  return "Bid Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.bid_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated First Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate = {}
+
+-- Display: Consolidated First Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.display = function(value)
+  return "Consolidated First Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated First Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_first_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated First Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate = {}
+
+-- Display: Consolidated High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.display = function(value)
+  return "Consolidated High Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_high_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated Last Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate = {}
+
+-- Display: Consolidated Last Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.display = function(value)
+  return "Consolidated Last Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated Last Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_last_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated Last Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate = {}
+
+-- Display: Consolidated Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.display = function(value)
+  return "Consolidated Low Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.consolidated_low_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.dissect(buffer, offset, packet, parent)
+end
+
+-- NYSE Group High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate = {}
+
+-- Display: NYSE Group High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.display = function(value)
+  return "NYSE Group High Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: NYSE Group High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_high_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: NYSE Group High Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.dissect(buffer, offset, packet, parent)
+end
+
+-- NYSE Group Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate = {}
+
+-- Display: NYSE Group Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.display = function(value)
+  return "NYSE Group Low Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: NYSE Group Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.nyse_group_low_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: NYSE Group Low Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate = {}
+
+-- Display: Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.display = function(value)
+  return "Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Primary Listing Market Official Close Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate = {}
+
+-- Display: Primary Listing Market Official Close Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.display = function(value)
+  return "Primary Listing Market Official Close Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Primary Listing Market Official Close Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_close_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Primary Listing Market Official Close Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Primary Listing Market Official Open Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate = {}
+
+-- Display: Primary Listing Market Official Open Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.display = function(value)
+  return "Primary Listing Market Official Open Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Primary Listing Market Official Open Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price_calculate, range, value, display)
+  local mantissa_display = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.primary_listing_market_official_open_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Primary Listing Market Official Open Price Calculate
+nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nationalequities_bqt_xdp_v2_4_a.format_decimals then
+    local record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse NationalEquities Bqt Xdp 2.4.a
@@ -3189,8 +3606,8 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_fractional_volume_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3264,17 +3681,17 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_fractional_stock_summary_messa
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Nyse Group High Price: Binary
-  index, nyse_group_high_price = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price.dissect(buffer, index, packet, parent)
+  index, nyse_group_high_price = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_high_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Nyse Group Low Price: Binary
-  index, nyse_group_low_price = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price.dissect(buffer, index, packet, parent)
+  index, nyse_group_low_price = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_low_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Primary Listing Market Official Open Price: Binary
-  index, primary_listing_market_official_open_price = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price.dissect(buffer, index, packet, parent)
+  index, primary_listing_market_official_open_price = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_open_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Fractional Nyse Group Volume: Binary
   index, fractional_nyse_group_volume = nyse_nationalequities_bqt_xdp_v2_4_a.fractional_nyse_group_volume.dissect(buffer, index, packet, parent)
@@ -3295,19 +3712,19 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_fractional_stock_summary_messa
   index, nyse_group_market_id_of_the_close = nyse_nationalequities_bqt_xdp_v2_4_a.nyse_group_market_id_of_the_close.dissect(buffer, index, packet, parent)
 
   -- Primary Listing Market Official Close Price: Binary
-  index, primary_listing_market_official_close_price = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price.dissect(buffer, index, packet, parent)
+  index, primary_listing_market_official_close_price = nyse_nationalequities_bqt_xdp_v2_4_a.primary_listing_market_official_close_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Consolidated High Price: Binary
-  index, consolidated_high_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price.dissect(buffer, index, packet, parent)
+  index, consolidated_high_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_high_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Consolidated Low Price: Binary
-  index, consolidated_low_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price.dissect(buffer, index, packet, parent)
+  index, consolidated_low_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_low_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Consolidated First Price: Binary
-  index, consolidated_first_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price.dissect(buffer, index, packet, parent)
+  index, consolidated_first_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_first_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Consolidated Last Price: Binary
-  index, consolidated_last_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price.dissect(buffer, index, packet, parent)
+  index, consolidated_last_price = nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_last_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Complete: Binary
   index, complete = nyse_nationalequities_bqt_xdp_v2_4_a.complete.dissect(buffer, index, packet, parent)
@@ -3363,8 +3780,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_prior_day_trade_cancel_messa
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3373,7 +3790,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_prior_day_trade_cancel_messa
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Fractional Volume: Binary
   index, fractional_volume = nyse_nationalequities_bqt_xdp_v2_4_a.fractional_volume.dissect(buffer, index, packet, parent)
@@ -3439,8 +3856,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_prior_day_trade_message.fiel
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3449,7 +3866,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_prior_day_trade_message.fiel
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Fractional Volume: Binary
   index, fractional_volume = nyse_nationalequities_bqt_xdp_v2_4_a.fractional_volume.dissect(buffer, index, packet, parent)
@@ -3527,8 +3944,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_trade_correction_message.field
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3540,7 +3957,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_trade_correction_message.field
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_nationalequities_bqt_xdp_v2_4_a.volume.dissect(buffer, index, packet, parent)
@@ -3617,8 +4034,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_trade_correction_message.fie
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3630,7 +4047,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_trade_correction_message.fie
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Fractional Volume: Binary
   index, fractional_volume = nyse_nationalequities_bqt_xdp_v2_4_a.fractional_volume.dissect(buffer, index, packet, parent)
@@ -3704,8 +4121,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_trade_cancel_message.fields = 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3770,8 +4187,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_trade_message.fields = functio
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3780,7 +4197,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_trade_message.fields = functio
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_nationalequities_bqt_xdp_v2_4_a.volume.dissect(buffer, index, packet, parent)
@@ -3856,8 +4273,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_trade_message.fields = funct
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3866,7 +4283,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.trf_fractional_trade_message.fields = funct
   index, trade_id = nyse_nationalequities_bqt_xdp_v2_4_a.trade_id.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Fractional Volume: Binary
   index, fractional_volume = nyse_nationalequities_bqt_xdp_v2_4_a.fractional_volume.dissect(buffer, index, packet, parent)
@@ -3986,8 +4403,8 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_single_sided_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3996,7 +4413,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.consolidated_single_sided_quote_message.fie
   index, side = nyse_nationalequities_bqt_xdp_v2_4_a.side.dissect(buffer, index, packet, parent)
 
   -- Price: Binary
-  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price.dissect(buffer, index, packet, parent)
+  index, price = nyse_nationalequities_bqt_xdp_v2_4_a.price_calculate.dissect(buffer, index, packet, parent)
 
   -- Volume: Binary
   index, volume = nyse_nationalequities_bqt_xdp_v2_4_a.volume.dissect(buffer, index, packet, parent)
@@ -4057,20 +4474,20 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.best_quotes_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_number.dissect(buffer, index, packet, parent)
 
   -- Ask Price: Binary
-  index, ask_price = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = nyse_nationalequities_bqt_xdp_v2_4_a.ask_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ask Volume: Binary
   index, ask_volume = nyse_nationalequities_bqt_xdp_v2_4_a.ask_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Price: Binary
-  index, bid_price = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = nyse_nationalequities_bqt_xdp_v2_4_a.bid_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Bid Volume: Binary
   index, bid_volume = nyse_nationalequities_bqt_xdp_v2_4_a.bid_volume.dissect(buffer, index, packet, parent)
@@ -4338,8 +4755,8 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nationalequities_bqt_xdp_v2_4_a.source_id.dissect(buffer, index, packet, parent)
@@ -4391,8 +4808,8 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nationalequities_bqt_xdp_v2_4_a.source_id.dissect(buffer, index, packet, parent)
@@ -4520,8 +4937,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.security_status_message.fields = function(b
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4609,8 +5026,8 @@ nyse_nationalequities_bqt_xdp_v2_4_a.symbol_clear_message.fields = function(buff
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_bqt_xdp_v2_4_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nationalequities_bqt_xdp_v2_4_a.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -4670,8 +5087,8 @@ end
 nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_nationalequities_bqt_xdp_v2_4_a.symbol.dissect(buffer, index, packet, parent)
@@ -4717,6 +5134,15 @@ nyse_nationalequities_bqt_xdp_v2_4_a.symbol_index_mapping_message.fields = funct
 
   -- Reserved 2: Binary
   index, reserved_2 = nyse_nationalequities_bqt_xdp_v2_4_a.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_nationalequities_bqt_xdp_v2_4_a.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
 
   return index
 end
@@ -5105,6 +5531,12 @@ end
 
 -- Dissect Packet
 nyse_nationalequities_bqt_xdp_v2_4_a.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_nationalequities_bqt_xdp_v2_4_a.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_nationalequities_bqt_xdp_v2_4_a.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 6 fields
