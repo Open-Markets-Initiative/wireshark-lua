@@ -89,7 +89,6 @@ omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Te
 omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
 
 -- Cme Globex Settlements 7.0 Application Messages
-omi_cme_globex_settlements_sbe_v7_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.settlements.sbe.v7.0.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
@@ -1421,6 +1420,23 @@ end
 -- Dissect Cme Globex Settlements Sbe 7.0
 -----------------------------------------------------------------------
 
+-- Admin Heartbeat
+cme_globex_settlements_sbe_v7_0.admin_heartbeat = {}
+
+-- Display: Admin Heartbeat
+cme_globex_settlements_sbe_v7_0.admin_heartbeat.display = function(packet, parent, length)
+  return "Admin Heartbeat"
+end
+
+
+-- Dissect: Admin Heartbeat
+cme_globex_settlements_sbe_v7_0.admin_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_settlements_sbe_v7_0.admin_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- High Px
 cme_globex_settlements_sbe_v7_0.high_px = {}
 
@@ -2584,7 +2600,7 @@ cme_globex_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packe
   end
   -- Dissect Admin Heartbeat
   if template_id == 407 then
-    return offset
+    return cme_globex_settlements_sbe_v7_0.admin_heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   return offset

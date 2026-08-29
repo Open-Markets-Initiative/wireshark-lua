@@ -278,7 +278,6 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.technical_header = ProtoField.new("Te
 omi_cme_globex_streamlined_sbe_v5_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.9.udppacket", ftypes.STRING)
 
 -- Cme Globex Streamlined 5.9 Application Messages
-omi_cme_globex_streamlined_sbe_v5_9.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.streamlined.sbe.v5.9.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_streamlined_sbe_v5_9.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.streamlined.sbe.v5.9.adminlogin", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.streamlined.sbe.v5.9.adminlogout", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.globex.streamlined.sbe.v5.9.mdincrementalrefresheris351", ftypes.STRING)
@@ -12749,6 +12748,23 @@ cme_globex_streamlined_sbe_v5_9.admin_login.dissect = function(buffer, offset, p
   end
 end
 
+-- Admin Heartbeat
+cme_globex_streamlined_sbe_v5_9.admin_heartbeat = {}
+
+-- Display: Admin Heartbeat
+cme_globex_streamlined_sbe_v5_9.admin_heartbeat.display = function(packet, parent, length)
+  return "Admin Heartbeat"
+end
+
+
+-- Dissect: Admin Heartbeat
+cme_globex_streamlined_sbe_v5_9.admin_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_streamlined_sbe_v5_9.admin_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 cme_globex_streamlined_sbe_v5_9.payload = {}
 
@@ -12756,7 +12772,7 @@ cme_globex_streamlined_sbe_v5_9.payload = {}
 cme_globex_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Admin Heartbeat
   if template_id == 312 then
-    return offset
+    return cme_globex_streamlined_sbe_v5_9.admin_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Admin Login
   if template_id == 315 then

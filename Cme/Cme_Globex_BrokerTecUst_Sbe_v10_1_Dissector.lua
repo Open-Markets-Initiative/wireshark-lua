@@ -59,7 +59,6 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("
 omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
 
 -- Cme Globex BrokerTecUst 10.1 Application Messages
-omi_cme_globex_brokertecust_sbe_v10_1.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.brokertecust.sbe.v10.1.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.globex.brokertecust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -- Cme Globex BrokerTecUst Sbe 10.1 generated fields
@@ -947,6 +946,23 @@ end
 -- Dissect Cme Globex BrokerTecUst Sbe 10.1
 -----------------------------------------------------------------------
 
+-- Admin Heartbeat
+cme_globex_brokertecust_sbe_v10_1.admin_heartbeat = {}
+
+-- Display: Admin Heartbeat
+cme_globex_brokertecust_sbe_v10_1.admin_heartbeat.display = function(packet, parent, length)
+  return "Admin Heartbeat"
+end
+
+
+-- Dissect: Admin Heartbeat
+cme_globex_brokertecust_sbe_v10_1.admin_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_brokertecust_sbe_v10_1.admin_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Coupon Rate
 cme_globex_brokertecust_sbe_v10_1.coupon_rate = {}
 
@@ -1316,7 +1332,7 @@ cme_globex_brokertecust_sbe_v10_1.payload.dissect = function(buffer, offset, pac
   end
   -- Dissect Admin Heartbeat
   if template_id == 411 then
-    return offset
+    return cme_globex_brokertecust_sbe_v10_1.admin_heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   return offset

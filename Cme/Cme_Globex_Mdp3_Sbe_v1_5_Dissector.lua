@@ -250,7 +250,6 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.technical_header = ProtoField.new("Technical
 omi_cme_globex_mdp3_sbe_v1_5.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.5.udppacket", ftypes.STRING)
 
 -- Cme Globex Mdp3 1.5 Application Messages
-omi_cme_globex_mdp3_sbe_v1_5.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.5.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_5.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.5.adminlogin", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.5.adminlogout", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.channel_reset = ProtoField.new("Channel Reset", "cme.globex.mdp3.sbe.v1.5.channelreset", ftypes.STRING)
@@ -275,7 +274,6 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.security_list_request = ProtoField.new("Secu
 omi_cme_globex_mdp3_sbe_v1_5.fields.security_status = ProtoField.new("Security Status", "cme.globex.mdp3.sbe.v1.5.securitystatus", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.security_status_request = ProtoField.new("Security Status Request", "cme.globex.mdp3.sbe.v1.5.securitystatusrequest", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.snapshot_full_refresh = ProtoField.new("Snapshot Full Refresh", "cme.globex.mdp3.sbe.v1.5.snapshotfullrefresh", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_5.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.5.subscriberheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_5.fields.terminate = ProtoField.new("Terminate", "cme.globex.mdp3.sbe.v1.5.terminate", ftypes.STRING)
 
 -- Cme Globex Mdp3 Sbe 1.5 generated fields
@@ -4600,6 +4598,23 @@ end
 -----------------------------------------------------------------------
 -- Dissect Cme Globex Mdp3 Sbe 1.5
 -----------------------------------------------------------------------
+
+-- Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_5.subscriber_heartbeat = {}
+
+-- Display: Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_5.subscriber_heartbeat.display = function(packet, parent, length)
+  return "Subscriber Heartbeat"
+end
+
+
+-- Dissect: Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_5.subscriber_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_mdp3_sbe_v1_5.subscriber_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
 
 -- Security Status Request Related Symbol Group
 cme_globex_mdp3_sbe_v1_5.security_status_request_related_symbol_group = {}
@@ -9893,6 +9908,23 @@ cme_globex_mdp3_sbe_v1_5.admin_login.dissect = function(buffer, offset, packet, 
   end
 end
 
+-- Admin Heartbeat
+cme_globex_mdp3_sbe_v1_5.admin_heartbeat = {}
+
+-- Display: Admin Heartbeat
+cme_globex_mdp3_sbe_v1_5.admin_heartbeat.display = function(packet, parent, length)
+  return "Admin Heartbeat"
+end
+
+
+-- Dissect: Admin Heartbeat
+cme_globex_mdp3_sbe_v1_5.admin_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_mdp3_sbe_v1_5.admin_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Channel Reset Group
 cme_globex_mdp3_sbe_v1_5.channel_reset_group = {}
 
@@ -10062,7 +10094,7 @@ cme_globex_mdp3_sbe_v1_5.payload.dissect = function(buffer, offset, packet, pare
   end
   -- Dissect Admin Heartbeat
   if template_id == 12 then
-    return offset
+    return cme_globex_mdp3_sbe_v1_5.admin_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Admin Login
   if template_id == 15 then
@@ -10162,7 +10194,7 @@ cme_globex_mdp3_sbe_v1_5.payload.dissect = function(buffer, offset, packet, pare
   end
   -- Dissect Subscriber Heartbeat
   if template_id == 210 then
-    return offset
+    return cme_globex_mdp3_sbe_v1_5.subscriber_heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   return offset
