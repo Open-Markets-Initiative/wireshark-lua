@@ -289,6 +289,9 @@ jobs:
       - name: Run Siac Cts Output Cta 2.9 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-9-Test.sh
 
+      - name: Run Siac Opra Output Obi 6.2 Dissector Tests
+        run: bash -x .github/tests/Siac-Opra-Output-Obi-v6-2-Test.sh
+
       - name: Run Tmx Mx Sola Multicast Hsvf 1.14 Dissector Tests
         run: bash -x .github/tests/Tmx-Mx-Sola-Multicast-Hsvf-v1-14-Test.sh
 
