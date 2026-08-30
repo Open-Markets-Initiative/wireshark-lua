@@ -97,8 +97,9 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.version = ProtoField.new("Versi
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.volume = ProtoField.new("Volume", "memx.memxoptions.riskcontrol.sbe.v1.3.volume", ftypes.UINT64)
 
 -- Memx MemxOptions RiskControl Sbe 1.3 Headers
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.client_packet = ProtoField.new("Client Packet", "memx.memxoptions.riskcontrol.sbe.v1.3.clientpacket", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.3.commonheader", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxoptions.riskcontrol.sbe.v1.3.packet", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.server_packet = ProtoField.new("Server Packet", "memx.memxoptions.riskcontrol.sbe.v1.3.serverpacket", ftypes.STRING)
 
 -- Memx MemxOptions RiskControl 1.3 Application Messages
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.active_risk_acknowledge_rej_message = ProtoField.new("Active Risk Acknowledge Rej Message", "memx.memxoptions.riskcontrol.sbe.v1.3.activeriskacknowledgerejmessage", ftypes.STRING)
@@ -162,6 +163,14 @@ show.application_messages = true
 show.structs = true
 
 -- Register Memx MemxOptions RiskControl Sbe 1.3 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
@@ -853,6 +862,9 @@ memx_memxoptions_riskcontrol_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
 memx_memxoptions_riskcontrol_sbe_v1_3.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat (0)"
+  end
   if value == 100 then
     return "Message Type: Login Request (100)"
   end
@@ -5853,6 +5865,123 @@ memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect = function(
   end
 end
 
+-- Server Data
+memx_memxoptions_riskcontrol_sbe_v1_3.server_data = {}
+
+-- Dissect: Server Data
+memx_memxoptions_riskcontrol_sbe_v1_3.server_data.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Accepted Message
+  if message_type == 1 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Message
+  if message_type == 2 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session Message
+  if message_type == 3 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Begin Message
+  if message_type == 5 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Rejected Message
+  if message_type == 6 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 7 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Begin Message
+  if message_type == 8 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Rejected Message
+  if message_type == 9 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Complete Message
+  if message_type == 10 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message
+  if message_type == 11 then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Common Header
+memx_memxoptions_riskcontrol_sbe_v1_3.common_header = {}
+
+-- Size: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_3.common_header.size =
+  memx_memxoptions_riskcontrol_sbe_v1_3.message_type.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_3.message_length.size
+
+-- Display: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_3.common_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  index, message_type = memx_memxoptions_riskcontrol_sbe_v1_3.message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = memx_memxoptions_riskcontrol_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.common_header, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_3.common_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+memx_memxoptions_riskcontrol_sbe_v1_3.server_packet = {}
+
+-- Verify required size of Tcp packet
+memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= memx_memxoptions_riskcontrol_sbe_v1_3.common_header.size
+end
+
+-- Dissect Server Packet
+memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Common Header: Struct of 2 fields
+  index, common_header = memx_memxoptions_riskcontrol_sbe_v1_3.common_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 3, 1):uint()
+
+  -- Server Data: Runtime Type with 10 branches
+  index = memx_memxoptions_riskcontrol_sbe_v1_3.server_data.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
 -- Unsequenced Message
 memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message = {}
 
@@ -6074,11 +6203,11 @@ memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.dissect = function(b
   end
 end
 
--- Data
-memx_memxoptions_riskcontrol_sbe_v1_3.data = {}
+-- Client Data
+memx_memxoptions_riskcontrol_sbe_v1_3.client_data = {}
 
--- Dissect: Data
-memx_memxoptions_riskcontrol_sbe_v1_3.data.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Client Data
+memx_memxoptions_riskcontrol_sbe_v1_3.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 100 then
     return memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.dissect(buffer, offset, packet, parent)
@@ -6099,104 +6228,20 @@ memx_memxoptions_riskcontrol_sbe_v1_3.data.dissect = function(buffer, offset, pa
   if message_type == 104 then
     return memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Common Header
-memx_memxoptions_riskcontrol_sbe_v1_3.common_header = {}
-
--- Size: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_3.common_header.size =
-  memx_memxoptions_riskcontrol_sbe_v1_3.message_type.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_3.message_length.size
-
--- Display: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_3.common_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, message_type = memx_memxoptions_riskcontrol_sbe_v1_3.message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = memx_memxoptions_riskcontrol_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.common_header, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_3.common_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Packet
-memx_memxoptions_riskcontrol_sbe_v1_3.packet = {}
+-- Client Packet
+memx_memxoptions_riskcontrol_sbe_v1_3.client_packet = {}
 
 -- Verify required size of Tcp packet
-memx_memxoptions_riskcontrol_sbe_v1_3.packet.requiredsize = function(buffer)
+memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.requiredsize = function(buffer)
   return buffer:len() >= memx_memxoptions_riskcontrol_sbe_v1_3.common_header.size
 end
 
--- Dissect Packet
-memx_memxoptions_riskcontrol_sbe_v1_3.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Common Header: Struct of 2 fields
@@ -6205,8 +6250,8 @@ memx_memxoptions_riskcontrol_sbe_v1_3.packet.dissect = function(buffer, packet, 
   -- Dependency element: Message Type
   local message_type = buffer(index - 3, 1):uint()
 
-  -- Data: Runtime Type with 15 branches
-  index = memx_memxoptions_riskcontrol_sbe_v1_3.data.dissect(buffer, index, packet, parent, message_type)
+  -- Client Data: Runtime Type with 5 branches
+  index = memx_memxoptions_riskcontrol_sbe_v1_3.client_data.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -6220,6 +6265,71 @@ end
 function omi_memx_memxoptions_riskcontrol_sbe_v1_3.init()
 end
 
+-- Connection roles for Memx MemxOptions RiskControl Sbe 1.3: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+memx_memxoptions_riskcontrol_sbe_v1_3.role = function(packet)
+  if omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+memx_memxoptions_riskcontrol_sbe_v1_3.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Memx MemxOptions RiskControl Sbe 1.3
 function omi_memx_memxoptions_riskcontrol_sbe_v1_3.dissector(buffer, packet, parent)
 
@@ -6228,8 +6338,114 @@ function omi_memx_memxoptions_riskcontrol_sbe_v1_3.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3, buffer(), omi_memx_memxoptions_riskcontrol_sbe_v1_3.description, "("..buffer:len().." Bytes)")
-  return memx_memxoptions_riskcontrol_sbe_v1_3.packet.dissect(buffer, packet, protocol)
+  local role = memx_memxoptions_riskcontrol_sbe_v1_3.role(packet)
+  if role == "initiator" then
+    return memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.dissect(buffer, packet, protocol)
+  end
+  return memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+  local message_type = buffer(0, 1):uint()
+
+  -- Login Request Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Replay Request Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Replay All Request Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Stream Request Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Unsequenced Message
+  if message_type == 104 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+  local message_type = buffer(0, 1):uint()
+
+  -- Login Accepted Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Login Rejected Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Start Of Session Message
+  if message_type == 3 then
+    return true
+  end
+
+  -- Replay Begin Message
+  if message_type == 5 then
+    return true
+  end
+
+  -- Replay Rejected Message
+  if message_type == 6 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 7 then
+    return true
+  end
+
+  -- Stream Begin Message
+  if message_type == 8 then
+    return true
+  end
+
+  -- Stream Rejected Message
+  if message_type == 9 then
+    return true
+  end
+
+  -- Stream Complete Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Sequenced Message
+  if message_type == 11 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -6237,9 +6453,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Memx MemxOptions RiskControl Sbe 1.3 (Tcp)
-local function omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_heuristic(buffer, packet, parent)
+local function omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not memx_memxoptions_riskcontrol_sbe_v1_3.packet.requiredsize(buffer) then return false end
+  if not memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not memx_memxoptions_riskcontrol_sbe_v1_3.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_memxoptions_riskcontrol_sbe_v1_3
@@ -6248,9 +6467,44 @@ local function omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_heuristic(buffer, p
   return true
 end
 
--- Register Heuristic for Memx MemxOptions RiskControl Sbe 1.3
-omi_memx_memxoptions_riskcontrol_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_heuristic)
+-- Dissector Heuristic for Memx MemxOptions RiskControl Sbe 1.3 (Tcp)
+local function omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not memx_memxoptions_riskcontrol_sbe_v1_3.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_memx_memxoptions_riskcontrol_sbe_v1_3
+  omi_memx_memxoptions_riskcontrol_sbe_v1_3.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Memx MemxOptions RiskControl Sbe 1.3 (Tcp): apply the heuristic of the sender's connection role
+local function omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_heuristic(buffer, packet, parent)
+  local role = memx_memxoptions_riskcontrol_sbe_v1_3.role(packet)
+  local first, second = omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_initiator_heuristic, omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  memx_memxoptions_riskcontrol_sbe_v1_3.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  memx_memxoptions_riskcontrol_sbe_v1_3.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Memx MemxOptions RiskControl Sbe 1.3
+omi_memx_memxoptions_riskcontrol_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoptions_riskcontrol_sbe_v1_3_tcp_heuristic)
 -- Register Memx MemxOptions RiskControl Sbe 1.3 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_memx_memxoptions_riskcontrol_sbe_v1_3)
