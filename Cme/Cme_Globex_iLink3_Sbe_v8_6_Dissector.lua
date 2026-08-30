@@ -319,9 +319,11 @@ omi_cme_globex_ilink3_sbe_v8_6.fields.week = ProtoField.new("Week", "cme.globex.
 omi_cme_globex_ilink3_sbe_v8_6.fields.year = ProtoField.new("Year", "cme.globex.ilink3.sbe.v8.6.year", ftypes.UINT16)
 
 -- Cme Globex iLink3 Sbe 8.6 Headers
+omi_cme_globex_ilink3_sbe_v8_6.fields.client_packet = ProtoField.new("Client Packet", "cme.globex.ilink3.sbe.v8.6.clientpacket", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_6.fields.client_simple_open_frame = ProtoField.new("Client Simple Open Frame", "cme.globex.ilink3.sbe.v8.6.clientsimpleopenframe", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_6.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.6.messageheader", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_6.fields.packet = ProtoField.new("Packet", "cme.globex.ilink3.sbe.v8.6.packet", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_6.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "cme.globex.ilink3.sbe.v8.6.simpleopenframe", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_6.fields.server_packet = ProtoField.new("Server Packet", "cme.globex.ilink3.sbe.v8.6.serverpacket", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_6.fields.server_simple_open_frame = ProtoField.new("Server Simple Open Frame", "cme.globex.ilink3.sbe.v8.6.serversimpleopenframe", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_6.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.6.simpleopenframingheader", ftypes.STRING)
 
 -- Cme Globex iLink3 8.6 Application Messages
@@ -415,6 +417,14 @@ show.structs = true
 show.indexes = true
 
 -- Register Cme Globex iLink3 Sbe 8.6 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_cme_globex_ilink3_sbe_v8_6.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_cme_globex_ilink3_sbe_v8_6.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_cme_globex_ilink3_sbe_v8_6.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cme_globex_ilink3_sbe_v8_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -9244,230 +9254,6 @@ cme_globex_ilink3_sbe_v8_6.security_definition_response.dissect = function(buffe
   end
 end
 
--- Request Legs Group
-cme_globex_ilink3_sbe_v8_6.request_legs_group = {}
-
--- Size: Request Legs Group
-cme_globex_ilink3_sbe_v8_6.request_legs_group.size =
-  cme_globex_ilink3_sbe_v8_6.leg_price.size + 
-  cme_globex_ilink3_sbe_v8_6.leg_security_id.size + 
-  cme_globex_ilink3_sbe_v8_6.leg_option_delta.size + 
-  cme_globex_ilink3_sbe_v8_6.leg_side.size + 
-  cme_globex_ilink3_sbe_v8_6.leg_ratio_qty.size
-
--- Display: Request Legs Group
-cme_globex_ilink3_sbe_v8_6.request_legs_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Legs Group
-cme_globex_ilink3_sbe_v8_6.request_legs_group.fields = function(buffer, offset, packet, parent, request_legs_group_index)
-  local index = offset
-
-  -- Implicit Request Legs Group Index
-  if request_legs_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_group_index, request_legs_group_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Price: PRICENULL9
-  index, leg_price = cme_globex_ilink3_sbe_v8_6.leg_price.dissect(buffer, index, packet, parent)
-
-  -- Leg Security Id: Int32
-  index, leg_security_id = cme_globex_ilink3_sbe_v8_6.leg_security_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Option Delta: Struct of 2 fields
-  index, leg_option_delta = cme_globex_ilink3_sbe_v8_6.leg_option_delta.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: SideReq
-  index, leg_side = cme_globex_ilink3_sbe_v8_6.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: uInt8NULL
-  index, leg_ratio_qty = cme_globex_ilink3_sbe_v8_6.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Legs Group
-cme_globex_ilink3_sbe_v8_6.request_legs_group.dissect = function(buffer, offset, packet, parent, request_legs_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.request_legs_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
-  end
-end
-
--- Request Legs Groups
-cme_globex_ilink3_sbe_v8_6.request_legs_groups = {}
-
--- Calculate size of: Request Legs Groups
-cme_globex_ilink3_sbe_v8_6.request_legs_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local request_legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + request_legs_group_count * 19
-
-  return index
-end
-
--- Display: Request Legs Groups
-cme_globex_ilink3_sbe_v8_6.request_legs_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Legs Groups
-cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Request Legs Group
-  for request_legs_group_index = 1, num_in_group do
-    index, request_legs_group = cme_globex_ilink3_sbe_v8_6.request_legs_group.dissect(buffer, index, packet, parent, request_legs_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Request Legs Groups
-cme_globex_ilink3_sbe_v8_6.request_legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.request_legs_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Definition Request
-cme_globex_ilink3_sbe_v8_6.security_definition_request = {}
-
--- Calculate size of: Security Definition Request
-cme_globex_ilink3_sbe_v8_6.security_definition_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.security_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sender_id_optional.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.security_sub_type.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.location.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.start_date.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.end_date.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.max_no_of_substitutions.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.source_repo_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.request_legs_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Security Definition Request
-cme_globex_ilink3_sbe_v8_6.security_definition_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Definition Request
-cme_globex_ilink3_sbe_v8_6.security_definition_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Security Req Id: uInt64
-  index, security_req_id = cme_globex_ilink3_sbe_v8_6.security_req_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id Optional: String20
-  index, sender_id_optional = cme_globex_ilink3_sbe_v8_6.sender_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Security Sub Type: String8Req
-  index, security_sub_type = cme_globex_ilink3_sbe_v8_6.security_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Start Date: LocalMktDate
-  index, start_date = cme_globex_ilink3_sbe_v8_6.start_date.dissect(buffer, index, packet, parent)
-
-  -- End Date: LocalMktDate
-  index, end_date = cme_globex_ilink3_sbe_v8_6.end_date.dissect(buffer, index, packet, parent)
-
-  -- Max No Of Substitutions: uInt8NULL
-  index, max_no_of_substitutions = cme_globex_ilink3_sbe_v8_6.max_no_of_substitutions.dissect(buffer, index, packet, parent)
-
-  -- Source Repo Id: Int32NULL
-  index, source_repo_id = cme_globex_ilink3_sbe_v8_6.source_repo_id.dissect(buffer, index, packet, parent)
-
-  -- Request Legs Groups: Struct of 2 fields
-  index, request_legs_groups = cme_globex_ilink3_sbe_v8_6.request_legs_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Definition Request
-cme_globex_ilink3_sbe_v8_6.security_definition_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.security_definition_request, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.security_definition_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.security_definition_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.security_definition_request.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Spread Trade Events Group
 cme_globex_ilink3_sbe_v8_6.spread_trade_events_group = {}
 
@@ -11275,416 +11061,6 @@ cme_globex_ilink3_sbe_v8_6.mass_quote_ack.dissect = function(buffer, offset, pac
   end
 end
 
--- Sides Group
-cme_globex_ilink3_sbe_v8_6.sides_group = {}
-
--- Size: Sides Group
-cme_globex_ilink3_sbe_v8_6.sides_group.size =
-  cme_globex_ilink3_sbe_v8_6.clordid.size + 
-  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.order_qty.size + 
-  cme_globex_ilink3_sbe_v8_6.side.size + 
-  cme_globex_ilink3_sbe_v8_6.side_time_in_force.size
-
--- Display: Sides Group
-cme_globex_ilink3_sbe_v8_6.sides_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Group
-cme_globex_ilink3_sbe_v8_6.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
-  local index = offset
-
-  -- Implicit Sides Group Index
-  if sides_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_group_index, sides_group_index)
-    iteration:set_generated()
-  end
-
-  -- ClOrdId: String20Req
-  index, clordid = cme_globex_ilink3_sbe_v8_6.clordid.dissect(buffer, index, packet, parent)
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: uInt32
-  index, order_qty = cme_globex_ilink3_sbe_v8_6.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Side: SideReq
-  index, side = cme_globex_ilink3_sbe_v8_6.side.dissect(buffer, index, packet, parent)
-
-  -- Side Time In Force: SideTimeInForce
-  index, side_time_in_force = cme_globex_ilink3_sbe_v8_6.side_time_in_force.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sides Group
-cme_globex_ilink3_sbe_v8_6.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.sides_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-  end
-end
-
--- Sides Groups
-cme_globex_ilink3_sbe_v8_6.sides_groups = {}
-
--- Calculate size of: Sides Groups
-cme_globex_ilink3_sbe_v8_6.sides_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + sides_group_count * 34
-
-  return index
-end
-
--- Display: Sides Groups
-cme_globex_ilink3_sbe_v8_6.sides_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Groups
-cme_globex_ilink3_sbe_v8_6.sides_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Sides Group
-  for sides_group_index = 1, num_in_group do
-    index, sides_group = cme_globex_ilink3_sbe_v8_6.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Sides Groups
-cme_globex_ilink3_sbe_v8_6.sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.sides_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.sides_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.sides_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- New Order Cross
-cme_globex_ilink3_sbe_v8_6.new_order_cross = {}
-
--- Calculate size of: New Order Cross
-cme_globex_ilink3_sbe_v8_6.new_order_cross.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.cross_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.order_request_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.price.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.trans_bkd_time.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.location.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.security_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sides_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: New Order Cross
-cme_globex_ilink3_sbe_v8_6.new_order_cross.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Cross
-cme_globex_ilink3_sbe_v8_6.new_order_cross.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Cross Id: uInt64
-  index, cross_id = cme_globex_ilink3_sbe_v8_6.cross_id.dissect(buffer, index, packet, parent)
-
-  -- Order Request Id: uInt64
-  index, order_request_id = cme_globex_ilink3_sbe_v8_6.order_request_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Price: PRICE9
-  index, price = cme_globex_ilink3_sbe_v8_6.price.dissect(buffer, index, packet, parent)
-
-  -- Trans Bkd Time: uInt64
-  index, trans_bkd_time = cme_globex_ilink3_sbe_v8_6.trans_bkd_time.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Security Id: Int32
-  index, security_id = cme_globex_ilink3_sbe_v8_6.security_id.dissect(buffer, index, packet, parent)
-
-  -- Sides Groups: Struct of 2 fields
-  index, sides_groups = cme_globex_ilink3_sbe_v8_6.sides_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Order Cross
-cme_globex_ilink3_sbe_v8_6.new_order_cross.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.new_order_cross, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.new_order_cross.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.new_order_cross.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.new_order_cross.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Related Sym Group
-cme_globex_ilink3_sbe_v8_6.related_sym_group = {}
-
--- Size: Related Sym Group
-cme_globex_ilink3_sbe_v8_6.related_sym_group.size =
-  cme_globex_ilink3_sbe_v8_6.security_id.size + 
-  cme_globex_ilink3_sbe_v8_6.order_qty_optional.size + 
-  cme_globex_ilink3_sbe_v8_6.rfq_side.size
-
--- Display: Related Sym Group
-cme_globex_ilink3_sbe_v8_6.related_sym_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Related Sym Group
-cme_globex_ilink3_sbe_v8_6.related_sym_group.fields = function(buffer, offset, packet, parent, related_sym_group_index)
-  local index = offset
-
-  -- Implicit Related Sym Group Index
-  if related_sym_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_group_index, related_sym_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: Int32
-  index, security_id = cme_globex_ilink3_sbe_v8_6.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Optional: uInt32NULL
-  index, order_qty_optional = cme_globex_ilink3_sbe_v8_6.order_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Rfq Side: RFQSide
-  index, rfq_side = cme_globex_ilink3_sbe_v8_6.rfq_side.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Related Sym Group
-cme_globex_ilink3_sbe_v8_6.related_sym_group.dissect = function(buffer, offset, packet, parent, related_sym_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.related_sym_group.fields(buffer, offset, packet, parent, related_sym_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.related_sym_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.related_sym_group.fields(buffer, offset, packet, parent, related_sym_group_index)
-  end
-end
-
--- Related Sym Groups
-cme_globex_ilink3_sbe_v8_6.related_sym_groups = {}
-
--- Calculate size of: Related Sym Groups
-cme_globex_ilink3_sbe_v8_6.related_sym_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + related_sym_group_count * 9
-
-  return index
-end
-
--- Display: Related Sym Groups
-cme_globex_ilink3_sbe_v8_6.related_sym_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Related Sym Groups
-cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Related Sym Group
-  for related_sym_group_index = 1, num_in_group do
-    index, related_sym_group = cme_globex_ilink3_sbe_v8_6.related_sym_group.dissect(buffer, index, packet, parent, related_sym_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Related Sym Groups
-cme_globex_ilink3_sbe_v8_6.related_sym_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.related_sym_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Request For Quote
-cme_globex_ilink3_sbe_v8_6.request_for_quote = {}
-
--- Calculate size of: Request For Quote
-cme_globex_ilink3_sbe_v8_6.request_for_quote.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.location.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_type.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.related_sym_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Request For Quote
-cme_globex_ilink3_sbe_v8_6.request_for_quote.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request For Quote
-cme_globex_ilink3_sbe_v8_6.request_for_quote.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: uInt64
-  index, quote_req_id = cme_globex_ilink3_sbe_v8_6.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Quote Type: QuoteTyp
-  index, quote_type = cme_globex_ilink3_sbe_v8_6.quote_type.dissect(buffer, index, packet, parent)
-
-  -- Related Sym Groups: Struct of 2 fields
-  index, related_sym_groups = cme_globex_ilink3_sbe_v8_6.related_sym_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request For Quote
-cme_globex_ilink3_sbe_v8_6.request_for_quote.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_for_quote, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.request_for_quote.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.request_for_quote.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.request_for_quote.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Execution Ack
 cme_globex_ilink3_sbe_v8_6.execution_ack = {}
 
@@ -12150,293 +11526,6 @@ cme_globex_ilink3_sbe_v8_6.party_details_list_report.dissect = function(buffer, 
   end
 end
 
--- Party Ids Group
-cme_globex_ilink3_sbe_v8_6.party_ids_group = {}
-
--- Size: Party Ids Group
-cme_globex_ilink3_sbe_v8_6.party_ids_group.size =
-  cme_globex_ilink3_sbe_v8_6.party_id.size + 
-  cme_globex_ilink3_sbe_v8_6.party_id_source.size + 
-  cme_globex_ilink3_sbe_v8_6.party_role.size
-
--- Display: Party Ids Group
-cme_globex_ilink3_sbe_v8_6.party_ids_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Party Ids Group
-cme_globex_ilink3_sbe_v8_6.party_ids_group.fields = function(buffer, offset, packet, parent, party_ids_group_index)
-  local index = offset
-
-  -- Implicit Party Ids Group Index
-  if party_ids_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_group_index, party_ids_group_index)
-    iteration:set_generated()
-  end
-
-  -- Party Id: uInt64
-  index, party_id = cme_globex_ilink3_sbe_v8_6.party_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Source: CHAR
-  index, party_id_source = cme_globex_ilink3_sbe_v8_6.party_id_source.dissect(buffer, index, packet, parent)
-
-  -- Party Role: uInt16
-  index, party_role = cme_globex_ilink3_sbe_v8_6.party_role.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Party Ids Group
-cme_globex_ilink3_sbe_v8_6.party_ids_group.dissect = function(buffer, offset, packet, parent, party_ids_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.party_ids_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
-  end
-end
-
--- Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.party_ids_groups = {}
-
--- Calculate size of: Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.party_ids_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + party_ids_group_count * 11
-
-  return index
-end
-
--- Display: Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.party_ids_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Party Ids Group
-  for party_ids_group_index = 1, num_in_group do
-    index, party_ids_group = cme_globex_ilink3_sbe_v8_6.party_ids_group.dissect(buffer, index, packet, parent, party_ids_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.party_ids_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Requesting Party Ids Group
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group = {}
-
--- Size: Requesting Party Ids Group
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.size =
-  cme_globex_ilink3_sbe_v8_6.requesting_party_id.size + 
-  cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.size + 
-  cme_globex_ilink3_sbe_v8_6.requesting_party_role.size
-
--- Display: Requesting Party Ids Group
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Requesting Party Ids Group
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
-  local index = offset
-
-  -- Implicit Requesting Party Ids Group Index
-  if requesting_party_ids_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_group_index, requesting_party_ids_group_index)
-    iteration:set_generated()
-  end
-
-  -- Requesting Party Id: String5
-  index, requesting_party_id = cme_globex_ilink3_sbe_v8_6.requesting_party_id.dissect(buffer, index, packet, parent)
-
-  -- Requesting Party Id Source: CHAR
-  index, requesting_party_id_source = cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.dissect(buffer, index, packet, parent)
-
-  -- Requesting Party Role: CHAR
-  index, requesting_party_role = cme_globex_ilink3_sbe_v8_6.requesting_party_role.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Requesting Party Ids Group
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.dissect = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
-  end
-end
-
--- Requesting Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups = {}
-
--- Calculate size of: Requesting Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local requesting_party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + requesting_party_ids_group_count * 7
-
-  return index
-end
-
--- Display: Requesting Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Requesting Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Requesting Party Ids Group
-  for requesting_party_ids_group_index = 1, num_in_group do
-    index, requesting_party_ids_group = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.dissect(buffer, index, packet, parent, requesting_party_ids_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Requesting Party Ids Groups
-cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Party Details List Request
-cme_globex_ilink3_sbe_v8_6.party_details_list_request = {}
-
--- Calculate size of: Party Details List Request
-cme_globex_ilink3_sbe_v8_6.party_details_list_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.size(buffer, offset + index)
-
-  index = index + cme_globex_ilink3_sbe_v8_6.party_ids_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Party Details List Request
-cme_globex_ilink3_sbe_v8_6.party_details_list_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Party Details List Request
-cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Requesting Party Ids Groups: Struct of 2 fields
-  index, requesting_party_ids_groups = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect(buffer, index, packet, parent)
-
-  -- Party Ids Groups: Struct of 2 fields
-  index, party_ids_groups = cme_globex_ilink3_sbe_v8_6.party_ids_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Party Details List Request
-cme_globex_ilink3_sbe_v8_6.party_details_list_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_details_list_request, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.party_details_list_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Order Cancel Replace Reject
 cme_globex_ilink3_sbe_v8_6.order_cancel_replace_reject = {}
 
@@ -12845,74 +11934,6 @@ cme_globex_ilink3_sbe_v8_6.execution_report_cancel.dissect = function(buffer, of
   end
 end
 
--- Order Status Request
-cme_globex_ilink3_sbe_v8_6.order_status_request = {}
-
--- Size: Order Status Request
-cme_globex_ilink3_sbe_v8_6.order_status_request.size =
-  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.ord_status_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
-  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
-  cme_globex_ilink3_sbe_v8_6.order_id.size + 
-  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_globex_ilink3_sbe_v8_6.location.size
-
--- Display: Order Status Request
-cme_globex_ilink3_sbe_v8_6.order_status_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Status Request
-cme_globex_ilink3_sbe_v8_6.order_status_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status Req Id: uInt64
-  index, ord_status_req_id = cme_globex_ilink3_sbe_v8_6.ord_status_req_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Order Id: uInt64
-  index, order_id = cme_globex_ilink3_sbe_v8_6.order_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Status Request
-cme_globex_ilink3_sbe_v8_6.order_status_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_status_request, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.order_status_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.order_status_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.order_status_request.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Execution Report Status
 cme_globex_ilink3_sbe_v8_6.execution_report_status = {}
 
@@ -13286,507 +12307,6 @@ cme_globex_ilink3_sbe_v8_6.execution_report_modify.dissect = function(buffer, of
   else
     -- Skip element, add fields directly
     return cme_globex_ilink3_sbe_v8_6.execution_report_modify.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Mass Status Request
-cme_globex_ilink3_sbe_v8_6.order_mass_status_request = {}
-
--- Size: Order Mass Status Request
-cme_globex_ilink3_sbe_v8_6.order_mass_status_request.size =
-  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_status_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
-  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
-  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_globex_ilink3_sbe_v8_6.security_group.size + 
-  cme_globex_ilink3_sbe_v8_6.location.size + 
-  cme_globex_ilink3_sbe_v8_6.security_id_optional.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_status_req_type.size + 
-  cme_globex_ilink3_sbe_v8_6.ord_status_req_type.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_status_tif.size + 
-  cme_globex_ilink3_sbe_v8_6.market_segment_id.size
-
--- Display: Order Mass Status Request
-cme_globex_ilink3_sbe_v8_6.order_mass_status_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Mass Status Request
-cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Status Req Id: uInt64
-  index, mass_status_req_id = cme_globex_ilink3_sbe_v8_6.mass_status_req_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Security Group: StringLength6
-  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: Int32NULL
-  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Mass Status Req Type: MassStatusReqTyp
-  index, mass_status_req_type = cme_globex_ilink3_sbe_v8_6.mass_status_req_type.dissect(buffer, index, packet, parent)
-
-  -- Ord Status Req Type: MassStatusOrdTyp
-  index, ord_status_req_type = cme_globex_ilink3_sbe_v8_6.ord_status_req_type.dissect(buffer, index, packet, parent)
-
-  -- Mass Status Tif: MassStatusTIF
-  index, mass_status_tif = cme_globex_ilink3_sbe_v8_6.mass_status_tif.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: uInt8NULL
-  index, market_segment_id = cme_globex_ilink3_sbe_v8_6.market_segment_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Mass Status Request
-cme_globex_ilink3_sbe_v8_6.order_mass_status_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_mass_status_request, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.order_mass_status_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Mass Action Request
-cme_globex_ilink3_sbe_v8_6.order_mass_action_request = {}
-
--- Size: Order Mass Action Request
-cme_globex_ilink3_sbe_v8_6.order_mass_action_request.size =
-  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
-  cme_globex_ilink3_sbe_v8_6.order_request_id.size + 
-  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
-  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
-  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
-  cme_globex_ilink3_sbe_v8_6.security_group.size + 
-  cme_globex_ilink3_sbe_v8_6.location.size + 
-  cme_globex_ilink3_sbe_v8_6.security_id_optional.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_action_scope.size + 
-  cme_globex_ilink3_sbe_v8_6.market_segment_id.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_cancel_request_type.size + 
-  cme_globex_ilink3_sbe_v8_6.side_optional.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_action_ord_typ.size + 
-  cme_globex_ilink3_sbe_v8_6.mass_cancel_tif.size + 
-  cme_globex_ilink3_sbe_v8_6.liquidity_flag.size
-
--- Display: Order Mass Action Request
-cme_globex_ilink3_sbe_v8_6.order_mass_action_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Mass Action Request
-cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Order Request Id: uInt64
-  index, order_request_id = cme_globex_ilink3_sbe_v8_6.order_request_id.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Security Group: StringLength6
-  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: Int32NULL
-  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Scope: MassActionScope
-  index, mass_action_scope = cme_globex_ilink3_sbe_v8_6.mass_action_scope.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: uInt8NULL
-  index, market_segment_id = cme_globex_ilink3_sbe_v8_6.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Request Type: MassCxlReqTyp
-  index, mass_cancel_request_type = cme_globex_ilink3_sbe_v8_6.mass_cancel_request_type.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideNULL
-  index, side_optional = cme_globex_ilink3_sbe_v8_6.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Ord Typ: MassActionOrdTyp
-  index, mass_action_ord_typ = cme_globex_ilink3_sbe_v8_6.mass_action_ord_typ.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Tif: MassCancelTIF
-  index, mass_cancel_tif = cme_globex_ilink3_sbe_v8_6.mass_cancel_tif.dissect(buffer, index, packet, parent)
-
-  -- Liquidity Flag: BooleanNULL
-  index, liquidity_flag = cme_globex_ilink3_sbe_v8_6.liquidity_flag.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Mass Action Request
-cme_globex_ilink3_sbe_v8_6.order_mass_action_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_mass_action_request, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.order_mass_action_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Cancel Sets Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group = {}
-
--- Size: Quote Cancel Sets Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.size =
-  cme_globex_ilink3_sbe_v8_6.bid_size.size + 
-  cme_globex_ilink3_sbe_v8_6.offer_size.size + 
-  cme_globex_ilink3_sbe_v8_6.quote_set_id.size
-
--- Display: Quote Cancel Sets Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel Sets Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
-  local index = offset
-
-  -- Implicit Quote Cancel Sets Group Index
-  if quote_cancel_sets_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_group_index, quote_cancel_sets_group_index)
-    iteration:set_generated()
-  end
-
-  -- Bid Size: uInt32NULL
-  index, bid_size = cme_globex_ilink3_sbe_v8_6.bid_size.dissect(buffer, index, packet, parent)
-
-  -- Offer Size: uInt32NULL
-  index, offer_size = cme_globex_ilink3_sbe_v8_6.offer_size.dissect(buffer, index, packet, parent)
-
-  -- Quote Set Id: uInt16
-  index, quote_set_id = cme_globex_ilink3_sbe_v8_6.quote_set_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Cancel Sets Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
-  end
-end
-
--- Quote Cancel Sets Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups = {}
-
--- Calculate size of: Quote Cancel Sets Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local quote_cancel_sets_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_sets_group_count * 10
-
-  return index
-end
-
--- Display: Quote Cancel Sets Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel Sets Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Quote Cancel Sets Group
-  for quote_cancel_sets_group_index = 1, num_in_group do
-    index, quote_cancel_sets_group = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect(buffer, index, packet, parent, quote_cancel_sets_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Quote Cancel Sets Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Cancel Entries Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group = {}
-
--- Size: Quote Cancel Entries Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.size =
-  cme_globex_ilink3_sbe_v8_6.security_group.size + 
-  cme_globex_ilink3_sbe_v8_6.security_id_optional.size
-
--- Display: Quote Cancel Entries Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel Entries Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
-  local index = offset
-
-  -- Implicit Quote Cancel Entries Group Index
-  if quote_cancel_entries_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_group_index, quote_cancel_entries_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Group: StringLength6
-  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: Int32NULL
-  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Cancel Entries Group
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
-  end
-end
-
--- Quote Cancel Entries Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups = {}
-
--- Calculate size of: Quote Cancel Entries Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
-
-  -- Calculate field size from count
-  local quote_cancel_entries_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_cancel_entries_group_count * 10
-
-  return index
-end
-
--- Display: Quote Cancel Entries Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel Entries Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Quote Cancel Entries Group
-  for quote_cancel_entries_group_index = 1, num_in_group do
-    index, quote_cancel_entries_group = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect(buffer, index, packet, parent, quote_cancel_entries_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Quote Cancel Entries Groups
-cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Cancel
-cme_globex_ilink3_sbe_v8_6.quote_cancel = {}
-
--- Calculate size of: Quote Cancel
-cme_globex_ilink3_sbe_v8_6.quote_cancel.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.location.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_id.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_type.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.liquidity_flag.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.size(buffer, offset + index)
-
-  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Cancel
-cme_globex_ilink3_sbe_v8_6.quote_cancel.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel
-cme_globex_ilink3_sbe_v8_6.quote_cancel.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Party Details List Req Id: uInt64
-  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time Epoch: uInt64
-  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
-
-  -- Manual Order Indicator: ManualOrdIndReq
-  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: uInt32
-  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Id: String20Req
-  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
-
-  -- Location: String5Req
-  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: uInt32
-  index, quote_id = cme_globex_ilink3_sbe_v8_6.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Cancel Type: QuoteCxlTyp
-  index, quote_cancel_type = cme_globex_ilink3_sbe_v8_6.quote_cancel_type.dissect(buffer, index, packet, parent)
-
-  -- Liquidity Flag: BooleanNULL
-  index, liquidity_flag = cme_globex_ilink3_sbe_v8_6.liquidity_flag.dissect(buffer, index, packet, parent)
-
-  -- Quote Cancel Entries Groups: Struct of 2 fields
-  index, quote_cancel_entries_groups = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect(buffer, index, packet, parent)
-
-  -- Quote Cancel Sets Groups: Struct of 2 fields
-  index, quote_cancel_sets_groups = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Cancel
-cme_globex_ilink3_sbe_v8_6.quote_cancel.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -16025,6 +14545,2468 @@ cme_globex_ilink3_sbe_v8_6.party_details_definition_request_ack.dissect = functi
   end
 end
 
+-- Not Applied
+cme_globex_ilink3_sbe_v8_6.not_applied = {}
+
+-- Size: Not Applied
+cme_globex_ilink3_sbe_v8_6.not_applied.size =
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.from_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.msg_count.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Not Applied
+cme_globex_ilink3_sbe_v8_6.not_applied.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Not Applied
+cme_globex_ilink3_sbe_v8_6.not_applied.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- From Seq No: uInt32
+  index, from_seq_no = cme_globex_ilink3_sbe_v8_6.from_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Msg Count: uInt32
+  index, msg_count = cme_globex_ilink3_sbe_v8_6.msg_count.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Not Applied
+cme_globex_ilink3_sbe_v8_6.not_applied.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.not_applied, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.not_applied.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.not_applied.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.not_applied.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retransmit Reject
+cme_globex_ilink3_sbe_v8_6.retransmit_reject = {}
+
+-- Size: Retransmit Reject
+cme_globex_ilink3_sbe_v8_6.retransmit_reject.size =
+  cme_globex_ilink3_sbe_v8_6.reason.size + 
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.last_uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Retransmit Reject
+cme_globex_ilink3_sbe_v8_6.retransmit_reject.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Reject
+cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: String48
+  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Last Uuid: uInt64NULL
+  index, last_uuid = cme_globex_ilink3_sbe_v8_6.last_uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Error Codes: uInt16
+  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Reject
+cme_globex_ilink3_sbe_v8_6.retransmit_reject.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.retransmit_reject, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.retransmit_reject.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retransmission
+cme_globex_ilink3_sbe_v8_6.retransmission = {}
+
+-- Size: Retransmission
+cme_globex_ilink3_sbe_v8_6.retransmission.size =
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.last_uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.from_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.msg_count_16.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Retransmission
+cme_globex_ilink3_sbe_v8_6.retransmission.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmission
+cme_globex_ilink3_sbe_v8_6.retransmission.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Last Uuid: uInt64NULL
+  index, last_uuid = cme_globex_ilink3_sbe_v8_6.last_uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- From Seq No: uInt32
+  index, from_seq_no = cme_globex_ilink3_sbe_v8_6.from_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Msg Count 16: uInt16
+  index, msg_count_16 = cme_globex_ilink3_sbe_v8_6.msg_count_16.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmission
+cme_globex_ilink3_sbe_v8_6.retransmission.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.retransmission, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.retransmission.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.retransmission.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.retransmission.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Terminate
+cme_globex_ilink3_sbe_v8_6.terminate = {}
+
+-- Size: Terminate
+cme_globex_ilink3_sbe_v8_6.terminate.size =
+  cme_globex_ilink3_sbe_v8_6.reason.size + 
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Terminate
+cme_globex_ilink3_sbe_v8_6.terminate.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Terminate
+cme_globex_ilink3_sbe_v8_6.terminate.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: String48
+  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Error Codes: uInt16
+  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Terminate
+cme_globex_ilink3_sbe_v8_6.terminate.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.terminate, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.terminate.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.terminate.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.terminate.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequence
+cme_globex_ilink3_sbe_v8_6.sequence = {}
+
+-- Size: Sequence
+cme_globex_ilink3_sbe_v8_6.sequence.size =
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.keep_alive_interval_lapsed.size
+
+-- Display: Sequence
+cme_globex_ilink3_sbe_v8_6.sequence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequence
+cme_globex_ilink3_sbe_v8_6.sequence.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Next Seq No: uInt32
+  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Fault Tolerance Indicator: FTI
+  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
+
+  -- Keep Alive Interval Lapsed: KeepAliveLapsed
+  index, keep_alive_interval_lapsed = cme_globex_ilink3_sbe_v8_6.keep_alive_interval_lapsed.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequence
+cme_globex_ilink3_sbe_v8_6.sequence.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sequence, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.sequence.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.sequence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.sequence.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Establishment Reject
+cme_globex_ilink3_sbe_v8_6.establishment_reject = {}
+
+-- Size: Establishment Reject
+cme_globex_ilink3_sbe_v8_6.establishment_reject.size =
+  cme_globex_ilink3_sbe_v8_6.reason.size + 
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
+  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Establishment Reject
+cme_globex_ilink3_sbe_v8_6.establishment_reject.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Establishment Reject
+cme_globex_ilink3_sbe_v8_6.establishment_reject.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: String48
+  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Next Seq No: uInt32
+  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Error Codes: uInt16
+  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
+
+  -- Fault Tolerance Indicator: FTI
+  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Establishment Reject
+cme_globex_ilink3_sbe_v8_6.establishment_reject.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.establishment_reject, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.establishment_reject.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.establishment_reject.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.establishment_reject.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Establishment Ack
+cme_globex_ilink3_sbe_v8_6.establishment_ack = {}
+
+-- Size: Establishment Ack
+cme_globex_ilink3_sbe_v8_6.establishment_ack.size =
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.previous_seq_no.size + 
+  cme_globex_ilink3_sbe_v8_6.previous_uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.keep_alive_interval.size + 
+  cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size + 
+  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Establishment Ack
+cme_globex_ilink3_sbe_v8_6.establishment_ack.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Establishment Ack
+cme_globex_ilink3_sbe_v8_6.establishment_ack.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Next Seq No: uInt32
+  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Previous Seq No: uInt32
+  index, previous_seq_no = cme_globex_ilink3_sbe_v8_6.previous_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Previous Uuid: uInt64
+  index, previous_uuid = cme_globex_ilink3_sbe_v8_6.previous_uuid.dissect(buffer, index, packet, parent)
+
+  -- Keep Alive Interval: uInt16
+  index, keep_alive_interval = cme_globex_ilink3_sbe_v8_6.keep_alive_interval.dissect(buffer, index, packet, parent)
+
+  -- Secret Key Secure Id Expiration: uInt16NULL
+  index, secret_key_secure_id_expiration = cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
+
+  -- Fault Tolerance Indicator: FTI
+  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Establishment Ack
+cme_globex_ilink3_sbe_v8_6.establishment_ack.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.establishment_ack, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.establishment_ack.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.establishment_ack.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.establishment_ack.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Negotiation Reject
+cme_globex_ilink3_sbe_v8_6.negotiation_reject = {}
+
+-- Size: Negotiation Reject
+cme_globex_ilink3_sbe_v8_6.negotiation_reject.size =
+  cme_globex_ilink3_sbe_v8_6.reason.size + 
+  cme_globex_ilink3_sbe_v8_6.uuid.size + 
+  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
+  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
+  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+-- Display: Negotiation Reject
+cme_globex_ilink3_sbe_v8_6.negotiation_reject.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Negotiation Reject
+cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: String48
+  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Error Codes: uInt16
+  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
+
+  -- Fault Tolerance Indicator: FTI
+  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Negotiation Reject
+cme_globex_ilink3_sbe_v8_6.negotiation_reject.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.negotiation_reject, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.negotiation_reject.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Credentials
+cme_globex_ilink3_sbe_v8_6.credentials = {}
+
+-- Calculate size of: Credentials
+cme_globex_ilink3_sbe_v8_6.credentials.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.credentials_length.size
+
+  local credentials_length = buffer(offset + 0, 2):le_uint()
+
+  if credentials_length > 0 then
+    -- Parse runtime size of: Credentials Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Credentials
+cme_globex_ilink3_sbe_v8_6.credentials.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
+end
+
+-- Dissect Fields: Credentials
+cme_globex_ilink3_sbe_v8_6.credentials.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Credentials Length: uint16
+  index, credentials_length = cme_globex_ilink3_sbe_v8_6.credentials_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Credentials Data
+  local credentials_data = nil
+
+  local credentials_data_exists = credentials_length > 0
+
+  if credentials_data_exists then
+
+    -- Runtime Size Of: Credentials Data
+    index, credentials_data = cme_globex_ilink3_sbe_v8_6.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
+  end
+
+  -- Composite value
+  local credentials = credentials_data
+
+  return index, credentials
+end
+
+-- Dissect: Credentials
+cme_globex_ilink3_sbe_v8_6.credentials.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.credentials, buffer(offset, 0))
+    local index, value = cme_globex_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.credentials.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Negotiation Response
+cme_globex_ilink3_sbe_v8_6.negotiation_response = {}
+
+-- Calculate size of: Negotiation Response
+cme_globex_ilink3_sbe_v8_6.negotiation_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.uuid.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.request_timestamp.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.split_msg.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.previous_seq_no.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.previous_uuid.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.credentials.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Negotiation Response
+cme_globex_ilink3_sbe_v8_6.negotiation_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Negotiation Response
+cme_globex_ilink3_sbe_v8_6.negotiation_response.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Secret Key Secure Id Expiration: uInt16NULL
+  index, secret_key_secure_id_expiration = cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
+
+  -- Fault Tolerance Indicator: FTI
+  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
+
+  -- Split Msg: SplitMsg
+  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
+
+  -- Previous Seq No: uInt32
+  index, previous_seq_no = cme_globex_ilink3_sbe_v8_6.previous_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Previous Uuid: uInt64
+  index, previous_uuid = cme_globex_ilink3_sbe_v8_6.previous_uuid.dissect(buffer, index, packet, parent)
+
+  -- Credentials: Struct of 2 fields
+  index, credentials = cme_globex_ilink3_sbe_v8_6.credentials.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Negotiation Response
+cme_globex_ilink3_sbe_v8_6.negotiation_response.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.negotiation_response, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.negotiation_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.negotiation_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.negotiation_response.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+cme_globex_ilink3_sbe_v8_6.server_payload = {}
+
+-- Dissect: Server Payload
+cme_globex_ilink3_sbe_v8_6.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Negotiation Response
+  if template_id == 501 then
+    return cme_globex_ilink3_sbe_v8_6.negotiation_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Negotiation Reject
+  if template_id == 502 then
+    return cme_globex_ilink3_sbe_v8_6.negotiation_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Establishment Ack
+  if template_id == 504 then
+    return cme_globex_ilink3_sbe_v8_6.establishment_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Establishment Reject
+  if template_id == 505 then
+    return cme_globex_ilink3_sbe_v8_6.establishment_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence
+  if template_id == 506 then
+    return cme_globex_ilink3_sbe_v8_6.sequence.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Terminate
+  if template_id == 507 then
+    return cme_globex_ilink3_sbe_v8_6.terminate.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmission
+  if template_id == 509 then
+    return cme_globex_ilink3_sbe_v8_6.retransmission.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Reject
+  if template_id == 510 then
+    return cme_globex_ilink3_sbe_v8_6.retransmit_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Not Applied
+  if template_id == 513 then
+    return cme_globex_ilink3_sbe_v8_6.not_applied.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Details Definition Request Ack
+  if template_id == 519 then
+    return cme_globex_ilink3_sbe_v8_6.party_details_definition_request_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Business Reject
+  if template_id == 521 then
+    return cme_globex_ilink3_sbe_v8_6.business_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report New
+  if template_id == 522 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_new.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Reject
+  if template_id == 523 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Elimination
+  if template_id == 524 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_elimination.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Outright
+  if template_id == 525 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_outright.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Spread
+  if template_id == 526 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_spread.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Spread Leg
+  if template_id == 527 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_spread_leg.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Modify
+  if template_id == 531 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_modify.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Status
+  if template_id == 532 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_status.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Cancel
+  if template_id == 534 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_cancel.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Reject
+  if template_id == 535 then
+    return cme_globex_ilink3_sbe_v8_6.order_cancel_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Replace Reject
+  if template_id == 536 then
+    return cme_globex_ilink3_sbe_v8_6.order_cancel_replace_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Details List Report
+  if template_id == 538 then
+    return cme_globex_ilink3_sbe_v8_6.party_details_list_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Ack
+  if template_id == 539 then
+    return cme_globex_ilink3_sbe_v8_6.execution_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Quote Ack
+  if template_id == 545 then
+    return cme_globex_ilink3_sbe_v8_6.mass_quote_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Request For Quote Ack
+  if template_id == 546 then
+    return cme_globex_ilink3_sbe_v8_6.request_for_quote_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Addendum Outright
+  if template_id == 548 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_outright.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Addendum Spread
+  if template_id == 549 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_spread.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Addendum Spread Leg
+  if template_id == 550 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Definition Response
+  if template_id == 561 then
+    return cme_globex_ilink3_sbe_v8_6.security_definition_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Mass Action Report
+  if template_id == 562 then
+    return cme_globex_ilink3_sbe_v8_6.order_mass_action_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancel Ack
+  if template_id == 563 then
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Cancel
+  if template_id == 564 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_pending_cancel.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Replace
+  if template_id == 565 then
+    return cme_globex_ilink3_sbe_v8_6.execution_report_pending_replace.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cme_globex_ilink3_sbe_v8_6.message_header = {}
+
+-- Size: Message Header
+cme_globex_ilink3_sbe_v8_6.message_header.size =
+  cme_globex_ilink3_sbe_v8_6.block_length.size + 
+  cme_globex_ilink3_sbe_v8_6.template_id.size + 
+  cme_globex_ilink3_sbe_v8_6.schema_id.size + 
+  cme_globex_ilink3_sbe_v8_6.version.size
+
+-- Display: Message Header
+cme_globex_ilink3_sbe_v8_6.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_globex_ilink3_sbe_v8_6.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = cme_globex_ilink3_sbe_v8_6.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: uint16
+  index, template_id = cme_globex_ilink3_sbe_v8_6.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: uint16
+  index, schema_id = cme_globex_ilink3_sbe_v8_6.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: uint16
+  index, version = cme_globex_ilink3_sbe_v8_6.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cme_globex_ilink3_sbe_v8_6.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.message_header, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Simple Open Framing Header
+cme_globex_ilink3_sbe_v8_6.simple_open_framing_header = {}
+
+-- Size: Simple Open Framing Header
+cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.size =
+  cme_globex_ilink3_sbe_v8_6.message_length.size + 
+  cme_globex_ilink3_sbe_v8_6.encoding_type.size
+
+-- Display: Simple Open Framing Header
+cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Simple Open Framing Header
+cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = cme_globex_ilink3_sbe_v8_6.message_length.dissect(buffer, index, packet, parent)
+
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  index, encoding_type = cme_globex_ilink3_sbe_v8_6.encoding_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Open Framing Header
+cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.simple_open_framing_header, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.server_simple_open_frame = {}
+
+-- Display: Server Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.fields = function(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+  local index = offset
+
+  -- Simple Open Framing Header: Struct of 2 fields
+  index, simple_open_framing_header = cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = cme_globex_ilink3_sbe_v8_6.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 34 branches
+  index = cme_globex_ilink3_sbe_v8_6.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+  local index = offset + size_of_server_simple_open_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.server_simple_open_frame, buffer(offset, 0))
+    local current = cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.fields(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+    parent:set_len(size_of_server_simple_open_frame)
+    local display = cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.fields(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Simple Open Frame
+local server_simple_open_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+cme_globex_ilink3_sbe_v8_6.server_packet = {}
+
+-- Verify required size of Tcp packet
+cme_globex_ilink3_sbe_v8_6.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.size + cme_globex_ilink3_sbe_v8_6.message_header.size
+end
+
+-- Dissect Server Packet
+cme_globex_ilink3_sbe_v8_6.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Simple Open Frame
+  local end_of_payload = buffer:len()
+
+  -- Server Simple Open Frame: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_simple_open_frame = server_simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = cme_globex_ilink3_sbe_v8_6.server_simple_open_frame.dissect(buffer, index, packet, parent, size_of_server_simple_open_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Request Legs Group
+cme_globex_ilink3_sbe_v8_6.request_legs_group = {}
+
+-- Size: Request Legs Group
+cme_globex_ilink3_sbe_v8_6.request_legs_group.size =
+  cme_globex_ilink3_sbe_v8_6.leg_price.size + 
+  cme_globex_ilink3_sbe_v8_6.leg_security_id.size + 
+  cme_globex_ilink3_sbe_v8_6.leg_option_delta.size + 
+  cme_globex_ilink3_sbe_v8_6.leg_side.size + 
+  cme_globex_ilink3_sbe_v8_6.leg_ratio_qty.size
+
+-- Display: Request Legs Group
+cme_globex_ilink3_sbe_v8_6.request_legs_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Legs Group
+cme_globex_ilink3_sbe_v8_6.request_legs_group.fields = function(buffer, offset, packet, parent, request_legs_group_index)
+  local index = offset
+
+  -- Implicit Request Legs Group Index
+  if request_legs_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_group_index, request_legs_group_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Price: PRICENULL9
+  index, leg_price = cme_globex_ilink3_sbe_v8_6.leg_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Security Id: Int32
+  index, leg_security_id = cme_globex_ilink3_sbe_v8_6.leg_security_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Option Delta: Struct of 2 fields
+  index, leg_option_delta = cme_globex_ilink3_sbe_v8_6.leg_option_delta.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: SideReq
+  index, leg_side = cme_globex_ilink3_sbe_v8_6.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: uInt8NULL
+  index, leg_ratio_qty = cme_globex_ilink3_sbe_v8_6.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Legs Group
+cme_globex_ilink3_sbe_v8_6.request_legs_group.dissect = function(buffer, offset, packet, parent, request_legs_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.request_legs_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.request_legs_group.fields(buffer, offset, packet, parent, request_legs_group_index)
+  end
+end
+
+-- Request Legs Groups
+cme_globex_ilink3_sbe_v8_6.request_legs_groups = {}
+
+-- Calculate size of: Request Legs Groups
+cme_globex_ilink3_sbe_v8_6.request_legs_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local request_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + request_legs_group_count * 19
+
+  return index
+end
+
+-- Display: Request Legs Groups
+cme_globex_ilink3_sbe_v8_6.request_legs_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Legs Groups
+cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Request Legs Group
+  for request_legs_group_index = 1, num_in_group do
+    index, request_legs_group = cme_globex_ilink3_sbe_v8_6.request_legs_group.dissect(buffer, index, packet, parent, request_legs_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Request Legs Groups
+cme_globex_ilink3_sbe_v8_6.request_legs_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_legs_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.request_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.request_legs_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Definition Request
+cme_globex_ilink3_sbe_v8_6.security_definition_request = {}
+
+-- Calculate size of: Security Definition Request
+cme_globex_ilink3_sbe_v8_6.security_definition_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.security_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sender_id_optional.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.security_sub_type.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.start_date.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.end_date.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.max_no_of_substitutions.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.source_repo_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.request_legs_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Security Definition Request
+cme_globex_ilink3_sbe_v8_6.security_definition_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Definition Request
+cme_globex_ilink3_sbe_v8_6.security_definition_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Security Req Id: uInt64
+  index, security_req_id = cme_globex_ilink3_sbe_v8_6.security_req_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id Optional: String20
+  index, sender_id_optional = cme_globex_ilink3_sbe_v8_6.sender_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Security Sub Type: String8Req
+  index, security_sub_type = cme_globex_ilink3_sbe_v8_6.security_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Start Date: LocalMktDate
+  index, start_date = cme_globex_ilink3_sbe_v8_6.start_date.dissect(buffer, index, packet, parent)
+
+  -- End Date: LocalMktDate
+  index, end_date = cme_globex_ilink3_sbe_v8_6.end_date.dissect(buffer, index, packet, parent)
+
+  -- Max No Of Substitutions: uInt8NULL
+  index, max_no_of_substitutions = cme_globex_ilink3_sbe_v8_6.max_no_of_substitutions.dissect(buffer, index, packet, parent)
+
+  -- Source Repo Id: Int32NULL
+  index, source_repo_id = cme_globex_ilink3_sbe_v8_6.source_repo_id.dissect(buffer, index, packet, parent)
+
+  -- Request Legs Groups: Struct of 2 fields
+  index, request_legs_groups = cme_globex_ilink3_sbe_v8_6.request_legs_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Definition Request
+cme_globex_ilink3_sbe_v8_6.security_definition_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.security_definition_request, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.security_definition_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.security_definition_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.security_definition_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sides Group
+cme_globex_ilink3_sbe_v8_6.sides_group = {}
+
+-- Size: Sides Group
+cme_globex_ilink3_sbe_v8_6.sides_group.size =
+  cme_globex_ilink3_sbe_v8_6.clordid.size + 
+  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.order_qty.size + 
+  cme_globex_ilink3_sbe_v8_6.side.size + 
+  cme_globex_ilink3_sbe_v8_6.side_time_in_force.size
+
+-- Display: Sides Group
+cme_globex_ilink3_sbe_v8_6.sides_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sides Group
+cme_globex_ilink3_sbe_v8_6.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
+  local index = offset
+
+  -- Implicit Sides Group Index
+  if sides_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_group_index, sides_group_index)
+    iteration:set_generated()
+  end
+
+  -- ClOrdId: String20Req
+  index, clordid = cme_globex_ilink3_sbe_v8_6.clordid.dissect(buffer, index, packet, parent)
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: uInt32
+  index, order_qty = cme_globex_ilink3_sbe_v8_6.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Side: SideReq
+  index, side = cme_globex_ilink3_sbe_v8_6.side.dissect(buffer, index, packet, parent)
+
+  -- Side Time In Force: SideTimeInForce
+  index, side_time_in_force = cme_globex_ilink3_sbe_v8_6.side_time_in_force.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sides Group
+cme_globex_ilink3_sbe_v8_6.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.sides_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
+  end
+end
+
+-- Sides Groups
+cme_globex_ilink3_sbe_v8_6.sides_groups = {}
+
+-- Calculate size of: Sides Groups
+cme_globex_ilink3_sbe_v8_6.sides_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + sides_group_count * 34
+
+  return index
+end
+
+-- Display: Sides Groups
+cme_globex_ilink3_sbe_v8_6.sides_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sides Groups
+cme_globex_ilink3_sbe_v8_6.sides_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Sides Group
+  for sides_group_index = 1, num_in_group do
+    index, sides_group = cme_globex_ilink3_sbe_v8_6.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Sides Groups
+cme_globex_ilink3_sbe_v8_6.sides_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sides_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.sides_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.sides_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.sides_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Cross
+cme_globex_ilink3_sbe_v8_6.new_order_cross = {}
+
+-- Calculate size of: New Order Cross
+cme_globex_ilink3_sbe_v8_6.new_order_cross.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.cross_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.order_request_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.price.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.trans_bkd_time.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.security_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sides_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: New Order Cross
+cme_globex_ilink3_sbe_v8_6.new_order_cross.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Cross
+cme_globex_ilink3_sbe_v8_6.new_order_cross.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Cross Id: uInt64
+  index, cross_id = cme_globex_ilink3_sbe_v8_6.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Order Request Id: uInt64
+  index, order_request_id = cme_globex_ilink3_sbe_v8_6.order_request_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Price: PRICE9
+  index, price = cme_globex_ilink3_sbe_v8_6.price.dissect(buffer, index, packet, parent)
+
+  -- Trans Bkd Time: uInt64
+  index, trans_bkd_time = cme_globex_ilink3_sbe_v8_6.trans_bkd_time.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_ilink3_sbe_v8_6.security_id.dissect(buffer, index, packet, parent)
+
+  -- Sides Groups: Struct of 2 fields
+  index, sides_groups = cme_globex_ilink3_sbe_v8_6.sides_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Cross
+cme_globex_ilink3_sbe_v8_6.new_order_cross.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.new_order_cross, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.new_order_cross.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.new_order_cross.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.new_order_cross.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Related Sym Group
+cme_globex_ilink3_sbe_v8_6.related_sym_group = {}
+
+-- Size: Related Sym Group
+cme_globex_ilink3_sbe_v8_6.related_sym_group.size =
+  cme_globex_ilink3_sbe_v8_6.security_id.size + 
+  cme_globex_ilink3_sbe_v8_6.order_qty_optional.size + 
+  cme_globex_ilink3_sbe_v8_6.rfq_side.size
+
+-- Display: Related Sym Group
+cme_globex_ilink3_sbe_v8_6.related_sym_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Related Sym Group
+cme_globex_ilink3_sbe_v8_6.related_sym_group.fields = function(buffer, offset, packet, parent, related_sym_group_index)
+  local index = offset
+
+  -- Implicit Related Sym Group Index
+  if related_sym_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_group_index, related_sym_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_ilink3_sbe_v8_6.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty Optional: uInt32NULL
+  index, order_qty_optional = cme_globex_ilink3_sbe_v8_6.order_qty_optional.dissect(buffer, index, packet, parent)
+
+  -- Rfq Side: RFQSide
+  index, rfq_side = cme_globex_ilink3_sbe_v8_6.rfq_side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Related Sym Group
+cme_globex_ilink3_sbe_v8_6.related_sym_group.dissect = function(buffer, offset, packet, parent, related_sym_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.related_sym_group.fields(buffer, offset, packet, parent, related_sym_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.related_sym_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.related_sym_group.fields(buffer, offset, packet, parent, related_sym_group_index)
+  end
+end
+
+-- Related Sym Groups
+cme_globex_ilink3_sbe_v8_6.related_sym_groups = {}
+
+-- Calculate size of: Related Sym Groups
+cme_globex_ilink3_sbe_v8_6.related_sym_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + related_sym_group_count * 9
+
+  return index
+end
+
+-- Display: Related Sym Groups
+cme_globex_ilink3_sbe_v8_6.related_sym_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Related Sym Groups
+cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Related Sym Group
+  for related_sym_group_index = 1, num_in_group do
+    index, related_sym_group = cme_globex_ilink3_sbe_v8_6.related_sym_group.dissect(buffer, index, packet, parent, related_sym_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Related Sym Groups
+cme_globex_ilink3_sbe_v8_6.related_sym_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.related_sym_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.related_sym_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.related_sym_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Request For Quote
+cme_globex_ilink3_sbe_v8_6.request_for_quote = {}
+
+-- Calculate size of: Request For Quote
+cme_globex_ilink3_sbe_v8_6.request_for_quote.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_type.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.related_sym_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Request For Quote
+cme_globex_ilink3_sbe_v8_6.request_for_quote.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request For Quote
+cme_globex_ilink3_sbe_v8_6.request_for_quote.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: uInt64
+  index, quote_req_id = cme_globex_ilink3_sbe_v8_6.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Quote Type: QuoteTyp
+  index, quote_type = cme_globex_ilink3_sbe_v8_6.quote_type.dissect(buffer, index, packet, parent)
+
+  -- Related Sym Groups: Struct of 2 fields
+  index, related_sym_groups = cme_globex_ilink3_sbe_v8_6.related_sym_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request For Quote
+cme_globex_ilink3_sbe_v8_6.request_for_quote.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.request_for_quote, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.request_for_quote.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.request_for_quote.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.request_for_quote.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Party Ids Group
+cme_globex_ilink3_sbe_v8_6.party_ids_group = {}
+
+-- Size: Party Ids Group
+cme_globex_ilink3_sbe_v8_6.party_ids_group.size =
+  cme_globex_ilink3_sbe_v8_6.party_id.size + 
+  cme_globex_ilink3_sbe_v8_6.party_id_source.size + 
+  cme_globex_ilink3_sbe_v8_6.party_role.size
+
+-- Display: Party Ids Group
+cme_globex_ilink3_sbe_v8_6.party_ids_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Party Ids Group
+cme_globex_ilink3_sbe_v8_6.party_ids_group.fields = function(buffer, offset, packet, parent, party_ids_group_index)
+  local index = offset
+
+  -- Implicit Party Ids Group Index
+  if party_ids_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_group_index, party_ids_group_index)
+    iteration:set_generated()
+  end
+
+  -- Party Id: uInt64
+  index, party_id = cme_globex_ilink3_sbe_v8_6.party_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Source: CHAR
+  index, party_id_source = cme_globex_ilink3_sbe_v8_6.party_id_source.dissect(buffer, index, packet, parent)
+
+  -- Party Role: uInt16
+  index, party_role = cme_globex_ilink3_sbe_v8_6.party_role.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Party Ids Group
+cme_globex_ilink3_sbe_v8_6.party_ids_group.dissect = function(buffer, offset, packet, parent, party_ids_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.party_ids_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.party_ids_group.fields(buffer, offset, packet, parent, party_ids_group_index)
+  end
+end
+
+-- Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.party_ids_groups = {}
+
+-- Calculate size of: Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.party_ids_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + party_ids_group_count * 11
+
+  return index
+end
+
+-- Display: Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.party_ids_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Party Ids Group
+  for party_ids_group_index = 1, num_in_group do
+    index, party_ids_group = cme_globex_ilink3_sbe_v8_6.party_ids_group.dissect(buffer, index, packet, parent, party_ids_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.party_ids_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_ids_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.party_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.party_ids_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Requesting Party Ids Group
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group = {}
+
+-- Size: Requesting Party Ids Group
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.size =
+  cme_globex_ilink3_sbe_v8_6.requesting_party_id.size + 
+  cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.size + 
+  cme_globex_ilink3_sbe_v8_6.requesting_party_role.size
+
+-- Display: Requesting Party Ids Group
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requesting Party Ids Group
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
+  local index = offset
+
+  -- Implicit Requesting Party Ids Group Index
+  if requesting_party_ids_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_group_index, requesting_party_ids_group_index)
+    iteration:set_generated()
+  end
+
+  -- Requesting Party Id: String5
+  index, requesting_party_id = cme_globex_ilink3_sbe_v8_6.requesting_party_id.dissect(buffer, index, packet, parent)
+
+  -- Requesting Party Id Source: CHAR
+  index, requesting_party_id_source = cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.dissect(buffer, index, packet, parent)
+
+  -- Requesting Party Role: CHAR
+  index, requesting_party_role = cme_globex_ilink3_sbe_v8_6.requesting_party_role.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Requesting Party Ids Group
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.dissect = function(buffer, offset, packet, parent, requesting_party_ids_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.fields(buffer, offset, packet, parent, requesting_party_ids_group_index)
+  end
+end
+
+-- Requesting Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups = {}
+
+-- Calculate size of: Requesting Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local requesting_party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + requesting_party_ids_group_count * 7
+
+  return index
+end
+
+-- Display: Requesting Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requesting Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Requesting Party Ids Group
+  for requesting_party_ids_group_index = 1, num_in_group do
+    index, requesting_party_ids_group = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_group.dissect(buffer, index, packet, parent, requesting_party_ids_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Requesting Party Ids Groups
+cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.requesting_party_ids_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Party Details List Request
+cme_globex_ilink3_sbe_v8_6.party_details_list_request = {}
+
+-- Calculate size of: Party Details List Request
+cme_globex_ilink3_sbe_v8_6.party_details_list_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.size(buffer, offset + index)
+
+  index = index + cme_globex_ilink3_sbe_v8_6.party_ids_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Party Details List Request
+cme_globex_ilink3_sbe_v8_6.party_details_list_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Party Details List Request
+cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Requesting Party Ids Groups: Struct of 2 fields
+  index, requesting_party_ids_groups = cme_globex_ilink3_sbe_v8_6.requesting_party_ids_groups.dissect(buffer, index, packet, parent)
+
+  -- Party Ids Groups: Struct of 2 fields
+  index, party_ids_groups = cme_globex_ilink3_sbe_v8_6.party_ids_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Party Details List Request
+cme_globex_ilink3_sbe_v8_6.party_details_list_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.party_details_list_request, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.party_details_list_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.party_details_list_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Status Request
+cme_globex_ilink3_sbe_v8_6.order_status_request = {}
+
+-- Size: Order Status Request
+cme_globex_ilink3_sbe_v8_6.order_status_request.size =
+  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.ord_status_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
+  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
+  cme_globex_ilink3_sbe_v8_6.order_id.size + 
+  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
+  cme_globex_ilink3_sbe_v8_6.location.size
+
+-- Display: Order Status Request
+cme_globex_ilink3_sbe_v8_6.order_status_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Status Request
+cme_globex_ilink3_sbe_v8_6.order_status_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status Req Id: uInt64
+  index, ord_status_req_id = cme_globex_ilink3_sbe_v8_6.ord_status_req_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: uInt64
+  index, order_id = cme_globex_ilink3_sbe_v8_6.order_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Status Request
+cme_globex_ilink3_sbe_v8_6.order_status_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_status_request, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.order_status_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.order_status_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.order_status_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Mass Status Request
+cme_globex_ilink3_sbe_v8_6.order_mass_status_request = {}
+
+-- Size: Order Mass Status Request
+cme_globex_ilink3_sbe_v8_6.order_mass_status_request.size =
+  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_status_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
+  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
+  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
+  cme_globex_ilink3_sbe_v8_6.security_group.size + 
+  cme_globex_ilink3_sbe_v8_6.location.size + 
+  cme_globex_ilink3_sbe_v8_6.security_id_optional.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_status_req_type.size + 
+  cme_globex_ilink3_sbe_v8_6.ord_status_req_type.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_status_tif.size + 
+  cme_globex_ilink3_sbe_v8_6.market_segment_id.size
+
+-- Display: Order Mass Status Request
+cme_globex_ilink3_sbe_v8_6.order_mass_status_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Mass Status Request
+cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Status Req Id: uInt64
+  index, mass_status_req_id = cme_globex_ilink3_sbe_v8_6.mass_status_req_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Security Group: StringLength6
+  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: Int32NULL
+  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Mass Status Req Type: MassStatusReqTyp
+  index, mass_status_req_type = cme_globex_ilink3_sbe_v8_6.mass_status_req_type.dissect(buffer, index, packet, parent)
+
+  -- Ord Status Req Type: MassStatusOrdTyp
+  index, ord_status_req_type = cme_globex_ilink3_sbe_v8_6.ord_status_req_type.dissect(buffer, index, packet, parent)
+
+  -- Mass Status Tif: MassStatusTIF
+  index, mass_status_tif = cme_globex_ilink3_sbe_v8_6.mass_status_tif.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: uInt8NULL
+  index, market_segment_id = cme_globex_ilink3_sbe_v8_6.market_segment_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Mass Status Request
+cme_globex_ilink3_sbe_v8_6.order_mass_status_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_mass_status_request, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.order_mass_status_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.order_mass_status_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Mass Action Request
+cme_globex_ilink3_sbe_v8_6.order_mass_action_request = {}
+
+-- Size: Order Mass Action Request
+cme_globex_ilink3_sbe_v8_6.order_mass_action_request.size =
+  cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size + 
+  cme_globex_ilink3_sbe_v8_6.order_request_id.size + 
+  cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size + 
+  cme_globex_ilink3_sbe_v8_6.seq_num.size + 
+  cme_globex_ilink3_sbe_v8_6.sender_id.size + 
+  cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size + 
+  cme_globex_ilink3_sbe_v8_6.security_group.size + 
+  cme_globex_ilink3_sbe_v8_6.location.size + 
+  cme_globex_ilink3_sbe_v8_6.security_id_optional.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_action_scope.size + 
+  cme_globex_ilink3_sbe_v8_6.market_segment_id.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_cancel_request_type.size + 
+  cme_globex_ilink3_sbe_v8_6.side_optional.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_action_ord_typ.size + 
+  cme_globex_ilink3_sbe_v8_6.mass_cancel_tif.size + 
+  cme_globex_ilink3_sbe_v8_6.liquidity_flag.size
+
+-- Display: Order Mass Action Request
+cme_globex_ilink3_sbe_v8_6.order_mass_action_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Mass Action Request
+cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Order Request Id: uInt64
+  index, order_request_id = cme_globex_ilink3_sbe_v8_6.order_request_id.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Security Group: StringLength6
+  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: Int32NULL
+  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Scope: MassActionScope
+  index, mass_action_scope = cme_globex_ilink3_sbe_v8_6.mass_action_scope.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: uInt8NULL
+  index, market_segment_id = cme_globex_ilink3_sbe_v8_6.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Request Type: MassCxlReqTyp
+  index, mass_cancel_request_type = cme_globex_ilink3_sbe_v8_6.mass_cancel_request_type.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideNULL
+  index, side_optional = cme_globex_ilink3_sbe_v8_6.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Ord Typ: MassActionOrdTyp
+  index, mass_action_ord_typ = cme_globex_ilink3_sbe_v8_6.mass_action_ord_typ.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Tif: MassCancelTIF
+  index, mass_cancel_tif = cme_globex_ilink3_sbe_v8_6.mass_cancel_tif.dissect(buffer, index, packet, parent)
+
+  -- Liquidity Flag: BooleanNULL
+  index, liquidity_flag = cme_globex_ilink3_sbe_v8_6.liquidity_flag.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Mass Action Request
+cme_globex_ilink3_sbe_v8_6.order_mass_action_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.order_mass_action_request, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.order_mass_action_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.order_mass_action_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Cancel Sets Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group = {}
+
+-- Size: Quote Cancel Sets Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.size =
+  cme_globex_ilink3_sbe_v8_6.bid_size.size + 
+  cme_globex_ilink3_sbe_v8_6.offer_size.size + 
+  cme_globex_ilink3_sbe_v8_6.quote_set_id.size
+
+-- Display: Quote Cancel Sets Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Sets Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
+  local index = offset
+
+  -- Implicit Quote Cancel Sets Group Index
+  if quote_cancel_sets_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_group_index, quote_cancel_sets_group_index)
+    iteration:set_generated()
+  end
+
+  -- Bid Size: uInt32NULL
+  index, bid_size = cme_globex_ilink3_sbe_v8_6.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Offer Size: uInt32NULL
+  index, offer_size = cme_globex_ilink3_sbe_v8_6.offer_size.dissect(buffer, index, packet, parent)
+
+  -- Quote Set Id: uInt16
+  index, quote_set_id = cme_globex_ilink3_sbe_v8_6.quote_set_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel Sets Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect = function(buffer, offset, packet, parent, quote_cancel_sets_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.fields(buffer, offset, packet, parent, quote_cancel_sets_group_index)
+  end
+end
+
+-- Quote Cancel Sets Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups = {}
+
+-- Calculate size of: Quote Cancel Sets Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local quote_cancel_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_sets_group_count * 10
+
+  return index
+end
+
+-- Display: Quote Cancel Sets Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Sets Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Quote Cancel Sets Group
+  for quote_cancel_sets_group_index = 1, num_in_group do
+    index, quote_cancel_sets_group = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_group.dissect(buffer, index, packet, parent, quote_cancel_sets_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Cancel Sets Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_sets_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Cancel Entries Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group = {}
+
+-- Size: Quote Cancel Entries Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.size =
+  cme_globex_ilink3_sbe_v8_6.security_group.size + 
+  cme_globex_ilink3_sbe_v8_6.security_id_optional.size
+
+-- Display: Quote Cancel Entries Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Entries Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
+  local index = offset
+
+  -- Implicit Quote Cancel Entries Group Index
+  if quote_cancel_entries_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_group_index, quote_cancel_entries_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Group: StringLength6
+  index, security_group = cme_globex_ilink3_sbe_v8_6.security_group.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: Int32NULL
+  index, security_id_optional = cme_globex_ilink3_sbe_v8_6.security_id_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel Entries Group
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_entries_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.fields(buffer, offset, packet, parent, quote_cancel_entries_group_index)
+  end
+end
+
+-- Quote Cancel Entries Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups = {}
+
+-- Calculate size of: Quote Cancel Entries Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.group_size.size
+
+  -- Calculate field size from count
+  local quote_cancel_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + quote_cancel_entries_group_count * 10
+
+  return index
+end
+
+-- Display: Quote Cancel Entries Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Entries Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Quote Cancel Entries Group
+  for quote_cancel_entries_group_index = 1, num_in_group do
+    index, quote_cancel_entries_group = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_group.dissect(buffer, index, packet, parent, quote_cancel_entries_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Quote Cancel Entries Groups
+cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel_entries_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Cancel
+cme_globex_ilink3_sbe_v8_6.quote_cancel = {}
+
+-- Calculate size of: Quote Cancel
+cme_globex_ilink3_sbe_v8_6.quote_cancel.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sending_time_epoch.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.manual_order_indicator.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.seq_num.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.sender_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.location.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_id.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_type.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.liquidity_flag.size
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.size(buffer, offset + index)
+
+  index = index + cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Cancel
+cme_globex_ilink3_sbe_v8_6.quote_cancel.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel
+cme_globex_ilink3_sbe_v8_6.quote_cancel.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Party Details List Req Id: uInt64
+  index, party_details_list_req_id = cme_globex_ilink3_sbe_v8_6.party_details_list_req_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time Epoch: uInt64
+  index, sending_time_epoch = cme_globex_ilink3_sbe_v8_6.sending_time_epoch.dissect(buffer, index, packet, parent)
+
+  -- Manual Order Indicator: ManualOrdIndReq
+  index, manual_order_indicator = cme_globex_ilink3_sbe_v8_6.manual_order_indicator.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: uInt32
+  index, seq_num = cme_globex_ilink3_sbe_v8_6.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Id: String20Req
+  index, sender_id = cme_globex_ilink3_sbe_v8_6.sender_id.dissect(buffer, index, packet, parent)
+
+  -- Location: String5Req
+  index, location = cme_globex_ilink3_sbe_v8_6.location.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: uInt32
+  index, quote_id = cme_globex_ilink3_sbe_v8_6.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Cancel Type: QuoteCxlTyp
+  index, quote_cancel_type = cme_globex_ilink3_sbe_v8_6.quote_cancel_type.dissect(buffer, index, packet, parent)
+
+  -- Liquidity Flag: BooleanNULL
+  index, liquidity_flag = cme_globex_ilink3_sbe_v8_6.liquidity_flag.dissect(buffer, index, packet, parent)
+
+  -- Quote Cancel Entries Groups: Struct of 2 fields
+  index, quote_cancel_entries_groups = cme_globex_ilink3_sbe_v8_6.quote_cancel_entries_groups.dissect(buffer, index, packet, parent)
+
+  -- Quote Cancel Sets Groups: Struct of 2 fields
+  index, quote_cancel_sets_groups = cme_globex_ilink3_sbe_v8_6.quote_cancel_sets_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel
+cme_globex_ilink3_sbe_v8_6.quote_cancel.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.quote_cancel, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_6.quote_cancel.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_6.quote_cancel.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_6.quote_cancel.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Party Details Definition Request
 cme_globex_ilink3_sbe_v8_6.party_details_definition_request = {}
 
@@ -16752,178 +17734,6 @@ cme_globex_ilink3_sbe_v8_6.new_order_single.dissect = function(buffer, offset, p
   end
 end
 
--- Not Applied
-cme_globex_ilink3_sbe_v8_6.not_applied = {}
-
--- Size: Not Applied
-cme_globex_ilink3_sbe_v8_6.not_applied.size =
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.from_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.msg_count.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Not Applied
-cme_globex_ilink3_sbe_v8_6.not_applied.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Not Applied
-cme_globex_ilink3_sbe_v8_6.not_applied.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- From Seq No: uInt32
-  index, from_seq_no = cme_globex_ilink3_sbe_v8_6.from_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Msg Count: uInt32
-  index, msg_count = cme_globex_ilink3_sbe_v8_6.msg_count.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Not Applied
-cme_globex_ilink3_sbe_v8_6.not_applied.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.not_applied, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.not_applied.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.not_applied.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.not_applied.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmit Reject
-cme_globex_ilink3_sbe_v8_6.retransmit_reject = {}
-
--- Size: Retransmit Reject
-cme_globex_ilink3_sbe_v8_6.retransmit_reject.size =
-  cme_globex_ilink3_sbe_v8_6.reason.size + 
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.last_uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Retransmit Reject
-cme_globex_ilink3_sbe_v8_6.retransmit_reject.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Reject
-cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reason: String48
-  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Last Uuid: uInt64NULL
-  index, last_uuid = cme_globex_ilink3_sbe_v8_6.last_uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Error Codes: uInt16
-  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Reject
-cme_globex_ilink3_sbe_v8_6.retransmit_reject.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.retransmit_reject, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.retransmit_reject.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.retransmit_reject.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Retransmission
-cme_globex_ilink3_sbe_v8_6.retransmission = {}
-
--- Size: Retransmission
-cme_globex_ilink3_sbe_v8_6.retransmission.size =
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.last_uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.from_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.msg_count_16.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Retransmission
-cme_globex_ilink3_sbe_v8_6.retransmission.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmission
-cme_globex_ilink3_sbe_v8_6.retransmission.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Last Uuid: uInt64NULL
-  index, last_uuid = cme_globex_ilink3_sbe_v8_6.last_uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- From Seq No: uInt32
-  index, from_seq_no = cme_globex_ilink3_sbe_v8_6.from_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Msg Count 16: uInt16
-  index, msg_count_16 = cme_globex_ilink3_sbe_v8_6.msg_count_16.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmission
-cme_globex_ilink3_sbe_v8_6.retransmission.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.retransmission, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.retransmission.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.retransmission.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.retransmission.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Retransmit Request
 cme_globex_ilink3_sbe_v8_6.retransmit_request = {}
 
@@ -16977,321 +17787,6 @@ cme_globex_ilink3_sbe_v8_6.retransmit_request.dissect = function(buffer, offset,
   else
     -- Skip element, add fields directly
     return cme_globex_ilink3_sbe_v8_6.retransmit_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Terminate
-cme_globex_ilink3_sbe_v8_6.terminate = {}
-
--- Size: Terminate
-cme_globex_ilink3_sbe_v8_6.terminate.size =
-  cme_globex_ilink3_sbe_v8_6.reason.size + 
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Terminate
-cme_globex_ilink3_sbe_v8_6.terminate.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Terminate
-cme_globex_ilink3_sbe_v8_6.terminate.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reason: String48
-  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Error Codes: uInt16
-  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Terminate
-cme_globex_ilink3_sbe_v8_6.terminate.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.terminate, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.terminate.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.terminate.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.terminate.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sequence
-cme_globex_ilink3_sbe_v8_6.sequence = {}
-
--- Size: Sequence
-cme_globex_ilink3_sbe_v8_6.sequence.size =
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.keep_alive_interval_lapsed.size
-
--- Display: Sequence
-cme_globex_ilink3_sbe_v8_6.sequence.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequence
-cme_globex_ilink3_sbe_v8_6.sequence.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Next Seq No: uInt32
-  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Fault Tolerance Indicator: FTI
-  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
-
-  -- Keep Alive Interval Lapsed: KeepAliveLapsed
-  index, keep_alive_interval_lapsed = cme_globex_ilink3_sbe_v8_6.keep_alive_interval_lapsed.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequence
-cme_globex_ilink3_sbe_v8_6.sequence.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.sequence, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.sequence.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.sequence.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.sequence.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Establishment Reject
-cme_globex_ilink3_sbe_v8_6.establishment_reject = {}
-
--- Size: Establishment Reject
-cme_globex_ilink3_sbe_v8_6.establishment_reject.size =
-  cme_globex_ilink3_sbe_v8_6.reason.size + 
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
-  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Establishment Reject
-cme_globex_ilink3_sbe_v8_6.establishment_reject.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Establishment Reject
-cme_globex_ilink3_sbe_v8_6.establishment_reject.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reason: String48
-  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Next Seq No: uInt32
-  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Error Codes: uInt16
-  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
-
-  -- Fault Tolerance Indicator: FTI
-  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Establishment Reject
-cme_globex_ilink3_sbe_v8_6.establishment_reject.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.establishment_reject, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.establishment_reject.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.establishment_reject.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.establishment_reject.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Establishment Ack
-cme_globex_ilink3_sbe_v8_6.establishment_ack = {}
-
--- Size: Establishment Ack
-cme_globex_ilink3_sbe_v8_6.establishment_ack.size =
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.next_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.previous_seq_no.size + 
-  cme_globex_ilink3_sbe_v8_6.previous_uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.keep_alive_interval.size + 
-  cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size + 
-  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Establishment Ack
-cme_globex_ilink3_sbe_v8_6.establishment_ack.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Establishment Ack
-cme_globex_ilink3_sbe_v8_6.establishment_ack.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Next Seq No: uInt32
-  index, next_seq_no = cme_globex_ilink3_sbe_v8_6.next_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Previous Seq No: uInt32
-  index, previous_seq_no = cme_globex_ilink3_sbe_v8_6.previous_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Previous Uuid: uInt64
-  index, previous_uuid = cme_globex_ilink3_sbe_v8_6.previous_uuid.dissect(buffer, index, packet, parent)
-
-  -- Keep Alive Interval: uInt16
-  index, keep_alive_interval = cme_globex_ilink3_sbe_v8_6.keep_alive_interval.dissect(buffer, index, packet, parent)
-
-  -- Secret Key Secure Id Expiration: uInt16NULL
-  index, secret_key_secure_id_expiration = cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
-
-  -- Fault Tolerance Indicator: FTI
-  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Establishment Ack
-cme_globex_ilink3_sbe_v8_6.establishment_ack.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.establishment_ack, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.establishment_ack.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.establishment_ack.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.establishment_ack.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Credentials
-cme_globex_ilink3_sbe_v8_6.credentials = {}
-
--- Calculate size of: Credentials
-cme_globex_ilink3_sbe_v8_6.credentials.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.credentials_length.size
-
-  local credentials_length = buffer(offset + 0, 2):le_uint()
-
-  if credentials_length > 0 then
-    -- Parse runtime size of: Credentials Data
-    index = index + buffer(offset + index - 2, 2):le_uint()
-
-  end
-
-  return index
-end
-
--- Display: Credentials
-cme_globex_ilink3_sbe_v8_6.credentials.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return value
-end
-
--- Dissect Fields: Credentials
-cme_globex_ilink3_sbe_v8_6.credentials.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Credentials Length: uint16
-  index, credentials_length = cme_globex_ilink3_sbe_v8_6.credentials_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Credentials Data
-  local credentials_data = nil
-
-  local credentials_data_exists = credentials_length > 0
-
-  if credentials_data_exists then
-
-    -- Runtime Size Of: Credentials Data
-    index, credentials_data = cme_globex_ilink3_sbe_v8_6.credentials_data.dissect(buffer, index, packet, parent, credentials_length)
-  end
-
-  -- Composite value
-  local credentials = credentials_data
-
-  return index, credentials
-end
-
--- Dissect: Credentials
-cme_globex_ilink3_sbe_v8_6.credentials.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.credentials, buffer(offset, 0))
-    local index, value = cme_globex_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.credentials.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.credentials.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -17395,146 +17890,6 @@ cme_globex_ilink3_sbe_v8_6.establish.dissect = function(buffer, offset, packet, 
   end
 end
 
--- Negotiation Reject
-cme_globex_ilink3_sbe_v8_6.negotiation_reject = {}
-
--- Size: Negotiation Reject
-cme_globex_ilink3_sbe_v8_6.negotiation_reject.size =
-  cme_globex_ilink3_sbe_v8_6.reason.size + 
-  cme_globex_ilink3_sbe_v8_6.uuid.size + 
-  cme_globex_ilink3_sbe_v8_6.request_timestamp.size + 
-  cme_globex_ilink3_sbe_v8_6.error_codes.size + 
-  cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size + 
-  cme_globex_ilink3_sbe_v8_6.split_msg.size
-
--- Display: Negotiation Reject
-cme_globex_ilink3_sbe_v8_6.negotiation_reject.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Negotiation Reject
-cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reason: String48
-  index, reason = cme_globex_ilink3_sbe_v8_6.reason.dissect(buffer, index, packet, parent)
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Error Codes: uInt16
-  index, error_codes = cme_globex_ilink3_sbe_v8_6.error_codes.dissect(buffer, index, packet, parent)
-
-  -- Fault Tolerance Indicator: FTI
-  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Negotiation Reject
-cme_globex_ilink3_sbe_v8_6.negotiation_reject.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.negotiation_reject, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.negotiation_reject.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.negotiation_reject.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Negotiation Response
-cme_globex_ilink3_sbe_v8_6.negotiation_response = {}
-
--- Calculate size of: Negotiation Response
-cme_globex_ilink3_sbe_v8_6.negotiation_response.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_ilink3_sbe_v8_6.uuid.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.request_timestamp.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.split_msg.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.previous_seq_no.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.previous_uuid.size
-
-  index = index + cme_globex_ilink3_sbe_v8_6.credentials.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Negotiation Response
-cme_globex_ilink3_sbe_v8_6.negotiation_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Negotiation Response
-cme_globex_ilink3_sbe_v8_6.negotiation_response.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_ilink3_sbe_v8_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_ilink3_sbe_v8_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Secret Key Secure Id Expiration: uInt16NULL
-  index, secret_key_secure_id_expiration = cme_globex_ilink3_sbe_v8_6.secret_key_secure_id_expiration.dissect(buffer, index, packet, parent)
-
-  -- Fault Tolerance Indicator: FTI
-  index, fault_tolerance_indicator = cme_globex_ilink3_sbe_v8_6.fault_tolerance_indicator.dissect(buffer, index, packet, parent)
-
-  -- Split Msg: SplitMsg
-  index, split_msg = cme_globex_ilink3_sbe_v8_6.split_msg.dissect(buffer, index, packet, parent)
-
-  -- Previous Seq No: uInt32
-  index, previous_seq_no = cme_globex_ilink3_sbe_v8_6.previous_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Previous Uuid: uInt64
-  index, previous_uuid = cme_globex_ilink3_sbe_v8_6.previous_uuid.dissect(buffer, index, packet, parent)
-
-  -- Credentials: Struct of 2 fields
-  index, credentials = cme_globex_ilink3_sbe_v8_6.credentials.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Negotiation Response
-cme_globex_ilink3_sbe_v8_6.negotiation_response.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.negotiation_response, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.negotiation_response.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.negotiation_response.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.negotiation_response.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Negotiate
 cme_globex_ilink3_sbe_v8_6.negotiate = {}
 
@@ -17610,34 +17965,18 @@ cme_globex_ilink3_sbe_v8_6.negotiate.dissect = function(buffer, offset, packet, 
   end
 end
 
--- Payload
-cme_globex_ilink3_sbe_v8_6.payload = {}
+-- Client Payload
+cme_globex_ilink3_sbe_v8_6.client_payload = {}
 
--- Dissect: Payload
-cme_globex_ilink3_sbe_v8_6.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+cme_globex_ilink3_sbe_v8_6.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Negotiate
   if template_id == 500 then
     return cme_globex_ilink3_sbe_v8_6.negotiate.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Negotiation Response
-  if template_id == 501 then
-    return cme_globex_ilink3_sbe_v8_6.negotiation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Reject
-  if template_id == 502 then
-    return cme_globex_ilink3_sbe_v8_6.negotiation_reject.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Establish
   if template_id == 503 then
     return cme_globex_ilink3_sbe_v8_6.establish.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Establishment Ack
-  if template_id == 504 then
-    return cme_globex_ilink3_sbe_v8_6.establishment_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Establishment Reject
-  if template_id == 505 then
-    return cme_globex_ilink3_sbe_v8_6.establishment_reject.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence
   if template_id == 506 then
@@ -17650,18 +17989,6 @@ cme_globex_ilink3_sbe_v8_6.payload.dissect = function(buffer, offset, packet, pa
   -- Dissect Retransmit Request
   if template_id == 508 then
     return cme_globex_ilink3_sbe_v8_6.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission
-  if template_id == 509 then
-    return cme_globex_ilink3_sbe_v8_6.retransmission.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Reject
-  if template_id == 510 then
-    return cme_globex_ilink3_sbe_v8_6.retransmit_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Not Applied
-  if template_id == 513 then
-    return cme_globex_ilink3_sbe_v8_6.not_applied.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Single
   if template_id == 514 then
@@ -17683,38 +18010,6 @@ cme_globex_ilink3_sbe_v8_6.payload.dissect = function(buffer, offset, packet, pa
   if template_id == 518 then
     return cme_globex_ilink3_sbe_v8_6.party_details_definition_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Party Details Definition Request Ack
-  if template_id == 519 then
-    return cme_globex_ilink3_sbe_v8_6.party_details_definition_request_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Reject
-  if template_id == 521 then
-    return cme_globex_ilink3_sbe_v8_6.business_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New
-  if template_id == 522 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_new.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Reject
-  if template_id == 523 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Elimination
-  if template_id == 524 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_elimination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Outright
-  if template_id == 525 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_outright.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Spread
-  if template_id == 526 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_spread.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Spread Leg
-  if template_id == 527 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_spread_leg.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Quote Cancel
   if template_id == 528 then
     return cme_globex_ilink3_sbe_v8_6.quote_cancel.dissect(buffer, offset, packet, parent)
@@ -17727,41 +18022,13 @@ cme_globex_ilink3_sbe_v8_6.payload.dissect = function(buffer, offset, packet, pa
   if template_id == 530 then
     return cme_globex_ilink3_sbe_v8_6.order_mass_status_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Execution Report Modify
-  if template_id == 531 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_modify.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Status
-  if template_id == 532 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_status.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Order Status Request
   if template_id == 533 then
     return cme_globex_ilink3_sbe_v8_6.order_status_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Execution Report Cancel
-  if template_id == 534 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject
-  if template_id == 535 then
-    return cme_globex_ilink3_sbe_v8_6.order_cancel_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Reject
-  if template_id == 536 then
-    return cme_globex_ilink3_sbe_v8_6.order_cancel_replace_reject.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Party Details List Request
   if template_id == 537 then
     return cme_globex_ilink3_sbe_v8_6.party_details_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Details List Report
-  if template_id == 538 then
-    return cme_globex_ilink3_sbe_v8_6.party_details_list_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Ack
-  if template_id == 539 then
-    return cme_globex_ilink3_sbe_v8_6.execution_ack.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Request For Quote
   if template_id == 543 then
@@ -17771,160 +18038,24 @@ cme_globex_ilink3_sbe_v8_6.payload.dissect = function(buffer, offset, packet, pa
   if template_id == 544 then
     return cme_globex_ilink3_sbe_v8_6.new_order_cross.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mass Quote Ack
-  if template_id == 545 then
-    return cme_globex_ilink3_sbe_v8_6.mass_quote_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote Ack
-  if template_id == 546 then
-    return cme_globex_ilink3_sbe_v8_6.request_for_quote_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Outright
-  if template_id == 548 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_outright.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Spread
-  if template_id == 549 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_spread.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Spread Leg
-  if template_id == 550 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_trade_addendum_spread_leg.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Security Definition Request
   if template_id == 560 then
     return cme_globex_ilink3_sbe_v8_6.security_definition_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Response
-  if template_id == 561 then
-    return cme_globex_ilink3_sbe_v8_6.security_definition_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Action Report
-  if template_id == 562 then
-    return cme_globex_ilink3_sbe_v8_6.order_mass_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancel Ack
-  if template_id == 563 then
-    return cme_globex_ilink3_sbe_v8_6.quote_cancel_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Cancel
-  if template_id == 564 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_pending_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Replace
-  if template_id == 565 then
-    return cme_globex_ilink3_sbe_v8_6.execution_report_pending_replace.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-cme_globex_ilink3_sbe_v8_6.message_header = {}
+-- Client Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.client_simple_open_frame = {}
 
--- Size: Message Header
-cme_globex_ilink3_sbe_v8_6.message_header.size =
-  cme_globex_ilink3_sbe_v8_6.block_length.size + 
-  cme_globex_ilink3_sbe_v8_6.template_id.size + 
-  cme_globex_ilink3_sbe_v8_6.schema_id.size + 
-  cme_globex_ilink3_sbe_v8_6.version.size
-
--- Display: Message Header
-cme_globex_ilink3_sbe_v8_6.message_header.display = function(packet, parent, length)
+-- Display: Client Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cme_globex_ilink3_sbe_v8_6.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = cme_globex_ilink3_sbe_v8_6.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: uint16
-  index, template_id = cme_globex_ilink3_sbe_v8_6.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: uint16
-  index, schema_id = cme_globex_ilink3_sbe_v8_6.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: uint16
-  index, version = cme_globex_ilink3_sbe_v8_6.version.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-cme_globex_ilink3_sbe_v8_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.message_header, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Simple Open Framing Header
-cme_globex_ilink3_sbe_v8_6.simple_open_framing_header = {}
-
--- Size: Simple Open Framing Header
-cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.size =
-  cme_globex_ilink3_sbe_v8_6.message_length.size + 
-  cme_globex_ilink3_sbe_v8_6.encoding_type.size
-
--- Display: Simple Open Framing Header
-cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Simple Open Framing Header
-cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = cme_globex_ilink3_sbe_v8_6.message_length.dissect(buffer, index, packet, parent)
-
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
-  index, encoding_type = cme_globex_ilink3_sbe_v8_6.encoding_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Simple Open Framing Header
-cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.simple_open_framing_header, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Simple Open Frame
-cme_globex_ilink3_sbe_v8_6.simple_open_frame = {}
-
--- Display: Simple Open Frame
-cme_globex_ilink3_sbe_v8_6.simple_open_frame.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Simple Open Frame
-cme_globex_ilink3_sbe_v8_6.simple_open_frame.fields = function(buffer, offset, packet, parent, size_of_simple_open_frame)
+-- Dissect Fields: Client Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.fields = function(buffer, offset, packet, parent, size_of_client_simple_open_frame)
   local index = offset
 
   -- Simple Open Framing Header: Struct of 2 fields
@@ -17936,35 +18067,35 @@ cme_globex_ilink3_sbe_v8_6.simple_open_frame.fields = function(buffer, offset, p
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- Payload: Runtime Type with 50 branches
-  index = cme_globex_ilink3_sbe_v8_6.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 18 branches
+  index = cme_globex_ilink3_sbe_v8_6.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Simple Open Frame
-cme_globex_ilink3_sbe_v8_6.simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_simple_open_frame)
-  local index = offset + size_of_simple_open_frame
+-- Dissect: Client Simple Open Frame
+cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_client_simple_open_frame)
+  local index = offset + size_of_client_simple_open_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.simple_open_frame, buffer(offset, 0))
-    local current = cme_globex_ilink3_sbe_v8_6.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
-    parent:set_len(size_of_simple_open_frame)
-    local display = cme_globex_ilink3_sbe_v8_6.simple_open_frame.display(buffer, packet, parent)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_6.fields.client_simple_open_frame, buffer(offset, 0))
+    local current = cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.fields(buffer, offset, packet, parent, size_of_client_simple_open_frame)
+    parent:set_len(size_of_client_simple_open_frame)
+    local display = cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_ilink3_sbe_v8_6.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.fields(buffer, offset, packet, parent, size_of_client_simple_open_frame)
 
     return index
   end
 end
 
--- Remaining Bytes For: Simple Open Frame
-local simple_open_frame_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Simple Open Frame
+local client_simple_open_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -17984,29 +18115,29 @@ local simple_open_frame_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-cme_globex_ilink3_sbe_v8_6.packet = {}
+-- Client Packet
+cme_globex_ilink3_sbe_v8_6.client_packet = {}
 
 -- Verify required size of Tcp packet
-cme_globex_ilink3_sbe_v8_6.packet.requiredsize = function(buffer)
+cme_globex_ilink3_sbe_v8_6.client_packet.requiredsize = function(buffer)
   return buffer:len() >= cme_globex_ilink3_sbe_v8_6.simple_open_framing_header.size + cme_globex_ilink3_sbe_v8_6.message_header.size
 end
 
--- Dissect Packet
-cme_globex_ilink3_sbe_v8_6.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+cme_globex_ilink3_sbe_v8_6.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Simple Open Frame
+  -- Dependency for Client Simple Open Frame
   local end_of_payload = buffer:len()
 
-  -- Simple Open Frame: Struct of 3 fields
+  -- Client Simple Open Frame: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_simple_open_frame = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_simple_open_frame = client_simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = cme_globex_ilink3_sbe_v8_6.simple_open_frame.dissect(buffer, index, packet, parent, size_of_simple_open_frame)
+      index = cme_globex_ilink3_sbe_v8_6.client_simple_open_frame.dissect(buffer, index, packet, parent, size_of_client_simple_open_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -18028,6 +18159,71 @@ end
 function omi_cme_globex_ilink3_sbe_v8_6.init()
 end
 
+-- Connection roles for Cme Globex iLink3 Sbe 8.6: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+cme_globex_ilink3_sbe_v8_6.role = function(packet)
+  if omi_cme_globex_ilink3_sbe_v8_6.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_cme_globex_ilink3_sbe_v8_6.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_cme_globex_ilink3_sbe_v8_6.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_cme_globex_ilink3_sbe_v8_6.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+cme_globex_ilink3_sbe_v8_6.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Cme Globex iLink3 Sbe 8.6
 function omi_cme_globex_ilink3_sbe_v8_6.dissector(buffer, packet, parent)
 
@@ -18036,8 +18232,299 @@ function omi_cme_globex_ilink3_sbe_v8_6.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_ilink3_sbe_v8_6, buffer(), omi_cme_globex_ilink3_sbe_v8_6.description, "("..buffer:len().." Bytes)")
-  return cme_globex_ilink3_sbe_v8_6.packet.dissect(buffer, packet, protocol)
+  local role = cme_globex_ilink3_sbe_v8_6.role(packet)
+  if role == "initiator" then
+    return cme_globex_ilink3_sbe_v8_6.client_packet.dissect(buffer, packet, protocol)
+  end
+  return cme_globex_ilink3_sbe_v8_6.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+cme_globex_ilink3_sbe_v8_6.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 8 then
+    return false
+  end
+  local template_id = buffer(6, 2):le_uint()
+
+  -- Negotiate
+  if template_id == 500 then
+    return true
+  end
+
+  -- Establish
+  if template_id == 503 then
+    return true
+  end
+
+  -- Sequence
+  if template_id == 506 then
+    return true
+  end
+
+  -- Terminate
+  if template_id == 507 then
+    return true
+  end
+
+  -- Retransmit Request
+  if template_id == 508 then
+    return true
+  end
+
+  -- New Order Single
+  if template_id == 514 then
+    return true
+  end
+
+  -- Order Cancel Replace Request
+  if template_id == 515 then
+    return true
+  end
+
+  -- Order Cancel Request
+  if template_id == 516 then
+    return true
+  end
+
+  -- Mass Quote
+  if template_id == 517 then
+    return true
+  end
+
+  -- Party Details Definition Request
+  if template_id == 518 then
+    return true
+  end
+
+  -- Quote Cancel
+  if template_id == 528 then
+    return true
+  end
+
+  -- Order Mass Action Request
+  if template_id == 529 then
+    return true
+  end
+
+  -- Order Mass Status Request
+  if template_id == 530 then
+    return true
+  end
+
+  -- Order Status Request
+  if template_id == 533 then
+    return true
+  end
+
+  -- Party Details List Request
+  if template_id == 537 then
+    return true
+  end
+
+  -- Request For Quote
+  if template_id == 543 then
+    return true
+  end
+
+  -- New Order Cross
+  if template_id == 544 then
+    return true
+  end
+
+  -- Security Definition Request
+  if template_id == 560 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+cme_globex_ilink3_sbe_v8_6.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 8 then
+    return false
+  end
+  local template_id = buffer(6, 2):le_uint()
+
+  -- Negotiation Response
+  if template_id == 501 then
+    return true
+  end
+
+  -- Negotiation Reject
+  if template_id == 502 then
+    return true
+  end
+
+  -- Establishment Ack
+  if template_id == 504 then
+    return true
+  end
+
+  -- Establishment Reject
+  if template_id == 505 then
+    return true
+  end
+
+  -- Sequence
+  if template_id == 506 then
+    return true
+  end
+
+  -- Terminate
+  if template_id == 507 then
+    return true
+  end
+
+  -- Retransmission
+  if template_id == 509 then
+    return true
+  end
+
+  -- Retransmit Reject
+  if template_id == 510 then
+    return true
+  end
+
+  -- Not Applied
+  if template_id == 513 then
+    return true
+  end
+
+  -- Party Details Definition Request Ack
+  if template_id == 519 then
+    return true
+  end
+
+  -- Business Reject
+  if template_id == 521 then
+    return true
+  end
+
+  -- Execution Report New
+  if template_id == 522 then
+    return true
+  end
+
+  -- Execution Report Reject
+  if template_id == 523 then
+    return true
+  end
+
+  -- Execution Report Elimination
+  if template_id == 524 then
+    return true
+  end
+
+  -- Execution Report Trade Outright
+  if template_id == 525 then
+    return true
+  end
+
+  -- Execution Report Trade Spread
+  if template_id == 526 then
+    return true
+  end
+
+  -- Execution Report Trade Spread Leg
+  if template_id == 527 then
+    return true
+  end
+
+  -- Execution Report Modify
+  if template_id == 531 then
+    return true
+  end
+
+  -- Execution Report Status
+  if template_id == 532 then
+    return true
+  end
+
+  -- Execution Report Cancel
+  if template_id == 534 then
+    return true
+  end
+
+  -- Order Cancel Reject
+  if template_id == 535 then
+    return true
+  end
+
+  -- Order Cancel Replace Reject
+  if template_id == 536 then
+    return true
+  end
+
+  -- Party Details List Report
+  if template_id == 538 then
+    return true
+  end
+
+  -- Execution Ack
+  if template_id == 539 then
+    return true
+  end
+
+  -- Mass Quote Ack
+  if template_id == 545 then
+    return true
+  end
+
+  -- Request For Quote Ack
+  if template_id == 546 then
+    return true
+  end
+
+  -- Execution Report Trade Addendum Outright
+  if template_id == 548 then
+    return true
+  end
+
+  -- Execution Report Trade Addendum Spread
+  if template_id == 549 then
+    return true
+  end
+
+  -- Execution Report Trade Addendum Spread Leg
+  if template_id == 550 then
+    return true
+  end
+
+  -- Security Definition Response
+  if template_id == 561 then
+    return true
+  end
+
+  -- Order Mass Action Report
+  if template_id == 562 then
+    return true
+  end
+
+  -- Quote Cancel Ack
+  if template_id == 563 then
+    return true
+  end
+
+  -- Execution Report Pending Cancel
+  if template_id == 564 then
+    return true
+  end
+
+  -- Execution Report Pending Replace
+  if template_id == 565 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -18045,7 +18532,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
-cme_globex_ilink3_sbe_v8_6.schema_id.verify = function(buffer)
+cme_globex_ilink3_sbe_v8_6.schema_id.client_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -18057,7 +18544,31 @@ cme_globex_ilink3_sbe_v8_6.schema_id.verify = function(buffer)
 end
 
 -- Verify Version Field
-cme_globex_ilink3_sbe_v8_6.version.verify = function(buffer)
+cme_globex_ilink3_sbe_v8_6.version.client_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(10, 2):le_uint()
+
+  if value == 6 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Schema Id Field
+cme_globex_ilink3_sbe_v8_6.schema_id.server_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(8, 2):le_uint()
+
+  if value == 8 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Version Field
+cme_globex_ilink3_sbe_v8_6.version.server_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -18069,15 +18580,18 @@ cme_globex_ilink3_sbe_v8_6.version.verify = function(buffer)
 end
 
 -- Dissector Heuristic for Cme Globex iLink3 Sbe 8.6 (Tcp)
-local function omi_cme_globex_ilink3_sbe_v8_6_tcp_heuristic(buffer, packet, parent)
+local function omi_cme_globex_ilink3_sbe_v8_6_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cme_globex_ilink3_sbe_v8_6.packet.requiredsize(buffer) then return false end
+  if not cme_globex_ilink3_sbe_v8_6.client_packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not cme_globex_ilink3_sbe_v8_6.schema_id.verify(buffer) then return false end
+  if not cme_globex_ilink3_sbe_v8_6.schema_id.client_packet_verify(buffer) then return false end
 
   -- Verify Version
-  if not cme_globex_ilink3_sbe_v8_6.version.verify(buffer) then return false end
+  if not cme_globex_ilink3_sbe_v8_6.version.client_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_ilink3_sbe_v8_6.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_ilink3_sbe_v8_6
@@ -18086,9 +18600,50 @@ local function omi_cme_globex_ilink3_sbe_v8_6_tcp_heuristic(buffer, packet, pare
   return true
 end
 
--- Register Heuristic for Cme Globex iLink3 Sbe 8.6
-omi_cme_globex_ilink3_sbe_v8_6:register_heuristic("tcp", omi_cme_globex_ilink3_sbe_v8_6_tcp_heuristic)
+-- Dissector Heuristic for Cme Globex iLink3 Sbe 8.6 (Tcp)
+local function omi_cme_globex_ilink3_sbe_v8_6_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cme_globex_ilink3_sbe_v8_6.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify Schema Id
+  if not cme_globex_ilink3_sbe_v8_6.schema_id.server_packet_verify(buffer) then return false end
+
+  -- Verify Version
+  if not cme_globex_ilink3_sbe_v8_6.version.server_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_ilink3_sbe_v8_6.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cme_globex_ilink3_sbe_v8_6
+  omi_cme_globex_ilink3_sbe_v8_6.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Cme Globex iLink3 Sbe 8.6 (Tcp): apply the heuristic of the sender's connection role
+local function omi_cme_globex_ilink3_sbe_v8_6_tcp_heuristic(buffer, packet, parent)
+  local role = cme_globex_ilink3_sbe_v8_6.role(packet)
+  local first, second = omi_cme_globex_ilink3_sbe_v8_6_tcp_initiator_heuristic, omi_cme_globex_ilink3_sbe_v8_6_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  cme_globex_ilink3_sbe_v8_6.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  cme_globex_ilink3_sbe_v8_6.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Cme Globex iLink3 Sbe 8.6
+omi_cme_globex_ilink3_sbe_v8_6:register_heuristic("tcp", omi_cme_globex_ilink3_sbe_v8_6_tcp_heuristic)
 -- Register Cme Globex iLink3 Sbe 8.6 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cme_globex_ilink3_sbe_v8_6)

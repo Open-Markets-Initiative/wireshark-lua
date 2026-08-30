@@ -1671,6 +1671,32 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+cme_globex_brokertecust_sbe_v10_1.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Md Incremental Refresh Btec
+  if template_id == 405 then
+    return true
+  end
+
+  -- Admin Heartbeat
+  if template_id == 411 then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1753,7 +1779,7 @@ local function omi_cme_globex_brokertecust_sbe_v10_1_udp_heuristic(buffer, packe
 end
 
 -- Dissector Heuristic for Cme Globex BrokerTecUst Sbe 10.1 (Tcp)
-local function omi_cme_globex_brokertecust_sbe_v10_1_tcp_heuristic(buffer, packet, parent)
+local function omi_cme_globex_brokertecust_sbe_v10_1_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_globex_brokertecust_sbe_v10_1.tcp_packet.requiredsize(buffer) then return false end
 
@@ -1766,6 +1792,9 @@ local function omi_cme_globex_brokertecust_sbe_v10_1_tcp_heuristic(buffer, packe
   -- Verify Version
   if not cme_globex_brokertecust_sbe_v10_1.version.tcp_packet_verify(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_brokertecust_sbe_v10_1.tcp_packet.fingerprint(buffer) then return false end
+
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_brokertecust_sbe_v10_1
   omi_cme_globex_brokertecust_sbe_v10_1.dissector(buffer, packet, parent)
@@ -1775,7 +1804,7 @@ end
 
 -- Register Heuristics for Cme Globex BrokerTecUst Sbe 10.1
 omi_cme_globex_brokertecust_sbe_v10_1:register_heuristic("udp", omi_cme_globex_brokertecust_sbe_v10_1_udp_heuristic)
-omi_cme_globex_brokertecust_sbe_v10_1:register_heuristic("tcp", omi_cme_globex_brokertecust_sbe_v10_1_tcp_heuristic)
+omi_cme_globex_brokertecust_sbe_v10_1:register_heuristic("tcp", omi_cme_globex_brokertecust_sbe_v10_1_tcp_acceptor_heuristic)
 -- Register Cme Globex BrokerTecUst Sbe 10.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_brokertecust_sbe_v10_1)

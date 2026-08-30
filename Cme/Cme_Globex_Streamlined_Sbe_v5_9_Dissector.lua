@@ -13171,6 +13171,102 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+cme_globex_streamlined_sbe_v5_9.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Admin Heartbeat
+  if template_id == 312 then
+    return true
+  end
+
+  -- Admin Login
+  if template_id == 315 then
+    return true
+  end
+
+  -- Admin Logout
+  if template_id == 316 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris Reference Data And Daily Statistics
+  if template_id == 333 then
+    return true
+  end
+
+  -- Md News Indices
+  if template_id == 339 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 340
+  if template_id == 340 then
+    return true
+  end
+
+  -- Quote Request
+  if template_id == 345 then
+    return true
+  end
+
+  -- Md Instrument Definition Indices
+  if template_id == 347 then
+    return true
+  end
+
+  -- Md Incremental Refresh Indices
+  if template_id == 348 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 349
+  if template_id == 349 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 351
+  if template_id == 351 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 353
+  if template_id == 353 then
+    return true
+  end
+
+  -- Md Incremental Refresh Ot C 356
+  if template_id == 356 then
+    return true
+  end
+
+  -- Md Instrument Definition Eris
+  if template_id == 363 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 365
+  if template_id == 365 then
+    return true
+  end
+
+  -- Md Incremental Refresh Ot C 366
+  if template_id == 366 then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -13253,7 +13349,7 @@ local function omi_cme_globex_streamlined_sbe_v5_9_udp_heuristic(buffer, packet,
 end
 
 -- Dissector Heuristic for Cme Globex Streamlined Sbe 5.9 (Tcp)
-local function omi_cme_globex_streamlined_sbe_v5_9_tcp_heuristic(buffer, packet, parent)
+local function omi_cme_globex_streamlined_sbe_v5_9_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_globex_streamlined_sbe_v5_9.tcp_packet.requiredsize(buffer) then return false end
 
@@ -13266,6 +13362,9 @@ local function omi_cme_globex_streamlined_sbe_v5_9_tcp_heuristic(buffer, packet,
   -- Verify Version
   if not cme_globex_streamlined_sbe_v5_9.version.tcp_packet_verify(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_streamlined_sbe_v5_9.tcp_packet.fingerprint(buffer) then return false end
+
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_streamlined_sbe_v5_9
   omi_cme_globex_streamlined_sbe_v5_9.dissector(buffer, packet, parent)
@@ -13275,7 +13374,7 @@ end
 
 -- Register Heuristics for Cme Globex Streamlined Sbe 5.9
 omi_cme_globex_streamlined_sbe_v5_9:register_heuristic("udp", omi_cme_globex_streamlined_sbe_v5_9_udp_heuristic)
-omi_cme_globex_streamlined_sbe_v5_9:register_heuristic("tcp", omi_cme_globex_streamlined_sbe_v5_9_tcp_heuristic)
+omi_cme_globex_streamlined_sbe_v5_9:register_heuristic("tcp", omi_cme_globex_streamlined_sbe_v5_9_tcp_acceptor_heuristic)
 -- Register Cme Globex Streamlined Sbe 5.9 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_streamlined_sbe_v5_9)

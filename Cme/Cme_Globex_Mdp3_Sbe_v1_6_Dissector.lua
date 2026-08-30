@@ -242,11 +242,14 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.zero_price_outright_eligible = ProtoField.ne
 
 -- Cme Globex Mdp3 Sbe 1.6 Headers
 omi_cme_globex_mdp3_sbe_v1_6.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.6.binarypacketheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.6.clienttcpmessage", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.6.clienttcppacket", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.6.clienttechnicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.6.message", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.6.messageheader", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.mdp3.sbe.v1.6.tcpmessage", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.mdp3.sbe.v1.6.tcppacket", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_6.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.mdp3.sbe.v1.6.technicalheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.6.servertcpmessage", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.server_tcp_packet = ProtoField.new("Server Tcp Packet", "cme.globex.mdp3.sbe.v1.6.servertcppacket", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.6.servertechnicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.6.udppacket", ftypes.STRING)
 
 -- Cme Globex Mdp3 1.6 Application Messages
@@ -317,6 +320,14 @@ show.structs = true
 show.indexes = true
 
 -- Register Cme Globex Mdp3 Sbe 1.6 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_cme_globex_mdp3_sbe_v1_6.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_cme_globex_mdp3_sbe_v1_6.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_cme_globex_mdp3_sbe_v1_6.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cme_globex_mdp3_sbe_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_6.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
@@ -4599,599 +4610,6 @@ end
 -- Dissect Cme Globex Mdp3 Sbe 1.6
 -----------------------------------------------------------------------
 
--- Subscriber Heartbeat
-cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat = {}
-
--- Display: Subscriber Heartbeat
-cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.display = function(packet, parent, length)
-  return "Subscriber Heartbeat"
-end
-
-
--- Dissect: Subscriber Heartbeat
-cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.dissect = function(buffer, offset, packet, parent)
-  local display = cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Security Status Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group = {}
-
--- Size: Security Status Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_id.size
-
--- Display: Security Status Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Status Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields = function(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
-  local index = offset
-
-  -- Implicit Security Status Request Related Symbol Group Index
-  if security_status_request_related_symbol_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_group_index, security_status_request_related_symbol_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: Int32
-  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Status Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
-  end
-end
-
--- Group Size
-cme_globex_mdp3_sbe_v1_6.group_size = {}
-
--- Size: Group Size
-cme_globex_mdp3_sbe_v1_6.group_size.size =
-  cme_globex_mdp3_sbe_v1_6.block_length.size + 
-  cme_globex_mdp3_sbe_v1_6.num_in_group.size
-
--- Display: Group Size
-cme_globex_mdp3_sbe_v1_6.group_size.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Group Size
-cme_globex_mdp3_sbe_v1_6.group_size.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = cme_globex_mdp3_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
-
-  -- Num In Group: uint8
-  index, num_in_group = cme_globex_mdp3_sbe_v1_6.num_in_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Group Size
-cme_globex_mdp3_sbe_v1_6.group_size.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.group_size, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.group_size.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.group_size.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.group_size.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Status Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups = {}
-
--- Calculate size of: Security Status Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local security_status_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_status_request_related_symbol_group_count * 4
-
-  return index
-end
-
--- Display: Security Status Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Status Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Security Status Request Related Symbol Group
-  for security_status_request_related_symbol_group_index = 1, num_in_group do
-    index, security_status_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.dissect(buffer, index, packet, parent, security_status_request_related_symbol_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Security Status Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Status Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_group = {}
-
--- Size: Security Status Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_group.size
-
--- Display: Security Status Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Status Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields = function(buffer, offset, packet, parent, security_status_request_security_group_index)
-  local index = offset
-
-  -- Implicit Security Status Request Security Group Index
-  if security_status_request_security_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_group_index, security_status_request_security_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Group: SecurityGroup
-  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Status Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.dissect = function(buffer, offset, packet, parent, security_status_request_security_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields(buffer, offset, packet, parent, security_status_request_security_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields(buffer, offset, packet, parent, security_status_request_security_group_index)
-  end
-end
-
--- Security Status Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups = {}
-
--- Calculate size of: Security Status Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local security_status_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_status_request_security_group_count * 6
-
-  return index
-end
-
--- Display: Security Status Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Status Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Security Status Request Security Group
-  for security_status_request_security_group_index = 1, num_in_group do
-    index, security_status_request_security_group = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.dissect(buffer, index, packet, parent, security_status_request_security_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Security Status Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Status Request
-cme_globex_mdp3_sbe_v1_6.security_status_request = {}
-
--- Calculate size of: Security Status Request
-cme_globex_mdp3_sbe_v1_6.security_status_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.size(buffer, offset + index)
-
-  index = index + cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Security Status Request
-cme_globex_mdp3_sbe_v1_6.security_status_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Status Request
-cme_globex_mdp3_sbe_v1_6.security_status_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Md Req Id: uInt32
-  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
-
-  -- Subscription Req Type: SubscriptionReqType
-  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
-
-  -- Security Status Request Security Groups: Struct of 2 fields
-  index, security_status_request_security_groups = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.dissect(buffer, index, packet, parent)
-
-  -- Security Status Request Related Symbol Groups: Struct of 2 fields
-  index, security_status_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Status Request
-cme_globex_mdp3_sbe_v1_6.security_status_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_status_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_status_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_status_request.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security List Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group = {}
-
--- Size: Security List Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_id.size
-
--- Display: Security List Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security List Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields = function(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
-  local index = offset
-
-  -- Implicit Security List Request Related Symbol Group Index
-  if security_list_request_related_symbol_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_group_index, security_list_request_related_symbol_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: Int32
-  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security List Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
-  end
-end
-
--- Security List Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups = {}
-
--- Calculate size of: Security List Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local security_list_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_list_request_related_symbol_group_count * 4
-
-  return index
-end
-
--- Display: Security List Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security List Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Security List Request Related Symbol Group
-  for security_list_request_related_symbol_group_index = 1, num_in_group do
-    index, security_list_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.dissect(buffer, index, packet, parent, security_list_request_related_symbol_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Security List Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security List Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_group = {}
-
--- Size: Security List Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_group.size
-
--- Display: Security List Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security List Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields = function(buffer, offset, packet, parent, security_list_request_security_group_index)
-  local index = offset
-
-  -- Implicit Security List Request Security Group Index
-  if security_list_request_security_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_group_index, security_list_request_security_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Group: SecurityGroup
-  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security List Request Security Group
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.dissect = function(buffer, offset, packet, parent, security_list_request_security_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields(buffer, offset, packet, parent, security_list_request_security_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields(buffer, offset, packet, parent, security_list_request_security_group_index)
-  end
-end
-
--- Security List Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups = {}
-
--- Calculate size of: Security List Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local security_list_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + security_list_request_security_group_count * 6
-
-  return index
-end
-
--- Display: Security List Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security List Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Security List Request Security Group
-  for security_list_request_security_group_index = 1, num_in_group do
-    index, security_list_request_security_group = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.dissect(buffer, index, packet, parent, security_list_request_security_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Security List Request Security Groups
-cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security List Request
-cme_globex_mdp3_sbe_v1_6.security_list_request = {}
-
--- Calculate size of: Security List Request
-cme_globex_mdp3_sbe_v1_6.security_list_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.size(buffer, offset + index)
-
-  index = index + cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Security List Request
-cme_globex_mdp3_sbe_v1_6.security_list_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security List Request
-cme_globex_mdp3_sbe_v1_6.security_list_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Md Req Id: uInt32
-  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
-
-  -- Subscription Req Type: SubscriptionReqType
-  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
-
-  -- Security List Request Security Groups: Struct of 2 fields
-  index, security_list_request_security_groups = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.dissect(buffer, index, packet, parent)
-
-  -- Security List Request Related Symbol Groups: Struct of 2 fields
-  index, security_list_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security List Request
-cme_globex_mdp3_sbe_v1_6.security_list_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.security_list_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.security_list_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.security_list_request.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Request Reject
 cme_globex_mdp3_sbe_v1_6.request_reject = {}
 
@@ -5283,6 +4701,50 @@ cme_globex_mdp3_sbe_v1_6.request_ack_related_symbol_group.dissect = function(buf
   else
     -- Skip element, add fields directly
     return cme_globex_mdp3_sbe_v1_6.request_ack_related_symbol_group.fields(buffer, offset, packet, parent, request_ack_related_symbol_group_index)
+  end
+end
+
+-- Group Size
+cme_globex_mdp3_sbe_v1_6.group_size = {}
+
+-- Size: Group Size
+cme_globex_mdp3_sbe_v1_6.group_size.size =
+  cme_globex_mdp3_sbe_v1_6.block_length.size + 
+  cme_globex_mdp3_sbe_v1_6.num_in_group.size
+
+-- Display: Group Size
+cme_globex_mdp3_sbe_v1_6.group_size.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Group Size
+cme_globex_mdp3_sbe_v1_6.group_size.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = cme_globex_mdp3_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint8
+  index, num_in_group = cme_globex_mdp3_sbe_v1_6.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Group Size
+cme_globex_mdp3_sbe_v1_6.group_size.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.group_size, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.group_size.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.group_size.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.group_size.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5511,272 +4973,6 @@ cme_globex_mdp3_sbe_v1_6.request_ack.dissect = function(buffer, offset, packet, 
   end
 end
 
--- Market Data Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group = {}
-
--- Size: Market Data Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_id.size
-
--- Display: Market Data Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Data Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields = function(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
-  local index = offset
-
-  -- Implicit Market Data Request Related Symbol Group Index
-  if market_data_request_related_symbol_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_group_index, market_data_request_related_symbol_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: Int32
-  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Market Data Request Related Symbol Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
-  end
-end
-
--- Market Data Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups = {}
-
--- Calculate size of: Market Data Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local market_data_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + market_data_request_related_symbol_group_count * 4
-
-  return index
-end
-
--- Display: Market Data Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Data Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Market Data Request Related Symbol Group
-  for market_data_request_related_symbol_group_index = 1, num_in_group do
-    index, market_data_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.dissect(buffer, index, packet, parent, market_data_request_related_symbol_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Market Data Request Related Symbol Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Market Data Request Security Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_group = {}
-
--- Size: Market Data Request Security Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.size =
-  cme_globex_mdp3_sbe_v1_6.security_group.size
-
--- Display: Market Data Request Security Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Data Request Security Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields = function(buffer, offset, packet, parent, market_data_request_security_group_index)
-  local index = offset
-
-  -- Implicit Market Data Request Security Group Index
-  if market_data_request_security_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_group_index, market_data_request_security_group_index)
-    iteration:set_generated()
-  end
-
-  -- Security Group: SecurityGroup
-  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Market Data Request Security Group
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.dissect = function(buffer, offset, packet, parent, market_data_request_security_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields(buffer, offset, packet, parent, market_data_request_security_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields(buffer, offset, packet, parent, market_data_request_security_group_index)
-  end
-end
-
--- Market Data Request Security Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups = {}
-
--- Calculate size of: Market Data Request Security Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
-
-  -- Calculate field size from count
-  local market_data_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + market_data_request_security_group_count * 6
-
-  return index
-end
-
--- Display: Market Data Request Security Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Data Request Security Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size: Struct of 2 fields
-  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Market Data Request Security Group
-  for market_data_request_security_group_index = 1, num_in_group do
-    index, market_data_request_security_group = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.dissect(buffer, index, packet, parent, market_data_request_security_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Market Data Request Security Groups
-cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Market Data Request
-cme_globex_mdp3_sbe_v1_6.market_data_request = {}
-
--- Calculate size of: Market Data Request
-cme_globex_mdp3_sbe_v1_6.market_data_request.size = function(buffer, offset)
-  local index = 0
-
-  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
-
-  index = index + cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.size(buffer, offset + index)
-
-  index = index + cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Market Data Request
-cme_globex_mdp3_sbe_v1_6.market_data_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Market Data Request
-cme_globex_mdp3_sbe_v1_6.market_data_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Md Req Id: uInt32
-  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
-
-  -- Subscription Req Type: SubscriptionReqType
-  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
-
-  -- Market Data Request Security Groups: Struct of 2 fields
-  index, market_data_request_security_groups = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.dissect(buffer, index, packet, parent)
-
-  -- Market Data Request Related Symbol Groups: Struct of 2 fields
-  index, market_data_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Market Data Request
-cme_globex_mdp3_sbe_v1_6.market_data_request.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.market_data_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.market_data_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.market_data_request.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Terminate
 cme_globex_mdp3_sbe_v1_6.terminate = {}
 
@@ -5938,66 +5134,6 @@ cme_globex_mdp3_sbe_v1_6.negotiation_reject.dissect = function(buffer, offset, p
   else
     -- Skip element, add fields directly
     return cme_globex_mdp3_sbe_v1_6.negotiation_reject.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Negotiate
-cme_globex_mdp3_sbe_v1_6.negotiate = {}
-
--- Size: Negotiate
-cme_globex_mdp3_sbe_v1_6.negotiate.size =
-  cme_globex_mdp3_sbe_v1_6.hmac_signature.size + 
-  cme_globex_mdp3_sbe_v1_6.access_key_id.size + 
-  cme_globex_mdp3_sbe_v1_6.uuid.size + 
-  cme_globex_mdp3_sbe_v1_6.request_timestamp.size + 
-  cme_globex_mdp3_sbe_v1_6.session.size + 
-  cme_globex_mdp3_sbe_v1_6.firm.size
-
--- Display: Negotiate
-cme_globex_mdp3_sbe_v1_6.negotiate.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Negotiate
-cme_globex_mdp3_sbe_v1_6.negotiate.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Hmac Signature: String32Req
-  index, hmac_signature = cme_globex_mdp3_sbe_v1_6.hmac_signature.dissect(buffer, index, packet, parent)
-
-  -- Access Key Id: String20Req
-  index, access_key_id = cme_globex_mdp3_sbe_v1_6.access_key_id.dissect(buffer, index, packet, parent)
-
-  -- Uuid: uInt64
-  index, uuid = cme_globex_mdp3_sbe_v1_6.uuid.dissect(buffer, index, packet, parent)
-
-  -- Request Timestamp: uInt64
-  index, request_timestamp = cme_globex_mdp3_sbe_v1_6.request_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Session: String5
-  index, session = cme_globex_mdp3_sbe_v1_6.session.dissect(buffer, index, packet, parent)
-
-  -- Firm: String5
-  index, firm = cme_globex_mdp3_sbe_v1_6.firm.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Negotiate
-cme_globex_mdp3_sbe_v1_6.negotiate.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.negotiate, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.negotiate.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.negotiate.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.negotiate.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -10098,6 +9234,1321 @@ cme_globex_mdp3_sbe_v1_6.channel_reset.dissect = function(buffer, offset, packet
   end
 end
 
+-- Server Payload
+cme_globex_mdp3_sbe_v1_6.server_payload = {}
+
+-- Dissect: Server Payload
+cme_globex_mdp3_sbe_v1_6.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Channel Reset
+  if template_id == 4 then
+    return cme_globex_mdp3_sbe_v1_6.channel_reset.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Admin Heartbeat
+  if template_id == 12 then
+    return cme_globex_mdp3_sbe_v1_6.admin_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Admin Login
+  if template_id == 15 then
+    return cme_globex_mdp3_sbe_v1_6.admin_login.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Admin Logout
+  if template_id == 16 then
+    return cme_globex_mdp3_sbe_v1_6.admin_logout.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Instrument Definition Future
+  if template_id == 27 then
+    return cme_globex_mdp3_sbe_v1_6.md_instrument_definition_future.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Instrument Definition Spread
+  if template_id == 29 then
+    return cme_globex_mdp3_sbe_v1_6.md_instrument_definition_spread.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Status
+  if template_id == 30 then
+    return cme_globex_mdp3_sbe_v1_6.security_status.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Book
+  if template_id == 32 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_book.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Daily Statistics
+  if template_id == 33 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_daily_statistics.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Limits Banding
+  if template_id == 34 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_limits_banding.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Session Statistics
+  if template_id == 35 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_session_statistics.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Trade
+  if template_id == 36 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_trade.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Volume
+  if template_id == 37 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_volume.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Snapshot Full Refresh
+  if template_id == 38 then
+    return cme_globex_mdp3_sbe_v1_6.snapshot_full_refresh.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Request
+  if template_id == 39 then
+    return cme_globex_mdp3_sbe_v1_6.quote_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Instrument Definition Option
+  if template_id == 41 then
+    return cme_globex_mdp3_sbe_v1_6.md_instrument_definition_option.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Md Incremental Refresh Trade Summary
+  if template_id == 42 then
+    return cme_globex_mdp3_sbe_v1_6.md_incremental_refresh_trade_summary.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Negotiation Reject
+  if template_id == 201 then
+    return cme_globex_mdp3_sbe_v1_6.negotiation_reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Negotiation Response
+  if template_id == 202 then
+    return cme_globex_mdp3_sbe_v1_6.negotiation_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Terminate
+  if template_id == 203 then
+    return cme_globex_mdp3_sbe_v1_6.terminate.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Request Ack
+  if template_id == 206 then
+    return cme_globex_mdp3_sbe_v1_6.request_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Request Reject
+  if template_id == 207 then
+    return cme_globex_mdp3_sbe_v1_6.request_reject.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cme_globex_mdp3_sbe_v1_6.message_header = {}
+
+-- Size: Message Header
+cme_globex_mdp3_sbe_v1_6.message_header.size =
+  cme_globex_mdp3_sbe_v1_6.block_length.size + 
+  cme_globex_mdp3_sbe_v1_6.template_id.size + 
+  cme_globex_mdp3_sbe_v1_6.schema_id.size + 
+  cme_globex_mdp3_sbe_v1_6.version.size
+
+-- Display: Message Header
+cme_globex_mdp3_sbe_v1_6.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_globex_mdp3_sbe_v1_6.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = cme_globex_mdp3_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: uint16
+  index, template_id = cme_globex_mdp3_sbe_v1_6.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: uint16
+  index, schema_id = cme_globex_mdp3_sbe_v1_6.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: uint16
+  index, version = cme_globex_mdp3_sbe_v1_6.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cme_globex_mdp3_sbe_v1_6.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.message_header, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Tcp Message
+cme_globex_mdp3_sbe_v1_6.server_tcp_message = {}
+
+-- Display: Server Tcp Message
+cme_globex_mdp3_sbe_v1_6.server_tcp_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Tcp Message
+cme_globex_mdp3_sbe_v1_6.server_tcp_message.fields = function(buffer, offset, packet, parent, size_of_server_tcp_message)
+  local index = offset
+
+  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, tcp_message_size = cme_globex_mdp3_sbe_v1_6.tcp_message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = cme_globex_mdp3_sbe_v1_6.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 22 branches
+  index = cme_globex_mdp3_sbe_v1_6.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Tcp Message
+cme_globex_mdp3_sbe_v1_6.server_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_server_tcp_message)
+  local index = offset + size_of_server_tcp_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.server_tcp_message, buffer(offset, 0))
+    local current = cme_globex_mdp3_sbe_v1_6.server_tcp_message.fields(buffer, offset, packet, parent, size_of_server_tcp_message)
+    parent:set_len(size_of_server_tcp_message)
+    local display = cme_globex_mdp3_sbe_v1_6.server_tcp_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_mdp3_sbe_v1_6.server_tcp_message.fields(buffer, offset, packet, parent, size_of_server_tcp_message)
+
+    return index
+  end
+end
+
+-- Server Technical Header
+cme_globex_mdp3_sbe_v1_6.server_technical_header = {}
+
+-- Size: Server Technical Header
+cme_globex_mdp3_sbe_v1_6.server_technical_header.size =
+  cme_globex_mdp3_sbe_v1_6.encoding_type.size + 
+  cme_globex_mdp3_sbe_v1_6.message_sequence_number.size + 
+  cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size
+
+-- Display: Server Technical Header
+cme_globex_mdp3_sbe_v1_6.server_technical_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Technical Header
+cme_globex_mdp3_sbe_v1_6.server_technical_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
+  index, encoding_type = cme_globex_mdp3_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
+
+  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, message_sequence_number = cme_globex_mdp3_sbe_v1_6.message_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, tcp_sending_time = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Technical Header
+cme_globex_mdp3_sbe_v1_6.server_technical_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.server_technical_header, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.server_technical_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.server_technical_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.server_technical_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Tcp Packet
+cme_globex_mdp3_sbe_v1_6.server_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+cme_globex_mdp3_sbe_v1_6.server_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= cme_globex_mdp3_sbe_v1_6.server_technical_header.size + cme_globex_mdp3_sbe_v1_6.tcp_message_size.size + cme_globex_mdp3_sbe_v1_6.message_header.size
+end
+
+-- Dissect Server Tcp Packet
+cme_globex_mdp3_sbe_v1_6.server_tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Server Technical Header: Struct of 3 fields
+  index, server_technical_header = cme_globex_mdp3_sbe_v1_6.server_technical_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Server Tcp Message
+  local end_of_payload = buffer:len()
+
+  -- Server Tcp Message: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Tcp Message Size
+    local tcp_message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Server Tcp Message
+    index, server_tcp_message = cme_globex_mdp3_sbe_v1_6.server_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+  end
+
+  return index
+end
+
+-- Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat = {}
+
+-- Display: Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.display = function(packet, parent, length)
+  return "Subscriber Heartbeat"
+end
+
+
+-- Dissect: Subscriber Heartbeat
+cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Security Status Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group = {}
+
+-- Size: Security Status Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_id.size
+
+-- Display: Security Status Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields = function(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
+  local index = offset
+
+  -- Implicit Security Status Request Related Symbol Group Index
+  if security_status_request_related_symbol_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_group_index, security_status_request_related_symbol_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Status Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.fields(buffer, offset, packet, parent, security_status_request_related_symbol_group_index)
+  end
+end
+
+-- Security Status Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups = {}
+
+-- Calculate size of: Security Status Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local security_status_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_status_request_related_symbol_group_count * 4
+
+  return index
+end
+
+-- Display: Security Status Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Security Status Request Related Symbol Group
+  for security_status_request_related_symbol_group_index = 1, num_in_group do
+    index, security_status_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_group.dissect(buffer, index, packet, parent, security_status_request_related_symbol_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Security Status Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_related_symbol_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Status Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_group = {}
+
+-- Size: Security Status Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_group.size
+
+-- Display: Security Status Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields = function(buffer, offset, packet, parent, security_status_request_security_group_index)
+  local index = offset
+
+  -- Implicit Security Status Request Security Group Index
+  if security_status_request_security_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_group_index, security_status_request_security_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Group: SecurityGroup
+  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Status Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.dissect = function(buffer, offset, packet, parent, security_status_request_security_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields(buffer, offset, packet, parent, security_status_request_security_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.fields(buffer, offset, packet, parent, security_status_request_security_group_index)
+  end
+end
+
+-- Security Status Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups = {}
+
+-- Calculate size of: Security Status Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local security_status_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_status_request_security_group_count * 6
+
+  return index
+end
+
+-- Display: Security Status Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Security Status Request Security Group
+  for security_status_request_security_group_index = 1, num_in_group do
+    index, security_status_request_security_group = cme_globex_mdp3_sbe_v1_6.security_status_request_security_group.dissect(buffer, index, packet, parent, security_status_request_security_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Security Status Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request_security_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Status Request
+cme_globex_mdp3_sbe_v1_6.security_status_request = {}
+
+-- Calculate size of: Security Status Request
+cme_globex_mdp3_sbe_v1_6.security_status_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.size(buffer, offset + index)
+
+  index = index + cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Security Status Request
+cme_globex_mdp3_sbe_v1_6.security_status_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Request
+cme_globex_mdp3_sbe_v1_6.security_status_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Req Id: uInt32
+  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
+
+  -- Subscription Req Type: SubscriptionReqType
+  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
+
+  -- Security Status Request Security Groups: Struct of 2 fields
+  index, security_status_request_security_groups = cme_globex_mdp3_sbe_v1_6.security_status_request_security_groups.dissect(buffer, index, packet, parent)
+
+  -- Security Status Request Related Symbol Groups: Struct of 2 fields
+  index, security_status_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.security_status_request_related_symbol_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Status Request
+cme_globex_mdp3_sbe_v1_6.security_status_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_status_request, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_status_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_status_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_status_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security List Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group = {}
+
+-- Size: Security List Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_id.size
+
+-- Display: Security List Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security List Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields = function(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
+  local index = offset
+
+  -- Implicit Security List Request Related Symbol Group Index
+  if security_list_request_related_symbol_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_group_index, security_list_request_related_symbol_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security List Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.fields(buffer, offset, packet, parent, security_list_request_related_symbol_group_index)
+  end
+end
+
+-- Security List Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups = {}
+
+-- Calculate size of: Security List Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local security_list_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_list_request_related_symbol_group_count * 4
+
+  return index
+end
+
+-- Display: Security List Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security List Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Security List Request Related Symbol Group
+  for security_list_request_related_symbol_group_index = 1, num_in_group do
+    index, security_list_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_group.dissect(buffer, index, packet, parent, security_list_request_related_symbol_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Security List Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_related_symbol_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security List Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_group = {}
+
+-- Size: Security List Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_group.size
+
+-- Display: Security List Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security List Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields = function(buffer, offset, packet, parent, security_list_request_security_group_index)
+  local index = offset
+
+  -- Implicit Security List Request Security Group Index
+  if security_list_request_security_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_group_index, security_list_request_security_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Group: SecurityGroup
+  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security List Request Security Group
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.dissect = function(buffer, offset, packet, parent, security_list_request_security_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields(buffer, offset, packet, parent, security_list_request_security_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.fields(buffer, offset, packet, parent, security_list_request_security_group_index)
+  end
+end
+
+-- Security List Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups = {}
+
+-- Calculate size of: Security List Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local security_list_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + security_list_request_security_group_count * 6
+
+  return index
+end
+
+-- Display: Security List Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security List Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Security List Request Security Group
+  for security_list_request_security_group_index = 1, num_in_group do
+    index, security_list_request_security_group = cme_globex_mdp3_sbe_v1_6.security_list_request_security_group.dissect(buffer, index, packet, parent, security_list_request_security_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Security List Request Security Groups
+cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request_security_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security List Request
+cme_globex_mdp3_sbe_v1_6.security_list_request = {}
+
+-- Calculate size of: Security List Request
+cme_globex_mdp3_sbe_v1_6.security_list_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.size(buffer, offset + index)
+
+  index = index + cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Security List Request
+cme_globex_mdp3_sbe_v1_6.security_list_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security List Request
+cme_globex_mdp3_sbe_v1_6.security_list_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Req Id: uInt32
+  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
+
+  -- Subscription Req Type: SubscriptionReqType
+  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
+
+  -- Security List Request Security Groups: Struct of 2 fields
+  index, security_list_request_security_groups = cme_globex_mdp3_sbe_v1_6.security_list_request_security_groups.dissect(buffer, index, packet, parent)
+
+  -- Security List Request Related Symbol Groups: Struct of 2 fields
+  index, security_list_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.security_list_request_related_symbol_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security List Request
+cme_globex_mdp3_sbe_v1_6.security_list_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.security_list_request, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.security_list_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.security_list_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.security_list_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Data Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group = {}
+
+-- Size: Market Data Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_id.size
+
+-- Display: Market Data Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields = function(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
+  local index = offset
+
+  -- Implicit Market Data Request Related Symbol Group Index
+  if market_data_request_related_symbol_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_group_index, market_data_request_related_symbol_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_6.security_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Data Request Related Symbol Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.dissect = function(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.fields(buffer, offset, packet, parent, market_data_request_related_symbol_group_index)
+  end
+end
+
+-- Market Data Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups = {}
+
+-- Calculate size of: Market Data Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local market_data_request_related_symbol_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + market_data_request_related_symbol_group_count * 4
+
+  return index
+end
+
+-- Display: Market Data Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Market Data Request Related Symbol Group
+  for market_data_request_related_symbol_group_index = 1, num_in_group do
+    index, market_data_request_related_symbol_group = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_group.dissect(buffer, index, packet, parent, market_data_request_related_symbol_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Market Data Request Related Symbol Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Data Request Security Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_group = {}
+
+-- Size: Market Data Request Security Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.size =
+  cme_globex_mdp3_sbe_v1_6.security_group.size
+
+-- Display: Market Data Request Security Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request Security Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields = function(buffer, offset, packet, parent, market_data_request_security_group_index)
+  local index = offset
+
+  -- Implicit Market Data Request Security Group Index
+  if market_data_request_security_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_group_index, market_data_request_security_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Group: SecurityGroup
+  index, security_group = cme_globex_mdp3_sbe_v1_6.security_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Data Request Security Group
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.dissect = function(buffer, offset, packet, parent, market_data_request_security_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields(buffer, offset, packet, parent, market_data_request_security_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.fields(buffer, offset, packet, parent, market_data_request_security_group_index)
+  end
+end
+
+-- Market Data Request Security Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups = {}
+
+-- Calculate size of: Market Data Request Security Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
+
+  -- Calculate field size from count
+  local market_data_request_security_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + market_data_request_security_group_count * 6
+
+  return index
+end
+
+-- Display: Market Data Request Security Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request Security Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_6.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Market Data Request Security Group
+  for market_data_request_security_group_index = 1, num_in_group do
+    index, market_data_request_security_group = cme_globex_mdp3_sbe_v1_6.market_data_request_security_group.dissect(buffer, index, packet, parent, market_data_request_security_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Market Data Request Security Groups
+cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Data Request
+cme_globex_mdp3_sbe_v1_6.market_data_request = {}
+
+-- Calculate size of: Market Data Request
+cme_globex_mdp3_sbe_v1_6.market_data_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_6.md_req_id.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.subscription_req_type.size
+
+  index = index + cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.size(buffer, offset + index)
+
+  index = index + cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Market Data Request
+cme_globex_mdp3_sbe_v1_6.market_data_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request
+cme_globex_mdp3_sbe_v1_6.market_data_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Req Id: uInt32
+  index, md_req_id = cme_globex_mdp3_sbe_v1_6.md_req_id.dissect(buffer, index, packet, parent)
+
+  -- Subscription Req Type: SubscriptionReqType
+  index, subscription_req_type = cme_globex_mdp3_sbe_v1_6.subscription_req_type.dissect(buffer, index, packet, parent)
+
+  -- Market Data Request Security Groups: Struct of 2 fields
+  index, market_data_request_security_groups = cme_globex_mdp3_sbe_v1_6.market_data_request_security_groups.dissect(buffer, index, packet, parent)
+
+  -- Market Data Request Related Symbol Groups: Struct of 2 fields
+  index, market_data_request_related_symbol_groups = cme_globex_mdp3_sbe_v1_6.market_data_request_related_symbol_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Data Request
+cme_globex_mdp3_sbe_v1_6.market_data_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.market_data_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.market_data_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.market_data_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Negotiate
+cme_globex_mdp3_sbe_v1_6.negotiate = {}
+
+-- Size: Negotiate
+cme_globex_mdp3_sbe_v1_6.negotiate.size =
+  cme_globex_mdp3_sbe_v1_6.hmac_signature.size + 
+  cme_globex_mdp3_sbe_v1_6.access_key_id.size + 
+  cme_globex_mdp3_sbe_v1_6.uuid.size + 
+  cme_globex_mdp3_sbe_v1_6.request_timestamp.size + 
+  cme_globex_mdp3_sbe_v1_6.session.size + 
+  cme_globex_mdp3_sbe_v1_6.firm.size
+
+-- Display: Negotiate
+cme_globex_mdp3_sbe_v1_6.negotiate.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Negotiate
+cme_globex_mdp3_sbe_v1_6.negotiate.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Hmac Signature: String32Req
+  index, hmac_signature = cme_globex_mdp3_sbe_v1_6.hmac_signature.dissect(buffer, index, packet, parent)
+
+  -- Access Key Id: String20Req
+  index, access_key_id = cme_globex_mdp3_sbe_v1_6.access_key_id.dissect(buffer, index, packet, parent)
+
+  -- Uuid: uInt64
+  index, uuid = cme_globex_mdp3_sbe_v1_6.uuid.dissect(buffer, index, packet, parent)
+
+  -- Request Timestamp: uInt64
+  index, request_timestamp = cme_globex_mdp3_sbe_v1_6.request_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Session: String5
+  index, session = cme_globex_mdp3_sbe_v1_6.session.dissect(buffer, index, packet, parent)
+
+  -- Firm: String5
+  index, firm = cme_globex_mdp3_sbe_v1_6.firm.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Negotiate
+cme_globex_mdp3_sbe_v1_6.negotiate.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.negotiate, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.negotiate.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.negotiate.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.negotiate.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+cme_globex_mdp3_sbe_v1_6.client_payload = {}
+
+-- Dissect: Client Payload
+cme_globex_mdp3_sbe_v1_6.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Negotiate
+  if template_id == 200 then
+    return cme_globex_mdp3_sbe_v1_6.negotiate.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Terminate
+  if template_id == 203 then
+    return cme_globex_mdp3_sbe_v1_6.terminate.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Data Request
+  if template_id == 205 then
+    return cme_globex_mdp3_sbe_v1_6.market_data_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security List Request
+  if template_id == 208 then
+    return cme_globex_mdp3_sbe_v1_6.security_list_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Status Request
+  if template_id == 209 then
+    return cme_globex_mdp3_sbe_v1_6.security_status_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subscriber Heartbeat
+  if template_id == 210 then
+    return cme_globex_mdp3_sbe_v1_6.subscriber_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Tcp Message
+cme_globex_mdp3_sbe_v1_6.client_tcp_message = {}
+
+-- Display: Client Tcp Message
+cme_globex_mdp3_sbe_v1_6.client_tcp_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Message
+cme_globex_mdp3_sbe_v1_6.client_tcp_message.fields = function(buffer, offset, packet, parent, size_of_client_tcp_message)
+  local index = offset
+
+  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, tcp_message_size = cme_globex_mdp3_sbe_v1_6.tcp_message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = cme_globex_mdp3_sbe_v1_6.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Client Payload: Runtime Type with 6 branches
+  index = cme_globex_mdp3_sbe_v1_6.client_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Client Tcp Message
+cme_globex_mdp3_sbe_v1_6.client_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_client_tcp_message)
+  local index = offset + size_of_client_tcp_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_message, buffer(offset, 0))
+    local current = cme_globex_mdp3_sbe_v1_6.client_tcp_message.fields(buffer, offset, packet, parent, size_of_client_tcp_message)
+    parent:set_len(size_of_client_tcp_message)
+    local display = cme_globex_mdp3_sbe_v1_6.client_tcp_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_mdp3_sbe_v1_6.client_tcp_message.fields(buffer, offset, packet, parent, size_of_client_tcp_message)
+
+    return index
+  end
+end
+
+-- Client Technical Header
+cme_globex_mdp3_sbe_v1_6.client_technical_header = {}
+
+-- Size: Client Technical Header
+cme_globex_mdp3_sbe_v1_6.client_technical_header.size =
+  cme_globex_mdp3_sbe_v1_6.encoding_type.size + 
+  cme_globex_mdp3_sbe_v1_6.message_sequence_number.size + 
+  cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size
+
+-- Display: Client Technical Header
+cme_globex_mdp3_sbe_v1_6.client_technical_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Technical Header
+cme_globex_mdp3_sbe_v1_6.client_technical_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
+  index, encoding_type = cme_globex_mdp3_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
+
+  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, message_sequence_number = cme_globex_mdp3_sbe_v1_6.message_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
+  index, tcp_sending_time = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Technical Header
+cme_globex_mdp3_sbe_v1_6.client_technical_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.client_technical_header, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.client_technical_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_6.client_technical_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_6.client_technical_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Tcp Packet
+cme_globex_mdp3_sbe_v1_6.client_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+cme_globex_mdp3_sbe_v1_6.client_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= cme_globex_mdp3_sbe_v1_6.client_technical_header.size + cme_globex_mdp3_sbe_v1_6.tcp_message_size.size + cme_globex_mdp3_sbe_v1_6.message_header.size
+end
+
+-- Dissect Client Tcp Packet
+cme_globex_mdp3_sbe_v1_6.client_tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Client Technical Header: Struct of 3 fields
+  index, client_technical_header = cme_globex_mdp3_sbe_v1_6.client_technical_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Client Tcp Message
+  local end_of_payload = buffer:len()
+
+  -- Client Tcp Message: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Tcp Message Size
+    local tcp_message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Client Tcp Message
+    index, client_tcp_message = cme_globex_mdp3_sbe_v1_6.client_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+  end
+
+  return index
+end
+
 -- Payload
 cme_globex_mdp3_sbe_v1_6.payload = {}
 
@@ -10213,187 +10664,6 @@ cme_globex_mdp3_sbe_v1_6.payload.dissect = function(buffer, offset, packet, pare
   end
 
   return offset
-end
-
--- Message Header
-cme_globex_mdp3_sbe_v1_6.message_header = {}
-
--- Size: Message Header
-cme_globex_mdp3_sbe_v1_6.message_header.size =
-  cme_globex_mdp3_sbe_v1_6.block_length.size + 
-  cme_globex_mdp3_sbe_v1_6.template_id.size + 
-  cme_globex_mdp3_sbe_v1_6.schema_id.size + 
-  cme_globex_mdp3_sbe_v1_6.version.size
-
--- Display: Message Header
-cme_globex_mdp3_sbe_v1_6.message_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Header
-cme_globex_mdp3_sbe_v1_6.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = cme_globex_mdp3_sbe_v1_6.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: uint16
-  index, template_id = cme_globex_mdp3_sbe_v1_6.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: uint16
-  index, schema_id = cme_globex_mdp3_sbe_v1_6.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: uint16
-  index, version = cme_globex_mdp3_sbe_v1_6.version.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-cme_globex_mdp3_sbe_v1_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.message_header, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tcp Message
-cme_globex_mdp3_sbe_v1_6.tcp_message = {}
-
--- Display: Tcp Message
-cme_globex_mdp3_sbe_v1_6.tcp_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tcp Message
-cme_globex_mdp3_sbe_v1_6.tcp_message.fields = function(buffer, offset, packet, parent, size_of_tcp_message)
-  local index = offset
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_globex_mdp3_sbe_v1_6.tcp_message_size.dissect(buffer, index, packet, parent)
-
-  -- Message Header: Struct of 4 fields
-  index, message_header = cme_globex_mdp3_sbe_v1_6.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Template Id
-  local template_id = buffer(index - 6, 2):le_uint()
-
-  -- Payload: Runtime Type with 27 branches
-  index = cme_globex_mdp3_sbe_v1_6.payload.dissect(buffer, index, packet, parent, template_id)
-
-  return index
-end
-
--- Dissect: Tcp Message
-cme_globex_mdp3_sbe_v1_6.tcp_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_message)
-  local index = offset + size_of_tcp_message
-
-  -- Optionally add group/struct element to protocol tree
-  if show.structs then
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_message, buffer(offset, 0))
-    local current = cme_globex_mdp3_sbe_v1_6.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
-    parent:set_len(size_of_tcp_message)
-    local display = cme_globex_mdp3_sbe_v1_6.tcp_message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    cme_globex_mdp3_sbe_v1_6.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
-
-    return index
-  end
-end
-
--- Technical Header
-cme_globex_mdp3_sbe_v1_6.technical_header = {}
-
--- Size: Technical Header
-cme_globex_mdp3_sbe_v1_6.technical_header.size =
-  cme_globex_mdp3_sbe_v1_6.encoding_type.size + 
-  cme_globex_mdp3_sbe_v1_6.message_sequence_number.size + 
-  cme_globex_mdp3_sbe_v1_6.tcp_sending_time.size
-
--- Display: Technical Header
-cme_globex_mdp3_sbe_v1_6.technical_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Technical Header
-cme_globex_mdp3_sbe_v1_6.technical_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
-  index, encoding_type = cme_globex_mdp3_sbe_v1_6.encoding_type.dissect(buffer, index, packet, parent)
-
-  -- Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, message_sequence_number = cme_globex_mdp3_sbe_v1_6.message_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, tcp_sending_time = cme_globex_mdp3_sbe_v1_6.tcp_sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Technical Header
-cme_globex_mdp3_sbe_v1_6.technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.technical_header, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.technical_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.technical_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.technical_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Tcp Packet
-cme_globex_mdp3_sbe_v1_6.tcp_packet = {}
-
--- Verify required size of Tcp packet
-cme_globex_mdp3_sbe_v1_6.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_mdp3_sbe_v1_6.technical_header.size + cme_globex_mdp3_sbe_v1_6.tcp_message_size.size + cme_globex_mdp3_sbe_v1_6.message_header.size
-end
-
--- Dissect Tcp Packet
-cme_globex_mdp3_sbe_v1_6.tcp_packet.dissect = function(buffer, packet, parent)
-  local index = 0
-
-  -- Technical Header: Struct of 3 fields
-  index, technical_header = cme_globex_mdp3_sbe_v1_6.technical_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Tcp Message
-  local end_of_payload = buffer:len()
-
-  -- Tcp Message: Struct of 3 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Tcp Message
-    index, tcp_message = cme_globex_mdp3_sbe_v1_6.tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
-  end
-
-  return index
 end
 
 -- Message
@@ -10530,6 +10800,71 @@ end
 function omi_cme_globex_mdp3_sbe_v1_6.init()
 end
 
+-- Connection roles for Cme Globex Mdp3 Sbe 1.6: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+cme_globex_mdp3_sbe_v1_6.role = function(packet)
+  if omi_cme_globex_mdp3_sbe_v1_6.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_cme_globex_mdp3_sbe_v1_6.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_cme_globex_mdp3_sbe_v1_6.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_cme_globex_mdp3_sbe_v1_6.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+cme_globex_mdp3_sbe_v1_6.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Cme Globex Mdp3 Sbe 1.6
 function omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
 
@@ -10542,9 +10877,180 @@ function omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
     return cme_globex_mdp3_sbe_v1_6.udp_packet.dissect(buffer, packet, protocol)
   end
   if packet.port_type == 2 then
-    return cme_globex_mdp3_sbe_v1_6.tcp_packet.dissect(buffer, packet, protocol)
+    local role = cme_globex_mdp3_sbe_v1_6.role(packet)
+    if role == "initiator" then
+      return cme_globex_mdp3_sbe_v1_6.client_tcp_packet.dissect(buffer, packet, protocol)
+    end
+    return cme_globex_mdp3_sbe_v1_6.server_tcp_packet.dissect(buffer, packet, protocol)
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
+cme_globex_mdp3_sbe_v1_6.client_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Negotiate
+  if template_id == 200 then
+    return true
+  end
+
+  -- Terminate
+  if template_id == 203 then
+    return true
+  end
+
+  -- Market Data Request
+  if template_id == 205 then
+    return true
+  end
+
+  -- Security List Request
+  if template_id == 208 then
+    return true
+  end
+
+  -- Security Status Request
+  if template_id == 209 then
+    return true
+  end
+
+  -- Subscriber Heartbeat
+  if template_id == 210 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
+cme_globex_mdp3_sbe_v1_6.server_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Channel Reset
+  if template_id == 4 then
+    return true
+  end
+
+  -- Admin Heartbeat
+  if template_id == 12 then
+    return true
+  end
+
+  -- Admin Login
+  if template_id == 15 then
+    return true
+  end
+
+  -- Admin Logout
+  if template_id == 16 then
+    return true
+  end
+
+  -- Md Instrument Definition Future
+  if template_id == 27 then
+    return true
+  end
+
+  -- Md Instrument Definition Spread
+  if template_id == 29 then
+    return true
+  end
+
+  -- Security Status
+  if template_id == 30 then
+    return true
+  end
+
+  -- Md Incremental Refresh Book
+  if template_id == 32 then
+    return true
+  end
+
+  -- Md Incremental Refresh Daily Statistics
+  if template_id == 33 then
+    return true
+  end
+
+  -- Md Incremental Refresh Limits Banding
+  if template_id == 34 then
+    return true
+  end
+
+  -- Md Incremental Refresh Session Statistics
+  if template_id == 35 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade
+  if template_id == 36 then
+    return true
+  end
+
+  -- Md Incremental Refresh Volume
+  if template_id == 37 then
+    return true
+  end
+
+  -- Snapshot Full Refresh
+  if template_id == 38 then
+    return true
+  end
+
+  -- Quote Request
+  if template_id == 39 then
+    return true
+  end
+
+  -- Md Instrument Definition Option
+  if template_id == 41 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Summary
+  if template_id == 42 then
+    return true
+  end
+
+  -- Negotiation Reject
+  if template_id == 201 then
+    return true
+  end
+
+  -- Negotiation Response
+  if template_id == 202 then
+    return true
+  end
+
+  -- Terminate
+  if template_id == 203 then
+    return true
+  end
+
+  -- Request Ack
+  if template_id == 206 then
+    return true
+  end
+
+  -- Request Reject
+  if template_id == 207 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -10584,7 +11090,7 @@ cme_globex_mdp3_sbe_v1_6.version.udp_packet_verify = function(buffer)
 end
 
 -- Verify Encoding Type Field
-cme_globex_mdp3_sbe_v1_6.encoding_type.tcp_packet_verify = function(buffer)
+cme_globex_mdp3_sbe_v1_6.encoding_type.client_tcp_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 2):le_uint()
 
@@ -10596,7 +11102,7 @@ cme_globex_mdp3_sbe_v1_6.encoding_type.tcp_packet_verify = function(buffer)
 end
 
 -- Verify Schema Id Field
-cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify = function(buffer)
+cme_globex_mdp3_sbe_v1_6.schema_id.client_tcp_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -10612,7 +11118,51 @@ cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify = function(buffer)
 end
 
 -- Verify Version Field
-cme_globex_mdp3_sbe_v1_6.version.tcp_packet_verify = function(buffer)
+cme_globex_mdp3_sbe_v1_6.version.client_tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(22, 2):le_uint()
+
+  if value == 6 then
+    return true
+  end
+
+  if value == 0 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Encoding Type Field
+cme_globex_mdp3_sbe_v1_6.encoding_type.server_tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 2):le_uint()
+
+  if value == 51966 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Schema Id Field
+cme_globex_mdp3_sbe_v1_6.schema_id.server_tcp_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(20, 2):le_uint()
+
+  if value == 1 then
+    return true
+  end
+
+  if value == 2 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Version Field
+cme_globex_mdp3_sbe_v1_6.version.server_tcp_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -10646,24 +11196,72 @@ local function omi_cme_globex_mdp3_sbe_v1_6_udp_heuristic(buffer, packet, parent
 end
 
 -- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Tcp)
-local function omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
+local function omi_cme_globex_mdp3_sbe_v1_6_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not cme_globex_mdp3_sbe_v1_6.tcp_packet.requiredsize(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.client_tcp_packet.requiredsize(buffer) then return false end
 
   -- Verify Encoding Type
-  if not cme_globex_mdp3_sbe_v1_6.encoding_type.tcp_packet_verify(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.encoding_type.client_tcp_packet_verify(buffer) then return false end
 
   -- Verify Schema Id
-  if not cme_globex_mdp3_sbe_v1_6.schema_id.tcp_packet_verify(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.schema_id.client_tcp_packet_verify(buffer) then return false end
 
   -- Verify Version
-  if not cme_globex_mdp3_sbe_v1_6.version.tcp_packet_verify(buffer) then return false end
+  if not cme_globex_mdp3_sbe_v1_6.version.client_tcp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_mdp3_sbe_v1_6.client_tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_mdp3_sbe_v1_6
   omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
 
   return true
+end
+
+-- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Tcp)
+local function omi_cme_globex_mdp3_sbe_v1_6_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cme_globex_mdp3_sbe_v1_6.server_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not cme_globex_mdp3_sbe_v1_6.encoding_type.server_tcp_packet_verify(buffer) then return false end
+
+  -- Verify Schema Id
+  if not cme_globex_mdp3_sbe_v1_6.schema_id.server_tcp_packet_verify(buffer) then return false end
+
+  -- Verify Version
+  if not cme_globex_mdp3_sbe_v1_6.version.server_tcp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_mdp3_sbe_v1_6.server_tcp_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cme_globex_mdp3_sbe_v1_6
+  omi_cme_globex_mdp3_sbe_v1_6.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Tcp): apply the heuristic of the sender's connection role
+local function omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
+  local role = cme_globex_mdp3_sbe_v1_6.role(packet)
+  local first, second = omi_cme_globex_mdp3_sbe_v1_6_tcp_initiator_heuristic, omi_cme_globex_mdp3_sbe_v1_6_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  cme_globex_mdp3_sbe_v1_6.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  cme_globex_mdp3_sbe_v1_6.swap(packet)
+
+  return false
 end
 
 -- Register Heuristics for Cme Globex Mdp3 Sbe 1.6

@@ -2939,6 +2939,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+cme_globex_settlements_sbe_v7_0.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Md Incremental Refresh Settle
+  if template_id == 401 then
+    return true
+  end
+
+  -- Md Incremental Refresh Voi
+  if template_id == 402 then
+    return true
+  end
+
+  -- Md Incremental Refresh High Low
+  if template_id == 403 then
+    return true
+  end
+
+  -- Admin Heartbeat
+  if template_id == 407 then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3021,7 +3057,7 @@ local function omi_cme_globex_settlements_sbe_v7_0_udp_heuristic(buffer, packet,
 end
 
 -- Dissector Heuristic for Cme Globex Settlements Sbe 7.0 (Tcp)
-local function omi_cme_globex_settlements_sbe_v7_0_tcp_heuristic(buffer, packet, parent)
+local function omi_cme_globex_settlements_sbe_v7_0_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_globex_settlements_sbe_v7_0.tcp_packet.requiredsize(buffer) then return false end
 
@@ -3034,6 +3070,9 @@ local function omi_cme_globex_settlements_sbe_v7_0_tcp_heuristic(buffer, packet,
   -- Verify Version
   if not cme_globex_settlements_sbe_v7_0.version.tcp_packet_verify(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not cme_globex_settlements_sbe_v7_0.tcp_packet.fingerprint(buffer) then return false end
+
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_settlements_sbe_v7_0
   omi_cme_globex_settlements_sbe_v7_0.dissector(buffer, packet, parent)
@@ -3043,7 +3082,7 @@ end
 
 -- Register Heuristics for Cme Globex Settlements Sbe 7.0
 omi_cme_globex_settlements_sbe_v7_0:register_heuristic("udp", omi_cme_globex_settlements_sbe_v7_0_udp_heuristic)
-omi_cme_globex_settlements_sbe_v7_0:register_heuristic("tcp", omi_cme_globex_settlements_sbe_v7_0_tcp_heuristic)
+omi_cme_globex_settlements_sbe_v7_0:register_heuristic("tcp", omi_cme_globex_settlements_sbe_v7_0_tcp_acceptor_heuristic)
 -- Register Cme Globex Settlements Sbe 7.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_settlements_sbe_v7_0)
