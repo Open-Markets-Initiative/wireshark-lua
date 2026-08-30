@@ -68,8 +68,8 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.negotiated_trades = ProtoField.new("N
 omi_jse_itac_marketdata_mitch_v4_07.fields.new_end_time = ProtoField.new("New End Time", "jse.itac.marketdata.mitch.v4.07.newendtime", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.new_price = ProtoField.new("New Price", "jse.itac.marketdata.mitch.v4.07.newprice", ftypes.INT64)
 omi_jse_itac_marketdata_mitch_v4_07.fields.new_quantity = ProtoField.new("New Quantity", "jse.itac.marketdata.mitch.v4.07.newquantity", ftypes.UINT32)
-omi_jse_itac_marketdata_mitch_v4_07.fields.notional_delta_exposure = ProtoField.new("Notional Delta Exposure", "jse.itac.marketdata.mitch.v4.07.notionaldeltaexposure", ftypes.INT64)
-omi_jse_itac_marketdata_mitch_v4_07.fields.notional_exposure = ProtoField.new("Notional Exposure", "jse.itac.marketdata.mitch.v4.07.notionalexposure", ftypes.INT64)
+omi_jse_itac_marketdata_mitch_v4_07.fields.notional_delta_exposure = ProtoField.new("Notional Delta Exposure", "jse.itac.marketdata.mitch.v4.07.notionaldeltaexposure", ftypes.DOUBLE)
+omi_jse_itac_marketdata_mitch_v4_07.fields.notional_exposure = ProtoField.new("Notional Exposure", "jse.itac.marketdata.mitch.v4.07.notionalexposure", ftypes.DOUBLE)
 omi_jse_itac_marketdata_mitch_v4_07.fields.number_of_trades = ProtoField.new("Number Of Trades", "jse.itac.marketdata.mitch.v4.07.numberoftrades", ftypes.UINT32)
 omi_jse_itac_marketdata_mitch_v4_07.fields.off_book = ProtoField.new("Off Book", "jse.itac.marketdata.mitch.v4.07.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_rfq_trade_type = ProtoField.new("Off Book Rfq Trade Type", "jse.itac.marketdata.mitch.v4.07.offbookrfqtradetype", ftypes.STRING)
@@ -95,9 +95,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.recovery_trade_flags = ProtoField.new
 omi_jse_itac_marketdata_mitch_v4_07.fields.regular = ProtoField.new("Regular", "jse.itac.marketdata.mitch.v4.07.regular", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_jse_itac_marketdata_mitch_v4_07.fields.request_id = ProtoField.new("Request Id", "jse.itac.marketdata.mitch.v4.07.requestid", ftypes.UINT32)
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserve_field = ProtoField.new("Reserve Field", "jse.itac.marketdata.mitch.v4.07.reservefield", ftypes.UINT16)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2 = ProtoField.new("Reserved 2", "jse.itac.marketdata.mitch.v4.07.reserved2", ftypes.STRING)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4 = ProtoField.new("Reserved 4", "jse.itac.marketdata.mitch.v4.07.reserved4", ftypes.UINT32)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8 = ProtoField.new("Reserved 8", "jse.itac.marketdata.mitch.v4.07.reserved8", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a = ProtoField.new("Reserved A", "jse.itac.marketdata.mitch.v4.07.reserveda", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b = ProtoField.new("Reserved B", "jse.itac.marketdata.mitch.v4.07.reservedb", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_field = ProtoField.new("Reserved Field", "jse.itac.marketdata.mitch.v4.07.reservedfield", ftypes.UINT32)
 omi_jse_itac_marketdata_mitch_v4_07.fields.rfq_id = ProtoField.new("Rfq Id", "jse.itac.marketdata.mitch.v4.07.rfqid", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.rho = ProtoField.new("Rho", "jse.itac.marketdata.mitch.v4.07.rho", ftypes.INT64)
 omi_jse_itac_marketdata_mitch_v4_07.fields.seconds = ProtoField.new("Seconds", "jse.itac.marketdata.mitch.v4.07.seconds", ftypes.UINT32)
@@ -129,7 +131,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.trade_id = ProtoField.new("Trade Id",
 omi_jse_itac_marketdata_mitch_v4_07.fields.trade_sub_type = ProtoField.new("Trade Sub Type", "jse.itac.marketdata.mitch.v4.07.tradesubtype", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.trade_time = ProtoField.new("Trade Time", "jse.itac.marketdata.mitch.v4.07.tradetime", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.trading_status = ProtoField.new("Trading Status", "jse.itac.marketdata.mitch.v4.07.tradingstatus", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.turnover = ProtoField.new("Turnover", "jse.itac.marketdata.mitch.v4.07.turnover", ftypes.INT64)
+omi_jse_itac_marketdata_mitch_v4_07.fields.turnover = ProtoField.new("Turnover", "jse.itac.marketdata.mitch.v4.07.turnover", ftypes.DOUBLE)
 omi_jse_itac_marketdata_mitch_v4_07.fields.underlying = ProtoField.new("Underlying", "jse.itac.marketdata.mitch.v4.07.underlying", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.underlying_reference_price = ProtoField.new("Underlying Reference Price", "jse.itac.marketdata.mitch.v4.07.underlyingreferenceprice", ftypes.INT64)
 omi_jse_itac_marketdata_mitch_v4_07.fields.underlyings = ProtoField.new("Underlyings", "jse.itac.marketdata.mitch.v4.07.underlyings", ftypes.STRING)
@@ -1374,11 +1376,17 @@ jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.display = function(value
   return "Notional Delta Exposure: "..value
 end
 
+-- Translate: Notional Delta Exposure
+jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Notional Delta Exposure
 jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.notional_delta_exposure, range, value, display)
@@ -1397,11 +1405,17 @@ jse_itac_marketdata_mitch_v4_07.notional_exposure.display = function(value)
   return "Notional Exposure: "..value
 end
 
+-- Translate: Notional Exposure
+jse_itac_marketdata_mitch_v4_07.notional_exposure.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Notional Exposure
 jse_itac_marketdata_mitch_v4_07.notional_exposure.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.notional_exposure.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.notional_exposure.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.notional_exposure.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.notional_exposure, range, value, display)
@@ -1990,6 +2004,75 @@ jse_itac_marketdata_mitch_v4_07.reserve_field.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Reserved 2
+jse_itac_marketdata_mitch_v4_07.reserved_2 = {}
+
+-- Size: Reserved 2
+jse_itac_marketdata_mitch_v4_07.reserved_2.size = 1
+
+-- Display: Reserved 2
+jse_itac_marketdata_mitch_v4_07.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+jse_itac_marketdata_mitch_v4_07.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jse_itac_marketdata_mitch_v4_07.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+jse_itac_marketdata_mitch_v4_07.reserved_4 = {}
+
+-- Size: Reserved 4
+jse_itac_marketdata_mitch_v4_07.reserved_4.size = 4
+
+-- Display: Reserved 4
+jse_itac_marketdata_mitch_v4_07.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+jse_itac_marketdata_mitch_v4_07.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = jse_itac_marketdata_mitch_v4_07.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+jse_itac_marketdata_mitch_v4_07.reserved_8 = {}
+
+-- Size: Reserved 8
+jse_itac_marketdata_mitch_v4_07.reserved_8.size = 8
+
+-- Display: Reserved 8
+jse_itac_marketdata_mitch_v4_07.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+jse_itac_marketdata_mitch_v4_07.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jse_itac_marketdata_mitch_v4_07.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved A
 jse_itac_marketdata_mitch_v4_07.reserved_a = {}
 
@@ -2032,29 +2115,6 @@ jse_itac_marketdata_mitch_v4_07.reserved_b.dissect = function(buffer, offset, pa
   local display = jse_itac_marketdata_mitch_v4_07.reserved_b.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved Field
-jse_itac_marketdata_mitch_v4_07.reserved_field = {}
-
--- Size: Reserved Field
-jse_itac_marketdata_mitch_v4_07.reserved_field.size = 4
-
--- Display: Reserved Field
-jse_itac_marketdata_mitch_v4_07.reserved_field.display = function(value)
-  return "Reserved Field: "..value
-end
-
--- Dissect: Reserved Field
-jse_itac_marketdata_mitch_v4_07.reserved_field.dissect = function(buffer, offset, packet, parent)
-  local length = jse_itac_marketdata_mitch_v4_07.reserved_field.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = jse_itac_marketdata_mitch_v4_07.reserved_field.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_field, range, value, display)
 
   return offset + length, value
 end
@@ -2820,11 +2880,17 @@ jse_itac_marketdata_mitch_v4_07.turnover.display = function(value)
   return "Turnover: "..value
 end
 
+-- Translate: Turnover
+jse_itac_marketdata_mitch_v4_07.turnover.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Turnover
 jse_itac_marketdata_mitch_v4_07.turnover.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.turnover.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = jse_itac_marketdata_mitch_v4_07.turnover.translate(raw)
   local display = jse_itac_marketdata_mitch_v4_07.turnover.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.turnover, range, value, display)
@@ -3218,7 +3284,7 @@ jse_itac_marketdata_mitch_v4_07.top_of_book_message.size =
   jse_itac_marketdata_mitch_v4_07.price.size + 
   jse_itac_marketdata_mitch_v4_07.quantity.size + 
   jse_itac_marketdata_mitch_v4_07.market_order_quantity.size + 
-  jse_itac_marketdata_mitch_v4_07.reserved_field.size + 
+  jse_itac_marketdata_mitch_v4_07.reserved_2.size + 
   jse_itac_marketdata_mitch_v4_07.splits.size
 
 -- Display: Top Of Book Message
@@ -3257,8 +3323,8 @@ jse_itac_marketdata_mitch_v4_07.top_of_book_message.fields = function(buffer, of
   -- Market Order Quantity: UInt32
   index, market_order_quantity = jse_itac_marketdata_mitch_v4_07.market_order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: UInt32
-  index, reserved_field = jse_itac_marketdata_mitch_v4_07.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved 2: Byte
+  index, reserved_2 = jse_itac_marketdata_mitch_v4_07.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Splits: UInt32
   index, splits = jse_itac_marketdata_mitch_v4_07.splits.dissect(buffer, index, packet, parent)
@@ -3361,7 +3427,7 @@ jse_itac_marketdata_mitch_v4_07.extended_statistics_message.size =
   jse_itac_marketdata_mitch_v4_07.volume.size + 
   jse_itac_marketdata_mitch_v4_07.turnover.size + 
   jse_itac_marketdata_mitch_v4_07.number_of_trades.size + 
-  jse_itac_marketdata_mitch_v4_07.reserved_field.size + 
+  jse_itac_marketdata_mitch_v4_07.reserved_8.size + 
   jse_itac_marketdata_mitch_v4_07.sub_book.size + 
   jse_itac_marketdata_mitch_v4_07.notional_exposure.size + 
   jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.size + 
@@ -3401,22 +3467,22 @@ jse_itac_marketdata_mitch_v4_07.extended_statistics_message.fields = function(bu
   -- Volume: UInt32
   index, volume = jse_itac_marketdata_mitch_v4_07.volume.dissect(buffer, index, packet, parent)
 
-  -- Turnover: Price
+  -- Turnover: Price i4
   index, turnover = jse_itac_marketdata_mitch_v4_07.turnover.dissect(buffer, index, packet, parent)
 
   -- Number Of Trades: UInt32
   index, number_of_trades = jse_itac_marketdata_mitch_v4_07.number_of_trades.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: UInt32
-  index, reserved_field = jse_itac_marketdata_mitch_v4_07.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Alpha
+  index, reserved_8 = jse_itac_marketdata_mitch_v4_07.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Sub Book: UInt8
   index, sub_book = jse_itac_marketdata_mitch_v4_07.sub_book.dissect(buffer, index, packet, parent)
 
-  -- Notional Exposure: Price
+  -- Notional Exposure: Price i4
   index, notional_exposure = jse_itac_marketdata_mitch_v4_07.notional_exposure.dissect(buffer, index, packet, parent)
 
-  -- Notional Delta Exposure: Price
+  -- Notional Delta Exposure: Price i4
   index, notional_delta_exposure = jse_itac_marketdata_mitch_v4_07.notional_delta_exposure.dissect(buffer, index, packet, parent)
 
   -- Open Interest: Price
@@ -3539,7 +3605,7 @@ jse_itac_marketdata_mitch_v4_07.auction_info_message = {}
 jse_itac_marketdata_mitch_v4_07.auction_info_message.size =
   jse_itac_marketdata_mitch_v4_07.nanosecond.size + 
   jse_itac_marketdata_mitch_v4_07.paired_quantity.size + 
-  jse_itac_marketdata_mitch_v4_07.reserved_field.size + 
+  jse_itac_marketdata_mitch_v4_07.reserved_4.size + 
   jse_itac_marketdata_mitch_v4_07.imbalance_direction.size + 
   jse_itac_marketdata_mitch_v4_07.instrument_id.size + 
   jse_itac_marketdata_mitch_v4_07.reserved_a.size + 
@@ -3562,8 +3628,8 @@ jse_itac_marketdata_mitch_v4_07.auction_info_message.fields = function(buffer, o
   -- Paired Quantity: UInt32
   index, paired_quantity = jse_itac_marketdata_mitch_v4_07.paired_quantity.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: UInt32
-  index, reserved_field = jse_itac_marketdata_mitch_v4_07.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved 4: UInt32
+  index, reserved_4 = jse_itac_marketdata_mitch_v4_07.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Imbalance Direction: Byte
   index, imbalance_direction = jse_itac_marketdata_mitch_v4_07.imbalance_direction.dissect(buffer, index, packet, parent)
@@ -4789,7 +4855,7 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_message.fields = function(buffer, 
   -- Session Change Reason: UInt8
   index, session_change_reason = jse_itac_marketdata_mitch_v4_07.session_change_reason.dissect(buffer, index, packet, parent)
 
-  -- New End Time: Alpha
+  -- New End Time: Extended Time
   index, new_end_time = jse_itac_marketdata_mitch_v4_07.new_end_time.dissect(buffer, index, packet, parent)
 
   -- Book Type U Int 81: UInt8
