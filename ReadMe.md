@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 864 | 6,223,474 |
+| 864 | 6,224,997 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -65,7 +65,7 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Organizations
 
-> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
+> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
 
 ## Exchanges and Ats
 
@@ -77,7 +77,7 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Platforms
 
-> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform]
+> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Jse Itac][Itac.Platform] · [Lseg Millennium][Millennium.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform]
 
 ## Related Definitions
 
@@ -132,9 +132,9 @@ Enjoy.
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/IexTp.md "IexTp Encoding"
 [Omi.Encoding.Snap]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Snap.md "Snap Encoding"
 [Omi.Encoding.Flex]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Flex.md "Flex Encoding"
+[Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Encoding"
 [Omi.Encoding.Exture]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Exture.md "Exture Encoding"
 [Omi.Encoding.Gtp]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Gtp.md "Gtp Encoding"
-[Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mitch.md "Mitch Encoding"
 [Omi.Encoding.Ntgi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Ntgi.md "Ntgi Encoding"
 [Omi.Encoding.Mach]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Mach.md "Mach Encoding"
 [Omi.Encoding.ESesM]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/ESesM.md "ESesM Encoding"
@@ -339,6 +339,7 @@ Enjoy.
 [Jpx.NseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/NseEquities/MarketByOrder.md "Market By Order"
 [Jpx.SseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/SseEquities/MarketByOrder.md "Market By Order"
 [Jpx.TseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jpx/Protocols/TseEquities/MarketByOrder.md "Market By Order"
+[Jse.Itac.MarketData]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Jse/Protocols/Itac/MarketData.md "Market Data"
 [Koscom.MdcsRealtime.BondA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/BondA.md "MDCS Realtime Bond A"
 [Koscom.MdcsRealtime.Commodities]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/Commodities.md "MDCS Realtime Commodities"
 [Koscom.MdcsRealtime.DerivativesA]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/DerivativesA.md "MDCS Realtime Derivatives A"
@@ -621,6 +622,7 @@ Enjoy.
 [Imperative.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Imperative "Imperative Execution"
 [Jnx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Jnx "Japannext Securities"
 [Jpx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Jpx "Japan Exchange Group"
+[Jse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Jse "JSE Limited"
 [Koscom.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Koscom "Koscom Co., Ltd."
 [Lseg.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Lseg "London Stock Exchange"
 [Ltse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Ltse "Long-Term Stock Exchange"
@@ -679,6 +681,7 @@ Enjoy.
 [IexOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Iex/Protocols/IexOptions "IEX Options"
 [IntelligentCross.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Imperative/Protocols/IntelligentCross "Intelligent Cross"
 [IseOptions.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Nasdaq/Protocols/IseOptions "Nasdaq ISE"
+[Itac.Platform]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jse/Protocols/Itac "Integrated Trading and Clearing"
 [JnxBonds.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxBonds "Japannext Bonds"
 [JnxEquities.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Jnx/Protocols/JnxEquities "Japannext Equities"
 [LinkAts.Ats]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/OtcMarkets/Protocols/LinkAts "OTC Link ATS"
