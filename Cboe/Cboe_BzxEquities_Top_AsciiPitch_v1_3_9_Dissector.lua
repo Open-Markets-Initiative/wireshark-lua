@@ -2667,17 +2667,17 @@ tcp_table:add_for_decode_as(omi_cboe_bzxequities_top_asciipitch_v1_3_9)
 --   License: Public/GPLv3
 --   Authors: Omi Developers
 --
--- Copyright (c) 2026 Scaled Sources LLC.  https://www.scaledsources.com
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
 --
 -- This dissector code is contributed to The Open Markets Initiative under
 -- the license noted above.
+--   https://openmarketsinitiative.com
 --
--- The Binary Data Compiler technologies used to produce this file
--- are the subject of patents owned by Scaled Sources LLC.  Those patent
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
 --   https://patents.google.com/patent/US20240129382A1/en
 --   https://patents.google.com/patent/US20240419416A1/en
 --
--- For full Omi information:
---   https://github.com/Open-Markets-Initiative/Directory
 -----------------------------------------------------------------------

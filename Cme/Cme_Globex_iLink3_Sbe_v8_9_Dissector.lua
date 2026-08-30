@@ -350,7 +350,7 @@ omi_cme_globex_ilink3_sbe_v8_9.fields.server_packet = ProtoField.new("Server Pac
 omi_cme_globex_ilink3_sbe_v8_9.fields.server_simple_open_frame = ProtoField.new("Server Simple Open Frame", "cme.globex.ilink3.sbe.v8.9.serversimpleopenframe", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.9.simpleopenframingheader", ftypes.STRING)
 
--- Cme Globex Sbe iLink3 8.9 Application Messages
+-- Cme Globex iLink3 8.9 Application Messages
 omi_cme_globex_ilink3_sbe_v8_9.fields.business_reject = ProtoField.new("Business Reject", "cme.globex.ilink3.sbe.v8.9.businessreject", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.establish = ProtoField.new("Establish", "cme.globex.ilink3.sbe.v8.9.establish", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.establishment_ack = ProtoField.new("Establishment Ack", "cme.globex.ilink3.sbe.v8.9.establishmentack", ftypes.STRING)
