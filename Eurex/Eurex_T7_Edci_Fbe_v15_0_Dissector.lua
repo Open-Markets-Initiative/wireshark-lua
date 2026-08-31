@@ -158,9 +158,11 @@ omi_eurex_t7_edci_fbe_v15_0.fields.var_text = ProtoField.new("Var Text", "eurex.
 omi_eurex_t7_edci_fbe_v15_0.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.edci.fbe.v15.0.vartextlen", ftypes.UINT16)
 
 -- Eurex T7 Edci Fbe 15.0 Headers
-omi_eurex_t7_edci_fbe_v15_0.fields.message = ProtoField.new("Message", "eurex.t7.edci.fbe.v15.0.message", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v15_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.edci.fbe.v15.0.clientmessage", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v15_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.edci.fbe.v15.0.clientpacket", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v15_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v15.0.messageheader", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v15_0.fields.packet = ProtoField.new("Packet", "eurex.t7.edci.fbe.v15.0.packet", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v15_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.edci.fbe.v15.0.servermessage", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v15_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.edci.fbe.v15.0.serverpacket", ftypes.STRING)
 
 -- Eurex T7 Edci 15.0 Application Messages
 omi_eurex_t7_edci_fbe_v15_0.fields.cross_request_notification = ProtoField.new("Cross Request Notification", "eurex.t7.edci.fbe.v15.0.crossrequestnotification", ftypes.STRING)
@@ -211,14 +213,22 @@ local show = {}
 
 -- Eurex T7 Edci Fbe 15.0 Element Dissection Options
 show.repeating_groups = true
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 show.indexes = true
 
 -- Register Eurex T7 Edci Fbe 15.0 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_eurex_t7_edci_fbe_v15_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_eurex_t7_edci_fbe_v15_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_eurex_t7_edci_fbe_v15_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_eurex_t7_edci_fbe_v15_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
-omi_eurex_t7_edci_fbe_v15_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_edci_fbe_v15_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_edci_fbe_v15_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_edci_fbe_v15_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -4688,109 +4698,6 @@ eurex_t7_edci_fbe_v15_0.user_logout_response.dissect = function(buffer, offset, 
   end
 end
 
--- Request Header Comp
-eurex_t7_edci_fbe_v15_0.request_header_comp = {}
-
--- Size: Request Header Comp
-eurex_t7_edci_fbe_v15_0.request_header_comp.size =
-  eurex_t7_edci_fbe_v15_0.msg_seq_num.size + 
-  eurex_t7_edci_fbe_v15_0.sender_sub_id.size
-
--- Display: Request Header Comp
-eurex_t7_edci_fbe_v15_0.request_header_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Header Comp
-eurex_t7_edci_fbe_v15_0.request_header_comp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, msg_seq_num = eurex_t7_edci_fbe_v15_0.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, sender_sub_id = eurex_t7_edci_fbe_v15_0.sender_sub_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Header Comp
-eurex_t7_edci_fbe_v15_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_t7_edci_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_edci_fbe_v15_0.request_header_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_edci_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Logout Request
-eurex_t7_edci_fbe_v15_0.user_logout_request = {}
-
--- Read runtime size of: User Logout Request
-eurex_t7_edci_fbe_v15_0.user_logout_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Logout Request
-eurex_t7_edci_fbe_v15_0.user_logout_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Logout Request
-eurex_t7_edci_fbe_v15_0.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_edci_fbe_v15_0.username.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Logout Request
-eurex_t7_edci_fbe_v15_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local size_of_user_logout_request = eurex_t7_edci_fbe_v15_0.user_logout_request.size(buffer, offset)
-  local index = offset + size_of_user_logout_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.user_logout_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-    parent:set_len(size_of_user_logout_request)
-    local display = eurex_t7_edci_fbe_v15_0.user_logout_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-
-    return index
-  end
-end
-
 -- User Login Response
 eurex_t7_edci_fbe_v15_0.user_login_response = {}
 
@@ -4839,68 +4746,6 @@ eurex_t7_edci_fbe_v15_0.user_login_response.dissect = function(buffer, offset, p
   else
     -- Skip element, add fields directly
     eurex_t7_edci_fbe_v15_0.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
-
-    return index
-  end
-end
-
--- User Login Request
-eurex_t7_edci_fbe_v15_0.user_login_request = {}
-
--- Read runtime size of: User Login Request
-eurex_t7_edci_fbe_v15_0.user_login_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Login Request
-eurex_t7_edci_fbe_v15_0.user_login_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Login Request
-eurex_t7_edci_fbe_v15_0.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_edci_fbe_v15_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_t7_edci_fbe_v15_0.password.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Login Request
-eurex_t7_edci_fbe_v15_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local size_of_user_login_request = eurex_t7_edci_fbe_v15_0.user_login_request.size(buffer, offset)
-  local index = offset + size_of_user_login_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.user_login_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-    parent:set_len(size_of_user_login_request)
-    local display = eurex_t7_edci_fbe_v15_0.user_login_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
 
     return index
   end
@@ -5019,80 +4864,6 @@ eurex_t7_edci_fbe_v15_0.trading_action_response.dissect = function(buffer, offse
   else
     -- Skip element, add fields directly
     eurex_t7_edci_fbe_v15_0.trading_action_response.fields(buffer, offset, packet, parent, size_of_trading_action_response)
-
-    return index
-  end
-end
-
--- Trading Action Request
-eurex_t7_edci_fbe_v15_0.trading_action_request = {}
-
--- Read runtime size of: Trading Action Request
-eurex_t7_edci_fbe_v15_0.trading_action_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Trading Action Request
-eurex_t7_edci_fbe_v15_0.trading_action_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trading Action Request
-eurex_t7_edci_fbe_v15_0.trading_action_request.fields = function(buffer, offset, packet, parent, size_of_trading_action_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, risk_limit_platform = eurex_t7_edci_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
-
-  -- Order Deletion Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_deletion_instruction = eurex_t7_edci_fbe_v15_0.order_deletion_instruction.dissect(buffer, index, packet, parent)
-
-  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_action_type = eurex_t7_edci_fbe_v15_0.party_action_type.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_edci_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_executing_unit = eurex_t7_edci_fbe_v15_0.party_id_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_unit = eurex_t7_edci_fbe_v15_0.target_party_id_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trading Action Request
-eurex_t7_edci_fbe_v15_0.trading_action_request.dissect = function(buffer, offset, packet, parent, size_of_trading_action_request)
-  local size_of_trading_action_request = eurex_t7_edci_fbe_v15_0.trading_action_request.size(buffer, offset)
-  local index = offset + size_of_trading_action_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.trading_action_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
-    parent:set_len(size_of_trading_action_request)
-    local display = eurex_t7_edci_fbe_v15_0.trading_action_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
 
     return index
   end
@@ -5758,77 +5529,6 @@ eurex_t7_edci_fbe_v15_0.retransmit_response.dissect = function(buffer, offset, p
   else
     -- Skip element, add fields directly
     eurex_t7_edci_fbe_v15_0.retransmit_response.fields(buffer, offset, packet, parent, size_of_retransmit_response)
-
-    return index
-  end
-end
-
--- Retransmit Request
-eurex_t7_edci_fbe_v15_0.retransmit_request = {}
-
--- Read runtime size of: Retransmit Request
-eurex_t7_edci_fbe_v15_0.retransmit_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Retransmit Request
-eurex_t7_edci_fbe_v15_0.retransmit_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Request
-eurex_t7_edci_fbe_v15_0.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_beg_seq_num = eurex_t7_edci_fbe_v15_0.appl_beg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_end_seq_num = eurex_t7_edci_fbe_v15_0.appl_end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Party Id Group: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_group = eurex_t7_edci_fbe_v15_0.party_id_group.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_edci_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, ref_appl_id = eurex_t7_edci_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_edci_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Request
-eurex_t7_edci_fbe_v15_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local size_of_retransmit_request = eurex_t7_edci_fbe_v15_0.retransmit_request.size(buffer, offset)
-  local index = offset + size_of_retransmit_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.retransmit_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-    parent:set_len(size_of_retransmit_request)
-    local display = eurex_t7_edci_fbe_v15_0.retransmit_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
 
     return index
   end
@@ -6574,59 +6274,6 @@ eurex_t7_edci_fbe_v15_0.logout_response.dissect = function(buffer, offset, packe
   end
 end
 
--- Logout Request
-eurex_t7_edci_fbe_v15_0.logout_request = {}
-
--- Read runtime size of: Logout Request
-eurex_t7_edci_fbe_v15_0.logout_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logout Request
-eurex_t7_edci_fbe_v15_0.logout_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logout Request
-eurex_t7_edci_fbe_v15_0.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logout Request
-eurex_t7_edci_fbe_v15_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
-  local size_of_logout_request = eurex_t7_edci_fbe_v15_0.logout_request.size(buffer, offset)
-  local index = offset + size_of_logout_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.logout_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
-    parent:set_len(size_of_logout_request)
-    local display = eurex_t7_edci_fbe_v15_0.logout_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
-
-    return index
-  end
-end
-
 -- Logon Response
 eurex_t7_edci_fbe_v15_0.logon_response = {}
 
@@ -6696,74 +6343,6 @@ eurex_t7_edci_fbe_v15_0.logon_response.dissect = function(buffer, offset, packet
   else
     -- Skip element, add fields directly
     eurex_t7_edci_fbe_v15_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
-
-    return index
-  end
-end
-
--- Logon Request
-eurex_t7_edci_fbe_v15_0.logon_request = {}
-
--- Read runtime size of: Logon Request
-eurex_t7_edci_fbe_v15_0.logon_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logon Request
-eurex_t7_edci_fbe_v15_0.logon_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Request
-eurex_t7_edci_fbe_v15_0.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_t7_edci_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
-
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_t7_edci_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
-
-  -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_t7_edci_fbe_v15_0.password.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_edci_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Request
-eurex_t7_edci_fbe_v15_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
-  local size_of_logon_request = eurex_t7_edci_fbe_v15_0.logon_request.size(buffer, offset)
-  local index = offset + size_of_logon_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.logon_request, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
-    parent:set_len(size_of_logon_request)
-    local display = eurex_t7_edci_fbe_v15_0.logon_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
 
     return index
   end
@@ -6899,56 +6478,6 @@ eurex_t7_edci_fbe_v15_0.heartbeat_notification.dissect = function(buffer, offset
   else
     -- Skip element, add fields directly
     eurex_t7_edci_fbe_v15_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
-
-    return index
-  end
-end
-
--- Heartbeat
-eurex_t7_edci_fbe_v15_0.heartbeat = {}
-
--- Read runtime size of: Heartbeat
-eurex_t7_edci_fbe_v15_0.heartbeat.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Heartbeat
-eurex_t7_edci_fbe_v15_0.heartbeat.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat
-eurex_t7_edci_fbe_v15_0.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat
-eurex_t7_edci_fbe_v15_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local size_of_heartbeat = eurex_t7_edci_fbe_v15_0.heartbeat.size(buffer, offset)
-  local index = offset + size_of_heartbeat
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.heartbeat, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-    parent:set_len(size_of_heartbeat)
-    local display = eurex_t7_edci_fbe_v15_0.heartbeat.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
 
     return index
   end
@@ -7474,11 +7003,11 @@ eurex_t7_edci_fbe_v15_0.cross_request_notification.dissect = function(buffer, of
   end
 end
 
--- Payload
-eurex_t7_edci_fbe_v15_0.payload = {}
+-- Server Payload
+eurex_t7_edci_fbe_v15_0.server_payload = {}
 
--- Dissect: Payload
-eurex_t7_edci_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Server Payload
+eurex_t7_edci_fbe_v15_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Cross Request Notification
   if template_id == 10907 then
     return eurex_t7_edci_fbe_v15_0.cross_request_notification.dissect(buffer, offset, packet, parent)
@@ -7495,10 +7024,6 @@ eurex_t7_edci_fbe_v15_0.payload.dissect = function(buffer, offset, packet, paren
   if template_id == 10012 then
     return eurex_t7_edci_fbe_v15_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return eurex_t7_edci_fbe_v15_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Heartbeat Notification
   if template_id == 10023 then
     return eurex_t7_edci_fbe_v15_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
@@ -7507,17 +7032,9 @@ eurex_t7_edci_fbe_v15_0.payload.dissect = function(buffer, offset, packet, paren
   if template_id == 10035 then
     return eurex_t7_edci_fbe_v15_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return eurex_t7_edci_fbe_v15_0.logon_request.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Logon Response
   if template_id == 10001 then
     return eurex_t7_edci_fbe_v15_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return eurex_t7_edci_fbe_v15_0.logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Response
   if template_id == 10003 then
@@ -7547,10 +7064,6 @@ eurex_t7_edci_fbe_v15_0.payload.dissect = function(buffer, offset, packet, paren
   if template_id == 10010 then
     return eurex_t7_edci_fbe_v15_0.reject.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Retransmit Request
-  if template_id == 10008 then
-    return eurex_t7_edci_fbe_v15_0.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Retransmit Response
   if template_id == 10009 then
     return eurex_t7_edci_fbe_v15_0.retransmit_response.dissect(buffer, offset, packet, parent)
@@ -7579,25 +7092,13 @@ eurex_t7_edci_fbe_v15_0.payload.dissect = function(buffer, offset, packet, paren
   if template_id == 10045 then
     return eurex_t7_edci_fbe_v15_0.status_broadcast.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trading Action Request
-  if template_id == 10908 then
-    return eurex_t7_edci_fbe_v15_0.trading_action_request.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Trading Action Response
   if template_id == 10909 then
     return eurex_t7_edci_fbe_v15_0.trading_action_response.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect User Login Request
-  if template_id == 10018 then
-    return eurex_t7_edci_fbe_v15_0.user_login_request.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect User Login Response
   if template_id == 10019 then
     return eurex_t7_edci_fbe_v15_0.user_login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Request
-  if template_id == 10029 then
-    return eurex_t7_edci_fbe_v15_0.user_logout_request.dissect(buffer, offset, packet, parent)
   end
   -- Dissect User Logout Response
   if template_id == 10024 then
@@ -7651,16 +7152,16 @@ eurex_t7_edci_fbe_v15_0.message_header.dissect = function(buffer, offset, packet
   end
 end
 
--- Message
-eurex_t7_edci_fbe_v15_0.message = {}
+-- Server Message
+eurex_t7_edci_fbe_v15_0.server_message = {}
 
--- Display: Message
-eurex_t7_edci_fbe_v15_0.message.display = function(packet, parent, length)
+-- Display: Server Message
+eurex_t7_edci_fbe_v15_0.server_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-eurex_t7_edci_fbe_v15_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Server Message
+eurex_t7_edci_fbe_v15_0.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -7669,35 +7170,35 @@ eurex_t7_edci_fbe_v15_0.message.fields = function(buffer, offset, packet, parent
   -- Dependency element: Template Id
   local template_id = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 31 branches
-  index = eurex_t7_edci_fbe_v15_0.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Server Payload: Runtime Type with 24 branches
+  index = eurex_t7_edci_fbe_v15_0.server_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Message
-eurex_t7_edci_fbe_v15_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Server Message
+eurex_t7_edci_fbe_v15_0.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset + size_of_server_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.message, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v15_0.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = eurex_t7_edci_fbe_v15_0.message.display(buffer, packet, parent)
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.server_message, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    parent:set_len(size_of_server_message)
+    local display = eurex_t7_edci_fbe_v15_0.server_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v15_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    eurex_t7_edci_fbe_v15_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Message
-local message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Message
+local server_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -7717,29 +7218,648 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-eurex_t7_edci_fbe_v15_0.packet = {}
+-- Server Packet
+eurex_t7_edci_fbe_v15_0.server_packet = {}
 
 -- Verify required size of Tcp packet
-eurex_t7_edci_fbe_v15_0.packet.requiredsize = function(buffer)
+eurex_t7_edci_fbe_v15_0.server_packet.requiredsize = function(buffer)
   return buffer:len() >= eurex_t7_edci_fbe_v15_0.message_header.size
 end
 
--- Dissect Packet
-eurex_t7_edci_fbe_v15_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+eurex_t7_edci_fbe_v15_0.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Server Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Server Message: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_message = server_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_t7_edci_fbe_v15_0.message.dissect(buffer, index, packet, parent, size_of_message)
+      index = eurex_t7_edci_fbe_v15_0.server_message.dissect(buffer, index, packet, parent, size_of_server_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Request Header Comp
+eurex_t7_edci_fbe_v15_0.request_header_comp = {}
+
+-- Size: Request Header Comp
+eurex_t7_edci_fbe_v15_0.request_header_comp.size =
+  eurex_t7_edci_fbe_v15_0.msg_seq_num.size + 
+  eurex_t7_edci_fbe_v15_0.sender_sub_id.size
+
+-- Display: Request Header Comp
+eurex_t7_edci_fbe_v15_0.request_header_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Header Comp
+eurex_t7_edci_fbe_v15_0.request_header_comp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, msg_seq_num = eurex_t7_edci_fbe_v15_0.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, sender_sub_id = eurex_t7_edci_fbe_v15_0.sender_sub_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Header Comp
+eurex_t7_edci_fbe_v15_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_t7_edci_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_edci_fbe_v15_0.request_header_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_edci_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Logout Request
+eurex_t7_edci_fbe_v15_0.user_logout_request = {}
+
+-- Read runtime size of: User Logout Request
+eurex_t7_edci_fbe_v15_0.user_logout_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Logout Request
+eurex_t7_edci_fbe_v15_0.user_logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Logout Request
+eurex_t7_edci_fbe_v15_0.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_edci_fbe_v15_0.username.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Logout Request
+eurex_t7_edci_fbe_v15_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local size_of_user_logout_request = eurex_t7_edci_fbe_v15_0.user_logout_request.size(buffer, offset)
+  local index = offset + size_of_user_logout_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.user_logout_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+    parent:set_len(size_of_user_logout_request)
+    local display = eurex_t7_edci_fbe_v15_0.user_logout_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+
+    return index
+  end
+end
+
+-- User Login Request
+eurex_t7_edci_fbe_v15_0.user_login_request = {}
+
+-- Read runtime size of: User Login Request
+eurex_t7_edci_fbe_v15_0.user_login_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Login Request
+eurex_t7_edci_fbe_v15_0.user_login_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Login Request
+eurex_t7_edci_fbe_v15_0.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_edci_fbe_v15_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String Nullable
+  index, password = eurex_t7_edci_fbe_v15_0.password.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Login Request
+eurex_t7_edci_fbe_v15_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local size_of_user_login_request = eurex_t7_edci_fbe_v15_0.user_login_request.size(buffer, offset)
+  local index = offset + size_of_user_login_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.user_login_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+    parent:set_len(size_of_user_login_request)
+    local display = eurex_t7_edci_fbe_v15_0.user_login_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+
+    return index
+  end
+end
+
+-- Trading Action Request
+eurex_t7_edci_fbe_v15_0.trading_action_request = {}
+
+-- Read runtime size of: Trading Action Request
+eurex_t7_edci_fbe_v15_0.trading_action_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Trading Action Request
+eurex_t7_edci_fbe_v15_0.trading_action_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Action Request
+eurex_t7_edci_fbe_v15_0.trading_action_request.fields = function(buffer, offset, packet, parent, size_of_trading_action_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, risk_limit_platform = eurex_t7_edci_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
+
+  -- Order Deletion Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_deletion_instruction = eurex_t7_edci_fbe_v15_0.order_deletion_instruction.dissect(buffer, index, packet, parent)
+
+  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_action_type = eurex_t7_edci_fbe_v15_0.party_action_type.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_edci_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_executing_unit = eurex_t7_edci_fbe_v15_0.party_id_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_unit = eurex_t7_edci_fbe_v15_0.target_party_id_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_edci_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Action Request
+eurex_t7_edci_fbe_v15_0.trading_action_request.dissect = function(buffer, offset, packet, parent, size_of_trading_action_request)
+  local size_of_trading_action_request = eurex_t7_edci_fbe_v15_0.trading_action_request.size(buffer, offset)
+  local index = offset + size_of_trading_action_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.trading_action_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
+    parent:set_len(size_of_trading_action_request)
+    local display = eurex_t7_edci_fbe_v15_0.trading_action_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
+
+    return index
+  end
+end
+
+-- Retransmit Request
+eurex_t7_edci_fbe_v15_0.retransmit_request = {}
+
+-- Read runtime size of: Retransmit Request
+eurex_t7_edci_fbe_v15_0.retransmit_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Retransmit Request
+eurex_t7_edci_fbe_v15_0.retransmit_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Request
+eurex_t7_edci_fbe_v15_0.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_beg_seq_num = eurex_t7_edci_fbe_v15_0.appl_beg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_end_seq_num = eurex_t7_edci_fbe_v15_0.appl_end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Party Id Group: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_group = eurex_t7_edci_fbe_v15_0.party_id_group.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_edci_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, ref_appl_id = eurex_t7_edci_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_edci_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Request
+eurex_t7_edci_fbe_v15_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local size_of_retransmit_request = eurex_t7_edci_fbe_v15_0.retransmit_request.size(buffer, offset)
+  local index = offset + size_of_retransmit_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.retransmit_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+    parent:set_len(size_of_retransmit_request)
+    local display = eurex_t7_edci_fbe_v15_0.retransmit_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+
+    return index
+  end
+end
+
+-- Logout Request
+eurex_t7_edci_fbe_v15_0.logout_request = {}
+
+-- Read runtime size of: Logout Request
+eurex_t7_edci_fbe_v15_0.logout_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logout Request
+eurex_t7_edci_fbe_v15_0.logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Request
+eurex_t7_edci_fbe_v15_0.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Request
+eurex_t7_edci_fbe_v15_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
+  local size_of_logout_request = eurex_t7_edci_fbe_v15_0.logout_request.size(buffer, offset)
+  local index = offset + size_of_logout_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.logout_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+    parent:set_len(size_of_logout_request)
+    local display = eurex_t7_edci_fbe_v15_0.logout_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+
+    return index
+  end
+end
+
+-- Logon Request
+eurex_t7_edci_fbe_v15_0.logon_request = {}
+
+-- Read runtime size of: Logon Request
+eurex_t7_edci_fbe_v15_0.logon_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logon Request
+eurex_t7_edci_fbe_v15_0.logon_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Request
+eurex_t7_edci_fbe_v15_0.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_edci_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, heart_bt_int = eurex_t7_edci_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
+
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_session_id = eurex_t7_edci_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
+  index, default_cstm_appl_ver_id = eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String Nullable
+  index, password = eurex_t7_edci_fbe_v15_0.password.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_edci_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Request
+eurex_t7_edci_fbe_v15_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
+  local size_of_logon_request = eurex_t7_edci_fbe_v15_0.logon_request.size(buffer, offset)
+  local index = offset + size_of_logon_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.logon_request, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+    parent:set_len(size_of_logon_request)
+    local display = eurex_t7_edci_fbe_v15_0.logon_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+
+    return index
+  end
+end
+
+-- Heartbeat
+eurex_t7_edci_fbe_v15_0.heartbeat = {}
+
+-- Read runtime size of: Heartbeat
+eurex_t7_edci_fbe_v15_0.heartbeat.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Heartbeat
+eurex_t7_edci_fbe_v15_0.heartbeat.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat
+eurex_t7_edci_fbe_v15_0.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_edci_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat
+eurex_t7_edci_fbe_v15_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = eurex_t7_edci_fbe_v15_0.heartbeat.size(buffer, offset)
+  local index = offset + size_of_heartbeat
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.heartbeat, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
+    local display = eurex_t7_edci_fbe_v15_0.heartbeat.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
+  end
+end
+
+-- Client Payload
+eurex_t7_edci_fbe_v15_0.client_payload = {}
+
+-- Dissect: Client Payload
+eurex_t7_edci_fbe_v15_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Heartbeat
+  if template_id == 10011 then
+    return eurex_t7_edci_fbe_v15_0.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Request
+  if template_id == 10000 then
+    return eurex_t7_edci_fbe_v15_0.logon_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if template_id == 10002 then
+    return eurex_t7_edci_fbe_v15_0.logout_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Request
+  if template_id == 10008 then
+    return eurex_t7_edci_fbe_v15_0.retransmit_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Action Request
+  if template_id == 10908 then
+    return eurex_t7_edci_fbe_v15_0.trading_action_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Login Request
+  if template_id == 10018 then
+    return eurex_t7_edci_fbe_v15_0.user_login_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Logout Request
+  if template_id == 10029 then
+    return eurex_t7_edci_fbe_v15_0.user_logout_request.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Message
+eurex_t7_edci_fbe_v15_0.client_message = {}
+
+-- Display: Client Message
+eurex_t7_edci_fbe_v15_0.client_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Message
+eurex_t7_edci_fbe_v15_0.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_t7_edci_fbe_v15_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 2, 2):le_uint()
+
+  -- Client Payload: Runtime Type with 7 branches
+  index = eurex_t7_edci_fbe_v15_0.client_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Client Message
+eurex_t7_edci_fbe_v15_0.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
+  local index = offset + size_of_client_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_eurex_t7_edci_fbe_v15_0.fields.client_message, buffer(offset, 0))
+    local current = eurex_t7_edci_fbe_v15_0.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    parent:set_len(size_of_client_message)
+    local display = eurex_t7_edci_fbe_v15_0.client_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_edci_fbe_v15_0.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Message
+local client_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_t7_edci_fbe_v15_0.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+eurex_t7_edci_fbe_v15_0.client_packet = {}
+
+-- Verify required size of Tcp packet
+eurex_t7_edci_fbe_v15_0.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= eurex_t7_edci_fbe_v15_0.message_header.size
+end
+
+-- Dissect Client Packet
+eurex_t7_edci_fbe_v15_0.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Message
+  local end_of_payload = buffer:len()
+
+  -- Client Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_message = client_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_t7_edci_fbe_v15_0.client_message.dissect(buffer, index, packet, parent, size_of_client_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -7761,6 +7881,71 @@ end
 function omi_eurex_t7_edci_fbe_v15_0.init()
 end
 
+-- Connection roles for Eurex T7 Edci Fbe 15.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+eurex_t7_edci_fbe_v15_0.role = function(packet)
+  if omi_eurex_t7_edci_fbe_v15_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_eurex_t7_edci_fbe_v15_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_eurex_t7_edci_fbe_v15_0.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_eurex_t7_edci_fbe_v15_0.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+eurex_t7_edci_fbe_v15_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Eurex T7 Edci Fbe 15.0
 function omi_eurex_t7_edci_fbe_v15_0.dissector(buffer, packet, parent)
 
@@ -7769,8 +7954,194 @@ function omi_eurex_t7_edci_fbe_v15_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_t7_edci_fbe_v15_0, buffer(), omi_eurex_t7_edci_fbe_v15_0.description, "("..buffer:len().." Bytes)")
-  return eurex_t7_edci_fbe_v15_0.packet.dissect(buffer, packet, protocol)
+  local role = eurex_t7_edci_fbe_v15_0.role(packet)
+  if role == "initiator" then
+    return eurex_t7_edci_fbe_v15_0.client_packet.dissect(buffer, packet, protocol)
+  end
+  return eurex_t7_edci_fbe_v15_0.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+eurex_t7_edci_fbe_v15_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Heartbeat
+  if template_id == 10011 then
+    return true
+  end
+
+  -- Logon Request
+  if template_id == 10000 then
+    return true
+  end
+
+  -- Logout Request
+  if template_id == 10002 then
+    return true
+  end
+
+  -- Retransmit Request
+  if template_id == 10008 then
+    return true
+  end
+
+  -- Trading Action Request
+  if template_id == 10908 then
+    return true
+  end
+
+  -- User Login Request
+  if template_id == 10018 then
+    return true
+  end
+
+  -- User Logout Request
+  if template_id == 10029 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+eurex_t7_edci_fbe_v15_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Cross Request Notification
+  if template_id == 10907 then
+    return true
+  end
+
+  -- Delete Order Broadcast
+  if template_id == 10902 then
+    return true
+  end
+
+  -- Enter Clip Request Notification
+  if template_id == 10906 then
+    return true
+  end
+
+  -- Forced Logout Notification
+  if template_id == 10012 then
+    return true
+  end
+
+  -- Heartbeat Notification
+  if template_id == 10023 then
+    return true
+  end
+
+  -- Legal Notification Broadcast
+  if template_id == 10035 then
+    return true
+  end
+
+  -- Logon Response
+  if template_id == 10001 then
+    return true
+  end
+
+  -- Logout Response
+  if template_id == 10003 then
+    return true
+  end
+
+  -- Order Exec Report Broadcast
+  if template_id == 10901 then
+    return true
+  end
+
+  -- Order Reject Notification
+  if template_id == 10014 then
+    return true
+  end
+
+  -- Partition List Notification
+  if template_id == 10037 then
+    return true
+  end
+
+  -- Party Action Report
+  if template_id == 10038 then
+    return true
+  end
+
+  -- Party Entitlements Update Report
+  if template_id == 10034 then
+    return true
+  end
+
+  -- Reject
+  if template_id == 10010 then
+    return true
+  end
+
+  -- Retransmit Response
+  if template_id == 10009 then
+    return true
+  end
+
+  -- Rfq Notification
+  if template_id == 10905 then
+    return true
+  end
+
+  -- Risk Notification Broadcast
+  if template_id == 10033 then
+    return true
+  end
+
+  -- Service Availability Market Broadcast
+  if template_id == 10044 then
+    return true
+  end
+
+  -- Session List Notification
+  if template_id == 10036 then
+    return true
+  end
+
+  -- Session Status Broadcast
+  if template_id == 10903 then
+    return true
+  end
+
+  -- Status Broadcast
+  if template_id == 10045 then
+    return true
+  end
+
+  -- Trading Action Response
+  if template_id == 10909 then
+    return true
+  end
+
+  -- User Login Response
+  if template_id == 10019 then
+    return true
+  end
+
+  -- User Logout Response
+  if template_id == 10024 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -7778,9 +8149,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Eurex T7 Edci Fbe 15.0 (Tcp)
-local function omi_eurex_t7_edci_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
+local function omi_eurex_t7_edci_fbe_v15_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not eurex_t7_edci_fbe_v15_0.packet.requiredsize(buffer) then return false end
+  if not eurex_t7_edci_fbe_v15_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_edci_fbe_v15_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_t7_edci_fbe_v15_0
@@ -7789,9 +8163,44 @@ local function omi_eurex_t7_edci_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Eurex T7 Edci Fbe 15.0
-omi_eurex_t7_edci_fbe_v15_0:register_heuristic("tcp", omi_eurex_t7_edci_fbe_v15_0_tcp_heuristic)
+-- Dissector Heuristic for Eurex T7 Edci Fbe 15.0 (Tcp)
+local function omi_eurex_t7_edci_fbe_v15_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not eurex_t7_edci_fbe_v15_0.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_edci_fbe_v15_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_eurex_t7_edci_fbe_v15_0
+  omi_eurex_t7_edci_fbe_v15_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Eurex T7 Edci Fbe 15.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_eurex_t7_edci_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
+  local role = eurex_t7_edci_fbe_v15_0.role(packet)
+  local first, second = omi_eurex_t7_edci_fbe_v15_0_tcp_initiator_heuristic, omi_eurex_t7_edci_fbe_v15_0_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  eurex_t7_edci_fbe_v15_0.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  eurex_t7_edci_fbe_v15_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Eurex T7 Edci Fbe 15.0
+omi_eurex_t7_edci_fbe_v15_0:register_heuristic("tcp", omi_eurex_t7_edci_fbe_v15_0_tcp_heuristic)
 -- Register Eurex T7 Edci Fbe 15.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_eurex_t7_edci_fbe_v15_0)

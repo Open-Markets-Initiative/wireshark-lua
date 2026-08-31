@@ -577,9 +577,11 @@ omi_eurex_t7_eti_fbe_v15_0.fields.var_text_len = ProtoField.new("Var Text Len", 
 omi_eurex_t7_eti_fbe_v15_0.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v15.0.vega", ftypes.DOUBLE)
 
 -- Eurex T7 Eti Fbe 15.0 Headers
-omi_eurex_t7_eti_fbe_v15_0.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v15.0.message", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v15_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v15.0.clientmessage", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v15_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v15.0.clientpacket", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v15_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v15.0.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v15_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v15.0.packet", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v15_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v15.0.servermessage", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v15_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v15.0.serverpacket", ftypes.STRING)
 
 -- Eurex T7 Eti 15.0 Application Messages
 omi_eurex_t7_eti_fbe_v15_0.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v15.0.addcomplexinstrumentrequest", ftypes.STRING)
@@ -806,6 +808,14 @@ show.structs = true
 show.indexes = true
 
 -- Register Eurex T7 Eti Fbe 15.0 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_eurex_t7_eti_fbe_v15_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_eurex_t7_eti_fbe_v15_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_eurex_t7_eti_fbe_v15_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_eurex_t7_eti_fbe_v15_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_eti_fbe_v15_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eti_fbe_v15_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -17787,112 +17797,6 @@ eurex_t7_eti_fbe_v15_0.user_logout_response.dissect = function(buffer, offset, p
   end
 end
 
--- Request Header Comp
-eurex_t7_eti_fbe_v15_0.request_header_comp = {}
-
--- Size: Request Header Comp
-eurex_t7_eti_fbe_v15_0.request_header_comp.size =
-  eurex_t7_eti_fbe_v15_0.msg_seq_num.size + 
-  eurex_t7_eti_fbe_v15_0.sender_sub_id.size
-
--- Display: Request Header Comp
-eurex_t7_eti_fbe_v15_0.request_header_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Header Comp
-eurex_t7_eti_fbe_v15_0.request_header_comp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, msg_seq_num = eurex_t7_eti_fbe_v15_0.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, sender_sub_id = eurex_t7_eti_fbe_v15_0.sender_sub_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Header Comp
-eurex_t7_eti_fbe_v15_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.request_header_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Logout Request
-eurex_t7_eti_fbe_v15_0.user_logout_request = {}
-
--- Read runtime size of: User Logout Request
-eurex_t7_eti_fbe_v15_0.user_logout_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Logout Request
-eurex_t7_eti_fbe_v15_0.user_logout_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Logout Request
-eurex_t7_eti_fbe_v15_0.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Logout Request
-eurex_t7_eti_fbe_v15_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local size_of_user_logout_request = eurex_t7_eti_fbe_v15_0.user_logout_request.size(buffer, offset)
-  local index = offset + size_of_user_logout_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_logout_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-    parent:set_len(size_of_user_logout_request)
-    local display = eurex_t7_eti_fbe_v15_0.user_logout_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-
-    return index
-  end
-end
-
 -- User Login Response
 eurex_t7_eti_fbe_v15_0.user_login_response = {}
 
@@ -17941,698 +17845,6 @@ eurex_t7_eti_fbe_v15_0.user_login_response.dissect = function(buffer, offset, pa
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.user_login_response.fields(buffer, offset, packet, parent, size_of_user_login_response)
-
-    return index
-  end
-end
-
--- User Login Request Encrypted
-eurex_t7_eti_fbe_v15_0.user_login_request_encrypted = {}
-
--- Read runtime size of: User Login Request Encrypted
-eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Login Request Encrypted
-eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Login Request Encrypted
-eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields = function(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
-
-  -- Encrypted Password: 684 Byte Ascii String Nullable
-  index, encrypted_password = eurex_t7_eti_fbe_v15_0.encrypted_password.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Login Request Encrypted
-eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.dissect = function(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
-  local size_of_user_login_request_encrypted = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.size(buffer, offset)
-  local index = offset + size_of_user_login_request_encrypted
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_login_request_encrypted, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
-    parent:set_len(size_of_user_login_request_encrypted)
-    local display = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
-
-    return index
-  end
-end
-
--- User Login Request
-eurex_t7_eti_fbe_v15_0.user_login_request = {}
-
--- Read runtime size of: User Login Request
-eurex_t7_eti_fbe_v15_0.user_login_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Login Request
-eurex_t7_eti_fbe_v15_0.user_login_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Login Request
-eurex_t7_eti_fbe_v15_0.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_t7_eti_fbe_v15_0.password.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Login Request
-eurex_t7_eti_fbe_v15_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local size_of_user_login_request = eurex_t7_eti_fbe_v15_0.user_login_request.size(buffer, offset)
-  local index = offset + size_of_user_login_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_login_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-    parent:set_len(size_of_user_login_request)
-    local display = eurex_t7_eti_fbe_v15_0.user_login_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-
-    return index
-  end
-end
-
--- Underlying Stip Grp Comp
-eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp = {}
-
--- Size: Underlying Stip Grp Comp
-eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.underlying_stip_value.size + 
-  eurex_t7_eti_fbe_v15_0.underlying_stip_type.size + 
-  eurex_t7_eti_fbe_v15_0.pad1.size
-
--- Display: Underlying Stip Grp Comp
-eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Underlying Stip Grp Comp
-eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
-  local index = offset
-
-  -- Implicit Underlying Stip Grp Comp Index
-  if underlying_stip_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Underlying Stip Value: 32 Byte Ascii String Nullable
-  index, underlying_stip_value = eurex_t7_eti_fbe_v15_0.underlying_stip_value.dissect(buffer, index, packet, parent)
-
-  -- Underlying Stip Type: 7 Byte Ascii String Enum with 1 values
-  index, underlying_stip_type = eurex_t7_eti_fbe_v15_0.underlying_stip_type.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Underlying Stip Grp Comp
-eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.underlying_stip_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
-  end
-end
-
--- Instrument Attribute Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp = {}
-
--- Size: Instrument Attribute Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.instr_attrib_type.size + 
-  eurex_t7_eti_fbe_v15_0.instr_attrib_value.size + 
-  eurex_t7_eti_fbe_v15_0.pad7.size
-
--- Display: Instrument Attribute Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrument Attribute Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
-  local index = offset
-
-  -- Implicit Instrument Attribute Grp Comp Index
-  if instrument_attribute_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, instr_attrib_type = eurex_t7_eti_fbe_v15_0.instr_attrib_type.dissect(buffer, index, packet, parent)
-
-  -- Instr Attrib Value: 32 Byte Ascii String Nullable
-  index, instr_attrib_value = eurex_t7_eti_fbe_v15_0.instr_attrib_value.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Attribute Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_attribute_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
-  end
-end
-
--- Instrument Event Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp = {}
-
--- Size: Instrument Event Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.event_date.size + 
-  eurex_t7_eti_fbe_v15_0.event_type.size + 
-  eurex_t7_eti_fbe_v15_0.pad3.size
-
--- Display: Instrument Event Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrument Event Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
-  local index = offset
-
-  -- Implicit Instrument Event Grp Comp Index
-  if instrument_event_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Event Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, event_date = eurex_t7_eti_fbe_v15_0.event_date.dissect(buffer, index, packet, parent)
-
-  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, event_type = eurex_t7_eti_fbe_v15_0.event_type.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Event Grp Comp
-eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_event_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
-  end
-end
-
--- Trd Instrmnt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp = {}
-
--- Size: Trd Instrmnt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.leg_security_id.size + 
-  eurex_t7_eti_fbe_v15_0.leg_price.size + 
-  eurex_t7_eti_fbe_v15_0.leg_qty.size
-
--- Display: Trd Instrmnt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trd Instrmnt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  local index = offset
-
-  -- Implicit Trd Instrmnt Leg Grp Comp Index
-  if trd_instrmnt_leg_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, leg_security_id = eurex_t7_eti_fbe_v15_0.leg_security_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_price = eurex_t7_eti_fbe_v15_0.leg_price.dissect(buffer, index, packet, parent)
-
-  -- Leg Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_qty = eurex_t7_eti_fbe_v15_0.leg_qty.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trd Instrmnt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trd_instrmnt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  end
-end
-
--- Side Alloc Ext Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp = {}
-
--- Size: Side Alloc Ext Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_client_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.size + 
-  eurex_t7_eti_fbe_v15_0.executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.pad1.size + 
-  eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.trade_alloc_status.size + 
-  eurex_t7_eti_fbe_v15_0.trading_capacity.size + 
-  eurex_t7_eti_fbe_v15_0.position_effect.size + 
-  eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.size + 
-  eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.size + 
-  eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.size + 
-  eurex_t7_eti_fbe_v15_0.order_origination.size + 
-  eurex_t7_eti_fbe_v15_0.account.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_position_account.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_1.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_2.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_3.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_beneficiary.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_location_id.size + 
-  eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.size + 
-  eurex_t7_eti_fbe_v15_0.compliance_text.size + 
-  eurex_t7_eti_fbe_v15_0.party_end_client_identification.size + 
-  eurex_t7_eti_fbe_v15_0.pad5.size
-
--- Display: Side Alloc Ext Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Side Alloc Ext Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
-  local index = offset
-
-  -- Implicit Side Alloc Ext Grp Comp Index
-  if side_alloc_ext_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Tes Enrichment Rule Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tes_enrichment_rule_id = eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trade_alloc_status = eurex_t7_eti_fbe_v15_0.trade_alloc_status.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Side Alloc Ext Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_ext_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
-  end
-end
-
--- Upload Tes Trade Request
-eurex_t7_eti_fbe_v15_0.upload_tes_trade_request = {}
-
--- Read runtime size of: Upload Tes Trade Request
-eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Upload Tes Trade Request
-eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Upload Tes Trade Request
-eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
-
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
-
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
-
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
-
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_trade_quantity = eurex_t7_eti_fbe_v15_0.related_trade_quantity.dissect(buffer, index, packet, parent)
-
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_settlement_date = eurex_t7_eti_fbe_v15_0.underlying_settlement_date.dissect(buffer, index, packet, parent)
-
-  -- Underlying Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_maturity_date = eurex_t7_eti_fbe_v15_0.underlying_maturity_date.dissect(buffer, index, packet, parent)
-
-  -- Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, related_trade_id = eurex_t7_eti_fbe_v15_0.related_trade_id.dissect(buffer, index, packet, parent)
-
-  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
-
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
-
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
-
-  -- No Events: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_events = eurex_t7_eti_fbe_v15_0.no_events.dissect(buffer, index, packet, parent)
-
-  -- No Instr Attrib: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_instr_attrib = eurex_t7_eti_fbe_v15_0.no_instr_attrib.dissect(buffer, index, packet, parent)
-
-  -- No Underlying Stips: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_underlying_stips = eurex_t7_eti_fbe_v15_0.no_underlying_stips.dissect(buffer, index, packet, parent)
-
-  -- Skip Validations: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, skip_validations = eurex_t7_eti_fbe_v15_0.skip_validations.dissect(buffer, index, packet, parent)
-
-  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trd_rpt_status = eurex_t7_eti_fbe_v15_0.trd_rpt_status.dissect(buffer, index, packet, parent)
-
-  -- Trade Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, trade_platform = eurex_t7_eti_fbe_v15_0.trade_platform.dissect(buffer, index, packet, parent)
-
-  -- Hedge Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, hedge_type = eurex_t7_eti_fbe_v15_0.hedge_type.dissect(buffer, index, packet, parent)
-
-  -- Party Id Settlement Location: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, party_id_settlement_location = eurex_t7_eti_fbe_v15_0.party_id_settlement_location.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Min Lot Size: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_min_lot_size = eurex_t7_eti_fbe_v15_0.value_check_type_min_lot_size.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Text: 20 Byte Ascii String Nullable
-  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Underlying Security Id: 12 Byte Ascii String Nullable
-  index, underlying_security_id = eurex_t7_eti_fbe_v15_0.underlying_security_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Security Desc: 30 Byte Ascii String Nullable
-  index, underlying_security_desc = eurex_t7_eti_fbe_v15_0.underlying_security_desc.dissect(buffer, index, packet, parent)
-
-  -- Underlying Currency: 3 Byte Ascii String Nullable
-  index, underlying_currency = eurex_t7_eti_fbe_v15_0.underlying_currency.dissect(buffer, index, packet, parent)
-
-  -- Underlying Issuer: 30 Byte Ascii String Nullable
-  index, underlying_issuer = eurex_t7_eti_fbe_v15_0.underlying_issuer.dissect(buffer, index, packet, parent)
-
-  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Side Alloc Ext Grp Comp
-  for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_ext_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.dissect(buffer, index, packet, parent, side_alloc_ext_grp_comp_index)
-  end
-
-  -- Repeating: Trd Instrmnt Leg Grp Comp
-  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  end
-
-  -- Repeating: Instrument Event Grp Comp
-  for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect(buffer, index, packet, parent, instrument_event_grp_comp_index)
-  end
-
-  -- Repeating: Instrument Attribute Grp Comp
-  for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
-  end
-
-  -- Repeating: Underlying Stip Grp Comp
-  for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect(buffer, index, packet, parent, underlying_stip_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Upload Tes Trade Request
-eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
-  local size_of_upload_tes_trade_request = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.size(buffer, offset)
-  local index = offset + size_of_upload_tes_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.upload_tes_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
-    parent:set_len(size_of_upload_tes_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
 
     return index
   end
@@ -18824,138 +18036,6 @@ eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_response.dissect = f
   end
 end
 
--- Rra Update Base Party Grp Comp
-eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp = {}
-
--- Size: Rra Update Base Party Grp Comp
-eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_long.size + 
-  eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_short.size + 
-  eurex_t7_eti_fbe_v15_0.risk_limit_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.size + 
-  eurex_t7_eti_fbe_v15_0.pad7.size
-
--- Display: Rra Update Base Party Grp Comp
-eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Rra Update Base Party Grp Comp
-eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields = function(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
-  local index = offset
-
-  -- Implicit Rra Update Base Party Grp Comp Index
-  if rra_update_base_party_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rra_update_base_party_grp_comp_index, rra_update_base_party_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Remaining Risk Allowance Base Long: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, remaining_risk_allowance_base_long = eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_long.dissect(buffer, index, packet, parent)
-
-  -- Remaining Risk Allowance Base Short: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, remaining_risk_allowance_base_short = eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_short.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, risk_limit_id = eurex_t7_eti_fbe_v15_0.risk_limit_id.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
-  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Rra Update Base Party Grp Comp
-eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.dissect = function(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rra_update_base_party_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
-  end
-end
-
--- Update Remaining Risk Allowance Base Request
-eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request = {}
-
--- Read runtime size of: Update Remaining Risk Allowance Base Request
-eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Update Remaining Risk Allowance Base Request
-eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Update Remaining Risk Allowance Base Request
-eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields = function(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- No Party Risk Limits: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_party_risk_limits = eurex_t7_eti_fbe_v15_0.no_party_risk_limits.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Rra Update Base Party Grp Comp
-  for rra_update_base_party_grp_comp_index = 1, no_party_risk_limits do
-    index, rra_update_base_party_grp_comp = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.dissect(buffer, index, packet, parent, rra_update_base_party_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Update Remaining Risk Allowance Base Request
-eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.dissect = function(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
-  local size_of_update_remaining_risk_allowance_base_request = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.size(buffer, offset)
-  local index = offset + size_of_update_remaining_risk_allowance_base_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.update_remaining_risk_allowance_base_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
-    parent:set_len(size_of_update_remaining_risk_allowance_base_request)
-    local display = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
-
-    return index
-  end
-end
-
 -- Update Reference Prices Response
 eurex_t7_eti_fbe_v15_0.update_reference_prices_response = {}
 
@@ -19009,74 +18089,6 @@ eurex_t7_eti_fbe_v15_0.update_reference_prices_response.dissect = function(buffe
   end
 end
 
--- Update Reference Price Request
-eurex_t7_eti_fbe_v15_0.update_reference_price_request = {}
-
--- Read runtime size of: Update Reference Price Request
-eurex_t7_eti_fbe_v15_0.update_reference_price_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Update Reference Price Request
-eurex_t7_eti_fbe_v15_0.update_reference_price_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Update Reference Price Request
-eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields = function(buffer, offset, packet, parent, size_of_update_reference_price_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Trading Reference Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trading_reference_price = eurex_t7_eti_fbe_v15_0.trading_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Update Reference Price Request
-eurex_t7_eti_fbe_v15_0.update_reference_price_request.dissect = function(buffer, offset, packet, parent, size_of_update_reference_price_request)
-  local size_of_update_reference_price_request = eurex_t7_eti_fbe_v15_0.update_reference_price_request.size(buffer, offset)
-  local index = offset + size_of_update_reference_price_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.update_reference_price_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields(buffer, offset, packet, parent, size_of_update_reference_price_request)
-    parent:set_len(size_of_update_reference_price_request)
-    local display = eurex_t7_eti_fbe_v15_0.update_reference_price_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields(buffer, offset, packet, parent, size_of_update_reference_price_request)
-
-    return index
-  end
-end
-
 -- Unsubscribe Response
 eurex_t7_eti_fbe_v15_0.unsubscribe_response = {}
 
@@ -19125,68 +18137,6 @@ eurex_t7_eti_fbe_v15_0.unsubscribe_response.dissect = function(buffer, offset, p
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
-
-    return index
-  end
-end
-
--- Unsubscribe Request
-eurex_t7_eti_fbe_v15_0.unsubscribe_request = {}
-
--- Read runtime size of: Unsubscribe Request
-eurex_t7_eti_fbe_v15_0.unsubscribe_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Unsubscribe Request
-eurex_t7_eti_fbe_v15_0.unsubscribe_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsubscribe Request
-eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, ref_appl_sub_id = eurex_t7_eti_fbe_v15_0.ref_appl_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unsubscribe Request
-eurex_t7_eti_fbe_v15_0.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
-  local size_of_unsubscribe_request = eurex_t7_eti_fbe_v15_0.unsubscribe_request.size(buffer, offset)
-  local index = offset + size_of_unsubscribe_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.unsubscribe_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
-    parent:set_len(size_of_unsubscribe_request)
-    local display = eurex_t7_eti_fbe_v15_0.unsubscribe_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
 
     return index
   end
@@ -19449,83 +18399,6 @@ eurex_t7_eti_fbe_v15_0.trading_action_response.dissect = function(buffer, offset
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.trading_action_response.fields(buffer, offset, packet, parent, size_of_trading_action_response)
-
-    return index
-  end
-end
-
--- Trading Action Request
-eurex_t7_eti_fbe_v15_0.trading_action_request = {}
-
--- Read runtime size of: Trading Action Request
-eurex_t7_eti_fbe_v15_0.trading_action_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Trading Action Request
-eurex_t7_eti_fbe_v15_0.trading_action_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trading Action Request
-eurex_t7_eti_fbe_v15_0.trading_action_request.fields = function(buffer, offset, packet, parent, size_of_trading_action_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
-
-  -- Order Deletion Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_deletion_instruction = eurex_t7_eti_fbe_v15_0.order_deletion_instruction.dissect(buffer, index, packet, parent)
-
-  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_action_type = eurex_t7_eti_fbe_v15_0.party_action_type.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_executing_unit = eurex_t7_eti_fbe_v15_0.party_id_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_unit = eurex_t7_eti_fbe_v15_0.target_party_id_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trading Action Request
-eurex_t7_eti_fbe_v15_0.trading_action_request.dissect = function(buffer, offset, packet, parent, size_of_trading_action_request)
-  local size_of_trading_action_request = eurex_t7_eti_fbe_v15_0.trading_action_request.size(buffer, offset)
-  local index = offset + size_of_trading_action_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trading_action_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
-    parent:set_len(size_of_trading_action_request)
-    local display = eurex_t7_eti_fbe_v15_0.trading_action_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
 
     return index
   end
@@ -20014,6 +18887,388 @@ eurex_t7_eti_fbe_v15_0.tm_trading_session_status_broadcast.dissect = function(bu
     eurex_t7_eti_fbe_v15_0.tm_trading_session_status_broadcast.fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
 
     return index
+  end
+end
+
+-- Underlying Stip Grp Comp
+eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp = {}
+
+-- Size: Underlying Stip Grp Comp
+eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.underlying_stip_value.size + 
+  eurex_t7_eti_fbe_v15_0.underlying_stip_type.size + 
+  eurex_t7_eti_fbe_v15_0.pad1.size
+
+-- Display: Underlying Stip Grp Comp
+eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Underlying Stip Grp Comp
+eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
+  local index = offset
+
+  -- Implicit Underlying Stip Grp Comp Index
+  if underlying_stip_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.underlying_stip_grp_comp_index, underlying_stip_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Underlying Stip Value: 32 Byte Ascii String Nullable
+  index, underlying_stip_value = eurex_t7_eti_fbe_v15_0.underlying_stip_value.dissect(buffer, index, packet, parent)
+
+  -- Underlying Stip Type: 7 Byte Ascii String Enum with 1 values
+  index, underlying_stip_type = eurex_t7_eti_fbe_v15_0.underlying_stip_type.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Underlying Stip Grp Comp
+eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect = function(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.underlying_stip_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.fields(buffer, offset, packet, parent, underlying_stip_grp_comp_index)
+  end
+end
+
+-- Instrument Attribute Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp = {}
+
+-- Size: Instrument Attribute Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.instr_attrib_type.size + 
+  eurex_t7_eti_fbe_v15_0.instr_attrib_value.size + 
+  eurex_t7_eti_fbe_v15_0.pad7.size
+
+-- Display: Instrument Attribute Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Attribute Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
+  local index = offset
+
+  -- Implicit Instrument Attribute Grp Comp Index
+  if instrument_attribute_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_attribute_grp_comp_index, instrument_attribute_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Instr Attrib Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, instr_attrib_type = eurex_t7_eti_fbe_v15_0.instr_attrib_type.dissect(buffer, index, packet, parent)
+
+  -- Instr Attrib Value: 32 Byte Ascii String Nullable
+  index, instr_attrib_value = eurex_t7_eti_fbe_v15_0.instr_attrib_value.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Attribute Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_attribute_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.fields(buffer, offset, packet, parent, instrument_attribute_grp_comp_index)
+  end
+end
+
+-- Instrument Event Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp = {}
+
+-- Size: Instrument Event Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.event_date.size + 
+  eurex_t7_eti_fbe_v15_0.event_type.size + 
+  eurex_t7_eti_fbe_v15_0.pad3.size
+
+-- Display: Instrument Event Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Event Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
+  local index = offset
+
+  -- Implicit Instrument Event Grp Comp Index
+  if instrument_event_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_event_grp_comp_index, instrument_event_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Event Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, event_date = eurex_t7_eti_fbe_v15_0.event_date.dissect(buffer, index, packet, parent)
+
+  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, event_type = eurex_t7_eti_fbe_v15_0.event_type.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Event Grp Comp
+eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect = function(buffer, offset, packet, parent, instrument_event_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrument_event_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.fields(buffer, offset, packet, parent, instrument_event_grp_comp_index)
+  end
+end
+
+-- Trd Instrmnt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp = {}
+
+-- Size: Trd Instrmnt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.leg_security_id.size + 
+  eurex_t7_eti_fbe_v15_0.leg_price.size + 
+  eurex_t7_eti_fbe_v15_0.leg_qty.size
+
+-- Display: Trd Instrmnt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trd Instrmnt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  local index = offset
+
+  -- Implicit Trd Instrmnt Leg Grp Comp Index
+  if trd_instrmnt_leg_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trd_instrmnt_leg_grp_comp_index, trd_instrmnt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, leg_security_id = eurex_t7_eti_fbe_v15_0.leg_security_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_price = eurex_t7_eti_fbe_v15_0.leg_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_qty = eurex_t7_eti_fbe_v15_0.leg_qty.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trd Instrmnt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trd_instrmnt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.fields(buffer, offset, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  end
+end
+
+-- Side Alloc Ext Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp = {}
+
+-- Size: Side Alloc Ext Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_client_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.size + 
+  eurex_t7_eti_fbe_v15_0.executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.pad1.size + 
+  eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.trade_alloc_status.size + 
+  eurex_t7_eti_fbe_v15_0.trading_capacity.size + 
+  eurex_t7_eti_fbe_v15_0.position_effect.size + 
+  eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.size + 
+  eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.size + 
+  eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.size + 
+  eurex_t7_eti_fbe_v15_0.order_origination.size + 
+  eurex_t7_eti_fbe_v15_0.account.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_position_account.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_1.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_2.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_3.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_beneficiary.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_location_id.size + 
+  eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.size + 
+  eurex_t7_eti_fbe_v15_0.compliance_text.size + 
+  eurex_t7_eti_fbe_v15_0.party_end_client_identification.size + 
+  eurex_t7_eti_fbe_v15_0.pad5.size
+
+-- Display: Side Alloc Ext Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Side Alloc Ext Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
+  local index = offset
+
+  -- Implicit Side Alloc Ext Grp Comp Index
+  if side_alloc_ext_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_ext_grp_comp_index, side_alloc_ext_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Tes Enrichment Rule Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tes_enrichment_rule_id = eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trade_alloc_status = eurex_t7_eti_fbe_v15_0.trade_alloc_status.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- Pad5: 5 Byte
+  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Side Alloc Ext Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_ext_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.fields(buffer, offset, packet, parent, side_alloc_ext_grp_comp_index)
   end
 end
 
@@ -20833,77 +20088,6 @@ eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_response.dissect = function(b
   end
 end
 
--- Tes Inquire Boundary Prices Request
-eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request = {}
-
--- Read runtime size of: Tes Inquire Boundary Prices Request
-eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Tes Inquire Boundary Prices Request
-eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Tes Inquire Boundary Prices Request
-eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields = function(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Tes Inquire Boundary Prices Request
-eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.dissect = function(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
-  local size_of_tes_inquire_boundary_prices_request = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.size(buffer, offset)
-  local index = offset + size_of_tes_inquire_boundary_prices_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.tes_inquire_boundary_prices_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
-    parent:set_len(size_of_tes_inquire_boundary_prices_request)
-    local display = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
-
-    return index
-  end
-end
-
 -- Tes Execution Broadcast
 eurex_t7_eti_fbe_v15_0.tes_execution_broadcast = {}
 
@@ -21681,71 +20865,6 @@ eurex_t7_eti_fbe_v15_0.subscribe_response.dissect = function(buffer, offset, pac
   end
 end
 
--- Subscribe Request
-eurex_t7_eti_fbe_v15_0.subscribe_request = {}
-
--- Read runtime size of: Subscribe Request
-eurex_t7_eti_fbe_v15_0.subscribe_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Subscribe Request
-eurex_t7_eti_fbe_v15_0.subscribe_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subscribe Request
-eurex_t7_eti_fbe_v15_0.subscribe_request.fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, subscription_scope = eurex_t7_eti_fbe_v15_0.subscription_scope.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subscribe Request
-eurex_t7_eti_fbe_v15_0.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
-  local size_of_subscribe_request = eurex_t7_eti_fbe_v15_0.subscribe_request.size(buffer, offset)
-  local index = offset + size_of_subscribe_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.subscribe_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
-    parent:set_len(size_of_subscribe_request)
-    local display = eurex_t7_eti_fbe_v15_0.subscribe_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
-
-    return index
-  end
-end
-
 -- Status Broadcast
 eurex_t7_eti_fbe_v15_0.status_broadcast = {}
 
@@ -22021,324 +21140,6 @@ eurex_t7_eti_fbe_v15_0.service_availability_broadcast.dissect = function(buffer,
   end
 end
 
--- Target Parties Comp
-eurex_t7_eti_fbe_v15_0.target_parties_comp = {}
-
--- Size: Target Parties Comp
-eurex_t7_eti_fbe_v15_0.target_parties_comp.size =
-  eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.leaves_qty_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.last_px_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.last_qty_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_5_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.party_order_origination_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.quote_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.charge_id_disclosure_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.target_party_executing_firm.size + 
-  eurex_t7_eti_fbe_v15_0.target_party_executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.party_detail_status.size + 
-  eurex_t7_eti_fbe_v15_0.party_detail_status_information.size + 
-  eurex_t7_eti_fbe_v15_0.pad6.size
-
--- Display: Target Parties Comp
-eurex_t7_eti_fbe_v15_0.target_parties_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Target Parties Comp
-eurex_t7_eti_fbe_v15_0.target_parties_comp.fields = function(buffer, offset, packet, parent, target_parties_comp_index)
-  local index = offset
-
-  -- Implicit Target Parties Comp Index
-  if target_parties_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.target_parties_comp_index, target_parties_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Side Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side_disclosure_instruction = eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Price Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_disclosure_instruction = eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, leaves_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.leaves_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Last Px Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, last_px_disclosure_instruction = eurex_t7_eti_fbe_v15_0.last_px_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Last Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, last_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.last_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5 Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, free_text_5_disclosure_instruction = eurex_t7_eti_fbe_v15_0.free_text_5_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Party Order Origination Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_order_origination_disclosure_instruction = eurex_t7_eti_fbe_v15_0.party_order_origination_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Quote Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, quote_instruction = eurex_t7_eti_fbe_v15_0.quote_instruction.dissect(buffer, index, packet, parent)
-
-  -- Charge Id Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, charge_id_disclosure_instruction = eurex_t7_eti_fbe_v15_0.charge_id_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
-  index, target_party_executing_firm = eurex_t7_eti_fbe_v15_0.target_party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
-  index, target_party_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, party_detail_status = eurex_t7_eti_fbe_v15_0.party_detail_status.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Status Information: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_detail_status_information = eurex_t7_eti_fbe_v15_0.party_detail_status_information.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Target Parties Comp
-eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect = function(buffer, offset, packet, parent, target_parties_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.target_parties_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.target_parties_comp.fields(buffer, offset, packet, parent, target_parties_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.target_parties_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.target_parties_comp.fields(buffer, offset, packet, parent, target_parties_comp_index)
-  end
-end
-
--- Srqs Update Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request = {}
-
--- Read runtime size of: Srqs Update Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Update Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Update Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
-
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
-
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
-
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
-
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_target_party_i_ds = eurex_t7_eti_fbe_v15_0.no_target_party_i_ds.dissect(buffer, index, packet, parent)
-
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, number_of_resp_disclosure_instruction = eurex_t7_eti_fbe_v15_0.number_of_resp_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Show Last Deal On Closure: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, show_last_deal_on_closure = eurex_t7_eti_fbe_v15_0.show_last_deal_on_closure.dissect(buffer, index, packet, parent)
-
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, quote_sub_type = eurex_t7_eti_fbe_v15_0.quote_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, respondent_type = eurex_t7_eti_fbe_v15_0.respondent_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Aggregation Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, trade_aggregation_trans_type = eurex_t7_eti_fbe_v15_0.trade_aggregation_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Condition: 1 Byte Ascii String Enum with 4 values
-  index, quote_condition = eurex_t7_eti_fbe_v15_0.quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  -- Party Order Origination Trader: 132 Byte Ascii String Nullable
-  index, party_order_origination_trader = eurex_t7_eti_fbe_v15_0.party_order_origination_trader.dissect(buffer, index, packet, parent)
-
-  -- Charge Id: 132 Byte Ascii String Nullable
-  index, charge_id = eurex_t7_eti_fbe_v15_0.charge_id.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Target Parties Comp
-  for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect(buffer, index, packet, parent, target_parties_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Srqs Update Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
-  local size_of_srqs_update_negotiation_request = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.size(buffer, offset)
-  local index = offset + size_of_srqs_update_negotiation_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_update_negotiation_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
-    parent:set_len(size_of_srqs_update_negotiation_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
-
-    return index
-  end
-end
-
--- Srqs Update Deal Status Request
-eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request = {}
-
--- Read runtime size of: Srqs Update Deal Status Request
-eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Update Deal Status Request
-eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Update Deal Status Request
-eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_price_stip_value = eurex_t7_eti_fbe_v15_0.underlying_price_stip_value.dissect(buffer, index, packet, parent)
-
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
-
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_qty = eurex_t7_eti_fbe_v15_0.last_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, trade_id = eurex_t7_eti_fbe_v15_0.trade_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, trd_rpt_status = eurex_t7_eti_fbe_v15_0.trd_rpt_status.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Update Deal Status Request
-eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
-  local size_of_srqs_update_deal_status_request = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.size(buffer, offset)
-  local index = offset + size_of_srqs_update_deal_status_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_update_deal_status_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
-    parent:set_len(size_of_srqs_update_deal_status_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
-
-    return index
-  end
-end
-
 -- Srqs Status Broadcast
 eurex_t7_eti_fbe_v15_0.srqs_status_broadcast = {}
 
@@ -22449,136 +21250,6 @@ eurex_t7_eti_fbe_v15_0.srqs_response.dissect = function(buffer, offset, packet, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.srqs_response.fields(buffer, offset, packet, parent, size_of_srqs_response)
-
-    return index
-  end
-end
-
--- Srqs Quoting Status Request
-eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request = {}
-
--- Read runtime size of: Srqs Quoting Status Request
-eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Quoting Status Request
-eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Quoting Status Request
-eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
-
-  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quoting_status = eurex_t7_eti_fbe_v15_0.quoting_status.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Quoting Status Request
-eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
-  local size_of_srqs_quoting_status_request = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.size(buffer, offset)
-  local index = offset + size_of_srqs_quoting_status_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_quoting_status_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
-    parent:set_len(size_of_srqs_quoting_status_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
-
-    return index
-  end
-end
-
--- Srqs Quote Snapshot Request
-eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request = {}
-
--- Read runtime size of: Srqs Quote Snapshot Request
-eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Quote Snapshot Request
-eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Quote Snapshot Request
-eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields = function(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Quote Snapshot Request
-eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
-  local size_of_srqs_quote_snapshot_request = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.size(buffer, offset)
-  local index = offset + size_of_srqs_quote_snapshot_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_quote_snapshot_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
-    parent:set_len(size_of_srqs_quote_snapshot_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
 
     return index
   end
@@ -22983,6 +21654,108 @@ eurex_t7_eti_fbe_v15_0.srqs_quote_notification.dissect = function(buffer, offset
   end
 end
 
+-- Target Parties Comp
+eurex_t7_eti_fbe_v15_0.target_parties_comp = {}
+
+-- Size: Target Parties Comp
+eurex_t7_eti_fbe_v15_0.target_parties_comp.size =
+  eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.leaves_qty_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.last_px_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.last_qty_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_5_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.party_order_origination_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.quote_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.charge_id_disclosure_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.target_party_executing_firm.size + 
+  eurex_t7_eti_fbe_v15_0.target_party_executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.party_detail_status.size + 
+  eurex_t7_eti_fbe_v15_0.party_detail_status_information.size + 
+  eurex_t7_eti_fbe_v15_0.pad6.size
+
+-- Display: Target Parties Comp
+eurex_t7_eti_fbe_v15_0.target_parties_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Target Parties Comp
+eurex_t7_eti_fbe_v15_0.target_parties_comp.fields = function(buffer, offset, packet, parent, target_parties_comp_index)
+  local index = offset
+
+  -- Implicit Target Parties Comp Index
+  if target_parties_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.target_parties_comp_index, target_parties_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Side Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_disclosure_instruction = eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Price Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, price_disclosure_instruction = eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, leaves_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.leaves_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Last Px Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, last_px_disclosure_instruction = eurex_t7_eti_fbe_v15_0.last_px_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Last Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, last_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.last_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5 Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, free_text_5_disclosure_instruction = eurex_t7_eti_fbe_v15_0.free_text_5_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Party Order Origination Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_order_origination_disclosure_instruction = eurex_t7_eti_fbe_v15_0.party_order_origination_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Quote Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, quote_instruction = eurex_t7_eti_fbe_v15_0.quote_instruction.dissect(buffer, index, packet, parent)
+
+  -- Charge Id Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, charge_id_disclosure_instruction = eurex_t7_eti_fbe_v15_0.charge_id_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
+  index, target_party_executing_firm = eurex_t7_eti_fbe_v15_0.target_party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
+  index, target_party_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, party_detail_status = eurex_t7_eti_fbe_v15_0.party_detail_status.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Status Information: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_detail_status_information = eurex_t7_eti_fbe_v15_0.party_detail_status_information.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Target Parties Comp
+eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect = function(buffer, offset, packet, parent, target_parties_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.target_parties_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.target_parties_comp.fields(buffer, offset, packet, parent, target_parties_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.target_parties_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.target_parties_comp.fields(buffer, offset, packet, parent, target_parties_comp_index)
+  end
+end
+
 -- Quot Req Legs Grp Comp
 eurex_t7_eti_fbe_v15_0.quot_req_legs_grp_comp = {}
 
@@ -23218,165 +21991,6 @@ eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_requester_notification.dissect = fu
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_requester_notification.fields(buffer, offset, packet, parent, size_of_srqs_open_negotiation_requester_notification)
-
-    return index
-  end
-end
-
--- Srqs Open Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request = {}
-
--- Read runtime size of: Srqs Open Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Open Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Open Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
-
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
-
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
-
-  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_sub_type = eurex_t7_eti_fbe_v15_0.security_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, quote_sub_type = eurex_t7_eti_fbe_v15_0.quote_sub_type.dissect(buffer, index, packet, parent)
-
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
-
-  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_target_party_i_ds = eurex_t7_eti_fbe_v15_0.no_target_party_i_ds.dissect(buffer, index, packet, parent)
-
-  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, number_of_resp_disclosure_instruction = eurex_t7_eti_fbe_v15_0.number_of_resp_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, respondent_type = eurex_t7_eti_fbe_v15_0.respondent_type.dissect(buffer, index, packet, parent)
-
-  -- Show Last Deal On Closure: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, show_last_deal_on_closure = eurex_t7_eti_fbe_v15_0.show_last_deal_on_closure.dissect(buffer, index, packet, parent)
-
-  -- Bid Px Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, bid_px_is_locked = eurex_t7_eti_fbe_v15_0.bid_px_is_locked.dissect(buffer, index, packet, parent)
-
-  -- Offer Px Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, offer_px_is_locked = eurex_t7_eti_fbe_v15_0.offer_px_is_locked.dissect(buffer, index, packet, parent)
-
-  -- Side Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side_is_locked = eurex_t7_eti_fbe_v15_0.side_is_locked.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_qty_is_locked = eurex_t7_eti_fbe_v15_0.order_qty_is_locked.dissect(buffer, index, packet, parent)
-
-  -- Trade Aggregation Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, trade_aggregation_trans_type = eurex_t7_eti_fbe_v15_0.trade_aggregation_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Condition: 1 Byte Ascii String Enum with 4 values
-  index, quote_condition = eurex_t7_eti_fbe_v15_0.quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: 20 Byte Ascii String Nullable
-  index, quote_req_id = eurex_t7_eti_fbe_v15_0.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Party Order Origination Trader: 132 Byte Ascii String Nullable
-  index, party_order_origination_trader = eurex_t7_eti_fbe_v15_0.party_order_origination_trader.dissect(buffer, index, packet, parent)
-
-  -- Charge Id: 132 Byte Ascii String Nullable
-  index, charge_id = eurex_t7_eti_fbe_v15_0.charge_id.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Quot Req Legs Grp Comp
-  for quot_req_legs_grp_comp_index = 1, no_legs do
-    index, quot_req_legs_grp_comp = eurex_t7_eti_fbe_v15_0.quot_req_legs_grp_comp.dissect(buffer, index, packet, parent, quot_req_legs_grp_comp_index)
-  end
-
-  -- Repeating: Target Parties Comp
-  for target_parties_comp_index = 1, no_target_party_i_ds do
-    index, target_parties_comp = eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect(buffer, index, packet, parent, target_parties_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Srqs Open Negotiation Request
-eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
-  local size_of_srqs_open_negotiation_request = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.size(buffer, offset)
-  local index = offset + size_of_srqs_open_negotiation_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_open_negotiation_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
-    parent:set_len(size_of_srqs_open_negotiation_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
 
     return index
   end
@@ -24032,454 +22646,6 @@ eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_response.dissect = function
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_response.fields(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_response)
-
-    return index
-  end
-end
-
--- Srqs Inquire Smart Respondent Request
-eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request = {}
-
--- Read runtime size of: Srqs Inquire Smart Respondent Request
-eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Inquire Smart Respondent Request
-eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Inquire Smart Respondent Request
-eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Eurex Volume Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, eurex_volume_ranking = eurex_t7_eti_fbe_v15_0.eurex_volume_ranking.dissect(buffer, index, packet, parent)
-
-  -- Enlight Rfq Avg Resp Time Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, enlight_rfq_avg_resp_time_ranking = eurex_t7_eti_fbe_v15_0.enlight_rfq_avg_resp_time_ranking.dissect(buffer, index, packet, parent)
-
-  -- Enlight Rfq Avg Resp Rate Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, enlight_rfq_avg_resp_rate_ranking = eurex_t7_eti_fbe_v15_0.enlight_rfq_avg_resp_rate_ranking.dissect(buffer, index, packet, parent)
-
-  -- Trade To Quote Ratio Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trade_to_quote_ratio_ranking = eurex_t7_eti_fbe_v15_0.trade_to_quote_ratio_ranking.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Inquire Smart Respondent Request
-eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
-  local size_of_srqs_inquire_smart_respondent_request = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.size(buffer, offset)
-  local index = offset + size_of_srqs_inquire_smart_respondent_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_inquire_smart_respondent_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
-    parent:set_len(size_of_srqs_inquire_smart_respondent_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
-
-    return index
-  end
-end
-
--- Srqs Hit Quote Grp Comp
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp = {}
-
--- Size: Srqs Hit Quote Grp Comp
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.order_qty.size + 
-  eurex_t7_eti_fbe_v15_0.price.size + 
-  eurex_t7_eti_fbe_v15_0.quote_id.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.pad7.size
-
--- Display: Srqs Hit Quote Grp Comp
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Hit Quote Grp Comp
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields = function(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
-  local index = offset
-
-  -- Implicit Srqs Hit Quote Grp Comp Index
-  if srqs_hit_quote_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_grp_comp_index, srqs_hit_quote_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_id = eurex_t7_eti_fbe_v15_0.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Hit Quote Grp Comp
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.dissect = function(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
-  end
-end
-
--- Srqs Hit Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request = {}
-
--- Read runtime size of: Srqs Hit Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Hit Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Hit Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
-
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
-
-  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_price_stip_value = eurex_t7_eti_fbe_v15_0.underlying_price_stip_value.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Hedging Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, hedging_instruction = eurex_t7_eti_fbe_v15_0.hedging_instruction.dissect(buffer, index, packet, parent)
-
-  -- No Srqs Quote Grps: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_srqs_quote_grps = eurex_t7_eti_fbe_v15_0.no_srqs_quote_grps.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Firm Trade Id: 20 Byte Ascii String Nullable
-  index, firm_trade_id = eurex_t7_eti_fbe_v15_0.firm_trade_id.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Srqs Hit Quote Grp Comp
-  for srqs_hit_quote_grp_comp_index = 1, no_srqs_quote_grps do
-    index, srqs_hit_quote_grp_comp = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.dissect(buffer, index, packet, parent, srqs_hit_quote_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Srqs Hit Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
-  local size_of_srqs_hit_quote_request = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.size(buffer, offset)
-  local index = offset + size_of_srqs_hit_quote_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
-    parent:set_len(size_of_srqs_hit_quote_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
-
-    return index
-  end
-end
-
--- Srqs Enter Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request = {}
-
--- Read runtime size of: Srqs Enter Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Srqs Enter Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Srqs Enter Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
-
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
-
-  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
-
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_size = eurex_t7_eti_fbe_v15_0.bid_size.dissect(buffer, index, packet, parent)
-
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_size = eurex_t7_eti_fbe_v15_0.offer_size.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
-
-  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Free Text 5: 132 Byte Ascii String Nullable
-  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Srqs Enter Quote Request
-eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
-  local size_of_srqs_enter_quote_request = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.size(buffer, offset)
-  local index = offset + size_of_srqs_enter_quote_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_enter_quote_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
-    parent:set_len(size_of_srqs_enter_quote_request)
-    local display = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
 
     return index
   end
@@ -25186,86 +23352,6 @@ eurex_t7_eti_fbe_v15_0.risk_notification_broadcast.dissect = function(buffer, of
   end
 end
 
--- Reverse Tes Trade Request
-eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request = {}
-
--- Read runtime size of: Reverse Tes Trade Request
-eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Reverse Tes Trade Request
-eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reverse Tes Trade Request
-eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
-
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Reversal Reason Text: 132 Byte Ascii String Nullable
-  index, reversal_reason_text = eurex_t7_eti_fbe_v15_0.reversal_reason_text.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reverse Tes Trade Request
-eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
-  local size_of_reverse_tes_trade_request = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.size(buffer, offset)
-  local index = offset + size_of_reverse_tes_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.reverse_tes_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
-    parent:set_len(size_of_reverse_tes_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
-
-    return index
-  end
-end
-
 -- Retransmit Response
 eurex_t7_eti_fbe_v15_0.retransmit_response = {}
 
@@ -25331,77 +23417,6 @@ eurex_t7_eti_fbe_v15_0.retransmit_response.dissect = function(buffer, offset, pa
   end
 end
 
--- Retransmit Request
-eurex_t7_eti_fbe_v15_0.retransmit_request = {}
-
--- Read runtime size of: Retransmit Request
-eurex_t7_eti_fbe_v15_0.retransmit_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Retransmit Request
-eurex_t7_eti_fbe_v15_0.retransmit_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Request
-eurex_t7_eti_fbe_v15_0.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_beg_seq_num = eurex_t7_eti_fbe_v15_0.appl_beg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_end_seq_num = eurex_t7_eti_fbe_v15_0.appl_end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Request
-eurex_t7_eti_fbe_v15_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local size_of_retransmit_request = eurex_t7_eti_fbe_v15_0.retransmit_request.size(buffer, offset)
-  local index = offset + size_of_retransmit_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.retransmit_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-    parent:set_len(size_of_retransmit_request)
-    local display = eurex_t7_eti_fbe_v15_0.retransmit_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-
-    return index
-  end
-end
-
 -- Retransmit Me Message Response
 eurex_t7_eti_fbe_v15_0.retransmit_me_message_response = {}
 
@@ -25462,80 +23477,6 @@ eurex_t7_eti_fbe_v15_0.retransmit_me_message_response.dissect = function(buffer,
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
-
-    return index
-  end
-end
-
--- Retransmit Me Message Request
-eurex_t7_eti_fbe_v15_0.retransmit_me_message_request = {}
-
--- Read runtime size of: Retransmit Me Message Request
-eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Retransmit Me Message Request
-eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Me Message Request
-eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, subscription_scope = eurex_t7_eti_fbe_v15_0.subscription_scope.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Appl Beg Msg Id: 16 Byte
-  index, appl_beg_msg_id = eurex_t7_eti_fbe_v15_0.appl_beg_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Appl End Msg Id: 16 Byte
-  index, appl_end_msg_id = eurex_t7_eti_fbe_v15_0.appl_end_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Me Message Request
-eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-  local size_of_retransmit_me_message_request = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.size(buffer, offset)
-  local index = offset + size_of_retransmit_me_message_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.retransmit_me_message_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-    parent:set_len(size_of_retransmit_me_message_request)
-    local display = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
 
     return index
   end
@@ -25674,80 +23615,6 @@ eurex_t7_eti_fbe_v15_0.rfq_response.dissect = function(buffer, offset, packet, p
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
-
-    return index
-  end
-end
-
--- Rfq Request
-eurex_t7_eti_fbe_v15_0.rfq_request = {}
-
--- Read runtime size of: Rfq Request
-eurex_t7_eti_fbe_v15_0.rfq_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Rfq Request
-eurex_t7_eti_fbe_v15_0.rfq_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Rfq Request
-eurex_t7_eti_fbe_v15_0.rfq_request.fields = function(buffer, offset, packet, parent, size_of_rfq_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Rfq Request
-eurex_t7_eti_fbe_v15_0.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
-  local size_of_rfq_request = eurex_t7_eti_fbe_v15_0.rfq_request.size(buffer, offset)
-  local index = offset + size_of_rfq_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rfq_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
-    parent:set_len(size_of_rfq_request)
-    local display = eurex_t7_eti_fbe_v15_0.rfq_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
 
     return index
   end
@@ -26100,89 +23967,6 @@ eurex_t7_eti_fbe_v15_0.quote_activation_response.dissect = function(buffer, offs
   end
 end
 
--- Quote Activation Request
-eurex_t7_eti_fbe_v15_0.quote_activation_request = {}
-
--- Read runtime size of: Quote Activation Request
-eurex_t7_eti_fbe_v15_0.quote_activation_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Quote Activation Request
-eurex_t7_eti_fbe_v15_0.quote_activation_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Activation Request
-eurex_t7_eti_fbe_v15_0.quote_activation_request.fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, mass_action_type = eurex_t7_eti_fbe_v15_0.mass_action_type.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, mass_action_sub_type = eurex_t7_eti_fbe_v15_0.mass_action_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Activation Request
-eurex_t7_eti_fbe_v15_0.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
-  local size_of_quote_activation_request = eurex_t7_eti_fbe_v15_0.quote_activation_request.size(buffer, offset)
-  local index = offset + size_of_quote_activation_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_activation_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
-    parent:set_len(size_of_quote_activation_request)
-    local display = eurex_t7_eti_fbe_v15_0.quote_activation_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
-
-    return index
-  end
-end
-
 -- Quote Activation Notification
 eurex_t7_eti_fbe_v15_0.quote_activation_notification = {}
 
@@ -26263,145 +24047,6 @@ eurex_t7_eti_fbe_v15_0.quote_activation_notification.dissect = function(buffer, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.quote_activation_notification.fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
-
-    return index
-  end
-end
-
--- Risk Limit Qty Grp Comp
-eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp = {}
-
--- Size: Risk Limit Qty Grp Comp
-eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.risk_limit_qty.size + 
-  eurex_t7_eti_fbe_v15_0.risk_limit_type.size + 
-  eurex_t7_eti_fbe_v15_0.pad7.size
-
--- Display: Risk Limit Qty Grp Comp
-eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Risk Limit Qty Grp Comp
-eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
-  local index = offset
-
-  -- Implicit Risk Limit Qty Grp Comp Index
-  if risk_limit_qty_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.risk_limit_qty_grp_comp_index, risk_limit_qty_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, risk_limit_qty = eurex_t7_eti_fbe_v15_0.risk_limit_qty.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, risk_limit_type = eurex_t7_eti_fbe_v15_0.risk_limit_type.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Risk Limit Qty Grp Comp
-eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.dissect = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.risk_limit_qty_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
-  end
-end
-
--- Pre Trade Risk Limits Definition Request
-eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request = {}
-
--- Read runtime size of: Pre Trade Risk Limits Definition Request
-eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Pre Trade Risk Limits Definition Request
-eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Pre Trade Risk Limits Definition Request
-eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, netting_coefficient = eurex_t7_eti_fbe_v15_0.netting_coefficient.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
-
-  -- No Risk Limits Qty: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_risk_limits_qty = eurex_t7_eti_fbe_v15_0.no_risk_limits_qty.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, party_detail_status = eurex_t7_eti_fbe_v15_0.party_detail_status.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Group Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, risk_limit_group_status = eurex_t7_eti_fbe_v15_0.risk_limit_group_status.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Group: 3 Byte Ascii String Nullable
-  index, risk_limit_group = eurex_t7_eti_fbe_v15_0.risk_limit_group.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
-  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Risk Limit Qty Grp Comp
-  for risk_limit_qty_grp_comp_index = 1, no_risk_limits_qty do
-    index, risk_limit_qty_grp_comp = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.dissect(buffer, index, packet, parent, risk_limit_qty_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Pre Trade Risk Limits Definition Request
-eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.dissect = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
-  local size_of_pre_trade_risk_limits_definition_request = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.size(buffer, offset)
-  local index = offset + size_of_pre_trade_risk_limits_definition_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.pre_trade_risk_limits_definition_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
-    parent:set_len(size_of_pre_trade_risk_limits_definition_request)
-    local display = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
 
     return index
   end
@@ -26623,68 +24268,6 @@ eurex_t7_eti_fbe_v15_0.ping_response.dissect = function(buffer, offset, packet, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.ping_response.fields(buffer, offset, packet, parent, size_of_ping_response)
-
-    return index
-  end
-end
-
--- Ping Request
-eurex_t7_eti_fbe_v15_0.ping_request = {}
-
--- Read runtime size of: Ping Request
-eurex_t7_eti_fbe_v15_0.ping_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Ping Request
-eurex_t7_eti_fbe_v15_0.ping_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ping Request
-eurex_t7_eti_fbe_v15_0.ping_request.fields = function(buffer, offset, packet, parent, size_of_ping_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ping Request
-eurex_t7_eti_fbe_v15_0.ping_request.dissect = function(buffer, offset, packet, parent, size_of_ping_request)
-  local size_of_ping_request = eurex_t7_eti_fbe_v15_0.ping_request.size(buffer, offset)
-  local index = offset + size_of_ping_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.ping_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.ping_request.fields(buffer, offset, packet, parent, size_of_ping_request)
-    parent:set_len(size_of_ping_request)
-    local display = eurex_t7_eti_fbe_v15_0.ping_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.ping_request.fields(buffer, offset, packet, parent, size_of_ping_request)
 
     return index
   end
@@ -27775,155 +25358,6 @@ eurex_t7_eti_fbe_v15_0.news_broadcast.dissect = function(buffer, offset, packet,
   end
 end
 
--- New Order Short Request
-eurex_t7_eti_fbe_v15_0.new_order_short_request = {}
-
--- Read runtime size of: New Order Short Request
-eurex_t7_eti_fbe_v15_0.new_order_short_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: New Order Short Request
-eurex_t7_eti_fbe_v15_0.new_order_short_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Short Request
-eurex_t7_eti_fbe_v15_0.new_order_short_request.fields = function(buffer, offset, packet, parent, size_of_new_order_short_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v1: 2 Byte
-  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4v1: 4 Byte
-  index, pad4v1 = eurex_t7_eti_fbe_v15_0.pad4v1.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Pad1v1: 1 Byte
-  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
-
-  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Order Short Request
-eurex_t7_eti_fbe_v15_0.new_order_short_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_short_request)
-  local size_of_new_order_short_request = eurex_t7_eti_fbe_v15_0.new_order_short_request.size(buffer, offset)
-  local index = offset + size_of_new_order_short_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_order_short_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.new_order_short_request.fields(buffer, offset, packet, parent, size_of_new_order_short_request)
-    parent:set_len(size_of_new_order_short_request)
-    local display = eurex_t7_eti_fbe_v15_0.new_order_short_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.new_order_short_request.fields(buffer, offset, packet, parent, size_of_new_order_short_request)
-
-    return index
-  end
-end
-
 -- New Order Response
 eurex_t7_eti_fbe_v15_0.new_order_response = {}
 
@@ -28033,208 +25467,6 @@ eurex_t7_eti_fbe_v15_0.new_order_response.dissect = function(buffer, offset, pac
   end
 end
 
--- New Order Request
-eurex_t7_eti_fbe_v15_0.new_order_request = {}
-
--- Read runtime size of: New Order Request
-eurex_t7_eti_fbe_v15_0.new_order_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: New Order Request
-eurex_t7_eti_fbe_v15_0.new_order_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Request
-eurex_t7_eti_fbe_v15_0.new_order_request.fields = function(buffer, offset, packet, parent, size_of_new_order_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, stop_px = eurex_t7_eti_fbe_v15_0.stop_px.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, expire_date = eurex_t7_eti_fbe_v15_0.expire_date.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, ord_type = eurex_t7_eti_fbe_v15_0.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
-  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v3: 2 Byte
-  index, pad2v3 = eurex_t7_eti_fbe_v15_0.pad2v3.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Leg Ord Grp Comp
-  for leg_ord_grp_comp_index = 1, no_leg_onbooks do
-    index, leg_ord_grp_comp = eurex_t7_eti_fbe_v15_0.leg_ord_grp_comp.dissect(buffer, index, packet, parent, leg_ord_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: New Order Request
-eurex_t7_eti_fbe_v15_0.new_order_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_request)
-  local size_of_new_order_request = eurex_t7_eti_fbe_v15_0.new_order_request.size(buffer, offset)
-  local index = offset + size_of_new_order_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_order_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.new_order_request.fields(buffer, offset, packet, parent, size_of_new_order_request)
-    parent:set_len(size_of_new_order_request)
-    local display = eurex_t7_eti_fbe_v15_0.new_order_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.new_order_request.fields(buffer, offset, packet, parent, size_of_new_order_request)
-
-    return index
-  end
-end
-
 -- New Order Nr Response
 eurex_t7_eti_fbe_v15_0.new_order_nr_response = {}
 
@@ -28333,342 +25565,6 @@ eurex_t7_eti_fbe_v15_0.new_order_nr_response.dissect = function(buffer, offset, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
-
-    return index
-  end
-end
-
--- Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp = {}
-
--- Size: Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
-  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
-  eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.pad4.size
-
--- Display: Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
-  local index = offset
-
-  -- Implicit Side Alloc Grp Comp Index
-  if side_alloc_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Tes Enrichment Rule Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tes_enrichment_rule_id = eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
-  end
-end
-
--- Modify Tes Trade Request
-eurex_t7_eti_fbe_v15_0.modify_tes_trade_request = {}
-
--- Read runtime size of: Modify Tes Trade Request
-eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Tes Trade Request
-eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Tes Trade Request
-eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
-
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
-
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
-
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
-
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
-
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
-
-  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Text: 20 Byte Ascii String Nullable
-  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Side Alloc Grp Comp
-  for side_alloc_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect(buffer, index, packet, parent, side_alloc_grp_comp_index)
-  end
-
-  -- Repeating: Trd Instrmnt Leg Grp Comp
-  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Modify Tes Trade Request
-eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
-  local size_of_modify_tes_trade_request = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.size(buffer, offset)
-  local index = offset + size_of_modify_tes_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_tes_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
-    parent:set_len(size_of_modify_tes_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
-
-    return index
-  end
-end
-
--- Modify Order Short Request
-eurex_t7_eti_fbe_v15_0.modify_order_short_request = {}
-
--- Read runtime size of: Modify Order Short Request
-eurex_t7_eti_fbe_v15_0.modify_order_short_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Order Short Request
-eurex_t7_eti_fbe_v15_0.modify_order_short_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Order Short Request
-eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields = function(buffer, offset, packet, parent, size_of_modify_order_short_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v1: 2 Byte
-  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4v1: 4 Byte
-  index, pad4v1 = eurex_t7_eti_fbe_v15_0.pad4v1.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Pad1v1: 1 Byte
-  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
-
-  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Modify Order Short Request
-eurex_t7_eti_fbe_v15_0.modify_order_short_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_short_request)
-  local size_of_modify_order_short_request = eurex_t7_eti_fbe_v15_0.modify_order_short_request.size(buffer, offset)
-  local index = offset + size_of_modify_order_short_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_order_short_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_short_request)
-    parent:set_len(size_of_modify_order_short_request)
-    local display = eurex_t7_eti_fbe_v15_0.modify_order_short_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_short_request)
 
     return index
   end
@@ -28786,220 +25682,6 @@ eurex_t7_eti_fbe_v15_0.modify_order_response.dissect = function(buffer, offset, 
   end
 end
 
--- Modify Order Request
-eurex_t7_eti_fbe_v15_0.modify_order_request = {}
-
--- Read runtime size of: Modify Order Request
-eurex_t7_eti_fbe_v15_0.modify_order_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Order Request
-eurex_t7_eti_fbe_v15_0.modify_order_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Order Request
-eurex_t7_eti_fbe_v15_0.modify_order_request.fields = function(buffer, offset, packet, parent, size_of_modify_order_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, stop_px = eurex_t7_eti_fbe_v15_0.stop_px.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, expire_date = eurex_t7_eti_fbe_v15_0.expire_date.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Ownership Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, ownership_indicator = eurex_t7_eti_fbe_v15_0.ownership_indicator.dissect(buffer, index, packet, parent)
-
-  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, ord_type = eurex_t7_eti_fbe_v15_0.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
-  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
-
-  -- Pad2v1: 2 Byte
-  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Pad1v1: 1 Byte
-  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
-
-  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Leg Ord Grp Comp
-  for leg_ord_grp_comp_index = 1, no_leg_onbooks do
-    index, leg_ord_grp_comp = eurex_t7_eti_fbe_v15_0.leg_ord_grp_comp.dissect(buffer, index, packet, parent, leg_ord_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Modify Order Request
-eurex_t7_eti_fbe_v15_0.modify_order_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_request)
-  local size_of_modify_order_request = eurex_t7_eti_fbe_v15_0.modify_order_request.size(buffer, offset)
-  local index = offset + size_of_modify_order_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_order_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.modify_order_request.fields(buffer, offset, packet, parent, size_of_modify_order_request)
-    parent:set_len(size_of_modify_order_request)
-    local display = eurex_t7_eti_fbe_v15_0.modify_order_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.modify_order_request.fields(buffer, offset, packet, parent, size_of_modify_order_request)
-
-    return index
-  end
-end
-
 -- Modify Order Nr Response
 eurex_t7_eti_fbe_v15_0.modify_order_nr_response = {}
 
@@ -29104,354 +25786,6 @@ eurex_t7_eti_fbe_v15_0.modify_order_nr_response.dissect = function(buffer, offse
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-
-    return index
-  end
-end
-
--- Basket Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp = {}
-
--- Size: Basket Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
-  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_sub_id_type.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.size + 
-  eurex_t7_eti_fbe_v15_0.trade_alloc_status.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
-  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.pad4.size
-
--- Display: Basket Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Basket Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
-  local index = offset
-
-  -- Implicit Basket Side Alloc Grp Comp Index
-  if basket_side_alloc_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_sub_id_type = eurex_t7_eti_fbe_v15_0.party_sub_id_type.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Instrmt Match Side Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, instrmt_match_side_id = eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trade_alloc_status = eurex_t7_eti_fbe_v15_0.trade_alloc_status.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Firm: 5 Byte Ascii String Nullable
-  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Trader: 6 Byte Ascii String Nullable
-  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Basket Side Alloc Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_side_alloc_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
-  end
-end
-
--- Instrmt Match Side Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp = {}
-
--- Size: Instrmt Match Side Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.security_id.size + 
-  eurex_t7_eti_fbe_v15_0.last_px.size + 
-  eurex_t7_eti_fbe_v15_0.trans_bkd_time.size + 
-  eurex_t7_eti_fbe_v15_0.related_close_price.size + 
-  eurex_t7_eti_fbe_v15_0.clearing_trade_price.size + 
-  eurex_t7_eti_fbe_v15_0.package_id.size + 
-  eurex_t7_eti_fbe_v15_0.side_market_segment_id.size + 
-  eurex_t7_eti_fbe_v15_0.side_trd_sub_typ.size + 
-  eurex_t7_eti_fbe_v15_0.product_complex.size + 
-  eurex_t7_eti_fbe_v15_0.trade_publish_indicator.size + 
-  eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.size + 
-  eurex_t7_eti_fbe_v15_0.effect_on_basket.size + 
-  eurex_t7_eti_fbe_v15_0.trade_report_text.size + 
-  eurex_t7_eti_fbe_v15_0.pad6.size
-
--- Display: Instrmt Match Side Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrmt Match Side Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
-  local index = offset
-
-  -- Implicit Instrmt Match Side Grp Comp Index
-  if instrmt_match_side_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
-
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
-
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
-
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, clearing_trade_price = eurex_t7_eti_fbe_v15_0.clearing_trade_price.dissect(buffer, index, packet, parent)
-
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
-
-  -- Side Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, side_market_segment_id = eurex_t7_eti_fbe_v15_0.side_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Side Trd Sub Typ: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side_trd_sub_typ = eurex_t7_eti_fbe_v15_0.side_trd_sub_typ.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
-
-  -- Instrmt Match Side Id: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, instrmt_match_side_id = eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.dissect(buffer, index, packet, parent)
-
-  -- Effect On Basket: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, effect_on_basket = eurex_t7_eti_fbe_v15_0.effect_on_basket.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Text: 20 Byte Ascii String Nullable
-  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrmt Match Side Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_match_side_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
-  end
-end
-
--- Basket Root Party Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp = {}
-
--- Size: Basket Root Party Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.root_party_sub_id_type.size + 
-  eurex_t7_eti_fbe_v15_0.root_party_contra_firm.size + 
-  eurex_t7_eti_fbe_v15_0.root_party_contra_trader.size + 
-  eurex_t7_eti_fbe_v15_0.basket_side_trade_report_id.size + 
-  eurex_t7_eti_fbe_v15_0.pad7.size
-
--- Display: Basket Root Party Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Basket Root Party Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
-  local index = offset
-
-  -- Implicit Basket Root Party Grp Comp Index
-  if basket_root_party_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Root Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, root_party_sub_id_type = eurex_t7_eti_fbe_v15_0.root_party_sub_id_type.dissect(buffer, index, packet, parent)
-
-  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
-  index, root_party_contra_firm = eurex_t7_eti_fbe_v15_0.root_party_contra_firm.dissect(buffer, index, packet, parent)
-
-  -- Root Party Contra Trader: 6 Byte Ascii String Nullable
-  index, root_party_contra_trader = eurex_t7_eti_fbe_v15_0.root_party_contra_trader.dissect(buffer, index, packet, parent)
-
-  -- Basket Side Trade Report Id: 20 Byte Ascii String Nullable
-  index, basket_side_trade_report_id = eurex_t7_eti_fbe_v15_0.basket_side_trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Basket Root Party Grp Comp
-eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_root_party_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
-  end
-end
-
--- Modify Basket Trade Request
-eurex_t7_eti_fbe_v15_0.modify_basket_trade_request = {}
-
--- Read runtime size of: Modify Basket Trade Request
-eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Basket Trade Request
-eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Basket Trade Request
-eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
-
-  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- No Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_basket_side_alloc.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
-
-  -- No Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_instrmt_match_sides.dissect(buffer, index, packet, parent)
-
-  -- Optional Early Termination Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, optional_early_termination_indicator = eurex_t7_eti_fbe_v15_0.optional_early_termination_indicator.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
-  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Basket Root Party Grp Comp
-  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
-  end
-
-  -- Repeating: Instrmt Match Side Grp Comp
-  for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
-  end
-
-  -- Repeating: Basket Side Alloc Grp Comp
-  for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Modify Basket Trade Request
-eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
-  local size_of_modify_basket_trade_request = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.size(buffer, offset)
-  local index = offset + size_of_modify_basket_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_basket_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
-    parent:set_len(size_of_modify_basket_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
 
     return index
   end
@@ -29596,180 +25930,6 @@ eurex_t7_eti_fbe_v15_0.mass_quote_response.dissect = function(buffer, offset, pa
   end
 end
 
--- Quote Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp = {}
-
--- Size: Quote Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.security_id.size + 
-  eurex_t7_eti_fbe_v15_0.bid_px.size + 
-  eurex_t7_eti_fbe_v15_0.bid_size.size + 
-  eurex_t7_eti_fbe_v15_0.offer_px.size + 
-  eurex_t7_eti_fbe_v15_0.offer_size.size
-
--- Display: Quote Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
-  local index = offset
-
-  -- Implicit Quote Entry Grp Comp Index
-  if quote_entry_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
-
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, bid_size = eurex_t7_eti_fbe_v15_0.bid_size.dissect(buffer, index, packet, parent)
-
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
-
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, offer_size = eurex_t7_eti_fbe_v15_0.offer_size.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
-  end
-end
-
--- Mass Quote Request
-eurex_t7_eti_fbe_v15_0.mass_quote_request = {}
-
--- Read runtime size of: Mass Quote Request
-eurex_t7_eti_fbe_v15_0.mass_quote_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Mass Quote Request
-eurex_t7_eti_fbe_v15_0.mass_quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Quote Request
-eurex_t7_eti_fbe_v15_0.mass_quote_request.fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_id = eurex_t7_eti_fbe_v15_0.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Quote Size Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, quote_size_type = eurex_t7_eti_fbe_v15_0.quote_size_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_quote_entries = eurex_t7_eti_fbe_v15_0.no_quote_entries.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Quote Entry Grp Comp
-  for quote_entry_grp_comp_index = 1, no_quote_entries do
-    index, quote_entry_grp_comp = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.dissect(buffer, index, packet, parent, quote_entry_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Mass Quote Request
-eurex_t7_eti_fbe_v15_0.mass_quote_request.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_request)
-  local size_of_mass_quote_request = eurex_t7_eti_fbe_v15_0.mass_quote_request.size(buffer, offset)
-  local index = offset + size_of_mass_quote_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mass_quote_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
-    parent:set_len(size_of_mass_quote_request)
-    local display = eurex_t7_eti_fbe_v15_0.mass_quote_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
-
-    return index
-  end
-end
-
 -- Mass Order Ack
 eurex_t7_eti_fbe_v15_0.mass_order_ack = {}
 
@@ -29832,225 +25992,6 @@ eurex_t7_eti_fbe_v15_0.mass_order_ack.dissect = function(buffer, offset, packet,
   end
 end
 
--- Order Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.order_entry_grp_comp = {}
-
--- Size: Order Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.price.size + 
-  eurex_t7_eti_fbe_v15_0.order_qty.size + 
-  eurex_t7_eti_fbe_v15_0.market_segment_id.size + 
-  eurex_t7_eti_fbe_v15_0.pad4.size + 
-  eurex_t7_eti_fbe_v15_0.security_id.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.product_complex.size + 
-  eurex_t7_eti_fbe_v15_0.pad6.size
-
--- Display: Order Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields = function(buffer, offset, packet, parent, order_entry_grp_comp_index)
-  local index = offset
-
-  -- Implicit Order Entry Grp Comp Index
-  if order_entry_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.order_entry_grp_comp_index, order_entry_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Entry Grp Comp
-eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.dissect = function(buffer, offset, packet, parent, order_entry_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.order_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields(buffer, offset, packet, parent, order_entry_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields(buffer, offset, packet, parent, order_entry_grp_comp_index)
-  end
-end
-
--- Mass Order
-eurex_t7_eti_fbe_v15_0.mass_order = {}
-
--- Read runtime size of: Mass Order
-eurex_t7_eti_fbe_v15_0.mass_order.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Mass Order
-eurex_t7_eti_fbe_v15_0.mass_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Order
-eurex_t7_eti_fbe_v15_0.mass_order.fields = function(buffer, offset, packet, parent, size_of_mass_order)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Order Request Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_order_request_id = eurex_t7_eti_fbe_v15_0.mass_order_request_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- No Order Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_order_entries = eurex_t7_eti_fbe_v15_0.no_order_entries.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Order Entry Grp Comp
-  for order_entry_grp_comp_index = 1, no_order_entries do
-    index, order_entry_grp_comp = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.dissect(buffer, index, packet, parent, order_entry_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Mass Order
-eurex_t7_eti_fbe_v15_0.mass_order.dissect = function(buffer, offset, packet, parent, size_of_mass_order)
-  local size_of_mass_order = eurex_t7_eti_fbe_v15_0.mass_order.size(buffer, offset)
-  local index = offset + size_of_mass_order
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mass_order, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.mass_order.fields(buffer, offset, packet, parent, size_of_mass_order)
-    parent:set_len(size_of_mass_order)
-    local display = eurex_t7_eti_fbe_v15_0.mass_order.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.mass_order.fields(buffer, offset, packet, parent, size_of_mass_order)
-
-    return index
-  end
-end
-
 -- Mm Parameter Definition Response
 eurex_t7_eti_fbe_v15_0.mm_parameter_definition_response = {}
 
@@ -30107,89 +26048,6 @@ eurex_t7_eti_fbe_v15_0.mm_parameter_definition_response.dissect = function(buffe
   end
 end
 
--- Mm Parameter Definition Request
-eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request = {}
-
--- Read runtime size of: Mm Parameter Definition Request
-eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Mm Parameter Definition Request
-eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mm Parameter Definition Request
-eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
-  index, exposure_duration = eurex_t7_eti_fbe_v15_0.exposure_duration.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v15_0.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Delta: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, delta = eurex_t7_eti_fbe_v15_0.delta.dissect(buffer, index, packet, parent)
-
-  -- Vega: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, vega = eurex_t7_eti_fbe_v15_0.vega.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Pct Count: 4 Byte Signed Fixed Width Integer Nullable
-  index, pct_count = eurex_t7_eti_fbe_v15_0.pct_count.dissect(buffer, index, packet, parent)
-
-  -- Mm Risk Limit Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, mm_risk_limit_action_type = eurex_t7_eti_fbe_v15_0.mm_risk_limit_action_type.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mm Parameter Definition Request
-eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
-  local size_of_mm_parameter_definition_request = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.size(buffer, offset)
-  local index = offset + size_of_mm_parameter_definition_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mm_parameter_definition_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
-    parent:set_len(size_of_mm_parameter_definition_request)
-    local display = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
-
-    return index
-  end
-end
-
 -- Logout Response
 eurex_t7_eti_fbe_v15_0.logout_response = {}
 
@@ -30238,62 +26096,6 @@ eurex_t7_eti_fbe_v15_0.logout_response.dissect = function(buffer, offset, packet
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
-
-    return index
-  end
-end
-
--- Logout Request
-eurex_t7_eti_fbe_v15_0.logout_request = {}
-
--- Read runtime size of: Logout Request
-eurex_t7_eti_fbe_v15_0.logout_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logout Request
-eurex_t7_eti_fbe_v15_0.logout_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logout Request
-eurex_t7_eti_fbe_v15_0.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logout Request
-eurex_t7_eti_fbe_v15_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
-  local size_of_logout_request = eurex_t7_eti_fbe_v15_0.logout_request.size(buffer, offset)
-  local index = offset + size_of_logout_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logout_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
-    parent:set_len(size_of_logout_request)
-    local display = eurex_t7_eti_fbe_v15_0.logout_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
 
     return index
   end
@@ -30403,148 +26205,6 @@ eurex_t7_eti_fbe_v15_0.logon_response.dissect = function(buffer, offset, packet,
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
-
-    return index
-  end
-end
-
--- Logon Request Encrypted
-eurex_t7_eti_fbe_v15_0.logon_request_encrypted = {}
-
--- Read runtime size of: Logon Request Encrypted
-eurex_t7_eti_fbe_v15_0.logon_request_encrypted.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logon Request Encrypted
-eurex_t7_eti_fbe_v15_0.logon_request_encrypted.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Request Encrypted
-eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields = function(buffer, offset, packet, parent, size_of_logon_request_encrypted)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_t7_eti_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
-
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_t7_eti_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
-
-  -- Encrypted Password: 684 Byte Ascii String Nullable
-  index, encrypted_password = eurex_t7_eti_fbe_v15_0.encrypted_password.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Request Encrypted
-eurex_t7_eti_fbe_v15_0.logon_request_encrypted.dissect = function(buffer, offset, packet, parent, size_of_logon_request_encrypted)
-  local size_of_logon_request_encrypted = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.size(buffer, offset)
-  local index = offset + size_of_logon_request_encrypted
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logon_request_encrypted, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields(buffer, offset, packet, parent, size_of_logon_request_encrypted)
-    parent:set_len(size_of_logon_request_encrypted)
-    local display = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields(buffer, offset, packet, parent, size_of_logon_request_encrypted)
-
-    return index
-  end
-end
-
--- Logon Request
-eurex_t7_eti_fbe_v15_0.logon_request = {}
-
--- Read runtime size of: Logon Request
-eurex_t7_eti_fbe_v15_0.logon_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logon Request
-eurex_t7_eti_fbe_v15_0.logon_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Request
-eurex_t7_eti_fbe_v15_0.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_t7_eti_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
-
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_t7_eti_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
-
-  -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_t7_eti_fbe_v15_0.password.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Request
-eurex_t7_eti_fbe_v15_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
-  local size_of_logon_request = eurex_t7_eti_fbe_v15_0.logon_request.size(buffer, offset)
-  local index = offset + size_of_logon_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logon_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
-    parent:set_len(size_of_logon_request)
-    local display = eurex_t7_eti_fbe_v15_0.logon_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
 
     return index
   end
@@ -30773,65 +26433,6 @@ eurex_t7_eti_fbe_v15_0.inquire_user_response.dissect = function(buffer, offset, 
   end
 end
 
--- Inquire User Request
-eurex_t7_eti_fbe_v15_0.inquire_user_request = {}
-
--- Read runtime size of: Inquire User Request
-eurex_t7_eti_fbe_v15_0.inquire_user_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire User Request
-eurex_t7_eti_fbe_v15_0.inquire_user_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire User Request
-eurex_t7_eti_fbe_v15_0.inquire_user_request.fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Last Entity Processed: 16 Byte
-  index, last_entity_processed = eurex_t7_eti_fbe_v15_0.last_entity_processed.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire User Request
-eurex_t7_eti_fbe_v15_0.inquire_user_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_request)
-  local size_of_inquire_user_request = eurex_t7_eti_fbe_v15_0.inquire_user_request.size(buffer, offset)
-  local index = offset + size_of_inquire_user_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_user_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
-    parent:set_len(size_of_inquire_user_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_user_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
-
-    return index
-  end
-end
-
 -- Sessions Grp Comp
 eurex_t7_eti_fbe_v15_0.sessions_grp_comp = {}
 
@@ -30958,133 +26559,6 @@ eurex_t7_eti_fbe_v15_0.inquire_session_list_response.dissect = function(buffer, 
   end
 end
 
--- Inquire Session List Request
-eurex_t7_eti_fbe_v15_0.inquire_session_list_request = {}
-
--- Read runtime size of: Inquire Session List Request
-eurex_t7_eti_fbe_v15_0.inquire_session_list_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Session List Request
-eurex_t7_eti_fbe_v15_0.inquire_session_list_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Session List Request
-eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire Session List Request
-eurex_t7_eti_fbe_v15_0.inquire_session_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-  local size_of_inquire_session_list_request = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.size(buffer, offset)
-  local index = offset + size_of_inquire_session_list_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_session_list_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-    parent:set_len(size_of_inquire_session_list_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-
-    return index
-  end
-end
-
--- Inquire Pre Trade Risk Limits Request
-eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request = {}
-
--- Read runtime size of: Inquire Pre Trade Risk Limits Request
-eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Pre Trade Risk Limits Request
-eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Pre Trade Risk Limits Request
-eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
-
-  -- Party Executing Unit: 5 Byte Ascii String Nullable
-  index, party_executing_unit = eurex_t7_eti_fbe_v15_0.party_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Risk Limit Group: 3 Byte Ascii String Nullable
-  index, risk_limit_group = eurex_t7_eti_fbe_v15_0.risk_limit_group.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire Pre Trade Risk Limits Request
-eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
-  local size_of_inquire_pre_trade_risk_limits_request = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.size(buffer, offset)
-  local index = offset + size_of_inquire_pre_trade_risk_limits_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_pre_trade_risk_limits_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
-    parent:set_len(size_of_inquire_pre_trade_risk_limits_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
-
-    return index
-  end
-end
-
 -- Inquire Margin Based Risk Limit Response
 eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_response = {}
 
@@ -31139,71 +26613,6 @@ eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_response.dissect = functi
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_response.fields(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_response)
-
-    return index
-  end
-end
-
--- Inquire Margin Based Risk Limit Request
-eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request = {}
-
--- Read runtime size of: Inquire Margin Based Risk Limit Request
-eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Margin Based Risk Limit Request
-eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Margin Based Risk Limit Request
-eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields = function(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
-  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire Margin Based Risk Limit Request
-eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
-  local size_of_inquire_margin_based_risk_limit_request = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.size(buffer, offset)
-  local index = offset + size_of_inquire_margin_based_risk_limit_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_margin_based_risk_limit_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
-    parent:set_len(size_of_inquire_margin_based_risk_limit_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
 
     return index
   end
@@ -31348,68 +26757,6 @@ eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_response.dissect = function(buffer, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
-
-    return index
-  end
-end
-
--- Inquire Mm Parameter Request
-eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request = {}
-
--- Read runtime size of: Inquire Mm Parameter Request
-eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Mm Parameter Request
-eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Mm Parameter Request
-eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire Mm Parameter Request
-eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
-  local size_of_inquire_mm_parameter_request = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.size(buffer, offset)
-  local index = offset + size_of_inquire_mm_parameter_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_mm_parameter_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
-    parent:set_len(size_of_inquire_mm_parameter_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
 
     return index
   end
@@ -31576,65 +26923,6 @@ eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_response.dissect = functi
   end
 end
 
--- Inquire Enrichment Rule Id List Request
-eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request = {}
-
--- Read runtime size of: Inquire Enrichment Rule Id List Request
-eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Enrichment Rule Id List Request
-eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Enrichment Rule Id List Request
-eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Last Entity Processed: 16 Byte
-  index, last_entity_processed = eurex_t7_eti_fbe_v15_0.last_entity_processed.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inquire Enrichment Rule Id List Request
-eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
-  local size_of_inquire_enrichment_rule_id_list_request = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.size(buffer, offset)
-  local index = offset + size_of_inquire_enrichment_rule_id_list_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_enrichment_rule_id_list_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
-    parent:set_len(size_of_inquire_enrichment_rule_id_list_request)
-    local display = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
-
-    return index
-  end
-end
-
 -- Heartbeat Notification
 eurex_t7_eti_fbe_v15_0.heartbeat_notification = {}
 
@@ -31683,59 +26971,6 @@ eurex_t7_eti_fbe_v15_0.heartbeat_notification.dissect = function(buffer, offset,
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
-
-    return index
-  end
-end
-
--- Heartbeat
-eurex_t7_eti_fbe_v15_0.heartbeat = {}
-
--- Read runtime size of: Heartbeat
-eurex_t7_eti_fbe_v15_0.heartbeat.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Heartbeat
-eurex_t7_eti_fbe_v15_0.heartbeat.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat
-eurex_t7_eti_fbe_v15_0.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat
-eurex_t7_eti_fbe_v15_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local size_of_heartbeat = eurex_t7_eti_fbe_v15_0.heartbeat.size(buffer, offset)
-  local index = offset + size_of_heartbeat
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.heartbeat, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-    parent:set_len(size_of_heartbeat)
-    local display = eurex_t7_eti_fbe_v15_0.heartbeat.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
 
     return index
   end
@@ -31899,716 +27134,6 @@ eurex_t7_eti_fbe_v15_0.forced_logout_notification.dissect = function(buffer, off
   end
 end
 
--- Enter Tes Trade Request
-eurex_t7_eti_fbe_v15_0.enter_tes_trade_request = {}
-
--- Read runtime size of: Enter Tes Trade Request
-eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Enter Tes Trade Request
-eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Tes Trade Request
-eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
-
-  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
-
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
-
-  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
-
-  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_trade_quantity = eurex_t7_eti_fbe_v15_0.related_trade_quantity.dissect(buffer, index, packet, parent)
-
-  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_settlement_date = eurex_t7_eti_fbe_v15_0.underlying_settlement_date.dissect(buffer, index, packet, parent)
-
-  -- Underlying Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_maturity_date = eurex_t7_eti_fbe_v15_0.underlying_maturity_date.dissect(buffer, index, packet, parent)
-
-  -- Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, related_trade_id = eurex_t7_eti_fbe_v15_0.related_trade_id.dissect(buffer, index, packet, parent)
-
-  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
-
-  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
-
-  -- No Events: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_events = eurex_t7_eti_fbe_v15_0.no_events.dissect(buffer, index, packet, parent)
-
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
-
-  -- No Instr Attrib: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_instr_attrib = eurex_t7_eti_fbe_v15_0.no_instr_attrib.dissect(buffer, index, packet, parent)
-
-  -- No Underlying Stips: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_underlying_stips = eurex_t7_eti_fbe_v15_0.no_underlying_stips.dissect(buffer, index, packet, parent)
-
-  -- Party Id Settlement Location: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, party_id_settlement_location = eurex_t7_eti_fbe_v15_0.party_id_settlement_location.dissect(buffer, index, packet, parent)
-
-  -- Hedge Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, hedge_type = eurex_t7_eti_fbe_v15_0.hedge_type.dissect(buffer, index, packet, parent)
-
-  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Text: 20 Byte Ascii String Nullable
-  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Security Id: 12 Byte Ascii String Nullable
-  index, underlying_security_id = eurex_t7_eti_fbe_v15_0.underlying_security_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Security Desc: 30 Byte Ascii String Nullable
-  index, underlying_security_desc = eurex_t7_eti_fbe_v15_0.underlying_security_desc.dissect(buffer, index, packet, parent)
-
-  -- Underlying Currency: 3 Byte Ascii String Nullable
-  index, underlying_currency = eurex_t7_eti_fbe_v15_0.underlying_currency.dissect(buffer, index, packet, parent)
-
-  -- Underlying Issuer: 30 Byte Ascii String Nullable
-  index, underlying_issuer = eurex_t7_eti_fbe_v15_0.underlying_issuer.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Side Alloc Grp Comp
-  for side_alloc_grp_comp_index = 1, no_side_allocs do
-    index, side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect(buffer, index, packet, parent, side_alloc_grp_comp_index)
-  end
-
-  -- Repeating: Trd Instrmnt Leg Grp Comp
-  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
-    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
-  end
-
-  -- Repeating: Instrument Event Grp Comp
-  for instrument_event_grp_comp_index = 1, no_events do
-    index, instrument_event_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect(buffer, index, packet, parent, instrument_event_grp_comp_index)
-  end
-
-  -- Repeating: Instrument Attribute Grp Comp
-  for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
-    index, instrument_attribute_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
-  end
-
-  -- Repeating: Underlying Stip Grp Comp
-  for underlying_stip_grp_comp_index = 1, no_underlying_stips do
-    index, underlying_stip_grp_comp = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect(buffer, index, packet, parent, underlying_stip_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Enter Tes Trade Request
-eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
-  local size_of_enter_tes_trade_request = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.size(buffer, offset)
-  local index = offset + size_of_enter_tes_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_tes_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
-    parent:set_len(size_of_enter_tes_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
-
-    return index
-  end
-end
-
--- Side Cross Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp = {}
-
--- Size: Side Cross Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.leg_input_source.size + 
-  eurex_t7_eti_fbe_v15_0.leg_position_effect.size + 
-  eurex_t7_eti_fbe_v15_0.leg_account.size + 
-  eurex_t7_eti_fbe_v15_0.pad4.size
-
--- Display: Side Cross Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Side Cross Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
-  local index = offset
-
-  -- Implicit Side Cross Leg Grp Comp Index
-  if side_cross_leg_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_cross_leg_grp_comp_index, side_cross_leg_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, leg_input_source = eurex_t7_eti_fbe_v15_0.leg_input_source.dissect(buffer, index, packet, parent)
-
-  -- Leg Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, leg_position_effect = eurex_t7_eti_fbe_v15_0.leg_position_effect.dissect(buffer, index, packet, parent)
-
-  -- Leg Account: 2 Byte Ascii String Nullable
-  index, leg_account = eurex_t7_eti_fbe_v15_0.leg_account.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Side Cross Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.dissect = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_cross_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
-  end
-end
-
--- Cross Request Side Grp Comp
-eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp = {}
-
--- Size: Cross Request Side Grp Comp
-eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.cl_ord_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_client_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.size + 
-  eurex_t7_eti_fbe_v15_0.executing_trader.size + 
-  eurex_t7_eti_fbe_v15_0.maximum_price.size + 
-  eurex_t7_eti_fbe_v15_0.match_inst_cross_id.size + 
-  eurex_t7_eti_fbe_v15_0.input_source.size + 
-  eurex_t7_eti_fbe_v15_0.side.size + 
-  eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.cross_match_instruction.size + 
-  eurex_t7_eti_fbe_v15_0.trading_capacity.size + 
-  eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.size + 
-  eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.size + 
-  eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.size + 
-  eurex_t7_eti_fbe_v15_0.order_origination.size + 
-  eurex_t7_eti_fbe_v15_0.position_effect.size + 
-  eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.size + 
-  eurex_t7_eti_fbe_v15_0.account.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_position_account.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_1.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_2.size + 
-  eurex_t7_eti_fbe_v15_0.free_text_3.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_beneficiary.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.size + 
-  eurex_t7_eti_fbe_v15_0.side_compliance_text.size + 
-  eurex_t7_eti_fbe_v15_0.party_id_location_id.size + 
-  eurex_t7_eti_fbe_v15_0.party_end_client_identification.size + 
-  eurex_t7_eti_fbe_v15_0.pad3.size
-
--- Display: Cross Request Side Grp Comp
-eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cross Request Side Grp Comp
-eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
-  local index = offset
-
-  -- Implicit Cross Request Side Grp Comp Index
-  if cross_request_side_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request_side_grp_comp_index, cross_request_side_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Maximum Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, maximum_price = eurex_t7_eti_fbe_v15_0.maximum_price.dissect(buffer, index, packet, parent)
-
-  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
-
-  -- Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, input_source = eurex_t7_eti_fbe_v15_0.input_source.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
-
-  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
-
-  -- Party Id Position Account: 32 Byte Ascii String Nullable
-  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Side Compliance Text: 20 Byte Ascii String Nullable
-  index, side_compliance_text = eurex_t7_eti_fbe_v15_0.side_compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Party Id Location Id: 2 Byte Ascii String Nullable
-  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
-
-  -- Party End Client Identification: 20 Byte Ascii String Nullable
-  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cross Request Side Grp Comp
-eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.dissect = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request_side_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
-  end
-end
-
--- Enter Clip Request
-eurex_t7_eti_fbe_v15_0.enter_clip_request = {}
-
--- Read runtime size of: Enter Clip Request
-eurex_t7_eti_fbe_v15_0.enter_clip_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Enter Clip Request
-eurex_t7_eti_fbe_v15_0.enter_clip_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Clip Request
-eurex_t7_eti_fbe_v15_0.enter_clip_request.fields = function(buffer, offset, packet, parent, size_of_enter_clip_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Cross Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, cross_id = eurex_t7_eti_fbe_v15_0.cross_id.dissect(buffer, index, packet, parent)
-
-  -- Cross Request Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, cross_request_id = eurex_t7_eti_fbe_v15_0.cross_request_id.dissect(buffer, index, packet, parent)
-
-  -- No Sides: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_sides = eurex_t7_eti_fbe_v15_0.no_sides.dissect(buffer, index, packet, parent)
-
-  -- No Cross Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_cross_legs = eurex_t7_eti_fbe_v15_0.no_cross_legs.dissect(buffer, index, packet, parent)
-
-  -- Cross Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, cross_request_type = eurex_t7_eti_fbe_v15_0.cross_request_type.dissect(buffer, index, packet, parent)
-
-  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, cross_type = eurex_t7_eti_fbe_v15_0.cross_type.dissect(buffer, index, packet, parent)
-
-  -- Cross Prioritization: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, cross_prioritization = eurex_t7_eti_fbe_v15_0.cross_prioritization.dissect(buffer, index, packet, parent)
-
-  -- Side Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side_disclosure_instruction = eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Price Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_disclosure_instruction = eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.order_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
-
-  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
-
-  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
-
-  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
-  index, root_party_contra_firm = eurex_t7_eti_fbe_v15_0.root_party_contra_firm.dissect(buffer, index, packet, parent)
-
-  -- Root Party Contra Trader: 6 Byte Ascii String Nullable
-  index, root_party_contra_trader = eurex_t7_eti_fbe_v15_0.root_party_contra_trader.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Cross Request Side Grp Comp
-  for cross_request_side_grp_comp_index = 1, no_sides do
-    index, cross_request_side_grp_comp = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.dissect(buffer, index, packet, parent, cross_request_side_grp_comp_index)
-  end
-
-  -- Repeating: Side Cross Leg Grp Comp
-  for side_cross_leg_grp_comp_index = 1, no_cross_legs do
-    index, side_cross_leg_grp_comp = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.dissect(buffer, index, packet, parent, side_cross_leg_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Enter Clip Request
-eurex_t7_eti_fbe_v15_0.enter_clip_request.dissect = function(buffer, offset, packet, parent, size_of_enter_clip_request)
-  local size_of_enter_clip_request = eurex_t7_eti_fbe_v15_0.enter_clip_request.size(buffer, offset)
-  local index = offset + size_of_enter_clip_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_clip_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.enter_clip_request.fields(buffer, offset, packet, parent, size_of_enter_clip_request)
-    parent:set_len(size_of_enter_clip_request)
-    local display = eurex_t7_eti_fbe_v15_0.enter_clip_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.enter_clip_request.fields(buffer, offset, packet, parent, size_of_enter_clip_request)
-
-    return index
-  end
-end
-
--- Enter Basket Trade Request
-eurex_t7_eti_fbe_v15_0.enter_basket_trade_request = {}
-
--- Read runtime size of: Enter Basket Trade Request
-eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Enter Basket Trade Request
-eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enter Basket Trade Request
-eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
-
-  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- No Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_basket_side_alloc.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Optional Early Termination Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, optional_early_termination_indicator = eurex_t7_eti_fbe_v15_0.optional_early_termination_indicator.dissect(buffer, index, packet, parent)
-
-  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
-
-  -- No Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_instrmt_match_sides.dissect(buffer, index, packet, parent)
-
-  -- Basket Anonymity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, basket_anonymity = eurex_t7_eti_fbe_v15_0.basket_anonymity.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
-  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Basket Root Party Grp Comp
-  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
-  end
-
-  -- Repeating: Instrmt Match Side Grp Comp
-  for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
-    index, instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
-  end
-
-  -- Repeating: Basket Side Alloc Grp Comp
-  for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
-    index, basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Enter Basket Trade Request
-eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
-  local size_of_enter_basket_trade_request = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.size(buffer, offset)
-  local index = offset + size_of_enter_basket_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_basket_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
-    parent:set_len(size_of_enter_basket_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
-
-    return index
-  end
-end
-
--- Delete Tes Trade Request
-eurex_t7_eti_fbe_v15_0.delete_tes_trade_request = {}
-
--- Read runtime size of: Delete Tes Trade Request
-eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Tes Trade Request
-eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Tes Trade Request
-eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Tes Trade Request
-eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
-  local size_of_delete_tes_trade_request = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.size(buffer, offset)
-  local index = offset + size_of_delete_tes_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_tes_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
-    parent:set_len(size_of_delete_tes_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
-
-    return index
-  end
-end
-
 -- Delete Order Response
 eurex_t7_eti_fbe_v15_0.delete_order_response = {}
 
@@ -32696,104 +27221,6 @@ eurex_t7_eti_fbe_v15_0.delete_order_response.dissect = function(buffer, offset, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
-
-    return index
-  end
-end
-
--- Delete Order Request
-eurex_t7_eti_fbe_v15_0.delete_order_request = {}
-
--- Read runtime size of: Delete Order Request
-eurex_t7_eti_fbe_v15_0.delete_order_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Order Request
-eurex_t7_eti_fbe_v15_0.delete_order_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Order Request
-eurex_t7_eti_fbe_v15_0.delete_order_request.fields = function(buffer, offset, packet, parent, size_of_delete_order_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
-  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Order Request
-eurex_t7_eti_fbe_v15_0.delete_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_request)
-  local size_of_delete_order_request = eurex_t7_eti_fbe_v15_0.delete_order_request.size(buffer, offset)
-  local index = offset + size_of_delete_order_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_order_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_order_request.fields(buffer, offset, packet, parent, size_of_delete_order_request)
-    parent:set_len(size_of_delete_order_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_order_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_order_request.fields(buffer, offset, packet, parent, size_of_delete_order_request)
 
     return index
   end
@@ -32998,169 +27425,6 @@ eurex_t7_eti_fbe_v15_0.delete_order_broadcast.dissect = function(buffer, offset,
   end
 end
 
--- Delete Clip Request
-eurex_t7_eti_fbe_v15_0.delete_clip_request = {}
-
--- Read runtime size of: Delete Clip Request
-eurex_t7_eti_fbe_v15_0.delete_clip_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Clip Request
-eurex_t7_eti_fbe_v15_0.delete_clip_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Clip Request
-eurex_t7_eti_fbe_v15_0.delete_clip_request.fields = function(buffer, offset, packet, parent, size_of_delete_clip_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Cross Request Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, cross_request_id = eurex_t7_eti_fbe_v15_0.cross_request_id.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Clip Request
-eurex_t7_eti_fbe_v15_0.delete_clip_request.dissect = function(buffer, offset, packet, parent, size_of_delete_clip_request)
-  local size_of_delete_clip_request = eurex_t7_eti_fbe_v15_0.delete_clip_request.size(buffer, offset)
-  local index = offset + size_of_delete_clip_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_clip_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_clip_request.fields(buffer, offset, packet, parent, size_of_delete_clip_request)
-    parent:set_len(size_of_delete_clip_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_clip_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_clip_request.fields(buffer, offset, packet, parent, size_of_delete_clip_request)
-
-    return index
-  end
-end
-
--- Delete Basket Trade Request
-eurex_t7_eti_fbe_v15_0.delete_basket_trade_request = {}
-
--- Read runtime size of: Delete Basket Trade Request
-eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Basket Trade Request
-eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Basket Trade Request
-eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Basket Trade Request
-eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
-  local size_of_delete_basket_trade_request = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.size(buffer, offset)
-  local index = offset + size_of_delete_basket_trade_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_basket_trade_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
-    parent:set_len(size_of_delete_basket_trade_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
-
-    return index
-  end
-end
-
 -- Delete All Quote Response
 eurex_t7_eti_fbe_v15_0.delete_all_quote_response = {}
 
@@ -33223,83 +27487,6 @@ eurex_t7_eti_fbe_v15_0.delete_all_quote_response.dissect = function(buffer, offs
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-
-    return index
-  end
-end
-
--- Delete All Quote Request
-eurex_t7_eti_fbe_v15_0.delete_all_quote_request = {}
-
--- Read runtime size of: Delete All Quote Request
-eurex_t7_eti_fbe_v15_0.delete_all_quote_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Quote Request
-eurex_t7_eti_fbe_v15_0.delete_all_quote_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Quote Request
-eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete All Quote Request
-eurex_t7_eti_fbe_v15_0.delete_all_quote_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
-  local size_of_delete_all_quote_request = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.size(buffer, offset)
-  local index = offset + size_of_delete_all_quote_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_all_quote_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
-    parent:set_len(size_of_delete_all_quote_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
 
     return index
   end
@@ -33566,95 +27753,6 @@ eurex_t7_eti_fbe_v15_0.delete_all_order_response.dissect = function(buffer, offs
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
-
-    return index
-  end
-end
-
--- Delete All Order Request
-eurex_t7_eti_fbe_v15_0.delete_all_order_request = {}
-
--- Read runtime size of: Delete All Order Request
-eurex_t7_eti_fbe_v15_0.delete_all_order_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Order Request
-eurex_t7_eti_fbe_v15_0.delete_all_order_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Order Request
-eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
-
-  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
-
-  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete All Order Request
-eurex_t7_eti_fbe_v15_0.delete_all_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
-  local size_of_delete_all_order_request = eurex_t7_eti_fbe_v15_0.delete_all_order_request.size(buffer, offset)
-  local index = offset + size_of_delete_all_order_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_all_order_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
-    parent:set_len(size_of_delete_all_order_request)
-    local display = eurex_t7_eti_fbe_v15_0.delete_all_order_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
 
     return index
   end
@@ -33940,74 +28038,6 @@ eurex_t7_eti_fbe_v15_0.cross_request_response.dissect = function(buffer, offset,
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
-
-    return index
-  end
-end
-
--- Cross Request
-eurex_t7_eti_fbe_v15_0.cross_request = {}
-
--- Read runtime size of: Cross Request
-eurex_t7_eti_fbe_v15_0.cross_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Cross Request
-eurex_t7_eti_fbe_v15_0.cross_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cross Request
-eurex_t7_eti_fbe_v15_0.cross_request.fields = function(buffer, offset, packet, parent, size_of_cross_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cross Request
-eurex_t7_eti_fbe_v15_0.cross_request.dissect = function(buffer, offset, packet, parent, size_of_cross_request)
-  local size_of_cross_request = eurex_t7_eti_fbe_v15_0.cross_request.size(buffer, offset)
-  local index = offset + size_of_cross_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
-    parent:set_len(size_of_cross_request)
-    local display = eurex_t7_eti_fbe_v15_0.cross_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
 
     return index
   end
@@ -34811,101 +28841,43 @@ eurex_t7_eti_fbe_v15_0.old_basket_instrmt_match_side_grp_comp.dissect = function
   end
 end
 
--- New Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp = {}
+-- Basket Root Party Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp = {}
 
--- Size: New Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.trade_report_id.size + 
-  eurex_t7_eti_fbe_v15_0.maturity_month_year.size + 
-  eurex_t7_eti_fbe_v15_0.basket_trade_report_type.size + 
-  eurex_t7_eti_fbe_v15_0.basket_trade_report_text.size + 
-  eurex_t7_eti_fbe_v15_0.pad3.size
-
--- Display: New Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
-  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_basket_data_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Old Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp = {}
-
--- Size: Old Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.basket_trd_match_id.size + 
-  eurex_t7_eti_fbe_v15_0.basket_exec_id.size + 
-  eurex_t7_eti_fbe_v15_0.trade_report_id.size + 
-  eurex_t7_eti_fbe_v15_0.maturity_month_year.size + 
-  eurex_t7_eti_fbe_v15_0.basket_trade_report_type.size + 
-  eurex_t7_eti_fbe_v15_0.basket_trade_report_text.size + 
+-- Size: Basket Root Party Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.root_party_sub_id_type.size + 
+  eurex_t7_eti_fbe_v15_0.root_party_contra_firm.size + 
+  eurex_t7_eti_fbe_v15_0.root_party_contra_trader.size + 
+  eurex_t7_eti_fbe_v15_0.basket_side_trade_report_id.size + 
   eurex_t7_eti_fbe_v15_0.pad7.size
 
--- Display: Old Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.display = function(packet, parent, length)
+-- Display: Basket Root Party Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Old Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Basket Root Party Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
   local index = offset
 
-  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
+  -- Implicit Basket Root Party Grp Comp Index
+  if basket_root_party_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_root_party_grp_comp_index, basket_root_party_grp_comp_index)
+    iteration:set_generated()
+  end
 
-  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
+  -- Root Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, root_party_sub_id_type = eurex_t7_eti_fbe_v15_0.root_party_sub_id_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
+  index, root_party_contra_firm = eurex_t7_eti_fbe_v15_0.root_party_contra_firm.dissect(buffer, index, packet, parent)
 
-  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
+  -- Root Party Contra Trader: 6 Byte Ascii String Nullable
+  index, root_party_contra_trader = eurex_t7_eti_fbe_v15_0.root_party_contra_trader.dissect(buffer, index, packet, parent)
 
-  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
-  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
+  -- Basket Side Trade Report Id: 20 Byte Ascii String Nullable
+  index, basket_side_trade_report_id = eurex_t7_eti_fbe_v15_0.basket_side_trade_report_id.dissect(buffer, index, packet, parent)
 
   -- Pad7: 7 Byte
   index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
@@ -34913,141 +28885,21 @@ eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields = function(buffer, offset
   return index
 end
 
--- Dissect: Old Basket Data Grp Comp
-eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+-- Dissect: Basket Root Party Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect = function(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.old_basket_data_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_root_party_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
     local length = index - offset
     parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.display(packet, parent, length)
+    local display = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Basket Roll Request
-eurex_t7_eti_fbe_v15_0.basket_roll_request = {}
-
--- Read runtime size of: Basket Roll Request
-eurex_t7_eti_fbe_v15_0.basket_roll_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Basket Roll Request
-eurex_t7_eti_fbe_v15_0.basket_roll_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Basket Roll Request
-eurex_t7_eti_fbe_v15_0.basket_roll_request.fields = function(buffer, offset, packet, parent, size_of_basket_roll_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
-
-  -- No Old Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_old_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_old_basket_side_alloc.dissect(buffer, index, packet, parent)
-
-  -- No New Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_new_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_new_basket_side_alloc.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
-
-  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
-
-  -- No Old Basket Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_old_basket_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_old_basket_instrmt_match_sides.dissect(buffer, index, packet, parent)
-
-  -- No New Basket Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_new_basket_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_new_basket_instrmt_match_sides.dissect(buffer, index, packet, parent)
-
-  -- Trade Report Id: 20 Byte Ascii String Nullable
-  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
-
-  -- Old Basket Data Grp Comp: Struct of 7 fields
-  index, old_basket_data_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.dissect(buffer, index, packet, parent)
-
-  -- New Basket Data Grp Comp: Struct of 5 fields
-  index, new_basket_data_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Basket Root Party Grp Comp
-  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
-    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
-  end
-
-  -- Repeating: Old Basket Instrmt Match Side Grp Comp
-  for old_basket_instrmt_match_side_grp_comp_index = 1, no_old_basket_instrmt_match_sides do
-    index, old_basket_instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, old_basket_instrmt_match_side_grp_comp_index)
-  end
-
-  -- Repeating: New Basket Instrmt Match Side Grp Comp
-  for new_basket_instrmt_match_side_grp_comp_index = 1, no_new_basket_instrmt_match_sides do
-    index, new_basket_instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, new_basket_instrmt_match_side_grp_comp_index)
-  end
-
-  -- Repeating: Old Basket Side Alloc Grp Comp
-  for old_basket_side_alloc_grp_comp_index = 1, no_old_basket_side_alloc do
-    index, old_basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, old_basket_side_alloc_grp_comp_index)
-  end
-
-  -- Repeating: New Basket Side Alloc Grp Comp
-  for new_basket_side_alloc_grp_comp_index = 1, no_new_basket_side_alloc do
-    index, new_basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, new_basket_side_alloc_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Basket Roll Request
-eurex_t7_eti_fbe_v15_0.basket_roll_request.dissect = function(buffer, offset, packet, parent, size_of_basket_roll_request)
-  local size_of_basket_roll_request = eurex_t7_eti_fbe_v15_0.basket_roll_request.size(buffer, offset)
-  local index = offset + size_of_basket_roll_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_roll_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.basket_roll_request.fields(buffer, offset, packet, parent, size_of_basket_roll_request)
-    parent:set_len(size_of_basket_roll_request)
-    local display = eurex_t7_eti_fbe_v15_0.basket_roll_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.basket_roll_request.fields(buffer, offset, packet, parent, size_of_basket_roll_request)
-
-    return index
+    return eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.fields(buffer, offset, packet, parent, basket_root_party_grp_comp_index)
   end
 end
 
@@ -35622,6 +29474,182 @@ eurex_t7_eti_fbe_v15_0.basket_delete_broadcast.dissect = function(buffer, offset
   end
 end
 
+-- Basket Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp = {}
+
+-- Size: Basket Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
+  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_sub_id_type.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.size + 
+  eurex_t7_eti_fbe_v15_0.trade_alloc_status.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.pad4.size
+
+-- Display: Basket Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Basket Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
+  local index = offset
+
+  -- Implicit Basket Side Alloc Grp Comp Index
+  if basket_side_alloc_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_side_alloc_grp_comp_index, basket_side_alloc_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Party Sub Id Type: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_sub_id_type = eurex_t7_eti_fbe_v15_0.party_sub_id_type.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Instrmt Match Side Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, instrmt_match_side_id = eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Alloc Status: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trade_alloc_status = eurex_t7_eti_fbe_v15_0.trade_alloc_status.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Basket Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect = function(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.fields(buffer, offset, packet, parent, basket_side_alloc_grp_comp_index)
+  end
+end
+
+-- Instrmt Match Side Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp = {}
+
+-- Size: Instrmt Match Side Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.security_id.size + 
+  eurex_t7_eti_fbe_v15_0.last_px.size + 
+  eurex_t7_eti_fbe_v15_0.trans_bkd_time.size + 
+  eurex_t7_eti_fbe_v15_0.related_close_price.size + 
+  eurex_t7_eti_fbe_v15_0.clearing_trade_price.size + 
+  eurex_t7_eti_fbe_v15_0.package_id.size + 
+  eurex_t7_eti_fbe_v15_0.side_market_segment_id.size + 
+  eurex_t7_eti_fbe_v15_0.side_trd_sub_typ.size + 
+  eurex_t7_eti_fbe_v15_0.product_complex.size + 
+  eurex_t7_eti_fbe_v15_0.trade_publish_indicator.size + 
+  eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.size + 
+  eurex_t7_eti_fbe_v15_0.effect_on_basket.size + 
+  eurex_t7_eti_fbe_v15_0.trade_report_text.size + 
+  eurex_t7_eti_fbe_v15_0.pad6.size
+
+-- Display: Instrmt Match Side Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrmt Match Side Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
+  local index = offset
+
+  -- Implicit Instrmt Match Side Grp Comp Index
+  if instrmt_match_side_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_match_side_grp_comp_index, instrmt_match_side_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
+
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
+
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
+
+  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, clearing_trade_price = eurex_t7_eti_fbe_v15_0.clearing_trade_price.dissect(buffer, index, packet, parent)
+
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
+
+  -- Side Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, side_market_segment_id = eurex_t7_eti_fbe_v15_0.side_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Side Trd Sub Typ: 2 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_trd_sub_typ = eurex_t7_eti_fbe_v15_0.side_trd_sub_typ.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
+
+  -- Instrmt Match Side Id: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, instrmt_match_side_id = eurex_t7_eti_fbe_v15_0.instrmt_match_side_id.dissect(buffer, index, packet, parent)
+
+  -- Effect On Basket: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, effect_on_basket = eurex_t7_eti_fbe_v15_0.effect_on_basket.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Text: 20 Byte Ascii String Nullable
+  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrmt Match Side Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_match_side_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.fields(buffer, offset, packet, parent, instrmt_match_side_grp_comp_index)
+  end
+end
+
 -- Basket Broadcast
 eurex_t7_eti_fbe_v15_0.basket_broadcast = {}
 
@@ -36022,6 +30050,6867 @@ eurex_t7_eti_fbe_v15_0.basket_approve_broadcast.dissect = function(buffer, offse
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.basket_approve_broadcast.fields(buffer, offset, packet, parent, size_of_basket_approve_broadcast)
+
+    return index
+  end
+end
+
+-- Add Scaled Simple Instrument Response
+eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response = {}
+
+-- Read runtime size of: Add Scaled Simple Instrument Response
+eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Add Scaled Simple Instrument Response
+eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Scaled Simple Instrument Response
+eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, related_security_id = eurex_t7_eti_fbe_v15_0.related_security_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_update_time = eurex_t7_eti_fbe_v15_0.last_update_time.dissect(buffer, index, packet, parent)
+
+  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, quantity_scaling_factor = eurex_t7_eti_fbe_v15_0.quantity_scaling_factor.dissect(buffer, index, packet, parent)
+
+  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, multileg_model = eurex_t7_eti_fbe_v15_0.multileg_model.dissect(buffer, index, packet, parent)
+
+  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, implied_market_indicator = eurex_t7_eti_fbe_v15_0.implied_market_indicator.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Scaled Simple Instrument Response
+eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
+  local size_of_add_scaled_simple_instrument_response = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.size(buffer, offset)
+  local index = offset + size_of_add_scaled_simple_instrument_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_scaled_simple_instrument_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
+    parent:set_len(size_of_add_scaled_simple_instrument_response)
+    local display = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
+
+    return index
+  end
+end
+
+-- Add Flexible Instrument Response
+eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response = {}
+
+-- Read runtime size of: Add Flexible Instrument Response
+eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Add Flexible Instrument Response
+eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Flexible Instrument Response
+eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, strike_price = eurex_t7_eti_fbe_v15_0.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, maturity_date = eurex_t7_eti_fbe_v15_0.maturity_date.dissect(buffer, index, packet, parent)
+
+  -- Contract Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, contract_date = eurex_t7_eti_fbe_v15_0.contract_date.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Settl Method: 1 Byte Ascii String Enum with 2 values
+  index, settl_method = eurex_t7_eti_fbe_v15_0.settl_method.dissect(buffer, index, packet, parent)
+
+  -- Opt Attribute: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, opt_attribute = eurex_t7_eti_fbe_v15_0.opt_attribute.dissect(buffer, index, packet, parent)
+
+  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, put_or_call = eurex_t7_eti_fbe_v15_0.put_or_call.dissect(buffer, index, packet, parent)
+
+  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, exercise_style = eurex_t7_eti_fbe_v15_0.exercise_style.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Flexible Instrument Response
+eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+  local size_of_add_flexible_instrument_response = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.size(buffer, offset)
+  local index = offset + size_of_add_flexible_instrument_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_flexible_instrument_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+    parent:set_len(size_of_add_flexible_instrument_response)
+    local display = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
+
+    return index
+  end
+end
+
+-- Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp = {}
+
+-- Size: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.leg_security_id.size + 
+  eurex_t7_eti_fbe_v15_0.leg_price.size + 
+  eurex_t7_eti_fbe_v15_0.leg_symbol.size + 
+  eurex_t7_eti_fbe_v15_0.leg_ratio_qty.size + 
+  eurex_t7_eti_fbe_v15_0.leg_side.size + 
+  eurex_t7_eti_fbe_v15_0.leg_security_type.size + 
+  eurex_t7_eti_fbe_v15_0.pad6.size
+
+-- Display: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  local index = offset
+
+  -- Implicit Instrmt Leg Grp Comp Index
+  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, leg_security_id = eurex_t7_eti_fbe_v15_0.leg_security_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_price = eurex_t7_eti_fbe_v15_0.leg_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
+  index, leg_symbol = eurex_t7_eti_fbe_v15_0.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_ratio_qty = eurex_t7_eti_fbe_v15_0.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, leg_side = eurex_t7_eti_fbe_v15_0.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, leg_security_type = eurex_t7_eti_fbe_v15_0.leg_security_type.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  end
+end
+
+-- Add Complex Instrument Response
+eurex_t7_eti_fbe_v15_0.add_complex_instrument_response = {}
+
+-- Read runtime size of: Add Complex Instrument Response
+eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Add Complex Instrument Response
+eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Complex Instrument Response
+eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 8 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, low_limit_price = eurex_t7_eti_fbe_v15_0.low_limit_price.dissect(buffer, index, packet, parent)
+
+  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, high_limit_price = eurex_t7_eti_fbe_v15_0.high_limit_price.dissect(buffer, index, packet, parent)
+
+  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_px = eurex_t7_eti_fbe_v15_0.related_px.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_update_time = eurex_t7_eti_fbe_v15_0.last_update_time.dissect(buffer, index, packet, parent)
+
+  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Number Of Securities: 4 Byte Signed Fixed Width Integer Nullable
+  index, number_of_securities = eurex_t7_eti_fbe_v15_0.number_of_securities.dissect(buffer, index, packet, parent)
+
+  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_sub_type = eurex_t7_eti_fbe_v15_0.security_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, quantity_scaling_factor = eurex_t7_eti_fbe_v15_0.quantity_scaling_factor.dissect(buffer, index, packet, parent)
+
+  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, multileg_model = eurex_t7_eti_fbe_v15_0.multileg_model.dissect(buffer, index, packet, parent)
+
+  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, implied_market_indicator = eurex_t7_eti_fbe_v15_0.implied_market_indicator.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Instrmt Leg Grp Comp
+  for instrmt_leg_grp_comp_index = 1, no_leg_onbooks do
+    index, instrmt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.dissect(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Add Complex Instrument Response
+eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local size_of_add_complex_instrument_response = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.size(buffer, offset)
+  local index = offset + size_of_add_complex_instrument_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_complex_instrument_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+    parent:set_len(size_of_add_complex_instrument_response)
+    local display = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+
+    return index
+  end
+end
+
+-- Server Payload
+eurex_t7_eti_fbe_v15_0.server_payload = {}
+
+-- Dissect: Server Payload
+eurex_t7_eti_fbe_v15_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Add Complex Instrument Response
+  if template_id == 10302 then
+    return eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Flexible Instrument Response
+  if template_id == 10310 then
+    return eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Scaled Simple Instrument Response
+  if template_id == 10328 then
+    return eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Approve Broadcast
+  if template_id == 10627 then
+    return eurex_t7_eti_fbe_v15_0.basket_approve_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Broadcast
+  if template_id == 10625 then
+    return eurex_t7_eti_fbe_v15_0.basket_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Delete Broadcast
+  if template_id == 10626 then
+    return eurex_t7_eti_fbe_v15_0.basket_delete_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Execution Broadcast
+  if template_id == 10628 then
+    return eurex_t7_eti_fbe_v15_0.basket_execution_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Response
+  if template_id == 10624 then
+    return eurex_t7_eti_fbe_v15_0.basket_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Basket Roll Broadcast
+  if template_id == 10634 then
+    return eurex_t7_eti_fbe_v15_0.basket_roll_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Broadcast Error Notification
+  if template_id == 10032 then
+    return eurex_t7_eti_fbe_v15_0.broadcast_error_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Clip Deletion Notification
+  if template_id == 10134 then
+    return eurex_t7_eti_fbe_v15_0.clip_deletion_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Clip Execution Notification
+  if template_id == 10135 then
+    return eurex_t7_eti_fbe_v15_0.clip_execution_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Clip Response
+  if template_id == 10133 then
+    return eurex_t7_eti_fbe_v15_0.clip_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cross Request Response
+  if template_id == 10119 then
+    return eurex_t7_eti_fbe_v15_0.cross_request_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Broadcast
+  if template_id == 10122 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Nr Response
+  if template_id == 10124 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Response
+  if template_id == 10121 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Quote Broadcast
+  if template_id == 10410 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Quote Response
+  if template_id == 10409 then
+    return eurex_t7_eti_fbe_v15_0.delete_all_quote_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Broadcast
+  if template_id == 10112 then
+    return eurex_t7_eti_fbe_v15_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Nr Response
+  if template_id == 10111 then
+    return eurex_t7_eti_fbe_v15_0.delete_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Response
+  if template_id == 10110 then
+    return eurex_t7_eti_fbe_v15_0.delete_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Forced Logout Notification
+  if template_id == 10012 then
+    return eurex_t7_eti_fbe_v15_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Forced User Logout Notification
+  if template_id == 10043 then
+    return eurex_t7_eti_fbe_v15_0.forced_user_logout_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Notification
+  if template_id == 10023 then
+    return eurex_t7_eti_fbe_v15_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Mm Parameter Response
+  if template_id == 10306 then
+    return eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Margin Based Risk Limit Response
+  if template_id == 10324 then
+    return eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Session List Response
+  if template_id == 10036 then
+    return eurex_t7_eti_fbe_v15_0.inquire_session_list_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire User Response
+  if template_id == 10039 then
+    return eurex_t7_eti_fbe_v15_0.inquire_user_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Legal Notification Broadcast
+  if template_id == 10037 then
+    return eurex_t7_eti_fbe_v15_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Response
+  if template_id == 10001 then
+    return eurex_t7_eti_fbe_v15_0.logon_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response
+  if template_id == 10003 then
+    return eurex_t7_eti_fbe_v15_0.logout_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mm Parameter Definition Response
+  if template_id == 10304 then
+    return eurex_t7_eti_fbe_v15_0.mm_parameter_definition_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Order Ack
+  if template_id == 10116 then
+    return eurex_t7_eti_fbe_v15_0.mass_order_ack.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Quote Response
+  if template_id == 10406 then
+    return eurex_t7_eti_fbe_v15_0.mass_quote_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Nr Response
+  if template_id == 10108 then
+    return eurex_t7_eti_fbe_v15_0.modify_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Response
+  if template_id == 10107 then
+    return eurex_t7_eti_fbe_v15_0.modify_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Nr Response
+  if template_id == 10102 then
+    return eurex_t7_eti_fbe_v15_0.new_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Response
+  if template_id == 10101 then
+    return eurex_t7_eti_fbe_v15_0.new_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect News Broadcast
+  if template_id == 10031 then
+    return eurex_t7_eti_fbe_v15_0.news_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Notification
+  if template_id == 10104 then
+    return eurex_t7_eti_fbe_v15_0.order_exec_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Report Broadcast
+  if template_id == 10117 then
+    return eurex_t7_eti_fbe_v15_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Response
+  if template_id == 10103 then
+    return eurex_t7_eti_fbe_v15_0.order_exec_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Action Report
+  if template_id == 10042 then
+    return eurex_t7_eti_fbe_v15_0.party_action_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Entitlements Update Report
+  if template_id == 10034 then
+    return eurex_t7_eti_fbe_v15_0.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Ping Response
+  if template_id == 10321 then
+    return eurex_t7_eti_fbe_v15_0.ping_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Pre Trade Risk Limit Response
+  if template_id == 10313 then
+    return eurex_t7_eti_fbe_v15_0.pre_trade_risk_limit_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Activation Notification
+  if template_id == 10411 then
+    return eurex_t7_eti_fbe_v15_0.quote_activation_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Activation Response
+  if template_id == 10404 then
+    return eurex_t7_eti_fbe_v15_0.quote_activation_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Execution Report
+  if template_id == 10407 then
+    return eurex_t7_eti_fbe_v15_0.quote_execution_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Rfq Response
+  if template_id == 10402 then
+    return eurex_t7_eti_fbe_v15_0.rfq_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reject
+  if template_id == 10010 then
+    return eurex_t7_eti_fbe_v15_0.reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Me Message Response
+  if template_id == 10027 then
+    return eurex_t7_eti_fbe_v15_0.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Response
+  if template_id == 10009 then
+    return eurex_t7_eti_fbe_v15_0.retransmit_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Notification Broadcast
+  if template_id == 10033 then
+    return eurex_t7_eti_fbe_v15_0.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Create Deal Notification
+  if template_id == 10708 then
+    return eurex_t7_eti_fbe_v15_0.srqs_create_deal_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Deal Notification
+  if template_id == 10709 then
+    return eurex_t7_eti_fbe_v15_0.srqs_deal_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Deal Response
+  if template_id == 10705 then
+    return eurex_t7_eti_fbe_v15_0.srqs_deal_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Inquire Smart Respondent Response
+  if template_id == 10719 then
+    return eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Negotiation Notification
+  if template_id == 10713 then
+    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Negotiation Requester Notification
+  if template_id == 10712 then
+    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Negotiation Status Notification
+  if template_id == 10715 then
+    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_status_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Open Negotiation Notification
+  if template_id == 10711 then
+    return eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Open Negotiation Requester Notification
+  if template_id == 10710 then
+    return eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Quote Notification
+  if template_id == 10707 then
+    return eurex_t7_eti_fbe_v15_0.srqs_quote_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Quote Response
+  if template_id == 10703 then
+    return eurex_t7_eti_fbe_v15_0.srqs_quote_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Quote Snapshot Notification
+  if template_id == 10723 then
+    return eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Response
+  if template_id == 10722 then
+    return eurex_t7_eti_fbe_v15_0.srqs_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Srqs Status Broadcast
+  if template_id == 10714 then
+    return eurex_t7_eti_fbe_v15_0.srqs_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Service Availability Broadcast
+  if template_id == 10030 then
+    return eurex_t7_eti_fbe_v15_0.service_availability_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Service Availability Market Broadcast
+  if template_id == 10044 then
+    return eurex_t7_eti_fbe_v15_0.service_availability_market_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Status Broadcast
+  if template_id == 10045 then
+    return eurex_t7_eti_fbe_v15_0.status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subscribe Response
+  if template_id == 10005 then
+    return eurex_t7_eti_fbe_v15_0.subscribe_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Approve Broadcast
+  if template_id == 10607 then
+    return eurex_t7_eti_fbe_v15_0.tes_approve_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Broadcast
+  if template_id == 10604 then
+    return eurex_t7_eti_fbe_v15_0.tes_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Delete Broadcast
+  if template_id == 10606 then
+    return eurex_t7_eti_fbe_v15_0.tes_delete_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Execution Broadcast
+  if template_id == 10610 then
+    return eurex_t7_eti_fbe_v15_0.tes_execution_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Inquire Boundary Prices Response
+  if template_id == 10330 then
+    return eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Response
+  if template_id == 10611 then
+    return eurex_t7_eti_fbe_v15_0.tes_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Reversal Broadcast
+  if template_id == 10632 then
+    return eurex_t7_eti_fbe_v15_0.tes_reversal_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Trade Broadcast
+  if template_id == 10614 then
+    return eurex_t7_eti_fbe_v15_0.tes_trade_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Trading Session Status Broadcast
+  if template_id == 10615 then
+    return eurex_t7_eti_fbe_v15_0.tes_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tes Upload Broadcast
+  if template_id == 10613 then
+    return eurex_t7_eti_fbe_v15_0.tes_upload_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return eurex_t7_eti_fbe_v15_0.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Throttle Update Notification
+  if template_id == 10028 then
+    return eurex_t7_eti_fbe_v15_0.throttle_update_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Broadcast
+  if template_id == 10500 then
+    return eurex_t7_eti_fbe_v15_0.trade_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Action Response
+  if template_id == 10905 then
+    return eurex_t7_eti_fbe_v15_0.trading_action_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Session Status Broadcast
+  if template_id == 10307 then
+    return eurex_t7_eti_fbe_v15_0.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsubscribe Response
+  if template_id == 10007 then
+    return eurex_t7_eti_fbe_v15_0.unsubscribe_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Update Reference Prices Response
+  if template_id == 10332 then
+    return eurex_t7_eti_fbe_v15_0.update_reference_prices_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Update Remaining Risk Allowance Base Response
+  if template_id == 10326 then
+    return eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Login Response
+  if template_id == 10019 then
+    return eurex_t7_eti_fbe_v15_0.user_login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Logout Response
+  if template_id == 10024 then
+    return eurex_t7_eti_fbe_v15_0.user_logout_response.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+eurex_t7_eti_fbe_v15_0.message_header = {}
+
+-- Size: Message Header
+eurex_t7_eti_fbe_v15_0.message_header.size =
+  eurex_t7_eti_fbe_v15_0.body_len.size + 
+  eurex_t7_eti_fbe_v15_0.template_id.size
+
+-- Display: Message Header
+eurex_t7_eti_fbe_v15_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+eurex_t7_eti_fbe_v15_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, body_len = eurex_t7_eti_fbe_v15_0.body_len.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 158 values
+  index, template_id = eurex_t7_eti_fbe_v15_0.template_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+eurex_t7_eti_fbe_v15_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.message_header, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message
+eurex_t7_eti_fbe_v15_0.server_message = {}
+
+-- Display: Server Message
+eurex_t7_eti_fbe_v15_0.server_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message
+eurex_t7_eti_fbe_v15_0.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_t7_eti_fbe_v15_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 2, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 95 branches
+  index = eurex_t7_eti_fbe_v15_0.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Message
+eurex_t7_eti_fbe_v15_0.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset + size_of_server_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.server_message, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    parent:set_len(size_of_server_message)
+    local display = eurex_t7_eti_fbe_v15_0.server_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Message
+local server_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_t7_eti_fbe_v15_0.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+eurex_t7_eti_fbe_v15_0.server_packet = {}
+
+-- Verify required size of Tcp packet
+eurex_t7_eti_fbe_v15_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= eurex_t7_eti_fbe_v15_0.message_header.size
+end
+
+-- Dissect Server Packet
+eurex_t7_eti_fbe_v15_0.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Message
+  local end_of_payload = buffer:len()
+
+  -- Server Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_message = server_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_t7_eti_fbe_v15_0.server_message.dissect(buffer, index, packet, parent, size_of_server_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Request Header Comp
+eurex_t7_eti_fbe_v15_0.request_header_comp = {}
+
+-- Size: Request Header Comp
+eurex_t7_eti_fbe_v15_0.request_header_comp.size =
+  eurex_t7_eti_fbe_v15_0.msg_seq_num.size + 
+  eurex_t7_eti_fbe_v15_0.sender_sub_id.size
+
+-- Display: Request Header Comp
+eurex_t7_eti_fbe_v15_0.request_header_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Header Comp
+eurex_t7_eti_fbe_v15_0.request_header_comp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, msg_seq_num = eurex_t7_eti_fbe_v15_0.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, sender_sub_id = eurex_t7_eti_fbe_v15_0.sender_sub_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Header Comp
+eurex_t7_eti_fbe_v15_0.request_header_comp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.request_header_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.request_header_comp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Logout Request
+eurex_t7_eti_fbe_v15_0.user_logout_request = {}
+
+-- Read runtime size of: User Logout Request
+eurex_t7_eti_fbe_v15_0.user_logout_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Logout Request
+eurex_t7_eti_fbe_v15_0.user_logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Logout Request
+eurex_t7_eti_fbe_v15_0.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Logout Request
+eurex_t7_eti_fbe_v15_0.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local size_of_user_logout_request = eurex_t7_eti_fbe_v15_0.user_logout_request.size(buffer, offset)
+  local index = offset + size_of_user_logout_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_logout_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+    parent:set_len(size_of_user_logout_request)
+    local display = eurex_t7_eti_fbe_v15_0.user_logout_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+
+    return index
+  end
+end
+
+-- User Login Request Encrypted
+eurex_t7_eti_fbe_v15_0.user_login_request_encrypted = {}
+
+-- Read runtime size of: User Login Request Encrypted
+eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Login Request Encrypted
+eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Login Request Encrypted
+eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields = function(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
+
+  -- Encrypted Password: 684 Byte Ascii String Nullable
+  index, encrypted_password = eurex_t7_eti_fbe_v15_0.encrypted_password.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Login Request Encrypted
+eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.dissect = function(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
+  local size_of_user_login_request_encrypted = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.size(buffer, offset)
+  local index = offset + size_of_user_login_request_encrypted
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_login_request_encrypted, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
+    parent:set_len(size_of_user_login_request_encrypted)
+    local display = eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.fields(buffer, offset, packet, parent, size_of_user_login_request_encrypted)
+
+    return index
+  end
+end
+
+-- User Login Request
+eurex_t7_eti_fbe_v15_0.user_login_request = {}
+
+-- Read runtime size of: User Login Request
+eurex_t7_eti_fbe_v15_0.user_login_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Login Request
+eurex_t7_eti_fbe_v15_0.user_login_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Login Request
+eurex_t7_eti_fbe_v15_0.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_eti_fbe_v15_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String Nullable
+  index, password = eurex_t7_eti_fbe_v15_0.password.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Login Request
+eurex_t7_eti_fbe_v15_0.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local size_of_user_login_request = eurex_t7_eti_fbe_v15_0.user_login_request.size(buffer, offset)
+  local index = offset + size_of_user_login_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.user_login_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+    parent:set_len(size_of_user_login_request)
+    local display = eurex_t7_eti_fbe_v15_0.user_login_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+
+    return index
+  end
+end
+
+-- Upload Tes Trade Request
+eurex_t7_eti_fbe_v15_0.upload_tes_trade_request = {}
+
+-- Read runtime size of: Upload Tes Trade Request
+eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Upload Tes Trade Request
+eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Upload Tes Trade Request
+eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
+
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
+
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
+
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
+
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_trade_quantity = eurex_t7_eti_fbe_v15_0.related_trade_quantity.dissect(buffer, index, packet, parent)
+
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_settlement_date = eurex_t7_eti_fbe_v15_0.underlying_settlement_date.dissect(buffer, index, packet, parent)
+
+  -- Underlying Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_maturity_date = eurex_t7_eti_fbe_v15_0.underlying_maturity_date.dissect(buffer, index, packet, parent)
+
+  -- Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, related_trade_id = eurex_t7_eti_fbe_v15_0.related_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
+
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
+
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
+
+  -- No Events: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_events = eurex_t7_eti_fbe_v15_0.no_events.dissect(buffer, index, packet, parent)
+
+  -- No Instr Attrib: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_instr_attrib = eurex_t7_eti_fbe_v15_0.no_instr_attrib.dissect(buffer, index, packet, parent)
+
+  -- No Underlying Stips: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_underlying_stips = eurex_t7_eti_fbe_v15_0.no_underlying_stips.dissect(buffer, index, packet, parent)
+
+  -- Skip Validations: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, skip_validations = eurex_t7_eti_fbe_v15_0.skip_validations.dissect(buffer, index, packet, parent)
+
+  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trd_rpt_status = eurex_t7_eti_fbe_v15_0.trd_rpt_status.dissect(buffer, index, packet, parent)
+
+  -- Trade Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, trade_platform = eurex_t7_eti_fbe_v15_0.trade_platform.dissect(buffer, index, packet, parent)
+
+  -- Hedge Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, hedge_type = eurex_t7_eti_fbe_v15_0.hedge_type.dissect(buffer, index, packet, parent)
+
+  -- Party Id Settlement Location: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, party_id_settlement_location = eurex_t7_eti_fbe_v15_0.party_id_settlement_location.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Min Lot Size: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_min_lot_size = eurex_t7_eti_fbe_v15_0.value_check_type_min_lot_size.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Text: 20 Byte Ascii String Nullable
+  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Underlying Security Id: 12 Byte Ascii String Nullable
+  index, underlying_security_id = eurex_t7_eti_fbe_v15_0.underlying_security_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Security Desc: 30 Byte Ascii String Nullable
+  index, underlying_security_desc = eurex_t7_eti_fbe_v15_0.underlying_security_desc.dissect(buffer, index, packet, parent)
+
+  -- Underlying Currency: 3 Byte Ascii String Nullable
+  index, underlying_currency = eurex_t7_eti_fbe_v15_0.underlying_currency.dissect(buffer, index, packet, parent)
+
+  -- Underlying Issuer: 30 Byte Ascii String Nullable
+  index, underlying_issuer = eurex_t7_eti_fbe_v15_0.underlying_issuer.dissect(buffer, index, packet, parent)
+
+  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Side Alloc Ext Grp Comp
+  for side_alloc_ext_grp_comp_index = 1, no_side_allocs do
+    index, side_alloc_ext_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_ext_grp_comp.dissect(buffer, index, packet, parent, side_alloc_ext_grp_comp_index)
+  end
+
+  -- Repeating: Trd Instrmnt Leg Grp Comp
+  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
+    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  end
+
+  -- Repeating: Instrument Event Grp Comp
+  for instrument_event_grp_comp_index = 1, no_events do
+    index, instrument_event_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect(buffer, index, packet, parent, instrument_event_grp_comp_index)
+  end
+
+  -- Repeating: Instrument Attribute Grp Comp
+  for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
+    index, instrument_attribute_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
+  end
+
+  -- Repeating: Underlying Stip Grp Comp
+  for underlying_stip_grp_comp_index = 1, no_underlying_stips do
+    index, underlying_stip_grp_comp = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect(buffer, index, packet, parent, underlying_stip_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Upload Tes Trade Request
+eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+  local size_of_upload_tes_trade_request = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.size(buffer, offset)
+  local index = offset + size_of_upload_tes_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.upload_tes_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+    parent:set_len(size_of_upload_tes_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.upload_tes_trade_request.fields(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
+
+    return index
+  end
+end
+
+-- Rra Update Base Party Grp Comp
+eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp = {}
+
+-- Size: Rra Update Base Party Grp Comp
+eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_long.size + 
+  eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_short.size + 
+  eurex_t7_eti_fbe_v15_0.risk_limit_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.size + 
+  eurex_t7_eti_fbe_v15_0.pad7.size
+
+-- Display: Rra Update Base Party Grp Comp
+eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rra Update Base Party Grp Comp
+eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields = function(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
+  local index = offset
+
+  -- Implicit Rra Update Base Party Grp Comp Index
+  if rra_update_base_party_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rra_update_base_party_grp_comp_index, rra_update_base_party_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Remaining Risk Allowance Base Long: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, remaining_risk_allowance_base_long = eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_long.dissect(buffer, index, packet, parent)
+
+  -- Remaining Risk Allowance Base Short: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, remaining_risk_allowance_base_short = eurex_t7_eti_fbe_v15_0.remaining_risk_allowance_base_short.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, risk_limit_id = eurex_t7_eti_fbe_v15_0.risk_limit_id.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
+  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rra Update Base Party Grp Comp
+eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.dissect = function(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rra_update_base_party_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.fields(buffer, offset, packet, parent, rra_update_base_party_grp_comp_index)
+  end
+end
+
+-- Update Remaining Risk Allowance Base Request
+eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request = {}
+
+-- Read runtime size of: Update Remaining Risk Allowance Base Request
+eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Update Remaining Risk Allowance Base Request
+eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Update Remaining Risk Allowance Base Request
+eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields = function(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- No Party Risk Limits: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_party_risk_limits = eurex_t7_eti_fbe_v15_0.no_party_risk_limits.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Rra Update Base Party Grp Comp
+  for rra_update_base_party_grp_comp_index = 1, no_party_risk_limits do
+    index, rra_update_base_party_grp_comp = eurex_t7_eti_fbe_v15_0.rra_update_base_party_grp_comp.dissect(buffer, index, packet, parent, rra_update_base_party_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Update Remaining Risk Allowance Base Request
+eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.dissect = function(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
+  local size_of_update_remaining_risk_allowance_base_request = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.size(buffer, offset)
+  local index = offset + size_of_update_remaining_risk_allowance_base_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.update_remaining_risk_allowance_base_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
+    parent:set_len(size_of_update_remaining_risk_allowance_base_request)
+    local display = eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.fields(buffer, offset, packet, parent, size_of_update_remaining_risk_allowance_base_request)
+
+    return index
+  end
+end
+
+-- Update Reference Price Request
+eurex_t7_eti_fbe_v15_0.update_reference_price_request = {}
+
+-- Read runtime size of: Update Reference Price Request
+eurex_t7_eti_fbe_v15_0.update_reference_price_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Update Reference Price Request
+eurex_t7_eti_fbe_v15_0.update_reference_price_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Update Reference Price Request
+eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields = function(buffer, offset, packet, parent, size_of_update_reference_price_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Reference Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trading_reference_price = eurex_t7_eti_fbe_v15_0.trading_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Update Reference Price Request
+eurex_t7_eti_fbe_v15_0.update_reference_price_request.dissect = function(buffer, offset, packet, parent, size_of_update_reference_price_request)
+  local size_of_update_reference_price_request = eurex_t7_eti_fbe_v15_0.update_reference_price_request.size(buffer, offset)
+  local index = offset + size_of_update_reference_price_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.update_reference_price_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields(buffer, offset, packet, parent, size_of_update_reference_price_request)
+    parent:set_len(size_of_update_reference_price_request)
+    local display = eurex_t7_eti_fbe_v15_0.update_reference_price_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.update_reference_price_request.fields(buffer, offset, packet, parent, size_of_update_reference_price_request)
+
+    return index
+  end
+end
+
+-- Unsubscribe Request
+eurex_t7_eti_fbe_v15_0.unsubscribe_request = {}
+
+-- Read runtime size of: Unsubscribe Request
+eurex_t7_eti_fbe_v15_0.unsubscribe_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Unsubscribe Request
+eurex_t7_eti_fbe_v15_0.unsubscribe_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsubscribe Request
+eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, ref_appl_sub_id = eurex_t7_eti_fbe_v15_0.ref_appl_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unsubscribe Request
+eurex_t7_eti_fbe_v15_0.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local size_of_unsubscribe_request = eurex_t7_eti_fbe_v15_0.unsubscribe_request.size(buffer, offset)
+  local index = offset + size_of_unsubscribe_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.unsubscribe_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+    parent:set_len(size_of_unsubscribe_request)
+    local display = eurex_t7_eti_fbe_v15_0.unsubscribe_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+
+    return index
+  end
+end
+
+-- Trading Action Request
+eurex_t7_eti_fbe_v15_0.trading_action_request = {}
+
+-- Read runtime size of: Trading Action Request
+eurex_t7_eti_fbe_v15_0.trading_action_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Trading Action Request
+eurex_t7_eti_fbe_v15_0.trading_action_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Action Request
+eurex_t7_eti_fbe_v15_0.trading_action_request.fields = function(buffer, offset, packet, parent, size_of_trading_action_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
+
+  -- Order Deletion Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_deletion_instruction = eurex_t7_eti_fbe_v15_0.order_deletion_instruction.dissect(buffer, index, packet, parent)
+
+  -- Party Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_action_type = eurex_t7_eti_fbe_v15_0.party_action_type.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_executing_unit = eurex_t7_eti_fbe_v15_0.party_id_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Executing Unit: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_unit = eurex_t7_eti_fbe_v15_0.target_party_id_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Action Request
+eurex_t7_eti_fbe_v15_0.trading_action_request.dissect = function(buffer, offset, packet, parent, size_of_trading_action_request)
+  local size_of_trading_action_request = eurex_t7_eti_fbe_v15_0.trading_action_request.size(buffer, offset)
+  local index = offset + size_of_trading_action_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.trading_action_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
+    parent:set_len(size_of_trading_action_request)
+    local display = eurex_t7_eti_fbe_v15_0.trading_action_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.trading_action_request.fields(buffer, offset, packet, parent, size_of_trading_action_request)
+
+    return index
+  end
+end
+
+-- Tes Inquire Boundary Prices Request
+eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request = {}
+
+-- Read runtime size of: Tes Inquire Boundary Prices Request
+eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Tes Inquire Boundary Prices Request
+eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tes Inquire Boundary Prices Request
+eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields = function(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tes Inquire Boundary Prices Request
+eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.dissect = function(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
+  local size_of_tes_inquire_boundary_prices_request = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.size(buffer, offset)
+  local index = offset + size_of_tes_inquire_boundary_prices_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.tes_inquire_boundary_prices_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
+    parent:set_len(size_of_tes_inquire_boundary_prices_request)
+    local display = eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.fields(buffer, offset, packet, parent, size_of_tes_inquire_boundary_prices_request)
+
+    return index
+  end
+end
+
+-- Subscribe Request
+eurex_t7_eti_fbe_v15_0.subscribe_request = {}
+
+-- Read runtime size of: Subscribe Request
+eurex_t7_eti_fbe_v15_0.subscribe_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Subscribe Request
+eurex_t7_eti_fbe_v15_0.subscribe_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subscribe Request
+eurex_t7_eti_fbe_v15_0.subscribe_request.fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, subscription_scope = eurex_t7_eti_fbe_v15_0.subscription_scope.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subscribe Request
+eurex_t7_eti_fbe_v15_0.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local size_of_subscribe_request = eurex_t7_eti_fbe_v15_0.subscribe_request.size(buffer, offset)
+  local index = offset + size_of_subscribe_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.subscribe_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+    parent:set_len(size_of_subscribe_request)
+    local display = eurex_t7_eti_fbe_v15_0.subscribe_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+
+    return index
+  end
+end
+
+-- Srqs Update Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request = {}
+
+-- Read runtime size of: Srqs Update Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Update Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Update Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
+
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
+
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
+
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
+
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_target_party_i_ds = eurex_t7_eti_fbe_v15_0.no_target_party_i_ds.dissect(buffer, index, packet, parent)
+
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, number_of_resp_disclosure_instruction = eurex_t7_eti_fbe_v15_0.number_of_resp_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Show Last Deal On Closure: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, show_last_deal_on_closure = eurex_t7_eti_fbe_v15_0.show_last_deal_on_closure.dissect(buffer, index, packet, parent)
+
+  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, quote_sub_type = eurex_t7_eti_fbe_v15_0.quote_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, respondent_type = eurex_t7_eti_fbe_v15_0.respondent_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Aggregation Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, trade_aggregation_trans_type = eurex_t7_eti_fbe_v15_0.trade_aggregation_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Condition: 1 Byte Ascii String Enum with 4 values
+  index, quote_condition = eurex_t7_eti_fbe_v15_0.quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  -- Party Order Origination Trader: 132 Byte Ascii String Nullable
+  index, party_order_origination_trader = eurex_t7_eti_fbe_v15_0.party_order_origination_trader.dissect(buffer, index, packet, parent)
+
+  -- Charge Id: 132 Byte Ascii String Nullable
+  index, charge_id = eurex_t7_eti_fbe_v15_0.charge_id.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Target Parties Comp
+  for target_parties_comp_index = 1, no_target_party_i_ds do
+    index, target_parties_comp = eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect(buffer, index, packet, parent, target_parties_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Srqs Update Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
+  local size_of_srqs_update_negotiation_request = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.size(buffer, offset)
+  local index = offset + size_of_srqs_update_negotiation_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_update_negotiation_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
+    parent:set_len(size_of_srqs_update_negotiation_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
+
+    return index
+  end
+end
+
+-- Srqs Update Deal Status Request
+eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request = {}
+
+-- Read runtime size of: Srqs Update Deal Status Request
+eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Update Deal Status Request
+eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Update Deal Status Request
+eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_price_stip_value = eurex_t7_eti_fbe_v15_0.underlying_price_stip_value.dissect(buffer, index, packet, parent)
+
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
+
+  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_qty = eurex_t7_eti_fbe_v15_0.last_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, trade_id = eurex_t7_eti_fbe_v15_0.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trd Rpt Status: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, trd_rpt_status = eurex_t7_eti_fbe_v15_0.trd_rpt_status.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Update Deal Status Request
+eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
+  local size_of_srqs_update_deal_status_request = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.size(buffer, offset)
+  local index = offset + size_of_srqs_update_deal_status_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_update_deal_status_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
+    parent:set_len(size_of_srqs_update_deal_status_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.fields(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
+
+    return index
+  end
+end
+
+-- Srqs Quoting Status Request
+eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request = {}
+
+-- Read runtime size of: Srqs Quoting Status Request
+eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Quoting Status Request
+eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Quoting Status Request
+eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
+
+  -- Quoting Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, quoting_status = eurex_t7_eti_fbe_v15_0.quoting_status.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Quoting Status Request
+eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
+  local size_of_srqs_quoting_status_request = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.size(buffer, offset)
+  local index = offset + size_of_srqs_quoting_status_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_quoting_status_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
+    parent:set_len(size_of_srqs_quoting_status_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.fields(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
+
+    return index
+  end
+end
+
+-- Srqs Quote Snapshot Request
+eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request = {}
+
+-- Read runtime size of: Srqs Quote Snapshot Request
+eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Quote Snapshot Request
+eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Quote Snapshot Request
+eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields = function(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Quote Snapshot Request
+eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
+  local size_of_srqs_quote_snapshot_request = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.size(buffer, offset)
+  local index = offset + size_of_srqs_quote_snapshot_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_quote_snapshot_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
+    parent:set_len(size_of_srqs_quote_snapshot_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_request.fields(buffer, offset, packet, parent, size_of_srqs_quote_snapshot_request)
+
+    return index
+  end
+end
+
+-- Srqs Open Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request = {}
+
+-- Read runtime size of: Srqs Open Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Open Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Open Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
+
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
+
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
+
+  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_sub_type = eurex_t7_eti_fbe_v15_0.security_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, quote_sub_type = eurex_t7_eti_fbe_v15_0.quote_sub_type.dissect(buffer, index, packet, parent)
+
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
+
+  -- No Target Party I Ds: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_target_party_i_ds = eurex_t7_eti_fbe_v15_0.no_target_party_i_ds.dissect(buffer, index, packet, parent)
+
+  -- Number Of Resp Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, number_of_resp_disclosure_instruction = eurex_t7_eti_fbe_v15_0.number_of_resp_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Respondent Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, respondent_type = eurex_t7_eti_fbe_v15_0.respondent_type.dissect(buffer, index, packet, parent)
+
+  -- Show Last Deal On Closure: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, show_last_deal_on_closure = eurex_t7_eti_fbe_v15_0.show_last_deal_on_closure.dissect(buffer, index, packet, parent)
+
+  -- Bid Px Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, bid_px_is_locked = eurex_t7_eti_fbe_v15_0.bid_px_is_locked.dissect(buffer, index, packet, parent)
+
+  -- Offer Px Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, offer_px_is_locked = eurex_t7_eti_fbe_v15_0.offer_px_is_locked.dissect(buffer, index, packet, parent)
+
+  -- Side Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_is_locked = eurex_t7_eti_fbe_v15_0.side_is_locked.dissect(buffer, index, packet, parent)
+
+  -- Order Qty Is Locked: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_qty_is_locked = eurex_t7_eti_fbe_v15_0.order_qty_is_locked.dissect(buffer, index, packet, parent)
+
+  -- Trade Aggregation Trans Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, trade_aggregation_trans_type = eurex_t7_eti_fbe_v15_0.trade_aggregation_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Condition: 1 Byte Ascii String Enum with 4 values
+  index, quote_condition = eurex_t7_eti_fbe_v15_0.quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: 20 Byte Ascii String Nullable
+  index, quote_req_id = eurex_t7_eti_fbe_v15_0.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Party Order Origination Trader: 132 Byte Ascii String Nullable
+  index, party_order_origination_trader = eurex_t7_eti_fbe_v15_0.party_order_origination_trader.dissect(buffer, index, packet, parent)
+
+  -- Charge Id: 132 Byte Ascii String Nullable
+  index, charge_id = eurex_t7_eti_fbe_v15_0.charge_id.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Quot Req Legs Grp Comp
+  for quot_req_legs_grp_comp_index = 1, no_legs do
+    index, quot_req_legs_grp_comp = eurex_t7_eti_fbe_v15_0.quot_req_legs_grp_comp.dissect(buffer, index, packet, parent, quot_req_legs_grp_comp_index)
+  end
+
+  -- Repeating: Target Parties Comp
+  for target_parties_comp_index = 1, no_target_party_i_ds do
+    index, target_parties_comp = eurex_t7_eti_fbe_v15_0.target_parties_comp.dissect(buffer, index, packet, parent, target_parties_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Srqs Open Negotiation Request
+eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
+  local size_of_srqs_open_negotiation_request = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.size(buffer, offset)
+  local index = offset + size_of_srqs_open_negotiation_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_open_negotiation_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
+    parent:set_len(size_of_srqs_open_negotiation_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.fields(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
+
+    return index
+  end
+end
+
+-- Srqs Inquire Smart Respondent Request
+eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request = {}
+
+-- Read runtime size of: Srqs Inquire Smart Respondent Request
+eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Inquire Smart Respondent Request
+eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Inquire Smart Respondent Request
+eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Eurex Volume Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, eurex_volume_ranking = eurex_t7_eti_fbe_v15_0.eurex_volume_ranking.dissect(buffer, index, packet, parent)
+
+  -- Enlight Rfq Avg Resp Time Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, enlight_rfq_avg_resp_time_ranking = eurex_t7_eti_fbe_v15_0.enlight_rfq_avg_resp_time_ranking.dissect(buffer, index, packet, parent)
+
+  -- Enlight Rfq Avg Resp Rate Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, enlight_rfq_avg_resp_rate_ranking = eurex_t7_eti_fbe_v15_0.enlight_rfq_avg_resp_rate_ranking.dissect(buffer, index, packet, parent)
+
+  -- Trade To Quote Ratio Ranking: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trade_to_quote_ratio_ranking = eurex_t7_eti_fbe_v15_0.trade_to_quote_ratio_ranking.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Inquire Smart Respondent Request
+eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
+  local size_of_srqs_inquire_smart_respondent_request = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.size(buffer, offset)
+  local index = offset + size_of_srqs_inquire_smart_respondent_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_inquire_smart_respondent_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
+    parent:set_len(size_of_srqs_inquire_smart_respondent_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.fields(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
+
+    return index
+  end
+end
+
+-- Srqs Hit Quote Grp Comp
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp = {}
+
+-- Size: Srqs Hit Quote Grp Comp
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.order_qty.size + 
+  eurex_t7_eti_fbe_v15_0.price.size + 
+  eurex_t7_eti_fbe_v15_0.quote_id.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.pad7.size
+
+-- Display: Srqs Hit Quote Grp Comp
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Hit Quote Grp Comp
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields = function(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
+  local index = offset
+
+  -- Implicit Srqs Hit Quote Grp Comp Index
+  if srqs_hit_quote_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_grp_comp_index, srqs_hit_quote_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_id = eurex_t7_eti_fbe_v15_0.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Hit Quote Grp Comp
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.dissect = function(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.fields(buffer, offset, packet, parent, srqs_hit_quote_grp_comp_index)
+  end
+end
+
+-- Srqs Hit Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request = {}
+
+-- Read runtime size of: Srqs Hit Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Hit Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Hit Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
+
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
+
+  -- Underlying Price Stip Value: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_price_stip_value = eurex_t7_eti_fbe_v15_0.underlying_price_stip_value.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Hedging Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, hedging_instruction = eurex_t7_eti_fbe_v15_0.hedging_instruction.dissect(buffer, index, packet, parent)
+
+  -- No Srqs Quote Grps: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_srqs_quote_grps = eurex_t7_eti_fbe_v15_0.no_srqs_quote_grps.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Firm Trade Id: 20 Byte Ascii String Nullable
+  index, firm_trade_id = eurex_t7_eti_fbe_v15_0.firm_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Srqs Hit Quote Grp Comp
+  for srqs_hit_quote_grp_comp_index = 1, no_srqs_quote_grps do
+    index, srqs_hit_quote_grp_comp = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_grp_comp.dissect(buffer, index, packet, parent, srqs_hit_quote_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Srqs Hit Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
+  local size_of_srqs_hit_quote_request = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.size(buffer, offset)
+  local index = offset + size_of_srqs_hit_quote_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_hit_quote_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
+    parent:set_len(size_of_srqs_hit_quote_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_hit_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
+
+    return index
+  end
+end
+
+-- Srqs Enter Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request = {}
+
+-- Read runtime size of: Srqs Enter Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Srqs Enter Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Srqs Enter Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
+
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
+
+  -- Underlying Delta Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_delta_percentage = eurex_t7_eti_fbe_v15_0.underlying_delta_percentage.dissect(buffer, index, packet, parent)
+
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_size = eurex_t7_eti_fbe_v15_0.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_size = eurex_t7_eti_fbe_v15_0.offer_size.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Quote Ref Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_ref_price = eurex_t7_eti_fbe_v15_0.quote_ref_price.dissect(buffer, index, packet, parent)
+
+  -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, valid_until_time = eurex_t7_eti_fbe_v15_0.valid_until_time.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, negotiation_id = eurex_t7_eti_fbe_v15_0.negotiation_id.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Free Text 5: 132 Byte Ascii String Nullable
+  index, free_text_5 = eurex_t7_eti_fbe_v15_0.free_text_5.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Srqs Enter Quote Request
+eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.dissect = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
+  local size_of_srqs_enter_quote_request = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.size(buffer, offset)
+  local index = offset + size_of_srqs_enter_quote_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.srqs_enter_quote_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
+    parent:set_len(size_of_srqs_enter_quote_request)
+    local display = eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.srqs_enter_quote_request.fields(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
+
+    return index
+  end
+end
+
+-- Reverse Tes Trade Request
+eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request = {}
+
+-- Read runtime size of: Reverse Tes Trade Request
+eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Reverse Tes Trade Request
+eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reverse Tes Trade Request
+eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
+
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Reversal Reason Text: 132 Byte Ascii String Nullable
+  index, reversal_reason_text = eurex_t7_eti_fbe_v15_0.reversal_reason_text.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reverse Tes Trade Request
+eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
+  local size_of_reverse_tes_trade_request = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.size(buffer, offset)
+  local index = offset + size_of_reverse_tes_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.reverse_tes_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
+    parent:set_len(size_of_reverse_tes_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.fields(buffer, offset, packet, parent, size_of_reverse_tes_trade_request)
+
+    return index
+  end
+end
+
+-- Retransmit Request
+eurex_t7_eti_fbe_v15_0.retransmit_request = {}
+
+-- Read runtime size of: Retransmit Request
+eurex_t7_eti_fbe_v15_0.retransmit_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Retransmit Request
+eurex_t7_eti_fbe_v15_0.retransmit_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Request
+eurex_t7_eti_fbe_v15_0.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_beg_seq_num = eurex_t7_eti_fbe_v15_0.appl_beg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_end_seq_num = eurex_t7_eti_fbe_v15_0.appl_end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Pad5: 5 Byte
+  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Request
+eurex_t7_eti_fbe_v15_0.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local size_of_retransmit_request = eurex_t7_eti_fbe_v15_0.retransmit_request.size(buffer, offset)
+  local index = offset + size_of_retransmit_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.retransmit_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+    parent:set_len(size_of_retransmit_request)
+    local display = eurex_t7_eti_fbe_v15_0.retransmit_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+
+    return index
+  end
+end
+
+-- Retransmit Me Message Request
+eurex_t7_eti_fbe_v15_0.retransmit_me_message_request = {}
+
+-- Read runtime size of: Retransmit Me Message Request
+eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Retransmit Me Message Request
+eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Me Message Request
+eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, subscription_scope = eurex_t7_eti_fbe_v15_0.subscription_scope.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v15_0.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Appl Beg Msg Id: 16 Byte
+  index, appl_beg_msg_id = eurex_t7_eti_fbe_v15_0.appl_beg_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Appl End Msg Id: 16 Byte
+  index, appl_end_msg_id = eurex_t7_eti_fbe_v15_0.appl_end_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Me Message Request
+eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local size_of_retransmit_me_message_request = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.size(buffer, offset)
+  local index = offset + size_of_retransmit_me_message_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.retransmit_me_message_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+    parent:set_len(size_of_retransmit_me_message_request)
+    local display = eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+
+    return index
+  end
+end
+
+-- Rfq Request
+eurex_t7_eti_fbe_v15_0.rfq_request = {}
+
+-- Read runtime size of: Rfq Request
+eurex_t7_eti_fbe_v15_0.rfq_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Rfq Request
+eurex_t7_eti_fbe_v15_0.rfq_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Request
+eurex_t7_eti_fbe_v15_0.rfq_request.fields = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Request
+eurex_t7_eti_fbe_v15_0.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local size_of_rfq_request = eurex_t7_eti_fbe_v15_0.rfq_request.size(buffer, offset)
+  local index = offset + size_of_rfq_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.rfq_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+    parent:set_len(size_of_rfq_request)
+    local display = eurex_t7_eti_fbe_v15_0.rfq_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+
+    return index
+  end
+end
+
+-- Quote Activation Request
+eurex_t7_eti_fbe_v15_0.quote_activation_request = {}
+
+-- Read runtime size of: Quote Activation Request
+eurex_t7_eti_fbe_v15_0.quote_activation_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Quote Activation Request
+eurex_t7_eti_fbe_v15_0.quote_activation_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Activation Request
+eurex_t7_eti_fbe_v15_0.quote_activation_request.fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, mass_action_type = eurex_t7_eti_fbe_v15_0.mass_action_type.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Sub Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, mass_action_sub_type = eurex_t7_eti_fbe_v15_0.mass_action_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Activation Request
+eurex_t7_eti_fbe_v15_0.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local size_of_quote_activation_request = eurex_t7_eti_fbe_v15_0.quote_activation_request.size(buffer, offset)
+  local index = offset + size_of_quote_activation_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_activation_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+    parent:set_len(size_of_quote_activation_request)
+    local display = eurex_t7_eti_fbe_v15_0.quote_activation_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+
+    return index
+  end
+end
+
+-- Risk Limit Qty Grp Comp
+eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp = {}
+
+-- Size: Risk Limit Qty Grp Comp
+eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.risk_limit_qty.size + 
+  eurex_t7_eti_fbe_v15_0.risk_limit_type.size + 
+  eurex_t7_eti_fbe_v15_0.pad7.size
+
+-- Display: Risk Limit Qty Grp Comp
+eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Risk Limit Qty Grp Comp
+eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
+  local index = offset
+
+  -- Implicit Risk Limit Qty Grp Comp Index
+  if risk_limit_qty_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.risk_limit_qty_grp_comp_index, risk_limit_qty_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Risk Limit Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, risk_limit_qty = eurex_t7_eti_fbe_v15_0.risk_limit_qty.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, risk_limit_type = eurex_t7_eti_fbe_v15_0.risk_limit_type.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Risk Limit Qty Grp Comp
+eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.dissect = function(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.risk_limit_qty_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.fields(buffer, offset, packet, parent, risk_limit_qty_grp_comp_index)
+  end
+end
+
+-- Pre Trade Risk Limits Definition Request
+eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request = {}
+
+-- Read runtime size of: Pre Trade Risk Limits Definition Request
+eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Pre Trade Risk Limits Definition Request
+eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Pre Trade Risk Limits Definition Request
+eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Netting Coefficient: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, netting_coefficient = eurex_t7_eti_fbe_v15_0.netting_coefficient.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
+
+  -- No Risk Limits Qty: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_risk_limits_qty = eurex_t7_eti_fbe_v15_0.no_risk_limits_qty.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, party_detail_status = eurex_t7_eti_fbe_v15_0.party_detail_status.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Group Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, risk_limit_group_status = eurex_t7_eti_fbe_v15_0.risk_limit_group_status.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Group: 3 Byte Ascii String Nullable
+  index, risk_limit_group = eurex_t7_eti_fbe_v15_0.risk_limit_group.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
+  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Risk Limit Qty Grp Comp
+  for risk_limit_qty_grp_comp_index = 1, no_risk_limits_qty do
+    index, risk_limit_qty_grp_comp = eurex_t7_eti_fbe_v15_0.risk_limit_qty_grp_comp.dissect(buffer, index, packet, parent, risk_limit_qty_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Pre Trade Risk Limits Definition Request
+eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.dissect = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
+  local size_of_pre_trade_risk_limits_definition_request = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.size(buffer, offset)
+  local index = offset + size_of_pre_trade_risk_limits_definition_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.pre_trade_risk_limits_definition_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
+    parent:set_len(size_of_pre_trade_risk_limits_definition_request)
+    local display = eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.fields(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
+
+    return index
+  end
+end
+
+-- Ping Request
+eurex_t7_eti_fbe_v15_0.ping_request = {}
+
+-- Read runtime size of: Ping Request
+eurex_t7_eti_fbe_v15_0.ping_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Ping Request
+eurex_t7_eti_fbe_v15_0.ping_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ping Request
+eurex_t7_eti_fbe_v15_0.ping_request.fields = function(buffer, offset, packet, parent, size_of_ping_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ping Request
+eurex_t7_eti_fbe_v15_0.ping_request.dissect = function(buffer, offset, packet, parent, size_of_ping_request)
+  local size_of_ping_request = eurex_t7_eti_fbe_v15_0.ping_request.size(buffer, offset)
+  local index = offset + size_of_ping_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.ping_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.ping_request.fields(buffer, offset, packet, parent, size_of_ping_request)
+    parent:set_len(size_of_ping_request)
+    local display = eurex_t7_eti_fbe_v15_0.ping_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.ping_request.fields(buffer, offset, packet, parent, size_of_ping_request)
+
+    return index
+  end
+end
+
+-- New Order Short Request
+eurex_t7_eti_fbe_v15_0.new_order_short_request = {}
+
+-- Read runtime size of: New Order Short Request
+eurex_t7_eti_fbe_v15_0.new_order_short_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: New Order Short Request
+eurex_t7_eti_fbe_v15_0.new_order_short_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Short Request
+eurex_t7_eti_fbe_v15_0.new_order_short_request.fields = function(buffer, offset, packet, parent, size_of_new_order_short_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v1: 2 Byte
+  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4v1: 4 Byte
+  index, pad4v1 = eurex_t7_eti_fbe_v15_0.pad4v1.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Pad1v1: 1 Byte
+  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
+
+  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Short Request
+eurex_t7_eti_fbe_v15_0.new_order_short_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_short_request)
+  local size_of_new_order_short_request = eurex_t7_eti_fbe_v15_0.new_order_short_request.size(buffer, offset)
+  local index = offset + size_of_new_order_short_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_order_short_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.new_order_short_request.fields(buffer, offset, packet, parent, size_of_new_order_short_request)
+    parent:set_len(size_of_new_order_short_request)
+    local display = eurex_t7_eti_fbe_v15_0.new_order_short_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.new_order_short_request.fields(buffer, offset, packet, parent, size_of_new_order_short_request)
+
+    return index
+  end
+end
+
+-- New Order Request
+eurex_t7_eti_fbe_v15_0.new_order_request = {}
+
+-- Read runtime size of: New Order Request
+eurex_t7_eti_fbe_v15_0.new_order_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: New Order Request
+eurex_t7_eti_fbe_v15_0.new_order_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Request
+eurex_t7_eti_fbe_v15_0.new_order_request.fields = function(buffer, offset, packet, parent, size_of_new_order_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, stop_px = eurex_t7_eti_fbe_v15_0.stop_px.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, expire_date = eurex_t7_eti_fbe_v15_0.expire_date.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, ord_type = eurex_t7_eti_fbe_v15_0.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
+  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v3: 2 Byte
+  index, pad2v3 = eurex_t7_eti_fbe_v15_0.pad2v3.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Leg Ord Grp Comp
+  for leg_ord_grp_comp_index = 1, no_leg_onbooks do
+    index, leg_ord_grp_comp = eurex_t7_eti_fbe_v15_0.leg_ord_grp_comp.dissect(buffer, index, packet, parent, leg_ord_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: New Order Request
+eurex_t7_eti_fbe_v15_0.new_order_request.dissect = function(buffer, offset, packet, parent, size_of_new_order_request)
+  local size_of_new_order_request = eurex_t7_eti_fbe_v15_0.new_order_request.size(buffer, offset)
+  local index = offset + size_of_new_order_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_order_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.new_order_request.fields(buffer, offset, packet, parent, size_of_new_order_request)
+    parent:set_len(size_of_new_order_request)
+    local display = eurex_t7_eti_fbe_v15_0.new_order_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.new_order_request.fields(buffer, offset, packet, parent, size_of_new_order_request)
+
+    return index
+  end
+end
+
+-- Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp = {}
+
+-- Size: Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.alloc_qty.size + 
+  eurex_t7_eti_fbe_v15_0.individual_alloc_id.size + 
+  eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_firm.size + 
+  eurex_t7_eti_fbe_v15_0.party_executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.pad4.size
+
+-- Display: Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
+  local index = offset
+
+  -- Implicit Side Alloc Grp Comp Index
+  if side_alloc_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_grp_comp_index, side_alloc_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, alloc_qty = eurex_t7_eti_fbe_v15_0.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, individual_alloc_id = eurex_t7_eti_fbe_v15_0.individual_alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Tes Enrichment Rule Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tes_enrichment_rule_id = eurex_t7_eti_fbe_v15_0.tes_enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Firm: 5 Byte Ascii String Nullable
+  index, party_executing_firm = eurex_t7_eti_fbe_v15_0.party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Trader: 6 Byte Ascii String Nullable
+  index, party_executing_trader = eurex_t7_eti_fbe_v15_0.party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Side Alloc Grp Comp
+eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect = function(buffer, offset, packet, parent, side_alloc_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_alloc_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.fields(buffer, offset, packet, parent, side_alloc_grp_comp_index)
+  end
+end
+
+-- Modify Tes Trade Request
+eurex_t7_eti_fbe_v15_0.modify_tes_trade_request = {}
+
+-- Read runtime size of: Modify Tes Trade Request
+eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Tes Trade Request
+eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Tes Trade Request
+eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
+
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
+
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
+
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
+
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
+
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
+
+  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Text: 20 Byte Ascii String Nullable
+  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Side Alloc Grp Comp
+  for side_alloc_grp_comp_index = 1, no_side_allocs do
+    index, side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect(buffer, index, packet, parent, side_alloc_grp_comp_index)
+  end
+
+  -- Repeating: Trd Instrmnt Leg Grp Comp
+  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
+    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Modify Tes Trade Request
+eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+  local size_of_modify_tes_trade_request = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.size(buffer, offset)
+  local index = offset + size_of_modify_tes_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_tes_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+    parent:set_len(size_of_modify_tes_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
+
+    return index
+  end
+end
+
+-- Modify Order Short Request
+eurex_t7_eti_fbe_v15_0.modify_order_short_request = {}
+
+-- Read runtime size of: Modify Order Short Request
+eurex_t7_eti_fbe_v15_0.modify_order_short_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Order Short Request
+eurex_t7_eti_fbe_v15_0.modify_order_short_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Short Request
+eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields = function(buffer, offset, packet, parent, size_of_modify_order_short_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v1: 2 Byte
+  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4v1: 4 Byte
+  index, pad4v1 = eurex_t7_eti_fbe_v15_0.pad4v1.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Pad1v1: 1 Byte
+  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
+
+  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Short Request
+eurex_t7_eti_fbe_v15_0.modify_order_short_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_short_request)
+  local size_of_modify_order_short_request = eurex_t7_eti_fbe_v15_0.modify_order_short_request.size(buffer, offset)
+  local index = offset + size_of_modify_order_short_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_order_short_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_short_request)
+    parent:set_len(size_of_modify_order_short_request)
+    local display = eurex_t7_eti_fbe_v15_0.modify_order_short_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.modify_order_short_request.fields(buffer, offset, packet, parent, size_of_modify_order_short_request)
+
+    return index
+  end
+end
+
+-- Modify Order Request
+eurex_t7_eti_fbe_v15_0.modify_order_request = {}
+
+-- Read runtime size of: Modify Order Request
+eurex_t7_eti_fbe_v15_0.modify_order_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Order Request
+eurex_t7_eti_fbe_v15_0.modify_order_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Request
+eurex_t7_eti_fbe_v15_0.modify_order_request.fields = function(buffer, offset, packet, parent, size_of_modify_order_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, stop_px = eurex_t7_eti_fbe_v15_0.stop_px.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Expire Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, expire_date = eurex_t7_eti_fbe_v15_0.expire_date.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Ownership Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, ownership_indicator = eurex_t7_eti_fbe_v15_0.ownership_indicator.dissect(buffer, index, packet, parent)
+
+  -- Appl Seq Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, appl_seq_indicator = eurex_t7_eti_fbe_v15_0.appl_seq_indicator.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, ord_type = eurex_t7_eti_fbe_v15_0.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
+  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
+
+  -- Pad2v1: 2 Byte
+  index, pad2v1 = eurex_t7_eti_fbe_v15_0.pad2v1.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v15_0.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, time_in_force = eurex_t7_eti_fbe_v15_0.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Pad1v1: 1 Byte
+  index, pad1v1 = eurex_t7_eti_fbe_v15_0.pad1v1.dissect(buffer, index, packet, parent)
+
+  -- Check Sum Correction: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, check_sum_correction = eurex_t7_eti_fbe_v15_0.check_sum_correction.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Leg Ord Grp Comp
+  for leg_ord_grp_comp_index = 1, no_leg_onbooks do
+    index, leg_ord_grp_comp = eurex_t7_eti_fbe_v15_0.leg_ord_grp_comp.dissect(buffer, index, packet, parent, leg_ord_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Modify Order Request
+eurex_t7_eti_fbe_v15_0.modify_order_request.dissect = function(buffer, offset, packet, parent, size_of_modify_order_request)
+  local size_of_modify_order_request = eurex_t7_eti_fbe_v15_0.modify_order_request.size(buffer, offset)
+  local index = offset + size_of_modify_order_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_order_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.modify_order_request.fields(buffer, offset, packet, parent, size_of_modify_order_request)
+    parent:set_len(size_of_modify_order_request)
+    local display = eurex_t7_eti_fbe_v15_0.modify_order_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.modify_order_request.fields(buffer, offset, packet, parent, size_of_modify_order_request)
+
+    return index
+  end
+end
+
+-- Modify Basket Trade Request
+eurex_t7_eti_fbe_v15_0.modify_basket_trade_request = {}
+
+-- Read runtime size of: Modify Basket Trade Request
+eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Basket Trade Request
+eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Basket Trade Request
+eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
+
+  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- No Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_basket_side_alloc.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
+
+  -- No Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_instrmt_match_sides.dissect(buffer, index, packet, parent)
+
+  -- Optional Early Termination Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, optional_early_termination_indicator = eurex_t7_eti_fbe_v15_0.optional_early_termination_indicator.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
+  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Basket Root Party Grp Comp
+  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
+    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
+  end
+
+  -- Repeating: Instrmt Match Side Grp Comp
+  for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
+    index, instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
+  end
+
+  -- Repeating: Basket Side Alloc Grp Comp
+  for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
+    index, basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Modify Basket Trade Request
+eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
+  local size_of_modify_basket_trade_request = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.size(buffer, offset)
+  local index = offset + size_of_modify_basket_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.modify_basket_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
+    parent:set_len(size_of_modify_basket_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.fields(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
+
+    return index
+  end
+end
+
+-- Quote Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp = {}
+
+-- Size: Quote Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.security_id.size + 
+  eurex_t7_eti_fbe_v15_0.bid_px.size + 
+  eurex_t7_eti_fbe_v15_0.bid_size.size + 
+  eurex_t7_eti_fbe_v15_0.offer_px.size + 
+  eurex_t7_eti_fbe_v15_0.offer_size.size
+
+-- Display: Quote Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
+  local index = offset
+
+  -- Implicit Quote Entry Grp Comp Index
+  if quote_entry_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_entry_grp_comp_index, quote_entry_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_px = eurex_t7_eti_fbe_v15_0.bid_px.dissect(buffer, index, packet, parent)
+
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, bid_size = eurex_t7_eti_fbe_v15_0.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_px = eurex_t7_eti_fbe_v15_0.offer_px.dissect(buffer, index, packet, parent)
+
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, offer_size = eurex_t7_eti_fbe_v15_0.offer_size.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.quote_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.fields(buffer, offset, packet, parent, quote_entry_grp_comp_index)
+  end
+end
+
+-- Mass Quote Request
+eurex_t7_eti_fbe_v15_0.mass_quote_request = {}
+
+-- Read runtime size of: Mass Quote Request
+eurex_t7_eti_fbe_v15_0.mass_quote_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Mass Quote Request
+eurex_t7_eti_fbe_v15_0.mass_quote_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Request
+eurex_t7_eti_fbe_v15_0.mass_quote_request.fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_id = eurex_t7_eti_fbe_v15_0.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, enrichment_rule_id = eurex_t7_eti_fbe_v15_0.enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Quote Size Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, quote_size_type = eurex_t7_eti_fbe_v15_0.quote_size_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, quote_type = eurex_t7_eti_fbe_v15_0.quote_type.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_quote_entries = eurex_t7_eti_fbe_v15_0.no_quote_entries.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Quote Entry Grp Comp
+  for quote_entry_grp_comp_index = 1, no_quote_entries do
+    index, quote_entry_grp_comp = eurex_t7_eti_fbe_v15_0.quote_entry_grp_comp.dissect(buffer, index, packet, parent, quote_entry_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Mass Quote Request
+eurex_t7_eti_fbe_v15_0.mass_quote_request.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_request)
+  local size_of_mass_quote_request = eurex_t7_eti_fbe_v15_0.mass_quote_request.size(buffer, offset)
+  local index = offset + size_of_mass_quote_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mass_quote_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
+    parent:set_len(size_of_mass_quote_request)
+    local display = eurex_t7_eti_fbe_v15_0.mass_quote_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.mass_quote_request.fields(buffer, offset, packet, parent, size_of_mass_quote_request)
+
+    return index
+  end
+end
+
+-- Order Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.order_entry_grp_comp = {}
+
+-- Size: Order Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.price.size + 
+  eurex_t7_eti_fbe_v15_0.order_qty.size + 
+  eurex_t7_eti_fbe_v15_0.market_segment_id.size + 
+  eurex_t7_eti_fbe_v15_0.pad4.size + 
+  eurex_t7_eti_fbe_v15_0.security_id.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.product_complex.size + 
+  eurex_t7_eti_fbe_v15_0.pad6.size
+
+-- Display: Order Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields = function(buffer, offset, packet, parent, order_entry_grp_comp_index)
+  local index = offset
+
+  -- Implicit Order Entry Grp Comp Index
+  if order_entry_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.order_entry_grp_comp_index, order_entry_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Entry Grp Comp
+eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.dissect = function(buffer, offset, packet, parent, order_entry_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.order_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields(buffer, offset, packet, parent, order_entry_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.fields(buffer, offset, packet, parent, order_entry_grp_comp_index)
+  end
+end
+
+-- Mass Order
+eurex_t7_eti_fbe_v15_0.mass_order = {}
+
+-- Read runtime size of: Mass Order
+eurex_t7_eti_fbe_v15_0.mass_order.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Mass Order
+eurex_t7_eti_fbe_v15_0.mass_order.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Order
+eurex_t7_eti_fbe_v15_0.mass_order.fields = function(buffer, offset, packet, parent, size_of_mass_order)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Order Request Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_order_request_id = eurex_t7_eti_fbe_v15_0.mass_order_request_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Sub Id: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_session_sub_id = eurex_t7_eti_fbe_v15_0.trading_session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- No Order Entries: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_order_entries = eurex_t7_eti_fbe_v15_0.no_order_entries.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Order Entry Grp Comp
+  for order_entry_grp_comp_index = 1, no_order_entries do
+    index, order_entry_grp_comp = eurex_t7_eti_fbe_v15_0.order_entry_grp_comp.dissect(buffer, index, packet, parent, order_entry_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Mass Order
+eurex_t7_eti_fbe_v15_0.mass_order.dissect = function(buffer, offset, packet, parent, size_of_mass_order)
+  local size_of_mass_order = eurex_t7_eti_fbe_v15_0.mass_order.size(buffer, offset)
+  local index = offset + size_of_mass_order
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mass_order, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.mass_order.fields(buffer, offset, packet, parent, size_of_mass_order)
+    parent:set_len(size_of_mass_order)
+    local display = eurex_t7_eti_fbe_v15_0.mass_order.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.mass_order.fields(buffer, offset, packet, parent, size_of_mass_order)
+
+    return index
+  end
+end
+
+-- Mm Parameter Definition Request
+eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request = {}
+
+-- Read runtime size of: Mm Parameter Definition Request
+eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Mm Parameter Definition Request
+eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mm Parameter Definition Request
+eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
+  index, exposure_duration = eurex_t7_eti_fbe_v15_0.exposure_duration.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v15_0.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Delta: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, delta = eurex_t7_eti_fbe_v15_0.delta.dissect(buffer, index, packet, parent)
+
+  -- Vega: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, vega = eurex_t7_eti_fbe_v15_0.vega.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Pct Count: 4 Byte Signed Fixed Width Integer Nullable
+  index, pct_count = eurex_t7_eti_fbe_v15_0.pct_count.dissect(buffer, index, packet, parent)
+
+  -- Mm Risk Limit Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, mm_risk_limit_action_type = eurex_t7_eti_fbe_v15_0.mm_risk_limit_action_type.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mm Parameter Definition Request
+eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+  local size_of_mm_parameter_definition_request = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.size(buffer, offset)
+  local index = offset + size_of_mm_parameter_definition_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.mm_parameter_definition_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+    parent:set_len(size_of_mm_parameter_definition_request)
+    local display = eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
+
+    return index
+  end
+end
+
+-- Logout Request
+eurex_t7_eti_fbe_v15_0.logout_request = {}
+
+-- Read runtime size of: Logout Request
+eurex_t7_eti_fbe_v15_0.logout_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logout Request
+eurex_t7_eti_fbe_v15_0.logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Request
+eurex_t7_eti_fbe_v15_0.logout_request.fields = function(buffer, offset, packet, parent, size_of_logout_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Request
+eurex_t7_eti_fbe_v15_0.logout_request.dissect = function(buffer, offset, packet, parent, size_of_logout_request)
+  local size_of_logout_request = eurex_t7_eti_fbe_v15_0.logout_request.size(buffer, offset)
+  local index = offset + size_of_logout_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logout_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+    parent:set_len(size_of_logout_request)
+    local display = eurex_t7_eti_fbe_v15_0.logout_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
+
+    return index
+  end
+end
+
+-- Logon Request Encrypted
+eurex_t7_eti_fbe_v15_0.logon_request_encrypted = {}
+
+-- Read runtime size of: Logon Request Encrypted
+eurex_t7_eti_fbe_v15_0.logon_request_encrypted.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logon Request Encrypted
+eurex_t7_eti_fbe_v15_0.logon_request_encrypted.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Request Encrypted
+eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields = function(buffer, offset, packet, parent, size_of_logon_request_encrypted)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, heart_bt_int = eurex_t7_eti_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
+
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_session_id = eurex_t7_eti_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
+  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
+
+  -- Encrypted Password: 684 Byte Ascii String Nullable
+  index, encrypted_password = eurex_t7_eti_fbe_v15_0.encrypted_password.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Request Encrypted
+eurex_t7_eti_fbe_v15_0.logon_request_encrypted.dissect = function(buffer, offset, packet, parent, size_of_logon_request_encrypted)
+  local size_of_logon_request_encrypted = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.size(buffer, offset)
+  local index = offset + size_of_logon_request_encrypted
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logon_request_encrypted, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields(buffer, offset, packet, parent, size_of_logon_request_encrypted)
+    parent:set_len(size_of_logon_request_encrypted)
+    local display = eurex_t7_eti_fbe_v15_0.logon_request_encrypted.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.logon_request_encrypted.fields(buffer, offset, packet, parent, size_of_logon_request_encrypted)
+
+    return index
+  end
+end
+
+-- Logon Request
+eurex_t7_eti_fbe_v15_0.logon_request = {}
+
+-- Read runtime size of: Logon Request
+eurex_t7_eti_fbe_v15_0.logon_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logon Request
+eurex_t7_eti_fbe_v15_0.logon_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Request
+eurex_t7_eti_fbe_v15_0.logon_request.fields = function(buffer, offset, packet, parent, size_of_logon_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, heart_bt_int = eurex_t7_eti_fbe_v15_0.heart_bt_int.dissect(buffer, index, packet, parent)
+
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_session_id = eurex_t7_eti_fbe_v15_0.party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
+  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v15_0.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String Nullable
+  index, password = eurex_t7_eti_fbe_v15_0.password.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Request
+eurex_t7_eti_fbe_v15_0.logon_request.dissect = function(buffer, offset, packet, parent, size_of_logon_request)
+  local size_of_logon_request = eurex_t7_eti_fbe_v15_0.logon_request.size(buffer, offset)
+  local index = offset + size_of_logon_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.logon_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+    parent:set_len(size_of_logon_request)
+    local display = eurex_t7_eti_fbe_v15_0.logon_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.logon_request.fields(buffer, offset, packet, parent, size_of_logon_request)
+
+    return index
+  end
+end
+
+-- Inquire User Request
+eurex_t7_eti_fbe_v15_0.inquire_user_request = {}
+
+-- Read runtime size of: Inquire User Request
+eurex_t7_eti_fbe_v15_0.inquire_user_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire User Request
+eurex_t7_eti_fbe_v15_0.inquire_user_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire User Request
+eurex_t7_eti_fbe_v15_0.inquire_user_request.fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Last Entity Processed: 16 Byte
+  index, last_entity_processed = eurex_t7_eti_fbe_v15_0.last_entity_processed.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire User Request
+eurex_t7_eti_fbe_v15_0.inquire_user_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_request)
+  local size_of_inquire_user_request = eurex_t7_eti_fbe_v15_0.inquire_user_request.size(buffer, offset)
+  local index = offset + size_of_inquire_user_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_user_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
+    parent:set_len(size_of_inquire_user_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_user_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_user_request.fields(buffer, offset, packet, parent, size_of_inquire_user_request)
+
+    return index
+  end
+end
+
+-- Inquire Session List Request
+eurex_t7_eti_fbe_v15_0.inquire_session_list_request = {}
+
+-- Read runtime size of: Inquire Session List Request
+eurex_t7_eti_fbe_v15_0.inquire_session_list_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Session List Request
+eurex_t7_eti_fbe_v15_0.inquire_session_list_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Session List Request
+eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire Session List Request
+eurex_t7_eti_fbe_v15_0.inquire_session_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+  local size_of_inquire_session_list_request = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.size(buffer, offset)
+  local index = offset + size_of_inquire_session_list_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_session_list_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+    parent:set_len(size_of_inquire_session_list_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_session_list_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+
+    return index
+  end
+end
+
+-- Inquire Pre Trade Risk Limits Request
+eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request = {}
+
+-- Read runtime size of: Inquire Pre Trade Risk Limits Request
+eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Pre Trade Risk Limits Request
+eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Pre Trade Risk Limits Request
+eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Platform: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, risk_limit_platform = eurex_t7_eti_fbe_v15_0.risk_limit_platform.dissect(buffer, index, packet, parent)
+
+  -- Party Executing Unit: 5 Byte Ascii String Nullable
+  index, party_executing_unit = eurex_t7_eti_fbe_v15_0.party_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Risk Limit Group: 3 Byte Ascii String Nullable
+  index, risk_limit_group = eurex_t7_eti_fbe_v15_0.risk_limit_group.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire Pre Trade Risk Limits Request
+eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
+  local size_of_inquire_pre_trade_risk_limits_request = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.size(buffer, offset)
+  local index = offset + size_of_inquire_pre_trade_risk_limits_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_pre_trade_risk_limits_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
+    parent:set_len(size_of_inquire_pre_trade_risk_limits_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_pre_trade_risk_limits_request.fields(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
+
+    return index
+  end
+end
+
+-- Inquire Margin Based Risk Limit Request
+eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request = {}
+
+-- Read runtime size of: Inquire Margin Based Risk Limit Request
+eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Margin Based Risk Limit Request
+eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Margin Based Risk Limit Request
+eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields = function(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v15_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Executing Unit: 5 Byte Ascii String Nullable
+  index, party_detail_executing_unit = eurex_t7_eti_fbe_v15_0.party_detail_executing_unit.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire Margin Based Risk Limit Request
+eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
+  local size_of_inquire_margin_based_risk_limit_request = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.size(buffer, offset)
+  local index = offset + size_of_inquire_margin_based_risk_limit_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_margin_based_risk_limit_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
+    parent:set_len(size_of_inquire_margin_based_risk_limit_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.fields(buffer, offset, packet, parent, size_of_inquire_margin_based_risk_limit_request)
+
+    return index
+  end
+end
+
+-- Inquire Mm Parameter Request
+eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request = {}
+
+-- Read runtime size of: Inquire Mm Parameter Request
+eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Mm Parameter Request
+eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Mm Parameter Request
+eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire Mm Parameter Request
+eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+  local size_of_inquire_mm_parameter_request = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.size(buffer, offset)
+  local index = offset + size_of_inquire_mm_parameter_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_mm_parameter_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+    parent:set_len(size_of_inquire_mm_parameter_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
+
+    return index
+  end
+end
+
+-- Inquire Enrichment Rule Id List Request
+eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request = {}
+
+-- Read runtime size of: Inquire Enrichment Rule Id List Request
+eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Enrichment Rule Id List Request
+eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Enrichment Rule Id List Request
+eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Last Entity Processed: 16 Byte
+  index, last_entity_processed = eurex_t7_eti_fbe_v15_0.last_entity_processed.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inquire Enrichment Rule Id List Request
+eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+  local size_of_inquire_enrichment_rule_id_list_request = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.size(buffer, offset)
+  local index = offset + size_of_inquire_enrichment_rule_id_list_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.inquire_enrichment_rule_id_list_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+    parent:set_len(size_of_inquire_enrichment_rule_id_list_request)
+    local display = eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
+
+    return index
+  end
+end
+
+-- Heartbeat
+eurex_t7_eti_fbe_v15_0.heartbeat = {}
+
+-- Read runtime size of: Heartbeat
+eurex_t7_eti_fbe_v15_0.heartbeat.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Heartbeat
+eurex_t7_eti_fbe_v15_0.heartbeat.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat
+eurex_t7_eti_fbe_v15_0.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat
+eurex_t7_eti_fbe_v15_0.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = eurex_t7_eti_fbe_v15_0.heartbeat.size(buffer, offset)
+  local index = offset + size_of_heartbeat
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.heartbeat, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
+    local display = eurex_t7_eti_fbe_v15_0.heartbeat.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
+  end
+end
+
+-- Enter Tes Trade Request
+eurex_t7_eti_fbe_v15_0.enter_tes_trade_request = {}
+
+-- Read runtime size of: Enter Tes Trade Request
+eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Enter Tes Trade Request
+eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Tes Trade Request
+eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_px = eurex_t7_eti_fbe_v15_0.last_px.dissect(buffer, index, packet, parent)
+
+  -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trans_bkd_time = eurex_t7_eti_fbe_v15_0.trans_bkd_time.dissect(buffer, index, packet, parent)
+
+  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_px = eurex_t7_eti_fbe_v15_0.underlying_px.dissect(buffer, index, packet, parent)
+
+  -- Related Close Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_close_price = eurex_t7_eti_fbe_v15_0.related_close_price.dissect(buffer, index, packet, parent)
+
+  -- Related Trade Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, related_trade_quantity = eurex_t7_eti_fbe_v15_0.related_trade_quantity.dissect(buffer, index, packet, parent)
+
+  -- Underlying Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_qty = eurex_t7_eti_fbe_v15_0.underlying_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_settlement_date = eurex_t7_eti_fbe_v15_0.underlying_settlement_date.dissect(buffer, index, packet, parent)
+
+  -- Underlying Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_maturity_date = eurex_t7_eti_fbe_v15_0.underlying_maturity_date.dissect(buffer, index, packet, parent)
+
+  -- Related Trade Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, related_trade_id = eurex_t7_eti_fbe_v15_0.related_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Publish Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trade_publish_indicator = eurex_t7_eti_fbe_v15_0.trade_publish_indicator.dissect(buffer, index, packet, parent)
+
+  -- No Side Allocs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_side_allocs = eurex_t7_eti_fbe_v15_0.no_side_allocs.dissect(buffer, index, packet, parent)
+
+  -- No Events: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_events = eurex_t7_eti_fbe_v15_0.no_events.dissect(buffer, index, packet, parent)
+
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_legs = eurex_t7_eti_fbe_v15_0.no_legs.dissect(buffer, index, packet, parent)
+
+  -- No Instr Attrib: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_instr_attrib = eurex_t7_eti_fbe_v15_0.no_instr_attrib.dissect(buffer, index, packet, parent)
+
+  -- No Underlying Stips: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_underlying_stips = eurex_t7_eti_fbe_v15_0.no_underlying_stips.dissect(buffer, index, packet, parent)
+
+  -- Party Id Settlement Location: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, party_id_settlement_location = eurex_t7_eti_fbe_v15_0.party_id_settlement_location.dissect(buffer, index, packet, parent)
+
+  -- Hedge Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, hedge_type = eurex_t7_eti_fbe_v15_0.hedge_type.dissect(buffer, index, packet, parent)
+
+  -- Swap Clearer: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, swap_clearer = eurex_t7_eti_fbe_v15_0.swap_clearer.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Text: 20 Byte Ascii String Nullable
+  index, trade_report_text = eurex_t7_eti_fbe_v15_0.trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Security Id: 12 Byte Ascii String Nullable
+  index, underlying_security_id = eurex_t7_eti_fbe_v15_0.underlying_security_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Security Desc: 30 Byte Ascii String Nullable
+  index, underlying_security_desc = eurex_t7_eti_fbe_v15_0.underlying_security_desc.dissect(buffer, index, packet, parent)
+
+  -- Underlying Currency: 3 Byte Ascii String Nullable
+  index, underlying_currency = eurex_t7_eti_fbe_v15_0.underlying_currency.dissect(buffer, index, packet, parent)
+
+  -- Underlying Issuer: 30 Byte Ascii String Nullable
+  index, underlying_issuer = eurex_t7_eti_fbe_v15_0.underlying_issuer.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Side Alloc Grp Comp
+  for side_alloc_grp_comp_index = 1, no_side_allocs do
+    index, side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.side_alloc_grp_comp.dissect(buffer, index, packet, parent, side_alloc_grp_comp_index)
+  end
+
+  -- Repeating: Trd Instrmnt Leg Grp Comp
+  for trd_instrmnt_leg_grp_comp_index = 1, no_legs do
+    index, trd_instrmnt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.trd_instrmnt_leg_grp_comp.dissect(buffer, index, packet, parent, trd_instrmnt_leg_grp_comp_index)
+  end
+
+  -- Repeating: Instrument Event Grp Comp
+  for instrument_event_grp_comp_index = 1, no_events do
+    index, instrument_event_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_event_grp_comp.dissect(buffer, index, packet, parent, instrument_event_grp_comp_index)
+  end
+
+  -- Repeating: Instrument Attribute Grp Comp
+  for instrument_attribute_grp_comp_index = 1, no_instr_attrib do
+    index, instrument_attribute_grp_comp = eurex_t7_eti_fbe_v15_0.instrument_attribute_grp_comp.dissect(buffer, index, packet, parent, instrument_attribute_grp_comp_index)
+  end
+
+  -- Repeating: Underlying Stip Grp Comp
+  for underlying_stip_grp_comp_index = 1, no_underlying_stips do
+    index, underlying_stip_grp_comp = eurex_t7_eti_fbe_v15_0.underlying_stip_grp_comp.dissect(buffer, index, packet, parent, underlying_stip_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Enter Tes Trade Request
+eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+  local size_of_enter_tes_trade_request = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.size(buffer, offset)
+  local index = offset + size_of_enter_tes_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_tes_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+    parent:set_len(size_of_enter_tes_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
+
+    return index
+  end
+end
+
+-- Side Cross Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp = {}
+
+-- Size: Side Cross Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.leg_input_source.size + 
+  eurex_t7_eti_fbe_v15_0.leg_position_effect.size + 
+  eurex_t7_eti_fbe_v15_0.leg_account.size + 
+  eurex_t7_eti_fbe_v15_0.pad4.size
+
+-- Display: Side Cross Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Side Cross Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
+  local index = offset
+
+  -- Implicit Side Cross Leg Grp Comp Index
+  if side_cross_leg_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_cross_leg_grp_comp_index, side_cross_leg_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, leg_input_source = eurex_t7_eti_fbe_v15_0.leg_input_source.dissect(buffer, index, packet, parent)
+
+  -- Leg Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, leg_position_effect = eurex_t7_eti_fbe_v15_0.leg_position_effect.dissect(buffer, index, packet, parent)
+
+  -- Leg Account: 2 Byte Ascii String Nullable
+  index, leg_account = eurex_t7_eti_fbe_v15_0.leg_account.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v15_0.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Side Cross Leg Grp Comp
+eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.dissect = function(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.side_cross_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.fields(buffer, offset, packet, parent, side_cross_leg_grp_comp_index)
+  end
+end
+
+-- Cross Request Side Grp Comp
+eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp = {}
+
+-- Size: Cross Request Side Grp Comp
+eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.cl_ord_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_client_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.size + 
+  eurex_t7_eti_fbe_v15_0.executing_trader.size + 
+  eurex_t7_eti_fbe_v15_0.maximum_price.size + 
+  eurex_t7_eti_fbe_v15_0.match_inst_cross_id.size + 
+  eurex_t7_eti_fbe_v15_0.input_source.size + 
+  eurex_t7_eti_fbe_v15_0.side.size + 
+  eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.cross_match_instruction.size + 
+  eurex_t7_eti_fbe_v15_0.trading_capacity.size + 
+  eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.size + 
+  eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.size + 
+  eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.size + 
+  eurex_t7_eti_fbe_v15_0.order_origination.size + 
+  eurex_t7_eti_fbe_v15_0.position_effect.size + 
+  eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.size + 
+  eurex_t7_eti_fbe_v15_0.account.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_position_account.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_1.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_2.size + 
+  eurex_t7_eti_fbe_v15_0.free_text_3.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_beneficiary.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.size + 
+  eurex_t7_eti_fbe_v15_0.side_compliance_text.size + 
+  eurex_t7_eti_fbe_v15_0.party_id_location_id.size + 
+  eurex_t7_eti_fbe_v15_0.party_end_client_identification.size + 
+  eurex_t7_eti_fbe_v15_0.pad3.size
+
+-- Display: Cross Request Side Grp Comp
+eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cross Request Side Grp Comp
+eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
+  local index = offset
+
+  -- Implicit Cross Request Side Grp Comp Index
+  if cross_request_side_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request_side_grp_comp_index, cross_request_side_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_client_id = eurex_t7_eti_fbe_v15_0.party_id_client_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Maximum Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, maximum_price = eurex_t7_eti_fbe_v15_0.maximum_price.dissect(buffer, index, packet, parent)
+
+  -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, match_inst_cross_id = eurex_t7_eti_fbe_v15_0.match_inst_cross_id.dissect(buffer, index, packet, parent)
+
+  -- Input Source: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, input_source = eurex_t7_eti_fbe_v15_0.input_source.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Self Match Prevention Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, self_match_prevention_instruction = eurex_t7_eti_fbe_v15_0.self_match_prevention_instruction.dissect(buffer, index, packet, parent)
+
+  -- Cross Match Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, cross_match_instruction = eurex_t7_eti_fbe_v15_0.cross_match_instruction.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, trading_capacity = eurex_t7_eti_fbe_v15_0.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Liquidity Provision: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_liquidity_provision = eurex_t7_eti_fbe_v15_0.order_attribute_liquidity_provision.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Order Attribute Risk Reduction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_attribute_risk_reduction = eurex_t7_eti_fbe_v15_0.order_attribute_risk_reduction.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v15_0.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
+  index, cust_order_handling_inst = eurex_t7_eti_fbe_v15_0.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v15_0.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id Position Account: 32 Byte Ascii String Nullable
+  index, party_id_position_account = eurex_t7_eti_fbe_v15_0.party_id_position_account.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v15_0.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v15_0.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v15_0.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v15_0.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v15_0.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v15_0.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Side Compliance Text: 20 Byte Ascii String Nullable
+  index, side_compliance_text = eurex_t7_eti_fbe_v15_0.side_compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Party Id Location Id: 2 Byte Ascii String Nullable
+  index, party_id_location_id = eurex_t7_eti_fbe_v15_0.party_id_location_id.dissect(buffer, index, packet, parent)
+
+  -- Party End Client Identification: 20 Byte Ascii String Nullable
+  index, party_end_client_identification = eurex_t7_eti_fbe_v15_0.party_end_client_identification.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cross Request Side Grp Comp
+eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.dissect = function(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request_side_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.fields(buffer, offset, packet, parent, cross_request_side_grp_comp_index)
+  end
+end
+
+-- Enter Clip Request
+eurex_t7_eti_fbe_v15_0.enter_clip_request = {}
+
+-- Read runtime size of: Enter Clip Request
+eurex_t7_eti_fbe_v15_0.enter_clip_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Enter Clip Request
+eurex_t7_eti_fbe_v15_0.enter_clip_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Clip Request
+eurex_t7_eti_fbe_v15_0.enter_clip_request.fields = function(buffer, offset, packet, parent, size_of_enter_clip_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, cross_id = eurex_t7_eti_fbe_v15_0.cross_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Request Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, cross_request_id = eurex_t7_eti_fbe_v15_0.cross_request_id.dissect(buffer, index, packet, parent)
+
+  -- No Sides: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_sides = eurex_t7_eti_fbe_v15_0.no_sides.dissect(buffer, index, packet, parent)
+
+  -- No Cross Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_cross_legs = eurex_t7_eti_fbe_v15_0.no_cross_legs.dissect(buffer, index, packet, parent)
+
+  -- Cross Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, cross_request_type = eurex_t7_eti_fbe_v15_0.cross_request_type.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, cross_type = eurex_t7_eti_fbe_v15_0.cross_type.dissect(buffer, index, packet, parent)
+
+  -- Cross Prioritization: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, cross_prioritization = eurex_t7_eti_fbe_v15_0.cross_prioritization.dissect(buffer, index, packet, parent)
+
+  -- Side Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_disclosure_instruction = eurex_t7_eti_fbe_v15_0.side_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Price Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, price_disclosure_instruction = eurex_t7_eti_fbe_v15_0.price_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Order Qty Disclosure Instruction: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_qty_disclosure_instruction = eurex_t7_eti_fbe_v15_0.order_qty_disclosure_instruction.dissect(buffer, index, packet, parent)
+
+  -- Price Validity Check Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, price_validity_check_type = eurex_t7_eti_fbe_v15_0.price_validity_check_type.dissect(buffer, index, packet, parent)
+
+  -- Value Check Type Value: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, value_check_type_value = eurex_t7_eti_fbe_v15_0.value_check_type_value.dissect(buffer, index, packet, parent)
+
+  -- Root Party Contra Firm: 5 Byte Ascii String Nullable
+  index, root_party_contra_firm = eurex_t7_eti_fbe_v15_0.root_party_contra_firm.dissect(buffer, index, packet, parent)
+
+  -- Root Party Contra Trader: 6 Byte Ascii String Nullable
+  index, root_party_contra_trader = eurex_t7_eti_fbe_v15_0.root_party_contra_trader.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Cross Request Side Grp Comp
+  for cross_request_side_grp_comp_index = 1, no_sides do
+    index, cross_request_side_grp_comp = eurex_t7_eti_fbe_v15_0.cross_request_side_grp_comp.dissect(buffer, index, packet, parent, cross_request_side_grp_comp_index)
+  end
+
+  -- Repeating: Side Cross Leg Grp Comp
+  for side_cross_leg_grp_comp_index = 1, no_cross_legs do
+    index, side_cross_leg_grp_comp = eurex_t7_eti_fbe_v15_0.side_cross_leg_grp_comp.dissect(buffer, index, packet, parent, side_cross_leg_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Enter Clip Request
+eurex_t7_eti_fbe_v15_0.enter_clip_request.dissect = function(buffer, offset, packet, parent, size_of_enter_clip_request)
+  local size_of_enter_clip_request = eurex_t7_eti_fbe_v15_0.enter_clip_request.size(buffer, offset)
+  local index = offset + size_of_enter_clip_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_clip_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.enter_clip_request.fields(buffer, offset, packet, parent, size_of_enter_clip_request)
+    parent:set_len(size_of_enter_clip_request)
+    local display = eurex_t7_eti_fbe_v15_0.enter_clip_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.enter_clip_request.fields(buffer, offset, packet, parent, size_of_enter_clip_request)
+
+    return index
+  end
+end
+
+-- Enter Basket Trade Request
+eurex_t7_eti_fbe_v15_0.enter_basket_trade_request = {}
+
+-- Read runtime size of: Enter Basket Trade Request
+eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Enter Basket Trade Request
+eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enter Basket Trade Request
+eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
+
+  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- No Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_basket_side_alloc.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Optional Early Termination Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, optional_early_termination_indicator = eurex_t7_eti_fbe_v15_0.optional_early_termination_indicator.dissect(buffer, index, packet, parent)
+
+  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
+
+  -- No Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_instrmt_match_sides.dissect(buffer, index, packet, parent)
+
+  -- Basket Anonymity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, basket_anonymity = eurex_t7_eti_fbe_v15_0.basket_anonymity.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
+  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Basket Root Party Grp Comp
+  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
+    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
+  end
+
+  -- Repeating: Instrmt Match Side Grp Comp
+  for instrmt_match_side_grp_comp_index = 1, no_instrmt_match_sides do
+    index, instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, instrmt_match_side_grp_comp_index)
+  end
+
+  -- Repeating: Basket Side Alloc Grp Comp
+  for basket_side_alloc_grp_comp_index = 1, no_basket_side_alloc do
+    index, basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, basket_side_alloc_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Enter Basket Trade Request
+eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
+  local size_of_enter_basket_trade_request = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.size(buffer, offset)
+  local index = offset + size_of_enter_basket_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.enter_basket_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
+    parent:set_len(size_of_enter_basket_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.enter_basket_trade_request.fields(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
+
+    return index
+  end
+end
+
+-- Delete Tes Trade Request
+eurex_t7_eti_fbe_v15_0.delete_tes_trade_request = {}
+
+-- Read runtime size of: Delete Tes Trade Request
+eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Tes Trade Request
+eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Tes Trade Request
+eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, package_id = eurex_t7_eti_fbe_v15_0.package_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Tes Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tes_exec_id = eurex_t7_eti_fbe_v15_0.tes_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Related Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, related_market_segment_id = eurex_t7_eti_fbe_v15_0.related_market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Tes Trade Request
+eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+  local size_of_delete_tes_trade_request = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.size(buffer, offset)
+  local index = offset + size_of_delete_tes_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_tes_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+    parent:set_len(size_of_delete_tes_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_tes_trade_request.fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
+
+    return index
+  end
+end
+
+-- Delete Order Request
+eurex_t7_eti_fbe_v15_0.delete_order_request = {}
+
+-- Read runtime size of: Delete Order Request
+eurex_t7_eti_fbe_v15_0.delete_order_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Order Request
+eurex_t7_eti_fbe_v15_0.delete_order_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Order Request
+eurex_t7_eti_fbe_v15_0.delete_order_request.fields = function(buffer, offset, packet, parent, size_of_delete_order_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v15_0.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Fix Cl Ord Id: 20 Byte Ascii String Nullable
+  index, fix_cl_ord_id = eurex_t7_eti_fbe_v15_0.fix_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Pad5: 5 Byte
+  index, pad5 = eurex_t7_eti_fbe_v15_0.pad5.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Order Request
+eurex_t7_eti_fbe_v15_0.delete_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_order_request)
+  local size_of_delete_order_request = eurex_t7_eti_fbe_v15_0.delete_order_request.size(buffer, offset)
+  local index = offset + size_of_delete_order_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_order_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_order_request.fields(buffer, offset, packet, parent, size_of_delete_order_request)
+    parent:set_len(size_of_delete_order_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_order_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_order_request.fields(buffer, offset, packet, parent, size_of_delete_order_request)
+
+    return index
+  end
+end
+
+-- Delete Clip Request
+eurex_t7_eti_fbe_v15_0.delete_clip_request = {}
+
+-- Read runtime size of: Delete Clip Request
+eurex_t7_eti_fbe_v15_0.delete_clip_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Clip Request
+eurex_t7_eti_fbe_v15_0.delete_clip_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Clip Request
+eurex_t7_eti_fbe_v15_0.delete_clip_request.fields = function(buffer, offset, packet, parent, size_of_delete_clip_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v15_0.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v15_0.order_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Cross Request Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, cross_request_id = eurex_t7_eti_fbe_v15_0.cross_request_id.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Clip Request
+eurex_t7_eti_fbe_v15_0.delete_clip_request.dissect = function(buffer, offset, packet, parent, size_of_delete_clip_request)
+  local size_of_delete_clip_request = eurex_t7_eti_fbe_v15_0.delete_clip_request.size(buffer, offset)
+  local index = offset + size_of_delete_clip_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_clip_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_clip_request.fields(buffer, offset, packet, parent, size_of_delete_clip_request)
+    parent:set_len(size_of_delete_clip_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_clip_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_clip_request.fields(buffer, offset, packet, parent, size_of_delete_clip_request)
+
+    return index
+  end
+end
+
+-- Delete Basket Trade Request
+eurex_t7_eti_fbe_v15_0.delete_basket_trade_request = {}
+
+-- Read runtime size of: Delete Basket Trade Request
+eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Basket Trade Request
+eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Basket Trade Request
+eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v15_0.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Basket Trade Request
+eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.dissect = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
+  local size_of_delete_basket_trade_request = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.size(buffer, offset)
+  local index = offset + size_of_delete_basket_trade_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_basket_trade_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
+    parent:set_len(size_of_delete_basket_trade_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_basket_trade_request.fields(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
+
+    return index
+  end
+end
+
+-- Delete All Quote Request
+eurex_t7_eti_fbe_v15_0.delete_all_quote_request = {}
+
+-- Read runtime size of: Delete All Quote Request
+eurex_t7_eti_fbe_v15_0.delete_all_quote_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Quote Request
+eurex_t7_eti_fbe_v15_0.delete_all_quote_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Quote Request
+eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete All Quote Request
+eurex_t7_eti_fbe_v15_0.delete_all_quote_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+  local size_of_delete_all_quote_request = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.size(buffer, offset)
+  local index = offset + size_of_delete_all_quote_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_all_quote_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+    parent:set_len(size_of_delete_all_quote_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_all_quote_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+
+    return index
+  end
+end
+
+-- Delete All Order Request
+eurex_t7_eti_fbe_v15_0.delete_all_order_request = {}
+
+-- Read runtime size of: Delete All Order Request
+eurex_t7_eti_fbe_v15_0.delete_all_order_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Order Request
+eurex_t7_eti_fbe_v15_0.delete_all_order_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Order Request
+eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, price = eurex_t7_eti_fbe_v15_0.price.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_investment_decision_maker = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, executing_trader = eurex_t7_eti_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v15_0.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v15_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v15_0.side.dissect(buffer, index, packet, parent)
+
+  -- Order Origination: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, order_origination = eurex_t7_eti_fbe_v15_0.order_origination.dissect(buffer, index, packet, parent)
+
+  -- Party Id Investment Decision Maker Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_investment_decision_maker_qualifier = eurex_t7_eti_fbe_v15_0.party_id_investment_decision_maker_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, executing_trader_qualifier = eurex_t7_eti_fbe_v15_0.executing_trader_qualifier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete All Order Request
+eurex_t7_eti_fbe_v15_0.delete_all_order_request.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
+  local size_of_delete_all_order_request = eurex_t7_eti_fbe_v15_0.delete_all_order_request.size(buffer, offset)
+  local index = offset + size_of_delete_all_order_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.delete_all_order_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
+    parent:set_len(size_of_delete_all_order_request)
+    local display = eurex_t7_eti_fbe_v15_0.delete_all_order_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.delete_all_order_request.fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
+
+    return index
+  end
+end
+
+-- Cross Request
+eurex_t7_eti_fbe_v15_0.cross_request = {}
+
+-- Read runtime size of: Cross Request
+eurex_t7_eti_fbe_v15_0.cross_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Cross Request
+eurex_t7_eti_fbe_v15_0.cross_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cross Request
+eurex_t7_eti_fbe_v15_0.cross_request.fields = function(buffer, offset, packet, parent, size_of_cross_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v15_0.compliance_text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cross Request
+eurex_t7_eti_fbe_v15_0.cross_request.dissect = function(buffer, offset, packet, parent, size_of_cross_request)
+  local size_of_cross_request = eurex_t7_eti_fbe_v15_0.cross_request.size(buffer, offset)
+  local index = offset + size_of_cross_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.cross_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
+    parent:set_len(size_of_cross_request)
+    local display = eurex_t7_eti_fbe_v15_0.cross_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
+
+    return index
+  end
+end
+
+-- New Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp = {}
+
+-- Size: New Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.trade_report_id.size + 
+  eurex_t7_eti_fbe_v15_0.maturity_month_year.size + 
+  eurex_t7_eti_fbe_v15_0.basket_trade_report_type.size + 
+  eurex_t7_eti_fbe_v15_0.basket_trade_report_text.size + 
+  eurex_t7_eti_fbe_v15_0.pad3.size
+
+-- Display: New Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
+  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v15_0.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.new_basket_data_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Old Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp = {}
+
+-- Size: Old Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.size =
+  eurex_t7_eti_fbe_v15_0.basket_trd_match_id.size + 
+  eurex_t7_eti_fbe_v15_0.basket_exec_id.size + 
+  eurex_t7_eti_fbe_v15_0.trade_report_id.size + 
+  eurex_t7_eti_fbe_v15_0.maturity_month_year.size + 
+  eurex_t7_eti_fbe_v15_0.basket_trade_report_type.size + 
+  eurex_t7_eti_fbe_v15_0.basket_trade_report_text.size + 
+  eurex_t7_eti_fbe_v15_0.pad7.size
+
+-- Display: Old Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Old Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Basket Trd Match Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_trd_match_id = eurex_t7_eti_fbe_v15_0.basket_trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Basket Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_exec_id = eurex_t7_eti_fbe_v15_0.basket_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Maturity Month Year: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, maturity_month_year = eurex_t7_eti_fbe_v15_0.maturity_month_year.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, basket_trade_report_type = eurex_t7_eti_fbe_v15_0.basket_trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- Basket Trade Report Text: 20 Byte Ascii String Nullable
+  index, basket_trade_report_text = eurex_t7_eti_fbe_v15_0.basket_trade_report_text.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Old Basket Data Grp Comp
+eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.old_basket_data_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Basket Roll Request
+eurex_t7_eti_fbe_v15_0.basket_roll_request = {}
+
+-- Read runtime size of: Basket Roll Request
+eurex_t7_eti_fbe_v15_0.basket_roll_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Basket Roll Request
+eurex_t7_eti_fbe_v15_0.basket_roll_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Basket Roll Request
+eurex_t7_eti_fbe_v15_0.basket_roll_request.fields = function(buffer, offset, packet, parent, size_of_basket_roll_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v15_0.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v15_0.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Basket Profile Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, basket_profile_id = eurex_t7_eti_fbe_v15_0.basket_profile_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Type: 2 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, trd_type = eurex_t7_eti_fbe_v15_0.trd_type.dissect(buffer, index, packet, parent)
+
+  -- No Old Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_old_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_old_basket_side_alloc.dissect(buffer, index, packet, parent)
+
+  -- No New Basket Side Alloc: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_new_basket_side_alloc = eurex_t7_eti_fbe_v15_0.no_new_basket_side_alloc.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, trade_report_type = eurex_t7_eti_fbe_v15_0.trade_report_type.dissect(buffer, index, packet, parent)
+
+  -- No Basket Root Party Grps: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_basket_root_party_grps = eurex_t7_eti_fbe_v15_0.no_basket_root_party_grps.dissect(buffer, index, packet, parent)
+
+  -- No Old Basket Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_old_basket_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_old_basket_instrmt_match_sides.dissect(buffer, index, packet, parent)
+
+  -- No New Basket Instrmt Match Sides: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_new_basket_instrmt_match_sides = eurex_t7_eti_fbe_v15_0.no_new_basket_instrmt_match_sides.dissect(buffer, index, packet, parent)
+
+  -- Trade Report Id: 20 Byte Ascii String Nullable
+  index, trade_report_id = eurex_t7_eti_fbe_v15_0.trade_report_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v15_0.pad2v2.dissect(buffer, index, packet, parent)
+
+  -- Old Basket Data Grp Comp: Struct of 7 fields
+  index, old_basket_data_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_data_grp_comp.dissect(buffer, index, packet, parent)
+
+  -- New Basket Data Grp Comp: Struct of 5 fields
+  index, new_basket_data_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_data_grp_comp.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Basket Root Party Grp Comp
+  for basket_root_party_grp_comp_index = 1, no_basket_root_party_grps do
+    index, basket_root_party_grp_comp = eurex_t7_eti_fbe_v15_0.basket_root_party_grp_comp.dissect(buffer, index, packet, parent, basket_root_party_grp_comp_index)
+  end
+
+  -- Repeating: Old Basket Instrmt Match Side Grp Comp
+  for old_basket_instrmt_match_side_grp_comp_index = 1, no_old_basket_instrmt_match_sides do
+    index, old_basket_instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, old_basket_instrmt_match_side_grp_comp_index)
+  end
+
+  -- Repeating: New Basket Instrmt Match Side Grp Comp
+  for new_basket_instrmt_match_side_grp_comp_index = 1, no_new_basket_instrmt_match_sides do
+    index, new_basket_instrmt_match_side_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_instrmt_match_side_grp_comp.dissect(buffer, index, packet, parent, new_basket_instrmt_match_side_grp_comp_index)
+  end
+
+  -- Repeating: Old Basket Side Alloc Grp Comp
+  for old_basket_side_alloc_grp_comp_index = 1, no_old_basket_side_alloc do
+    index, old_basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.old_basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, old_basket_side_alloc_grp_comp_index)
+  end
+
+  -- Repeating: New Basket Side Alloc Grp Comp
+  for new_basket_side_alloc_grp_comp_index = 1, no_new_basket_side_alloc do
+    index, new_basket_side_alloc_grp_comp = eurex_t7_eti_fbe_v15_0.new_basket_side_alloc_grp_comp.dissect(buffer, index, packet, parent, new_basket_side_alloc_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Basket Roll Request
+eurex_t7_eti_fbe_v15_0.basket_roll_request.dissect = function(buffer, offset, packet, parent, size_of_basket_roll_request)
+  local size_of_basket_roll_request = eurex_t7_eti_fbe_v15_0.basket_roll_request.size(buffer, offset)
+  local index = offset + size_of_basket_roll_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.basket_roll_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.basket_roll_request.fields(buffer, offset, packet, parent, size_of_basket_roll_request)
+    parent:set_len(size_of_basket_roll_request)
+    local display = eurex_t7_eti_fbe_v15_0.basket_roll_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v15_0.basket_roll_request.fields(buffer, offset, packet, parent, size_of_basket_roll_request)
 
     return index
   end
@@ -36630,89 +37519,6 @@ eurex_t7_eti_fbe_v15_0.amend_basket_trade_request.dissect = function(buffer, off
   end
 end
 
--- Add Scaled Simple Instrument Response
-eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response = {}
-
--- Read runtime size of: Add Scaled Simple Instrument Response
-eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Add Scaled Simple Instrument Response
-eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Add Scaled Simple Instrument Response
-eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 8 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, related_security_id = eurex_t7_eti_fbe_v15_0.related_security_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_update_time = eurex_t7_eti_fbe_v15_0.last_update_time.dissect(buffer, index, packet, parent)
-
-  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity_scaling_factor = eurex_t7_eti_fbe_v15_0.quantity_scaling_factor.dissect(buffer, index, packet, parent)
-
-  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, multileg_model = eurex_t7_eti_fbe_v15_0.multileg_model.dissect(buffer, index, packet, parent)
-
-  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, implied_market_indicator = eurex_t7_eti_fbe_v15_0.implied_market_indicator.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Add Scaled Simple Instrument Response
-eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
-  local size_of_add_scaled_simple_instrument_response = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.size(buffer, offset)
-  local index = offset + size_of_add_scaled_simple_instrument_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_scaled_simple_instrument_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
-    parent:set_len(size_of_add_scaled_simple_instrument_response)
-    local display = eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.fields(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_response)
-
-    return index
-  end
-end
-
 -- Add Scaled Simple Instrument Request
 eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_request = {}
 
@@ -36785,95 +37591,6 @@ eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_request.dissect = function(b
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_request.fields(buffer, offset, packet, parent, size_of_add_scaled_simple_instrument_request)
-
-    return index
-  end
-end
-
--- Add Flexible Instrument Response
-eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response = {}
-
--- Read runtime size of: Add Flexible Instrument Response
-eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Add Flexible Instrument Response
-eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Add Flexible Instrument Response
-eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 8 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, strike_price = eurex_t7_eti_fbe_v15_0.strike_price.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Maturity Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, maturity_date = eurex_t7_eti_fbe_v15_0.maturity_date.dissect(buffer, index, packet, parent)
-
-  -- Contract Date: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, contract_date = eurex_t7_eti_fbe_v15_0.contract_date.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Settl Method: 1 Byte Ascii String Enum with 2 values
-  index, settl_method = eurex_t7_eti_fbe_v15_0.settl_method.dissect(buffer, index, packet, parent)
-
-  -- Opt Attribute: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, opt_attribute = eurex_t7_eti_fbe_v15_0.opt_attribute.dissect(buffer, index, packet, parent)
-
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, put_or_call = eurex_t7_eti_fbe_v15_0.put_or_call.dissect(buffer, index, packet, parent)
-
-  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, exercise_style = eurex_t7_eti_fbe_v15_0.exercise_style.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v15_0.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Add Flexible Instrument Response
-eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
-  local size_of_add_flexible_instrument_response = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.size(buffer, offset)
-  local index = offset + size_of_add_flexible_instrument_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_flexible_instrument_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
-    parent:set_len(size_of_add_flexible_instrument_response)
-    local display = eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
 
     return index
   end
@@ -36960,179 +37677,6 @@ eurex_t7_eti_fbe_v15_0.add_flexible_instrument_request.dissect = function(buffer
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v15_0.add_flexible_instrument_request.fields(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
-
-    return index
-  end
-end
-
--- Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp = {}
-
--- Size: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.size =
-  eurex_t7_eti_fbe_v15_0.leg_security_id.size + 
-  eurex_t7_eti_fbe_v15_0.leg_price.size + 
-  eurex_t7_eti_fbe_v15_0.leg_symbol.size + 
-  eurex_t7_eti_fbe_v15_0.leg_ratio_qty.size + 
-  eurex_t7_eti_fbe_v15_0.leg_side.size + 
-  eurex_t7_eti_fbe_v15_0.leg_security_type.size + 
-  eurex_t7_eti_fbe_v15_0.pad6.size
-
--- Display: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  local index = offset
-
-  -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, leg_security_id = eurex_t7_eti_fbe_v15_0.leg_security_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_price = eurex_t7_eti_fbe_v15_0.leg_price.dissect(buffer, index, packet, parent)
-
-  -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
-  index, leg_symbol = eurex_t7_eti_fbe_v15_0.leg_symbol.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_ratio_qty = eurex_t7_eti_fbe_v15_0.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, leg_side = eurex_t7_eti_fbe_v15_0.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, leg_security_type = eurex_t7_eti_fbe_v15_0.leg_security_type.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.instrmt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  end
-end
-
--- Add Complex Instrument Response
-eurex_t7_eti_fbe_v15_0.add_complex_instrument_response = {}
-
--- Read runtime size of: Add Complex Instrument Response
-eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Add Complex Instrument Response
-eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Add Complex Instrument Response
-eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v15_0.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 8 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v15_0.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, low_limit_price = eurex_t7_eti_fbe_v15_0.low_limit_price.dissect(buffer, index, packet, parent)
-
-  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, high_limit_price = eurex_t7_eti_fbe_v15_0.high_limit_price.dissect(buffer, index, packet, parent)
-
-  -- Related Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, related_px = eurex_t7_eti_fbe_v15_0.related_px.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_update_time = eurex_t7_eti_fbe_v15_0.last_update_time.dissect(buffer, index, packet, parent)
-
-  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, security_response_id = eurex_t7_eti_fbe_v15_0.security_response_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v15_0.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Number Of Securities: 4 Byte Signed Fixed Width Integer Nullable
-  index, number_of_securities = eurex_t7_eti_fbe_v15_0.number_of_securities.dissect(buffer, index, packet, parent)
-
-  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_sub_type = eurex_t7_eti_fbe_v15_0.security_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Quantity Scaling Factor: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity_scaling_factor = eurex_t7_eti_fbe_v15_0.quantity_scaling_factor.dissect(buffer, index, packet, parent)
-
-  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, multileg_model = eurex_t7_eti_fbe_v15_0.multileg_model.dissect(buffer, index, packet, parent)
-
-  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, implied_market_indicator = eurex_t7_eti_fbe_v15_0.implied_market_indicator.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, product_complex = eurex_t7_eti_fbe_v15_0.product_complex.dissect(buffer, index, packet, parent)
-
-  -- No Leg Onbooks: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_leg_onbooks = eurex_t7_eti_fbe_v15_0.no_leg_onbooks.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v15_0.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Instrmt Leg Grp Comp
-  for instrmt_leg_grp_comp_index = 1, no_leg_onbooks do
-    index, instrmt_leg_grp_comp = eurex_t7_eti_fbe_v15_0.instrmt_leg_grp_comp.dissect(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Add Complex Instrument Response
-eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-  local size_of_add_complex_instrument_response = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.size(buffer, offset)
-  local index = offset + size_of_add_complex_instrument_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.add_complex_instrument_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-    parent:set_len(size_of_add_complex_instrument_response)
-    local display = eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
 
     return index
   end
@@ -37235,34 +37779,22 @@ eurex_t7_eti_fbe_v15_0.add_complex_instrument_request.dissect = function(buffer,
   end
 end
 
--- Payload
-eurex_t7_eti_fbe_v15_0.payload = {}
+-- Client Payload
+eurex_t7_eti_fbe_v15_0.client_payload = {}
 
--- Dissect: Payload
-eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+eurex_t7_eti_fbe_v15_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument Request
   if template_id == 10301 then
     return eurex_t7_eti_fbe_v15_0.add_complex_instrument_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Response
-  if template_id == 10302 then
-    return eurex_t7_eti_fbe_v15_0.add_complex_instrument_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Flexible Instrument Request
   if template_id == 10309 then
     return eurex_t7_eti_fbe_v15_0.add_flexible_instrument_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Add Flexible Instrument Response
-  if template_id == 10310 then
-    return eurex_t7_eti_fbe_v15_0.add_flexible_instrument_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Add Scaled Simple Instrument Request
   if template_id == 10327 then
     return eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Scaled Simple Instrument Response
-  if template_id == 10328 then
-    return eurex_t7_eti_fbe_v15_0.add_scaled_simple_instrument_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Amend Basket Trade Request
   if template_id == 10629 then
@@ -37280,89 +37812,21 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10603 then
     return eurex_t7_eti_fbe_v15_0.approve_tes_trade_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Basket Approve Broadcast
-  if template_id == 10627 then
-    return eurex_t7_eti_fbe_v15_0.basket_approve_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Broadcast
-  if template_id == 10625 then
-    return eurex_t7_eti_fbe_v15_0.basket_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Delete Broadcast
-  if template_id == 10626 then
-    return eurex_t7_eti_fbe_v15_0.basket_delete_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Execution Broadcast
-  if template_id == 10628 then
-    return eurex_t7_eti_fbe_v15_0.basket_execution_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Response
-  if template_id == 10624 then
-    return eurex_t7_eti_fbe_v15_0.basket_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Roll Broadcast
-  if template_id == 10634 then
-    return eurex_t7_eti_fbe_v15_0.basket_roll_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Basket Roll Request
   if template_id == 10633 then
     return eurex_t7_eti_fbe_v15_0.basket_roll_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broadcast Error Notification
-  if template_id == 10032 then
-    return eurex_t7_eti_fbe_v15_0.broadcast_error_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Deletion Notification
-  if template_id == 10134 then
-    return eurex_t7_eti_fbe_v15_0.clip_deletion_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Execution Notification
-  if template_id == 10135 then
-    return eurex_t7_eti_fbe_v15_0.clip_execution_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Response
-  if template_id == 10133 then
-    return eurex_t7_eti_fbe_v15_0.clip_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cross Request
   if template_id == 10118 then
     return eurex_t7_eti_fbe_v15_0.cross_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Cross Request Response
-  if template_id == 10119 then
-    return eurex_t7_eti_fbe_v15_0.cross_request_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Broadcast
-  if template_id == 10122 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Nr Response
-  if template_id == 10124 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Quote Event Broadcast
-  if template_id == 10308 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Delete All Order Request
   if template_id == 10120 then
     return eurex_t7_eti_fbe_v15_0.delete_all_order_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Delete All Order Response
-  if template_id == 10121 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Broadcast
-  if template_id == 10410 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Delete All Quote Request
   if template_id == 10408 then
     return eurex_t7_eti_fbe_v15_0.delete_all_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Response
-  if template_id == 10409 then
-    return eurex_t7_eti_fbe_v15_0.delete_all_quote_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Basket Trade Request
   if template_id == 10622 then
@@ -37372,21 +37836,9 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10132 then
     return eurex_t7_eti_fbe_v15_0.delete_clip_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10112 then
-    return eurex_t7_eti_fbe_v15_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Nr Response
-  if template_id == 10111 then
-    return eurex_t7_eti_fbe_v15_0.delete_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Delete Order Request
   if template_id == 10142 then
     return eurex_t7_eti_fbe_v15_0.delete_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Response
-  if template_id == 10110 then
-    return eurex_t7_eti_fbe_v15_0.delete_order_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Tes Trade Request
   if template_id == 10602 then
@@ -37404,45 +37856,21 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10600 then
     return eurex_t7_eti_fbe_v15_0.enter_tes_trade_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_eti_fbe_v15_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced User Logout Notification
-  if template_id == 10043 then
-    return eurex_t7_eti_fbe_v15_0.forced_user_logout_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Heartbeat
   if template_id == 10011 then
     return eurex_t7_eti_fbe_v15_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_eti_fbe_v15_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Inquire Enrichment Rule Id List Request
   if template_id == 10040 then
     return eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Inquire Enrichment Rule Id List Response
-  if template_id == 10041 then
-    return eurex_t7_eti_fbe_v15_0.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Inquire Mm Parameter Request
   if template_id == 10305 then
     return eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Inquire Mm Parameter Response
-  if template_id == 10306 then
-    return eurex_t7_eti_fbe_v15_0.inquire_mm_parameter_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Inquire Margin Based Risk Limit Request
   if template_id == 10323 then
     return eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Margin Based Risk Limit Response
-  if template_id == 10324 then
-    return eurex_t7_eti_fbe_v15_0.inquire_margin_based_risk_limit_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Inquire Pre Trade Risk Limits Request
   if template_id == 10311 then
@@ -37452,21 +37880,9 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10035 then
     return eurex_t7_eti_fbe_v15_0.inquire_session_list_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Inquire Session List Response
-  if template_id == 10036 then
-    return eurex_t7_eti_fbe_v15_0.inquire_session_list_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Inquire User Request
   if template_id == 10038 then
     return eurex_t7_eti_fbe_v15_0.inquire_user_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire User Response
-  if template_id == 10039 then
-    return eurex_t7_eti_fbe_v15_0.inquire_user_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Legal Notification Broadcast
-  if template_id == 10037 then
-    return eurex_t7_eti_fbe_v15_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logon Request
   if template_id == 10000 then
@@ -37476,57 +37892,29 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 19000 then
     return eurex_t7_eti_fbe_v15_0.logon_request_encrypted.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_eti_fbe_v15_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Logout Request
   if template_id == 10002 then
     return eurex_t7_eti_fbe_v15_0.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_eti_fbe_v15_0.logout_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mm Parameter Definition Request
   if template_id == 10303 then
     return eurex_t7_eti_fbe_v15_0.mm_parameter_definition_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mm Parameter Definition Response
-  if template_id == 10304 then
-    return eurex_t7_eti_fbe_v15_0.mm_parameter_definition_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Mass Order
   if template_id == 10115 then
     return eurex_t7_eti_fbe_v15_0.mass_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Order Ack
-  if template_id == 10116 then
-    return eurex_t7_eti_fbe_v15_0.mass_order_ack.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mass Quote Request
   if template_id == 10405 then
     return eurex_t7_eti_fbe_v15_0.mass_quote_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mass Quote Response
-  if template_id == 10406 then
-    return eurex_t7_eti_fbe_v15_0.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Modify Basket Trade Request
   if template_id == 10621 then
     return eurex_t7_eti_fbe_v15_0.modify_basket_trade_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Modify Order Nr Response
-  if template_id == 10108 then
-    return eurex_t7_eti_fbe_v15_0.modify_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Modify Order Request
   if template_id == 10140 then
     return eurex_t7_eti_fbe_v15_0.modify_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if template_id == 10107 then
-    return eurex_t7_eti_fbe_v15_0.modify_order_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Request
   if template_id == 10141 then
@@ -37536,125 +37924,41 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10601 then
     return eurex_t7_eti_fbe_v15_0.modify_tes_trade_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect New Order Nr Response
-  if template_id == 10102 then
-    return eurex_t7_eti_fbe_v15_0.new_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect New Order Request
   if template_id == 10138 then
     return eurex_t7_eti_fbe_v15_0.new_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response
-  if template_id == 10101 then
-    return eurex_t7_eti_fbe_v15_0.new_order_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Short Request
   if template_id == 10139 then
     return eurex_t7_eti_fbe_v15_0.new_order_short_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect News Broadcast
-  if template_id == 10031 then
-    return eurex_t7_eti_fbe_v15_0.news_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Notification
-  if template_id == 10104 then
-    return eurex_t7_eti_fbe_v15_0.order_exec_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10117 then
-    return eurex_t7_eti_fbe_v15_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Response
-  if template_id == 10103 then
-    return eurex_t7_eti_fbe_v15_0.order_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Action Report
-  if template_id == 10042 then
-    return eurex_t7_eti_fbe_v15_0.party_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Entitlements Update Report
-  if template_id == 10034 then
-    return eurex_t7_eti_fbe_v15_0.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Ping Request
   if template_id == 10320 then
     return eurex_t7_eti_fbe_v15_0.ping_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ping Response
-  if template_id == 10321 then
-    return eurex_t7_eti_fbe_v15_0.ping_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pre Trade Risk Limit Response
-  if template_id == 10313 then
-    return eurex_t7_eti_fbe_v15_0.pre_trade_risk_limit_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Pre Trade Risk Limits Definition Request
   if template_id == 10312 then
     return eurex_t7_eti_fbe_v15_0.pre_trade_risk_limits_definition_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Quote Activation Notification
-  if template_id == 10411 then
-    return eurex_t7_eti_fbe_v15_0.quote_activation_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Quote Activation Request
   if template_id == 10403 then
     return eurex_t7_eti_fbe_v15_0.quote_activation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Response
-  if template_id == 10404 then
-    return eurex_t7_eti_fbe_v15_0.quote_activation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Report
-  if template_id == 10407 then
-    return eurex_t7_eti_fbe_v15_0.quote_execution_report.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Rfq Request
   if template_id == 10401 then
     return eurex_t7_eti_fbe_v15_0.rfq_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Rfq Response
-  if template_id == 10402 then
-    return eurex_t7_eti_fbe_v15_0.rfq_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_eti_fbe_v15_0.reject.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Retransmit Me Message Request
   if template_id == 10026 then
     return eurex_t7_eti_fbe_v15_0.retransmit_me_message_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Response
-  if template_id == 10027 then
-    return eurex_t7_eti_fbe_v15_0.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmit Request
   if template_id == 10008 then
     return eurex_t7_eti_fbe_v15_0.retransmit_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return eurex_t7_eti_fbe_v15_0.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Reverse Tes Trade Request
   if template_id == 10630 then
     return eurex_t7_eti_fbe_v15_0.reverse_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Notification Broadcast
-  if template_id == 10033 then
-    return eurex_t7_eti_fbe_v15_0.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Create Deal Notification
-  if template_id == 10708 then
-    return eurex_t7_eti_fbe_v15_0.srqs_create_deal_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Deal Notification
-  if template_id == 10709 then
-    return eurex_t7_eti_fbe_v15_0.srqs_deal_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Deal Response
-  if template_id == 10705 then
-    return eurex_t7_eti_fbe_v15_0.srqs_deal_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Srqs Enter Quote Request
   if template_id == 10702 then
@@ -37668,45 +37972,9 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10718 then
     return eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Srqs Inquire Smart Respondent Response
-  if template_id == 10719 then
-    return eurex_t7_eti_fbe_v15_0.srqs_inquire_smart_respondent_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Notification
-  if template_id == 10713 then
-    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Requester Notification
-  if template_id == 10712 then
-    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Status Notification
-  if template_id == 10715 then
-    return eurex_t7_eti_fbe_v15_0.srqs_negotiation_status_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Open Negotiation Notification
-  if template_id == 10711 then
-    return eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Srqs Open Negotiation Request
   if template_id == 10700 then
     return eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Open Negotiation Requester Notification
-  if template_id == 10710 then
-    return eurex_t7_eti_fbe_v15_0.srqs_open_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quote Notification
-  if template_id == 10707 then
-    return eurex_t7_eti_fbe_v15_0.srqs_quote_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quote Response
-  if template_id == 10703 then
-    return eurex_t7_eti_fbe_v15_0.srqs_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quote Snapshot Notification
-  if template_id == 10723 then
-    return eurex_t7_eti_fbe_v15_0.srqs_quote_snapshot_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Srqs Quote Snapshot Request
   if template_id == 10720 then
@@ -37716,14 +37984,6 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10717 then
     return eurex_t7_eti_fbe_v15_0.srqs_quoting_status_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Srqs Response
-  if template_id == 10722 then
-    return eurex_t7_eti_fbe_v15_0.srqs_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Status Broadcast
-  if template_id == 10714 then
-    return eurex_t7_eti_fbe_v15_0.srqs_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Srqs Update Deal Status Request
   if template_id == 10706 then
     return eurex_t7_eti_fbe_v15_0.srqs_update_deal_status_request.dissect(buffer, offset, packet, parent)
@@ -37732,117 +37992,29 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 10701 then
     return eurex_t7_eti_fbe_v15_0.srqs_update_negotiation_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Service Availability Broadcast
-  if template_id == 10030 then
-    return eurex_t7_eti_fbe_v15_0.service_availability_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Market Broadcast
-  if template_id == 10044 then
-    return eurex_t7_eti_fbe_v15_0.service_availability_market_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Status Broadcast
-  if template_id == 10045 then
-    return eurex_t7_eti_fbe_v15_0.status_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Subscribe Request
   if template_id == 10025 then
     return eurex_t7_eti_fbe_v15_0.subscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Response
-  if template_id == 10005 then
-    return eurex_t7_eti_fbe_v15_0.subscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Approve Broadcast
-  if template_id == 10607 then
-    return eurex_t7_eti_fbe_v15_0.tes_approve_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Broadcast
-  if template_id == 10604 then
-    return eurex_t7_eti_fbe_v15_0.tes_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Delete Broadcast
-  if template_id == 10606 then
-    return eurex_t7_eti_fbe_v15_0.tes_delete_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Execution Broadcast
-  if template_id == 10610 then
-    return eurex_t7_eti_fbe_v15_0.tes_execution_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Tes Inquire Boundary Prices Request
   if template_id == 10329 then
     return eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Tes Inquire Boundary Prices Response
-  if template_id == 10330 then
-    return eurex_t7_eti_fbe_v15_0.tes_inquire_boundary_prices_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Response
-  if template_id == 10611 then
-    return eurex_t7_eti_fbe_v15_0.tes_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Reversal Broadcast
-  if template_id == 10632 then
-    return eurex_t7_eti_fbe_v15_0.tes_reversal_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Trade Broadcast
-  if template_id == 10614 then
-    return eurex_t7_eti_fbe_v15_0.tes_trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Trading Session Status Broadcast
-  if template_id == 10615 then
-    return eurex_t7_eti_fbe_v15_0.tes_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Upload Broadcast
-  if template_id == 10613 then
-    return eurex_t7_eti_fbe_v15_0.tes_upload_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tm Trading Session Status Broadcast
-  if template_id == 10501 then
-    return eurex_t7_eti_fbe_v15_0.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Throttle Update Notification
-  if template_id == 10028 then
-    return eurex_t7_eti_fbe_v15_0.throttle_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Broadcast
-  if template_id == 10500 then
-    return eurex_t7_eti_fbe_v15_0.trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Trading Action Request
   if template_id == 10904 then
     return eurex_t7_eti_fbe_v15_0.trading_action_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Response
-  if template_id == 10905 then
-    return eurex_t7_eti_fbe_v15_0.trading_action_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Broadcast
-  if template_id == 10307 then
-    return eurex_t7_eti_fbe_v15_0.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsubscribe Request
   if template_id == 10006 then
     return eurex_t7_eti_fbe_v15_0.unsubscribe_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Unsubscribe Response
-  if template_id == 10007 then
-    return eurex_t7_eti_fbe_v15_0.unsubscribe_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Update Reference Price Request
   if template_id == 10331 then
     return eurex_t7_eti_fbe_v15_0.update_reference_price_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Update Reference Prices Response
-  if template_id == 10332 then
-    return eurex_t7_eti_fbe_v15_0.update_reference_prices_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Update Remaining Risk Allowance Base Request
   if template_id == 10325 then
     return eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Remaining Risk Allowance Base Response
-  if template_id == 10326 then
-    return eurex_t7_eti_fbe_v15_0.update_remaining_risk_allowance_base_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Upload Tes Trade Request
   if template_id == 10612 then
@@ -37856,76 +38028,24 @@ eurex_t7_eti_fbe_v15_0.payload.dissect = function(buffer, offset, packet, parent
   if template_id == 19018 then
     return eurex_t7_eti_fbe_v15_0.user_login_request_encrypted.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return eurex_t7_eti_fbe_v15_0.user_login_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect User Logout Request
   if template_id == 10029 then
     return eurex_t7_eti_fbe_v15_0.user_logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return eurex_t7_eti_fbe_v15_0.user_logout_response.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-eurex_t7_eti_fbe_v15_0.message_header = {}
+-- Client Message
+eurex_t7_eti_fbe_v15_0.client_message = {}
 
--- Size: Message Header
-eurex_t7_eti_fbe_v15_0.message_header.size =
-  eurex_t7_eti_fbe_v15_0.body_len.size + 
-  eurex_t7_eti_fbe_v15_0.template_id.size
-
--- Display: Message Header
-eurex_t7_eti_fbe_v15_0.message_header.display = function(packet, parent, length)
+-- Display: Client Message
+eurex_t7_eti_fbe_v15_0.client_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-eurex_t7_eti_fbe_v15_0.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, body_len = eurex_t7_eti_fbe_v15_0.body_len.dissect(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 158 values
-  index, template_id = eurex_t7_eti_fbe_v15_0.template_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-eurex_t7_eti_fbe_v15_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.message_header, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v15_0.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v15_0.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v15_0.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-eurex_t7_eti_fbe_v15_0.message = {}
-
--- Display: Message
-eurex_t7_eti_fbe_v15_0.message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message
-eurex_t7_eti_fbe_v15_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Client Message
+eurex_t7_eti_fbe_v15_0.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -37934,35 +38054,35 @@ eurex_t7_eti_fbe_v15_0.message.fields = function(buffer, offset, packet, parent,
   -- Dependency element: Template Id
   local template_id = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 157 branches
-  index = eurex_t7_eti_fbe_v15_0.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 62 branches
+  index = eurex_t7_eti_fbe_v15_0.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Message
-eurex_t7_eti_fbe_v15_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Client Message
+eurex_t7_eti_fbe_v15_0.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
+  local index = offset + size_of_client_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v15_0.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = eurex_t7_eti_fbe_v15_0.message.display(buffer, packet, parent)
+    parent = parent:add(omi_eurex_t7_eti_fbe_v15_0.fields.client_message, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v15_0.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    parent:set_len(size_of_client_message)
+    local display = eurex_t7_eti_fbe_v15_0.client_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v15_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    eurex_t7_eti_fbe_v15_0.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Message
-local message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Message
+local client_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -37982,29 +38102,29 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-eurex_t7_eti_fbe_v15_0.packet = {}
+-- Client Packet
+eurex_t7_eti_fbe_v15_0.client_packet = {}
 
 -- Verify required size of Tcp packet
-eurex_t7_eti_fbe_v15_0.packet.requiredsize = function(buffer)
+eurex_t7_eti_fbe_v15_0.client_packet.requiredsize = function(buffer)
   return buffer:len() >= eurex_t7_eti_fbe_v15_0.message_header.size
 end
 
--- Dissect Packet
-eurex_t7_eti_fbe_v15_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+eurex_t7_eti_fbe_v15_0.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Client Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Client Message: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_message = client_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_t7_eti_fbe_v15_0.message.dissect(buffer, index, packet, parent, size_of_message)
+      index = eurex_t7_eti_fbe_v15_0.client_message.dissect(buffer, index, packet, parent, size_of_client_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -38026,6 +38146,71 @@ end
 function omi_eurex_t7_eti_fbe_v15_0.init()
 end
 
+-- Connection roles for Eurex T7 Eti Fbe 15.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+eurex_t7_eti_fbe_v15_0.role = function(packet)
+  if omi_eurex_t7_eti_fbe_v15_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_eurex_t7_eti_fbe_v15_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_eurex_t7_eti_fbe_v15_0.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_eurex_t7_eti_fbe_v15_0.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+eurex_t7_eti_fbe_v15_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Eurex T7 Eti Fbe 15.0
 function omi_eurex_t7_eti_fbe_v15_0.dissector(buffer, packet, parent)
 
@@ -38034,8 +38219,824 @@ function omi_eurex_t7_eti_fbe_v15_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_t7_eti_fbe_v15_0, buffer(), omi_eurex_t7_eti_fbe_v15_0.description, "("..buffer:len().." Bytes)")
-  return eurex_t7_eti_fbe_v15_0.packet.dissect(buffer, packet, protocol)
+  local role = eurex_t7_eti_fbe_v15_0.role(packet)
+  if role == "initiator" then
+    return eurex_t7_eti_fbe_v15_0.client_packet.dissect(buffer, packet, protocol)
+  end
+  return eurex_t7_eti_fbe_v15_0.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+eurex_t7_eti_fbe_v15_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Add Complex Instrument Request
+  if template_id == 10301 then
+    return true
+  end
+
+  -- Add Flexible Instrument Request
+  if template_id == 10309 then
+    return true
+  end
+
+  -- Add Scaled Simple Instrument Request
+  if template_id == 10327 then
+    return true
+  end
+
+  -- Amend Basket Trade Request
+  if template_id == 10629 then
+    return true
+  end
+
+  -- Approve Basket Trade Request
+  if template_id == 10623 then
+    return true
+  end
+
+  -- Approve Reverse Tes Trade Request
+  if template_id == 10631 then
+    return true
+  end
+
+  -- Approve Tes Trade Request
+  if template_id == 10603 then
+    return true
+  end
+
+  -- Basket Roll Request
+  if template_id == 10633 then
+    return true
+  end
+
+  -- Cross Request
+  if template_id == 10118 then
+    return true
+  end
+
+  -- Delete All Order Request
+  if template_id == 10120 then
+    return true
+  end
+
+  -- Delete All Quote Request
+  if template_id == 10408 then
+    return true
+  end
+
+  -- Delete Basket Trade Request
+  if template_id == 10622 then
+    return true
+  end
+
+  -- Delete Clip Request
+  if template_id == 10132 then
+    return true
+  end
+
+  -- Delete Order Request
+  if template_id == 10142 then
+    return true
+  end
+
+  -- Delete Tes Trade Request
+  if template_id == 10602 then
+    return true
+  end
+
+  -- Enter Basket Trade Request
+  if template_id == 10620 then
+    return true
+  end
+
+  -- Enter Clip Request
+  if template_id == 10131 then
+    return true
+  end
+
+  -- Enter Tes Trade Request
+  if template_id == 10600 then
+    return true
+  end
+
+  -- Heartbeat
+  if template_id == 10011 then
+    return true
+  end
+
+  -- Inquire Enrichment Rule Id List Request
+  if template_id == 10040 then
+    return true
+  end
+
+  -- Inquire Mm Parameter Request
+  if template_id == 10305 then
+    return true
+  end
+
+  -- Inquire Margin Based Risk Limit Request
+  if template_id == 10323 then
+    return true
+  end
+
+  -- Inquire Pre Trade Risk Limits Request
+  if template_id == 10311 then
+    return true
+  end
+
+  -- Inquire Session List Request
+  if template_id == 10035 then
+    return true
+  end
+
+  -- Inquire User Request
+  if template_id == 10038 then
+    return true
+  end
+
+  -- Logon Request
+  if template_id == 10000 then
+    return true
+  end
+
+  -- Logon Request Encrypted
+  if template_id == 19000 then
+    return true
+  end
+
+  -- Logout Request
+  if template_id == 10002 then
+    return true
+  end
+
+  -- Mm Parameter Definition Request
+  if template_id == 10303 then
+    return true
+  end
+
+  -- Mass Order
+  if template_id == 10115 then
+    return true
+  end
+
+  -- Mass Quote Request
+  if template_id == 10405 then
+    return true
+  end
+
+  -- Modify Basket Trade Request
+  if template_id == 10621 then
+    return true
+  end
+
+  -- Modify Order Request
+  if template_id == 10140 then
+    return true
+  end
+
+  -- Modify Order Short Request
+  if template_id == 10141 then
+    return true
+  end
+
+  -- Modify Tes Trade Request
+  if template_id == 10601 then
+    return true
+  end
+
+  -- New Order Request
+  if template_id == 10138 then
+    return true
+  end
+
+  -- New Order Short Request
+  if template_id == 10139 then
+    return true
+  end
+
+  -- Ping Request
+  if template_id == 10320 then
+    return true
+  end
+
+  -- Pre Trade Risk Limits Definition Request
+  if template_id == 10312 then
+    return true
+  end
+
+  -- Quote Activation Request
+  if template_id == 10403 then
+    return true
+  end
+
+  -- Rfq Request
+  if template_id == 10401 then
+    return true
+  end
+
+  -- Retransmit Me Message Request
+  if template_id == 10026 then
+    return true
+  end
+
+  -- Retransmit Request
+  if template_id == 10008 then
+    return true
+  end
+
+  -- Reverse Tes Trade Request
+  if template_id == 10630 then
+    return true
+  end
+
+  -- Srqs Enter Quote Request
+  if template_id == 10702 then
+    return true
+  end
+
+  -- Srqs Hit Quote Request
+  if template_id == 10704 then
+    return true
+  end
+
+  -- Srqs Inquire Smart Respondent Request
+  if template_id == 10718 then
+    return true
+  end
+
+  -- Srqs Open Negotiation Request
+  if template_id == 10700 then
+    return true
+  end
+
+  -- Srqs Quote Snapshot Request
+  if template_id == 10720 then
+    return true
+  end
+
+  -- Srqs Quoting Status Request
+  if template_id == 10717 then
+    return true
+  end
+
+  -- Srqs Update Deal Status Request
+  if template_id == 10706 then
+    return true
+  end
+
+  -- Srqs Update Negotiation Request
+  if template_id == 10701 then
+    return true
+  end
+
+  -- Subscribe Request
+  if template_id == 10025 then
+    return true
+  end
+
+  -- Tes Inquire Boundary Prices Request
+  if template_id == 10329 then
+    return true
+  end
+
+  -- Trading Action Request
+  if template_id == 10904 then
+    return true
+  end
+
+  -- Unsubscribe Request
+  if template_id == 10006 then
+    return true
+  end
+
+  -- Update Reference Price Request
+  if template_id == 10331 then
+    return true
+  end
+
+  -- Update Remaining Risk Allowance Base Request
+  if template_id == 10325 then
+    return true
+  end
+
+  -- Upload Tes Trade Request
+  if template_id == 10612 then
+    return true
+  end
+
+  -- User Login Request
+  if template_id == 10018 then
+    return true
+  end
+
+  -- User Login Request Encrypted
+  if template_id == 19018 then
+    return true
+  end
+
+  -- User Logout Request
+  if template_id == 10029 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+eurex_t7_eti_fbe_v15_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Add Complex Instrument Response
+  if template_id == 10302 then
+    return true
+  end
+
+  -- Add Flexible Instrument Response
+  if template_id == 10310 then
+    return true
+  end
+
+  -- Add Scaled Simple Instrument Response
+  if template_id == 10328 then
+    return true
+  end
+
+  -- Basket Approve Broadcast
+  if template_id == 10627 then
+    return true
+  end
+
+  -- Basket Broadcast
+  if template_id == 10625 then
+    return true
+  end
+
+  -- Basket Delete Broadcast
+  if template_id == 10626 then
+    return true
+  end
+
+  -- Basket Execution Broadcast
+  if template_id == 10628 then
+    return true
+  end
+
+  -- Basket Response
+  if template_id == 10624 then
+    return true
+  end
+
+  -- Basket Roll Broadcast
+  if template_id == 10634 then
+    return true
+  end
+
+  -- Broadcast Error Notification
+  if template_id == 10032 then
+    return true
+  end
+
+  -- Clip Deletion Notification
+  if template_id == 10134 then
+    return true
+  end
+
+  -- Clip Execution Notification
+  if template_id == 10135 then
+    return true
+  end
+
+  -- Clip Response
+  if template_id == 10133 then
+    return true
+  end
+
+  -- Cross Request Response
+  if template_id == 10119 then
+    return true
+  end
+
+  -- Delete All Order Broadcast
+  if template_id == 10122 then
+    return true
+  end
+
+  -- Delete All Order Nr Response
+  if template_id == 10124 then
+    return true
+  end
+
+  -- Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return true
+  end
+
+  -- Delete All Order Response
+  if template_id == 10121 then
+    return true
+  end
+
+  -- Delete All Quote Broadcast
+  if template_id == 10410 then
+    return true
+  end
+
+  -- Delete All Quote Response
+  if template_id == 10409 then
+    return true
+  end
+
+  -- Delete Order Broadcast
+  if template_id == 10112 then
+    return true
+  end
+
+  -- Delete Order Nr Response
+  if template_id == 10111 then
+    return true
+  end
+
+  -- Delete Order Response
+  if template_id == 10110 then
+    return true
+  end
+
+  -- Forced Logout Notification
+  if template_id == 10012 then
+    return true
+  end
+
+  -- Forced User Logout Notification
+  if template_id == 10043 then
+    return true
+  end
+
+  -- Heartbeat Notification
+  if template_id == 10023 then
+    return true
+  end
+
+  -- Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return true
+  end
+
+  -- Inquire Mm Parameter Response
+  if template_id == 10306 then
+    return true
+  end
+
+  -- Inquire Margin Based Risk Limit Response
+  if template_id == 10324 then
+    return true
+  end
+
+  -- Inquire Session List Response
+  if template_id == 10036 then
+    return true
+  end
+
+  -- Inquire User Response
+  if template_id == 10039 then
+    return true
+  end
+
+  -- Legal Notification Broadcast
+  if template_id == 10037 then
+    return true
+  end
+
+  -- Logon Response
+  if template_id == 10001 then
+    return true
+  end
+
+  -- Logout Response
+  if template_id == 10003 then
+    return true
+  end
+
+  -- Mm Parameter Definition Response
+  if template_id == 10304 then
+    return true
+  end
+
+  -- Mass Order Ack
+  if template_id == 10116 then
+    return true
+  end
+
+  -- Mass Quote Response
+  if template_id == 10406 then
+    return true
+  end
+
+  -- Modify Order Nr Response
+  if template_id == 10108 then
+    return true
+  end
+
+  -- Modify Order Response
+  if template_id == 10107 then
+    return true
+  end
+
+  -- New Order Nr Response
+  if template_id == 10102 then
+    return true
+  end
+
+  -- New Order Response
+  if template_id == 10101 then
+    return true
+  end
+
+  -- News Broadcast
+  if template_id == 10031 then
+    return true
+  end
+
+  -- Order Exec Notification
+  if template_id == 10104 then
+    return true
+  end
+
+  -- Order Exec Report Broadcast
+  if template_id == 10117 then
+    return true
+  end
+
+  -- Order Exec Response
+  if template_id == 10103 then
+    return true
+  end
+
+  -- Party Action Report
+  if template_id == 10042 then
+    return true
+  end
+
+  -- Party Entitlements Update Report
+  if template_id == 10034 then
+    return true
+  end
+
+  -- Ping Response
+  if template_id == 10321 then
+    return true
+  end
+
+  -- Pre Trade Risk Limit Response
+  if template_id == 10313 then
+    return true
+  end
+
+  -- Quote Activation Notification
+  if template_id == 10411 then
+    return true
+  end
+
+  -- Quote Activation Response
+  if template_id == 10404 then
+    return true
+  end
+
+  -- Quote Execution Report
+  if template_id == 10407 then
+    return true
+  end
+
+  -- Rfq Response
+  if template_id == 10402 then
+    return true
+  end
+
+  -- Reject
+  if template_id == 10010 then
+    return true
+  end
+
+  -- Retransmit Me Message Response
+  if template_id == 10027 then
+    return true
+  end
+
+  -- Retransmit Response
+  if template_id == 10009 then
+    return true
+  end
+
+  -- Risk Notification Broadcast
+  if template_id == 10033 then
+    return true
+  end
+
+  -- Srqs Create Deal Notification
+  if template_id == 10708 then
+    return true
+  end
+
+  -- Srqs Deal Notification
+  if template_id == 10709 then
+    return true
+  end
+
+  -- Srqs Deal Response
+  if template_id == 10705 then
+    return true
+  end
+
+  -- Srqs Inquire Smart Respondent Response
+  if template_id == 10719 then
+    return true
+  end
+
+  -- Srqs Negotiation Notification
+  if template_id == 10713 then
+    return true
+  end
+
+  -- Srqs Negotiation Requester Notification
+  if template_id == 10712 then
+    return true
+  end
+
+  -- Srqs Negotiation Status Notification
+  if template_id == 10715 then
+    return true
+  end
+
+  -- Srqs Open Negotiation Notification
+  if template_id == 10711 then
+    return true
+  end
+
+  -- Srqs Open Negotiation Requester Notification
+  if template_id == 10710 then
+    return true
+  end
+
+  -- Srqs Quote Notification
+  if template_id == 10707 then
+    return true
+  end
+
+  -- Srqs Quote Response
+  if template_id == 10703 then
+    return true
+  end
+
+  -- Srqs Quote Snapshot Notification
+  if template_id == 10723 then
+    return true
+  end
+
+  -- Srqs Response
+  if template_id == 10722 then
+    return true
+  end
+
+  -- Srqs Status Broadcast
+  if template_id == 10714 then
+    return true
+  end
+
+  -- Service Availability Broadcast
+  if template_id == 10030 then
+    return true
+  end
+
+  -- Service Availability Market Broadcast
+  if template_id == 10044 then
+    return true
+  end
+
+  -- Status Broadcast
+  if template_id == 10045 then
+    return true
+  end
+
+  -- Subscribe Response
+  if template_id == 10005 then
+    return true
+  end
+
+  -- Tes Approve Broadcast
+  if template_id == 10607 then
+    return true
+  end
+
+  -- Tes Broadcast
+  if template_id == 10604 then
+    return true
+  end
+
+  -- Tes Delete Broadcast
+  if template_id == 10606 then
+    return true
+  end
+
+  -- Tes Execution Broadcast
+  if template_id == 10610 then
+    return true
+  end
+
+  -- Tes Inquire Boundary Prices Response
+  if template_id == 10330 then
+    return true
+  end
+
+  -- Tes Response
+  if template_id == 10611 then
+    return true
+  end
+
+  -- Tes Reversal Broadcast
+  if template_id == 10632 then
+    return true
+  end
+
+  -- Tes Trade Broadcast
+  if template_id == 10614 then
+    return true
+  end
+
+  -- Tes Trading Session Status Broadcast
+  if template_id == 10615 then
+    return true
+  end
+
+  -- Tes Upload Broadcast
+  if template_id == 10613 then
+    return true
+  end
+
+  -- Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return true
+  end
+
+  -- Throttle Update Notification
+  if template_id == 10028 then
+    return true
+  end
+
+  -- Trade Broadcast
+  if template_id == 10500 then
+    return true
+  end
+
+  -- Trading Action Response
+  if template_id == 10905 then
+    return true
+  end
+
+  -- Trading Session Status Broadcast
+  if template_id == 10307 then
+    return true
+  end
+
+  -- Unsubscribe Response
+  if template_id == 10007 then
+    return true
+  end
+
+  -- Update Reference Prices Response
+  if template_id == 10332 then
+    return true
+  end
+
+  -- Update Remaining Risk Allowance Base Response
+  if template_id == 10326 then
+    return true
+  end
+
+  -- User Login Response
+  if template_id == 10019 then
+    return true
+  end
+
+  -- User Logout Response
+  if template_id == 10024 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -38043,9 +39044,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Eurex T7 Eti Fbe 15.0 (Tcp)
-local function omi_eurex_t7_eti_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
+local function omi_eurex_t7_eti_fbe_v15_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not eurex_t7_eti_fbe_v15_0.packet.requiredsize(buffer) then return false end
+  if not eurex_t7_eti_fbe_v15_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_eti_fbe_v15_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_t7_eti_fbe_v15_0
@@ -38054,9 +39058,44 @@ local function omi_eurex_t7_eti_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Eurex T7 Eti Fbe 15.0
-omi_eurex_t7_eti_fbe_v15_0:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v15_0_tcp_heuristic)
+-- Dissector Heuristic for Eurex T7 Eti Fbe 15.0 (Tcp)
+local function omi_eurex_t7_eti_fbe_v15_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not eurex_t7_eti_fbe_v15_0.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_eti_fbe_v15_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_eurex_t7_eti_fbe_v15_0
+  omi_eurex_t7_eti_fbe_v15_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Eurex T7 Eti Fbe 15.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_eurex_t7_eti_fbe_v15_0_tcp_heuristic(buffer, packet, parent)
+  local role = eurex_t7_eti_fbe_v15_0.role(packet)
+  local first, second = omi_eurex_t7_eti_fbe_v15_0_tcp_initiator_heuristic, omi_eurex_t7_eti_fbe_v15_0_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  eurex_t7_eti_fbe_v15_0.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  eurex_t7_eti_fbe_v15_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Eurex T7 Eti Fbe 15.0
+omi_eurex_t7_eti_fbe_v15_0:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v15_0_tcp_heuristic)
 -- Register Eurex T7 Eti Fbe 15.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v15_0)

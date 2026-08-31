@@ -291,9 +291,11 @@ omi_eurex_t7_eti_fbe_v2_5.fields.var_text_len = ProtoField.new("Var Text Len", "
 omi_eurex_t7_eti_fbe_v2_5.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v2.5.vega", ftypes.INT32)
 
 -- Eurex T7 Eti Fbe 2.5 Headers
-omi_eurex_t7_eti_fbe_v2_5.fields.message = ProtoField.new("Message", "eurex.t7.eti.fbe.v2.5.message", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v2.5.clientmessage", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v2.5.clientpacket", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v2.5.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.packet = ProtoField.new("Packet", "eurex.t7.eti.fbe.v2.5.packet", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v2.5.servermessage", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v2.5.serverpacket", ftypes.STRING)
 
 -- Eurex T7 Eti 2.5 Application Messages
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentrequest", ftypes.STRING)
@@ -402,14 +404,22 @@ local show = {}
 
 -- Eurex T7 Eti Fbe 2.5 Element Dissection Options
 show.application_messages = true
-show.repeating_groups = true
 show.structs = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Eurex T7 Eti Fbe 2.5 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_eurex_t7_eti_fbe_v2_5.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_eurex_t7_eti_fbe_v2_5.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_eurex_t7_eti_fbe_v2_5.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_eurex_t7_eti_fbe_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_eti_fbe_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_eti_fbe_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -8905,112 +8915,6 @@ eurex_t7_eti_fbe_v2_5.user_logout_response.dissect = function(buffer, offset, pa
   end
 end
 
--- Request Header Comp
-eurex_t7_eti_fbe_v2_5.request_header_comp = {}
-
--- Size: Request Header Comp
-eurex_t7_eti_fbe_v2_5.request_header_comp.size =
-  eurex_t7_eti_fbe_v2_5.msg_seq_num.size + 
-  eurex_t7_eti_fbe_v2_5.sender_sub_id.size
-
--- Display: Request Header Comp
-eurex_t7_eti_fbe_v2_5.request_header_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Header Comp
-eurex_t7_eti_fbe_v2_5.request_header_comp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, msg_seq_num = eurex_t7_eti_fbe_v2_5.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, sender_sub_id = eurex_t7_eti_fbe_v2_5.sender_sub_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Header Comp
-eurex_t7_eti_fbe_v2_5.request_header_comp.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.request_header_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.request_header_comp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.request_header_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.request_header_comp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Logout Request
-eurex_t7_eti_fbe_v2_5.user_logout_request = {}
-
--- Read runtime size of: User Logout Request
-eurex_t7_eti_fbe_v2_5.user_logout_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Logout Request
-eurex_t7_eti_fbe_v2_5.user_logout_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Logout Request
-eurex_t7_eti_fbe_v2_5.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_eti_fbe_v2_5.username.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Logout Request
-eurex_t7_eti_fbe_v2_5.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
-  local size_of_user_logout_request = eurex_t7_eti_fbe_v2_5.user_logout_request.size(buffer, offset)
-  local index = offset + size_of_user_logout_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.user_logout_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-    parent:set_len(size_of_user_logout_request)
-    local display = eurex_t7_eti_fbe_v2_5.user_logout_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
-
-    return index
-  end
-end
-
 -- User Login Response
 eurex_t7_eti_fbe_v2_5.user_login_response = {}
 
@@ -9064,71 +8968,6 @@ eurex_t7_eti_fbe_v2_5.user_login_response.dissect = function(buffer, offset, pac
   end
 end
 
--- User Login Request
-eurex_t7_eti_fbe_v2_5.user_login_request = {}
-
--- Read runtime size of: User Login Request
-eurex_t7_eti_fbe_v2_5.user_login_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: User Login Request
-eurex_t7_eti_fbe_v2_5.user_login_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Login Request
-eurex_t7_eti_fbe_v2_5.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, username = eurex_t7_eti_fbe_v2_5.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 32 Byte Ascii String Nullable
-  index, password = eurex_t7_eti_fbe_v2_5.password.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Login Request
-eurex_t7_eti_fbe_v2_5.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
-  local size_of_user_login_request = eurex_t7_eti_fbe_v2_5.user_login_request.size(buffer, offset)
-  local index = offset + size_of_user_login_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.user_login_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-    parent:set_len(size_of_user_login_request)
-    local display = eurex_t7_eti_fbe_v2_5.user_login_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
-
-    return index
-  end
-end
-
 -- Unsubscribe Response
 eurex_t7_eti_fbe_v2_5.unsubscribe_response = {}
 
@@ -9177,68 +9016,6 @@ eurex_t7_eti_fbe_v2_5.unsubscribe_response.dissect = function(buffer, offset, pa
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.unsubscribe_response.fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
-
-    return index
-  end
-end
-
--- Unsubscribe Request
-eurex_t7_eti_fbe_v2_5.unsubscribe_request = {}
-
--- Read runtime size of: Unsubscribe Request
-eurex_t7_eti_fbe_v2_5.unsubscribe_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Unsubscribe Request
-eurex_t7_eti_fbe_v2_5.unsubscribe_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsubscribe Request
-eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, ref_appl_sub_id = eurex_t7_eti_fbe_v2_5.ref_appl_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unsubscribe Request
-eurex_t7_eti_fbe_v2_5.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
-  local size_of_unsubscribe_request = eurex_t7_eti_fbe_v2_5.unsubscribe_request.size(buffer, offset)
-  local index = offset + size_of_unsubscribe_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.unsubscribe_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
-    parent:set_len(size_of_unsubscribe_request)
-    local display = eurex_t7_eti_fbe_v2_5.unsubscribe_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
 
     return index
   end
@@ -9891,71 +9668,6 @@ eurex_t7_eti_fbe_v2_5.subscribe_response.dissect = function(buffer, offset, pack
   end
 end
 
--- Subscribe Request
-eurex_t7_eti_fbe_v2_5.subscribe_request = {}
-
--- Read runtime size of: Subscribe Request
-eurex_t7_eti_fbe_v2_5.subscribe_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Subscribe Request
-eurex_t7_eti_fbe_v2_5.subscribe_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subscribe Request
-eurex_t7_eti_fbe_v2_5.subscribe_request.fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subscribe Request
-eurex_t7_eti_fbe_v2_5.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
-  local size_of_subscribe_request = eurex_t7_eti_fbe_v2_5.subscribe_request.size(buffer, offset)
-  local index = offset + size_of_subscribe_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.subscribe_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
-    parent:set_len(size_of_subscribe_request)
-    local display = eurex_t7_eti_fbe_v2_5.subscribe_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
-
-    return index
-  end
-end
-
 -- Nrbc Header Comp
 eurex_t7_eti_fbe_v2_5.nrbc_header_comp = {}
 
@@ -10237,80 +9949,6 @@ eurex_t7_eti_fbe_v2_5.retransmit_response.dissect = function(buffer, offset, pac
   end
 end
 
--- Retransmit Request
-eurex_t7_eti_fbe_v2_5.retransmit_request = {}
-
--- Read runtime size of: Retransmit Request
-eurex_t7_eti_fbe_v2_5.retransmit_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Retransmit Request
-eurex_t7_eti_fbe_v2_5.retransmit_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Request
-eurex_t7_eti_fbe_v2_5.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_beg_seq_num = eurex_t7_eti_fbe_v2_5.appl_beg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, appl_end_seq_num = eurex_t7_eti_fbe_v2_5.appl_end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v2_5.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Request
-eurex_t7_eti_fbe_v2_5.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
-  local size_of_retransmit_request = eurex_t7_eti_fbe_v2_5.retransmit_request.size(buffer, offset)
-  local index = offset + size_of_retransmit_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.retransmit_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-    parent:set_len(size_of_retransmit_request)
-    local display = eurex_t7_eti_fbe_v2_5.retransmit_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
-
-    return index
-  end
-end
-
 -- Retransmit Me Message Response
 eurex_t7_eti_fbe_v2_5.retransmit_me_message_response = {}
 
@@ -10371,80 +10009,6 @@ eurex_t7_eti_fbe_v2_5.retransmit_me_message_response.dissect = function(buffer, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.retransmit_me_message_response.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
-
-    return index
-  end
-end
-
--- Retransmit Me Message Request
-eurex_t7_eti_fbe_v2_5.retransmit_me_message_request = {}
-
--- Read runtime size of: Retransmit Me Message Request
-eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Retransmit Me Message Request
-eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Retransmit Me Message Request
-eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
-
-  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, partition_id = eurex_t7_eti_fbe_v2_5.partition_id.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Appl Beg Msg Id: 16 Byte
-  index, appl_beg_msg_id = eurex_t7_eti_fbe_v2_5.appl_beg_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Appl End Msg Id: 16 Byte
-  index, appl_end_msg_id = eurex_t7_eti_fbe_v2_5.appl_end_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Retransmit Me Message Request
-eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-  local size_of_retransmit_me_message_request = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.size(buffer, offset)
-  local index = offset + size_of_retransmit_me_message_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.retransmit_me_message_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
-    parent:set_len(size_of_retransmit_me_message_request)
-    local display = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
 
     return index
   end
@@ -10658,83 +10222,6 @@ eurex_t7_eti_fbe_v2_5.rfq_response.dissect = function(buffer, offset, packet, pa
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.rfq_response.fields(buffer, offset, packet, parent, size_of_rfq_response)
-
-    return index
-  end
-end
-
--- Rfq Request
-eurex_t7_eti_fbe_v2_5.rfq_request = {}
-
--- Read runtime size of: Rfq Request
-eurex_t7_eti_fbe_v2_5.rfq_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Rfq Request
-eurex_t7_eti_fbe_v2_5.rfq_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Rfq Request
-eurex_t7_eti_fbe_v2_5.rfq_request.fields = function(buffer, offset, packet, parent, size_of_rfq_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Compliance Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, compliance_id = eurex_t7_eti_fbe_v2_5.compliance_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, order_qty = eurex_t7_eti_fbe_v2_5.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v2_5.side.dissect(buffer, index, packet, parent)
-
-  -- Compliance Text: 20 Byte Ascii String Nullable
-  index, compliance_text = eurex_t7_eti_fbe_v2_5.compliance_text.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Rfq Request
-eurex_t7_eti_fbe_v2_5.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
-  local size_of_rfq_request = eurex_t7_eti_fbe_v2_5.rfq_request.size(buffer, offset)
-  local index = offset + size_of_rfq_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.rfq_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
-    parent:set_len(size_of_rfq_request)
-    local display = eurex_t7_eti_fbe_v2_5.rfq_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
 
     return index
   end
@@ -11078,80 +10565,6 @@ eurex_t7_eti_fbe_v2_5.quote_activation_response.dissect = function(buffer, offse
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.quote_activation_response.fields(buffer, offset, packet, parent, size_of_quote_activation_response)
-
-    return index
-  end
-end
-
--- Quote Activation Request
-eurex_t7_eti_fbe_v2_5.quote_activation_request = {}
-
--- Read runtime size of: Quote Activation Request
-eurex_t7_eti_fbe_v2_5.quote_activation_request.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Quote Activation Request
-eurex_t7_eti_fbe_v2_5.quote_activation_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Activation Request
-eurex_t7_eti_fbe_v2_5.quote_activation_request.fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
-  local index = offset
-
-  -- Network Msg Id: 8 Byte Ascii String Nullable
-  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Request Header Comp: Struct of 2 fields
-  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Compliance Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, compliance_id = eurex_t7_eti_fbe_v2_5.compliance_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, mass_action_type = eurex_t7_eti_fbe_v2_5.mass_action_type.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Activation Request
-eurex_t7_eti_fbe_v2_5.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
-  local size_of_quote_activation_request = eurex_t7_eti_fbe_v2_5.quote_activation_request.size(buffer, offset)
-  local index = offset + size_of_quote_activation_request
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_activation_request, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
-    parent:set_len(size_of_quote_activation_request)
-    local display = eurex_t7_eti_fbe_v2_5.quote_activation_request.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
 
     return index
   end
@@ -12206,6 +11619,3561 @@ eurex_t7_eti_fbe_v2_5.news_broadcast.dissect = function(buffer, offset, packet, 
   end
 end
 
+-- New Order Response
+eurex_t7_eti_fbe_v2_5.new_order_response = {}
+
+-- Read runtime size of: New Order Response
+eurex_t7_eti_fbe_v2_5.new_order_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: New Order Response
+eurex_t7_eti_fbe_v2_5.new_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Response
+eurex_t7_eti_fbe_v2_5.new_order_response.fields = function(buffer, offset, packet, parent, size_of_new_order_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Me Comp: Struct of 11 fields
+  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trd_reg_ts_entry_time = eurex_t7_eti_fbe_v2_5.trd_reg_ts_entry_time.dissect(buffer, index, packet, parent)
+
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trd_reg_ts_time_priority = eurex_t7_eti_fbe_v2_5.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Response
+eurex_t7_eti_fbe_v2_5.new_order_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_response)
+  local size_of_new_order_response = eurex_t7_eti_fbe_v2_5.new_order_response.size(buffer, offset)
+  local index = offset + size_of_new_order_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.new_order_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
+    parent:set_len(size_of_new_order_response)
+    local display = eurex_t7_eti_fbe_v2_5.new_order_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
+
+    return index
+  end
+end
+
+-- New Order Nr Response
+eurex_t7_eti_fbe_v2_5.new_order_nr_response = {}
+
+-- Read runtime size of: New Order Nr Response
+eurex_t7_eti_fbe_v2_5.new_order_nr_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: New Order Nr Response
+eurex_t7_eti_fbe_v2_5.new_order_nr_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Nr Response
+eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Nr Response
+eurex_t7_eti_fbe_v2_5.new_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
+  local size_of_new_order_nr_response = eurex_t7_eti_fbe_v2_5.new_order_nr_response.size(buffer, offset)
+  local index = offset + size_of_new_order_nr_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.new_order_nr_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
+    parent:set_len(size_of_new_order_nr_response)
+    local display = eurex_t7_eti_fbe_v2_5.new_order_nr_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
+
+    return index
+  end
+end
+
+-- Modify Order Response
+eurex_t7_eti_fbe_v2_5.modify_order_response = {}
+
+-- Read runtime size of: Modify Order Response
+eurex_t7_eti_fbe_v2_5.modify_order_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Order Response
+eurex_t7_eti_fbe_v2_5.modify_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Response
+eurex_t7_eti_fbe_v2_5.modify_order_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Me Comp: Struct of 11 fields
+  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, trd_reg_ts_time_priority = eurex_t7_eti_fbe_v2_5.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, leaves_qty = eurex_t7_eti_fbe_v2_5.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Response
+eurex_t7_eti_fbe_v2_5.modify_order_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_response)
+  local size_of_modify_order_response = eurex_t7_eti_fbe_v2_5.modify_order_response.size(buffer, offset)
+  local index = offset + size_of_modify_order_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.modify_order_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
+    parent:set_len(size_of_modify_order_response)
+    local display = eurex_t7_eti_fbe_v2_5.modify_order_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
+
+    return index
+  end
+end
+
+-- Modify Order Nr Response
+eurex_t7_eti_fbe_v2_5.modify_order_nr_response = {}
+
+-- Read runtime size of: Modify Order Nr Response
+eurex_t7_eti_fbe_v2_5.modify_order_nr_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Modify Order Nr Response
+eurex_t7_eti_fbe_v2_5.modify_order_nr_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Nr Response
+eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, leaves_qty = eurex_t7_eti_fbe_v2_5.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Nr Response
+eurex_t7_eti_fbe_v2_5.modify_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+  local size_of_modify_order_nr_response = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.size(buffer, offset)
+  local index = offset + size_of_modify_order_nr_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.modify_order_nr_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+    parent:set_len(size_of_modify_order_nr_response)
+    local display = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+
+    return index
+  end
+end
+
+-- Quote Entry Ack Grp Comp
+eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp = {}
+
+-- Size: Quote Entry Ack Grp Comp
+eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.security_id.size + 
+  eurex_t7_eti_fbe_v2_5.bid_cxl_size.size + 
+  eurex_t7_eti_fbe_v2_5.offer_cxl_size.size + 
+  eurex_t7_eti_fbe_v2_5.quote_entry_reject_reason.size + 
+  eurex_t7_eti_fbe_v2_5.quote_entry_status.size + 
+  eurex_t7_eti_fbe_v2_5.pad3.size
+
+-- Display: Quote Entry Ack Grp Comp
+eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Entry Ack Grp Comp
+eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
+  local index = offset
+
+  -- Implicit Quote Entry Ack Grp Comp Index
+  if quote_entry_ack_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Cxl Size: 4 Byte Signed Fixed Width Integer Nullable
+  index, bid_cxl_size = eurex_t7_eti_fbe_v2_5.bid_cxl_size.dissect(buffer, index, packet, parent)
+
+  -- Offer Cxl Size: 4 Byte Signed Fixed Width Integer Nullable
+  index, offer_cxl_size = eurex_t7_eti_fbe_v2_5.offer_cxl_size.dissect(buffer, index, packet, parent)
+
+  -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 19 values
+  index, quote_entry_reject_reason = eurex_t7_eti_fbe_v2_5.quote_entry_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Quote Entry Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, quote_entry_status = eurex_t7_eti_fbe_v2_5.quote_entry_status.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Entry Ack Grp Comp
+eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
+  end
+end
+
+-- Mass Quote Response
+eurex_t7_eti_fbe_v2_5.mass_quote_response = {}
+
+-- Read runtime size of: Mass Quote Response
+eurex_t7_eti_fbe_v2_5.mass_quote_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Mass Quote Response
+eurex_t7_eti_fbe_v2_5.mass_quote_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote Response
+eurex_t7_eti_fbe_v2_5.mass_quote_response.fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_id = eurex_t7_eti_fbe_v2_5.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_response_id = eurex_t7_eti_fbe_v2_5.quote_response_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_quote_entries = eurex_t7_eti_fbe_v2_5.no_quote_entries.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Quote Entry Ack Grp Comp
+  for quote_entry_ack_grp_comp_index = 1, no_quote_entries do
+    index, quote_entry_ack_grp_comp = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.dissect(buffer, index, packet, parent, quote_entry_ack_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Mass Quote Response
+eurex_t7_eti_fbe_v2_5.mass_quote_response.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_response)
+  local size_of_mass_quote_response = eurex_t7_eti_fbe_v2_5.mass_quote_response.size(buffer, offset)
+  local index = offset + size_of_mass_quote_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mass_quote_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
+    parent:set_len(size_of_mass_quote_response)
+    local display = eurex_t7_eti_fbe_v2_5.mass_quote_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
+
+    return index
+  end
+end
+
+-- Mm Parameter Definition Response
+eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response = {}
+
+-- Read runtime size of: Mm Parameter Definition Response
+eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Mm Parameter Definition Response
+eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mm Parameter Definition Response
+eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mm Parameter Definition Response
+eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+  local size_of_mm_parameter_definition_response = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.size(buffer, offset)
+  local index = offset + size_of_mm_parameter_definition_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_definition_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+    parent:set_len(size_of_mm_parameter_definition_response)
+    local display = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
+
+    return index
+  end
+end
+
+-- Logout Response
+eurex_t7_eti_fbe_v2_5.logout_response = {}
+
+-- Read runtime size of: Logout Response
+eurex_t7_eti_fbe_v2_5.logout_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logout Response
+eurex_t7_eti_fbe_v2_5.logout_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Response
+eurex_t7_eti_fbe_v2_5.logout_response.fields = function(buffer, offset, packet, parent, size_of_logout_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Response
+eurex_t7_eti_fbe_v2_5.logout_response.dissect = function(buffer, offset, packet, parent, size_of_logout_response)
+  local size_of_logout_response = eurex_t7_eti_fbe_v2_5.logout_response.size(buffer, offset)
+  local index = offset + size_of_logout_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.logout_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
+    parent:set_len(size_of_logout_response)
+    local display = eurex_t7_eti_fbe_v2_5.logout_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
+
+    return index
+  end
+end
+
+-- Logon Response
+eurex_t7_eti_fbe_v2_5.logon_response = {}
+
+-- Read runtime size of: Logon Response
+eurex_t7_eti_fbe_v2_5.logon_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Logon Response
+eurex_t7_eti_fbe_v2_5.logon_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Response
+eurex_t7_eti_fbe_v2_5.logon_response.fields = function(buffer, offset, packet, parent, size_of_logon_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer Nullable
+  index, throttle_time_interval = eurex_t7_eti_fbe_v2_5.throttle_time_interval.dissect(buffer, index, packet, parent)
+
+  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, throttle_no_msgs = eurex_t7_eti_fbe_v2_5.throttle_no_msgs.dissect(buffer, index, packet, parent)
+
+  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, throttle_disconnect_limit = eurex_t7_eti_fbe_v2_5.throttle_disconnect_limit.dissect(buffer, index, packet, parent)
+
+  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, heart_bt_int = eurex_t7_eti_fbe_v2_5.heart_bt_int.dissect(buffer, index, packet, parent)
+
+  -- Session Instance Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, session_instance_id = eurex_t7_eti_fbe_v2_5.session_instance_id.dissect(buffer, index, packet, parent)
+
+  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trad_ses_mode = eurex_t7_eti_fbe_v2_5.trad_ses_mode.dissect(buffer, index, packet, parent)
+
+  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
+  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v2_5.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Response
+eurex_t7_eti_fbe_v2_5.logon_response.dissect = function(buffer, offset, packet, parent, size_of_logon_response)
+  local size_of_logon_response = eurex_t7_eti_fbe_v2_5.logon_response.size(buffer, offset)
+  local index = offset + size_of_logon_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.logon_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
+    parent:set_len(size_of_logon_response)
+    local display = eurex_t7_eti_fbe_v2_5.logon_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
+
+    return index
+  end
+end
+
+-- Legal Notification Broadcast
+eurex_t7_eti_fbe_v2_5.legal_notification_broadcast = {}
+
+-- Read runtime size of: Legal Notification Broadcast
+eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Legal Notification Broadcast
+eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Legal Notification Broadcast
+eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Rbc Header Comp: Struct of 8 fields
+  index, rbc_header_comp = eurex_t7_eti_fbe_v2_5.rbc_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, transact_time = eurex_t7_eti_fbe_v2_5.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
+
+  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, user_status = eurex_t7_eti_fbe_v2_5.user_status.dissect(buffer, index, packet, parent)
+
+  -- Pad5: 5 Byte
+  index, pad5 = eurex_t7_eti_fbe_v2_5.pad5.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
+  local alignment_padding_exists = body_len ~= index
+
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
+  return index
+end
+
+-- Dissect: Legal Notification Broadcast
+eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+  local size_of_legal_notification_broadcast = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.size(buffer, offset)
+  local index = offset + size_of_legal_notification_broadcast
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.legal_notification_broadcast, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+    parent:set_len(size_of_legal_notification_broadcast)
+    local display = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
+
+    return index
+  end
+end
+
+-- Party Details Grp Comp
+eurex_t7_eti_fbe_v2_5.party_details_grp_comp = {}
+
+-- Size: Party Details Grp Comp
+eurex_t7_eti_fbe_v2_5.party_details_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.party_detail_id_executing_trader.size + 
+  eurex_t7_eti_fbe_v2_5.party_detail_executing_trader.size + 
+  eurex_t7_eti_fbe_v2_5.party_detail_role_qualifier.size + 
+  eurex_t7_eti_fbe_v2_5.party_detail_status.size + 
+  eurex_t7_eti_fbe_v2_5.party_detail_desk_id.size + 
+  eurex_t7_eti_fbe_v2_5.pad1.size
+
+-- Display: Party Details Grp Comp
+eurex_t7_eti_fbe_v2_5.party_details_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Party Details Grp Comp
+eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields = function(buffer, offset, packet, parent, party_details_grp_comp_index)
+  local index = offset
+
+  -- Implicit Party Details Grp Comp Index
+  if party_details_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.party_details_grp_comp_index, party_details_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_detail_id_executing_trader = eurex_t7_eti_fbe_v2_5.party_detail_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Executing Trader: 6 Byte Ascii String Nullable
+  index, party_detail_executing_trader = eurex_t7_eti_fbe_v2_5.party_detail_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Role Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, party_detail_role_qualifier = eurex_t7_eti_fbe_v2_5.party_detail_role_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_detail_status = eurex_t7_eti_fbe_v2_5.party_detail_status.dissect(buffer, index, packet, parent)
+
+  -- Party Detail Desk Id: 3 Byte Ascii String Nullable
+  index, party_detail_desk_id = eurex_t7_eti_fbe_v2_5.party_detail_desk_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Party Details Grp Comp
+eurex_t7_eti_fbe_v2_5.party_details_grp_comp.dissect = function(buffer, offset, packet, parent, party_details_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.party_details_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
+  end
+end
+
+-- Inquire User Response
+eurex_t7_eti_fbe_v2_5.inquire_user_response = {}
+
+-- Read runtime size of: Inquire User Response
+eurex_t7_eti_fbe_v2_5.inquire_user_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire User Response
+eurex_t7_eti_fbe_v2_5.inquire_user_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire User Response
+eurex_t7_eti_fbe_v2_5.inquire_user_response.fields = function(buffer, offset, packet, parent, size_of_inquire_user_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Last Entity Processed: 16 Byte
+  index, last_entity_processed = eurex_t7_eti_fbe_v2_5.last_entity_processed.dissect(buffer, index, packet, parent)
+
+  -- No Party Details: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_party_details = eurex_t7_eti_fbe_v2_5.no_party_details.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Party Details Grp Comp
+  for party_details_grp_comp_index = 1, no_party_details do
+    index, party_details_grp_comp = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.dissect(buffer, index, packet, parent, party_details_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Inquire User Response
+eurex_t7_eti_fbe_v2_5.inquire_user_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_response)
+  local size_of_inquire_user_response = eurex_t7_eti_fbe_v2_5.inquire_user_response.size(buffer, offset)
+  local index = offset + size_of_inquire_user_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_user_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
+    parent:set_len(size_of_inquire_user_response)
+    local display = eurex_t7_eti_fbe_v2_5.inquire_user_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
+
+    return index
+  end
+end
+
+-- Sessions Grp Comp
+eurex_t7_eti_fbe_v2_5.sessions_grp_comp = {}
+
+-- Size: Sessions Grp Comp
+eurex_t7_eti_fbe_v2_5.sessions_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.party_id_session_id.size + 
+  eurex_t7_eti_fbe_v2_5.session_mode.size + 
+  eurex_t7_eti_fbe_v2_5.session_sub_mode.size + 
+  eurex_t7_eti_fbe_v2_5.pad2.size
+
+-- Display: Sessions Grp Comp
+eurex_t7_eti_fbe_v2_5.sessions_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sessions Grp Comp
+eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
+  local index = offset
+
+  -- Implicit Sessions Grp Comp Index
+  if sessions_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.sessions_grp_comp_index, sessions_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_session_id = eurex_t7_eti_fbe_v2_5.party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, session_mode = eurex_t7_eti_fbe_v2_5.session_mode.dissect(buffer, index, packet, parent)
+
+  -- Session Sub Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, session_sub_mode = eurex_t7_eti_fbe_v2_5.session_sub_mode.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sessions Grp Comp
+eurex_t7_eti_fbe_v2_5.sessions_grp_comp.dissect = function(buffer, offset, packet, parent, sessions_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.sessions_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
+  end
+end
+
+-- Inquire Session List Response
+eurex_t7_eti_fbe_v2_5.inquire_session_list_response = {}
+
+-- Read runtime size of: Inquire Session List Response
+eurex_t7_eti_fbe_v2_5.inquire_session_list_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Session List Response
+eurex_t7_eti_fbe_v2_5.inquire_session_list_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Session List Response
+eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  -- No Sessions: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_sessions = eurex_t7_eti_fbe_v2_5.no_sessions.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Sessions Grp Comp
+  for sessions_grp_comp_index = 1, no_sessions do
+    index, sessions_grp_comp = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.dissect(buffer, index, packet, parent, sessions_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Inquire Session List Response
+eurex_t7_eti_fbe_v2_5.inquire_session_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+  local size_of_inquire_session_list_response = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.size(buffer, offset)
+  local index = offset + size_of_inquire_session_list_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_session_list_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+    parent:set_len(size_of_inquire_session_list_response)
+    local display = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
+
+    return index
+  end
+end
+
+-- Mm Parameter Grp Comp
+eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp = {}
+
+-- Size: Mm Parameter Grp Comp
+eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.exposure_duration.size + 
+  eurex_t7_eti_fbe_v2_5.cum_qty.size + 
+  eurex_t7_eti_fbe_v2_5.pct_count.size + 
+  eurex_t7_eti_fbe_v2_5.delta.size + 
+  eurex_t7_eti_fbe_v2_5.vega.size + 
+  eurex_t7_eti_fbe_v2_5.product_complex.size + 
+  eurex_t7_eti_fbe_v2_5.pad7.size
+
+-- Display: Mm Parameter Grp Comp
+eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mm Parameter Grp Comp
+eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
+  local index = offset
+
+  -- Implicit Mm Parameter Grp Comp Index
+  if mm_parameter_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
+  index, exposure_duration = eurex_t7_eti_fbe_v2_5.exposure_duration.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Pct Count: 4 Byte Signed Fixed Width Integer Nullable
+  index, pct_count = eurex_t7_eti_fbe_v2_5.pct_count.dissect(buffer, index, packet, parent)
+
+  -- Delta: 4 Byte Signed Fixed Width Integer Nullable
+  index, delta = eurex_t7_eti_fbe_v2_5.delta.dissect(buffer, index, packet, parent)
+
+  -- Vega: 4 Byte Signed Fixed Width Integer Nullable
+  index, vega = eurex_t7_eti_fbe_v2_5.vega.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad7: 7 Byte
+  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mm Parameter Grp Comp
+eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.dissect = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
+  end
+end
+
+-- Inquire Mm Parameter Response
+eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response = {}
+
+-- Read runtime size of: Inquire Mm Parameter Response
+eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Mm Parameter Response
+eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Mm Parameter Response
+eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mm Parameter Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mm_parameter_report_id = eurex_t7_eti_fbe_v2_5.mm_parameter_report_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- No Mm Parameters: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_mm_parameters = eurex_t7_eti_fbe_v2_5.no_mm_parameters.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Mm Parameter Grp Comp
+  for mm_parameter_grp_comp_index = 1, no_mm_parameters do
+    index, mm_parameter_grp_comp = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.dissect(buffer, index, packet, parent, mm_parameter_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Inquire Mm Parameter Response
+eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+  local size_of_inquire_mm_parameter_response = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.size(buffer, offset)
+  local index = offset + size_of_inquire_mm_parameter_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_mm_parameter_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+    parent:set_len(size_of_inquire_mm_parameter_response)
+    local display = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
+
+    return index
+  end
+end
+
+-- Enrichment Rules Grp Comp
+eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp = {}
+
+-- Size: Enrichment Rules Grp Comp
+eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.enrichment_rule_id.size + 
+  eurex_t7_eti_fbe_v2_5.party_id_origination_market.size + 
+  eurex_t7_eti_fbe_v2_5.account.size + 
+  eurex_t7_eti_fbe_v2_5.position_effect.size + 
+  eurex_t7_eti_fbe_v2_5.party_id_take_up_trading_firm.size + 
+  eurex_t7_eti_fbe_v2_5.party_id_order_origination_firm.size + 
+  eurex_t7_eti_fbe_v2_5.party_id_beneficiary.size + 
+  eurex_t7_eti_fbe_v2_5.free_text_1.size + 
+  eurex_t7_eti_fbe_v2_5.free_text_2.size + 
+  eurex_t7_eti_fbe_v2_5.free_text_3.size + 
+  eurex_t7_eti_fbe_v2_5.pad1.size
+
+-- Display: Enrichment Rules Grp Comp
+eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Enrichment Rules Grp Comp
+eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
+  local index = offset
+
+  -- Implicit Enrichment Rules Grp Comp Index
+  if enrichment_rules_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, enrichment_rule_id = eurex_t7_eti_fbe_v2_5.enrichment_rule_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Origination Market: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_origination_market = eurex_t7_eti_fbe_v2_5.party_id_origination_market.dissect(buffer, index, packet, parent)
+
+  -- Account: 2 Byte Ascii String Nullable
+  index, account = eurex_t7_eti_fbe_v2_5.account.dissect(buffer, index, packet, parent)
+
+  -- Position Effect: 1 Byte Ascii String Enum with 2 values
+  index, position_effect = eurex_t7_eti_fbe_v2_5.position_effect.dissect(buffer, index, packet, parent)
+
+  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
+  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v2_5.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
+  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v2_5.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
+
+  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
+  index, party_id_beneficiary = eurex_t7_eti_fbe_v2_5.party_id_beneficiary.dissect(buffer, index, packet, parent)
+
+  -- Free Text 1: 12 Byte Ascii String Nullable
+  index, free_text_1 = eurex_t7_eti_fbe_v2_5.free_text_1.dissect(buffer, index, packet, parent)
+
+  -- Free Text 2: 12 Byte Ascii String Nullable
+  index, free_text_2 = eurex_t7_eti_fbe_v2_5.free_text_2.dissect(buffer, index, packet, parent)
+
+  -- Free Text 3: 12 Byte Ascii String Nullable
+  index, free_text_3 = eurex_t7_eti_fbe_v2_5.free_text_3.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Enrichment Rules Grp Comp
+eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.dissect = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.enrichment_rules_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
+  end
+end
+
+-- Inquire Enrichment Rule Id List Response
+eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response = {}
+
+-- Read runtime size of: Inquire Enrichment Rule Id List Response
+eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Inquire Enrichment Rule Id List Response
+eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inquire Enrichment Rule Id List Response
+eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Last Entity Processed: 16 Byte
+  index, last_entity_processed = eurex_t7_eti_fbe_v2_5.last_entity_processed.dissect(buffer, index, packet, parent)
+
+  -- No Enrichment Rules: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_enrichment_rules = eurex_t7_eti_fbe_v2_5.no_enrichment_rules.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Enrichment Rules Grp Comp
+  for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
+    index, enrichment_rules_grp_comp = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.dissect(buffer, index, packet, parent, enrichment_rules_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Inquire Enrichment Rule Id List Response
+eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+  local size_of_inquire_enrichment_rule_id_list_response = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.size(buffer, offset)
+  local index = offset + size_of_inquire_enrichment_rule_id_list_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_enrichment_rule_id_list_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+    parent:set_len(size_of_inquire_enrichment_rule_id_list_response)
+    local display = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
+
+    return index
+  end
+end
+
+-- Heartbeat Notification
+eurex_t7_eti_fbe_v2_5.heartbeat_notification = {}
+
+-- Read runtime size of: Heartbeat Notification
+eurex_t7_eti_fbe_v2_5.heartbeat_notification.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Heartbeat Notification
+eurex_t7_eti_fbe_v2_5.heartbeat_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Notification
+eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat Notification
+eurex_t7_eti_fbe_v2_5.heartbeat_notification.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
+  local size_of_heartbeat_notification = eurex_t7_eti_fbe_v2_5.heartbeat_notification.size(buffer, offset)
+  local index = offset + size_of_heartbeat_notification
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.heartbeat_notification, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
+    parent:set_len(size_of_heartbeat_notification)
+    local display = eurex_t7_eti_fbe_v2_5.heartbeat_notification.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
+
+    return index
+  end
+end
+
+-- Gateway Response
+eurex_t7_eti_fbe_v2_5.gateway_response = {}
+
+-- Read runtime size of: Gateway Response
+eurex_t7_eti_fbe_v2_5.gateway_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Gateway Response
+eurex_t7_eti_fbe_v2_5.gateway_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gateway Response
+eurex_t7_eti_fbe_v2_5.gateway_response.fields = function(buffer, offset, packet, parent, size_of_gateway_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Comp: Struct of 4 fields
+  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Gateway Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, gateway_id = eurex_t7_eti_fbe_v2_5.gateway_id.dissect(buffer, index, packet, parent)
+
+  -- Gateway Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, gateway_sub_id = eurex_t7_eti_fbe_v2_5.gateway_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Secondary Gateway Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, secondary_gateway_id = eurex_t7_eti_fbe_v2_5.secondary_gateway_id.dissect(buffer, index, packet, parent)
+
+  -- Secondary Gateway Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, secondary_gateway_sub_id = eurex_t7_eti_fbe_v2_5.secondary_gateway_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, session_mode = eurex_t7_eti_fbe_v2_5.session_mode.dissect(buffer, index, packet, parent)
+
+  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, trad_ses_mode = eurex_t7_eti_fbe_v2_5.trad_ses_mode.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gateway Response
+eurex_t7_eti_fbe_v2_5.gateway_response.dissect = function(buffer, offset, packet, parent, size_of_gateway_response)
+  local size_of_gateway_response = eurex_t7_eti_fbe_v2_5.gateway_response.size(buffer, offset)
+  local index = offset + size_of_gateway_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.gateway_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
+    parent:set_len(size_of_gateway_response)
+    local display = eurex_t7_eti_fbe_v2_5.gateway_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
+
+    return index
+  end
+end
+
+-- Forced Logout Notification
+eurex_t7_eti_fbe_v2_5.forced_logout_notification = {}
+
+-- Read runtime size of: Forced Logout Notification
+eurex_t7_eti_fbe_v2_5.forced_logout_notification.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Forced Logout Notification
+eurex_t7_eti_fbe_v2_5.forced_logout_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Forced Logout Notification
+eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
+  local alignment_padding_exists = body_len ~= index
+
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
+  return index
+end
+
+-- Dissect: Forced Logout Notification
+eurex_t7_eti_fbe_v2_5.forced_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
+  local size_of_forced_logout_notification = eurex_t7_eti_fbe_v2_5.forced_logout_notification.size(buffer, offset)
+  local index = offset + size_of_forced_logout_notification
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.forced_logout_notification, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
+    parent:set_len(size_of_forced_logout_notification)
+    local display = eurex_t7_eti_fbe_v2_5.forced_logout_notification.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
+
+    return index
+  end
+end
+
+-- Delete Order Response
+eurex_t7_eti_fbe_v2_5.delete_order_response = {}
+
+-- Read runtime size of: Delete Order Response
+eurex_t7_eti_fbe_v2_5.delete_order_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Order Response
+eurex_t7_eti_fbe_v2_5.delete_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Order Response
+eurex_t7_eti_fbe_v2_5.delete_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Me Comp: Struct of 11 fields
+  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Order Response
+eurex_t7_eti_fbe_v2_5.delete_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_response)
+  local size_of_delete_order_response = eurex_t7_eti_fbe_v2_5.delete_order_response.size(buffer, offset)
+  local index = offset + size_of_delete_order_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
+    parent:set_len(size_of_delete_order_response)
+    local display = eurex_t7_eti_fbe_v2_5.delete_order_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
+
+    return index
+  end
+end
+
+-- Delete Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_order_nr_response = {}
+
+-- Read runtime size of: Delete Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_order_nr_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_order_nr_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+  local size_of_delete_order_nr_response = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.size(buffer, offset)
+  local index = offset + size_of_delete_order_nr_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_nr_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+    parent:set_len(size_of_delete_order_nr_response)
+    local display = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
+
+    return index
+  end
+end
+
+-- Delete Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_order_broadcast = {}
+
+-- Read runtime size of: Delete Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_order_broadcast.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_order_broadcast.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: 1 Byte Ascii String Enum with 6 values
+  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: 1 Byte Ascii String Enum with 8 values
+  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v2_5.side.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+  local size_of_delete_order_broadcast = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.size(buffer, offset)
+  local index = offset + size_of_delete_order_broadcast
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_broadcast, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+    parent:set_len(size_of_delete_order_broadcast)
+    local display = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
+
+    return index
+  end
+end
+
+-- Delete All Quote Response
+eurex_t7_eti_fbe_v2_5.delete_all_quote_response = {}
+
+-- Read runtime size of: Delete All Quote Response
+eurex_t7_eti_fbe_v2_5.delete_all_quote_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Quote Response
+eurex_t7_eti_fbe_v2_5.delete_all_quote_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Quote Response
+eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_not_affected_securities = eurex_t7_eti_fbe_v2_5.no_not_affected_securities.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_securities_grp_comp.dissect(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Delete All Quote Response
+eurex_t7_eti_fbe_v2_5.delete_all_quote_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+  local size_of_delete_all_quote_response = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.size(buffer, offset)
+  local index = offset + size_of_delete_all_quote_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_quote_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+    parent:set_len(size_of_delete_all_quote_response)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
+
+    return index
+  end
+end
+
+-- Delete All Quote Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast = {}
+
+-- Read runtime size of: Delete All Quote Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Quote Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Quote Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v2_5.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_not_affected_securities = eurex_t7_eti_fbe_v2_5.no_not_affected_securities.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Desk Id: 3 Byte Ascii String Nullable
+  index, target_party_id_desk_id = eurex_t7_eti_fbe_v2_5.target_party_id_desk_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Not Affected Securities Grp Comp
+  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
+    index, not_affected_securities_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_securities_grp_comp.dissect(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Delete All Quote Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+  local size_of_delete_all_quote_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.size(buffer, offset)
+  local index = offset + size_of_delete_all_quote_broadcast
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_quote_broadcast, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+    parent:set_len(size_of_delete_all_quote_broadcast)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+
+    return index
+  end
+end
+
+-- Not Affected Orders Grp Comp
+eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp = {}
+
+-- Size: Not Affected Orders Grp Comp
+eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.not_affected_order_id.size + 
+  eurex_t7_eti_fbe_v2_5.not_aff_orig_cl_ord_id.size
+
+-- Display: Not Affected Orders Grp Comp
+eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Not Affected Orders Grp Comp
+eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
+  local index = offset
+
+  -- Implicit Not Affected Orders Grp Comp Index
+  if not_affected_orders_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, not_affected_order_id = eurex_t7_eti_fbe_v2_5.not_affected_order_id.dissect(buffer, index, packet, parent)
+
+  -- Not Aff Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, not_aff_orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.not_aff_orig_cl_ord_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Not Affected Orders Grp Comp
+eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.not_affected_orders_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
+  end
+end
+
+-- Delete All Order Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_response = {}
+
+-- Read runtime size of: Delete All Order Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Order Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Order Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Response Header Me Comp: Struct of 11 fields
+  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_not_affected_orders = eurex_t7_eti_fbe_v2_5.no_not_affected_orders.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Not Affected Orders Grp Comp
+  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
+    index, not_affected_orders_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Delete All Order Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
+  local size_of_delete_all_order_response = eurex_t7_eti_fbe_v2_5.delete_all_order_response.size(buffer, offset)
+  local index = offset + size_of_delete_all_order_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
+    parent:set_len(size_of_delete_all_order_response)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
+
+    return index
+  end
+end
+
+-- Delete All Order Quote Event Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast = {}
+
+-- Read runtime size of: Delete All Order Quote Event Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Order Quote Event Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Order Quote Event Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v2_5.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Pad2v2: 2 Byte
+  index, pad2v2 = eurex_t7_eti_fbe_v2_5.pad2v2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete All Order Quote Event Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+  local size_of_delete_all_order_quote_event_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.size(buffer, offset)
+  local index = offset + size_of_delete_all_order_quote_event_broadcast
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_quote_event_broadcast, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+    parent:set_len(size_of_delete_all_order_quote_event_broadcast)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
+
+    return index
+  end
+end
+
+-- Delete All Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response = {}
+
+-- Read runtime size of: Delete All Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete All Order Nr Response
+eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+  local size_of_delete_all_order_nr_response = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.size(buffer, offset)
+  local index = offset + size_of_delete_all_order_nr_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_nr_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+    parent:set_len(size_of_delete_all_order_nr_response)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
+
+    return index
+  end
+end
+
+-- Delete All Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast = {}
+
+-- Read runtime size of: Delete All Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Delete All Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete All Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Rbc Header Me Comp: Struct of 10 fields
+  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v2_5.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
+
+  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, no_not_affected_orders = eurex_t7_eti_fbe_v2_5.no_not_affected_orders.dissect(buffer, index, packet, parent)
+
+  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
+  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, exec_inst = eurex_t7_eti_fbe_v2_5.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Not Affected Orders Grp Comp
+  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
+    index, not_affected_orders_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Delete All Order Broadcast
+eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+  local size_of_delete_all_order_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.size(buffer, offset)
+  local index = offset + size_of_delete_all_order_broadcast
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_broadcast, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+    parent:set_len(size_of_delete_all_order_broadcast)
+    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
+
+    return index
+  end
+end
+
+-- Cross Request Response
+eurex_t7_eti_fbe_v2_5.cross_request_response = {}
+
+-- Read runtime size of: Cross Request Response
+eurex_t7_eti_fbe_v2_5.cross_request_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Cross Request Response
+eurex_t7_eti_fbe_v2_5.cross_request_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cross Request Response
+eurex_t7_eti_fbe_v2_5.cross_request_response.fields = function(buffer, offset, packet, parent, size_of_cross_request_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cross Request Response
+eurex_t7_eti_fbe_v2_5.cross_request_response.dissect = function(buffer, offset, packet, parent, size_of_cross_request_response)
+  local size_of_cross_request_response = eurex_t7_eti_fbe_v2_5.cross_request_response.size(buffer, offset)
+  local index = offset + size_of_cross_request_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.cross_request_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
+    parent:set_len(size_of_cross_request_response)
+    local display = eurex_t7_eti_fbe_v2_5.cross_request_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
+
+    return index
+  end
+end
+
+-- Broadcast Error Notification
+eurex_t7_eti_fbe_v2_5.broadcast_error_notification = {}
+
+-- Read runtime size of: Broadcast Error Notification
+eurex_t7_eti_fbe_v2_5.broadcast_error_notification.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Broadcast Error Notification
+eurex_t7_eti_fbe_v2_5.broadcast_error_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Broadcast Error Notification
+eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Notif Header Comp: Struct of 1 fields
+  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Appl Id Status: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, appl_id_status = eurex_t7_eti_fbe_v2_5.appl_id_status.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, ref_appl_sub_id = eurex_t7_eti_fbe_v2_5.ref_appl_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, session_status = eurex_t7_eti_fbe_v2_5.session_status.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Var Text
+  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  -- Runtime optional field: Alignment Padding
+  local alignment_padding = nil
+
+  local alignment_padding_exists = body_len ~= index
+
+  if alignment_padding_exists then
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = body_len - index
+
+    -- Alignment Padding: 0 Byte
+    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
+  end
+
+  return index
+end
+
+-- Dissect: Broadcast Error Notification
+eurex_t7_eti_fbe_v2_5.broadcast_error_notification.dissect = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+  local size_of_broadcast_error_notification = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.size(buffer, offset)
+  local index = offset + size_of_broadcast_error_notification
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.broadcast_error_notification, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+    parent:set_len(size_of_broadcast_error_notification)
+    local display = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
+
+    return index
+  end
+end
+
+-- Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp = {}
+
+-- Size: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.size =
+  eurex_t7_eti_fbe_v2_5.leg_security_id.size + 
+  eurex_t7_eti_fbe_v2_5.leg_price.size + 
+  eurex_t7_eti_fbe_v2_5.leg_symbol.size + 
+  eurex_t7_eti_fbe_v2_5.leg_ratio_qty.size + 
+  eurex_t7_eti_fbe_v2_5.leg_side.size + 
+  eurex_t7_eti_fbe_v2_5.leg_security_type.size + 
+  eurex_t7_eti_fbe_v2_5.pad6.size
+
+-- Display: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  local index = offset
+
+  -- Implicit Instrmt Leg Grp Comp Index
+  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, leg_security_id = eurex_t7_eti_fbe_v2_5.leg_security_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_price = eurex_t7_eti_fbe_v2_5.leg_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
+  index, leg_symbol = eurex_t7_eti_fbe_v2_5.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, leg_ratio_qty = eurex_t7_eti_fbe_v2_5.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, leg_side = eurex_t7_eti_fbe_v2_5.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, leg_security_type = eurex_t7_eti_fbe_v2_5.leg_security_type.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrmt Leg Grp Comp
+eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.instrmt_leg_grp_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
+  end
+end
+
+-- Add Complex Instrument Response
+eurex_t7_eti_fbe_v2_5.add_complex_instrument_response = {}
+
+-- Read runtime size of: Add Complex Instrument Response
+eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Add Complex Instrument Response
+eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Complex Instrument Response
+eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local index = offset
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Nr Response Header Me Comp: Struct of 9 fields
+  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
+
+  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, low_limit_price = eurex_t7_eti_fbe_v2_5.low_limit_price.dissect(buffer, index, packet, parent)
+
+  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, high_limit_price = eurex_t7_eti_fbe_v2_5.high_limit_price.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, last_update_time = eurex_t7_eti_fbe_v2_5.last_update_time.dissect(buffer, index, packet, parent)
+
+  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, security_response_id = eurex_t7_eti_fbe_v2_5.security_response_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Number Of Securities: 4 Byte Signed Fixed Width Integer Nullable
+  index, number_of_securities = eurex_t7_eti_fbe_v2_5.number_of_securities.dissect(buffer, index, packet, parent)
+
+  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_sub_type = eurex_t7_eti_fbe_v2_5.security_sub_type.dissect(buffer, index, packet, parent)
+
+  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, multileg_model = eurex_t7_eti_fbe_v2_5.multileg_model.dissect(buffer, index, packet, parent)
+
+  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, implied_market_indicator = eurex_t7_eti_fbe_v2_5.implied_market_indicator.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, no_legs = eurex_t7_eti_fbe_v2_5.no_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Instrmt Leg Grp Comp
+  for instrmt_leg_grp_comp_index = 1, no_legs do
+    index, instrmt_leg_grp_comp = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.dissect(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
+  end
+
+  return index
+end
+
+-- Dissect: Add Complex Instrument Response
+eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+  local size_of_add_complex_instrument_response = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.size(buffer, offset)
+  local index = offset + size_of_add_complex_instrument_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_response, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+    parent:set_len(size_of_add_complex_instrument_response)
+    local display = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
+
+    return index
+  end
+end
+
+-- Server Payload
+eurex_t7_eti_fbe_v2_5.server_payload = {}
+
+-- Dissect: Server Payload
+eurex_t7_eti_fbe_v2_5.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Add Complex Instrument Response
+  if template_id == 10302 then
+    return eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Broadcast Error Notification
+  if template_id == 10032 then
+    return eurex_t7_eti_fbe_v2_5.broadcast_error_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cross Request Response
+  if template_id == 10119 then
+    return eurex_t7_eti_fbe_v2_5.cross_request_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Broadcast
+  if template_id == 10122 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Nr Response
+  if template_id == 10124 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Order Response
+  if template_id == 10121 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Quote Broadcast
+  if template_id == 10410 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete All Quote Response
+  if template_id == 10409 then
+    return eurex_t7_eti_fbe_v2_5.delete_all_quote_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Broadcast
+  if template_id == 10112 then
+    return eurex_t7_eti_fbe_v2_5.delete_order_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Nr Response
+  if template_id == 10111 then
+    return eurex_t7_eti_fbe_v2_5.delete_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Response
+  if template_id == 10110 then
+    return eurex_t7_eti_fbe_v2_5.delete_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Forced Logout Notification
+  if template_id == 10012 then
+    return eurex_t7_eti_fbe_v2_5.forced_logout_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gateway Response
+  if template_id == 10021 then
+    return eurex_t7_eti_fbe_v2_5.gateway_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Notification
+  if template_id == 10023 then
+    return eurex_t7_eti_fbe_v2_5.heartbeat_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Mm Parameter Response
+  if template_id == 10306 then
+    return eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire Session List Response
+  if template_id == 10036 then
+    return eurex_t7_eti_fbe_v2_5.inquire_session_list_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Inquire User Response
+  if template_id == 10039 then
+    return eurex_t7_eti_fbe_v2_5.inquire_user_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Legal Notification Broadcast
+  if template_id == 10037 then
+    return eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Response
+  if template_id == 10001 then
+    return eurex_t7_eti_fbe_v2_5.logon_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response
+  if template_id == 10003 then
+    return eurex_t7_eti_fbe_v2_5.logout_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mm Parameter Definition Response
+  if template_id == 10304 then
+    return eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Quote Response
+  if template_id == 10406 then
+    return eurex_t7_eti_fbe_v2_5.mass_quote_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Nr Response
+  if template_id == 10108 then
+    return eurex_t7_eti_fbe_v2_5.modify_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Response
+  if template_id == 10107 then
+    return eurex_t7_eti_fbe_v2_5.modify_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Nr Response
+  if template_id == 10102 then
+    return eurex_t7_eti_fbe_v2_5.new_order_nr_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Response
+  if template_id == 10101 then
+    return eurex_t7_eti_fbe_v2_5.new_order_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect News Broadcast
+  if template_id == 10031 then
+    return eurex_t7_eti_fbe_v2_5.news_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Notification
+  if template_id == 10104 then
+    return eurex_t7_eti_fbe_v2_5.order_exec_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Report Broadcast
+  if template_id == 10117 then
+    return eurex_t7_eti_fbe_v2_5.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Exec Response
+  if template_id == 10103 then
+    return eurex_t7_eti_fbe_v2_5.order_exec_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Action Report
+  if template_id == 10042 then
+    return eurex_t7_eti_fbe_v2_5.party_action_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Party Entitlements Update Report
+  if template_id == 10034 then
+    return eurex_t7_eti_fbe_v2_5.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Activation Notification
+  if template_id == 10411 then
+    return eurex_t7_eti_fbe_v2_5.quote_activation_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Activation Response
+  if template_id == 10404 then
+    return eurex_t7_eti_fbe_v2_5.quote_activation_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Execution Report
+  if template_id == 10407 then
+    return eurex_t7_eti_fbe_v2_5.quote_execution_report.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Rfq Response
+  if template_id == 10402 then
+    return eurex_t7_eti_fbe_v2_5.rfq_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reject
+  if template_id == 10010 then
+    return eurex_t7_eti_fbe_v2_5.reject.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Me Message Response
+  if template_id == 10027 then
+    return eurex_t7_eti_fbe_v2_5.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmit Response
+  if template_id == 10009 then
+    return eurex_t7_eti_fbe_v2_5.retransmit_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Notification Broadcast
+  if template_id == 10033 then
+    return eurex_t7_eti_fbe_v2_5.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Service Availability Broadcast
+  if template_id == 10030 then
+    return eurex_t7_eti_fbe_v2_5.service_availability_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subscribe Response
+  if template_id == 10005 then
+    return eurex_t7_eti_fbe_v2_5.subscribe_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return eurex_t7_eti_fbe_v2_5.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Throttle Update Notification
+  if template_id == 10028 then
+    return eurex_t7_eti_fbe_v2_5.throttle_update_notification.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Broadcast
+  if template_id == 10500 then
+    return eurex_t7_eti_fbe_v2_5.trade_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Session Status Broadcast
+  if template_id == 10307 then
+    return eurex_t7_eti_fbe_v2_5.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsubscribe Response
+  if template_id == 10007 then
+    return eurex_t7_eti_fbe_v2_5.unsubscribe_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Login Response
+  if template_id == 10019 then
+    return eurex_t7_eti_fbe_v2_5.user_login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Logout Response
+  if template_id == 10024 then
+    return eurex_t7_eti_fbe_v2_5.user_logout_response.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+eurex_t7_eti_fbe_v2_5.message_header = {}
+
+-- Size: Message Header
+eurex_t7_eti_fbe_v2_5.message_header.size =
+  eurex_t7_eti_fbe_v2_5.body_len.size + 
+  eurex_t7_eti_fbe_v2_5.template_id.size
+
+-- Display: Message Header
+eurex_t7_eti_fbe_v2_5.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+eurex_t7_eti_fbe_v2_5.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, body_len = eurex_t7_eti_fbe_v2_5.body_len.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 82 values
+  index, template_id = eurex_t7_eti_fbe_v2_5.template_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+eurex_t7_eti_fbe_v2_5.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.message_header, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message
+eurex_t7_eti_fbe_v2_5.server_message = {}
+
+-- Display: Server Message
+eurex_t7_eti_fbe_v2_5.server_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message
+eurex_t7_eti_fbe_v2_5.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_t7_eti_fbe_v2_5.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 2, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 51 branches
+  index = eurex_t7_eti_fbe_v2_5.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Message
+eurex_t7_eti_fbe_v2_5.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset + size_of_server_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.server_message, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    parent:set_len(size_of_server_message)
+    local display = eurex_t7_eti_fbe_v2_5.server_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Message
+local server_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_t7_eti_fbe_v2_5.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+eurex_t7_eti_fbe_v2_5.server_packet = {}
+
+-- Verify required size of Tcp packet
+eurex_t7_eti_fbe_v2_5.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= eurex_t7_eti_fbe_v2_5.message_header.size
+end
+
+-- Dissect Server Packet
+eurex_t7_eti_fbe_v2_5.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Message
+  local end_of_payload = buffer:len()
+
+  -- Server Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_message = server_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_t7_eti_fbe_v2_5.server_message.dissect(buffer, index, packet, parent, size_of_server_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Request Header Comp
+eurex_t7_eti_fbe_v2_5.request_header_comp = {}
+
+-- Size: Request Header Comp
+eurex_t7_eti_fbe_v2_5.request_header_comp.size =
+  eurex_t7_eti_fbe_v2_5.msg_seq_num.size + 
+  eurex_t7_eti_fbe_v2_5.sender_sub_id.size
+
+-- Display: Request Header Comp
+eurex_t7_eti_fbe_v2_5.request_header_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Header Comp
+eurex_t7_eti_fbe_v2_5.request_header_comp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, msg_seq_num = eurex_t7_eti_fbe_v2_5.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sender Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, sender_sub_id = eurex_t7_eti_fbe_v2_5.sender_sub_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Header Comp
+eurex_t7_eti_fbe_v2_5.request_header_comp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.request_header_comp, buffer(offset, 0))
+    local index = eurex_t7_eti_fbe_v2_5.request_header_comp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_t7_eti_fbe_v2_5.request_header_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_t7_eti_fbe_v2_5.request_header_comp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Logout Request
+eurex_t7_eti_fbe_v2_5.user_logout_request = {}
+
+-- Read runtime size of: User Logout Request
+eurex_t7_eti_fbe_v2_5.user_logout_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Logout Request
+eurex_t7_eti_fbe_v2_5.user_logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Logout Request
+eurex_t7_eti_fbe_v2_5.user_logout_request.fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_eti_fbe_v2_5.username.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Logout Request
+eurex_t7_eti_fbe_v2_5.user_logout_request.dissect = function(buffer, offset, packet, parent, size_of_user_logout_request)
+  local size_of_user_logout_request = eurex_t7_eti_fbe_v2_5.user_logout_request.size(buffer, offset)
+  local index = offset + size_of_user_logout_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.user_logout_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+    parent:set_len(size_of_user_logout_request)
+    local display = eurex_t7_eti_fbe_v2_5.user_logout_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.user_logout_request.fields(buffer, offset, packet, parent, size_of_user_logout_request)
+
+    return index
+  end
+end
+
+-- User Login Request
+eurex_t7_eti_fbe_v2_5.user_login_request = {}
+
+-- Read runtime size of: User Login Request
+eurex_t7_eti_fbe_v2_5.user_login_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: User Login Request
+eurex_t7_eti_fbe_v2_5.user_login_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Login Request
+eurex_t7_eti_fbe_v2_5.user_login_request.fields = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Username: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, username = eurex_t7_eti_fbe_v2_5.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String Nullable
+  index, password = eurex_t7_eti_fbe_v2_5.password.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Login Request
+eurex_t7_eti_fbe_v2_5.user_login_request.dissect = function(buffer, offset, packet, parent, size_of_user_login_request)
+  local size_of_user_login_request = eurex_t7_eti_fbe_v2_5.user_login_request.size(buffer, offset)
+  local index = offset + size_of_user_login_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.user_login_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+    parent:set_len(size_of_user_login_request)
+    local display = eurex_t7_eti_fbe_v2_5.user_login_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.user_login_request.fields(buffer, offset, packet, parent, size_of_user_login_request)
+
+    return index
+  end
+end
+
+-- Unsubscribe Request
+eurex_t7_eti_fbe_v2_5.unsubscribe_request = {}
+
+-- Read runtime size of: Unsubscribe Request
+eurex_t7_eti_fbe_v2_5.unsubscribe_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Unsubscribe Request
+eurex_t7_eti_fbe_v2_5.unsubscribe_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsubscribe Request
+eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, ref_appl_sub_id = eurex_t7_eti_fbe_v2_5.ref_appl_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Pad4: 4 Byte
+  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unsubscribe Request
+eurex_t7_eti_fbe_v2_5.unsubscribe_request.dissect = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
+  local size_of_unsubscribe_request = eurex_t7_eti_fbe_v2_5.unsubscribe_request.size(buffer, offset)
+  local index = offset + size_of_unsubscribe_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.unsubscribe_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+    parent:set_len(size_of_unsubscribe_request)
+    local display = eurex_t7_eti_fbe_v2_5.unsubscribe_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.unsubscribe_request.fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+
+    return index
+  end
+end
+
+-- Subscribe Request
+eurex_t7_eti_fbe_v2_5.subscribe_request = {}
+
+-- Read runtime size of: Subscribe Request
+eurex_t7_eti_fbe_v2_5.subscribe_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Subscribe Request
+eurex_t7_eti_fbe_v2_5.subscribe_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subscribe Request
+eurex_t7_eti_fbe_v2_5.subscribe_request.fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subscribe Request
+eurex_t7_eti_fbe_v2_5.subscribe_request.dissect = function(buffer, offset, packet, parent, size_of_subscribe_request)
+  local size_of_subscribe_request = eurex_t7_eti_fbe_v2_5.subscribe_request.size(buffer, offset)
+  local index = offset + size_of_subscribe_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.subscribe_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+    parent:set_len(size_of_subscribe_request)
+    local display = eurex_t7_eti_fbe_v2_5.subscribe_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.subscribe_request.fields(buffer, offset, packet, parent, size_of_subscribe_request)
+
+    return index
+  end
+end
+
+-- Retransmit Request
+eurex_t7_eti_fbe_v2_5.retransmit_request = {}
+
+-- Read runtime size of: Retransmit Request
+eurex_t7_eti_fbe_v2_5.retransmit_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Retransmit Request
+eurex_t7_eti_fbe_v2_5.retransmit_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Request
+eurex_t7_eti_fbe_v2_5.retransmit_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Appl Beg Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_beg_seq_num = eurex_t7_eti_fbe_v2_5.appl_beg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Appl End Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, appl_end_seq_num = eurex_t7_eti_fbe_v2_5.appl_end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v2_5.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Request
+eurex_t7_eti_fbe_v2_5.retransmit_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_request)
+  local size_of_retransmit_request = eurex_t7_eti_fbe_v2_5.retransmit_request.size(buffer, offset)
+  local index = offset + size_of_retransmit_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.retransmit_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+    parent:set_len(size_of_retransmit_request)
+    local display = eurex_t7_eti_fbe_v2_5.retransmit_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.retransmit_request.fields(buffer, offset, packet, parent, size_of_retransmit_request)
+
+    return index
+  end
+end
+
+-- Retransmit Me Message Request
+eurex_t7_eti_fbe_v2_5.retransmit_me_message_request = {}
+
+-- Read runtime size of: Retransmit Me Message Request
+eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Retransmit Me Message Request
+eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmit Me Message Request
+eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Subscription Scope: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, subscription_scope = eurex_t7_eti_fbe_v2_5.subscription_scope.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, partition_id = eurex_t7_eti_fbe_v2_5.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
+  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
+
+  -- Appl Beg Msg Id: 16 Byte
+  index, appl_beg_msg_id = eurex_t7_eti_fbe_v2_5.appl_beg_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Appl End Msg Id: 16 Byte
+  index, appl_end_msg_id = eurex_t7_eti_fbe_v2_5.appl_end_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmit Me Message Request
+eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.dissect = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+  local size_of_retransmit_me_message_request = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.size(buffer, offset)
+  local index = offset + size_of_retransmit_me_message_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.retransmit_me_message_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+    parent:set_len(size_of_retransmit_me_message_request)
+    local display = eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+
+    return index
+  end
+end
+
+-- Rfq Request
+eurex_t7_eti_fbe_v2_5.rfq_request = {}
+
+-- Read runtime size of: Rfq Request
+eurex_t7_eti_fbe_v2_5.rfq_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Rfq Request
+eurex_t7_eti_fbe_v2_5.rfq_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Request
+eurex_t7_eti_fbe_v2_5.rfq_request.fields = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
+  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
+
+  -- Compliance Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, compliance_id = eurex_t7_eti_fbe_v2_5.compliance_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
+  index, order_qty = eurex_t7_eti_fbe_v2_5.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side = eurex_t7_eti_fbe_v2_5.side.dissect(buffer, index, packet, parent)
+
+  -- Compliance Text: 20 Byte Ascii String Nullable
+  index, compliance_text = eurex_t7_eti_fbe_v2_5.compliance_text.dissect(buffer, index, packet, parent)
+
+  -- Pad3: 3 Byte
+  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Request
+eurex_t7_eti_fbe_v2_5.rfq_request.dissect = function(buffer, offset, packet, parent, size_of_rfq_request)
+  local size_of_rfq_request = eurex_t7_eti_fbe_v2_5.rfq_request.size(buffer, offset)
+  local index = offset + size_of_rfq_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.rfq_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+    parent:set_len(size_of_rfq_request)
+    local display = eurex_t7_eti_fbe_v2_5.rfq_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.rfq_request.fields(buffer, offset, packet, parent, size_of_rfq_request)
+
+    return index
+  end
+end
+
+-- Quote Activation Request
+eurex_t7_eti_fbe_v2_5.quote_activation_request = {}
+
+-- Read runtime size of: Quote Activation Request
+eurex_t7_eti_fbe_v2_5.quote_activation_request.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
+-- Display: Quote Activation Request
+eurex_t7_eti_fbe_v2_5.quote_activation_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Activation Request
+eurex_t7_eti_fbe_v2_5.quote_activation_request.fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local index = offset
+
+  -- Network Msg Id: 8 Byte Ascii String Nullable
+  index, network_msg_id = eurex_t7_eti_fbe_v2_5.network_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Pad2: 2 Byte
+  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
+
+  -- Request Header Comp: Struct of 2 fields
+  index, request_header_comp = eurex_t7_eti_fbe_v2_5.request_header_comp.dissect(buffer, index, packet, parent)
+
+  -- Compliance Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, compliance_id = eurex_t7_eti_fbe_v2_5.compliance_id.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
+  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, mass_action_type = eurex_t7_eti_fbe_v2_5.mass_action_type.dissect(buffer, index, packet, parent)
+
+  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
+
+  -- Pad6: 6 Byte
+  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Activation Request
+eurex_t7_eti_fbe_v2_5.quote_activation_request.dissect = function(buffer, offset, packet, parent, size_of_quote_activation_request)
+  local size_of_quote_activation_request = eurex_t7_eti_fbe_v2_5.quote_activation_request.size(buffer, offset)
+  local index = offset + size_of_quote_activation_request
+
+  -- Optionally add group/struct element to protocol tree
+  if show.application_messages then
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_activation_request, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+    parent:set_len(size_of_quote_activation_request)
+    local display = eurex_t7_eti_fbe_v2_5.quote_activation_request.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    eurex_t7_eti_fbe_v2_5.quote_activation_request.fields(buffer, offset, packet, parent, size_of_quote_activation_request)
+
+    return index
+  end
+end
+
 -- New Order Single Short Request
 eurex_t7_eti_fbe_v2_5.new_order_single_short_request = {}
 
@@ -12436,172 +15404,6 @@ eurex_t7_eti_fbe_v2_5.new_order_single_request.dissect = function(buffer, offset
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.new_order_single_request.fields(buffer, offset, packet, parent, size_of_new_order_single_request)
-
-    return index
-  end
-end
-
--- New Order Response
-eurex_t7_eti_fbe_v2_5.new_order_response = {}
-
--- Read runtime size of: New Order Response
-eurex_t7_eti_fbe_v2_5.new_order_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: New Order Response
-eurex_t7_eti_fbe_v2_5.new_order_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Response
-eurex_t7_eti_fbe_v2_5.new_order_response.fields = function(buffer, offset, packet, parent, size_of_new_order_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Me Comp: Struct of 11 fields
-  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trd_reg_ts_entry_time = eurex_t7_eti_fbe_v2_5.trd_reg_ts_entry_time.dissect(buffer, index, packet, parent)
-
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trd_reg_ts_time_priority = eurex_t7_eti_fbe_v2_5.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Order Response
-eurex_t7_eti_fbe_v2_5.new_order_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_response)
-  local size_of_new_order_response = eurex_t7_eti_fbe_v2_5.new_order_response.size(buffer, offset)
-  local index = offset + size_of_new_order_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.new_order_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
-    parent:set_len(size_of_new_order_response)
-    local display = eurex_t7_eti_fbe_v2_5.new_order_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.new_order_response.fields(buffer, offset, packet, parent, size_of_new_order_response)
-
-    return index
-  end
-end
-
--- New Order Nr Response
-eurex_t7_eti_fbe_v2_5.new_order_nr_response = {}
-
--- Read runtime size of: New Order Nr Response
-eurex_t7_eti_fbe_v2_5.new_order_nr_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: New Order Nr Response
-eurex_t7_eti_fbe_v2_5.new_order_nr_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Nr Response
-eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Order Nr Response
-eurex_t7_eti_fbe_v2_5.new_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
-  local size_of_new_order_nr_response = eurex_t7_eti_fbe_v2_5.new_order_nr_response.size(buffer, offset)
-  local index = offset + size_of_new_order_nr_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.new_order_nr_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
-    parent:set_len(size_of_new_order_nr_response)
-    local display = eurex_t7_eti_fbe_v2_5.new_order_nr_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.new_order_nr_response.fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
 
     return index
   end
@@ -12999,193 +15801,6 @@ eurex_t7_eti_fbe_v2_5.modify_order_single_request.dissect = function(buffer, off
   end
 end
 
--- Modify Order Response
-eurex_t7_eti_fbe_v2_5.modify_order_response = {}
-
--- Read runtime size of: Modify Order Response
-eurex_t7_eti_fbe_v2_5.modify_order_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Order Response
-eurex_t7_eti_fbe_v2_5.modify_order_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Order Response
-eurex_t7_eti_fbe_v2_5.modify_order_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Me Comp: Struct of 11 fields
-  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trd_reg_ts_time_priority = eurex_t7_eti_fbe_v2_5.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, leaves_qty = eurex_t7_eti_fbe_v2_5.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Modify Order Response
-eurex_t7_eti_fbe_v2_5.modify_order_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_response)
-  local size_of_modify_order_response = eurex_t7_eti_fbe_v2_5.modify_order_response.size(buffer, offset)
-  local index = offset + size_of_modify_order_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.modify_order_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
-    parent:set_len(size_of_modify_order_response)
-    local display = eurex_t7_eti_fbe_v2_5.modify_order_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.modify_order_response.fields(buffer, offset, packet, parent, size_of_modify_order_response)
-
-    return index
-  end
-end
-
--- Modify Order Nr Response
-eurex_t7_eti_fbe_v2_5.modify_order_nr_response = {}
-
--- Read runtime size of: Modify Order Nr Response
-eurex_t7_eti_fbe_v2_5.modify_order_nr_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Modify Order Nr Response
-eurex_t7_eti_fbe_v2_5.modify_order_nr_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Modify Order Nr Response
-eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, leaves_qty = eurex_t7_eti_fbe_v2_5.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Modify Order Nr Response
-eurex_t7_eti_fbe_v2_5.modify_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-  local size_of_modify_order_nr_response = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.size(buffer, offset)
-  local index = offset + size_of_modify_order_nr_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.modify_order_nr_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-    parent:set_len(size_of_modify_order_nr_response)
-    local display = eurex_t7_eti_fbe_v2_5.modify_order_nr_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.modify_order_nr_response.fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
-
-    return index
-  end
-end
-
 -- Modify Order Complex Request
 eurex_t7_eti_fbe_v2_5.modify_order_complex_request = {}
 
@@ -13340,145 +15955,6 @@ eurex_t7_eti_fbe_v2_5.modify_order_complex_request.dissect = function(buffer, of
   end
 end
 
--- Quote Entry Ack Grp Comp
-eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp = {}
-
--- Size: Quote Entry Ack Grp Comp
-eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.security_id.size + 
-  eurex_t7_eti_fbe_v2_5.bid_cxl_size.size + 
-  eurex_t7_eti_fbe_v2_5.offer_cxl_size.size + 
-  eurex_t7_eti_fbe_v2_5.quote_entry_reject_reason.size + 
-  eurex_t7_eti_fbe_v2_5.quote_entry_status.size + 
-  eurex_t7_eti_fbe_v2_5.pad3.size
-
--- Display: Quote Entry Ack Grp Comp
-eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Entry Ack Grp Comp
-eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
-  local index = offset
-
-  -- Implicit Quote Entry Ack Grp Comp Index
-  if quote_entry_ack_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_entry_ack_grp_comp_index, quote_entry_ack_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Bid Cxl Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, bid_cxl_size = eurex_t7_eti_fbe_v2_5.bid_cxl_size.dissect(buffer, index, packet, parent)
-
-  -- Offer Cxl Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, offer_cxl_size = eurex_t7_eti_fbe_v2_5.offer_cxl_size.dissect(buffer, index, packet, parent)
-
-  -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 19 values
-  index, quote_entry_reject_reason = eurex_t7_eti_fbe_v2_5.quote_entry_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Quote Entry Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, quote_entry_status = eurex_t7_eti_fbe_v2_5.quote_entry_status.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Entry Ack Grp Comp
-eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.dissect = function(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.quote_entry_ack_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
-  end
-end
-
--- Mass Quote Response
-eurex_t7_eti_fbe_v2_5.mass_quote_response = {}
-
--- Read runtime size of: Mass Quote Response
-eurex_t7_eti_fbe_v2_5.mass_quote_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Mass Quote Response
-eurex_t7_eti_fbe_v2_5.mass_quote_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Quote Response
-eurex_t7_eti_fbe_v2_5.mass_quote_response.fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_id = eurex_t7_eti_fbe_v2_5.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_response_id = eurex_t7_eti_fbe_v2_5.quote_response_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_quote_entries = eurex_t7_eti_fbe_v2_5.no_quote_entries.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Quote Entry Ack Grp Comp
-  for quote_entry_ack_grp_comp_index = 1, no_quote_entries do
-    index, quote_entry_ack_grp_comp = eurex_t7_eti_fbe_v2_5.quote_entry_ack_grp_comp.dissect(buffer, index, packet, parent, quote_entry_ack_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Mass Quote Response
-eurex_t7_eti_fbe_v2_5.mass_quote_response.dissect = function(buffer, offset, packet, parent, size_of_mass_quote_response)
-  local size_of_mass_quote_response = eurex_t7_eti_fbe_v2_5.mass_quote_response.size(buffer, offset)
-  local index = offset + size_of_mass_quote_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mass_quote_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
-    parent:set_len(size_of_mass_quote_response)
-    local display = eurex_t7_eti_fbe_v2_5.mass_quote_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.mass_quote_response.fields(buffer, offset, packet, parent, size_of_mass_quote_response)
-
-    return index
-  end
-end
-
 -- Quote Entry Grp Comp
 eurex_t7_eti_fbe_v2_5.quote_entry_grp_comp = {}
 
@@ -13626,62 +16102,6 @@ eurex_t7_eti_fbe_v2_5.mass_quote_request.dissect = function(buffer, offset, pack
   end
 end
 
--- Mm Parameter Definition Response
-eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response = {}
-
--- Read runtime size of: Mm Parameter Definition Response
-eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Mm Parameter Definition Response
-eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mm Parameter Definition Response
-eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mm Parameter Definition Response
-eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.dissect = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
-  local size_of_mm_parameter_definition_response = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.size(buffer, offset)
-  local index = offset + size_of_mm_parameter_definition_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_definition_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
-    parent:set_len(size_of_mm_parameter_definition_response)
-    local display = eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.fields(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
-
-    return index
-  end
-end
-
 -- Mm Parameter Definition Request
 eurex_t7_eti_fbe_v2_5.mm_parameter_definition_request = {}
 
@@ -13765,59 +16185,6 @@ eurex_t7_eti_fbe_v2_5.mm_parameter_definition_request.dissect = function(buffer,
   end
 end
 
--- Logout Response
-eurex_t7_eti_fbe_v2_5.logout_response = {}
-
--- Read runtime size of: Logout Response
-eurex_t7_eti_fbe_v2_5.logout_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logout Response
-eurex_t7_eti_fbe_v2_5.logout_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logout Response
-eurex_t7_eti_fbe_v2_5.logout_response.fields = function(buffer, offset, packet, parent, size_of_logout_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logout Response
-eurex_t7_eti_fbe_v2_5.logout_response.dissect = function(buffer, offset, packet, parent, size_of_logout_response)
-  local size_of_logout_response = eurex_t7_eti_fbe_v2_5.logout_response.size(buffer, offset)
-  local index = offset + size_of_logout_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.logout_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
-    parent:set_len(size_of_logout_response)
-    local display = eurex_t7_eti_fbe_v2_5.logout_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.logout_response.fields(buffer, offset, packet, parent, size_of_logout_response)
-
-    return index
-  end
-end
-
 -- Logout Request
 eurex_t7_eti_fbe_v2_5.logout_request = {}
 
@@ -13869,83 +16236,6 @@ eurex_t7_eti_fbe_v2_5.logout_request.dissect = function(buffer, offset, packet, 
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.logout_request.fields(buffer, offset, packet, parent, size_of_logout_request)
-
-    return index
-  end
-end
-
--- Logon Response
-eurex_t7_eti_fbe_v2_5.logon_response = {}
-
--- Read runtime size of: Logon Response
-eurex_t7_eti_fbe_v2_5.logon_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Logon Response
-eurex_t7_eti_fbe_v2_5.logon_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Logon Response
-eurex_t7_eti_fbe_v2_5.logon_response.fields = function(buffer, offset, packet, parent, size_of_logon_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Throttle Time Interval: 8 Byte Signed Fixed Width Integer Nullable
-  index, throttle_time_interval = eurex_t7_eti_fbe_v2_5.throttle_time_interval.dissect(buffer, index, packet, parent)
-
-  -- Throttle No Msgs: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, throttle_no_msgs = eurex_t7_eti_fbe_v2_5.throttle_no_msgs.dissect(buffer, index, packet, parent)
-
-  -- Throttle Disconnect Limit: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, throttle_disconnect_limit = eurex_t7_eti_fbe_v2_5.throttle_disconnect_limit.dissect(buffer, index, packet, parent)
-
-  -- Heart Bt Int: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, heart_bt_int = eurex_t7_eti_fbe_v2_5.heart_bt_int.dissect(buffer, index, packet, parent)
-
-  -- Session Instance Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, session_instance_id = eurex_t7_eti_fbe_v2_5.session_instance_id.dissect(buffer, index, packet, parent)
-
-  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trad_ses_mode = eurex_t7_eti_fbe_v2_5.trad_ses_mode.dissect(buffer, index, packet, parent)
-
-  -- Default Cstm Appl Ver Id: 30 Byte Ascii String Nullable
-  index, default_cstm_appl_ver_id = eurex_t7_eti_fbe_v2_5.default_cstm_appl_ver_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Logon Response
-eurex_t7_eti_fbe_v2_5.logon_response.dissect = function(buffer, offset, packet, parent, size_of_logon_response)
-  local size_of_logon_response = eurex_t7_eti_fbe_v2_5.logon_response.size(buffer, offset)
-  local index = offset + size_of_logon_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.logon_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
-    parent:set_len(size_of_logon_response)
-    local display = eurex_t7_eti_fbe_v2_5.logon_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.logon_response.fields(buffer, offset, packet, parent, size_of_logon_response)
 
     return index
   end
@@ -14049,224 +16339,6 @@ eurex_t7_eti_fbe_v2_5.logon_request.dissect = function(buffer, offset, packet, p
   end
 end
 
--- Legal Notification Broadcast
-eurex_t7_eti_fbe_v2_5.legal_notification_broadcast = {}
-
--- Read runtime size of: Legal Notification Broadcast
-eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Legal Notification Broadcast
-eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Legal Notification Broadcast
-eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Rbc Header Comp: Struct of 8 fields
-  index, rbc_header_comp = eurex_t7_eti_fbe_v2_5.rbc_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = eurex_t7_eti_fbe_v2_5.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
-
-  -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, user_status = eurex_t7_eti_fbe_v2_5.user_status.dissect(buffer, index, packet, parent)
-
-  -- Pad5: 5 Byte
-  index, pad5 = eurex_t7_eti_fbe_v2_5.pad5.dissect(buffer, index, packet, parent)
-
-  -- Runtime Size Of: Var Text
-  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Runtime optional field: Alignment Padding
-  local alignment_padding = nil
-
-  local alignment_padding_exists = body_len ~= index
-
-  if alignment_padding_exists then
-
-    -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
-
-    -- Alignment Padding: 0 Byte
-    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
-  end
-
-  return index
-end
-
--- Dissect: Legal Notification Broadcast
-eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.dissect = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
-  local size_of_legal_notification_broadcast = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.size(buffer, offset)
-  local index = offset + size_of_legal_notification_broadcast
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.legal_notification_broadcast, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
-    parent:set_len(size_of_legal_notification_broadcast)
-    local display = eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
-
-    return index
-  end
-end
-
--- Party Details Grp Comp
-eurex_t7_eti_fbe_v2_5.party_details_grp_comp = {}
-
--- Size: Party Details Grp Comp
-eurex_t7_eti_fbe_v2_5.party_details_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.party_detail_id_executing_trader.size + 
-  eurex_t7_eti_fbe_v2_5.party_detail_executing_trader.size + 
-  eurex_t7_eti_fbe_v2_5.party_detail_role_qualifier.size + 
-  eurex_t7_eti_fbe_v2_5.party_detail_status.size + 
-  eurex_t7_eti_fbe_v2_5.party_detail_desk_id.size + 
-  eurex_t7_eti_fbe_v2_5.pad1.size
-
--- Display: Party Details Grp Comp
-eurex_t7_eti_fbe_v2_5.party_details_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Party Details Grp Comp
-eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields = function(buffer, offset, packet, parent, party_details_grp_comp_index)
-  local index = offset
-
-  -- Implicit Party Details Grp Comp Index
-  if party_details_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.party_details_grp_comp_index, party_details_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Party Detail Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_detail_id_executing_trader = eurex_t7_eti_fbe_v2_5.party_detail_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Executing Trader: 6 Byte Ascii String Nullable
-  index, party_detail_executing_trader = eurex_t7_eti_fbe_v2_5.party_detail_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Role Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, party_detail_role_qualifier = eurex_t7_eti_fbe_v2_5.party_detail_role_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_detail_status = eurex_t7_eti_fbe_v2_5.party_detail_status.dissect(buffer, index, packet, parent)
-
-  -- Party Detail Desk Id: 3 Byte Ascii String Nullable
-  index, party_detail_desk_id = eurex_t7_eti_fbe_v2_5.party_detail_desk_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Party Details Grp Comp
-eurex_t7_eti_fbe_v2_5.party_details_grp_comp.dissect = function(buffer, offset, packet, parent, party_details_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.party_details_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
-  end
-end
-
--- Inquire User Response
-eurex_t7_eti_fbe_v2_5.inquire_user_response = {}
-
--- Read runtime size of: Inquire User Response
-eurex_t7_eti_fbe_v2_5.inquire_user_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire User Response
-eurex_t7_eti_fbe_v2_5.inquire_user_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire User Response
-eurex_t7_eti_fbe_v2_5.inquire_user_response.fields = function(buffer, offset, packet, parent, size_of_inquire_user_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Last Entity Processed: 16 Byte
-  index, last_entity_processed = eurex_t7_eti_fbe_v2_5.last_entity_processed.dissect(buffer, index, packet, parent)
-
-  -- No Party Details: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_party_details = eurex_t7_eti_fbe_v2_5.no_party_details.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Party Details Grp Comp
-  for party_details_grp_comp_index = 1, no_party_details do
-    index, party_details_grp_comp = eurex_t7_eti_fbe_v2_5.party_details_grp_comp.dissect(buffer, index, packet, parent, party_details_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Inquire User Response
-eurex_t7_eti_fbe_v2_5.inquire_user_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_user_response)
-  local size_of_inquire_user_response = eurex_t7_eti_fbe_v2_5.inquire_user_response.size(buffer, offset)
-  local index = offset + size_of_inquire_user_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_user_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
-    parent:set_len(size_of_inquire_user_response)
-    local display = eurex_t7_eti_fbe_v2_5.inquire_user_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.inquire_user_response.fields(buffer, offset, packet, parent, size_of_inquire_user_response)
-
-    return index
-  end
-end
-
 -- Inquire User Request
 eurex_t7_eti_fbe_v2_5.inquire_user_request = {}
 
@@ -14326,128 +16398,6 @@ eurex_t7_eti_fbe_v2_5.inquire_user_request.dissect = function(buffer, offset, pa
   end
 end
 
--- Sessions Grp Comp
-eurex_t7_eti_fbe_v2_5.sessions_grp_comp = {}
-
--- Size: Sessions Grp Comp
-eurex_t7_eti_fbe_v2_5.sessions_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.party_id_session_id.size + 
-  eurex_t7_eti_fbe_v2_5.session_mode.size + 
-  eurex_t7_eti_fbe_v2_5.session_sub_mode.size + 
-  eurex_t7_eti_fbe_v2_5.pad2.size
-
--- Display: Sessions Grp Comp
-eurex_t7_eti_fbe_v2_5.sessions_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sessions Grp Comp
-eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields = function(buffer, offset, packet, parent, sessions_grp_comp_index)
-  local index = offset
-
-  -- Implicit Sessions Grp Comp Index
-  if sessions_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.sessions_grp_comp_index, sessions_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_session_id = eurex_t7_eti_fbe_v2_5.party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, session_mode = eurex_t7_eti_fbe_v2_5.session_mode.dissect(buffer, index, packet, parent)
-
-  -- Session Sub Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, session_sub_mode = eurex_t7_eti_fbe_v2_5.session_sub_mode.dissect(buffer, index, packet, parent)
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sessions Grp Comp
-eurex_t7_eti_fbe_v2_5.sessions_grp_comp.dissect = function(buffer, offset, packet, parent, sessions_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.sessions_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
-  end
-end
-
--- Inquire Session List Response
-eurex_t7_eti_fbe_v2_5.inquire_session_list_response = {}
-
--- Read runtime size of: Inquire Session List Response
-eurex_t7_eti_fbe_v2_5.inquire_session_list_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Session List Response
-eurex_t7_eti_fbe_v2_5.inquire_session_list_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Session List Response
-eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  -- No Sessions: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_sessions = eurex_t7_eti_fbe_v2_5.no_sessions.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Sessions Grp Comp
-  for sessions_grp_comp_index = 1, no_sessions do
-    index, sessions_grp_comp = eurex_t7_eti_fbe_v2_5.sessions_grp_comp.dissect(buffer, index, packet, parent, sessions_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Inquire Session List Response
-eurex_t7_eti_fbe_v2_5.inquire_session_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
-  local size_of_inquire_session_list_response = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.size(buffer, offset)
-  local index = offset + size_of_inquire_session_list_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_session_list_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
-    parent:set_len(size_of_inquire_session_list_response)
-    local display = eurex_t7_eti_fbe_v2_5.inquire_session_list_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.inquire_session_list_response.fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
-
-    return index
-  end
-end
-
 -- Inquire Session List Request
 eurex_t7_eti_fbe_v2_5.inquire_session_list_request = {}
 
@@ -14499,146 +16449,6 @@ eurex_t7_eti_fbe_v2_5.inquire_session_list_request.dissect = function(buffer, of
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.inquire_session_list_request.fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
-
-    return index
-  end
-end
-
--- Mm Parameter Grp Comp
-eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp = {}
-
--- Size: Mm Parameter Grp Comp
-eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.exposure_duration.size + 
-  eurex_t7_eti_fbe_v2_5.cum_qty.size + 
-  eurex_t7_eti_fbe_v2_5.pct_count.size + 
-  eurex_t7_eti_fbe_v2_5.delta.size + 
-  eurex_t7_eti_fbe_v2_5.vega.size + 
-  eurex_t7_eti_fbe_v2_5.product_complex.size + 
-  eurex_t7_eti_fbe_v2_5.pad7.size
-
--- Display: Mm Parameter Grp Comp
-eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mm Parameter Grp Comp
-eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
-  local index = offset
-
-  -- Implicit Mm Parameter Grp Comp Index
-  if mm_parameter_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_grp_comp_index, mm_parameter_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Exposure Duration: 8 Byte Signed Fixed Width Integer Nullable
-  index, exposure_duration = eurex_t7_eti_fbe_v2_5.exposure_duration.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Pct Count: 4 Byte Signed Fixed Width Integer Nullable
-  index, pct_count = eurex_t7_eti_fbe_v2_5.pct_count.dissect(buffer, index, packet, parent)
-
-  -- Delta: 4 Byte Signed Fixed Width Integer Nullable
-  index, delta = eurex_t7_eti_fbe_v2_5.delta.dissect(buffer, index, packet, parent)
-
-  -- Vega: 4 Byte Signed Fixed Width Integer Nullable
-  index, vega = eurex_t7_eti_fbe_v2_5.vega.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad7: 7 Byte
-  index, pad7 = eurex_t7_eti_fbe_v2_5.pad7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mm Parameter Grp Comp
-eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.dissect = function(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.mm_parameter_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.fields(buffer, offset, packet, parent, mm_parameter_grp_comp_index)
-  end
-end
-
--- Inquire Mm Parameter Response
-eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response = {}
-
--- Read runtime size of: Inquire Mm Parameter Response
-eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Mm Parameter Response
-eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Mm Parameter Response
-eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mm Parameter Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mm_parameter_report_id = eurex_t7_eti_fbe_v2_5.mm_parameter_report_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- No Mm Parameters: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_mm_parameters = eurex_t7_eti_fbe_v2_5.no_mm_parameters.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Mm Parameter Grp Comp
-  for mm_parameter_grp_comp_index = 1, no_mm_parameters do
-    index, mm_parameter_grp_comp = eurex_t7_eti_fbe_v2_5.mm_parameter_grp_comp.dissect(buffer, index, packet, parent, mm_parameter_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Inquire Mm Parameter Response
-eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
-  local size_of_inquire_mm_parameter_response = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.size(buffer, offset)
-  local index = offset + size_of_inquire_mm_parameter_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_mm_parameter_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
-    parent:set_len(size_of_inquire_mm_parameter_response)
-    local display = eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.fields(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
 
     return index
   end
@@ -14706,159 +16516,6 @@ eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_request.dissect = function(buffer, of
   end
 end
 
--- Enrichment Rules Grp Comp
-eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp = {}
-
--- Size: Enrichment Rules Grp Comp
-eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.enrichment_rule_id.size + 
-  eurex_t7_eti_fbe_v2_5.party_id_origination_market.size + 
-  eurex_t7_eti_fbe_v2_5.account.size + 
-  eurex_t7_eti_fbe_v2_5.position_effect.size + 
-  eurex_t7_eti_fbe_v2_5.party_id_take_up_trading_firm.size + 
-  eurex_t7_eti_fbe_v2_5.party_id_order_origination_firm.size + 
-  eurex_t7_eti_fbe_v2_5.party_id_beneficiary.size + 
-  eurex_t7_eti_fbe_v2_5.free_text_1.size + 
-  eurex_t7_eti_fbe_v2_5.free_text_2.size + 
-  eurex_t7_eti_fbe_v2_5.free_text_3.size + 
-  eurex_t7_eti_fbe_v2_5.pad1.size
-
--- Display: Enrichment Rules Grp Comp
-eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Enrichment Rules Grp Comp
-eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
-  local index = offset
-
-  -- Implicit Enrichment Rules Grp Comp Index
-  if enrichment_rules_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.enrichment_rules_grp_comp_index, enrichment_rules_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Enrichment Rule Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, enrichment_rule_id = eurex_t7_eti_fbe_v2_5.enrichment_rule_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Origination Market: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_origination_market = eurex_t7_eti_fbe_v2_5.party_id_origination_market.dissect(buffer, index, packet, parent)
-
-  -- Account: 2 Byte Ascii String Nullable
-  index, account = eurex_t7_eti_fbe_v2_5.account.dissect(buffer, index, packet, parent)
-
-  -- Position Effect: 1 Byte Ascii String Enum with 2 values
-  index, position_effect = eurex_t7_eti_fbe_v2_5.position_effect.dissect(buffer, index, packet, parent)
-
-  -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
-  index, party_id_take_up_trading_firm = eurex_t7_eti_fbe_v2_5.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Order Origination Firm: 7 Byte Ascii String Nullable
-  index, party_id_order_origination_firm = eurex_t7_eti_fbe_v2_5.party_id_order_origination_firm.dissect(buffer, index, packet, parent)
-
-  -- Party Id Beneficiary: 9 Byte Ascii String Nullable
-  index, party_id_beneficiary = eurex_t7_eti_fbe_v2_5.party_id_beneficiary.dissect(buffer, index, packet, parent)
-
-  -- Free Text 1: 12 Byte Ascii String Nullable
-  index, free_text_1 = eurex_t7_eti_fbe_v2_5.free_text_1.dissect(buffer, index, packet, parent)
-
-  -- Free Text 2: 12 Byte Ascii String Nullable
-  index, free_text_2 = eurex_t7_eti_fbe_v2_5.free_text_2.dissect(buffer, index, packet, parent)
-
-  -- Free Text 3: 12 Byte Ascii String Nullable
-  index, free_text_3 = eurex_t7_eti_fbe_v2_5.free_text_3.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Enrichment Rules Grp Comp
-eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.dissect = function(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.enrichment_rules_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
-  end
-end
-
--- Inquire Enrichment Rule Id List Response
-eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response = {}
-
--- Read runtime size of: Inquire Enrichment Rule Id List Response
-eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Inquire Enrichment Rule Id List Response
-eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inquire Enrichment Rule Id List Response
-eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Last Entity Processed: 16 Byte
-  index, last_entity_processed = eurex_t7_eti_fbe_v2_5.last_entity_processed.dissect(buffer, index, packet, parent)
-
-  -- No Enrichment Rules: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_enrichment_rules = eurex_t7_eti_fbe_v2_5.no_enrichment_rules.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Enrichment Rules Grp Comp
-  for enrichment_rules_grp_comp_index = 1, no_enrichment_rules do
-    index, enrichment_rules_grp_comp = eurex_t7_eti_fbe_v2_5.enrichment_rules_grp_comp.dissect(buffer, index, packet, parent, enrichment_rules_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Inquire Enrichment Rule Id List Response
-eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.dissect = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
-  local size_of_inquire_enrichment_rule_id_list_response = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.size(buffer, offset)
-  local index = offset + size_of_inquire_enrichment_rule_id_list_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.inquire_enrichment_rule_id_list_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
-    parent:set_len(size_of_inquire_enrichment_rule_id_list_response)
-    local display = eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
-
-    return index
-  end
-end
-
 -- Inquire Enrichment Rule Id List Request
 eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_request = {}
 
@@ -14918,59 +16575,6 @@ eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_request.dissect = function
   end
 end
 
--- Heartbeat Notification
-eurex_t7_eti_fbe_v2_5.heartbeat_notification = {}
-
--- Read runtime size of: Heartbeat Notification
-eurex_t7_eti_fbe_v2_5.heartbeat_notification.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Heartbeat Notification
-eurex_t7_eti_fbe_v2_5.heartbeat_notification.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat Notification
-eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat Notification
-eurex_t7_eti_fbe_v2_5.heartbeat_notification.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
-  local size_of_heartbeat_notification = eurex_t7_eti_fbe_v2_5.heartbeat_notification.size(buffer, offset)
-  local index = offset + size_of_heartbeat_notification
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.heartbeat_notification, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
-    parent:set_len(size_of_heartbeat_notification)
-    local display = eurex_t7_eti_fbe_v2_5.heartbeat_notification.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.heartbeat_notification.fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
-
-    return index
-  end
-end
-
 -- Heartbeat
 eurex_t7_eti_fbe_v2_5.heartbeat = {}
 
@@ -15019,80 +16623,6 @@ eurex_t7_eti_fbe_v2_5.heartbeat.dissect = function(buffer, offset, packet, paren
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-    return index
-  end
-end
-
--- Gateway Response
-eurex_t7_eti_fbe_v2_5.gateway_response = {}
-
--- Read runtime size of: Gateway Response
-eurex_t7_eti_fbe_v2_5.gateway_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Gateway Response
-eurex_t7_eti_fbe_v2_5.gateway_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gateway Response
-eurex_t7_eti_fbe_v2_5.gateway_response.fields = function(buffer, offset, packet, parent, size_of_gateway_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Comp: Struct of 4 fields
-  index, response_header_comp = eurex_t7_eti_fbe_v2_5.response_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Gateway Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, gateway_id = eurex_t7_eti_fbe_v2_5.gateway_id.dissect(buffer, index, packet, parent)
-
-  -- Gateway Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, gateway_sub_id = eurex_t7_eti_fbe_v2_5.gateway_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Secondary Gateway Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, secondary_gateway_id = eurex_t7_eti_fbe_v2_5.secondary_gateway_id.dissect(buffer, index, packet, parent)
-
-  -- Secondary Gateway Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, secondary_gateway_sub_id = eurex_t7_eti_fbe_v2_5.secondary_gateway_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Session Mode: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, session_mode = eurex_t7_eti_fbe_v2_5.session_mode.dissect(buffer, index, packet, parent)
-
-  -- Trad Ses Mode: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trad_ses_mode = eurex_t7_eti_fbe_v2_5.trad_ses_mode.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gateway Response
-eurex_t7_eti_fbe_v2_5.gateway_response.dissect = function(buffer, offset, packet, parent, size_of_gateway_response)
-  local size_of_gateway_response = eurex_t7_eti_fbe_v2_5.gateway_response.size(buffer, offset)
-  local index = offset + size_of_gateway_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.gateway_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
-    parent:set_len(size_of_gateway_response)
-    local display = eurex_t7_eti_fbe_v2_5.gateway_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.gateway_response.fields(buffer, offset, packet, parent, size_of_gateway_response)
 
     return index
   end
@@ -15161,85 +16691,6 @@ eurex_t7_eti_fbe_v2_5.gateway_request.dissect = function(buffer, offset, packet,
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.gateway_request.fields(buffer, offset, packet, parent, size_of_gateway_request)
-
-    return index
-  end
-end
-
--- Forced Logout Notification
-eurex_t7_eti_fbe_v2_5.forced_logout_notification = {}
-
--- Read runtime size of: Forced Logout Notification
-eurex_t7_eti_fbe_v2_5.forced_logout_notification.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Forced Logout Notification
-eurex_t7_eti_fbe_v2_5.forced_logout_notification.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Forced Logout Notification
-eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Runtime Size Of: Var Text
-  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Runtime optional field: Alignment Padding
-  local alignment_padding = nil
-
-  local alignment_padding_exists = body_len ~= index
-
-  if alignment_padding_exists then
-
-    -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
-
-    -- Alignment Padding: 0 Byte
-    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
-  end
-
-  return index
-end
-
--- Dissect: Forced Logout Notification
-eurex_t7_eti_fbe_v2_5.forced_logout_notification.dissect = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
-  local size_of_forced_logout_notification = eurex_t7_eti_fbe_v2_5.forced_logout_notification.size(buffer, offset)
-  local index = offset + size_of_forced_logout_notification
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.forced_logout_notification, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
-    parent:set_len(size_of_forced_logout_notification)
-    local display = eurex_t7_eti_fbe_v2_5.forced_logout_notification.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.forced_logout_notification.fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
 
     return index
   end
@@ -15325,184 +16776,6 @@ eurex_t7_eti_fbe_v2_5.delete_order_single_request.dissect = function(buffer, off
   end
 end
 
--- Delete Order Response
-eurex_t7_eti_fbe_v2_5.delete_order_response = {}
-
--- Read runtime size of: Delete Order Response
-eurex_t7_eti_fbe_v2_5.delete_order_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Order Response
-eurex_t7_eti_fbe_v2_5.delete_order_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Order Response
-eurex_t7_eti_fbe_v2_5.delete_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Me Comp: Struct of 11 fields
-  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Order Response
-eurex_t7_eti_fbe_v2_5.delete_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_response)
-  local size_of_delete_order_response = eurex_t7_eti_fbe_v2_5.delete_order_response.size(buffer, offset)
-  local index = offset + size_of_delete_order_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
-    parent:set_len(size_of_delete_order_response)
-    local display = eurex_t7_eti_fbe_v2_5.delete_order_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_order_response.fields(buffer, offset, packet, parent, size_of_delete_order_response)
-
-    return index
-  end
-end
-
--- Delete Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_order_nr_response = {}
-
--- Read runtime size of: Delete Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_order_nr_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_order_nr_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
-  local size_of_delete_order_nr_response = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.size(buffer, offset)
-  local index = offset + size_of_delete_order_nr_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_nr_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
-    parent:set_len(size_of_delete_order_nr_response)
-    local display = eurex_t7_eti_fbe_v2_5.delete_order_nr_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
-
-    return index
-  end
-end
-
 -- Delete Order Complex Request
 eurex_t7_eti_fbe_v2_5.delete_order_complex_request = {}
 
@@ -15580,174 +16853,6 @@ eurex_t7_eti_fbe_v2_5.delete_order_complex_request.dissect = function(buffer, of
   end
 end
 
--- Delete Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_order_broadcast = {}
-
--- Read runtime size of: Delete Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_order_broadcast.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_order_broadcast.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Rbc Header Me Comp: Struct of 10 fields
-  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = eurex_t7_eti_fbe_v2_5.order_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cl_ord_id = eurex_t7_eti_fbe_v2_5.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cum_qty = eurex_t7_eti_fbe_v2_5.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, cxl_qty = eurex_t7_eti_fbe_v2_5.cxl_qty.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, exec_restatement_reason = eurex_t7_eti_fbe_v2_5.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: 1 Byte Ascii String Enum with 6 values
-  index, ord_status = eurex_t7_eti_fbe_v2_5.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Type: 1 Byte Ascii String Enum with 8 values
-  index, exec_type = eurex_t7_eti_fbe_v2_5.exec_type.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, side = eurex_t7_eti_fbe_v2_5.side.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
-  local size_of_delete_order_broadcast = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.size(buffer, offset)
-  local index = offset + size_of_delete_order_broadcast
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_order_broadcast, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
-    parent:set_len(size_of_delete_order_broadcast)
-    local display = eurex_t7_eti_fbe_v2_5.delete_order_broadcast.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
-
-    return index
-  end
-end
-
--- Delete All Quote Response
-eurex_t7_eti_fbe_v2_5.delete_all_quote_response = {}
-
--- Read runtime size of: Delete All Quote Response
-eurex_t7_eti_fbe_v2_5.delete_all_quote_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Quote Response
-eurex_t7_eti_fbe_v2_5.delete_all_quote_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Quote Response
-eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_not_affected_securities = eurex_t7_eti_fbe_v2_5.no_not_affected_securities.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Not Affected Securities Grp Comp
-  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_securities_grp_comp.dissect(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Delete All Quote Response
-eurex_t7_eti_fbe_v2_5.delete_all_quote_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-  local size_of_delete_all_quote_response = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.size(buffer, offset)
-  local index = offset + size_of_delete_all_quote_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_quote_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-    parent:set_len(size_of_delete_all_quote_response)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_quote_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_quote_response.fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
-
-    return index
-  end
-end
-
 -- Delete All Quote Request
 eurex_t7_eti_fbe_v2_5.delete_all_quote_request = {}
 
@@ -15808,214 +16913,6 @@ eurex_t7_eti_fbe_v2_5.delete_all_quote_request.dissect = function(buffer, offset
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.delete_all_quote_request.fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
-
-    return index
-  end
-end
-
--- Delete All Quote Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast = {}
-
--- Read runtime size of: Delete All Quote Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Quote Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Quote Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Rbc Header Me Comp: Struct of 10 fields
-  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v2_5.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_not_affected_securities = eurex_t7_eti_fbe_v2_5.no_not_affected_securities.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Desk Id: 3 Byte Ascii String Nullable
-  index, target_party_id_desk_id = eurex_t7_eti_fbe_v2_5.target_party_id_desk_id.dissect(buffer, index, packet, parent)
-
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eti_fbe_v2_5.pad1.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Not Affected Securities Grp Comp
-  for not_affected_securities_grp_comp_index = 1, no_not_affected_securities do
-    index, not_affected_securities_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_securities_grp_comp.dissect(buffer, index, packet, parent, not_affected_securities_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Delete All Quote Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
-  local size_of_delete_all_quote_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.size(buffer, offset)
-  local index = offset + size_of_delete_all_quote_broadcast
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_quote_broadcast, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
-    parent:set_len(size_of_delete_all_quote_broadcast)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
-
-    return index
-  end
-end
-
--- Not Affected Orders Grp Comp
-eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp = {}
-
--- Size: Not Affected Orders Grp Comp
-eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.not_affected_order_id.size + 
-  eurex_t7_eti_fbe_v2_5.not_aff_orig_cl_ord_id.size
-
--- Display: Not Affected Orders Grp Comp
-eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Not Affected Orders Grp Comp
-eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
-  local index = offset
-
-  -- Implicit Not Affected Orders Grp Comp Index
-  if not_affected_orders_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.not_affected_orders_grp_comp_index, not_affected_orders_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Not Affected Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, not_affected_order_id = eurex_t7_eti_fbe_v2_5.not_affected_order_id.dissect(buffer, index, packet, parent)
-
-  -- Not Aff Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, not_aff_orig_cl_ord_id = eurex_t7_eti_fbe_v2_5.not_aff_orig_cl_ord_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Not Affected Orders Grp Comp
-eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect = function(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.not_affected_orders_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.fields(buffer, offset, packet, parent, not_affected_orders_grp_comp_index)
-  end
-end
-
--- Delete All Order Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_response = {}
-
--- Read runtime size of: Delete All Order Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Order Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Order Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Response Header Me Comp: Struct of 11 fields
-  index, response_header_me_comp = eurex_t7_eti_fbe_v2_5.response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_not_affected_orders = eurex_t7_eti_fbe_v2_5.no_not_affected_orders.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Not Affected Orders Grp Comp
-  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
-    index, not_affected_orders_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Delete All Order Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
-  local size_of_delete_all_order_response = eurex_t7_eti_fbe_v2_5.delete_all_order_response.size(buffer, offset)
-  local index = offset + size_of_delete_all_order_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
-    parent:set_len(size_of_delete_all_order_response)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_order_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
 
     return index
   end
@@ -16095,280 +16992,6 @@ eurex_t7_eti_fbe_v2_5.delete_all_order_request.dissect = function(buffer, offset
   end
 end
 
--- Delete All Order Quote Event Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast = {}
-
--- Read runtime size of: Delete All Order Quote Event Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Order Quote Event Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Order Quote Event Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Rbc Header Me Comp: Struct of 10 fields
-  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v2_5.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Pad2v2: 2 Byte
-  index, pad2v2 = eurex_t7_eti_fbe_v2_5.pad2v2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete All Order Quote Event Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
-  local size_of_delete_all_order_quote_event_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.size(buffer, offset)
-  local index = offset + size_of_delete_all_order_quote_event_broadcast
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_quote_event_broadcast, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
-    parent:set_len(size_of_delete_all_order_quote_event_broadcast)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
-
-    return index
-  end
-end
-
--- Delete All Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response = {}
-
--- Read runtime size of: Delete All Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Delete All Order Nr Response
-eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
-  local size_of_delete_all_order_nr_response = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.size(buffer, offset)
-  local index = offset + size_of_delete_all_order_nr_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_nr_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
-    parent:set_len(size_of_delete_all_order_nr_response)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
-
-    return index
-  end
-end
-
--- Delete All Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast = {}
-
--- Read runtime size of: Delete All Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Delete All Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Delete All Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Rbc Header Me Comp: Struct of 10 fields
-  index, rbc_header_me_comp = eurex_t7_eti_fbe_v2_5.rbc_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_action_report_id = eurex_t7_eti_fbe_v2_5.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Session Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_session_id = eurex_t7_eti_fbe_v2_5.target_party_id_session_id.dissect(buffer, index, packet, parent)
-
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_trader = eurex_t7_eti_fbe_v2_5.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, party_id_entering_trader = eurex_t7_eti_fbe_v2_5.party_id_entering_trader.dissect(buffer, index, packet, parent)
-
-  -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, no_not_affected_orders = eurex_t7_eti_fbe_v2_5.no_not_affected_orders.dissect(buffer, index, packet, parent)
-
-  -- Party Id Entering Firm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, party_id_entering_firm = eurex_t7_eti_fbe_v2_5.party_id_entering_firm.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Reason: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, mass_action_reason = eurex_t7_eti_fbe_v2_5.mass_action_reason.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exec_inst = eurex_t7_eti_fbe_v2_5.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Pad3: 3 Byte
-  index, pad3 = eurex_t7_eti_fbe_v2_5.pad3.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Not Affected Orders Grp Comp
-  for not_affected_orders_grp_comp_index = 1, no_not_affected_orders do
-    index, not_affected_orders_grp_comp = eurex_t7_eti_fbe_v2_5.not_affected_orders_grp_comp.dissect(buffer, index, packet, parent, not_affected_orders_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Delete All Order Broadcast
-eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.dissect = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
-  local size_of_delete_all_order_broadcast = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.size(buffer, offset)
-  local index = offset + size_of_delete_all_order_broadcast
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.delete_all_order_broadcast, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
-    parent:set_len(size_of_delete_all_order_broadcast)
-    local display = eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
-
-    return index
-  end
-end
-
--- Cross Request Response
-eurex_t7_eti_fbe_v2_5.cross_request_response = {}
-
--- Read runtime size of: Cross Request Response
-eurex_t7_eti_fbe_v2_5.cross_request_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Cross Request Response
-eurex_t7_eti_fbe_v2_5.cross_request_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cross Request Response
-eurex_t7_eti_fbe_v2_5.cross_request_response.fields = function(buffer, offset, packet, parent, size_of_cross_request_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, exec_id = eurex_t7_eti_fbe_v2_5.exec_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cross Request Response
-eurex_t7_eti_fbe_v2_5.cross_request_response.dissect = function(buffer, offset, packet, parent, size_of_cross_request_response)
-  local size_of_cross_request_response = eurex_t7_eti_fbe_v2_5.cross_request_response.size(buffer, offset)
-  local index = offset + size_of_cross_request_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.cross_request_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
-    parent:set_len(size_of_cross_request_response)
-    local display = eurex_t7_eti_fbe_v2_5.cross_request_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.cross_request_response.fields(buffer, offset, packet, parent, size_of_cross_request_response)
-
-    return index
-  end
-end
-
 -- Cross Request
 eurex_t7_eti_fbe_v2_5.cross_request = {}
 
@@ -16438,261 +17061,6 @@ eurex_t7_eti_fbe_v2_5.cross_request.dissect = function(buffer, offset, packet, p
   else
     -- Skip element, add fields directly
     eurex_t7_eti_fbe_v2_5.cross_request.fields(buffer, offset, packet, parent, size_of_cross_request)
-
-    return index
-  end
-end
-
--- Broadcast Error Notification
-eurex_t7_eti_fbe_v2_5.broadcast_error_notification = {}
-
--- Read runtime size of: Broadcast Error Notification
-eurex_t7_eti_fbe_v2_5.broadcast_error_notification.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Broadcast Error Notification
-eurex_t7_eti_fbe_v2_5.broadcast_error_notification.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Broadcast Error Notification
-eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Notif Header Comp: Struct of 1 fields
-  index, notif_header_comp = eurex_t7_eti_fbe_v2_5.notif_header_comp.dissect(buffer, index, packet, parent)
-
-  -- Appl Id Status: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, appl_id_status = eurex_t7_eti_fbe_v2_5.appl_id_status.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Sub Id: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, ref_appl_sub_id = eurex_t7_eti_fbe_v2_5.ref_appl_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Var Text Len: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, var_text_len = eurex_t7_eti_fbe_v2_5.var_text_len.dissect(buffer, index, packet, parent)
-
-  -- Ref Appl Id: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, ref_appl_id = eurex_t7_eti_fbe_v2_5.ref_appl_id.dissect(buffer, index, packet, parent)
-
-  -- Session Status: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, session_status = eurex_t7_eti_fbe_v2_5.session_status.dissect(buffer, index, packet, parent)
-
-  -- Pad4: 4 Byte
-  index, pad4 = eurex_t7_eti_fbe_v2_5.pad4.dissect(buffer, index, packet, parent)
-
-  -- Runtime Size Of: Var Text
-  index, var_text = eurex_t7_eti_fbe_v2_5.var_text.dissect(buffer, index, packet, parent, var_text_len)
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Runtime optional field: Alignment Padding
-  local alignment_padding = nil
-
-  local alignment_padding_exists = body_len ~= index
-
-  if alignment_padding_exists then
-
-    -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
-
-    -- Alignment Padding: 0 Byte
-    index, alignment_padding = eurex_t7_eti_fbe_v2_5.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
-  end
-
-  return index
-end
-
--- Dissect: Broadcast Error Notification
-eurex_t7_eti_fbe_v2_5.broadcast_error_notification.dissect = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
-  local size_of_broadcast_error_notification = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.size(buffer, offset)
-  local index = offset + size_of_broadcast_error_notification
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.broadcast_error_notification, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
-    parent:set_len(size_of_broadcast_error_notification)
-    local display = eurex_t7_eti_fbe_v2_5.broadcast_error_notification.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.broadcast_error_notification.fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
-
-    return index
-  end
-end
-
--- Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp = {}
-
--- Size: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.size =
-  eurex_t7_eti_fbe_v2_5.leg_security_id.size + 
-  eurex_t7_eti_fbe_v2_5.leg_price.size + 
-  eurex_t7_eti_fbe_v2_5.leg_symbol.size + 
-  eurex_t7_eti_fbe_v2_5.leg_ratio_qty.size + 
-  eurex_t7_eti_fbe_v2_5.leg_side.size + 
-  eurex_t7_eti_fbe_v2_5.leg_security_type.size + 
-  eurex_t7_eti_fbe_v2_5.pad6.size
-
--- Display: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  local index = offset
-
-  -- Implicit Instrmt Leg Grp Comp Index
-  if instrmt_leg_grp_comp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, leg_security_id = eurex_t7_eti_fbe_v2_5.leg_security_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_price = eurex_t7_eti_fbe_v2_5.leg_price.dissect(buffer, index, packet, parent)
-
-  -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
-  index, leg_symbol = eurex_t7_eti_fbe_v2_5.leg_symbol.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, leg_ratio_qty = eurex_t7_eti_fbe_v2_5.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, leg_side = eurex_t7_eti_fbe_v2_5.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, leg_security_type = eurex_t7_eti_fbe_v2_5.leg_security_type.dissect(buffer, index, packet, parent)
-
-  -- Pad6: 6 Byte
-  index, pad6 = eurex_t7_eti_fbe_v2_5.pad6.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrmt Leg Grp Comp
-eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.dissect = function(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.instrmt_leg_grp_comp, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
-  end
-end
-
--- Add Complex Instrument Response
-eurex_t7_eti_fbe_v2_5.add_complex_instrument_response = {}
-
--- Read runtime size of: Add Complex Instrument Response
-eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  return body_len - 6
-end
-
--- Display: Add Complex Instrument Response
-eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Add Complex Instrument Response
-eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-  local index = offset
-
-  -- Pad2: 2 Byte
-  index, pad2 = eurex_t7_eti_fbe_v2_5.pad2.dissect(buffer, index, packet, parent)
-
-  -- Nr Response Header Me Comp: Struct of 9 fields
-  index, nr_response_header_me_comp = eurex_t7_eti_fbe_v2_5.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
-
-  -- Low Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, low_limit_price = eurex_t7_eti_fbe_v2_5.low_limit_price.dissect(buffer, index, packet, parent)
-
-  -- High Limit Price: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, high_limit_price = eurex_t7_eti_fbe_v2_5.high_limit_price.dissect(buffer, index, packet, parent)
-
-  -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
-  index, security_id = eurex_t7_eti_fbe_v2_5.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Update Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_update_time = eurex_t7_eti_fbe_v2_5.last_update_time.dissect(buffer, index, packet, parent)
-
-  -- Security Response Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, security_response_id = eurex_t7_eti_fbe_v2_5.security_response_id.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, market_segment_id = eurex_t7_eti_fbe_v2_5.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Number Of Securities: 4 Byte Signed Fixed Width Integer Nullable
-  index, number_of_securities = eurex_t7_eti_fbe_v2_5.number_of_securities.dissect(buffer, index, packet, parent)
-
-  -- Security Sub Type: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_sub_type = eurex_t7_eti_fbe_v2_5.security_sub_type.dissect(buffer, index, packet, parent)
-
-  -- Multileg Model: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, multileg_model = eurex_t7_eti_fbe_v2_5.multileg_model.dissect(buffer, index, packet, parent)
-
-  -- Implied Market Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, implied_market_indicator = eurex_t7_eti_fbe_v2_5.implied_market_indicator.dissect(buffer, index, packet, parent)
-
-  -- Product Complex: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, product_complex = eurex_t7_eti_fbe_v2_5.product_complex.dissect(buffer, index, packet, parent)
-
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, no_legs = eurex_t7_eti_fbe_v2_5.no_legs.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Instrmt Leg Grp Comp
-  for instrmt_leg_grp_comp_index = 1, no_legs do
-    index, instrmt_leg_grp_comp = eurex_t7_eti_fbe_v2_5.instrmt_leg_grp_comp.dissect(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
-  end
-
-  return index
-end
-
--- Dissect: Add Complex Instrument Response
-eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.dissect = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-  local size_of_add_complex_instrument_response = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.size(buffer, offset)
-  local index = offset + size_of_add_complex_instrument_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.application_messages then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_response, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
-    parent:set_len(size_of_add_complex_instrument_response)
-    local display = eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.fields(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
 
     return index
   end
@@ -16780,182 +17148,78 @@ eurex_t7_eti_fbe_v2_5.add_complex_instrument_request.dissect = function(buffer, 
   end
 end
 
--- Payload
-eurex_t7_eti_fbe_v2_5.payload = {}
+-- Client Payload
+eurex_t7_eti_fbe_v2_5.client_payload = {}
 
--- Dissect: Payload
-eurex_t7_eti_fbe_v2_5.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+eurex_t7_eti_fbe_v2_5.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument Request
   if template_id == 10301 then
     return eurex_t7_eti_fbe_v2_5.add_complex_instrument_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Response
-  if template_id == 10302 then
-    return eurex_t7_eti_fbe_v2_5.add_complex_instrument_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broadcast Error Notification
-  if template_id == 10032 then
-    return eurex_t7_eti_fbe_v2_5.broadcast_error_notification.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Cross Request
   if template_id == 10118 then
     return eurex_t7_eti_fbe_v2_5.cross_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Cross Request Response
-  if template_id == 10119 then
-    return eurex_t7_eti_fbe_v2_5.cross_request_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Broadcast
-  if template_id == 10122 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Nr Response
-  if template_id == 10124 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Quote Event Broadcast
-  if template_id == 10308 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Delete All Order Request
   if template_id == 10120 then
     return eurex_t7_eti_fbe_v2_5.delete_all_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Response
-  if template_id == 10121 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Broadcast
-  if template_id == 10410 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete All Quote Request
   if template_id == 10408 then
     return eurex_t7_eti_fbe_v2_5.delete_all_quote_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Delete All Quote Response
-  if template_id == 10409 then
-    return eurex_t7_eti_fbe_v2_5.delete_all_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10112 then
-    return eurex_t7_eti_fbe_v2_5.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Delete Order Complex Request
   if template_id == 10123 then
     return eurex_t7_eti_fbe_v2_5.delete_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Nr Response
-  if template_id == 10111 then
-    return eurex_t7_eti_fbe_v2_5.delete_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Response
-  if template_id == 10110 then
-    return eurex_t7_eti_fbe_v2_5.delete_order_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Single Request
   if template_id == 10109 then
     return eurex_t7_eti_fbe_v2_5.delete_order_single_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_eti_fbe_v2_5.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Gateway Request
   if template_id == 10020 then
     return eurex_t7_eti_fbe_v2_5.gateway_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Response
-  if template_id == 10021 then
-    return eurex_t7_eti_fbe_v2_5.gateway_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
   if template_id == 10011 then
     return eurex_t7_eti_fbe_v2_5.heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_eti_fbe_v2_5.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Inquire Enrichment Rule Id List Request
   if template_id == 10040 then
     return eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Enrichment Rule Id List Response
-  if template_id == 10041 then
-    return eurex_t7_eti_fbe_v2_5.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Inquire Mm Parameter Request
   if template_id == 10305 then
     return eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Inquire Mm Parameter Response
-  if template_id == 10306 then
-    return eurex_t7_eti_fbe_v2_5.inquire_mm_parameter_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Inquire Session List Request
   if template_id == 10035 then
     return eurex_t7_eti_fbe_v2_5.inquire_session_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Response
-  if template_id == 10036 then
-    return eurex_t7_eti_fbe_v2_5.inquire_session_list_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Inquire User Request
   if template_id == 10038 then
     return eurex_t7_eti_fbe_v2_5.inquire_user_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Inquire User Response
-  if template_id == 10039 then
-    return eurex_t7_eti_fbe_v2_5.inquire_user_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Legal Notification Broadcast
-  if template_id == 10037 then
-    return eurex_t7_eti_fbe_v2_5.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Logon Request
   if template_id == 10000 then
     return eurex_t7_eti_fbe_v2_5.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_eti_fbe_v2_5.logon_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request
   if template_id == 10002 then
     return eurex_t7_eti_fbe_v2_5.logout_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_eti_fbe_v2_5.logout_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Mm Parameter Definition Request
   if template_id == 10303 then
     return eurex_t7_eti_fbe_v2_5.mm_parameter_definition_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Response
-  if template_id == 10304 then
-    return eurex_t7_eti_fbe_v2_5.mm_parameter_definition_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mass Quote Request
   if template_id == 10405 then
     return eurex_t7_eti_fbe_v2_5.mass_quote_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Mass Quote Response
-  if template_id == 10406 then
-    return eurex_t7_eti_fbe_v2_5.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Modify Order Complex Request
   if template_id == 10114 then
     return eurex_t7_eti_fbe_v2_5.modify_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Nr Response
-  if template_id == 10108 then
-    return eurex_t7_eti_fbe_v2_5.modify_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if template_id == 10107 then
-    return eurex_t7_eti_fbe_v2_5.modify_order_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Single Request
   if template_id == 10106 then
@@ -16969,14 +17233,6 @@ eurex_t7_eti_fbe_v2_5.payload.dissect = function(buffer, offset, packet, parent,
   if template_id == 10113 then
     return eurex_t7_eti_fbe_v2_5.new_order_complex_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect New Order Nr Response
-  if template_id == 10102 then
-    return eurex_t7_eti_fbe_v2_5.new_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response
-  if template_id == 10101 then
-    return eurex_t7_eti_fbe_v2_5.new_order_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect New Order Single Request
   if template_id == 10100 then
     return eurex_t7_eti_fbe_v2_5.new_order_single_request.dissect(buffer, offset, packet, parent)
@@ -16985,188 +17241,52 @@ eurex_t7_eti_fbe_v2_5.payload.dissect = function(buffer, offset, packet, parent,
   if template_id == 10125 then
     return eurex_t7_eti_fbe_v2_5.new_order_single_short_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect News Broadcast
-  if template_id == 10031 then
-    return eurex_t7_eti_fbe_v2_5.news_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Notification
-  if template_id == 10104 then
-    return eurex_t7_eti_fbe_v2_5.order_exec_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10117 then
-    return eurex_t7_eti_fbe_v2_5.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Response
-  if template_id == 10103 then
-    return eurex_t7_eti_fbe_v2_5.order_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Action Report
-  if template_id == 10042 then
-    return eurex_t7_eti_fbe_v2_5.party_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Entitlements Update Report
-  if template_id == 10034 then
-    return eurex_t7_eti_fbe_v2_5.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Notification
-  if template_id == 10411 then
-    return eurex_t7_eti_fbe_v2_5.quote_activation_notification.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Quote Activation Request
   if template_id == 10403 then
     return eurex_t7_eti_fbe_v2_5.quote_activation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Response
-  if template_id == 10404 then
-    return eurex_t7_eti_fbe_v2_5.quote_activation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Report
-  if template_id == 10407 then
-    return eurex_t7_eti_fbe_v2_5.quote_execution_report.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Rfq Request
   if template_id == 10401 then
     return eurex_t7_eti_fbe_v2_5.rfq_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Rfq Response
-  if template_id == 10402 then
-    return eurex_t7_eti_fbe_v2_5.rfq_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_eti_fbe_v2_5.reject.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Retransmit Me Message Request
   if template_id == 10026 then
     return eurex_t7_eti_fbe_v2_5.retransmit_me_message_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Response
-  if template_id == 10027 then
-    return eurex_t7_eti_fbe_v2_5.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmit Request
   if template_id == 10008 then
     return eurex_t7_eti_fbe_v2_5.retransmit_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return eurex_t7_eti_fbe_v2_5.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Notification Broadcast
-  if template_id == 10033 then
-    return eurex_t7_eti_fbe_v2_5.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Broadcast
-  if template_id == 10030 then
-    return eurex_t7_eti_fbe_v2_5.service_availability_broadcast.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Subscribe Request
   if template_id == 10025 then
     return eurex_t7_eti_fbe_v2_5.subscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Response
-  if template_id == 10005 then
-    return eurex_t7_eti_fbe_v2_5.subscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tm Trading Session Status Broadcast
-  if template_id == 10501 then
-    return eurex_t7_eti_fbe_v2_5.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Throttle Update Notification
-  if template_id == 10028 then
-    return eurex_t7_eti_fbe_v2_5.throttle_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Broadcast
-  if template_id == 10500 then
-    return eurex_t7_eti_fbe_v2_5.trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Broadcast
-  if template_id == 10307 then
-    return eurex_t7_eti_fbe_v2_5.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsubscribe Request
   if template_id == 10006 then
     return eurex_t7_eti_fbe_v2_5.unsubscribe_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Unsubscribe Response
-  if template_id == 10007 then
-    return eurex_t7_eti_fbe_v2_5.unsubscribe_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect User Login Request
   if template_id == 10018 then
     return eurex_t7_eti_fbe_v2_5.user_login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return eurex_t7_eti_fbe_v2_5.user_login_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect User Logout Request
   if template_id == 10029 then
     return eurex_t7_eti_fbe_v2_5.user_logout_request.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return eurex_t7_eti_fbe_v2_5.user_logout_response.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Message Header
-eurex_t7_eti_fbe_v2_5.message_header = {}
+-- Client Message
+eurex_t7_eti_fbe_v2_5.client_message = {}
 
--- Size: Message Header
-eurex_t7_eti_fbe_v2_5.message_header.size =
-  eurex_t7_eti_fbe_v2_5.body_len.size + 
-  eurex_t7_eti_fbe_v2_5.template_id.size
-
--- Display: Message Header
-eurex_t7_eti_fbe_v2_5.message_header.display = function(packet, parent, length)
+-- Display: Client Message
+eurex_t7_eti_fbe_v2_5.client_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-eurex_t7_eti_fbe_v2_5.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, body_len = eurex_t7_eti_fbe_v2_5.body_len.dissect(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 82 values
-  index, template_id = eurex_t7_eti_fbe_v2_5.template_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-eurex_t7_eti_fbe_v2_5.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.message_header, buffer(offset, 0))
-    local index = eurex_t7_eti_fbe_v2_5.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_t7_eti_fbe_v2_5.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_t7_eti_fbe_v2_5.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-eurex_t7_eti_fbe_v2_5.message = {}
-
--- Display: Message
-eurex_t7_eti_fbe_v2_5.message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message
-eurex_t7_eti_fbe_v2_5.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Client Message
+eurex_t7_eti_fbe_v2_5.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -17175,35 +17295,35 @@ eurex_t7_eti_fbe_v2_5.message.fields = function(buffer, offset, packet, parent, 
   -- Dependency element: Template Id
   local template_id = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 81 branches
-  index = eurex_t7_eti_fbe_v2_5.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 30 branches
+  index = eurex_t7_eti_fbe_v2_5.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Message
-eurex_t7_eti_fbe_v2_5.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Client Message
+eurex_t7_eti_fbe_v2_5.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
+  local index = offset + size_of_client_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v2_5.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = eurex_t7_eti_fbe_v2_5.message.display(buffer, packet, parent)
+    parent = parent:add(omi_eurex_t7_eti_fbe_v2_5.fields.client_message, buffer(offset, 0))
+    local current = eurex_t7_eti_fbe_v2_5.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    parent:set_len(size_of_client_message)
+    local display = eurex_t7_eti_fbe_v2_5.client_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v2_5.message.fields(buffer, offset, packet, parent, size_of_message)
+    eurex_t7_eti_fbe_v2_5.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Message
-local message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Message
+local client_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -17223,29 +17343,29 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-eurex_t7_eti_fbe_v2_5.packet = {}
+-- Client Packet
+eurex_t7_eti_fbe_v2_5.client_packet = {}
 
 -- Verify required size of Tcp packet
-eurex_t7_eti_fbe_v2_5.packet.requiredsize = function(buffer)
+eurex_t7_eti_fbe_v2_5.client_packet.requiredsize = function(buffer)
   return buffer:len() >= eurex_t7_eti_fbe_v2_5.message_header.size
 end
 
--- Dissect Packet
-eurex_t7_eti_fbe_v2_5.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+eurex_t7_eti_fbe_v2_5.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Client Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Client Message: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_message = client_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_t7_eti_fbe_v2_5.message.dissect(buffer, index, packet, parent, size_of_message)
+      index = eurex_t7_eti_fbe_v2_5.client_message.dissect(buffer, index, packet, parent, size_of_client_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -17267,6 +17387,71 @@ end
 function omi_eurex_t7_eti_fbe_v2_5.init()
 end
 
+-- Connection roles for Eurex T7 Eti Fbe 2.5: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+eurex_t7_eti_fbe_v2_5.role = function(packet)
+  if omi_eurex_t7_eti_fbe_v2_5.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_eurex_t7_eti_fbe_v2_5.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_eurex_t7_eti_fbe_v2_5.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_eurex_t7_eti_fbe_v2_5.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+eurex_t7_eti_fbe_v2_5.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Eurex T7 Eti Fbe 2.5
 function omi_eurex_t7_eti_fbe_v2_5.dissector(buffer, packet, parent)
 
@@ -17275,8 +17460,444 @@ function omi_eurex_t7_eti_fbe_v2_5.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_t7_eti_fbe_v2_5, buffer(), omi_eurex_t7_eti_fbe_v2_5.description, "("..buffer:len().." Bytes)")
-  return eurex_t7_eti_fbe_v2_5.packet.dissect(buffer, packet, protocol)
+  local role = eurex_t7_eti_fbe_v2_5.role(packet)
+  if role == "initiator" then
+    return eurex_t7_eti_fbe_v2_5.client_packet.dissect(buffer, packet, protocol)
+  end
+  return eurex_t7_eti_fbe_v2_5.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+eurex_t7_eti_fbe_v2_5.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Add Complex Instrument Request
+  if template_id == 10301 then
+    return true
+  end
+
+  -- Cross Request
+  if template_id == 10118 then
+    return true
+  end
+
+  -- Delete All Order Request
+  if template_id == 10120 then
+    return true
+  end
+
+  -- Delete All Quote Request
+  if template_id == 10408 then
+    return true
+  end
+
+  -- Delete Order Complex Request
+  if template_id == 10123 then
+    return true
+  end
+
+  -- Delete Order Single Request
+  if template_id == 10109 then
+    return true
+  end
+
+  -- Gateway Request
+  if template_id == 10020 then
+    return true
+  end
+
+  -- Heartbeat
+  if template_id == 10011 then
+    return true
+  end
+
+  -- Inquire Enrichment Rule Id List Request
+  if template_id == 10040 then
+    return true
+  end
+
+  -- Inquire Mm Parameter Request
+  if template_id == 10305 then
+    return true
+  end
+
+  -- Inquire Session List Request
+  if template_id == 10035 then
+    return true
+  end
+
+  -- Inquire User Request
+  if template_id == 10038 then
+    return true
+  end
+
+  -- Logon Request
+  if template_id == 10000 then
+    return true
+  end
+
+  -- Logout Request
+  if template_id == 10002 then
+    return true
+  end
+
+  -- Mm Parameter Definition Request
+  if template_id == 10303 then
+    return true
+  end
+
+  -- Mass Quote Request
+  if template_id == 10405 then
+    return true
+  end
+
+  -- Modify Order Complex Request
+  if template_id == 10114 then
+    return true
+  end
+
+  -- Modify Order Single Request
+  if template_id == 10106 then
+    return true
+  end
+
+  -- Modify Order Single Short Request
+  if template_id == 10126 then
+    return true
+  end
+
+  -- New Order Complex Request
+  if template_id == 10113 then
+    return true
+  end
+
+  -- New Order Single Request
+  if template_id == 10100 then
+    return true
+  end
+
+  -- New Order Single Short Request
+  if template_id == 10125 then
+    return true
+  end
+
+  -- Quote Activation Request
+  if template_id == 10403 then
+    return true
+  end
+
+  -- Rfq Request
+  if template_id == 10401 then
+    return true
+  end
+
+  -- Retransmit Me Message Request
+  if template_id == 10026 then
+    return true
+  end
+
+  -- Retransmit Request
+  if template_id == 10008 then
+    return true
+  end
+
+  -- Subscribe Request
+  if template_id == 10025 then
+    return true
+  end
+
+  -- Unsubscribe Request
+  if template_id == 10006 then
+    return true
+  end
+
+  -- User Login Request
+  if template_id == 10018 then
+    return true
+  end
+
+  -- User Logout Request
+  if template_id == 10029 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+eurex_t7_eti_fbe_v2_5.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Add Complex Instrument Response
+  if template_id == 10302 then
+    return true
+  end
+
+  -- Broadcast Error Notification
+  if template_id == 10032 then
+    return true
+  end
+
+  -- Cross Request Response
+  if template_id == 10119 then
+    return true
+  end
+
+  -- Delete All Order Broadcast
+  if template_id == 10122 then
+    return true
+  end
+
+  -- Delete All Order Nr Response
+  if template_id == 10124 then
+    return true
+  end
+
+  -- Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return true
+  end
+
+  -- Delete All Order Response
+  if template_id == 10121 then
+    return true
+  end
+
+  -- Delete All Quote Broadcast
+  if template_id == 10410 then
+    return true
+  end
+
+  -- Delete All Quote Response
+  if template_id == 10409 then
+    return true
+  end
+
+  -- Delete Order Broadcast
+  if template_id == 10112 then
+    return true
+  end
+
+  -- Delete Order Nr Response
+  if template_id == 10111 then
+    return true
+  end
+
+  -- Delete Order Response
+  if template_id == 10110 then
+    return true
+  end
+
+  -- Forced Logout Notification
+  if template_id == 10012 then
+    return true
+  end
+
+  -- Gateway Response
+  if template_id == 10021 then
+    return true
+  end
+
+  -- Heartbeat Notification
+  if template_id == 10023 then
+    return true
+  end
+
+  -- Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return true
+  end
+
+  -- Inquire Mm Parameter Response
+  if template_id == 10306 then
+    return true
+  end
+
+  -- Inquire Session List Response
+  if template_id == 10036 then
+    return true
+  end
+
+  -- Inquire User Response
+  if template_id == 10039 then
+    return true
+  end
+
+  -- Legal Notification Broadcast
+  if template_id == 10037 then
+    return true
+  end
+
+  -- Logon Response
+  if template_id == 10001 then
+    return true
+  end
+
+  -- Logout Response
+  if template_id == 10003 then
+    return true
+  end
+
+  -- Mm Parameter Definition Response
+  if template_id == 10304 then
+    return true
+  end
+
+  -- Mass Quote Response
+  if template_id == 10406 then
+    return true
+  end
+
+  -- Modify Order Nr Response
+  if template_id == 10108 then
+    return true
+  end
+
+  -- Modify Order Response
+  if template_id == 10107 then
+    return true
+  end
+
+  -- New Order Nr Response
+  if template_id == 10102 then
+    return true
+  end
+
+  -- New Order Response
+  if template_id == 10101 then
+    return true
+  end
+
+  -- News Broadcast
+  if template_id == 10031 then
+    return true
+  end
+
+  -- Order Exec Notification
+  if template_id == 10104 then
+    return true
+  end
+
+  -- Order Exec Report Broadcast
+  if template_id == 10117 then
+    return true
+  end
+
+  -- Order Exec Response
+  if template_id == 10103 then
+    return true
+  end
+
+  -- Party Action Report
+  if template_id == 10042 then
+    return true
+  end
+
+  -- Party Entitlements Update Report
+  if template_id == 10034 then
+    return true
+  end
+
+  -- Quote Activation Notification
+  if template_id == 10411 then
+    return true
+  end
+
+  -- Quote Activation Response
+  if template_id == 10404 then
+    return true
+  end
+
+  -- Quote Execution Report
+  if template_id == 10407 then
+    return true
+  end
+
+  -- Rfq Response
+  if template_id == 10402 then
+    return true
+  end
+
+  -- Reject
+  if template_id == 10010 then
+    return true
+  end
+
+  -- Retransmit Me Message Response
+  if template_id == 10027 then
+    return true
+  end
+
+  -- Retransmit Response
+  if template_id == 10009 then
+    return true
+  end
+
+  -- Risk Notification Broadcast
+  if template_id == 10033 then
+    return true
+  end
+
+  -- Service Availability Broadcast
+  if template_id == 10030 then
+    return true
+  end
+
+  -- Subscribe Response
+  if template_id == 10005 then
+    return true
+  end
+
+  -- Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return true
+  end
+
+  -- Throttle Update Notification
+  if template_id == 10028 then
+    return true
+  end
+
+  -- Trade Broadcast
+  if template_id == 10500 then
+    return true
+  end
+
+  -- Trading Session Status Broadcast
+  if template_id == 10307 then
+    return true
+  end
+
+  -- Unsubscribe Response
+  if template_id == 10007 then
+    return true
+  end
+
+  -- User Login Response
+  if template_id == 10019 then
+    return true
+  end
+
+  -- User Logout Response
+  if template_id == 10024 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -17284,9 +17905,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Eurex T7 Eti Fbe 2.5 (Tcp)
-local function omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic(buffer, packet, parent)
+local function omi_eurex_t7_eti_fbe_v2_5_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not eurex_t7_eti_fbe_v2_5.packet.requiredsize(buffer) then return false end
+  if not eurex_t7_eti_fbe_v2_5.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_eti_fbe_v2_5.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_eurex_t7_eti_fbe_v2_5
@@ -17295,9 +17919,44 @@ local function omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Eurex T7 Eti Fbe 2.5
-omi_eurex_t7_eti_fbe_v2_5:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic)
+-- Dissector Heuristic for Eurex T7 Eti Fbe 2.5 (Tcp)
+local function omi_eurex_t7_eti_fbe_v2_5_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not eurex_t7_eti_fbe_v2_5.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify the frame matches this side's fingerprint
+  if not eurex_t7_eti_fbe_v2_5.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_eurex_t7_eti_fbe_v2_5
+  omi_eurex_t7_eti_fbe_v2_5.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Eurex T7 Eti Fbe 2.5 (Tcp): apply the heuristic of the sender's connection role
+local function omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic(buffer, packet, parent)
+  local role = eurex_t7_eti_fbe_v2_5.role(packet)
+  local first, second = omi_eurex_t7_eti_fbe_v2_5_tcp_initiator_heuristic, omi_eurex_t7_eti_fbe_v2_5_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  eurex_t7_eti_fbe_v2_5.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  eurex_t7_eti_fbe_v2_5.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Eurex T7 Eti Fbe 2.5
+omi_eurex_t7_eti_fbe_v2_5:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic)
 -- Register Eurex T7 Eti Fbe 2.5 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v2_5)
