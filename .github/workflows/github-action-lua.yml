@@ -268,6 +268,9 @@ jobs:
       - name: Run Nyse TexasEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-TexasEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
+      - name: Run Nyse NyseEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
+
       - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
         run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
 

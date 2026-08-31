@@ -20,23 +20,6 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.side" Nyse.NyseEquities.Int
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.firmid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/AddOrderRefreshMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
-  -T json \
-  > Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr \
-  || { echo "--- tshark FAILED (AddOrderRefreshMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr; exit 1; }
-
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.sourcetime" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.sourcetimens" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolindex" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.orderid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.price" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.volume" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.side" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.firmid" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.AddOrderRefreshMessage.json
-runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/CrossTradeMessage.pcap" \
   -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
   -T json \
