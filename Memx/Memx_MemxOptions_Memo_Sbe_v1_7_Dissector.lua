@@ -30,6 +30,7 @@ omi_memx_memxoptions_memo_sbe_v1_7.fields.block_length_short = ProtoField.new("B
 omi_memx_memxoptions_memo_sbe_v1_7.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.memxoptions.memo.sbe.v1.7.cancelgroupid", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.memxoptions.memo.sbe.v1.7.cancelordersfromthisportonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.memxoptions.memo.sbe.v1.7.cancelreason", ftypes.UINT8)
+omi_memx_memxoptions_memo_sbe_v1_7.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "memx.memxoptions.memo.sbe.v1.7.clientsbemessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.clordid = ProtoField.new("ClOrdId", "memx.memxoptions.memo.sbe.v1.7.clordid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.memxoptions.memo.sbe.v1.7.contratradingcapacity", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.count = ProtoField.new("Count", "memx.memxoptions.memo.sbe.v1.7.count", ftypes.UINT32)
@@ -121,13 +122,13 @@ omi_memx_memxoptions_memo_sbe_v1_7.fields.reserved_13 = ProtoField.new("Reserved
 omi_memx_memxoptions_memo_sbe_v1_7.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.memxoptions.memo.sbe.v1.7.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.memo.sbe.v1.7.riskgroupid", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memo.sbe.v1.7.sbeheader", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.memo.sbe.v1.7.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memo.sbe.v1.7.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.memxoptions.memo.sbe.v1.7.secondaryallocid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.7.securityid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.memo.sbe.v1.7.sendcancels", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.7.sendingtime", ftypes.UINT64)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memo.sbe.v1.7.sequencedmessage", ftypes.STRING)
+omi_memx_memxoptions_memo_sbe_v1_7.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxoptions.memo.sbe.v1.7.serversbemessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.memo.sbe.v1.7.sessionid", ftypes.UINT64)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.side = ProtoField.new("Side", "memx.memxoptions.memo.sbe.v1.7.side", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_7.fields.side_optional = ProtoField.new("Side Optional", "memx.memxoptions.memo.sbe.v1.7.sideoptional", ftypes.STRING)
@@ -6930,6 +6931,841 @@ memx_memxoptions_memo_sbe_v1_7.execution_report_new_message.dissect = function(b
   end
 end
 
+-- Server Payload
+memx_memxoptions_memo_sbe_v1_7.server_payload = {}
+
+-- Dissect: Server Payload
+memx_memxoptions_memo_sbe_v1_7.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Execution Report New Message
+  if template_id == 11 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_new_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Bulk Quote Pending New Message
+  if template_id == 12 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_bulk_quote_pending_new_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Bulk Quote Component New Message
+  if template_id == 13 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_bulk_quote_component_new_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Rejected Message
+  if template_id == 14 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Message
+  if template_id == 15 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Cancel Message
+  if template_id == 16 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_pending_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Canceled Message
+  if template_id == 17 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_canceled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Replace Message
+  if template_id == 18 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_pending_replace_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Replaced Message
+  if template_id == 19 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_replaced_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Correction Message
+  if template_id == 20 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Break Message
+  if template_id == 21 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Restatement Message
+  if template_id == 22 then
+    return memx_memxoptions_memo_sbe_v1_7.execution_report_restatement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Pending Mass Cancel Message
+  if template_id == 23 then
+    return memx_memxoptions_memo_sbe_v1_7.pending_mass_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Reject Message
+  if template_id == 24 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Done Message
+  if template_id == 25 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_done_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Reject Message
+  if template_id == 26 then
+    return memx_memxoptions_memo_sbe_v1_7.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Allocation Instruction Ack Message
+  if template_id == 27 then
+    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Allocation Instruction Alert Message
+  if template_id == 28 then
+    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_alert_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Notification Message
+  if template_id == 29 then
+    return memx_memxoptions_memo_sbe_v1_7.user_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Clear Lockout Reject Message
+  if template_id == 30 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_clear_lockout_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Clear Lockout Done Message
+  if template_id == 31 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_clear_lockout_done_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Bulk Clear Lockout Reject Message
+  if template_id == 35 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockout_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Bulk Clear Lockout Accepted Message
+  if template_id == 36 then
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockout_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sbe Header
+memx_memxoptions_memo_sbe_v1_7.sbe_header = {}
+
+-- Size: Sbe Header
+memx_memxoptions_memo_sbe_v1_7.sbe_header.size =
+  memx_memxoptions_memo_sbe_v1_7.block_length.size + 
+  memx_memxoptions_memo_sbe_v1_7.template_id.size + 
+  memx_memxoptions_memo_sbe_v1_7.schema_id.size + 
+  memx_memxoptions_memo_sbe_v1_7.version.size
+
+-- Display: Sbe Header
+memx_memxoptions_memo_sbe_v1_7.sbe_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sbe Header
+memx_memxoptions_memo_sbe_v1_7.sbe_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  index, block_length = memx_memxoptions_memo_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 35 values
+  index, template_id = memx_memxoptions_memo_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  index, schema_id = memx_memxoptions_memo_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  index, version = memx_memxoptions_memo_sbe_v1_7.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sbe Header
+memx_memxoptions_memo_sbe_v1_7.sbe_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.sbe_header, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.sbe_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Sbe Message
+memx_memxoptions_memo_sbe_v1_7.server_sbe_message = {}
+
+-- Calculate size of: Server Sbe Message
+memx_memxoptions_memo_sbe_v1_7.server_sbe_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_7.sbe_header.size
+
+  -- Calculate runtime size of Server Payload field
+  local server_payload_offset = offset + index
+  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  index = index + memx_memxoptions_memo_sbe_v1_7.server_payload.size(buffer, server_payload_offset, server_payload_type)
+
+  return index
+end
+
+-- Display: Server Sbe Message
+memx_memxoptions_memo_sbe_v1_7.server_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Sbe Message
+memx_memxoptions_memo_sbe_v1_7.server_sbe_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = memx_memxoptions_memo_sbe_v1_7.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 4, 1):uint()
+
+  -- Server Payload: Runtime Type with 23 branches
+  index = memx_memxoptions_memo_sbe_v1_7.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Sbe Message
+memx_memxoptions_memo_sbe_v1_7.server_sbe_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.server_sbe_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.server_sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.server_sbe_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.server_sbe_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+memx_memxoptions_memo_sbe_v1_7.sequenced_message = {}
+
+-- Calculate size of: Sequenced Message
+memx_memxoptions_memo_sbe_v1_7.sequenced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_7.server_sbe_message.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Sequenced Message
+memx_memxoptions_memo_sbe_v1_7.sequenced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message
+memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Sbe Message: Struct of 2 fields
+  index, server_sbe_message = memx_memxoptions_memo_sbe_v1_7.server_sbe_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Message
+memx_memxoptions_memo_sbe_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.sequenced_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Complete Message
+memx_memxoptions_memo_sbe_v1_7.stream_complete_message = {}
+
+-- Size: Stream Complete Message
+memx_memxoptions_memo_sbe_v1_7.stream_complete_message.size =
+  memx_memxoptions_memo_sbe_v1_7.total_sequence_count.size
+
+-- Display: Stream Complete Message
+memx_memxoptions_memo_sbe_v1_7.stream_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Complete Message
+memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
+  index, total_sequence_count = memx_memxoptions_memo_sbe_v1_7.total_sequence_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Complete Message
+memx_memxoptions_memo_sbe_v1_7.stream_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.stream_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Rejected Message
+memx_memxoptions_memo_sbe_v1_7.stream_rejected_message = {}
+
+-- Size: Stream Rejected Message
+memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.size =
+  memx_memxoptions_memo_sbe_v1_7.stream_reject_code.size
+
+-- Display: Stream Rejected Message
+memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Rejected Message
+memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
+  index, stream_reject_code = memx_memxoptions_memo_sbe_v1_7.stream_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Rejected Message
+memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Begin Message
+memx_memxoptions_memo_sbe_v1_7.stream_begin_message = {}
+
+-- Size: Stream Begin Message
+memx_memxoptions_memo_sbe_v1_7.stream_begin_message.size =
+  memx_memxoptions_memo_sbe_v1_7.next_sequence_number.size + 
+  memx_memxoptions_memo_sbe_v1_7.max_sequence_number.size
+
+-- Display: Stream Begin Message
+memx_memxoptions_memo_sbe_v1_7.stream_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Begin Message
+memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = memx_memxoptions_memo_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, max_sequence_number = memx_memxoptions_memo_sbe_v1_7.max_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Begin Message
+memx_memxoptions_memo_sbe_v1_7.stream_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.stream_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Complete Message
+memx_memxoptions_memo_sbe_v1_7.replay_complete_message = {}
+
+-- Size: Replay Complete Message
+memx_memxoptions_memo_sbe_v1_7.replay_complete_message.size =
+  memx_memxoptions_memo_sbe_v1_7.message_count.size
+
+-- Display: Replay Complete Message
+memx_memxoptions_memo_sbe_v1_7.replay_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Complete Message
+memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Count: 8 Byte Unsigned Fixed Width Integer
+  index, message_count = memx_memxoptions_memo_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Complete Message
+memx_memxoptions_memo_sbe_v1_7.replay_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.replay_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Rejected Message
+memx_memxoptions_memo_sbe_v1_7.replay_rejected_message = {}
+
+-- Size: Replay Rejected Message
+memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.size =
+  memx_memxoptions_memo_sbe_v1_7.replay_reject_code.size
+
+-- Display: Replay Rejected Message
+memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Rejected Message
+memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, replay_reject_code = memx_memxoptions_memo_sbe_v1_7.replay_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Rejected Message
+memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Begin Message
+memx_memxoptions_memo_sbe_v1_7.replay_begin_message = {}
+
+-- Size: Replay Begin Message
+memx_memxoptions_memo_sbe_v1_7.replay_begin_message.size =
+  memx_memxoptions_memo_sbe_v1_7.next_sequence_number.size + 
+  memx_memxoptions_memo_sbe_v1_7.pending_message_count.size
+
+-- Display: Replay Begin Message
+memx_memxoptions_memo_sbe_v1_7.replay_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Begin Message
+memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = memx_memxoptions_memo_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
+  index, pending_message_count = memx_memxoptions_memo_sbe_v1_7.pending_message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Begin Message
+memx_memxoptions_memo_sbe_v1_7.replay_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.replay_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Start Of Session Message
+memx_memxoptions_memo_sbe_v1_7.start_of_session_message = {}
+
+-- Size: Start Of Session Message
+memx_memxoptions_memo_sbe_v1_7.start_of_session_message.size =
+  memx_memxoptions_memo_sbe_v1_7.session_id.size
+
+-- Display: Start Of Session Message
+memx_memxoptions_memo_sbe_v1_7.start_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Start Of Session Message
+memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 8 Byte Unsigned Fixed Width Integer
+  index, session_id = memx_memxoptions_memo_sbe_v1_7.session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Session Message
+memx_memxoptions_memo_sbe_v1_7.start_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.start_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Rejected Message
+memx_memxoptions_memo_sbe_v1_7.login_rejected_message = {}
+
+-- Size: Login Rejected Message
+memx_memxoptions_memo_sbe_v1_7.login_rejected_message.size =
+  memx_memxoptions_memo_sbe_v1_7.login_reject_code.size
+
+-- Display: Login Rejected Message
+memx_memxoptions_memo_sbe_v1_7.login_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Message
+memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, login_reject_code = memx_memxoptions_memo_sbe_v1_7.login_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Message
+memx_memxoptions_memo_sbe_v1_7.login_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.login_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Message
+memx_memxoptions_memo_sbe_v1_7.login_accepted_message = {}
+
+-- Size: Login Accepted Message
+memx_memxoptions_memo_sbe_v1_7.login_accepted_message.size =
+  memx_memxoptions_memo_sbe_v1_7.supported_request_mode.size
+
+-- Display: Login Accepted Message
+memx_memxoptions_memo_sbe_v1_7.login_accepted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Message
+memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
+  index, supported_request_mode = memx_memxoptions_memo_sbe_v1_7.supported_request_mode.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Message
+memx_memxoptions_memo_sbe_v1_7.login_accepted_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.login_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Data
+memx_memxoptions_memo_sbe_v1_7.server_data = {}
+
+-- Dissect: Server Data
+memx_memxoptions_memo_sbe_v1_7.server_data.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Accepted Message
+  if message_type == 1 then
+    return memx_memxoptions_memo_sbe_v1_7.login_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Message
+  if message_type == 2 then
+    return memx_memxoptions_memo_sbe_v1_7.login_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session Message
+  if message_type == 3 then
+    return memx_memxoptions_memo_sbe_v1_7.start_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Begin Message
+  if message_type == 5 then
+    return memx_memxoptions_memo_sbe_v1_7.replay_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Rejected Message
+  if message_type == 6 then
+    return memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 7 then
+    return memx_memxoptions_memo_sbe_v1_7.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Begin Message
+  if message_type == 8 then
+    return memx_memxoptions_memo_sbe_v1_7.stream_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Rejected Message
+  if message_type == 9 then
+    return memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Complete Message
+  if message_type == 10 then
+    return memx_memxoptions_memo_sbe_v1_7.stream_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message
+  if message_type == 11 then
+    return memx_memxoptions_memo_sbe_v1_7.sequenced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Common Header
+memx_memxoptions_memo_sbe_v1_7.common_header = {}
+
+-- Size: Common Header
+memx_memxoptions_memo_sbe_v1_7.common_header.size =
+  memx_memxoptions_memo_sbe_v1_7.message_type.size + 
+  memx_memxoptions_memo_sbe_v1_7.message_length.size
+
+-- Display: Common Header
+memx_memxoptions_memo_sbe_v1_7.common_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Common Header
+memx_memxoptions_memo_sbe_v1_7.common_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  index, message_type = memx_memxoptions_memo_sbe_v1_7.message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = memx_memxoptions_memo_sbe_v1_7.message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Common Header
+memx_memxoptions_memo_sbe_v1_7.common_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.common_header, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.common_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+memx_memxoptions_memo_sbe_v1_7.server_packet = {}
+
+-- Verify required size of Tcp packet
+memx_memxoptions_memo_sbe_v1_7.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= memx_memxoptions_memo_sbe_v1_7.common_header.size
+end
+
+-- Dissect Server Packet
+memx_memxoptions_memo_sbe_v1_7.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Common Header: Struct of 2 fields
+  index, common_header = memx_memxoptions_memo_sbe_v1_7.common_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 3, 1):uint()
+
+  -- Server Data: Runtime Type with 10 branches
+  index = memx_memxoptions_memo_sbe_v1_7.server_data.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = {}
+
+-- Size: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.size =
+  memx_memxoptions_memo_sbe_v1_7.sending_time.size + 
+  memx_memxoptions_memo_sbe_v1_7.clordid.size + 
+  memx_memxoptions_memo_sbe_v1_7.efid_optional.size + 
+  memx_memxoptions_memo_sbe_v1_7.underlier_optional.size
+
+-- Display: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_7.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_7.clordid.dissect(buffer, index, packet, parent)
+
+  -- Efid Optional: MassCancelRejectEFID
+  index, efid_optional = memx_memxoptions_memo_sbe_v1_7.efid_optional.dissect(buffer, index, packet, parent)
+
+  -- Underlier Optional: MassCancelRejectUnderlier
+  index, underlier_optional = memx_memxoptions_memo_sbe_v1_7.underlier_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message = {}
+
+-- Size: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.size =
+  memx_memxoptions_memo_sbe_v1_7.sending_time.size + 
+  memx_memxoptions_memo_sbe_v1_7.clordid.size
+
+-- Display: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_7.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_7.clordid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.mass_cancel_bulk_clear_all_lockouts_request_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Requested Allocations Group
 memx_memxoptions_memo_sbe_v1_7.requested_allocations_group = {}
 
@@ -7131,102 +7967,6 @@ memx_memxoptions_memo_sbe_v1_7.allocation_instruction_message.dissect = function
   else
     -- Skip element, add fields directly
     return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = {}
-
--- Size: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.size =
-  memx_memxoptions_memo_sbe_v1_7.sending_time.size + 
-  memx_memxoptions_memo_sbe_v1_7.clordid.size + 
-  memx_memxoptions_memo_sbe_v1_7.efid_optional.size + 
-  memx_memxoptions_memo_sbe_v1_7.underlier_optional.size
-
--- Display: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_7.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_7.clordid.dissect(buffer, index, packet, parent)
-
-  -- Efid Optional: MassCancelRejectEFID
-  index, efid_optional = memx_memxoptions_memo_sbe_v1_7.efid_optional.dissect(buffer, index, packet, parent)
-
-  -- Underlier Optional: MassCancelRejectUnderlier
-  index, underlier_optional = memx_memxoptions_memo_sbe_v1_7.underlier_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message = {}
-
--- Size: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.size =
-  memx_memxoptions_memo_sbe_v1_7.sending_time.size + 
-  memx_memxoptions_memo_sbe_v1_7.clordid.size
-
--- Display: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_7.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_7.clordid.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.mass_cancel_bulk_clear_all_lockouts_request_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8242,11 +8982,11 @@ memx_memxoptions_memo_sbe_v1_7.new_order_single_message.dissect = function(buffe
   end
 end
 
--- Payload
-memx_memxoptions_memo_sbe_v1_7.payload = {}
+-- Client Payload
+memx_memxoptions_memo_sbe_v1_7.client_payload = {}
 
--- Dissect: Payload
-memx_memxoptions_memo_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+memx_memxoptions_memo_sbe_v1_7.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
   if template_id == 1 then
     return memx_memxoptions_memo_sbe_v1_7.new_order_single_message.dissect(buffer, offset, packet, parent)
@@ -8283,6 +9023,10 @@ memx_memxoptions_memo_sbe_v1_7.payload.dissect = function(buffer, offset, packet
   if template_id == 9 then
     return memx_memxoptions_memo_sbe_v1_7.mass_cancel_clear_lockout_request_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Allocation Instruction Message
+  if template_id == 10 then
+    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Mass Cancel Bulk Clear All Lockouts Request Message
   if template_id == 32 then
     return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_all_lockouts_request_message.dissect(buffer, offset, packet, parent)
@@ -8291,182 +9035,34 @@ memx_memxoptions_memo_sbe_v1_7.payload.dissect = function(buffer, offset, packet
   if template_id == 33 then
     return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Allocation Instruction Message
-  if template_id == 10 then
-    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New Message
-  if template_id == 11 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Bulk Quote Pending New Message
-  if template_id == 12 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_bulk_quote_pending_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Bulk Quote Component New Message
-  if template_id == 13 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_bulk_quote_component_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Rejected Message
-  if template_id == 14 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Message
-  if template_id == 15 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Cancel Message
-  if template_id == 16 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_pending_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Canceled Message
-  if template_id == 17 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Replace Message
-  if template_id == 18 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_pending_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Replaced Message
-  if template_id == 19 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Correction Message
-  if template_id == 20 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Break Message
-  if template_id == 21 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Restatement Message
-  if template_id == 22 then
-    return memx_memxoptions_memo_sbe_v1_7.execution_report_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Mass Cancel Message
-  if template_id == 23 then
-    return memx_memxoptions_memo_sbe_v1_7.pending_mass_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Reject Message
-  if template_id == 24 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Done Message
-  if template_id == 25 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if template_id == 26 then
-    return memx_memxoptions_memo_sbe_v1_7.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allocation Instruction Ack Message
-  if template_id == 27 then
-    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allocation Instruction Alert Message
-  if template_id == 28 then
-    return memx_memxoptions_memo_sbe_v1_7.allocation_instruction_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Notification Message
-  if template_id == 29 then
-    return memx_memxoptions_memo_sbe_v1_7.user_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Clear Lockout Reject Message
-  if template_id == 30 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_clear_lockout_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Clear Lockout Done Message
-  if template_id == 31 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_clear_lockout_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Bulk Clear Lockout Reject Message
-  if template_id == 35 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockout_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Bulk Clear Lockout Accepted Message
-  if template_id == 36 then
-    return memx_memxoptions_memo_sbe_v1_7.mass_cancel_bulk_clear_lockout_accepted_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Sbe Header
-memx_memxoptions_memo_sbe_v1_7.sbe_header = {}
+-- Client Sbe Message
+memx_memxoptions_memo_sbe_v1_7.client_sbe_message = {}
 
--- Size: Sbe Header
-memx_memxoptions_memo_sbe_v1_7.sbe_header.size =
-  memx_memxoptions_memo_sbe_v1_7.block_length.size + 
-  memx_memxoptions_memo_sbe_v1_7.template_id.size + 
-  memx_memxoptions_memo_sbe_v1_7.schema_id.size + 
-  memx_memxoptions_memo_sbe_v1_7.version.size
-
--- Display: Sbe Header
-memx_memxoptions_memo_sbe_v1_7.sbe_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sbe Header
-memx_memxoptions_memo_sbe_v1_7.sbe_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = memx_memxoptions_memo_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 35 values
-  index, template_id = memx_memxoptions_memo_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = memx_memxoptions_memo_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = memx_memxoptions_memo_sbe_v1_7.version.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sbe Header
-memx_memxoptions_memo_sbe_v1_7.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.sbe_header, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.sbe_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sbe Message
-memx_memxoptions_memo_sbe_v1_7.sbe_message = {}
-
--- Calculate size of: Sbe Message
-memx_memxoptions_memo_sbe_v1_7.sbe_message.size = function(buffer, offset)
+-- Calculate size of: Client Sbe Message
+memx_memxoptions_memo_sbe_v1_7.client_sbe_message.size = function(buffer, offset)
   local index = 0
 
   index = index + memx_memxoptions_memo_sbe_v1_7.sbe_header.size
 
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + memx_memxoptions_memo_sbe_v1_7.payload.size(buffer, payload_offset, payload_type)
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  index = index + memx_memxoptions_memo_sbe_v1_7.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
 end
 
--- Display: Sbe Message
-memx_memxoptions_memo_sbe_v1_7.sbe_message.display = function(packet, parent, length)
+-- Display: Client Sbe Message
+memx_memxoptions_memo_sbe_v1_7.client_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sbe Message
-memx_memxoptions_memo_sbe_v1_7.sbe_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Sbe Message
+memx_memxoptions_memo_sbe_v1_7.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -8475,558 +9071,28 @@ memx_memxoptions_memo_sbe_v1_7.sbe_message.fields = function(buffer, offset, pac
   -- Dependency element: Template Id
   local template_id = buffer(index - 4, 1):uint()
 
-  -- Payload: Runtime Type with 35 branches
-  index = memx_memxoptions_memo_sbe_v1_7.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 12 branches
+  index = memx_memxoptions_memo_sbe_v1_7.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-memx_memxoptions_memo_sbe_v1_7.sbe_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Sbe Message
+memx_memxoptions_memo_sbe_v1_7.client_sbe_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.client_sbe_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_7.client_sbe_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.sbe_message.display(packet, parent, length)
+    local display = memx_memxoptions_memo_sbe_v1_7.client_sbe_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent)
+    return memx_memxoptions_memo_sbe_v1_7.client_sbe_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequenced Message
-memx_memxoptions_memo_sbe_v1_7.sequenced_message = {}
-
--- Calculate size of: Sequenced Message
-memx_memxoptions_memo_sbe_v1_7.sequenced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_memxoptions_memo_sbe_v1_7.sbe_message.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Sequenced Message
-memx_memxoptions_memo_sbe_v1_7.sequenced_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequenced Message
-memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxoptions_memo_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequenced Message
-memx_memxoptions_memo_sbe_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.sequenced_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.sequenced_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Complete Message
-memx_memxoptions_memo_sbe_v1_7.stream_complete_message = {}
-
--- Size: Stream Complete Message
-memx_memxoptions_memo_sbe_v1_7.stream_complete_message.size =
-  memx_memxoptions_memo_sbe_v1_7.total_sequence_count.size
-
--- Display: Stream Complete Message
-memx_memxoptions_memo_sbe_v1_7.stream_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Complete Message
-memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
-  index, total_sequence_count = memx_memxoptions_memo_sbe_v1_7.total_sequence_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Complete Message
-memx_memxoptions_memo_sbe_v1_7.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_complete_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.stream_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Rejected Message
-memx_memxoptions_memo_sbe_v1_7.stream_rejected_message = {}
-
--- Size: Stream Rejected Message
-memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.size =
-  memx_memxoptions_memo_sbe_v1_7.stream_reject_code.size
-
--- Display: Stream Rejected Message
-memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Rejected Message
-memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
-  index, stream_reject_code = memx_memxoptions_memo_sbe_v1_7.stream_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Rejected Message
-memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Begin Message
-memx_memxoptions_memo_sbe_v1_7.stream_begin_message = {}
-
--- Size: Stream Begin Message
-memx_memxoptions_memo_sbe_v1_7.stream_begin_message.size =
-  memx_memxoptions_memo_sbe_v1_7.next_sequence_number.size + 
-  memx_memxoptions_memo_sbe_v1_7.max_sequence_number.size
-
--- Display: Stream Begin Message
-memx_memxoptions_memo_sbe_v1_7.stream_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Begin Message
-memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = memx_memxoptions_memo_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, max_sequence_number = memx_memxoptions_memo_sbe_v1_7.max_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Begin Message
-memx_memxoptions_memo_sbe_v1_7.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.stream_begin_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.stream_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Complete Message
-memx_memxoptions_memo_sbe_v1_7.replay_complete_message = {}
-
--- Size: Replay Complete Message
-memx_memxoptions_memo_sbe_v1_7.replay_complete_message.size =
-  memx_memxoptions_memo_sbe_v1_7.message_count.size
-
--- Display: Replay Complete Message
-memx_memxoptions_memo_sbe_v1_7.replay_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Complete Message
-memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Count: 8 Byte Unsigned Fixed Width Integer
-  index, message_count = memx_memxoptions_memo_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Complete Message
-memx_memxoptions_memo_sbe_v1_7.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_complete_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.replay_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Rejected Message
-memx_memxoptions_memo_sbe_v1_7.replay_rejected_message = {}
-
--- Size: Replay Rejected Message
-memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.size =
-  memx_memxoptions_memo_sbe_v1_7.replay_reject_code.size
-
--- Display: Replay Rejected Message
-memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Rejected Message
-memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, replay_reject_code = memx_memxoptions_memo_sbe_v1_7.replay_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Rejected Message
-memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Begin Message
-memx_memxoptions_memo_sbe_v1_7.replay_begin_message = {}
-
--- Size: Replay Begin Message
-memx_memxoptions_memo_sbe_v1_7.replay_begin_message.size =
-  memx_memxoptions_memo_sbe_v1_7.next_sequence_number.size + 
-  memx_memxoptions_memo_sbe_v1_7.pending_message_count.size
-
--- Display: Replay Begin Message
-memx_memxoptions_memo_sbe_v1_7.replay_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Begin Message
-memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = memx_memxoptions_memo_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
-  index, pending_message_count = memx_memxoptions_memo_sbe_v1_7.pending_message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Begin Message
-memx_memxoptions_memo_sbe_v1_7.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.replay_begin_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.replay_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Session Message
-memx_memxoptions_memo_sbe_v1_7.start_of_session_message = {}
-
--- Size: Start Of Session Message
-memx_memxoptions_memo_sbe_v1_7.start_of_session_message.size =
-  memx_memxoptions_memo_sbe_v1_7.session_id.size
-
--- Display: Start Of Session Message
-memx_memxoptions_memo_sbe_v1_7.start_of_session_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Session Message
-memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 8 Byte Unsigned Fixed Width Integer
-  index, session_id = memx_memxoptions_memo_sbe_v1_7.session_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Session Message
-memx_memxoptions_memo_sbe_v1_7.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.start_of_session_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.start_of_session_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Rejected Message
-memx_memxoptions_memo_sbe_v1_7.login_rejected_message = {}
-
--- Size: Login Rejected Message
-memx_memxoptions_memo_sbe_v1_7.login_rejected_message.size =
-  memx_memxoptions_memo_sbe_v1_7.login_reject_code.size
-
--- Display: Login Rejected Message
-memx_memxoptions_memo_sbe_v1_7.login_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Rejected Message
-memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, login_reject_code = memx_memxoptions_memo_sbe_v1_7.login_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Rejected Message
-memx_memxoptions_memo_sbe_v1_7.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.login_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.login_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Accepted Message
-memx_memxoptions_memo_sbe_v1_7.login_accepted_message = {}
-
--- Size: Login Accepted Message
-memx_memxoptions_memo_sbe_v1_7.login_accepted_message.size =
-  memx_memxoptions_memo_sbe_v1_7.supported_request_mode.size
-
--- Display: Login Accepted Message
-memx_memxoptions_memo_sbe_v1_7.login_accepted_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Accepted Message
-memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
-  index, supported_request_mode = memx_memxoptions_memo_sbe_v1_7.supported_request_mode.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Accepted Message
-memx_memxoptions_memo_sbe_v1_7.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.login_accepted_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.login_accepted_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Server Data
-memx_memxoptions_memo_sbe_v1_7.server_data = {}
-
--- Dissect: Server Data
-memx_memxoptions_memo_sbe_v1_7.server_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return memx_memxoptions_memo_sbe_v1_7.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return memx_memxoptions_memo_sbe_v1_7.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return memx_memxoptions_memo_sbe_v1_7.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return memx_memxoptions_memo_sbe_v1_7.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return memx_memxoptions_memo_sbe_v1_7.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return memx_memxoptions_memo_sbe_v1_7.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return memx_memxoptions_memo_sbe_v1_7.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return memx_memxoptions_memo_sbe_v1_7.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return memx_memxoptions_memo_sbe_v1_7.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return memx_memxoptions_memo_sbe_v1_7.sequenced_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Common Header
-memx_memxoptions_memo_sbe_v1_7.common_header = {}
-
--- Size: Common Header
-memx_memxoptions_memo_sbe_v1_7.common_header.size =
-  memx_memxoptions_memo_sbe_v1_7.message_type.size + 
-  memx_memxoptions_memo_sbe_v1_7.message_length.size
-
--- Display: Common Header
-memx_memxoptions_memo_sbe_v1_7.common_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Common Header
-memx_memxoptions_memo_sbe_v1_7.common_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
-  index, message_type = memx_memxoptions_memo_sbe_v1_7.message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = memx_memxoptions_memo_sbe_v1_7.message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Common Header
-memx_memxoptions_memo_sbe_v1_7.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_7.fields.common_header, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_7.common_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Server Packet
-memx_memxoptions_memo_sbe_v1_7.server_packet = {}
-
--- Verify required size of Tcp packet
-memx_memxoptions_memo_sbe_v1_7.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= memx_memxoptions_memo_sbe_v1_7.common_header.size
-end
-
--- Dissect Server Packet
-memx_memxoptions_memo_sbe_v1_7.server_packet.dissect = function(buffer, packet, parent)
-  local index = 0
-
-  -- Common Header: Struct of 2 fields
-  index, common_header = memx_memxoptions_memo_sbe_v1_7.common_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 3, 1):uint()
-
-  -- Server Data: Runtime Type with 10 branches
-  index = memx_memxoptions_memo_sbe_v1_7.server_data.dissect(buffer, index, packet, parent, message_type)
-
-  return index
 end
 
 -- Unsequenced Message
@@ -9036,7 +9102,7 @@ memx_memxoptions_memo_sbe_v1_7.unsequenced_message = {}
 memx_memxoptions_memo_sbe_v1_7.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxoptions_memo_sbe_v1_7.sbe_message.size(buffer, offset + index)
+  index = index + memx_memxoptions_memo_sbe_v1_7.client_sbe_message.size(buffer, offset + index)
 
   return index
 end
@@ -9050,8 +9116,8 @@ end
 memx_memxoptions_memo_sbe_v1_7.unsequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxoptions_memo_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent)
+  -- Client Sbe Message: Struct of 2 fields
+  index, client_sbe_message = memx_memxoptions_memo_sbe_v1_7.client_sbe_message.dissect(buffer, index, packet, parent)
 
   return index
 end

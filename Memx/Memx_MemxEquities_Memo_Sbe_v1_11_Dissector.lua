@@ -18,6 +18,7 @@ local memx_memxequities_memo_sbe_v1_11 = {}
 omi_memx_memxequities_memo_sbe_v1_11.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memo.sbe.v1.11.blocklength", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_11.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.memxequities.memo.sbe.v1.11.cancelgroupid", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_11.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.memxequities.memo.sbe.v1.11.cancelreason", ftypes.UINT8)
+omi_memx_memxequities_memo_sbe_v1_11.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "memx.memxequities.memo.sbe.v1.11.clientsbemessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.clordid = ProtoField.new("ClOrdId", "memx.memxequities.memo.sbe.v1.11.clordid", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.count = ProtoField.new("Count", "memx.memxequities.memo.sbe.v1.11.count", ftypes.UINT32)
 omi_memx_memxequities_memo_sbe_v1_11.fields.cum_qty = ProtoField.new("Cum Qty", "memx.memxequities.memo.sbe.v1.11.cumqty", ftypes.UINT32)
@@ -85,12 +86,12 @@ omi_memx_memxequities_memo_sbe_v1_11.fields.reserve_replenish_timing = ProtoFiel
 omi_memx_memxequities_memo_sbe_v1_11.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxequities.memo.sbe.v1.11.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_memx_memxequities_memo_sbe_v1_11.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxequities.memo.sbe.v1.11.riskgroupid", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_11.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memo.sbe.v1.11.sbeheader", ftypes.STRING)
-omi_memx_memxequities_memo_sbe_v1_11.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.memo.sbe.v1.11.sbemessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memo.sbe.v1.11.schemaid", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_11.fields.security_group = ProtoField.new("Security Group", "memx.memxequities.memo.sbe.v1.11.securitygroup", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "memx.memxequities.memo.sbe.v1.11.selftradeprevention", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_11.fields.sending_time = ProtoField.new("Sending Time", "memx.memxequities.memo.sbe.v1.11.sendingtime", ftypes.UINT64)
 omi_memx_memxequities_memo_sbe_v1_11.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.memo.sbe.v1.11.sequencedmessage", ftypes.STRING)
+omi_memx_memxequities_memo_sbe_v1_11.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxequities.memo.sbe.v1.11.serversbemessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.memo.sbe.v1.11.sessionid", ftypes.UINT64)
 omi_memx_memxequities_memo_sbe_v1_11.fields.side = ProtoField.new("Side", "memx.memxequities.memo.sbe.v1.11.side", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_11.fields.side_optional = ProtoField.new("Side Optional", "memx.memxequities.memo.sbe.v1.11.sideoptional", ftypes.STRING)
@@ -4822,375 +4823,11 @@ memx_memxequities_memo_sbe_v1_11.execution_report_pending_new_message.dissect = 
   end
 end
 
--- Mass Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message = {}
-
--- Size: Mass Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.size =
-  memx_memxequities_memo_sbe_v1_11.clordid.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
-  memx_memxequities_memo_sbe_v1_11.side_optional.size + 
-  memx_memxequities_memo_sbe_v1_11.lower_than_price.size + 
-  memx_memxequities_memo_sbe_v1_11.higher_than_price.size + 
-  memx_memxequities_memo_sbe_v1_11.cancel_group_id.size
-
--- Display: Mass Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_CanceledClOrdID
-  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
-
-  -- Symbol: ExecutionReport_NewSymbol
-  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
-  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideType
-  index, side_optional = memx_memxequities_memo_sbe_v1_11.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Lower Than Price: PriceType
-  index, lower_than_price = memx_memxequities_memo_sbe_v1_11.lower_than_price.dissect(buffer, index, packet, parent)
-
-  -- Higher Than Price: PriceType
-  index, higher_than_price = memx_memxequities_memo_sbe_v1_11.higher_than_price.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_memxequities_memo_sbe_v1_11.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.mass_cancel_request_message, buffer(offset, 0))
-    local index = memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_request_message = {}
-
--- Size: Order Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.size =
-  memx_memxequities_memo_sbe_v1_11.origclordid_optional.size + 
-  memx_memxequities_memo_sbe_v1_11.order_id_optional.size + 
-  memx_memxequities_memo_sbe_v1_11.clordid.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size
-
--- Display: Order Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
-  index, origclordid_optional = memx_memxequities_memo_sbe_v1_11.origclordid_optional.dissect(buffer, index, packet, parent)
-
-  -- Order Id Optional: uint64
-  index, order_id_optional = memx_memxequities_memo_sbe_v1_11.order_id_optional.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_CanceledClOrdID
-  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
-
-  -- Symbol: ExecutionReport_NewSymbol
-  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
-  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Cancel Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.order_cancel_request_message, buffer(offset, 0))
-    local index = memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Cancel Replace Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message = {}
-
--- Size: Order Cancel Replace Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.size =
-  memx_memxequities_memo_sbe_v1_11.origclordid.size + 
-  memx_memxequities_memo_sbe_v1_11.clordid.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
-  memx_memxequities_memo_sbe_v1_11.side.size + 
-  memx_memxequities_memo_sbe_v1_11.order_qty.size + 
-  memx_memxequities_memo_sbe_v1_11.ord_type.size + 
-  memx_memxequities_memo_sbe_v1_11.price.size + 
-  memx_memxequities_memo_sbe_v1_11.display_qty.size + 
-  memx_memxequities_memo_sbe_v1_11.locate_reqd.size + 
-  memx_memxequities_memo_sbe_v1_11.link_id_optional.size
-
--- Display: Order Cancel Replace Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Cancel Replace Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- OrigClOrdId: OrderCancelReplaceRequestOrigClOrdID
-  index, origclordid = memx_memxequities_memo_sbe_v1_11.origclordid.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_CanceledClOrdID
-  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
-
-  -- Symbol: ExecutionReport_NewSymbol
-  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
-  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_memxequities_memo_sbe_v1_11.side.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: uint32
-  index, order_qty = memx_memxequities_memo_sbe_v1_11.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: OrdType
-  index, ord_type = memx_memxequities_memo_sbe_v1_11.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price: PriceType
-  index, price = memx_memxequities_memo_sbe_v1_11.price.dissect(buffer, index, packet, parent)
-
-  -- Display Qty: uint32
-  index, display_qty = memx_memxequities_memo_sbe_v1_11.display_qty.dissect(buffer, index, packet, parent)
-
-  -- Locate Reqd: char
-  index, locate_reqd = memx_memxequities_memo_sbe_v1_11.locate_reqd.dissect(buffer, index, packet, parent)
-
-  -- Link Id Optional: ExecutionReport_CanceledLnkId
-  index, link_id_optional = memx_memxequities_memo_sbe_v1_11.link_id_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Cancel Replace Request Message
-memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.order_cancel_replace_request_message, buffer(offset, 0))
-    local index = memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- New Order Single Message
-memx_memxequities_memo_sbe_v1_11.new_order_single_message = {}
-
--- Size: New Order Single Message
-memx_memxequities_memo_sbe_v1_11.new_order_single_message.size =
-  memx_memxequities_memo_sbe_v1_11.clordid.size + 
-  memx_memxequities_memo_sbe_v1_11.mpid_optional.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol.size + 
-  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
-  memx_memxequities_memo_sbe_v1_11.side.size + 
-  memx_memxequities_memo_sbe_v1_11.order_qty.size + 
-  memx_memxequities_memo_sbe_v1_11.ord_type.size + 
-  memx_memxequities_memo_sbe_v1_11.price.size + 
-  memx_memxequities_memo_sbe_v1_11.time_in_force.size + 
-  memx_memxequities_memo_sbe_v1_11.order_capacity.size + 
-  memx_memxequities_memo_sbe_v1_11.cust_order_capacity.size + 
-  memx_memxequities_memo_sbe_v1_11.exec_inst.size + 
-  memx_memxequities_memo_sbe_v1_11.peg_offset_value.size + 
-  memx_memxequities_memo_sbe_v1_11.peg_price_type.size + 
-  memx_memxequities_memo_sbe_v1_11.expire_time.size + 
-  memx_memxequities_memo_sbe_v1_11.min_qty.size + 
-  memx_memxequities_memo_sbe_v1_11.display_qty.size + 
-  memx_memxequities_memo_sbe_v1_11.display_method.size + 
-  memx_memxequities_memo_sbe_v1_11.reserve_replenish_timing.size + 
-  memx_memxequities_memo_sbe_v1_11.display_min_incr.size + 
-  memx_memxequities_memo_sbe_v1_11.locate_reqd.size + 
-  memx_memxequities_memo_sbe_v1_11.reprice_frequency.size + 
-  memx_memxequities_memo_sbe_v1_11.reprice_behavior.size + 
-  memx_memxequities_memo_sbe_v1_11.cancel_group_id.size + 
-  memx_memxequities_memo_sbe_v1_11.stp_group_id.size + 
-  memx_memxequities_memo_sbe_v1_11.self_trade_prevention.size + 
-  memx_memxequities_memo_sbe_v1_11.risk_group_id.size + 
-  memx_memxequities_memo_sbe_v1_11.link_id_optional.size
-
--- Display: New Order Single Message
-memx_memxequities_memo_sbe_v1_11.new_order_single_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Order Single Message
-memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_CanceledClOrdID
-  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
-
-  -- Mpid Optional: ExecutionReport_NewMPID
-  index, mpid_optional = memx_memxequities_memo_sbe_v1_11.mpid_optional.dissect(buffer, index, packet, parent)
-
-  -- Symbol: ExecutionReport_NewSymbol
-  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
-  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_memxequities_memo_sbe_v1_11.side.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: uint32
-  index, order_qty = memx_memxequities_memo_sbe_v1_11.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: OrdType
-  index, ord_type = memx_memxequities_memo_sbe_v1_11.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price: PriceType
-  index, price = memx_memxequities_memo_sbe_v1_11.price.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: TimeInForceType
-  index, time_in_force = memx_memxequities_memo_sbe_v1_11.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Order Capacity: OrderCapacityType
-  index, order_capacity = memx_memxequities_memo_sbe_v1_11.order_capacity.dissect(buffer, index, packet, parent)
-
-  -- Cust Order Capacity: CustOrderCapacityType
-  index, cust_order_capacity = memx_memxequities_memo_sbe_v1_11.cust_order_capacity.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: Struct of 4 fields
-  index, exec_inst = memx_memxequities_memo_sbe_v1_11.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Peg Offset Value: PriceType
-  index, peg_offset_value = memx_memxequities_memo_sbe_v1_11.peg_offset_value.dissect(buffer, index, packet, parent)
-
-  -- Peg Price Type: PegType
-  index, peg_price_type = memx_memxequities_memo_sbe_v1_11.peg_price_type.dissect(buffer, index, packet, parent)
-
-  -- Expire Time: UTCTimestampNanos
-  index, expire_time = memx_memxequities_memo_sbe_v1_11.expire_time.dissect(buffer, index, packet, parent)
-
-  -- Min Qty: uint32
-  index, min_qty = memx_memxequities_memo_sbe_v1_11.min_qty.dissect(buffer, index, packet, parent)
-
-  -- Display Qty: uint32
-  index, display_qty = memx_memxequities_memo_sbe_v1_11.display_qty.dissect(buffer, index, packet, parent)
-
-  -- Display Method: DispMethodType
-  index, display_method = memx_memxequities_memo_sbe_v1_11.display_method.dissect(buffer, index, packet, parent)
-
-  -- Reserve Replenish Timing: ReserveReplenishTimingType
-  index, reserve_replenish_timing = memx_memxequities_memo_sbe_v1_11.reserve_replenish_timing.dissect(buffer, index, packet, parent)
-
-  -- Display Min Incr: uint32
-  index, display_min_incr = memx_memxequities_memo_sbe_v1_11.display_min_incr.dissect(buffer, index, packet, parent)
-
-  -- Locate Reqd: char
-  index, locate_reqd = memx_memxequities_memo_sbe_v1_11.locate_reqd.dissect(buffer, index, packet, parent)
-
-  -- Reprice Frequency: RepriceFrequencyType
-  index, reprice_frequency = memx_memxequities_memo_sbe_v1_11.reprice_frequency.dissect(buffer, index, packet, parent)
-
-  -- Reprice Behavior: RepriceBehaviorType
-  index, reprice_behavior = memx_memxequities_memo_sbe_v1_11.reprice_behavior.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_memxequities_memo_sbe_v1_11.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Stp Group Id: uint16
-  index, stp_group_id = memx_memxequities_memo_sbe_v1_11.stp_group_id.dissect(buffer, index, packet, parent)
-
-  -- Self Trade Prevention: SelfTradePreventionType
-  index, self_trade_prevention = memx_memxequities_memo_sbe_v1_11.self_trade_prevention.dissect(buffer, index, packet, parent)
-
-  -- Risk Group Id: uint16
-  index, risk_group_id = memx_memxequities_memo_sbe_v1_11.risk_group_id.dissect(buffer, index, packet, parent)
-
-  -- Link Id Optional: ExecutionReport_CanceledLnkId
-  index, link_id_optional = memx_memxequities_memo_sbe_v1_11.link_id_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Order Single Message
-memx_memxequities_memo_sbe_v1_11.new_order_single_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.new_order_single_message, buffer(offset, 0))
-    local index = memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_memo_sbe_v1_11.new_order_single_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Payload
-memx_memxequities_memo_sbe_v1_11.payload = {}
-
--- Dissect: Payload
-memx_memxequities_memo_sbe_v1_11.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect New Order Single Message
-  if template_id == 1 then
-    return memx_memxequities_memo_sbe_v1_11.new_order_single_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Request Message
-  if template_id == 2 then
-    return memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request Message
-  if template_id == 3 then
-    return memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if template_id == 4 then
-    return memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
+-- Server Payload
+memx_memxequities_memo_sbe_v1_11.server_payload = {}
+
+-- Dissect: Server Payload
+memx_memxequities_memo_sbe_v1_11.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Execution Report Pending New Message
   if template_id == 5 then
     return memx_memxequities_memo_sbe_v1_11.execution_report_pending_new_message.dissect(buffer, offset, packet, parent)
@@ -5307,30 +4944,30 @@ memx_memxequities_memo_sbe_v1_11.sbe_header.dissect = function(buffer, offset, p
   end
 end
 
--- Sbe Message
-memx_memxequities_memo_sbe_v1_11.sbe_message = {}
+-- Server Sbe Message
+memx_memxequities_memo_sbe_v1_11.server_sbe_message = {}
 
--- Calculate size of: Sbe Message
-memx_memxequities_memo_sbe_v1_11.sbe_message.size = function(buffer, offset)
+-- Calculate size of: Server Sbe Message
+memx_memxequities_memo_sbe_v1_11.server_sbe_message.size = function(buffer, offset)
   local index = 0
 
   index = index + memx_memxequities_memo_sbe_v1_11.sbe_header.size
 
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + memx_memxequities_memo_sbe_v1_11.payload.size(buffer, payload_offset, payload_type)
+  -- Calculate runtime size of Server Payload field
+  local server_payload_offset = offset + index
+  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  index = index + memx_memxequities_memo_sbe_v1_11.server_payload.size(buffer, server_payload_offset, server_payload_type)
 
   return index
 end
 
--- Display: Sbe Message
-memx_memxequities_memo_sbe_v1_11.sbe_message.display = function(packet, parent, length)
+-- Display: Server Sbe Message
+memx_memxequities_memo_sbe_v1_11.server_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sbe Message
-memx_memxequities_memo_sbe_v1_11.sbe_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Sbe Message
+memx_memxequities_memo_sbe_v1_11.server_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -5339,27 +4976,27 @@ memx_memxequities_memo_sbe_v1_11.sbe_message.fields = function(buffer, offset, p
   -- Dependency element: Template Id
   local template_id = buffer(index - 4, 1):uint()
 
-  -- Payload: Runtime Type with 19 branches
-  index = memx_memxequities_memo_sbe_v1_11.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Server Payload: Runtime Type with 15 branches
+  index = memx_memxequities_memo_sbe_v1_11.server_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-memx_memxequities_memo_sbe_v1_11.sbe_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Sbe Message
+memx_memxequities_memo_sbe_v1_11.server_sbe_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.sbe_message, buffer(offset, 0))
-    local index = memx_memxequities_memo_sbe_v1_11.sbe_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.server_sbe_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.server_sbe_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = memx_memxequities_memo_sbe_v1_11.sbe_message.display(packet, parent, length)
+    local display = memx_memxequities_memo_sbe_v1_11.server_sbe_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_memxequities_memo_sbe_v1_11.sbe_message.fields(buffer, offset, packet, parent)
+    return memx_memxequities_memo_sbe_v1_11.server_sbe_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5370,7 +5007,7 @@ memx_memxequities_memo_sbe_v1_11.sequenced_message = {}
 memx_memxequities_memo_sbe_v1_11.sequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxequities_memo_sbe_v1_11.sbe_message.size(buffer, offset + index)
+  index = index + memx_memxequities_memo_sbe_v1_11.server_sbe_message.size(buffer, offset + index)
 
   return index
 end
@@ -5384,8 +5021,8 @@ end
 memx_memxequities_memo_sbe_v1_11.sequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxequities_memo_sbe_v1_11.sbe_message.dissect(buffer, index, packet, parent)
+  -- Server Sbe Message: Struct of 2 fields
+  index, server_sbe_message = memx_memxequities_memo_sbe_v1_11.server_sbe_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5893,6 +5530,435 @@ memx_memxequities_memo_sbe_v1_11.server_packet.dissect = function(buffer, packet
   return index
 end
 
+-- Mass Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message = {}
+
+-- Size: Mass Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.size =
+  memx_memxequities_memo_sbe_v1_11.clordid.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
+  memx_memxequities_memo_sbe_v1_11.side_optional.size + 
+  memx_memxequities_memo_sbe_v1_11.lower_than_price.size + 
+  memx_memxequities_memo_sbe_v1_11.higher_than_price.size + 
+  memx_memxequities_memo_sbe_v1_11.cancel_group_id.size
+
+-- Display: Mass Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
+  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ExecutionReport_NewSymbol
+  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
+  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideType
+  index, side_optional = memx_memxequities_memo_sbe_v1_11.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Lower Than Price: PriceType
+  index, lower_than_price = memx_memxequities_memo_sbe_v1_11.lower_than_price.dissect(buffer, index, packet, parent)
+
+  -- Higher Than Price: PriceType
+  index, higher_than_price = memx_memxequities_memo_sbe_v1_11.higher_than_price.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_memxequities_memo_sbe_v1_11.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.mass_cancel_request_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_request_message = {}
+
+-- Size: Order Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.size =
+  memx_memxequities_memo_sbe_v1_11.origclordid_optional.size + 
+  memx_memxequities_memo_sbe_v1_11.order_id_optional.size + 
+  memx_memxequities_memo_sbe_v1_11.clordid.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size
+
+-- Display: Order Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
+  index, origclordid_optional = memx_memxequities_memo_sbe_v1_11.origclordid_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Id Optional: uint64
+  index, order_id_optional = memx_memxequities_memo_sbe_v1_11.order_id_optional.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
+  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ExecutionReport_NewSymbol
+  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
+  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Cancel Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.order_cancel_request_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Cancel Replace Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message = {}
+
+-- Size: Order Cancel Replace Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.size =
+  memx_memxequities_memo_sbe_v1_11.origclordid.size + 
+  memx_memxequities_memo_sbe_v1_11.clordid.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
+  memx_memxequities_memo_sbe_v1_11.side.size + 
+  memx_memxequities_memo_sbe_v1_11.order_qty.size + 
+  memx_memxequities_memo_sbe_v1_11.ord_type.size + 
+  memx_memxequities_memo_sbe_v1_11.price.size + 
+  memx_memxequities_memo_sbe_v1_11.display_qty.size + 
+  memx_memxequities_memo_sbe_v1_11.locate_reqd.size + 
+  memx_memxequities_memo_sbe_v1_11.link_id_optional.size
+
+-- Display: Order Cancel Replace Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Cancel Replace Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- OrigClOrdId: OrderCancelReplaceRequestOrigClOrdID
+  index, origclordid = memx_memxequities_memo_sbe_v1_11.origclordid.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
+  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ExecutionReport_NewSymbol
+  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
+  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_memxequities_memo_sbe_v1_11.side.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: uint32
+  index, order_qty = memx_memxequities_memo_sbe_v1_11.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: OrdType
+  index, ord_type = memx_memxequities_memo_sbe_v1_11.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price: PriceType
+  index, price = memx_memxequities_memo_sbe_v1_11.price.dissect(buffer, index, packet, parent)
+
+  -- Display Qty: uint32
+  index, display_qty = memx_memxequities_memo_sbe_v1_11.display_qty.dissect(buffer, index, packet, parent)
+
+  -- Locate Reqd: char
+  index, locate_reqd = memx_memxequities_memo_sbe_v1_11.locate_reqd.dissect(buffer, index, packet, parent)
+
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
+  index, link_id_optional = memx_memxequities_memo_sbe_v1_11.link_id_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Cancel Replace Request Message
+memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.order_cancel_replace_request_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Single Message
+memx_memxequities_memo_sbe_v1_11.new_order_single_message = {}
+
+-- Size: New Order Single Message
+memx_memxequities_memo_sbe_v1_11.new_order_single_message.size =
+  memx_memxequities_memo_sbe_v1_11.clordid.size + 
+  memx_memxequities_memo_sbe_v1_11.mpid_optional.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol.size + 
+  memx_memxequities_memo_sbe_v1_11.symbol_sfx.size + 
+  memx_memxequities_memo_sbe_v1_11.side.size + 
+  memx_memxequities_memo_sbe_v1_11.order_qty.size + 
+  memx_memxequities_memo_sbe_v1_11.ord_type.size + 
+  memx_memxequities_memo_sbe_v1_11.price.size + 
+  memx_memxequities_memo_sbe_v1_11.time_in_force.size + 
+  memx_memxequities_memo_sbe_v1_11.order_capacity.size + 
+  memx_memxequities_memo_sbe_v1_11.cust_order_capacity.size + 
+  memx_memxequities_memo_sbe_v1_11.exec_inst.size + 
+  memx_memxequities_memo_sbe_v1_11.peg_offset_value.size + 
+  memx_memxequities_memo_sbe_v1_11.peg_price_type.size + 
+  memx_memxequities_memo_sbe_v1_11.expire_time.size + 
+  memx_memxequities_memo_sbe_v1_11.min_qty.size + 
+  memx_memxequities_memo_sbe_v1_11.display_qty.size + 
+  memx_memxequities_memo_sbe_v1_11.display_method.size + 
+  memx_memxequities_memo_sbe_v1_11.reserve_replenish_timing.size + 
+  memx_memxequities_memo_sbe_v1_11.display_min_incr.size + 
+  memx_memxequities_memo_sbe_v1_11.locate_reqd.size + 
+  memx_memxequities_memo_sbe_v1_11.reprice_frequency.size + 
+  memx_memxequities_memo_sbe_v1_11.reprice_behavior.size + 
+  memx_memxequities_memo_sbe_v1_11.cancel_group_id.size + 
+  memx_memxequities_memo_sbe_v1_11.stp_group_id.size + 
+  memx_memxequities_memo_sbe_v1_11.self_trade_prevention.size + 
+  memx_memxequities_memo_sbe_v1_11.risk_group_id.size + 
+  memx_memxequities_memo_sbe_v1_11.link_id_optional.size
+
+-- Display: New Order Single Message
+memx_memxequities_memo_sbe_v1_11.new_order_single_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Single Message
+memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
+  index, clordid = memx_memxequities_memo_sbe_v1_11.clordid.dissect(buffer, index, packet, parent)
+
+  -- Mpid Optional: ExecutionReport_NewMPID
+  index, mpid_optional = memx_memxequities_memo_sbe_v1_11.mpid_optional.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ExecutionReport_NewSymbol
+  index, symbol = memx_memxequities_memo_sbe_v1_11.symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
+  index, symbol_sfx = memx_memxequities_memo_sbe_v1_11.symbol_sfx.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_memxequities_memo_sbe_v1_11.side.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: uint32
+  index, order_qty = memx_memxequities_memo_sbe_v1_11.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: OrdType
+  index, ord_type = memx_memxequities_memo_sbe_v1_11.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price: PriceType
+  index, price = memx_memxequities_memo_sbe_v1_11.price.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: TimeInForceType
+  index, time_in_force = memx_memxequities_memo_sbe_v1_11.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Order Capacity: OrderCapacityType
+  index, order_capacity = memx_memxequities_memo_sbe_v1_11.order_capacity.dissect(buffer, index, packet, parent)
+
+  -- Cust Order Capacity: CustOrderCapacityType
+  index, cust_order_capacity = memx_memxequities_memo_sbe_v1_11.cust_order_capacity.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: Struct of 4 fields
+  index, exec_inst = memx_memxequities_memo_sbe_v1_11.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Peg Offset Value: PriceType
+  index, peg_offset_value = memx_memxequities_memo_sbe_v1_11.peg_offset_value.dissect(buffer, index, packet, parent)
+
+  -- Peg Price Type: PegType
+  index, peg_price_type = memx_memxequities_memo_sbe_v1_11.peg_price_type.dissect(buffer, index, packet, parent)
+
+  -- Expire Time: UTCTimestampNanos
+  index, expire_time = memx_memxequities_memo_sbe_v1_11.expire_time.dissect(buffer, index, packet, parent)
+
+  -- Min Qty: uint32
+  index, min_qty = memx_memxequities_memo_sbe_v1_11.min_qty.dissect(buffer, index, packet, parent)
+
+  -- Display Qty: uint32
+  index, display_qty = memx_memxequities_memo_sbe_v1_11.display_qty.dissect(buffer, index, packet, parent)
+
+  -- Display Method: DispMethodType
+  index, display_method = memx_memxequities_memo_sbe_v1_11.display_method.dissect(buffer, index, packet, parent)
+
+  -- Reserve Replenish Timing: ReserveReplenishTimingType
+  index, reserve_replenish_timing = memx_memxequities_memo_sbe_v1_11.reserve_replenish_timing.dissect(buffer, index, packet, parent)
+
+  -- Display Min Incr: uint32
+  index, display_min_incr = memx_memxequities_memo_sbe_v1_11.display_min_incr.dissect(buffer, index, packet, parent)
+
+  -- Locate Reqd: char
+  index, locate_reqd = memx_memxequities_memo_sbe_v1_11.locate_reqd.dissect(buffer, index, packet, parent)
+
+  -- Reprice Frequency: RepriceFrequencyType
+  index, reprice_frequency = memx_memxequities_memo_sbe_v1_11.reprice_frequency.dissect(buffer, index, packet, parent)
+
+  -- Reprice Behavior: RepriceBehaviorType
+  index, reprice_behavior = memx_memxequities_memo_sbe_v1_11.reprice_behavior.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_memxequities_memo_sbe_v1_11.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Stp Group Id: uint16
+  index, stp_group_id = memx_memxequities_memo_sbe_v1_11.stp_group_id.dissect(buffer, index, packet, parent)
+
+  -- Self Trade Prevention: SelfTradePreventionType
+  index, self_trade_prevention = memx_memxequities_memo_sbe_v1_11.self_trade_prevention.dissect(buffer, index, packet, parent)
+
+  -- Risk Group Id: uint16
+  index, risk_group_id = memx_memxequities_memo_sbe_v1_11.risk_group_id.dissect(buffer, index, packet, parent)
+
+  -- Link Id Optional: ExecutionReport_CanceledLnkId
+  index, link_id_optional = memx_memxequities_memo_sbe_v1_11.link_id_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Single Message
+memx_memxequities_memo_sbe_v1_11.new_order_single_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.new_order_single_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_11.new_order_single_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_11.new_order_single_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+memx_memxequities_memo_sbe_v1_11.client_payload = {}
+
+-- Dissect: Client Payload
+memx_memxequities_memo_sbe_v1_11.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect New Order Single Message
+  if template_id == 1 then
+    return memx_memxequities_memo_sbe_v1_11.new_order_single_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Replace Request Message
+  if template_id == 2 then
+    return memx_memxequities_memo_sbe_v1_11.order_cancel_replace_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Request Message
+  if template_id == 3 then
+    return memx_memxequities_memo_sbe_v1_11.order_cancel_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Request Message
+  if template_id == 4 then
+    return memx_memxequities_memo_sbe_v1_11.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Sbe Message
+memx_memxequities_memo_sbe_v1_11.client_sbe_message = {}
+
+-- Calculate size of: Client Sbe Message
+memx_memxequities_memo_sbe_v1_11.client_sbe_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxequities_memo_sbe_v1_11.sbe_header.size
+
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  index = index + memx_memxequities_memo_sbe_v1_11.client_payload.size(buffer, client_payload_offset, client_payload_type)
+
+  return index
+end
+
+-- Display: Client Sbe Message
+memx_memxequities_memo_sbe_v1_11.client_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Sbe Message
+memx_memxequities_memo_sbe_v1_11.client_sbe_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = memx_memxequities_memo_sbe_v1_11.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 4, 1):uint()
+
+  -- Client Payload: Runtime Type with 4 branches
+  index = memx_memxequities_memo_sbe_v1_11.client_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Client Sbe Message
+memx_memxequities_memo_sbe_v1_11.client_sbe_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_11.fields.client_sbe_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_11.client_sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_11.client_sbe_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_11.client_sbe_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Unsequenced Message
 memx_memxequities_memo_sbe_v1_11.unsequenced_message = {}
 
@@ -5900,7 +5966,7 @@ memx_memxequities_memo_sbe_v1_11.unsequenced_message = {}
 memx_memxequities_memo_sbe_v1_11.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxequities_memo_sbe_v1_11.sbe_message.size(buffer, offset + index)
+  index = index + memx_memxequities_memo_sbe_v1_11.client_sbe_message.size(buffer, offset + index)
 
   return index
 end
@@ -5914,8 +5980,8 @@ end
 memx_memxequities_memo_sbe_v1_11.unsequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxequities_memo_sbe_v1_11.sbe_message.dissect(buffer, index, packet, parent)
+  -- Client Sbe Message: Struct of 2 fields
+  index, client_sbe_message = memx_memxequities_memo_sbe_v1_11.client_sbe_message.dissect(buffer, index, packet, parent)
 
   return index
 end
