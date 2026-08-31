@@ -9416,6 +9416,27 @@ cme_globex_mdp3_sbe_v1_5.server_tcp_message.dissect = function(buffer, offset, p
   end
 end
 
+-- Remaining Bytes For: Server Tcp Message
+local server_tcp_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_mdp3_sbe_v1_5.server_tcp_message.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Server Technical Header
 cme_globex_mdp3_sbe_v1_5.server_technical_header = {}
 
@@ -9483,15 +9504,20 @@ cme_globex_mdp3_sbe_v1_5.server_tcp_packet.dissect = function(buffer, packet, pa
   local end_of_payload = buffer:len()
 
   -- Server Tcp Message: Struct of 3 fields
-  local message_index = 0
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_tcp_message = server_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Server Tcp Message
-    index, server_tcp_message = cme_globex_mdp3_sbe_v1_5.server_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+    if available > 0 then
+      index = cme_globex_mdp3_sbe_v1_5.server_tcp_message.dissect(buffer, index, packet, parent, size_of_server_tcp_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index
@@ -10453,6 +10479,27 @@ cme_globex_mdp3_sbe_v1_5.client_tcp_message.dissect = function(buffer, offset, p
   end
 end
 
+-- Remaining Bytes For: Client Tcp Message
+local client_tcp_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_mdp3_sbe_v1_5.client_tcp_message.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Client Technical Header
 cme_globex_mdp3_sbe_v1_5.client_technical_header = {}
 
@@ -10520,15 +10567,20 @@ cme_globex_mdp3_sbe_v1_5.client_tcp_packet.dissect = function(buffer, packet, pa
   local end_of_payload = buffer:len()
 
   -- Client Tcp Message: Struct of 3 fields
-  local message_index = 0
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_tcp_message = client_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Client Tcp Message
-    index, client_tcp_message = cme_globex_mdp3_sbe_v1_5.client_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+    if available > 0 then
+      index = cme_globex_mdp3_sbe_v1_5.client_tcp_message.dissect(buffer, index, packet, parent, size_of_client_tcp_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index

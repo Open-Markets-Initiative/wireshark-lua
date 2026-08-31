@@ -1945,6 +1945,27 @@ cme_globex_ebsspectrum_sbe_v12_0.tcp_message.dissect = function(buffer, offset, 
   end
 end
 
+-- Remaining Bytes For: Tcp Message
+local tcp_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_ebsspectrum_sbe_v12_0.tcp_message.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Technical Header
 cme_globex_ebsspectrum_sbe_v12_0.technical_header = {}
 
@@ -2012,15 +2033,20 @@ cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.dissect = function(buffer, packet, p
   local end_of_payload = buffer:len()
 
   -- Tcp Message: Struct of 3 fields
-  local message_index = 0
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_tcp_message = tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Tcp Message
-    index, tcp_message = cme_globex_ebsspectrum_sbe_v12_0.tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+    if available > 0 then
+      index = cme_globex_ebsspectrum_sbe_v12_0.tcp_message.dissect(buffer, index, packet, parent, size_of_tcp_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index

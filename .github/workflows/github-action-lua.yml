@@ -88,6 +88,9 @@ jobs:
       - name: Run Cboe TitaniumConsolidated Indices Cgif 1.4.13 Dissector Tests
         run: bash -x .github/tests/Cboe-TitaniumConsolidated-Indices-Cgif-v1-4-13-Test.sh
 
+      - name: Run Cme Globex iLink3 Sbe 8.5 Dissector Tests
+        run: bash -x .github/tests/Cme-Globex-iLink3-Sbe-v8-5-Test.sh
+
       - name: Run Cme Globex Mdp3 Sbe 1.12 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-12-Test.sh
 
@@ -99,9 +102,6 @@ jobs:
 
       - name: Run Cme Globex Mdp3 Sbe 1.9 Dissector Tests
         run: bash -x .github/tests/Cme-Globex-Mdp3-Sbe-v1-9-Test.sh
-
-      - name: Run Cme Globex iLink3 Sbe 8.5 Dissector Tests
-        run: bash -x .github/tests/Cme-Globex-iLink3-Sbe-v8-5-Test.sh
 
       - name: Run Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Dissector Tests
         run: bash -x .github/tests/Coinbase-CoinbaseDerivatives-MarketDataApi-Sbe-v1-2-Test.sh
@@ -208,6 +208,9 @@ jobs:
       - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
 
+      - name: Run Nasdaq NtxEquities TotalView Itch 5.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NtxEquities-TotalView-Itch-v5-0-Test.sh
+
       - name: Run Nasdaq PsxEquities TotalView Itch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-PsxEquities-TotalView-Itch-v5-0-Test.sh
 
@@ -259,6 +262,12 @@ jobs:
       - name: Run Nyse NyseEquities IntegratedFeed Xdp 2.3.a Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Xdp-v2-3-a-Test.sh
 
+      - name: Run Nyse NyseEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse NyseEquities IntegratedFeedRetransmission Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRetransmission-Pillar-v2-5-g-Test.sh
+
       - name: Run Nyse NyseEquities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-OpenBook-Ultra-v2-1-b-Test.sh
 
@@ -267,9 +276,6 @@ jobs:
 
       - name: Run Nyse TexasEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-TexasEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
-
-      - name: Run Nyse NyseEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
       - name: Run OtcMarkets LinkAts Multicast Link 4.3 Dissector Tests
         run: bash -x .github/tests/OtcMarkets-LinkAts-Multicast-Link-v4-3-Test.sh
