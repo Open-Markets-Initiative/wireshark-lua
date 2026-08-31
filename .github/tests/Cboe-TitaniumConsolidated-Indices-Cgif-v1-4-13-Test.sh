@@ -51,3 +51,13 @@ runuser -u tester -- tshark \
 
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.indexstatus" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/TitaniumConsolidated.Indices.Cgif.v1.4.13/MultipleMessages.pcap" \
+  -X "lua_script:Cboe/Cboe_TitaniumConsolidated_Indices_Cgif_v1_4_13_Dissector.lua" \
+  -T json \
+  > Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json 2> Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json.stderr; exit 1; }
+
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13." Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json
+
+[ "$(grep -c 'cboe.titaniumconsolidated.indices.cgif.v1.4.13.' Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

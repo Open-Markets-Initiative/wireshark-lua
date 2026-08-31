@@ -146,3 +146,18 @@ grep "miax.pearlequities.expressorders.meo.v2.6.meoversion" Miax.PearlEquities.E
 grep "miax.pearlequities.expressorders.meo.v2.6.sessionid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.systemstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/Reassemble.pcap" \
+  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -T json \
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassemble.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassemble.json.stderr \
+  || { echo "--- tshark FAILED (Reassemble) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassemble.json.stderr; exit 1; }
+
+grep "miax.pearlequities.expressorders.meo.v2.6." Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassemble.json
+
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/Reassemble.pcap" \
+  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -Y "tcp.segments" \
+  | grep . \
+  || { echo "--- no reassembly (Reassemble) ---"; exit 1; }

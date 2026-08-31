@@ -104,3 +104,18 @@ grep "cme.globex.ilink3.sbe.v8.5.uuid" Cme.Globex.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.globex.ilink3.sbe.v8.5.nextseqno" Cme.Globex.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.globex.ilink3.sbe.v8.5.faulttoleranceindicator" Cme.Globex.iLink3.Sbe.v8.5.Sequence.json
 grep "cme.globex.ilink3.sbe.v8.5.keepaliveintervallapsed" Cme.Globex.iLink3.Sbe.v8.5.Sequence.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Reassembly.pcap" \
+  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -T json \
+  > Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json 2> Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr \
+  || { echo "--- tshark FAILED (Reassembly) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr; exit 1; }
+
+grep "cme.globex.ilink3.sbe.v8.5." Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json
+
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Reassembly.pcap" \
+  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -Y "tcp.segments" \
+  | grep . \
+  || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

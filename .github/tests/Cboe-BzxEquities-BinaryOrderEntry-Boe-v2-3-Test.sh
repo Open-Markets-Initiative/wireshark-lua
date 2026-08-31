@@ -225,3 +225,13 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.modifyrejectreason" Cboe.BzxEqu
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.text" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.UserModifyRejectedMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.UserModifyRejectedMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofreturnbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.UserModifyRejectedMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.4.55/MultipleMessages.pcap" \
+  -X "lua_script:Cboe/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3." Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json
+
+[ "$(grep -c 'cboe.bzxequities.binaryorderentry.boe.v2.3.' Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

@@ -32,3 +32,18 @@ grep "txse.txseequities.seed.rake.v1.0.limitorderbitfields" Txse.TxseEquities.Se
 grep "txse.txseequities.seed.rake.v1.0.symbolid" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
 grep "txse.txseequities.seed.rake.v1.0.price" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
 grep "txse.txseequities.seed.rake.v1.0.selfmatchscope" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/Reassembly.pcap" \
+  -X "lua_script:Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua" \
+  -T json \
+  > Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json 2> Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json.stderr \
+  || { echo "--- tshark FAILED (Reassembly) ---"; cat Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json.stderr; exit 1; }
+
+grep "txse.txseequities.seed.rake.v1.0." Txse.TxseEquities.Seed.Rake.v1.0.Reassembly.json
+
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/Reassembly.pcap" \
+  -X "lua_script:Txse/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua" \
+  -Y "tcp.segments" \
+  | grep . \
+  || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

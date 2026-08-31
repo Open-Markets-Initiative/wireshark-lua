@@ -63,3 +63,13 @@ grep "siac.cts.output.cta.v2.9.shortsalerestrictionindicator" Siac.Cts.Output.Ct
 grep "siac.cts.output.cta.v2.9.primarylistingmarketparticipantid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.limituplimitdownindicator" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/MultipleMessages.pcap" \
+  -X "lua_script:Siac/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -T json \
+  > Siac.Cts.Output.Cta.v2.9.Multiplemessages.json 2> Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr; exit 1; }
+
+grep "siac.cts.output.cta.v2.9." Siac.Cts.Output.Cta.v2.9.Multiplemessages.json
+
+[ "$(grep -c 'siac.cts.output.cta.v2.9.' Siac.Cts.Output.Cta.v2.9.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

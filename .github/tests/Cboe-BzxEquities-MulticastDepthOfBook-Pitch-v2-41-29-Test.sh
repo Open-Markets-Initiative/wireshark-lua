@@ -189,3 +189,13 @@ grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.symbolextended" Cboe.
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.regshoaction" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.padding" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.TradingStatusMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29/MultipleMessages.pcap" \
+  -X "lua_script:Cboe/Cboe_BzxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json 2> Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29." Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json
+
+[ "$(grep -c 'cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.' Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

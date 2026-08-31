@@ -147,3 +147,13 @@ runuser -u tester -- tshark \
 grep "nyse.amexequities.integratedfeed.pillar.v2.5.g.id" Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.SourceTimeReferenceMessage.json
 grep "nyse.amexequities.integratedfeed.pillar.v2.5.g.symbolseqnum" Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.SourceTimeReferenceMessage.json
 grep "nyse.amexequities.integratedfeed.pillar.v2.5.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.SourceTimeReferenceMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeed.Pillar.v2.5.g/MultipleMessages.pcap" \
+  -X "lua_script:Nyse/Nyse_AmexEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \
+  -T json \
+  > Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.Multiplemessages.json 2> Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.Multiplemessages.json.stderr; exit 1; }
+
+grep "nyse.amexequities.integratedfeed.pillar.v2.5.g." Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.Multiplemessages.json
+
+[ "$(grep -c 'nyse.amexequities.integratedfeed.pillar.v2.5.g.' Nyse.AmexEquities.IntegratedFeed.Pillar.v2.5.g.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

@@ -36,3 +36,20 @@ grep "eurex.t7.xti.fbe.v10.0.transactiondelayindicator" Eurex.T7.Xti.Fbe.v10.0.O
 grep "eurex.t7.xti.fbe.v10.0.nofills" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.xti.fbe.v10.0.noorderevents" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.xti.fbe.v10.0.pad5" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Xti.Fbe.v10.0/Reassembly.pcap" \
+  --disable-protocol eti \
+  -X "lua_script:Eurex/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Xti.Fbe.v10.0.Reassembly.json 2> Eurex.T7.Xti.Fbe.v10.0.Reassembly.json.stderr \
+  || { echo "--- tshark FAILED (Reassembly) ---"; cat Eurex.T7.Xti.Fbe.v10.0.Reassembly.json.stderr; exit 1; }
+
+grep "eurex.t7.xti.fbe.v10.0." Eurex.T7.Xti.Fbe.v10.0.Reassembly.json
+
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Xti.Fbe.v10.0/Reassembly.pcap" \
+  --disable-protocol eti \
+  -X "lua_script:Eurex/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
+  -Y "tcp.segments" \
+  | grep . \
+  || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

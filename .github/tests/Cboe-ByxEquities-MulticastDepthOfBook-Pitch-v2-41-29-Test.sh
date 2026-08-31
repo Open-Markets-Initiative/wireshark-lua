@@ -29,3 +29,13 @@ grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.orderid" Cboe.ByxEqui
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.quantityshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.priceshort" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.modifyorderflags" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/MultipleMessages.pcap" \
+  -X "lua_script:Cboe/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -T json \
+  > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr; exit 1; }
+
+grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29." Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json
+
+[ "$(grep -c 'cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.' Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }
