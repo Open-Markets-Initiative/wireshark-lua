@@ -166,6 +166,9 @@ jobs:
       - name: Run Jnx JnxEquities Pts Ouch 1.11 Dissector Tests
         run: bash -x .github/tests/Jnx-JnxEquities-Pts-Ouch-v1-11-Test.sh
 
+      - name: Run Jnx JnxEquities Pts Ouch 1.11 Dissector Tests
+        run: bash -x .github/tests/Jnx-JnxEquities-Pts-Ouch-v1-11-Test.sh
+
       - name: Run Jpx OseDerivatives GeniumInet Itch 5.0.6 Dissector Tests
         run: bash -x .github/tests/Jpx-OseDerivatives-GeniumInet-Itch-v5-0-6-Test.sh
 

@@ -1628,7 +1628,56 @@ otcmarkets_linkats_multicast_link_v4_5.security_type.size = 5
 
 -- Display: Security Type
 otcmarkets_linkats_multicast_link_v4_5.security_type.display = function(value)
-  return "Security Type: "..value
+  if value == "CS" then
+    return "Security Type: Common Stock (CS)"
+  end
+  if value == "PS" then
+    return "Security Type: Preferred Stock (PS)"
+  end
+  if value == "RTS" then
+    return "Security Type: Rights (RTS)"
+  end
+  if value == "UTS" then
+    return "Security Type: Units (UTS)"
+  end
+  if value == "OS" then
+    return "Security Type: Ordinary Shares (OS)"
+  end
+  if value == "ADR" then
+    return "Security Type: American Depository Receipts (ADR)"
+  end
+  if value == "GDR" then
+    return "Security Type: Global Depository Receipts (GDR)"
+  end
+  if value == "WTS" then
+    return "Security Type: Warrants (WTS)"
+  end
+  if value == "OTHER" then
+    return "Security Type: Other (OTHER)"
+  end
+  if value == "FUND" then
+    return "Security Type: Fund (FUND)"
+  end
+  if value == "NYRS" then
+    return "Security Type: New York Registry Shares (NYRS)"
+  end
+  if value == "SP" then
+    return "Security Type: Structured Product (SP)"
+  end
+  if value == "ETF" then
+    return "Security Type: Exchange Traded Fund (ETF)"
+  end
+  if value == "CORP" then
+    return "Security Type: Corporate Bond (CORP)"
+  end
+  if value == "AGEN" then
+    return "Security Type: Agency Bond (AGEN)"
+  end
+  if value == "EQLK" then
+    return "Security Type: Equity Linked Bond (EQLK)"
+  end
+
+  return "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
