@@ -794,13 +794,13 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Integer
   index, execution_id = imperative_intelligentcross_depthofbook_aspen_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -847,28 +847,28 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: 8 Byte Unsigned Fixed Width Integer
+  -- Reserved 8: Integer
   index, reserved_8 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: Alpha
   index, reserved_1 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = imperative_intelligentcross_depthofbook_aspen_v1_11.shares.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = imperative_intelligentcross_depthofbook_aspen_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Integer
   index, execution_id = imperative_intelligentcross_depthofbook_aspen_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -914,25 +914,25 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = imperative_intelligentcross_depthofbook_aspen_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = imperative_intelligentcross_depthofbook_aspen_v1_11.shares.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Integer
   index, execution_id = imperative_intelligentcross_depthofbook_aspen_v1_11.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: Alpha
   index, reserved_1 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = imperative_intelligentcross_depthofbook_aspen_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -976,19 +976,19 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.order_updated_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = imperative_intelligentcross_depthofbook_aspen_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = imperative_intelligentcross_depthofbook_aspen_v1_11.shares.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = imperative_intelligentcross_depthofbook_aspen_v1_11.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1030,13 +1030,13 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.order_cancel_all_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = imperative_intelligentcross_depthofbook_aspen_v1_11.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1079,16 +1079,16 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.order_partial_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = imperative_intelligentcross_depthofbook_aspen_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Shares Canceled: 4 Byte Unsigned Fixed Width Integer
+  -- Shares Canceled: Integer
   index, shares_canceled = imperative_intelligentcross_depthofbook_aspen_v1_11.shares_canceled.dissect(buffer, index, packet, parent)
 
   return index
@@ -1135,28 +1135,28 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.new_order_add_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = imperative_intelligentcross_depthofbook_aspen_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = imperative_intelligentcross_depthofbook_aspen_v1_11.side.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = imperative_intelligentcross_depthofbook_aspen_v1_11.shares.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Integer
   index, price = imperative_intelligentcross_depthofbook_aspen_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte Ascii String
+  -- Reserved 4: Alpha
   index, reserved_4 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -1201,22 +1201,22 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol.dissect(buffer, index, packet, parent)
 
-  -- State: 1 Byte Ascii String Enum with 4 values
+  -- State: Alpha
   index, state = imperative_intelligentcross_depthofbook_aspen_v1_11.state.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: Alpha
   index, reserved_1 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Info: 4 Byte Ascii String
+  -- Info: Alpha
   index, info = imperative_intelligentcross_depthofbook_aspen_v1_11.info.dissect(buffer, index, packet, parent)
 
   return index
@@ -1261,22 +1261,22 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Id: 2 Byte Unsigned Fixed Width Integer
+  -- Symbol Id: Integer
   index, symbol_id = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: Alpha
   index, symbol = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 6 values
+  -- Listing Market: Alpha
   index, listing_market = imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte Ascii String
+  -- Reserved 1: Alpha
   index, reserved_1 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = imperative_intelligentcross_depthofbook_aspen_v1_11.round_lot_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1318,13 +1318,13 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.market_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reserved 2: 2 Byte Ascii String
+  -- Reserved 2: Alpha
   index, reserved_2 = imperative_intelligentcross_depthofbook_aspen_v1_11.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event: 1 Byte Ascii String Enum with 5 values
+  -- Event: Alpha
   index, event = imperative_intelligentcross_depthofbook_aspen_v1_11.event.dissect(buffer, index, packet, parent)
 
   return index
