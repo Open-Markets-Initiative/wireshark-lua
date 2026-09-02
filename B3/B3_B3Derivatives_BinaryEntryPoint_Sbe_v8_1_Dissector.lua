@@ -32,6 +32,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.alloc_type = ProtoField.ne
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.asset = ProtoField.new("Asset", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.asset", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.bidirectional_business_header = ProtoField.new("Bidirectional Business Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.bidirectionalbusinessheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.block_length = ProtoField.new("Block Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.blocklength", ftypes.UINT16)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.block_padding = ProtoField.new("Block Padding", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.blockpadding", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.businessrejectreason", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.businessrejectrefid", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.cancel_on_disconnect_type = ProtoField.new("Cancel On Disconnect Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.cancelondisconnecttype", ftypes.UINT8)
@@ -835,6 +836,29 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_length.dissect = function(buffe
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Padding
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding = {}
+
+-- Size: Block Padding
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.size = 2
+
+-- Display: Block Padding
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.display = function(value)
+  return "Block Padding: "..value
+end
+
+-- Dissect: Block Padding
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.block_padding, range, value, display)
 
   return offset + length, value
 end
@@ -11530,6 +11554,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.size
 
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.size
+
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
@@ -11641,6 +11667,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.field
 
   -- Action Requested From Session Id: SessionIDOptional
   index, action_requested_from_session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.dissect(buffer, index, packet, parent)
+
+  -- Block Padding: 2 Byte
+  index, block_padding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
@@ -12555,6 +12584,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.strategy_id.size
 
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.size
+
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
@@ -12648,6 +12679,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.
 
   -- Strategy Id: StrategyIDOptional
   index, strategy_id = b3_b3derivatives_binaryentrypoint_sbe_v8_1.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Block Padding: 2 Byte
+  index, block_padding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.block_padding.dissect(buffer, index, packet, parent)
 
   -- Desk Id: Struct of 2 fields
   index, desk_id = b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)

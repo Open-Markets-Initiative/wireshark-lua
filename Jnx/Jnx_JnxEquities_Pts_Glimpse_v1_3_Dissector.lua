@@ -1,0 +1,2913 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Jnx JnxEquities Pts Glimpse 1.3 Protocol
+local omi_jnx_jnxequities_pts_glimpse_v1_3 = Proto("Omi.Jnx.JnxEquities.Pts.Glimpse.v1.3", "Jnx JnxEquities Pts Glimpse 1.3")
+
+-- Protocol table
+local jnx_jnxequities_pts_glimpse_v1_3 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Jnx JnxEquities Pts Glimpse 1.3 Fields
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxequities.pts.glimpse.v1.3.acceptedsequencenumber", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxequities.pts.glimpse.v1.3.acceptedsession", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.glimpse.v1.3.attribution", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.glimpse.v1.3.buysellindicator", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.glimpse.v1.3.clientpackettype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxequities.pts.glimpse.v1.3.executedquantity", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.group = ProtoField.new("Group", "jnx.jnxequities.pts.glimpse.v1.3.group", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.jnxequities.pts.glimpse.v1.3.lowerpricelimit", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.match_number = ProtoField.new("Match Number", "jnx.jnxequities.pts.glimpse.v1.3.matchnumber", ftypes.UINT64)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "jnx.jnxequities.pts.glimpse.v1.3.nanoseconds", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.new_order_number = ProtoField.new("New Order Number", "jnx.jnxequities.pts.glimpse.v1.3.newordernumber", ftypes.UINT64)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_number = ProtoField.new("Order Number", "jnx.jnxequities.pts.glimpse.v1.3.ordernumber", ftypes.UINT64)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_type = ProtoField.new("Order Type", "jnx.jnxequities.pts.glimpse.v1.3.ordertype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.jnxequities.pts.glimpse.v1.3.orderbookcode", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxequities.pts.glimpse.v1.3.orderbookid", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.jnxequities.pts.glimpse.v1.3.originalordernumber", ftypes.UINT64)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.packet_length = ProtoField.new("Packet Length", "jnx.jnxequities.pts.glimpse.v1.3.packetlength", ftypes.UINT16)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.password = ProtoField.new("Password", "jnx.jnxequities.pts.glimpse.v1.3.password", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price = ProtoField.new("Price", "jnx.jnxequities.pts.glimpse.v1.3.price", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.jnxequities.pts.glimpse.v1.3.pricedecimals", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_start = ProtoField.new("Price Start", "jnx.jnxequities.pts.glimpse.v1.3.pricestart", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.jnxequities.pts.glimpse.v1.3.priceticksize", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.jnxequities.pts.glimpse.v1.3.priceticksizetableid", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.quantity = ProtoField.new("Quantity", "jnx.jnxequities.pts.glimpse.v1.3.quantity", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.jnxequities.pts.glimpse.v1.3.rejectreasoncode", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxequities.pts.glimpse.v1.3.requestedsequencenumber", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_session = ProtoField.new("Requested Session", "jnx.jnxequities.pts.glimpse.v1.3.requestedsession", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.jnxequities.pts.glimpse.v1.3.roundlotsize", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.seconds = ProtoField.new("Seconds", "jnx.jnxequities.pts.glimpse.v1.3.seconds", ftypes.UINT32)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxequities.pts.glimpse.v1.3.sequencedmessagetype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.glimpse.v1.3.serverpackettype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_state = ProtoField.new("Short Selling State", "jnx.jnxequities.pts.glimpse.v1.3.shortsellingstate", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event = ProtoField.new("System Event", "jnx.jnxequities.pts.glimpse.v1.3.systemevent", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.text = ProtoField.new("Text", "jnx.jnxequities.pts.glimpse.v1.3.text", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.glimpse.v1.3.tradingstate", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.jnxequities.pts.glimpse.v1.3.unsequencedmessage", ftypes.BYTES)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.glimpse.v1.3.unsequencedmessagetype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.glimpse.v1.3.upperpricelimit", ftypes.DOUBLE)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.glimpse.v1.3.username", ftypes.STRING)
+
+-- Jnx JnxEquities Pts Glimpse 1.3 Headers
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientsoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.serversoupbintcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.servertcppacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.servertcppacketheader", ftypes.STRING)
+
+-- Jnx JnxEquities Pts 1.3 Session Messages
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientheartbeatpacket", ftypes.BYTES)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.glimpse.v1.3.debugpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.glimpse.v1.3.endofsessionpacket", ftypes.BYTES)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginacceptedpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginrejectedpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.glimpse.v1.3.logoutrequestpacket", ftypes.BYTES)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.glimpse.v1.3.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.glimpse.v1.3.serverheartbeatpacket", ftypes.BYTES)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.glimpse.v1.3.unsequenceddatapacket", ftypes.STRING)
+
+-- Jnx JnxEquities Pts 1.3 Application Messages
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_added_with_attributes_message = ProtoField.new("Order Added With Attributes Message", "jnx.jnxequities.pts.glimpse.v1.3.orderaddedwithattributesmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_added_without_attributes_message = ProtoField.new("Order Added Without Attributes Message", "jnx.jnxequities.pts.glimpse.v1.3.orderaddedwithoutattributesmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.jnxequities.pts.glimpse.v1.3.orderdeletedmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_executed_message = ProtoField.new("Order Executed Message", "jnx.jnxequities.pts.glimpse.v1.3.orderexecutedmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "jnx.jnxequities.pts.glimpse.v1.3.orderreplacedmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "jnx.jnxequities.pts.glimpse.v1.3.orderbookdirectorymessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.jnxequities.pts.glimpse.v1.3.priceticksizemessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.seconds_message = ProtoField.new("Seconds Message", "jnx.jnxequities.pts.glimpse.v1.3.secondsmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_price_restriction_state_message = ProtoField.new("Short Selling Price Restriction State Message", "jnx.jnxequities.pts.glimpse.v1.3.shortsellingpricerestrictionstatemessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.glimpse.v1.3.systemeventmessage", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxequities.pts.glimpse.v1.3.tradingstatemessage", ftypes.STRING)
+
+-- Jnx JnxEquities Pts Glimpse 1.3 generated fields
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.glimpse.v1.3.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Jnx JnxEquities Pts Glimpse 1.3 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+jnx_jnxequities_pts_glimpse_v1_3.timestamp_format = 2
+
+-- Hours ahead of UTC (JST) for midnight calculation
+jnx_jnxequities_pts_glimpse_v1_3.utc_offset_hours = 9
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+jnx_jnxequities_pts_glimpse_v1_3.format_timestamp = true
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Jnx JnxEquities Pts Glimpse 1.3 Element Dissection Options
+show.structs = true
+show.session_messages = true
+show.application_messages = true
+
+-- Register Jnx JnxEquities Pts Glimpse 1.3 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
+
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
+
+-- Handle changed preferences
+function omi_jnx_jnxequities_pts_glimpse_v1_3.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages then
+    show.application_messages = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages
+  end
+  if show.session_messages ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages then
+    show.session_messages = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages
+  end
+  if show.structs ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs then
+    show.structs = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs
+  end
+  if jnx_jnxequities_pts_glimpse_v1_3.format_timestamp ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp then
+    jnx_jnxequities_pts_glimpse_v1_3.format_timestamp = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp
+  end
+  if jnx_jnxequities_pts_glimpse_v1_3.timestamp_format ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.timestamp_format then
+    jnx_jnxequities_pts_glimpse_v1_3.timestamp_format = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.timestamp_format
+  end
+  if jnx_jnxequities_pts_glimpse_v1_3.utc_offset_hours ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.utc_offset_hours then
+    jnx_jnxequities_pts_glimpse_v1_3.utc_offset_hours = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.utc_offset_hours
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+jnx_jnxequities_pts_glimpse_v1_3.conversation = {}
+jnx_jnxequities_pts_glimpse_v1_3.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+jnx_jnxequities_pts_glimpse_v1_3.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+jnx_jnxequities_pts_glimpse_v1_3.conversation.data = function(packet)
+  local key = jnx_jnxequities_pts_glimpse_v1_3.conversation.key(packet)
+  local data = jnx_jnxequities_pts_glimpse_v1_3.conversation.flows[key]
+  if data == nil then
+    data = { seconds = { last = nil, frames = {} } }
+    jnx_jnxequities_pts_glimpse_v1_3.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+jnx_jnxequities_pts_glimpse_v1_3.conversation.current = nil
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
+-- Jnx JnxEquities Pts Glimpse 1.3 Fields
+-----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+jnx_jnxequities_pts_glimpse_v1_3.accepted_session = {}
+
+-- Size: Accepted Session
+jnx_jnxequities_pts_glimpse_v1_3.accepted_session.size = 10
+
+-- Display: Accepted Session
+jnx_jnxequities_pts_glimpse_v1_3.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+jnx_jnxequities_pts_glimpse_v1_3.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Attribution
+jnx_jnxequities_pts_glimpse_v1_3.attribution = {}
+
+-- Size: Attribution
+jnx_jnxequities_pts_glimpse_v1_3.attribution.size = 4
+
+-- Display: Attribution
+jnx_jnxequities_pts_glimpse_v1_3.attribution.display = function(value)
+  return "Attribution: "..value
+end
+
+-- Dissect: Attribution
+jnx_jnxequities_pts_glimpse_v1_3.attribution.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.attribution.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_jnxequities_pts_glimpse_v1_3.attribution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.attribution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Indicator
+jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator = {}
+
+-- Size: Buy Sell Indicator
+jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.size = 1
+
+-- Display: Buy Sell Indicator
+jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.display = function(value)
+  if value == "B" then
+    return "Buy Sell Indicator: Buy (B)"
+  end
+  if value == "S" then
+    return "Buy Sell Indicator: Sell (S)"
+  end
+
+  return "Buy Sell Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Buy Sell Indicator
+jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_type = {}
+
+-- Size: Client Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+jnx_jnxequities_pts_glimpse_v1_3.executed_quantity = {}
+
+-- Size: Executed Quantity
+jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group
+jnx_jnxequities_pts_glimpse_v1_3.group = {}
+
+-- Size: Group
+jnx_jnxequities_pts_glimpse_v1_3.group.size = 4
+
+-- Display: Group
+jnx_jnxequities_pts_glimpse_v1_3.group.display = function(value)
+  if value == "DAY" then
+    return "Group: Daytime Market (DAY)"
+  end
+  if value == "NGHT" then
+    return "Group: Nighttime Market (NGHT)"
+  end
+  if value == "DAYX" then
+    return "Group: X Market (DAYX)"
+  end
+  if value == "DAYU" then
+    return "Group: U Market (DAYU)"
+  end
+
+  return "Group: Unknown("..value..")"
+end
+
+-- Dissect: Group
+jnx_jnxequities_pts_glimpse_v1_3.group.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.group.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_jnxequities_pts_glimpse_v1_3.group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit = {}
+
+-- Size: Lower Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.size = 4
+
+-- Display: Lower Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.display = function(value)
+  return "Lower Price Limit: "..value
+end
+
+-- Translate: Lower Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Lower Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.lower_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Number
+jnx_jnxequities_pts_glimpse_v1_3.match_number = {}
+
+-- Size: Match Number
+jnx_jnxequities_pts_glimpse_v1_3.match_number.size = 8
+
+-- Display: Match Number
+jnx_jnxequities_pts_glimpse_v1_3.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+jnx_jnxequities_pts_glimpse_v1_3.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+jnx_jnxequities_pts_glimpse_v1_3.nanoseconds = {}
+
+-- Size: Nanoseconds
+jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Order Number
+jnx_jnxequities_pts_glimpse_v1_3.new_order_number = {}
+
+-- Size: New Order Number
+jnx_jnxequities_pts_glimpse_v1_3.new_order_number.size = 8
+
+-- Display: New Order Number
+jnx_jnxequities_pts_glimpse_v1_3.new_order_number.display = function(value)
+  return "New Order Number: "..value
+end
+
+-- Dissect: New Order Number
+jnx_jnxequities_pts_glimpse_v1_3.new_order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.new_order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.new_order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.new_order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Number
+jnx_jnxequities_pts_glimpse_v1_3.order_number = {}
+
+-- Size: Order Number
+jnx_jnxequities_pts_glimpse_v1_3.order_number.size = 8
+
+-- Display: Order Number
+jnx_jnxequities_pts_glimpse_v1_3.order_number.display = function(value)
+  return "Order Number: "..value
+end
+
+-- Dissect: Order Number
+jnx_jnxequities_pts_glimpse_v1_3.order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+jnx_jnxequities_pts_glimpse_v1_3.order_type = {}
+
+-- Size: Order Type
+jnx_jnxequities_pts_glimpse_v1_3.order_type.size = 1
+
+-- Display: Order Type
+jnx_jnxequities_pts_glimpse_v1_3.order_type.display = function(value)
+  if value == "Q" then
+    return "Order Type: Dlp Order (Q)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+jnx_jnxequities_pts_glimpse_v1_3.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Code
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_code = {}
+
+-- Size: Orderbook Code
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.size = 12
+
+-- Display: Orderbook Code
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.display = function(value)
+  return "Orderbook Code: "..value
+end
+
+-- Dissect: Orderbook Code
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Id
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_id = {}
+
+-- Size: Orderbook Id
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size = 4
+
+-- Display: Orderbook Id
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.display = function(value)
+  return "Orderbook Id: "..value
+end
+
+-- Dissect: Orderbook Id
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Order Number
+jnx_jnxequities_pts_glimpse_v1_3.original_order_number = {}
+
+-- Size: Original Order Number
+jnx_jnxequities_pts_glimpse_v1_3.original_order_number.size = 8
+
+-- Display: Original Order Number
+jnx_jnxequities_pts_glimpse_v1_3.original_order_number.display = function(value)
+  return "Original Order Number: "..value
+end
+
+-- Dissect: Original Order Number
+jnx_jnxequities_pts_glimpse_v1_3.original_order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.original_order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.original_order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.original_order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Length
+jnx_jnxequities_pts_glimpse_v1_3.packet_length = {}
+
+-- Size: Packet Length
+jnx_jnxequities_pts_glimpse_v1_3.packet_length.size = 2
+
+-- Display: Packet Length
+jnx_jnxequities_pts_glimpse_v1_3.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+jnx_jnxequities_pts_glimpse_v1_3.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+jnx_jnxequities_pts_glimpse_v1_3.password = {}
+
+-- Size: Password
+jnx_jnxequities_pts_glimpse_v1_3.password.size = 10
+
+-- Display: Password
+jnx_jnxequities_pts_glimpse_v1_3.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+jnx_jnxequities_pts_glimpse_v1_3.password.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+jnx_jnxequities_pts_glimpse_v1_3.price = {}
+
+-- Size: Price
+jnx_jnxequities_pts_glimpse_v1_3.price.size = 4
+
+-- Display: Price
+jnx_jnxequities_pts_glimpse_v1_3.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+jnx_jnxequities_pts_glimpse_v1_3.price.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price
+jnx_jnxequities_pts_glimpse_v1_3.price.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.price.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Decimals
+jnx_jnxequities_pts_glimpse_v1_3.price_decimals = {}
+
+-- Size: Price Decimals
+jnx_jnxequities_pts_glimpse_v1_3.price_decimals.size = 4
+
+-- Display: Price Decimals
+jnx_jnxequities_pts_glimpse_v1_3.price_decimals.display = function(value)
+  return "Price Decimals: "..value
+end
+
+-- Translate: Price Decimals
+jnx_jnxequities_pts_glimpse_v1_3.price_decimals.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Decimals
+jnx_jnxequities_pts_glimpse_v1_3.price_decimals.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.price_decimals.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.price_decimals.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.price_decimals.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_decimals, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Start
+jnx_jnxequities_pts_glimpse_v1_3.price_start = {}
+
+-- Size: Price Start
+jnx_jnxequities_pts_glimpse_v1_3.price_start.size = 4
+
+-- Display: Price Start
+jnx_jnxequities_pts_glimpse_v1_3.price_start.display = function(value)
+  return "Price Start: "..value
+end
+
+-- Translate: Price Start
+jnx_jnxequities_pts_glimpse_v1_3.price_start.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Start
+jnx_jnxequities_pts_glimpse_v1_3.price_start.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.price_start.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.price_start.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.price_start.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_start, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Tick Size
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size = {}
+
+-- Size: Price Tick Size
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.size = 4
+
+-- Display: Price Tick Size
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.display = function(value)
+  return "Price Tick Size: "..value
+end
+
+-- Translate: Price Tick Size
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Tick Size
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Tick Size Table Id
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id = {}
+
+-- Size: Price Tick Size Table Id
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.size = 4
+
+-- Display: Price Tick Size Table Id
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.display = function(value)
+  return "Price Tick Size Table Id: "..value
+end
+
+-- Translate: Price Tick Size Table Id
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Tick Size Table Id
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size_table_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+jnx_jnxequities_pts_glimpse_v1_3.quantity = {}
+
+-- Size: Quantity
+jnx_jnxequities_pts_glimpse_v1_3.quantity.size = 4
+
+-- Display: Quantity
+jnx_jnxequities_pts_glimpse_v1_3.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+jnx_jnxequities_pts_glimpse_v1_3.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+jnx_jnxequities_pts_glimpse_v1_3.requested_session = {}
+
+-- Size: Requested Session
+jnx_jnxequities_pts_glimpse_v1_3.requested_session.size = 10
+
+-- Display: Requested Session
+jnx_jnxequities_pts_glimpse_v1_3.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+jnx_jnxequities_pts_glimpse_v1_3.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+jnx_jnxequities_pts_glimpse_v1_3.round_lot_size = {}
+
+-- Size: Round Lot Size
+jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds = {}
+
+-- Size: Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds.size = 4
+
+-- Store: Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds.current = nil
+
+-- Generated: Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds.generated = function(value, range, packet, parent)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.seconds.display(value)
+  local seconds = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.seconds, range, value, display)
+  seconds:set_generated()
+end
+
+-- Display: Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+jnx_jnxequities_pts_glimpse_v1_3.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.display = function(value)
+  if value == "T" then
+    return "Sequenced Message Type: Timestamp Seconds Message (T)"
+  end
+  if value == "S" then
+    return "Sequenced Message Type: System Event Message (S)"
+  end
+  if value == "L" then
+    return "Sequenced Message Type: Price Tick Size Message (L)"
+  end
+  if value == "R" then
+    return "Sequenced Message Type: Orderbook Directory Message (R)"
+  end
+  if value == "H" then
+    return "Sequenced Message Type: Trading State Message (H)"
+  end
+  if value == "Y" then
+    return "Sequenced Message Type: Short Selling Price Restriction State Message (Y)"
+  end
+  if value == "A" then
+    return "Sequenced Message Type: Order Added Without Attributes Message (A)"
+  end
+  if value == "F" then
+    return "Sequenced Message Type: Order Added With Attributes Message (F)"
+  end
+  if value == "E" then
+    return "Sequenced Message Type: Order Executed Message (E)"
+  end
+  if value == "D" then
+    return "Sequenced Message Type: Order Deleted Message (D)"
+  end
+  if value == "U" then
+    return "Sequenced Message Type: Order Replaced Message (U)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Server Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_type = {}
+
+-- Size: Server Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Selling State
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_state = {}
+
+-- Size: Short Selling State
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.size = 1
+
+-- Display: Short Selling State
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.display = function(value)
+  if value == "0" then
+    return "Short Selling State: No Price Restriction (0)"
+  end
+  if value == "1" then
+    return "Short Selling State: Price Restriction In Effect (1)"
+  end
+
+  return "Short Selling State: Unknown("..value..")"
+end
+
+-- Dissect: Short Selling State
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Event
+jnx_jnxequities_pts_glimpse_v1_3.system_event = {}
+
+-- Size: System Event
+jnx_jnxequities_pts_glimpse_v1_3.system_event.size = 1
+
+-- Display: System Event
+jnx_jnxequities_pts_glimpse_v1_3.system_event.display = function(value)
+  return "System Event: "..value
+end
+
+-- Dissect: System Event
+jnx_jnxequities_pts_glimpse_v1_3.system_event.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.system_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.system_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+jnx_jnxequities_pts_glimpse_v1_3.text = {}
+
+-- Size: Text
+jnx_jnxequities_pts_glimpse_v1_3.text.size = 1
+
+-- Display: Text
+jnx_jnxequities_pts_glimpse_v1_3.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+jnx_jnxequities_pts_glimpse_v1_3.text.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading State
+jnx_jnxequities_pts_glimpse_v1_3.trading_state = {}
+
+-- Size: Trading State
+jnx_jnxequities_pts_glimpse_v1_3.trading_state.size = 1
+
+-- Display: Trading State
+jnx_jnxequities_pts_glimpse_v1_3.trading_state.display = function(value)
+  if value == "T" then
+    return "Trading State: Trading (T)"
+  end
+  if value == "V" then
+    return "Trading State: Suspended (V)"
+  end
+
+  return "Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Trading State
+jnx_jnxequities_pts_glimpse_v1_3.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
+end
+
+-- Unsequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.display = function(value)
+  return "Unsequenced Message Type: "..value
+end
+
+-- Dissect: Unsequenced Message Type
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit = {}
+
+-- Size: Upper Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.size = 4
+
+-- Display: Upper Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.display = function(value)
+  return "Upper Price Limit: "..value
+end
+
+-- Translate: Upper Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Upper Price Limit
+jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.translate(raw)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.upper_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+jnx_jnxequities_pts_glimpse_v1_3.username = {}
+
+-- Size: Username
+jnx_jnxequities_pts_glimpse_v1_3.username.size = 6
+
+-- Display: Username
+jnx_jnxequities_pts_glimpse_v1_3.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+jnx_jnxequities_pts_glimpse_v1_3.username.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.username.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+jnx_jnxequities_pts_glimpse_v1_3.timestamp = {}
+
+-- Translate: Timestamp
+jnx_jnxequities_pts_glimpse_v1_3.timestamp.translate = function(nanoseconds, stored_seconds)
+  return UInt64.new(stored_seconds * 1000000000 + nanoseconds)
+end
+
+-- Display: Timestamp
+jnx_jnxequities_pts_glimpse_v1_3.timestamp.display = function(nanoseconds, stored_seconds, packet)
+  -- Raw display mode
+  if jnx_jnxequities_pts_glimpse_v1_3.timestamp_format == 0 then
+    return "Timestamp: "..(stored_seconds * 1000000000 + nanoseconds)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if jnx_jnxequities_pts_glimpse_v1_3.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = jnx_jnxequities_pts_glimpse_v1_3.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time + utc_offset_seconds) / 86400) * 86400
+    local full_seconds = local_midnight + stored_seconds
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Composite: Timestamp
+jnx_jnxequities_pts_glimpse_v1_3.timestamp.composite = function(buffer, offset, stored_seconds, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size
+  local range = buffer(offset, length)
+  local nanoseconds = range:uint()
+  local value = jnx_jnxequities_pts_glimpse_v1_3.timestamp.translate(nanoseconds, stored_seconds)
+  local display = jnx_jnxequities_pts_glimpse_v1_3.timestamp.display(nanoseconds, stored_seconds, packet)
+  parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.timestamp, range, value, display)
+
+  jnx_jnxequities_pts_glimpse_v1_3.seconds.generated(stored_seconds, range, packet, parent)
+
+  display = jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.display(nanoseconds)
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.nanoseconds, range, nanoseconds, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  if jnx_jnxequities_pts_glimpse_v1_3.format_timestamp then
+    local stored_seconds = jnx_jnxequities_pts_glimpse_v1_3.seconds.current
+
+    if stored_seconds ~= nil then
+      return jnx_jnxequities_pts_glimpse_v1_3.timestamp.composite(buffer, offset, stored_seconds, packet, parent)
+    end
+  end
+
+  return jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.dissect(buffer, offset, packet, parent)
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Jnx JnxEquities Pts Glimpse 1.3
+-----------------------------------------------------------------------
+
+-- Order Replaced Message
+jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message = {}
+
+-- Size: Order Replaced Message
+jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.original_order_number.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.new_order_number.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.quantity.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price.size
+
+-- Display: Order Replaced Message
+jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Replaced Message
+jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Original Order Number: Integer
+  index, original_order_number = jnx_jnxequities_pts_glimpse_v1_3.original_order_number.dissect(buffer, index, packet, parent)
+
+  -- New Order Number: Integer
+  index, new_order_number = jnx_jnxequities_pts_glimpse_v1_3.new_order_number.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = jnx_jnxequities_pts_glimpse_v1_3.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = jnx_jnxequities_pts_glimpse_v1_3.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Replaced Message
+jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_replaced_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Deleted Message
+jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message = {}
+
+-- Size: Order Deleted Message
+jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.order_number.size
+
+-- Display: Order Deleted Message
+jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Deleted Message
+jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Number: Integer
+  index, order_number = jnx_jnxequities_pts_glimpse_v1_3.order_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Deleted Message
+jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_deleted_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Executed Message
+jnx_jnxequities_pts_glimpse_v1_3.order_executed_message = {}
+
+-- Size: Order Executed Message
+jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.order_number.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.match_number.size
+
+-- Display: Order Executed Message
+jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Executed Message
+jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Number: Integer
+  index, order_number = jnx_jnxequities_pts_glimpse_v1_3.order_number.dissect(buffer, index, packet, parent)
+
+  -- Executed Quantity: Integer
+  index, executed_quantity = jnx_jnxequities_pts_glimpse_v1_3.executed_quantity.dissect(buffer, index, packet, parent)
+
+  -- Match Number: Integer
+  index, match_number = jnx_jnxequities_pts_glimpse_v1_3.match_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Executed Message
+jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_executed_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Added With Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message = {}
+
+-- Size: Order Added With Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.order_number.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.quantity.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.attribution.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.order_type.size
+
+-- Display: Order Added With Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Added With Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Number: Integer
+  index, order_number = jnx_jnxequities_pts_glimpse_v1_3.order_number.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: Alpha
+  index, buy_sell_indicator = jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = jnx_jnxequities_pts_glimpse_v1_3.quantity.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Integer
+  index, orderbook_id = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = jnx_jnxequities_pts_glimpse_v1_3.price.dissect(buffer, index, packet, parent)
+
+  -- Attribution: Alpha
+  index, attribution = jnx_jnxequities_pts_glimpse_v1_3.attribution.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = jnx_jnxequities_pts_glimpse_v1_3.order_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Added With Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_added_with_attributes_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Added Without Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message = {}
+
+-- Size: Order Added Without Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.order_number.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.quantity.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price.size
+
+-- Display: Order Added Without Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Added Without Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Number: Integer
+  index, order_number = jnx_jnxequities_pts_glimpse_v1_3.order_number.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell Indicator: Alpha
+  index, buy_sell_indicator = jnx_jnxequities_pts_glimpse_v1_3.buy_sell_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Integer
+  index, quantity = jnx_jnxequities_pts_glimpse_v1_3.quantity.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Integer
+  index, orderbook_id = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = jnx_jnxequities_pts_glimpse_v1_3.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Added Without Attributes Message
+jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.order_added_without_attributes_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Short Selling Price Restriction State Message
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message = {}
+
+-- Size: Short Selling Price Restriction State Message
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.size
+
+-- Display: Short Selling Price Restriction State Message
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Short Selling Price Restriction State Message
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Integer
+  index, orderbook_id = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- Short Selling State: Alpha
+  index, short_selling_state = jnx_jnxequities_pts_glimpse_v1_3.short_selling_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Short Selling Price Restriction State Message
+jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_price_restriction_state_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading State Message
+jnx_jnxequities_pts_glimpse_v1_3.trading_state_message = {}
+
+-- Size: Trading State Message
+jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.trading_state.size
+
+-- Display: Trading State Message
+jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading State Message
+jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Integer
+  index, orderbook_id = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- Trading State: Alpha
+  index, trading_state = jnx_jnxequities_pts_glimpse_v1_3.trading_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading State Message
+jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Orderbook Directory Message
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message = {}
+
+-- Size: Orderbook Directory Message
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price_decimals.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.size
+
+-- Display: Orderbook Directory Message
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Orderbook Directory Message
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Id: Integer
+  index, orderbook_id = jnx_jnxequities_pts_glimpse_v1_3.orderbook_id.dissect(buffer, index, packet, parent)
+
+  -- Orderbook Code: Alpha
+  index, orderbook_code = jnx_jnxequities_pts_glimpse_v1_3.orderbook_code.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- Round Lot Size: Integer
+  index, round_lot_size = jnx_jnxequities_pts_glimpse_v1_3.round_lot_size.dissect(buffer, index, packet, parent)
+
+  -- Price Tick Size Table Id: Integer
+  index, price_tick_size_table_id = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.dissect(buffer, index, packet, parent)
+
+  -- Price Decimals: Integer
+  index, price_decimals = jnx_jnxequities_pts_glimpse_v1_3.price_decimals.dissect(buffer, index, packet, parent)
+
+  -- Upper Price Limit: Integer
+  index, upper_price_limit = jnx_jnxequities_pts_glimpse_v1_3.upper_price_limit.dissect(buffer, index, packet, parent)
+
+  -- Lower Price Limit: Integer
+  index, lower_price_limit = jnx_jnxequities_pts_glimpse_v1_3.lower_price_limit.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Orderbook Directory Message
+jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.orderbook_directory_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Price Tick Size Message
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message = {}
+
+-- Size: Price Tick Size Message
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.price_start.size
+
+-- Display: Price Tick Size Message
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Price Tick Size Message
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Price Tick Size Table Id: Integer
+  index, price_tick_size_table_id = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_table_id.dissect(buffer, index, packet, parent)
+
+  -- Price Tick Size: Integer
+  index, price_tick_size = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size.dissect(buffer, index, packet, parent)
+
+  -- Price Start: Integer
+  index, price_start = jnx_jnxequities_pts_glimpse_v1_3.price_start.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Price Tick Size Message
+jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.price_tick_size_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+jnx_jnxequities_pts_glimpse_v1_3.system_event_message = {}
+
+-- Size: System Event Message
+jnx_jnxequities_pts_glimpse_v1_3.system_event_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.nanoseconds.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.group.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.system_event.size
+
+-- Display: System Event Message
+jnx_jnxequities_pts_glimpse_v1_3.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+jnx_jnxequities_pts_glimpse_v1_3.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = jnx_jnxequities_pts_glimpse_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Group: Alpha
+  index, group = jnx_jnxequities_pts_glimpse_v1_3.group.dissect(buffer, index, packet, parent)
+
+  -- System Event: Alpha
+  index, system_event = jnx_jnxequities_pts_glimpse_v1_3.system_event.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+jnx_jnxequities_pts_glimpse_v1_3.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seconds Message
+jnx_jnxequities_pts_glimpse_v1_3.seconds_message = {}
+
+-- Size: Seconds Message
+jnx_jnxequities_pts_glimpse_v1_3.seconds_message.size =
+  jnx_jnxequities_pts_glimpse_v1_3.seconds.size
+
+-- Display: Seconds Message
+jnx_jnxequities_pts_glimpse_v1_3.seconds_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seconds Message
+jnx_jnxequities_pts_glimpse_v1_3.seconds_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Integer
+  index, seconds = jnx_jnxequities_pts_glimpse_v1_3.seconds.dissect(buffer, index, packet, parent)
+
+  -- Store Seconds Value
+  jnx_jnxequities_pts_glimpse_v1_3.seconds.current = seconds
+
+  if not packet.visited then
+    jnx_jnxequities_pts_glimpse_v1_3.conversation.current.seconds.last = seconds
+  end
+
+  return index
+end
+
+-- Dissect: Seconds Message
+jnx_jnxequities_pts_glimpse_v1_3.seconds_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.seconds_message, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.seconds_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.seconds_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.seconds_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message = {}
+
+-- Dissect: Sequenced Message
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+  -- Dissect Seconds Message
+  if sequenced_message_type == "T" then
+    return jnx_jnxequities_pts_glimpse_v1_3.seconds_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if sequenced_message_type == "S" then
+    return jnx_jnxequities_pts_glimpse_v1_3.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Price Tick Size Message
+  if sequenced_message_type == "L" then
+    return jnx_jnxequities_pts_glimpse_v1_3.price_tick_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Orderbook Directory Message
+  if sequenced_message_type == "R" then
+    return jnx_jnxequities_pts_glimpse_v1_3.orderbook_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading State Message
+  if sequenced_message_type == "H" then
+    return jnx_jnxequities_pts_glimpse_v1_3.trading_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Selling Price Restriction State Message
+  if sequenced_message_type == "Y" then
+    return jnx_jnxequities_pts_glimpse_v1_3.short_selling_price_restriction_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Added Without Attributes Message
+  if sequenced_message_type == "A" then
+    return jnx_jnxequities_pts_glimpse_v1_3.order_added_without_attributes_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Added With Attributes Message
+  if sequenced_message_type == "F" then
+    return jnx_jnxequities_pts_glimpse_v1_3.order_added_with_attributes_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if sequenced_message_type == "E" then
+    return jnx_jnxequities_pts_glimpse_v1_3.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Deleted Message
+  if sequenced_message_type == "D" then
+    return jnx_jnxequities_pts_glimpse_v1_3.order_deleted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Replaced Message
+  if sequenced_message_type == "U" then
+    return jnx_jnxequities_pts_glimpse_v1_3.order_replaced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet = {}
+
+-- Read runtime size of: Sequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Sequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local index = offset
+
+  -- Sequenced Message Type: 1 Byte Ascii String Enum with 11 values
+  index, sequenced_message_type = jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Sequenced Message: Runtime Type with 11 branches
+  index = jnx_jnxequities_pts_glimpse_v1_3.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Sequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local size_of_sequenced_data_packet = jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Rejected Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet = {}
+
+-- Size: Login Rejected Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.size =
+  jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.size
+
+-- Display: Login Rejected Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reject Reason Code: 1 Byte Ascii String
+  index, reject_reason_code = jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_rejected_packet, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet = {}
+
+-- Size: Login Accepted Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.size =
+  jnx_jnxequities_pts_glimpse_v1_3.accepted_session.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.size
+
+-- Display: Login Accepted Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.dissect(buffer, index, packet, parent)
+
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_accepted_packet, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Debug Packet
+jnx_jnxequities_pts_glimpse_v1_3.debug_packet = {}
+
+-- Size: Debug Packet
+jnx_jnxequities_pts_glimpse_v1_3.debug_packet.size =
+  jnx_jnxequities_pts_glimpse_v1_3.text.size
+
+-- Display: Debug Packet
+jnx_jnxequities_pts_glimpse_v1_3.debug_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Debug Packet
+jnx_jnxequities_pts_glimpse_v1_3.debug_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Text: 1 Byte Ascii String
+  index, text = jnx_jnxequities_pts_glimpse_v1_3.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Debug Packet
+jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.debug_packet, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.debug_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.debug_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.debug_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Tcp Payload
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload = {}
+
+-- Dissect: Server Tcp Payload
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+  -- Dissect Debug Packet
+  if server_packet_type == "+" then
+    return jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Accepted Packet
+  if server_packet_type == "A" then
+    return jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Packet
+  if server_packet_type == "J" then
+    return jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Data Packet
+  if server_packet_type == "S" then
+    return jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return offset
+  end
+  -- Dissect End Of Session Packet
+  if server_packet_type == "Z" then
+    return offset
+  end
+
+  return offset
+end
+
+-- Server Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header = {}
+
+-- Size: Server Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size =
+  jnx_jnxequities_pts_glimpse_v1_3.packet_length.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.size
+
+-- Display: Server Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = jnx_jnxequities_pts_glimpse_v1_3.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Server Packet Type: 1 Byte Ascii String Enum with 6 values
+  index, server_packet_type = jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet = {}
+
+-- Display: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Server Tcp Packet Header: Struct of 2 fields
+  index, server_tcp_packet_header = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
+
+  -- Server Tcp Payload: Runtime Type with 6 branches
+  index = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
+
+  return index
+end
+
+-- Dissect: Server Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+  local index = offset + size_of_server_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    parent:set_len(size_of_server_soup_bin_tcp_packet)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Soup Bin Tcp Packet
+local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size
+end
+
+-- Dissect Server Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = jnx_jnxequities_pts_glimpse_v1_3.conversation.data(packet)
+  if not packet.visited then
+    data.seconds.frames[packet.number] = data.seconds.last
+  end
+  jnx_jnxequities_pts_glimpse_v1_3.seconds.current = data.seconds.frames[packet.number]
+  jnx_jnxequities_pts_glimpse_v1_3.conversation.current = data
+
+  local index = 0
+
+  -- Dependency for Server Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Server Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Unsequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Login Request Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_request_packet = {}
+
+-- Size: Login Request Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.size =
+  jnx_jnxequities_pts_glimpse_v1_3.username.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.password.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.requested_session.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.size
+
+-- Display: Login Request Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = jnx_jnxequities_pts_glimpse_v1_3.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = jnx_jnxequities_pts_glimpse_v1_3.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = jnx_jnxequities_pts_glimpse_v1_3.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 20 Byte Ascii String
+  index, requested_sequence_number = jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_request_packet, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Tcp Payload
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload = {}
+
+-- Dissect: Client Tcp Payload
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Request Packet
+  if client_packet_type == "L" then
+    return jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return jnx_jnxequities_pts_glimpse_v1_3.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return offset
+  end
+  -- Dissect Logout Request Packet
+  if client_packet_type == "O" then
+    return offset
+  end
+
+  return offset
+end
+
+-- Client Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header = {}
+
+-- Size: Client Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size =
+  jnx_jnxequities_pts_glimpse_v1_3.packet_length.size + 
+  jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.size
+
+-- Display: Client Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, packet_length = jnx_jnxequities_pts_glimpse_v1_3.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Tcp Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet = {}
+
+-- Display: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset
+
+  -- Client Tcp Packet Header: Struct of 2 fields
+  index, client_tcp_packet_header = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Tcp Payload: Runtime Type with 5 branches
+  index = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  return index
+end
+
+-- Dissect: Client Soup Bin Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+  local index = offset + size_of_client_soup_bin_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
+    local current = jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    parent:set_len(size_of_client_soup_bin_tcp_packet)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Soup Bin Tcp Packet
+local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet = {}
+
+-- Verify required size of Tcp packet
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size
+end
+
+-- Dissect Client Tcp Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Client Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_jnx_jnxequities_pts_glimpse_v1_3.init()
+  jnx_jnxequities_pts_glimpse_v1_3.seconds.current = nil
+  jnx_jnxequities_pts_glimpse_v1_3.conversation.current = nil
+  jnx_jnxequities_pts_glimpse_v1_3.conversation.flows = {}
+end
+
+-- Connection roles for Jnx JnxEquities Pts Glimpse 1.3: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+jnx_jnxequities_pts_glimpse_v1_3.role = function(packet)
+  if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+jnx_jnxequities_pts_glimpse_v1_3.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Jnx JnxEquities Pts Glimpse 1.3
+function omi_jnx_jnxequities_pts_glimpse_v1_3.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_jnx_jnxequities_pts_glimpse_v1_3.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3, buffer(), omi_jnx_jnxequities_pts_glimpse_v1_3.description, "("..buffer:len().." Bytes)")
+  local role = jnx_jnxequities_pts_glimpse_v1_3.role(packet)
+  if role == "initiator" then
+    return jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.dissect(buffer, packet, protocol)
+  end
+  return jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local client_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  -- Client Heartbeat Packet
+  if client_packet_type == "R" then
+    return true
+  end
+
+  -- Logout Request Packet
+  if client_packet_type == "O" then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+  local server_packet_type = buffer(2, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet
+  if server_packet_type == "S" then
+    return true
+  end
+
+  -- Server Heartbeat Packet
+  if server_packet_type == "H" then
+    return true
+  end
+
+  -- End Of Session Packet
+  if server_packet_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp)
+local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_jnx_jnxequities_pts_glimpse_v1_3
+  omi_jnx_jnxequities_pts_glimpse_v1_3.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp)
+local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_jnx_jnxequities_pts_glimpse_v1_3
+  omi_jnx_jnxequities_pts_glimpse_v1_3.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp): apply the heuristic of the sender's connection role
+local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_heuristic(buffer, packet, parent)
+  local role = jnx_jnxequities_pts_glimpse_v1_3.role(packet)
+  local first, second = omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic, omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  jnx_jnxequities_pts_glimpse_v1_3.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  jnx_jnxequities_pts_glimpse_v1_3.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Jnx JnxEquities Pts Glimpse 1.3
+omi_jnx_jnxequities_pts_glimpse_v1_3:register_heuristic("tcp", omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_heuristic)
+-- Register Jnx JnxEquities Pts Glimpse 1.3 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_jnx_jnxequities_pts_glimpse_v1_3)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Japannext Securities
+--   Version: 1.3
+--   Date: Wednesday, November 1, 2023
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

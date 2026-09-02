@@ -34,7 +34,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.new_order_number = ProtoField.new("New 
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_number = ProtoField.new("Order Number", "jnx.jnxequities.pts.itch.v1.7.ordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.order_type = ProtoField.new("Order Type", "jnx.jnxequities.pts.itch.v1.7.ordertype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_code = ProtoField.new("Orderbook Code", "jnx.jnxequities.pts.itch.v1.7.orderbookcode", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxequities.pts.itch.v1.7.orderbookid", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_id = ProtoField.new("Orderbook Id", "jnx.jnxequities.pts.itch.v1.7.orderbookid", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.original_order_number = ProtoField.new("Original Order Number", "jnx.jnxequities.pts.itch.v1.7.originalordernumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.packet_length = ProtoField.new("Packet Length", "jnx.jnxequities.pts.itch.v1.7.packetlength", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.password = ProtoField.new("Password", "jnx.jnxequities.pts.itch.v1.7.password", ftypes.STRING)
@@ -723,7 +723,7 @@ end
 jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_itch_v1_7.orderbook_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:uint()
   local display = jnx_jnxequities_pts_itch_v1_7.orderbook_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.orderbook_id, range, value, display)
@@ -1706,7 +1706,7 @@ jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.fields = funct
   -- Quantity: Integer
   index, quantity = jnx_jnxequities_pts_itch_v1_7.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: Alpha
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
@@ -1776,7 +1776,7 @@ jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.fields = fu
   -- Quantity: Integer
   index, quantity = jnx_jnxequities_pts_itch_v1_7.quantity.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: Alpha
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
@@ -1828,7 +1828,7 @@ jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.fiel
   -- Nanoseconds: Integer
   index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: Alpha
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
@@ -1880,7 +1880,7 @@ jnx_jnxequities_pts_itch_v1_7.trading_state_message.fields = function(buffer, of
   -- Nanoseconds: Integer
   index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: Alpha
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Group: Alpha
@@ -1937,7 +1937,7 @@ jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.fields = function(buff
   -- Nanoseconds: Integer
   index, nanoseconds = jnx_jnxequities_pts_itch_v1_7.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Orderbook Id: Alpha
+  -- Orderbook Id: Integer
   index, orderbook_id = jnx_jnxequities_pts_itch_v1_7.orderbook_id.dissect(buffer, index, packet, parent)
 
   -- Orderbook Code: Alpha

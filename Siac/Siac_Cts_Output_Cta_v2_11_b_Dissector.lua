@@ -45,7 +45,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.consolidated_total_volume = ProtoField.ne
 omi_siac_cts_output_cta_v2_11_b.fields.control_message = ProtoField.new("Control Message", "siac.cts.output.cta.v2.11.b.controlmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.11.b.controlmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.correctedfractionaltradevolume", ftypes.UINT64)
-omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "siac.cts.output.cta.v2.11.b.correctedsalecondition", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "siac.cts.output.cta.v2.11.b.correctedsellerssaledays", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_short_sale_restriction_indicator = ProtoField.new("Corrected Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.correctedshortsalerestrictionindicator", ftypes.STRING)
@@ -98,7 +98,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.offer_index_value = ProtoField.new("Offer
 omi_siac_cts_output_cta_v2_11_b.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.11.b.openprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.originalfractionaltradevolume", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.11.b.originalparticipantreferencenumber", ftypes.INT64)
-omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.original_sale_condition = ProtoField.new("Original Sale Condition", "siac.cts.output.cta.v2.11.b.originalsalecondition", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "siac.cts.output.cta.v2.11.b.originalsellerssaledays", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.original_short_sale_restriction_indicator = ProtoField.new("Original Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.originalshortsalerestrictionindicator", ftypes.STRING)
@@ -124,7 +124,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_participant_id = P
 omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_previous_closing_price = ProtoField.new("Primary Listing Market Previous Closing Price", "siac.cts.output.cta.v2.11.b.primarylistingmarketpreviousclosingprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message = ProtoField.new("Prior Day Message", "siac.cts.output.cta.v2.11.b.priordaymessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.11.b.priordaymessagetype", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.UINT32)
+omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.UINT64)
 omi_siac_cts_output_cta_v2_11_b.fields.prior_security_symbol = ProtoField.new("Prior Security Symbol", "siac.cts.output.cta.v2.11.b.priorsecuritysymbol", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cts.output.cta.v2.11.b.reserved128", ftypes.STRING)
@@ -1103,7 +1103,7 @@ end
 siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time = {}
 
 -- Size: Corrected Prior Day Trade Date And Time
-siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.size = 4
+siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.size = 8
 
 -- Display: Corrected Prior Day Trade Date And Time
 siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.display = function(value)
@@ -1114,7 +1114,7 @@ end
 siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time, range, value, display)
@@ -2549,7 +2549,7 @@ end
 siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time = {}
 
 -- Size: Original Prior Day Trade Date And Time
-siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.size = 4
+siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.size = 8
 
 -- Display: Original Prior Day Trade Date And Time
 siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.display = function(value)
@@ -2560,7 +2560,7 @@ end
 siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time, range, value, display)
@@ -3348,7 +3348,7 @@ end
 siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time = {}
 
 -- Size: Prior Day Trade Date And Time
-siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.size = 4
+siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.size = 8
 
 -- Display: Prior Day Trade Date And Time
 siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.display = function(value)
@@ -3359,7 +3359,7 @@ end
 siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:uint64()
   local display = siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time, range, value, display)

@@ -157,6 +157,9 @@ jobs:
       - name: Run Imperative IntelligentCross DepthOfBook Aspen 1.11 Dissector Tests
         run: bash -x .github/tests/Imperative-IntelligentCross-DepthOfBook-Aspen-v1-11-Test.sh
 
+      - name: Run Jnx JnxEquities Pts Glimpse 1.3 Dissector Tests
+        run: bash -x .github/tests/Jnx-JnxEquities-Pts-Glimpse-v1-3-Test.sh
+
       - name: Run Jnx JnxEquities Pts Itch 1.6 Dissector Tests
         run: bash -x .github/tests/Jnx-JnxEquities-Pts-Itch-v1-6-Test.sh
 

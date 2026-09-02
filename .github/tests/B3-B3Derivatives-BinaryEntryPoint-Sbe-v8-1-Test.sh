@@ -55,6 +55,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.offset164padding3" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.ordtagidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.actionrequestedfromsessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.blockpadding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.ExecutionReportCancelMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.1/ExecutionReportModifyMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
@@ -292,6 +293,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.executingtraderoptional" B3.B3D
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.accounttype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.expiredate" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.1.blockpadding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.1.OrderCancelReplaceRequestMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.1/OrderCancelRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_1_Dissector.lua" \
