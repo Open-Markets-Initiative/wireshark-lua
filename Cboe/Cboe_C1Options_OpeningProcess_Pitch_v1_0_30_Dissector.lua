@@ -555,7 +555,7 @@ end
 -- Display: Midnight Reference
 cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.display = function(value)
   -- Parse unix seconds timestamp
-  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Midnight Reference

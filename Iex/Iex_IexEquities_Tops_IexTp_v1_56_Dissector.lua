@@ -1045,7 +1045,7 @@ iex_iexequities_tops_iextp_v1_56.scheduled_auction_time.size = 4
 -- Display: Scheduled Auction Time
 iex_iexequities_tops_iextp_v1_56.scheduled_auction_time.display = function(value)
   -- Parse unix seconds timestamp
-  return "Scheduled Auction Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Scheduled Auction Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Scheduled Auction Time

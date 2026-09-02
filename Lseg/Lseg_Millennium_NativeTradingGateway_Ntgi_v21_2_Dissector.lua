@@ -1190,7 +1190,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.size = 4
 -- Display: Expire Date Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.display = function(value)
   -- Parse unix seconds timestamp
-  return "Expire Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Expire Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Expire Date Time
@@ -1214,7 +1214,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.size = 4
 -- Display: Expire Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.display = function(value)
   -- Parse unix seconds timestamp
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Expire Time

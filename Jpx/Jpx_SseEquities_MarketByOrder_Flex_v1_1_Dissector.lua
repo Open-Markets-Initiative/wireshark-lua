@@ -1226,7 +1226,7 @@ end
 -- Display: Time Seconds
 jpx_sseequities_marketbyorder_flex_v1_1.time_seconds.display = function(value)
   -- Parse unix seconds timestamp
-  return "Time Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Time Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Time Seconds

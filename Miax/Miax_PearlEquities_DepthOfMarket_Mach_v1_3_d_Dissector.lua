@@ -1184,7 +1184,7 @@ end
 -- Display: Seconds
 miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.display = function(value)
   -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

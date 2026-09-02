@@ -1126,7 +1126,7 @@ end
 -- Display: Midnight Reference
 cboe_c1options_flex_pitch_v1_1_30.midnight_reference.display = function(value)
   -- Parse unix seconds timestamp
-  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Midnight Reference

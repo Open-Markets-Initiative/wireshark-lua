@@ -2716,7 +2716,17 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.time.size = 4
 
 -- Display: Time
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.time.display = function(value)
-  return "Time: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local millisecond = value % 1000
+
+  return string.format("Time: %02d:%02d:%02d.%03d", hour, minute, second, millisecond)
 end
 
 -- Dissect: Time

@@ -1948,7 +1948,7 @@ end
 -- Display: Seconds
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.seconds.display = function(value)
   -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

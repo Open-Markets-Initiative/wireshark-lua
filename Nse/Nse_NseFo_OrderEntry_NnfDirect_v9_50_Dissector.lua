@@ -462,6 +462,17 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_order_value_limit_update_me
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_request_message = ProtoField.new("User Trade Modify Cancel Status Change Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangerequestmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_response_message = ProtoField.new("User Trade Modify Cancel Status Change Response Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangeresponsemessage", ftypes.STRING)
 
+-- Nse NseFo OrderEntry NnfDirect 9.50 generated fields
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.branch_limits_index = ProtoField.new("Branch Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.branchlimitsindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.enhncd_mkt_stats_data_index = ProtoField.new("Enhncd Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.enhncdmktstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.index_data_index = ProtoField.new("Index Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.indexdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index_index = ProtoField.new("Industry Index Index", "nse.nsefo.orderentry.nnfdirect.v9.50.industryindexindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.instrument_user_index = ProtoField.new("Instrument User Index", "nse.nsefo.orderentry.nnfdirect.v9.50.instrumentuserindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.mkt_stats_data_index = ProtoField.new("Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.mktstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index = ProtoField.new("Ms Spd Leg Info Index", "nse.nsefo.orderentry.nnfdirect.v9.50.msspdleginfoindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spd_stats_data_index = ProtoField.new("Spd Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.spdstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits_index = ProtoField.new("User Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.userlimitsindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -471,10 +482,12 @@ local show = {}
 -- Nse NseFo OrderEntry NnfDirect 9.50 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.indexes = true
 
 -- Register Nse NseFo OrderEntry NnfDirect 9.50 Show Options
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs_changed()
@@ -485,6 +498,9 @@ function omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs_changed()
   end
   if show.structs ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs then
     show.structs = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_structs
+  end
+  if show.indexes ~= omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes then
+    show.indexes = omi_nse_nsefo_orderentry_nnfdirect_v9_50.prefs.show_indexes
   end
 end
 
@@ -588,7 +604,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.size = 4
 
 -- Display: Activity Time
 nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.display = function(value)
-  return "Activity Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Activity Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Activity Time
@@ -732,7 +749,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.size = 4
 
 -- Display: Batch 2 Start Time
 nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.display = function(value)
-  return "Batch 2 Start Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Batch 2 Start Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Batch 2 Start Time
@@ -830,7 +848,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size = 1
 
 -- Display: Book Type
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type.display = function(value)
-  return "Book Type: "..value
+  if value == "1" then
+    return "Book Type: Regular Lot Order (1)"
+  end
+  if value == "2" then
+    return "Book Type: Special Terms Order (2)"
+  end
+  if value == "3" then
+    return "Book Type: Stop Loss Or Mit Order (3)"
+  end
+  if value == "4" then
+    return "Book Type: Negotiated Order (4)"
+  end
+  if value == "5" then
+    return "Book Type: Odd Lot Order (5)"
+  end
+  if value == "6" then
+    return "Book Type: Spot Order (6)"
+  end
+  if value == "7" then
+    return "Book Type: Auction Order (7)"
+  end
+
+  return "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -853,7 +893,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.size = 2
 
 -- Display: Book Type 1
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.display = function(value)
-  return "Book Type 1: "..value
+  if value == 1 then
+    return "Book Type 1: Regular Lot Order (1)"
+  end
+  if value == 2 then
+    return "Book Type 1: Special Terms Order (2)"
+  end
+  if value == 3 then
+    return "Book Type 1: Stop Loss Or Mit Order (3)"
+  end
+  if value == 4 then
+    return "Book Type 1: Negotiated Order (4)"
+  end
+  if value == 5 then
+    return "Book Type 1: Odd Lot Order (5)"
+  end
+  if value == 6 then
+    return "Book Type 1: Spot Order (6)"
+  end
+  if value == 7 then
+    return "Book Type 1: Auction Order (7)"
+  end
+
+  return "Book Type 1: Unknown("..value..")"
 end
 
 -- Dissect: Book Type 1
@@ -2230,7 +2292,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.end_time.size = 4
 
 -- Display: End Time
 nse_nsefo_orderentry_nnfdirect_v9_50.end_time.display = function(value)
-  return "End Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: End Time
@@ -2253,7 +2316,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.size = 4
 
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.display = function(value)
-  return "Entry Date Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time
@@ -2276,7 +2340,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.size = 4
 
 -- Display: Entry Date Time 1
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.display = function(value)
-  return "Entry Date Time 1: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Entry Date Time 1: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time 1
@@ -3289,7 +3354,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.size = 4
 
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.display = function(value)
-  return "Expiry Date: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Expiry Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expiry Date
@@ -3312,7 +3378,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.size = 4
 
 -- Display: Expirydate 1
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.display = function(value)
-  return "Expirydate 1: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Expirydate 1: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expirydate 1
@@ -3335,7 +3402,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.size = 4
 
 -- Display: Expirydate 2
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.display = function(value)
-  return "Expirydate 2: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Expirydate 2: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expirydate 2
@@ -4106,7 +4174,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.size = 4
 
 -- Display: Inner Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.display = function(value)
-  return "Inner Log Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Inner Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Inner Log Time
@@ -4451,7 +4520,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.size = 4
 
 -- Display: Last Modified Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.display = function(value)
-  return "Last Modified Date Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Modified Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Modified Date Time
@@ -4474,7 +4544,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.size = 4
 
 -- Display: Last Password Change Date
 nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.display = function(value)
-  return "Last Password Change Date: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Password Change Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Password Change Date
@@ -4497,7 +4568,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.size = 4
 
 -- Display: Last Update Index Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.display = function(value)
-  return "Last Update Index Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Update Index Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Index Time
@@ -4520,7 +4592,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.size = 4
 
 -- Display: Last Update Instrument Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.display = function(value)
-  return "Last Update Instrument Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Update Instrument Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Instrument Time
@@ -4543,7 +4616,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.size = 4
 
 -- Display: Last Update Participant Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.display = function(value)
-  return "Last Update Participant Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Update Participant Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Participant Time
@@ -4566,7 +4640,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.size = 4
 
 -- Display: Last Update Portfolio T Ime
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.display = function(value)
-  return "Last Update Portfolio T Ime: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Update Portfolio T Ime: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Portfolio T Ime
@@ -4589,7 +4664,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.size = 4
 
 -- Display: Last Update Security Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.display = function(value)
-  return "Last Update Security Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Last Update Security Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Security Time
@@ -4727,7 +4803,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.log_time.size = 4
 
 -- Display: Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.log_time.display = function(value)
-  return "Log Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Log Time
@@ -6868,7 +6945,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_date.size = 4
 
 -- Display: Report Date
 nse_nsefo_orderentry_nnfdirect_v9_50.report_date.display = function(value)
-  return "Report Date: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Report Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Report Date
@@ -9621,8 +9699,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display = function(packet, 
 end
 
 -- Dissect Fields: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
   local index = offset
+
+  -- Implicit Ms Spd Leg Info Index
+  if ms_spd_leg_info_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index, ms_spd_leg_info_index)
+    iteration:set_generated()
+  end
 
   -- Token 2: LONG
   index, token_2 = nse_nsefo_orderentry_nnfdirect_v9_50.token_2.dissect(buffer, index, packet, parent)
@@ -9685,11 +9769,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, o
 end
 
 -- Dissect: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display(packet, parent, length)
@@ -9698,7 +9782,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
   end
 end
 
@@ -9760,7 +9844,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size
 
 -- Display: Spread Order Body
@@ -9931,11 +10014,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   -- Price Diff: LONG
   index, price_diff = nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.dissect(buffer, index, packet, parent)
 
-  -- Ms Spd Leg Info: Struct of 19 fields
-  index, ms_spd_leg_info = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect(buffer, index, packet, parent)
-
-  -- Ms Spd Leg Info: Struct of 19 fields
-  index, ms_spd_leg_info = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect(buffer, index, packet, parent)
+  -- Array Of: Ms Spd Leg Info
+  for ms_spd_leg_info_index = 1, 2 do
+    index, ms_spd_leg_info = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect(buffer, index, packet, parent, ms_spd_leg_info_index)
+  end
 
   return index
 end
@@ -10874,8 +10956,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.display = function(packet, pare
 end
 
 -- Dissect Fields: User Limits
-nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields = function(buffer, offset, packet, parent, user_limits_index)
   local index = offset
+
+  -- Implicit User Limits Index
+  if user_limits_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits_index, user_limits_index)
+    iteration:set_generated()
+  end
 
   -- Reserved 32: CHAR
   index, reserved_32 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.dissect(buffer, index, packet, parent)
@@ -10893,11 +10981,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields = function(buffer, offse
 end
 
 -- Dissect: User Limits
-nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect = function(buffer, offset, packet, parent, user_limits_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.display(packet, parent, length)
@@ -10906,7 +10994,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
   end
 end
 
@@ -10921,7 +11009,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.size 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.size
 
 -- Display: User Order Value Limit Update Message
@@ -10951,11 +11038,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.field
   -- Reserved 2: CHAR
   index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- User Limits: Struct of 4 fields
-  index, user_limits = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect(buffer, index, packet, parent)
-
-  -- User Limits: Struct of 4 fields
-  index, user_limits = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect(buffer, index, packet, parent)
+  -- Array Of: User Limits
+  for user_limits_index = 1, 2 do
+    index, user_limits = nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.dissect(buffer, index, packet, parent, user_limits_index)
+  end
 
   return index
 end
@@ -10993,8 +11079,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.display = function(packet, pa
 end
 
 -- Dissect Fields: Branch Limits
-nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields = function(buffer, offset, packet, parent, branch_limits_index)
   local index = offset
+
+  -- Implicit Branch Limits Index
+  if branch_limits_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.branch_limits_index, branch_limits_index)
+    iteration:set_generated()
+  end
 
   -- Branch Buy Value Limit: DOUBLE
   index, branch_buy_value_limit = nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.dissect(buffer, index, packet, parent)
@@ -11009,11 +11101,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields = function(buffer, off
 end
 
 -- Dissect: Branch Limits
-nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect = function(buffer, offset, packet, parent, branch_limits_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.branch_limits, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.display(packet, parent, length)
@@ -11022,7 +11114,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
   end
 end
 
@@ -11034,7 +11126,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.siz
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.size
 
 -- Display: Branch Order Value Limit Update Message
@@ -11055,11 +11146,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.fie
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
 
-  -- Branch Limits: Struct of 3 fields
-  index, branch_limits = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect(buffer, index, packet, parent)
-
-  -- Branch Limits: Struct of 3 fields
-  index, branch_limits = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect(buffer, index, packet, parent)
+  -- Array Of: Branch Limits
+  for branch_limits_index = 1, 2 do
+    index, branch_limits = nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.dissect(buffer, index, packet, parent, branch_limits_index)
+  end
 
   return index
 end
@@ -11684,8 +11774,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.display = function(packet, p
 end
 
 -- Dissect Fields: Spd Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields = function(buffer, offset, packet, parent, spd_stats_data_index)
   local index = offset
+
+  -- Implicit Spd Stats Data Index
+  if spd_stats_data_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spd_stats_data_index, spd_stats_data_index)
+    iteration:set_generated()
+  end
 
   -- Market Type: SHORT
   index, market_type = nse_nsefo_orderentry_nnfdirect_v9_50.market_type.dissect(buffer, index, packet, parent)
@@ -11745,11 +11841,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields = function(buffer, of
 end
 
 -- Dissect: Spd Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect = function(buffer, offset, packet, parent, spd_stats_data_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spd_stats_data, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields(buffer, offset, packet, parent, spd_stats_data_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.display(packet, parent, length)
@@ -11758,7 +11854,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.fields(buffer, offset, packet, parent, spd_stats_data_index)
   end
 end
 
@@ -11769,8 +11865,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.no_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.size
 
 -- Display: Spread Report Statistics Body
@@ -11788,14 +11882,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.fields = func
   -- No Of Records: SHORT
   index, no_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.no_of_records.dissect(buffer, index, packet, parent)
 
-  -- Spd Stats Data: Struct of 18 fields
-  index, spd_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Spd Stats Data: Struct of 18 fields
-  index, spd_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Spd Stats Data: Struct of 18 fields
-  index, spd_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect(buffer, index, packet, parent)
+  -- Array Of: Spd Stats Data
+  for spd_stats_data_index = 1, 3 do
+    index, spd_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.dissect(buffer, index, packet, parent, spd_stats_data_index)
+  end
 
   return index
 end
@@ -11994,8 +12084,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_data.display = function(packet, paren
 end
 
 -- Dissect Fields: Index Data
-nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields = function(buffer, offset, packet, parent, index_data_index)
   local index = offset
+
+  -- Implicit Index Data Index
+  if index_data_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.index_data_index, index_data_index)
+    iteration:set_generated()
+  end
 
   -- Sector Name: CHAR
   index, sector_name = nse_nsefo_orderentry_nnfdirect_v9_50.sector_name.dissect(buffer, index, packet, parent)
@@ -12007,11 +12103,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields = function(buffer, offset
 end
 
 -- Dissect: Index Data
-nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect = function(buffer, offset, packet, parent, index_data_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.index_data, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields(buffer, offset, packet, parent, index_data_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.display(packet, parent, length)
@@ -12020,7 +12116,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.index_data.fields(buffer, offset, packet, parent, index_data_index)
   end
 end
 
@@ -12032,15 +12128,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.industry_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size
 
 -- Display: Sector Index Report Message
@@ -12061,35 +12148,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.fields = functi
   -- Number Of Industry Records: SHORT
   index, number_of_industry_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.dissect(buffer, index, packet, parent)
 
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
-
-  -- Index Data: Struct of 2 fields
-  index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent)
+  -- Array Of: Index Data
+  for index_data_index = 1, 10 do
+    index, index_data = nse_nsefo_orderentry_nnfdirect_v9_50.index_data.dissect(buffer, index, packet, parent, index_data_index)
+  end
 
   return index
 end
@@ -12130,8 +12192,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.display = function(packet, p
 end
 
 -- Dissect Fields: Industry Index
-nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields = function(buffer, offset, packet, parent, industry_index_index)
   local index = offset
+
+  -- Implicit Industry Index Index
+  if industry_index_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index_index, industry_index_index)
+    iteration:set_generated()
+  end
 
   -- Industry Name: CHAR
   index, industry_name = nse_nsefo_orderentry_nnfdirect_v9_50.industry_name.dissect(buffer, index, packet, parent)
@@ -12155,11 +12223,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields = function(buffer, of
 end
 
 -- Dissect: Industry Index
-nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect = function(buffer, offset, packet, parent, industry_index_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields(buffer, offset, packet, parent, industry_index_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.display(packet, parent, length)
@@ -12168,7 +12236,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields(buffer, offset, packet, parent, industry_index_index)
   end
 end
 
@@ -12180,15 +12248,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size
 
 -- Display: Industry Index Report Message
@@ -12209,35 +12268,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.fields = func
   -- Number Of Industry Records: SHORT
   index, number_of_industry_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.dissect(buffer, index, packet, parent)
 
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
-
-  -- Industry Index: Struct of 6 fields
-  index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent)
+  -- Array Of: Industry Index
+  for industry_index_index = 1, 10 do
+    index, industry_index = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.dissect(buffer, index, packet, parent, industry_index_index)
+  end
 
   return index
 end
@@ -12388,8 +12422,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.display = function(pa
 end
 
 -- Dissect Fields: Enhncd Mkt Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields = function(buffer, offset, packet, parent, enhncd_mkt_stats_data_index)
   local index = offset
+
+  -- Implicit Enhncd Mkt Stats Data Index
+  if enhncd_mkt_stats_data_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.enhncd_mkt_stats_data_index, enhncd_mkt_stats_data_index)
+    iteration:set_generated()
+  end
 
   -- Contract Desc: Struct of 6 fields
   index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
@@ -12431,11 +12471,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields = function(buf
 end
 
 -- Dissect: Enhncd Mkt Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect = function(buffer, offset, packet, parent, enhncd_mkt_stats_data_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.enhncd_mkt_stats_data, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields(buffer, offset, packet, parent, enhncd_mkt_stats_data_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.display(packet, parent, length)
@@ -12444,7 +12484,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields(buffer, offset, packet, parent, enhncd_mkt_stats_data_index)
   end
 end
 
@@ -12456,9 +12496,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.s
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size
 
 -- Display: Enhanced Market Statistics Report Message
@@ -12479,17 +12516,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.f
   -- Number Of Records: SHORT
   index, number_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.dissect(buffer, index, packet, parent)
 
-  -- Enhncd Mkt Stats Data: Struct of 12 fields
-  index, enhncd_mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Enhncd Mkt Stats Data: Struct of 12 fields
-  index, enhncd_mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Enhncd Mkt Stats Data: Struct of 12 fields
-  index, enhncd_mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Enhncd Mkt Stats Data: Struct of 12 fields
-  index, enhncd_mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect(buffer, index, packet, parent)
+  -- Array Of: Enhncd Mkt Stats Data
+  for enhncd_mkt_stats_data_index = 1, 4 do
+    index, enhncd_mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.dissect(buffer, index, packet, parent, enhncd_mkt_stats_data_index)
+  end
 
   return index
 end
@@ -12536,8 +12566,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.display = function(packet, p
 end
 
 -- Dissect Fields: Mkt Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields = function(buffer, offset, packet, parent, mkt_stats_data_index)
   local index = offset
+
+  -- Implicit Mkt Stats Data Index
+  if mkt_stats_data_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.mkt_stats_data_index, mkt_stats_data_index)
+    iteration:set_generated()
+  end
 
   -- Contract Desc: Struct of 6 fields
   index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
@@ -12579,11 +12615,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields = function(buffer, of
 end
 
 -- Dissect: Mkt Stats Data
-nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect = function(buffer, offset, packet, parent, mkt_stats_data_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.mkt_stats_data, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields(buffer, offset, packet, parent, mkt_stats_data_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.display(packet, parent, length)
@@ -12592,7 +12628,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields(buffer, offset, packet, parent, mkt_stats_data_index)
   end
 end
 
@@ -12603,9 +12639,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size
 
 -- Display: Report Statistics Body
@@ -12623,17 +12656,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.fields = function(bu
   -- Number Of Records: SHORT
   index, number_of_records = nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.dissect(buffer, index, packet, parent)
 
-  -- Mkt Stats Data: Struct of 12 fields
-  index, mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Mkt Stats Data: Struct of 12 fields
-  index, mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Mkt Stats Data: Struct of 12 fields
-  index, mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect(buffer, index, packet, parent)
-
-  -- Mkt Stats Data: Struct of 12 fields
-  index, mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect(buffer, index, packet, parent)
+  -- Array Of: Mkt Stats Data
+  for mkt_stats_data_index = 1, 4 do
+    index, mkt_stats_data = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.dissect(buffer, index, packet, parent, mkt_stats_data_index)
+  end
 
   return index
 end
@@ -12998,8 +13024,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.display = function(packet, 
 end
 
 -- Dissect Fields: Instrument User
-nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields = function(buffer, offset, packet, parent, instrument_user_index)
   local index = offset
+
+  -- Implicit Instrument User Index
+  if instrument_user_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.instrument_user_index, instrument_user_index)
+    iteration:set_generated()
+  end
 
   -- Branch Buy Value Limit: DOUBLE
   index, branch_buy_value_limit = nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.dissect(buffer, index, packet, parent)
@@ -13029,11 +13061,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields = function(buffer, o
 end
 
 -- Dissect: Instrument User
-nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect = function(buffer, offset, packet, parent, instrument_user_index)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.instrument_user, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields(buffer, offset, packet, parent)
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields(buffer, offset, packet, parent, instrument_user_index)
     local length = index - offset
     parent:set_len(length)
     local display = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.display(packet, parent, length)
@@ -13042,7 +13074,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.fields(buffer, offset, packet, parent, instrument_user_index)
   end
 end
 
@@ -13056,7 +13088,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.user_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_type.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.size
 
 -- Display: User Order Limit Update Message
@@ -13083,11 +13114,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.fields = fu
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnfdirect_v9_50.user_type.dissect(buffer, index, packet, parent)
 
-  -- Instrument User: Struct of 8 fields
-  index, instrument_user = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect(buffer, index, packet, parent)
-
-  -- Instrument User: Struct of 8 fields
-  index, instrument_user = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect(buffer, index, packet, parent)
+  -- Array Of: Instrument User
+  for instrument_user_index = 1, 2 do
+    index, instrument_user = nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.dissect(buffer, index, packet, parent, instrument_user_index)
+  end
 
   return index
 end
@@ -13330,7 +13360,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Spread Order Body: Struct of 55 fields
+  -- Spread Order Body: Struct of 54 fields
   index, spread_order_body = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect(buffer, index, packet, parent)
 
   return index
@@ -15772,7 +15802,7 @@ tcp_table:add_for_decode_as(omi_nse_nsefo_orderentry_nnfdirect_v9_50)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 9.50
 --   Date: Monday, July 27, 2026
---   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9_50_20260727174217.pdf
+--   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9.50_20260820170606.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

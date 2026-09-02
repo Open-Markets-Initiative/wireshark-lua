@@ -1405,7 +1405,7 @@ end
 -- Display: Seconds
 miax_pearloptions_topofmarket_mach_v1_9.seconds.display = function(value)
   -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

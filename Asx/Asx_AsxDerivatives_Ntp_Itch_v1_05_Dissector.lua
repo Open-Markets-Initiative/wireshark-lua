@@ -2047,7 +2047,7 @@ end
 -- Display: Second
 asx_asxderivatives_ntp_itch_v1_05.second.display = function(value)
   -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Second

@@ -1013,7 +1013,7 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.expire_time.size = 4
 -- Display: Expire Time
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.expire_time.display = function(value)
   -- Parse unix seconds timestamp
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Expire Time

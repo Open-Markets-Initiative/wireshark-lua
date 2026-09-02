@@ -2591,7 +2591,17 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.time.size = 4
 
 -- Display: Time
 nyse_nyseequities_integratedfeed_pillar_v2_5_a.time.display = function(value)
-  return "Time: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local millisecond = value % 1000
+
+  return string.format("Time: %02d:%02d:%02d.%03d", hour, minute, second, millisecond)
 end
 
 -- Dissect: Time
@@ -4023,7 +4033,7 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.security_status_message.fields = 
   -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
   index, ssr_triggering_volume = nyse_nyseequities_integratedfeed_pillar_v2_5_a.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, time = nyse_nyseequities_integratedfeed_pillar_v2_5_a.time.dissect(buffer, index, packet, parent)
 
   -- Ssr State: 1 Byte Ascii String Enum with 2 values

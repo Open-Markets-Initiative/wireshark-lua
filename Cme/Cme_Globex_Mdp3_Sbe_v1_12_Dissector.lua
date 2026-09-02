@@ -370,6 +370,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.client_tcp_packet = ProtoField.new("Client 
 omi_cme_globex_mdp3_sbe_v1_12.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.12.clienttechnicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.12.message", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.12.messageheader", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.mdp3.sbe.v1.12.servertcpframe", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.12.servertcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_packet = ProtoField.new("Server Tcp Packet", "cme.globex.mdp3.sbe.v1.12.servertcppacket", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.12.servertechnicalheader", ftypes.STRING)
@@ -16324,34 +16325,80 @@ cme_globex_mdp3_sbe_v1_12.server_technical_header.dissect = function(buffer, off
   end
 end
 
+-- Server Tcp Frame
+cme_globex_mdp3_sbe_v1_12.server_tcp_frame = {}
+
+-- Calculate size of: Server Tcp Frame
+cme_globex_mdp3_sbe_v1_12.server_tcp_frame.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_12.server_technical_header.size
+
+  -- Parse runtime size of: Server Tcp Message
+  index = index + buffer(offset + index - 0, 2):le_uint()
+
+  return index
+end
+
+-- Display: Server Tcp Frame
+cme_globex_mdp3_sbe_v1_12.server_tcp_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Tcp Frame
+cme_globex_mdp3_sbe_v1_12.server_tcp_frame.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Technical Header: Struct of 3 fields
+  index, server_technical_header = cme_globex_mdp3_sbe_v1_12.server_technical_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Tcp Message Size
+  local tcp_message_size = buffer(index, 2):le_uint()
+
+  -- Runtime Size Of: Server Tcp Message
+  index, server_tcp_message = cme_globex_mdp3_sbe_v1_12.server_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+
+  return index
+end
+
+-- Dissect: Server Tcp Frame
+cme_globex_mdp3_sbe_v1_12.server_tcp_frame.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_frame, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_12.server_tcp_frame.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_12.server_tcp_frame.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_12.server_tcp_frame.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Server Tcp Packet
 cme_globex_mdp3_sbe_v1_12.server_tcp_packet = {}
 
 -- Verify required size of Tcp packet
 cme_globex_mdp3_sbe_v1_12.server_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_mdp3_sbe_v1_12.server_technical_header.size + cme_globex_mdp3_sbe_v1_12.tcp_message_size.size + cme_globex_mdp3_sbe_v1_12.message_header.size
+  return buffer:len() >= cme_globex_mdp3_sbe_v1_12.server_technical_header.size
 end
 
 -- Dissect Server Tcp Packet
 cme_globex_mdp3_sbe_v1_12.server_tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Server Technical Header: Struct of 3 fields
-  index, server_technical_header = cme_globex_mdp3_sbe_v1_12.server_technical_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Server Tcp Message
+  -- Dependency for Server Tcp Frame
   local end_of_payload = buffer:len()
 
-  -- Server Tcp Message: Struct of 3 fields
+  -- Server Tcp Frame: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Server Tcp Message
-    index, server_tcp_message = cme_globex_mdp3_sbe_v1_12.server_tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+    index, server_tcp_frame = cme_globex_mdp3_sbe_v1_12.server_tcp_frame.dissect(buffer, index, packet, parent)
   end
 
   return index

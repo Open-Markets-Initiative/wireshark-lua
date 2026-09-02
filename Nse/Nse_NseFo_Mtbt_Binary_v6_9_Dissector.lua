@@ -380,7 +380,7 @@ nse_nsefo_mtbt_binary_v6_9.timestamp.size = 8
 
 -- Display: Timestamp
 nse_nsefo_mtbt_binary_v6_9.timestamp.display = function(value)
-  -- Parse Fat epoch nanosecond timestamp
+  -- Parse Dos epoch nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
@@ -1043,7 +1043,7 @@ udp_table:add_for_decode_as(omi_nse_nsefo_mtbt_binary_v6_9)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 6.9
 --   Date: Wednesday, April 1, 2026
---   Specification: MTBT_FO_API_Specification_v6.9.pdf
+--   Specification: MTBT_FO_NNF_PROTOCOL_6_9_20260717161139.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

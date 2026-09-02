@@ -1486,7 +1486,7 @@ end
 -- Display: Second
 bist_borsaistanbul_geniuminet_itch_v21_12.second.display = function(value)
   -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Second

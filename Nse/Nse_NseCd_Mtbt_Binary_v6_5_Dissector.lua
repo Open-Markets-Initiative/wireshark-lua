@@ -380,7 +380,7 @@ nse_nsecd_mtbt_binary_v6_5.timestamp.size = 8
 
 -- Display: Timestamp
 nse_nsecd_mtbt_binary_v6_5.timestamp.display = function(value)
-  -- Parse Fat epoch nanosecond timestamp
+  -- Parse Dos epoch nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 

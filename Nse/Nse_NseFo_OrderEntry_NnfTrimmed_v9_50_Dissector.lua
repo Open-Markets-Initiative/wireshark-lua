@@ -18,14 +18,20 @@ local nse_nsefo_orderentry_nnftrimmed_v9_50 = {}
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.account_number = ProtoField.new("Account Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.accountnumber", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytime", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_type = ProtoField.new("Activity Type", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytype", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nsefo.orderentry.nnftrimmed.v9.50.additionalorderflags", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.algo_id = ProtoField.new("Algo Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.algoid", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.aon = ProtoField.new("Aon", "nse.nsefo.orderentry.nnftrimmed.v9.50.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ato = ProtoField.new("Ato", "nse.nsefo.orderentry.nnftrimmed.v9.50.ato", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.boc = ProtoField.new("Boc", "nse.nsefo.orderentry.nnftrimmed.v9.50.boc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_char_1 = ProtoField.new("Book Type Char 1", "nse.nsefo.orderentry.nnftrimmed.v9.50.booktypechar1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_short_2 = ProtoField.new("Book Type Short 2", "nse.nsefo.orderentry.nnftrimmed.v9.50.booktypeshort2", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.branch_id = ProtoField.new("Branch Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.branchid", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.broker_id = ProtoField.new("Broker Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.brokerid", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nse.nsefo.orderentry.nnftrimmed.v9.50.buysellindicator", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.closeout_flag = ProtoField.new("Closeout Flag", "nse.nsefo.orderentry.nnftrimmed.v9.50.closeoutflag", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.col = ProtoField.new("Col", "nse.nsefo.orderentry.nnftrimmed.v9.50.col", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.contract_desc_tr = ProtoField.new("Contract Desc Tr", "nse.nsefo.orderentry.nnftrimmed.v9.50.contractdesctr", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.day = ProtoField.new("Day", "nse.nsefo.orderentry.nnftrimmed.v9.50.day", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.disclosed_volume = ProtoField.new("Disclosed Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.disclosedvolume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.disclosed_volume_remaining = ProtoField.new("Disclosed Volume Remaining", "nse.nsefo.orderentry.nnftrimmed.v9.50.disclosedvolumeremaining", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.entrydatetime", ftypes.INT32)
@@ -35,17 +41,26 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_number = ProtoField.new("F
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillquantity", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnftrimmed.v9.50.filler", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.frozen = ProtoField.new("Frozen", "nse.nsefo.orderentry.nnftrimmed.v9.50.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsefo.orderentry.nnftrimmed.v9.50.goodtilldate", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.gtc = ProtoField.new("Gtc", "nse.nsefo.orderentry.nnftrimmed.v9.50.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.instrument_name = ProtoField.new("Instrument Name", "nse.nsefo.orderentry.nnftrimmed.v9.50.instrumentname", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ioc = ProtoField.new("Ioc", "nse.nsefo.orderentry.nnftrimmed.v9.50.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsefo.orderentry.nnftrimmed.v9.50.lastactivityreference", ftypes.INT64)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.last_modified = ProtoField.new("Last Modified", "nse.nsefo.orderentry.nnftrimmed.v9.50.lastmodified", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.logtime", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.market = ProtoField.new("Market", "nse.nsefo.orderentry.nnftrimmed.v9.50.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsefo.orderentry.nnftrimmed.v9.50.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message_length = ProtoField.new("Message Length", "nse.nsefo.orderentry.nnftrimmed.v9.50.messagelength", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mf = ProtoField.new("Mf", "nse.nsefo.orderentry.nnftrimmed.v9.50.mf", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mit = ProtoField.new("Mit", "nse.nsefo.orderentry.nnftrimmed.v9.50.mit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.modified = ProtoField.new("Modified", "nse.nsefo.orderentry.nnftrimmed.v9.50.modified", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.modified_cancelled_by = ProtoField.new("Modified Cancelled By", "nse.nsefo.orderentry.nnftrimmed.v9.50.modifiedcancelledby", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.nnf_field = ProtoField.new("Nnf Field", "nse.nsefo.orderentry.nnftrimmed.v9.50.nnffield", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.open_close = ProtoField.new("Open Close", "nse.nsefo.orderentry.nnftrimmed.v9.50.openclose", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.option_type = ProtoField.new("Option Type", "nse.nsefo.orderentry.nnftrimmed.v9.50.optiontype", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.order_number = ProtoField.new("Order Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.ordernumber", ftypes.DOUBLE)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.order_pre_open = ProtoField.new("Order Pre Open", "nse.nsefo.orderentry.nnftrimmed.v9.50.orderpreopen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.original_volume = ProtoField.new("Original Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.originalvolume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.pan = ProtoField.new("Pan", "nse.nsefo.orderentry.nnftrimmed.v9.50.pan", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.participant = ProtoField.new("Participant", "nse.nsefo.orderentry.nnftrimmed.v9.50.participant", ftypes.STRING)
@@ -55,12 +70,18 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reason_code = ProtoField.new("R
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reference = ProtoField.new("Reference", "nse.nsefo.orderentry.nnftrimmed.v9.50.reference", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.remaining_volume = ProtoField.new("Remaining Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.remainingvolume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_12 = ProtoField.new("Reserved 12", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved12", ftypes.UINT16, nil, base.DEC, 0x0003)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved2", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_24 = ProtoField.new("Reserved 24", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved24", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_32 = ProtoField.new("Reserved 32", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved32", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_34 = ProtoField.new("Reserved 34", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved34", ftypes.UINT8, nil, base.DEC, 0x0C)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_52 = ProtoField.new("Reserved 52", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved52", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_68 = ProtoField.new("Reserved 68", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved68", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.response_order_number = ProtoField.new("Response Order Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.responseordernumber", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.settlor = ProtoField.new("Settlor", "nse.nsefo.orderentry.nnftrimmed.v9.50.settlor", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.sl = ProtoField.new("Sl", "nse.nsefo.orderentry.nnftrimmed.v9.50.sl", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.st_order_flags = ProtoField.new("St Order Flags", "nse.nsefo.orderentry.nnftrimmed.v9.50.storderflags", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.stpc = ProtoField.new("Stpc", "nse.nsefo.orderentry.nnftrimmed.v9.50.stpc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.strike_price = ProtoField.new("Strike Price", "nse.nsefo.orderentry.nnftrimmed.v9.50.strikeprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.symbol = ProtoField.new("Symbol", "nse.nsefo.orderentry.nnftrimmed.v9.50.symbol", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.time_stamp = ProtoField.new("Time Stamp", "nse.nsefo.orderentry.nnftrimmed.v9.50.timestamp", ftypes.INT64)
@@ -69,6 +90,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.time_stamp_2 = ProtoField.new("
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.token = ProtoField.new("Token", "nse.nsefo.orderentry.nnftrimmed.v9.50.token", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.token_no = ProtoField.new("Token No", "nse.nsefo.orderentry.nnftrimmed.v9.50.tokenno", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.total_volume_remaining = ProtoField.new("Total Volume Remaining", "nse.nsefo.orderentry.nnftrimmed.v9.50.totalvolumeremaining", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.traded = ProtoField.new("Traded", "nse.nsefo.orderentry.nnftrimmed.v9.50.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trader_id = ProtoField.new("Trader Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.traderid", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.transaction_code = ProtoField.new("Transaction Code", "nse.nsefo.orderentry.nnftrimmed.v9.50.transactioncode", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.user_id = ProtoField.new("User Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.userid", ftypes.INT32)
@@ -93,12 +115,12 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trade_confirmation_trimmed_mess
 local show = {}
 
 -- Nse NseFo OrderEntry NnfTrimmed 9.50 Element Dissection Options
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 
 -- Register Nse NseFo OrderEntry NnfTrimmed 9.50 Show Options
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs_changed()
@@ -166,7 +188,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.size = 4
 
 -- Display: Activity Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.display = function(value)
-  return "Activity Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Activity Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Activity Time
@@ -419,7 +442,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.size = 4
 
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.display = function(value)
-  return "Entry Date Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time
@@ -465,7 +489,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.size = 4
 
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.display = function(value)
-  return "Expiry Date: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Expiry Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expiry Date
@@ -678,7 +703,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.size = 4
 
 -- Display: Log Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.display = function(value)
-  return "Log Time: "..value
+  -- Parse Dos epoch seconds timestamp
+  return "Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Log Time
@@ -1609,6 +1635,66 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect = fu
   end
 end
 
+-- Additional Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags = {}
+
+-- Size: Additional Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size = 1
+
+-- Display: Additional Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Boc flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Boc"
+  end
+  -- Is Col flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Col"
+  end
+  -- Is Stpc flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Stpc"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Additional Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.bits = function(range, value, packet, parent)
+
+  -- Boc: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.boc, range, value)
+
+  -- Col: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.col, range, value)
+
+  -- Reserved 34: 2 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_34, range, value)
+
+  -- Stpc: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.stpc, range, value)
+
+  -- Reserved 68: 3 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_68, range, value)
+end
+
+-- Dissect: Additional Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect = function(buffer, offset, packet, parent)
+  local size = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.additional_order_flags, range, display)
+
+  if show.structs then
+    nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Contract Desc Tr
 nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr = {}
 
@@ -1663,6 +1749,140 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.dissect = function(buffer
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.fields(buffer, offset, packet, parent)
   end
+end
+
+-- St Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags = {}
+
+-- Size: St Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.size = 2
+
+-- Display: St Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Order Pre Open flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    flags[#flags + 1] = "Order Pre Open"
+  end
+  -- Is Frozen flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    flags[#flags + 1] = "Frozen"
+  end
+  -- Is Modified flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Modified"
+  end
+  -- Is Traded flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    flags[#flags + 1] = "Traded"
+  end
+  -- Is Matched Ind flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    flags[#flags + 1] = "Matched Ind"
+  end
+  -- Is Mf flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    flags[#flags + 1] = "Mf"
+  end
+  -- Is Aon flag set?
+  if bit.band(value, 0x0100) ~= 0 then
+    flags[#flags + 1] = "Aon"
+  end
+  -- Is Ioc flag set?
+  if bit.band(value, 0x0200) ~= 0 then
+    flags[#flags + 1] = "Ioc"
+  end
+  -- Is Gtc flag set?
+  if bit.band(value, 0x0400) ~= 0 then
+    flags[#flags + 1] = "Gtc"
+  end
+  -- Is Day flag set?
+  if bit.band(value, 0x0800) ~= 0 then
+    flags[#flags + 1] = "Day"
+  end
+  -- Is Mit flag set?
+  if bit.band(value, 0x1000) ~= 0 then
+    flags[#flags + 1] = "Mit"
+  end
+  -- Is Sl flag set?
+  if bit.band(value, 0x2000) ~= 0 then
+    flags[#flags + 1] = "Sl"
+  end
+  -- Is Market flag set?
+  if bit.band(value, 0x4000) ~= 0 then
+    flags[#flags + 1] = "Market"
+  end
+  -- Is Ato flag set?
+  if bit.band(value, 0x8000) ~= 0 then
+    flags[#flags + 1] = "Ato"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: St Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.bits = function(range, value, packet, parent)
+
+  -- Reserved 12: 2 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_12, range, value)
+
+  -- Order Pre Open: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.order_pre_open, range, value)
+
+  -- Frozen: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.frozen, range, value)
+
+  -- Modified: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.modified, range, value)
+
+  -- Traded: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.traded, range, value)
+
+  -- Matched Ind: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.matched_ind, range, value)
+
+  -- Mf: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mf, range, value)
+
+  -- Aon: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.aon, range, value)
+
+  -- Ioc: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ioc, range, value)
+
+  -- Gtc: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.gtc, range, value)
+
+  -- Day: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.day, range, value)
+
+  -- Mit: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mit, range, value)
+
+  -- Sl: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.sl, range, value)
+
+  -- Market: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.market, range, value)
+
+  -- Ato: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ato, range, value)
+end
+
+-- Dissect: St Order Flags
+nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect = function(buffer, offset, packet, parent)
+  local size = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.st_order_flags, range, display)
+
+  if show.structs then
+    nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
 end
 
 -- Trade Confirmation Trimmed Message
@@ -1760,7 +1980,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.fields 
   -- Price: LONG
   index, price = nse_nsefo_orderentry_nnftrimmed_v9_50.price.dissect(buffer, index, packet, parent)
 
-  -- St Order Flags
+  -- St Order Flags: Struct of 15 fields
   index, st_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
 
   -- Good Till Date: LONG
@@ -1799,7 +2019,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.fields 
   -- Participant: CHAR
   index, participant = nse_nsefo_orderentry_nnftrimmed_v9_50.participant.dissect(buffer, index, packet, parent)
 
-  -- Additional Order Flags
+  -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Pan: CHAR
@@ -1969,7 +2189,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   -- Last Modified: LONG
   index, last_modified = nse_nsefo_orderentry_nnftrimmed_v9_50.last_modified.dissect(buffer, index, packet, parent)
 
-  -- St Order Flags
+  -- St Order Flags: Struct of 15 fields
   index, st_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
 
   -- Branch Id: SHORT
@@ -1990,7 +2210,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   -- Pro Client Indicator: SHORT
   index, pro_client_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.pro_client_indicator.dissect(buffer, index, packet, parent)
 
-  -- Additional Order Flags
+  -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
@@ -2144,7 +2364,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   -- Last Modified: LONG
   index, last_modified = nse_nsefo_orderentry_nnftrimmed_v9_50.last_modified.dissect(buffer, index, packet, parent)
 
-  -- St Order Flags
+  -- St Order Flags: Struct of 15 fields
   index, st_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
 
   -- Branch Id: SHORT
@@ -2165,7 +2385,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   -- Pro Client Indicator: SHORT
   index, pro_client_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.pro_client_indicator.dissect(buffer, index, packet, parent)
 
-  -- Additional Order Flags
+  -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
@@ -2287,7 +2507,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.fields = func
   -- Good Till Date: LONG
   index, good_till_date = nse_nsefo_orderentry_nnftrimmed_v9_50.good_till_date.dissect(buffer, index, packet, parent)
 
-  -- St Order Flags
+  -- St Order Flags: Struct of 15 fields
   index, st_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
 
   -- Branch Id: SHORT
@@ -2308,7 +2528,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.fields = func
   -- Pro Client Indicator: SHORT
   index, pro_client_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.pro_client_indicator.dissect(buffer, index, packet, parent)
 
-  -- Additional Order Flags
+  -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
@@ -2573,7 +2793,7 @@ tcp_table:add_for_decode_as(omi_nse_nsefo_orderentry_nnftrimmed_v9_50)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 9.50
 --   Date: Monday, July 27, 2026
---   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9_50_20260727174217.pdf
+--   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9.50_20260820170606.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

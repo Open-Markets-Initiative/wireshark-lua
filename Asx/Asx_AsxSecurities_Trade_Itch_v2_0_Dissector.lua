@@ -1523,7 +1523,7 @@ end
 -- Display: Second
 asx_asxsecurities_trade_itch_v2_0.second.display = function(value)
   -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Second
