@@ -135,11 +135,6 @@ end
 -- Protocol Functions
 -----------------------------------------------------------------------
 
--- Is value not even?
-uneven = function(value)
-  return (value % 2 == 1)
-end
-
 -- trim trailing spaces
 trim_right_spaces = function(str)
   local finish = str:len()
@@ -3058,7 +3053,7 @@ siac_cqs_snapshot_cta_v1_0.packet.dissect = function(buffer, packet, parent)
   -- Runtime optional field: Block Pad Byte
   local block_pad_byte = nil
 
-  local block_pad_byte_exists = uneven( index )
+  local block_pad_byte_exists = (index % 2 ~= 0)
 
   if block_pad_byte_exists then
     index, block_pad_byte = siac_cqs_snapshot_cta_v1_0.block_pad_byte.dissect(buffer, index, packet, parent)

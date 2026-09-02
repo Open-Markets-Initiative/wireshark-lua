@@ -150,16 +150,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Functions
------------------------------------------------------------------------
-
--- Is value not even?
-uneven = function(value)
-  return (value % 2 == 1)
-end
-
-
------------------------------------------------------------------------
 -- Siac Opra Input Obi 5.0.i Fields
 -----------------------------------------------------------------------
 
@@ -3775,7 +3765,7 @@ siac_opra_input_obi_v5_0_i.packet.dissect = function(buffer, packet, parent)
   -- Runtime optional field: Block Pad Byte
   local block_pad_byte = nil
 
-  local block_pad_byte_exists = uneven( index )
+  local block_pad_byte_exists = (index % 2 ~= 0)
 
   if block_pad_byte_exists then
     index, block_pad_byte = siac_opra_input_obi_v5_0_i.block_pad_byte.dissect(buffer, index, packet, parent)
