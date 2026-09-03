@@ -108,8 +108,8 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.utc_offset_hours = 5
+-- Hours behind UTC (GMT) for midnight calculation
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.utc_offset_hours = 0
 
 
 -----------------------------------------------------------------------
@@ -127,7 +127,7 @@ omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_application_mess
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (GMT) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.prefs_changed()

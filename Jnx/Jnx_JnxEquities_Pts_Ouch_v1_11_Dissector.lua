@@ -103,8 +103,8 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 jnx_jnxequities_pts_ouch_v1_11.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
-jnx_jnxequities_pts_ouch_v1_11.utc_offset_hours = 5
+-- Hours ahead of UTC (JST) for midnight calculation
+jnx_jnxequities_pts_ouch_v1_11.utc_offset_hours = 9
 
 
 -----------------------------------------------------------------------
@@ -134,7 +134,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_session_messages = Pref.bool("Show
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_jnx_jnxequities_pts_ouch_v1_11.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_jnx_jnxequities_pts_ouch_v1_11.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_ouch_v1_11.prefs_changed()

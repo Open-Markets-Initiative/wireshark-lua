@@ -4476,30 +4476,22 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields = function(buff
     index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Account Query Appendage
-  local account_query_appendage = nil
+  -- Dependency for Account Query Appendage
+  local end_of_payload = (appendage_length or 0) + index
 
-  local account_query_appendage_exists = index < buffer:len()
+  -- Account Query Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
 
-  if account_query_appendage_exists then
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
 
-    -- Dependency for Account Query Appendage
-    local end_of_payload = appendage_length + index
+    -- Runtime Size Of: Account Query Appendage
+    local size_of_account_query_appendage = optional_field_length + 1
 
     -- Account Query Appendage: Struct of 3 fields
-    local message_index = 0
-    while index < end_of_payload do
-      message_index = message_index + 1
-
-      -- Dependency element: Optional Field Length
-      local optional_field_length = buffer(index, 1):int()
-
-      -- Runtime Size Of: Account Query Appendage
-      local size_of_account_query_appendage = optional_field_length + 1
-
-      -- Account Query Appendage: Struct of 3 fields
-      index, account_query_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect(buffer, index, packet, parent, size_of_account_query_appendage)
-    end
+    index, account_query_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect(buffer, index, packet, parent, size_of_account_query_appendage)
   end
 
   return index

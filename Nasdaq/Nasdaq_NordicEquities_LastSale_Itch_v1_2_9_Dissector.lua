@@ -83,8 +83,8 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nordicequities_lastsale_itch_v1_2_9.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
-nasdaq_nordicequities_lastsale_itch_v1_2_9.utc_offset_hours = 5
+-- Hours behind UTC (UTC) for midnight calculation
+nasdaq_nordicequities_lastsale_itch_v1_2_9.utc_offset_hours = 0
 
 
 -----------------------------------------------------------------------
@@ -108,7 +108,7 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs.show_indexes = Pref.bool("S
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (UTC) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.prefs_changed()
