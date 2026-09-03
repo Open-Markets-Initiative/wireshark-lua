@@ -70,6 +70,8 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reason_code = ProtoField.new("R
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reference = ProtoField.new("Reference", "nse.nsefo.orderentry.nnftrimmed.v9.50.reference", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.remaining_volume = ProtoField.new("Remaining Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.remainingvolume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1_a = ProtoField.new("Reserved 1 A", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved1a", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1_b = ProtoField.new("Reserved 1 B", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved1b", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_12 = ProtoField.new("Reserved 12", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved12", ftypes.UINT16, nil, base.DEC, 0x0003)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved2", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_24 = ProtoField.new("Reserved 24", "nse.nsefo.orderentry.nnftrimmed.v9.50.reserved24", ftypes.STRING)
@@ -1070,6 +1072,52 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Reserved 1 A
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a = {}
+
+-- Size: Reserved 1 A
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.size = 1
+
+-- Display: Reserved 1 A
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.display = function(value)
+  return "Reserved 1 A: "..value
+end
+
+-- Dissect: Reserved 1 A
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1_a, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1 B
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b = {}
+
+-- Size: Reserved 1 B
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.size = 1
+
+-- Display: Reserved 1 B
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.display = function(value)
+  return "Reserved 1 B: "..value
+end
+
+-- Dissect: Reserved 1 B
+nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1_b, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved 2
 nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_2 = {}
 
@@ -1897,7 +1945,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.time_stamp_2.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.response_order_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.original_volume.size + 
@@ -1920,7 +1968,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.participant.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.pan.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.algo_id.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_2.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.last_activity_reference.size + 
@@ -1956,8 +2004,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.fields 
   -- Broker Id: CHAR
   index, broker_id = nse_nsefo_orderentry_nnftrimmed_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 A: CHAR
+  index, reserved_1_a = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
 
   -- Account Number: CHAR
   index, account_number = nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.dissect(buffer, index, packet, parent)
@@ -2025,8 +2073,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.fields 
   -- Pan: CHAR
   index, pan = nse_nsefo_orderentry_nnftrimmed_v9_50.pan.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 B: CHAR
+  index, reserved_1_b = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
 
   -- Algo Id: LONG
   index, algo_id = nse_nsefo_orderentry_nnftrimmed_v9_50.algo_id.dissect(buffer, index, packet, parent)
@@ -2076,7 +2124,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.token_no.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.closeout_flag.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size + 
@@ -2098,7 +2146,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.settlor.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.pro_client_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.time_stamp.size + 
@@ -2147,8 +2195,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   -- Closeout Flag: CHAR
   index, closeout_flag = nse_nsefo_orderentry_nnftrimmed_v9_50.closeout_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 A: CHAR
+  index, reserved_1_a = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
 
   -- Order Number: DOUBLE
   index, order_number = nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.dissect(buffer, index, packet, parent)
@@ -2213,8 +2261,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 B: CHAR
+  index, reserved_1_b = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
 
   -- Filler: LONG
   index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
@@ -2268,7 +2316,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message = {}
 nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.user_id.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.modified_cancelled_by.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.token_no.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size + 
@@ -2292,7 +2340,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.settlor.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.pro_client_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.pan.size + 
@@ -2316,8 +2364,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   -- Modified Cancelled By: CHAR
   index, modified_cancelled_by = nse_nsefo_orderentry_nnftrimmed_v9_50.modified_cancelled_by.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 A: CHAR
+  index, reserved_1_a = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
 
   -- Token No: LONG
   index, token_no = nse_nsefo_orderentry_nnftrimmed_v9_50.token_no.dissect(buffer, index, packet, parent)
@@ -2388,8 +2436,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1 B: CHAR
+  index, reserved_1_b = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
 
   -- Filler: LONG
   index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
