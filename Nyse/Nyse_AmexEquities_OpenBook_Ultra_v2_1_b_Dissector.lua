@@ -18,8 +18,10 @@ local nyse_amexequities_openbook_ultra_v2_1_b = {}
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.chg_qty = ProtoField.new("Chg Qty", "nyse.amexequities.openbook.ultra.v2.1.b.chgqty", ftypes.INT32)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.delta_price_point = ProtoField.new("Delta Price Point", "nyse.amexequities.openbook.ultra.v2.1.b.deltapricepoint", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.delta_size = ProtoField.new("Delta Size", "nyse.amexequities.openbook.ultra.v2.1.b.deltasize", ftypes.INT16)
+omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.delta_update_message_body = ProtoField.new("Delta Update Message Body", "nyse.amexequities.openbook.ultra.v2.1.b.deltaupdatemessagebody", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.delta_update_messages = ProtoField.new("Delta Update Messages", "nyse.amexequities.openbook.ultra.v2.1.b.deltaupdatemessages", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.full_price_point = ProtoField.new("Full Price Point", "nyse.amexequities.openbook.ultra.v2.1.b.fullpricepoint", ftypes.STRING)
+omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.full_update_message_body = ProtoField.new("Full Update Message Body", "nyse.amexequities.openbook.ultra.v2.1.b.fullupdatemessagebody", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.full_update_messages = ProtoField.new("Full Update Messages", "nyse.amexequities.openbook.ultra.v2.1.b.fullupdatemessages", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.link_flag = ProtoField.new("Link Flag", "nyse.amexequities.openbook.ultra.v2.1.b.linkflag", ftypes.UINT8)
 omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.link_id_1 = ProtoField.new("Link Id 1", "nyse.amexequities.openbook.ultra.v2.1.b.linkid1", ftypes.INT32)
@@ -1009,20 +1011,17 @@ nyse_amexequities_openbook_ultra_v2_1_b.delta_price_point.dissect = function(buf
   end
 end
 
--- Delta Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message = {}
+-- Delta Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body = {}
 
--- Display: Delta Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.display = function(packet, parent, length)
+-- Display: Delta Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Delta Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.fields = function(buffer, offset, packet, parent, size_of_delta_update_message)
+-- Dissect Fields: Delta Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.fields = function(buffer, offset, packet, parent, size_of_delta_update_message_body)
   local index = offset
-
-  -- Delta Size: 2 Byte Signed Fixed Width Integer
-  index, delta_size = nyse_amexequities_openbook_ultra_v2_1_b.delta_size.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
   index, symbol_index = nyse_amexequities_openbook_ultra_v2_1_b.symbol_index.dissect(buffer, index, packet, parent)
@@ -1048,6 +1047,9 @@ nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.fields = function(b
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
   index, price_scale_code = nyse_amexequities_openbook_ultra_v2_1_b.price_scale_code.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Delta Size
+  local delta_size = buffer(offset - 2, 2):int()
+
   -- Dependency for Delta Price Point
   local end_of_payload = offset + delta_size - (index - offset)
 
@@ -1057,6 +1059,51 @@ nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.fields = function(b
     message_index = message_index + 1
     index, delta_price_point = nyse_amexequities_openbook_ultra_v2_1_b.delta_price_point.dissect(buffer, index, packet, parent)
   end
+
+  return index
+end
+
+-- Dissect: Delta Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.dissect = function(buffer, offset, packet, parent, size_of_delta_update_message_body)
+  local index = offset + size_of_delta_update_message_body
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.delta_update_message_body, buffer(offset, 0))
+    local current = nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.fields(buffer, offset, packet, parent, size_of_delta_update_message_body)
+    parent:set_len(size_of_delta_update_message_body)
+    local display = nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.fields(buffer, offset, packet, parent, size_of_delta_update_message_body)
+
+    return index
+  end
+end
+
+-- Delta Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message = {}
+
+-- Display: Delta Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delta Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message.fields = function(buffer, offset, packet, parent, size_of_delta_update_message)
+  local index = offset
+
+  -- Delta Size: 2 Byte Signed Fixed Width Integer
+  index, delta_size = nyse_amexequities_openbook_ultra_v2_1_b.delta_size.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Delta Update Message Body
+  local size_of_delta_update_message_body = delta_size - 2
+
+  -- Delta Update Message Body: Struct of 9 fields
+  index, delta_update_message_body = nyse_amexequities_openbook_ultra_v2_1_b.delta_update_message_body.dissect(buffer, index, packet, parent, size_of_delta_update_message_body)
 
   return index
 end
@@ -1102,7 +1149,7 @@ nyse_amexequities_openbook_ultra_v2_1_b.delta_update_messages.fields = function(
   -- Dependency for Delta Update Message
   local end_of_payload = buffer:len()
 
-  -- Delta Update Message: Struct of 10 fields
+  -- Delta Update Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -1191,20 +1238,17 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_price_point.dissect = function(buff
   end
 end
 
--- Full Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.full_update_message = {}
+-- Full Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body = {}
 
--- Display: Full Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.display = function(packet, parent, length)
+-- Display: Full Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Full Update Message
-nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.fields = function(buffer, offset, packet, parent, size_of_full_update_message)
+-- Dissect Fields: Full Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.fields = function(buffer, offset, packet, parent, size_of_full_update_message_body)
   local index = offset
-
-  -- Update Size: 2 Byte Signed Fixed Width Integer
-  index, update_size = nyse_amexequities_openbook_ultra_v2_1_b.update_size.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Signed Fixed Width Integer
   index, symbol_index = nyse_amexequities_openbook_ultra_v2_1_b.symbol_index.dissect(buffer, index, packet, parent)
@@ -1239,6 +1283,9 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.fields = function(bu
   -- Mpv: 2 Byte Signed Fixed Width Integer
   index, mpv = nyse_amexequities_openbook_ultra_v2_1_b.mpv.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Update Size
+  local update_size = buffer(offset - 2, 2):int()
+
   -- Dependency for Full Price Point
   local end_of_payload = offset + update_size - (index - offset)
 
@@ -1248,6 +1295,51 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.fields = function(bu
     message_index = message_index + 1
     index, full_price_point = nyse_amexequities_openbook_ultra_v2_1_b.full_price_point.dissect(buffer, index, packet, parent)
   end
+
+  return index
+end
+
+-- Dissect: Full Update Message Body
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.dissect = function(buffer, offset, packet, parent, size_of_full_update_message_body)
+  local index = offset + size_of_full_update_message_body
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.full_update_message_body, buffer(offset, 0))
+    local current = nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.fields(buffer, offset, packet, parent, size_of_full_update_message_body)
+    parent:set_len(size_of_full_update_message_body)
+    local display = nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.fields(buffer, offset, packet, parent, size_of_full_update_message_body)
+
+    return index
+  end
+end
+
+-- Full Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message = {}
+
+-- Display: Full Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Update Message
+nyse_amexequities_openbook_ultra_v2_1_b.full_update_message.fields = function(buffer, offset, packet, parent, size_of_full_update_message)
+  local index = offset
+
+  -- Update Size: 2 Byte Signed Fixed Width Integer
+  index, update_size = nyse_amexequities_openbook_ultra_v2_1_b.update_size.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Full Update Message Body
+  local size_of_full_update_message_body = update_size - 2
+
+  -- Full Update Message Body: Struct of 12 fields
+  index, full_update_message_body = nyse_amexequities_openbook_ultra_v2_1_b.full_update_message_body.dissect(buffer, index, packet, parent, size_of_full_update_message_body)
 
   return index
 end
@@ -1293,7 +1385,7 @@ nyse_amexequities_openbook_ultra_v2_1_b.full_update_messages.fields = function(b
   -- Dependency for Full Update Message
   local end_of_payload = buffer:len()
 
-  -- Full Update Message: Struct of 13 fields
+  -- Full Update Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
