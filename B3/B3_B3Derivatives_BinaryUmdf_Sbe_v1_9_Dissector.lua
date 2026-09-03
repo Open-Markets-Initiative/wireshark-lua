@@ -260,7 +260,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_definition_message = Pr
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_group_phase_10_message = ProtoField.new("Security Group Phase 10 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.securitygroupphase10message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_status_3_message = ProtoField.new("Security Status 3 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.securitystatus3message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.sequence_message = ProtoField.new("Sequence Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.sequencemessage", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.sequenceresetmessage", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.settlement_price_28_message = ProtoField.new("Settlement Price 28 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.settlementprice28message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.snapshot_full_refresh_header_30_message = ProtoField.new("Snapshot Full Refresh Header 30 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.snapshotfullrefreshheader30message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.snapshot_full_refresh_orders_mb_o_71_message = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.snapshotfullrefreshordersmbo71message", ftypes.STRING)
@@ -8842,6 +8841,23 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_message.dissect = function(buffer,
   end
 end
 
+-- Sequence Reset Message
+b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_reset_message = {}
+
+-- Display: Sequence Reset Message
+b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_reset_message.display = function(packet, parent, length)
+  return "Sequence Reset Message"
+end
+
+
+-- Dissect: Sequence Reset Message
+b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_reset_message.dissect = function(buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_reset_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 b3_b3derivatives_binaryumdf_sbe_v1_9.payload = {}
 
@@ -8849,7 +8865,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.payload = {}
 b3_b3derivatives_binaryumdf_sbe_v1_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Sequence Reset Message
   if template_id == 1 then
-    return offset
+    return b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_reset_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Message
   if template_id == 2 then

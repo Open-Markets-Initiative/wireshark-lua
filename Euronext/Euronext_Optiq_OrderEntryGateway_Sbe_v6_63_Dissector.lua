@@ -428,7 +428,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.declaration_notice_message
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.fill_message = ProtoField.new("Fill Message", "euronext.optiq.orderentrygateway.sbe.v6.63.fillmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.fund_price_input_ack_message = ProtoField.new("Fund Price Input Ack Message", "euronext.optiq.orderentrygateway.sbe.v6.63.fundpriceinputackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.fund_price_input_message = ProtoField.new("Fund Price Input Message", "euronext.optiq.orderentrygateway.sbe.v6.63.fundpriceinputmessage", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v6.63.heartbeatmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.instrument_synchronization_list_message = ProtoField.new("Instrument Synchronization List Message", "euronext.optiq.orderentrygateway.sbe.v6.63.instrumentsynchronizationlistmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.kill_message = ProtoField.new("Kill Message", "euronext.optiq.orderentrygateway.sbe.v6.63.killmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.liquidity_provider_command_message = ProtoField.new("Liquidity Provider Command Message", "euronext.optiq.orderentrygateway.sbe.v6.63.liquidityprovidercommandmessage", ftypes.STRING)
@@ -462,7 +461,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.security_definition_ack_me
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.security_definition_request_message = ProtoField.new("Security Definition Request Message", "euronext.optiq.orderentrygateway.sbe.v6.63.securitydefinitionrequestmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.synchronization_time_message = ProtoField.new("Synchronization Time Message", "euronext.optiq.orderentrygateway.sbe.v6.63.synchronizationtimemessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.technical_reject_message = ProtoField.new("Technical Reject Message", "euronext.optiq.orderentrygateway.sbe.v6.63.technicalrejectmessage", ftypes.STRING)
-omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v6.63.testrequestmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v6.63.tradebustnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v6.63.usernotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v6_63.fields.wave_for_liquidity_message = ProtoField.new("Wave For Liquidity Message", "euronext.optiq.orderentrygateway.sbe.v6.63.waveforliquiditymessage", ftypes.STRING)
@@ -10134,6 +10132,40 @@ euronext_optiq_orderentrygateway_sbe_v6_63.technical_reject_message.dissect = fu
   end
 end
 
+-- Test Request Message
+euronext_optiq_orderentrygateway_sbe_v6_63.test_request_message = {}
+
+-- Display: Test Request Message
+euronext_optiq_orderentrygateway_sbe_v6_63.test_request_message.display = function(packet, parent, length)
+  return "Test Request Message"
+end
+
+
+-- Dissect: Test Request Message
+euronext_optiq_orderentrygateway_sbe_v6_63.test_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = euronext_optiq_orderentrygateway_sbe_v6_63.test_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat Message
+euronext_optiq_orderentrygateway_sbe_v6_63.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+euronext_optiq_orderentrygateway_sbe_v6_63.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+euronext_optiq_orderentrygateway_sbe_v6_63.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = euronext_optiq_orderentrygateway_sbe_v6_63.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Message
 euronext_optiq_orderentrygateway_sbe_v6_63.logout_message = {}
 
@@ -19359,11 +19391,11 @@ euronext_optiq_orderentrygateway_sbe_v6_63.payload.dissect = function(buffer, of
   end
   -- Dissect Heartbeat Message
   if template_id == 106 then
-    return offset
+    return euronext_optiq_orderentrygateway_sbe_v6_63.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Request Message
   if template_id == 107 then
-    return offset
+    return euronext_optiq_orderentrygateway_sbe_v6_63.test_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Technical Reject Message
   if template_id == 108 then
