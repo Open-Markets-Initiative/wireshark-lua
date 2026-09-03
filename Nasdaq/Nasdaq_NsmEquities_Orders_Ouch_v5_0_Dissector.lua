@@ -15,6 +15,8 @@ local nasdaq_nsmequities_orders_ouch_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage = ProtoField.new("Account Query Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_optional_field = ProtoField.new("Account Query Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.appendage_length = ProtoField.new("Appendage Length", "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.nsmequities.orders.ouch.v5.0.bboweightindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.orders.ouch.v5.0.brokentradereason", ftypes.STRING)
@@ -89,6 +91,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp = ProtoField.new("Times
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_reason = ProtoField.new("Trade Correction Reason", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_now = ProtoField.new("Trade Now", "nasdaq.nsmequities.orders.ouch.v5.0.tradenow", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_idx = ProtoField.new("User Ref Idx", "nasdaq.nsmequities.orders.ouch.v5.0.userrefidx", ftypes.UINT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_num = ProtoField.new("User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.userrefnum", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.orders.ouch.v5.0.username", ftypes.STRING)
 
@@ -101,7 +104,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_packet_header = ProtoField
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nsmequities.orders.ouch.v5.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq NsmEquities Orders 5.0 Application Messages
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_message = ProtoField.new("Account Query Message", "nasdaq.nsmequities.orders.ouch.v5.0.accountquerymessage", ftypes.BYTES)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_message = ProtoField.new("Account Query Message", "nasdaq.nsmequities.orders.ouch.v5.0.accountquerymessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_message = ProtoField.new("Account Query Response Message", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponsemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_message = ProtoField.new("Aiq Canceled Message", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.orders.ouch.v5.0.brokentrademessage", ftypes.STRING)
@@ -140,8 +143,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet_sequence_nu
 local show = {}
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Element Dissection Options
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 show.session_messages = true
 show.sequences = true
 
@@ -154,8 +157,8 @@ local role_enum = {
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -234,6 +237,33 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
 -----------------------------------------------------------------------
+
+-- Account Query Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field = {}
+
+-- Size: Account Query Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.size = 1
+
+-- Display: Account Query Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.display = function(value)
+  if value == 28 then
+    return "Account Query Optional Field: UserRefIdx (28)"
+  end
+
+  return "Account Query Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Account Query Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_optional_field, range, value, display)
+
+  return offset + length, value
+end
 
 -- Appendage Length
 nasdaq_nsmequities_orders_ouch_v5_0.appendage_length = {}
@@ -2456,6 +2486,29 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.dissect = function(
   return offset + length, value
 end
 
+-- User Ref Idx
+nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx = {}
+
+-- Size: User Ref Idx
+nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.size = 1
+
+-- Display: User Ref Idx
+nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.display = function(value)
+  return "User Ref Idx: "..value
+end
+
+-- Dissect: User Ref Idx
+nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_idx, range, value, display)
+
+  return offset + length, value
+end
+
 -- User Ref Num
 nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num = {}
 
@@ -4337,6 +4390,139 @@ nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.dissect = function(buffer, 
   return offset
 end
 
+-- Account Query Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value = {}
+
+-- Dissect: Account Query Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dissect = function(buffer, offset, packet, parent, account_query_optional_field)
+  -- Dissect User Ref Idx
+  if account_query_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Account Query Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage = {}
+
+-- Display: Account Query Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Account Query Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Account Query Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, account_query_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Account Query Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dissect(buffer, index, packet, parent, account_query_optional_field)
+
+  return index
+end
+
+-- Dissect: Account Query Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_appendage)
+  local index = offset + size_of_account_query_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+    parent:set_len(size_of_account_query_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+
+    return index
+  end
+end
+
+-- Account Query Message
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_message = {}
+
+-- Size: Account Query Message
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
+
+-- Display: Account Query Message
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Account Query Message
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Runtime optional field: Appendage Length
+  local appendage_length = nil
+
+  local appendage_length_exists = index < buffer:len()
+
+  if appendage_length_exists then
+    index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account Query Appendage
+  local account_query_appendage = nil
+
+  local account_query_appendage_exists = index < buffer:len()
+
+  if account_query_appendage_exists then
+
+    -- Dependency for Account Query Appendage
+    local end_of_payload = appendage_length + index
+
+    -- Account Query Appendage: Struct of 3 fields
+    local message_index = 0
+    while index < end_of_payload do
+      message_index = message_index + 1
+
+      -- Dependency element: Optional Field Length
+      local optional_field_length = buffer(index, 1):int()
+
+      -- Runtime Size Of: Account Query Appendage
+      local size_of_account_query_appendage = optional_field_length + 1
+
+      -- Account Query Appendage: Struct of 3 fields
+      index, account_query_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect(buffer, index, packet, parent, size_of_account_query_appendage)
+    end
+  end
+
+  return index
+end
+
+-- Dissect: Account Query Message
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message = {}
 
@@ -4783,7 +4969,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffe
   end
   -- Dissect Account Query Message
   if unsequenced_message_type == "Q" then
-    return offset
+    return nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
