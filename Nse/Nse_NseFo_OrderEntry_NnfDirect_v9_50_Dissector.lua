@@ -117,6 +117,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.exp_year = ProtoField.new("Exp Y
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_1 = ProtoField.new("Expirydate 1", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate1", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2 = ProtoField.new("Expirydate 2", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate2", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fifthreserved1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_number = ProtoField.new("Fill Number", "nse.nsefo.orderentry.nnfdirect.v9.50.fillnumber", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnfdirect.v9.50.fillprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnfdirect.v9.50.fillquantity", ftypes.INT32)
@@ -135,6 +136,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1 = ProtoField.new("Fill
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx2", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.firm_name = ProtoField.new("Firm Name", "nse.nsefo.orderentry.nnfdirect.v9.50.firmname", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fourthreserved1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.frozen = ProtoField.new("Frozen", "nse.nsefo.orderentry.nnfdirect.v9.50.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup = ProtoField.new("Giveup", "nse.nsefo.orderentry.nnfdirect.v9.50.giveup", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup_flag = ProtoField.new("Giveup Flag", "nse.nsefo.orderentry.nnfdirect.v9.50.giveupflag", ftypes.STRING)
@@ -291,24 +293,13 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_trailer_body = ProtoField
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.request_for_open_orders = ProtoField.new("Request For Open Orders", "nse.nsefo.orderentry.nnfdirect.v9.50.requestforopenorders", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.requested_by = ProtoField.new("Requested By", "nse.nsefo.orderentry.nnfdirect.v9.50.requestedby", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_a = ProtoField.new("Reserved 1 A", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1a", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_b = ProtoField.new("Reserved 1 B", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1b", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_c = ProtoField.new("Reserved 1 C", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1c", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_d = ProtoField.new("Reserved 1 D", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1d", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_e = ProtoField.new("Reserved 1 E", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1e", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_f = ProtoField.new("Reserved 1 F", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1f", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_10 = ProtoField.new("Reserved 10", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved10", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_113 = ProtoField.new("Reserved 113", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved113", ftypes.UINT16, nil, base.DEC, 0x1FFF)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_12 = ProtoField.new("Reserved 12", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved12", ftypes.UINT16, nil, base.DEC, 0x0003)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_14 = ProtoField.new("Reserved 14", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved14", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_145 = ProtoField.new("Reserved 145", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved145", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16 = ProtoField.new("Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_a = ProtoField.new("Reserved 16 A", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16a", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_b = ProtoField.new("Reserved 16 B", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16b", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_c = ProtoField.new("Reserved 16 C", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16c", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2_a = ProtoField.new("Reserved 2 A", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved2a", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2_b = ProtoField.new("Reserved 2 B", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved2b", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_200 = ProtoField.new("Reserved 200", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved200", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_212 = ProtoField.new("Reserved 212", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved212", ftypes.UINT16, nil, base.DEC, 0x0FFE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_24 = ProtoField.new("Reserved 24", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved24", ftypes.STRING)
@@ -324,10 +315,13 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_60 = ProtoField.new("Re
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_68 = ProtoField.new("Reserved 68", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved68", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_7 = ProtoField.new("Reserved 7", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved7", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_70 = ProtoField.new("Reserved 70", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved70", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8_a = ProtoField.new("Reserved 8 A", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved8a", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8_b = ProtoField.new("Reserved 8 B", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved8b", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8 = ProtoField.new("Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved8", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.response_order_number = ProtoField.new("Response Order Number", "nse.nsefo.orderentry.nnfdirect.v9.50.responseordernumber", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.risk_free_interest_rate = ProtoField.new("Risk Free Interest Rate", "nse.nsefo.orderentry.nnfdirect.v9.50.riskfreeinterestrate", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_16 = ProtoField.new("Second Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved16", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved2", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved8", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sector_name = ProtoField.new("Sector Name", "nse.nsefo.orderentry.nnfdirect.v9.50.sectorname", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sell_account_number = ProtoField.new("Sell Account Number", "nse.nsefo.orderentry.nnfdirect.v9.50.sellaccountnumber", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sell_broker_id = ProtoField.new("Sell Broker Id", "nse.nsefo.orderentry.nnfdirect.v9.50.sellbrokerid", ftypes.STRING)
@@ -340,6 +334,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlement_period_1 = ProtoField
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlor = ProtoField.new("Settlor", "nse.nsefo.orderentry.nnfdirect.v9.50.settlor", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlor_1 = ProtoField.new("Settlor 1", "nse.nsefo.orderentry.nnfdirect.v9.50.settlor1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.show_index = ProtoField.new("Show Index", "nse.nsefo.orderentry.nnfdirect.v9.50.showindex", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sixth_reserved_1 = ProtoField.new("Sixth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.sixthreserved1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sl = ProtoField.new("Sl", "nse.nsefo.orderentry.nnfdirect.v9.50.sl", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.snap_quote_time = ProtoField.new("Snap Quote Time", "nse.nsefo.orderentry.nnfdirect.v9.50.snapquotetime", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.solicitor_period = ProtoField.new("Solicitor Period", "nse.nsefo.orderentry.nnfdirect.v9.50.solicitorperiod", ftypes.INT16)
@@ -369,6 +364,8 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.strikeprice_2 = ProtoField.new("
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol = ProtoField.new("Symbol", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol_1 = ProtoField.new("Symbol 1", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol_2 = ProtoField.new("Symbol 2", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol2", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16 = ProtoField.new("Third Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved16", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.tick_size = ProtoField.new("Tick Size", "nse.nsefo.orderentry.nnfdirect.v9.50.ticksize", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp2", ftypes.STRING)
@@ -617,7 +614,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.size = 4
 -- Display: Activity Time
 nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Activity Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Activity Time
@@ -762,7 +759,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.size = 4
 -- Display: Batch 2 Start Time
 nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Batch 2 Start Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Batch 2 Start Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Batch 2 Start Time
@@ -2305,7 +2302,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.end_time.size = 4
 -- Display: End Time
 nse_nsefo_orderentry_nnfdirect_v9_50.end_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "End Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: End Time
@@ -2329,7 +2326,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.size = 4
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time
@@ -2353,7 +2350,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.size = 4
 -- Display: Entry Date Time 1
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time 1: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Entry Date Time 1: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time 1
@@ -3367,7 +3364,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.size = 4
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Expiry Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expiry Date
@@ -3391,7 +3388,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.size = 4
 -- Display: Expirydate 1
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Expirydate 1: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Expirydate 1: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expirydate 1
@@ -3415,7 +3412,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.size = 4
 -- Display: Expirydate 2
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Expirydate 2: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Expirydate 2: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expirydate 2
@@ -3426,6 +3423,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.dissect = function(buffer, off
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fifth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1 = {}
+
+-- Size: Fifth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size = 1
+
+-- Display: Fifth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.display = function(value)
+  return "Fifth Reserved 1: "..value
+end
+
+-- Dissect: Fifth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fifth_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -3850,6 +3870,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.firm_name.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Fourth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1 = {}
+
+-- Size: Fourth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size = 1
+
+-- Display: Fourth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.display = function(value)
+  return "Fourth Reserved 1: "..value
+end
+
+-- Dissect: Fourth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Giveup Flag
 nse_nsefo_orderentry_nnfdirect_v9_50.giveup_flag = {}
 
@@ -4187,7 +4230,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.size = 4
 -- Display: Inner Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Inner Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Inner Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Inner Log Time
@@ -4533,7 +4576,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.size = 4
 -- Display: Last Modified Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Modified Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Modified Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Modified Date Time
@@ -4557,7 +4600,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.size = 4
 -- Display: Last Password Change Date
 nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Password Change Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Password Change Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Password Change Date
@@ -4581,7 +4624,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.size = 4
 -- Display: Last Update Index Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Update Index Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Update Index Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Index Time
@@ -4605,7 +4648,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.size = 4
 -- Display: Last Update Instrument Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Update Instrument Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Update Instrument Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Instrument Time
@@ -4629,7 +4672,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.size = 4
 -- Display: Last Update Participant Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Update Participant Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Update Participant Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Participant Time
@@ -4653,7 +4696,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.size = 4
 -- Display: Last Update Portfolio T Ime
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Update Portfolio T Ime: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Update Portfolio T Ime: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Portfolio T Ime
@@ -4677,7 +4720,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.size = 4
 -- Display: Last Update Security Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Last Update Security Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Last Update Security Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Last Update Security Time
@@ -4816,7 +4859,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.log_time.size = 4
 -- Display: Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.log_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Log Time
@@ -6958,7 +7001,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_date.size = 4
 -- Display: Report Date
 nse_nsefo_orderentry_nnfdirect_v9_50.report_date.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Report Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Report Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Report Date
@@ -7038,144 +7081,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect = function(buffer, offse
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a = {}
-
--- Size: Reserved 1 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size = 1
-
--- Display: Reserved 1 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.display = function(value)
-  return "Reserved 1 A: "..value
-end
-
--- Dissect: Reserved 1 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_a, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b = {}
-
--- Size: Reserved 1 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size = 1
-
--- Display: Reserved 1 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.display = function(value)
-  return "Reserved 1 B: "..value
-end
-
--- Dissect: Reserved 1 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_b, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c = {}
-
--- Size: Reserved 1 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.size = 1
-
--- Display: Reserved 1 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.display = function(value)
-  return "Reserved 1 C: "..value
-end
-
--- Dissect: Reserved 1 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_c, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 D
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d = {}
-
--- Size: Reserved 1 D
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.size = 1
-
--- Display: Reserved 1 D
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.display = function(value)
-  return "Reserved 1 D: "..value
-end
-
--- Dissect: Reserved 1 D
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_d, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 E
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e = {}
-
--- Size: Reserved 1 E
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.size = 1
-
--- Display: Reserved 1 E
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.display = function(value)
-  return "Reserved 1 E: "..value
-end
-
--- Dissect: Reserved 1 E
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_e, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1 F
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f = {}
-
--- Size: Reserved 1 F
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.size = 1
-
--- Display: Reserved 1 F
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.display = function(value)
-  return "Reserved 1 F: "..value
-end
-
--- Dissect: Reserved 1 F
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1_f, range, value, display)
 
   return offset + length, value
 end
@@ -7272,75 +7177,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reserved 16 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a = {}
-
--- Size: Reserved 16 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.size = 16
-
--- Display: Reserved 16 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.display = function(value)
-  return "Reserved 16 A: "..value
-end
-
--- Dissect: Reserved 16 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_a, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 16 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b = {}
-
--- Size: Reserved 16 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.size = 16
-
--- Display: Reserved 16 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.display = function(value)
-  return "Reserved 16 B: "..value
-end
-
--- Dissect: Reserved 16 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_b, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 16 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c = {}
-
--- Size: Reserved 16 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.size = 16
-
--- Display: Reserved 16 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.display = function(value)
-  return "Reserved 16 C: "..value
-end
-
--- Dissect: Reserved 16 C
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16_c, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 2
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2 = {}
 
@@ -7360,52 +7196,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect = function(buffer, offse
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 2 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a = {}
-
--- Size: Reserved 2 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.size = 2
-
--- Display: Reserved 2 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.display = function(value)
-  return "Reserved 2 A: "..value
-end
-
--- Dissect: Reserved 2 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2_a, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 2 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b = {}
-
--- Size: Reserved 2 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.size = 2
-
--- Display: Reserved 2 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.display = function(value)
-  return "Reserved 2 B: "..value
-end
-
--- Dissect: Reserved 2 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2_b, range, value, display)
 
   return offset + length, value
 end
@@ -7686,48 +7476,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reserved 8 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a = {}
+-- Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8 = {}
 
--- Size: Reserved 8 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.size = 8
+-- Size: Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size = 8
 
--- Display: Reserved 8 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.display = function(value)
-  return "Reserved 8 A: "..value
+-- Display: Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.display = function(value)
+  return "Reserved 8: "..value
 end
 
--- Dissect: Reserved 8 A
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.size
+-- Dissect: Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8_a, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 8 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b = {}
-
--- Size: Reserved 8 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.size = 8
-
--- Display: Reserved 8 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.display = function(value)
-  return "Reserved 8 B: "..value
-end
-
--- Dissect: Reserved 8 B
-nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8_b, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -7774,6 +7541,98 @@ nse_nsefo_orderentry_nnfdirect_v9_50.risk_free_interest_rate.dissect = function(
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.risk_free_interest_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.risk_free_interest_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16 = {}
+
+-- Size: Second Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size = 16
+
+-- Display: Second Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.display = function(value)
+  return "Second Reserved 16: "..value
+end
+
+-- Dissect: Second Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 2
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2 = {}
+
+-- Size: Second Reserved 2
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size = 2
+
+-- Display: Second Reserved 2
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.display = function(value)
+  return "Second Reserved 2: "..value
+end
+
+-- Dissect: Second Reserved 2
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -8050,6 +7909,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.show_index.dissect = function(buffer, offse
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.show_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.show_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sixth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1 = {}
+
+-- Size: Sixth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.size = 1
+
+-- Display: Sixth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.display = function(value)
+  return "Sixth Reserved 1: "..value
+end
+
+-- Dissect: Sixth Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sixth_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -8443,6 +8325,52 @@ nse_nsefo_orderentry_nnfdirect_v9_50.symbol_2.dissect = function(buffer, offset,
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.symbol_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1 = {}
+
+-- Size: Third Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size = 1
+
+-- Display: Third Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.display = function(value)
+  return "Third Reserved 1: "..value
+end
+
+-- Dissect: Third Reserved 1
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16 = {}
+
+-- Size: Third Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size = 16
+
+-- Display: Third Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.display = function(value)
+  return "Third Reserved 16: "..value
+end
+
+-- Dissect: Third Reserved 16
+nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16, range, value, display)
 
   return offset + length, value
 end
@@ -10334,20 +10262,20 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body = {}
 -- Size: Order Entry Body
 nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.solicitor_period.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.token_no.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.counter_party_broker_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.closeout_flag.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.order_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.order_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.account_number.size + 
@@ -10374,7 +10302,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.pro_client_indicator.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.settlement_period.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size + 
@@ -10382,7 +10310,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.mkt_replay.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.pan.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size
 
@@ -10398,8 +10326,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Participant Type: CHAR
   index, participant_type = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 A: CHAR
-  index, reserved_1_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Competitor Period: SHORT
   index, competitor_period = nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period.dissect(buffer, index, packet, parent)
@@ -10410,8 +10338,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Modified Cancelled By: CHAR
   index, modified_cancelled_by = nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 B: CHAR
-  index, reserved_1_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: CHAR
+  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reason Code: SHORT
   index, reason_code = nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.dissect(buffer, index, packet, parent)
@@ -10428,17 +10356,17 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Counter Party Broker Id: CHAR
   index, counter_party_broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.counter_party_broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 C: CHAR
-  index, reserved_1_c = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.dissect(buffer, index, packet, parent)
+  -- Third Reserved 1: CHAR
+  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2 A: CHAR
-  index, reserved_2_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.dissect(buffer, index, packet, parent)
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Closeout Flag: CHAR
   index, closeout_flag = nse_nsefo_orderentry_nnfdirect_v9_50.closeout_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 D: CHAR
-  index, reserved_1_d = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.dissect(buffer, index, packet, parent)
+  -- Fourth Reserved 1: CHAR
+  index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Order Type: SHORT
   index, order_type = nse_nsefo_orderentry_nnfdirect_v9_50.order_type.dissect(buffer, index, packet, parent)
@@ -10518,8 +10446,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 E: CHAR
-  index, reserved_1_e = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.dissect(buffer, index, packet, parent)
+  -- Fifth Reserved 1: CHAR
+  index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Filler 116: CHAR
   index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
@@ -10542,8 +10470,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Algo Id: LONG
   index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2 B: CHAR
-  index, reserved_2_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 2: CHAR
+  index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
 
   -- Last Activity Reference: LONG LONG
   index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
@@ -13435,7 +13363,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.response_order_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.trader_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.account_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.size + 
@@ -13454,21 +13382,21 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.counter_trader_order_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.counter_broker_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.token.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.open_close.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_open_close.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_account_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.participant.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_participant.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.pan.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_pan.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.size + 
@@ -13491,8 +13419,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   -- Broker Id: CHAR
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 A: CHAR
-  index, reserved_1_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Trader Number: LONG
   index, trader_number = nse_nsefo_orderentry_nnfdirect_v9_50.trader_number.dissect(buffer, index, packet, parent)
@@ -13548,8 +13476,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   -- Counter Broker Id: CHAR
   index, counter_broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.counter_broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 B: CHAR
-  index, reserved_1_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: CHAR
+  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Token: LONG
   index, token = nse_nsefo_orderentry_nnfdirect_v9_50.token.dissect(buffer, index, packet, parent)
@@ -13566,8 +13494,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   -- Book Type: CHAR
   index, book_type = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 C: CHAR
-  index, reserved_1_c = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.dissect(buffer, index, packet, parent)
+  -- Third Reserved 1: CHAR
+  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: LONG
   index, reserved_4 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect(buffer, index, packet, parent)
@@ -13584,14 +13512,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   -- Additional Order Flags: Struct of 5 fields
   index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 D: CHAR
-  index, reserved_1_d = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_d.dissect(buffer, index, packet, parent)
+  -- Fourth Reserved 1: CHAR
+  index, fourth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 E: CHAR
-  index, reserved_1_e = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_e.dissect(buffer, index, packet, parent)
+  -- Fifth Reserved 1: CHAR
+  index, fifth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 F: CHAR
-  index, reserved_1_f = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_f.dissect(buffer, index, packet, parent)
+  -- Sixth Reserved 1: CHAR
+  index, sixth_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Pan: CHAR
   index, pan = nse_nsefo_orderentry_nnfdirect_v9_50.pan.dissect(buffer, index, packet, parent)
@@ -13693,8 +13621,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.buy_account_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.sell_account_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.buy_pan.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.sell_pan.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.size
@@ -13756,11 +13684,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.fields = function(buf
   -- Reserved 24: CHAR
   index, reserved_24 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2 A: CHAR
-  index, reserved_2_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_a.dissect(buffer, index, packet, parent)
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2 B: CHAR
-  index, reserved_2_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 2: CHAR
+  index, second_reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect(buffer, index, packet, parent)
 
   -- Buy Pan: CHAR
   index, buy_pan = nse_nsefo_orderentry_nnfdirect_v9_50.buy_pan.dissect(buffer, index, packet, parent)
@@ -15138,20 +15066,20 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message = {}
 -- Size: Sign On Request Out Message
 nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.password.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.new_password.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.trader_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.version_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.end_time.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.colour.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.size + 
@@ -15161,9 +15089,9 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.member_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.clearing_status.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.size
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
 
 -- Display: Sign On Request Out Message
 nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.display = function(packet, parent, length)
@@ -15177,14 +15105,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   -- User Id: LONG
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8 A: CHAR
-  index, reserved_8_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.dissect(buffer, index, packet, parent)
+  -- Reserved 8: CHAR
+  index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Password: CHAR
   index, password = nse_nsefo_orderentry_nnfdirect_v9_50.password.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8 B: CHAR
-  index, reserved_8_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 8: CHAR
+  index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
 
   -- New Password: CHAR
   index, new_password = nse_nsefo_orderentry_nnfdirect_v9_50.new_password.dissect(buffer, index, packet, parent)
@@ -15198,8 +15126,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   -- Broker Id: CHAR
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 A: CHAR
-  index, reserved_1_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
@@ -15210,14 +15138,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   -- End Time: LONG
   index, end_time = nse_nsefo_orderentry_nnfdirect_v9_50.end_time.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 B: CHAR
-  index, reserved_1_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: CHAR
+  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Colour: CHAR
   index, colour = nse_nsefo_orderentry_nnfdirect_v9_50.colour.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 C: CHAR
-  index, reserved_1_c = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_c.dissect(buffer, index, packet, parent)
+  -- Third Reserved 1: CHAR
+  index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnfdirect_v9_50.user_type.dissect(buffer, index, packet, parent)
@@ -15246,14 +15174,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.fields = functi
   -- Broker Name: CHAR
   index, broker_name = nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 A: CHAR
-  index, reserved_16_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.dissect(buffer, index, packet, parent)
+  -- Reserved 16: CHAR
+  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 B: CHAR
-  index, reserved_16_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 16: CHAR
+  index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 C: CHAR
-  index, reserved_16_c = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.dissect(buffer, index, packet, parent)
+  -- Third Reserved 16: CHAR
+  index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15282,20 +15210,20 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message = {}
 -- Size: Sign On Request In Message
 nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.password.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.new_password.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.trader_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.version_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.host_switch_context.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.colour.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.ws_class_name.size + 
@@ -15305,9 +15233,9 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.member_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.clearing_status.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.size
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
 
 -- Display: Sign On Request In Message
 nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.display = function(packet, parent, length)
@@ -15321,14 +15249,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   -- User Id: LONG
   index, user_id = nse_nsefo_orderentry_nnfdirect_v9_50.user_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8 A: CHAR
-  index, reserved_8_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_a.dissect(buffer, index, packet, parent)
+  -- Reserved 8: CHAR
+  index, reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Password: CHAR
   index, password = nse_nsefo_orderentry_nnfdirect_v9_50.password.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8 B: CHAR
-  index, reserved_8_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 8: CHAR
+  index, second_reserved_8 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
 
   -- New Password: CHAR
   index, new_password = nse_nsefo_orderentry_nnfdirect_v9_50.new_password.dissect(buffer, index, packet, parent)
@@ -15342,8 +15270,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   -- Broker Id: CHAR
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 A: CHAR
-  index, reserved_1_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_a.dissect(buffer, index, packet, parent)
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Branch Id: SHORT
   index, branch_id = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.dissect(buffer, index, packet, parent)
@@ -15360,8 +15288,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   -- Colour: CHAR
   index, colour = nse_nsefo_orderentry_nnfdirect_v9_50.colour.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1 B: CHAR
-  index, reserved_1_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 1: CHAR
+  index, second_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- User Type: SHORT
   index, user_type = nse_nsefo_orderentry_nnfdirect_v9_50.user_type.dissect(buffer, index, packet, parent)
@@ -15390,14 +15318,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.fields = functio
   -- Broker Name: CHAR
   index, broker_name = nse_nsefo_orderentry_nnfdirect_v9_50.broker_name.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 A: CHAR
-  index, reserved_16_a = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_a.dissect(buffer, index, packet, parent)
+  -- Reserved 16: CHAR
+  index, reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 B: CHAR
-  index, reserved_16_b = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_b.dissect(buffer, index, packet, parent)
+  -- Second Reserved 16: CHAR
+  index, second_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16 C: CHAR
-  index, reserved_16_c = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16_c.dissect(buffer, index, packet, parent)
+  -- Third Reserved 16: CHAR
+  index, third_reserved_16 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
 
   return index
 end

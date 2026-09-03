@@ -897,7 +897,9 @@ nse_nsecd_mtbt_binary_v6_5.message.fields = function(buffer, offset, packet, par
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, payload = nse_nsecd_mtbt_binary_v6_5.payload.dissect(buffer, index, packet, parent)
+
+    -- Payload: Runtime Type with 6 branches
+    index = nse_nsecd_mtbt_binary_v6_5.payload.dissect(buffer, index, packet, parent, message_type)
   end
 
   return index

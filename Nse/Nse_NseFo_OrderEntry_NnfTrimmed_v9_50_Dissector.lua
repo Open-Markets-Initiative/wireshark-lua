@@ -191,7 +191,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.size = 4
 -- Display: Activity Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Activity Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Activity Time
@@ -445,7 +445,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.size = 4
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Entry Date Time
@@ -492,7 +492,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.size = 4
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Expiry Date: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Expiry Date
@@ -706,7 +706,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.size = 4
 -- Display: Log Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.display = function(value)
   -- Parse Dos epoch seconds timestamp
-  return "Log Time: "..os.date("%Y-%m-%d %H:%M:%S", value + 315532800)
+  return "Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
 end
 
 -- Dissect: Log Time
