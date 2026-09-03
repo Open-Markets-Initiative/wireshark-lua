@@ -138,15 +138,11 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.trade_message = ProtoField.
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq NtxOptions DepthOfMarket 2.2 Session Messages
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.debugpacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 generated fields
@@ -4258,6 +4254,40 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.mold_udp_64_packet.dissect = function(
   return index
 end
 
+-- End Of Session Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet = {}
+
+-- Display: End Of Session Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet.display = function(packet, parent, length)
+  return "End Of Session Packet"
+end
+
+
+-- Dissect: End Of Session Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_heartbeat_packet = {}
+
+-- Display: Server Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_heartbeat_packet.display = function(packet, parent, length)
+  return "Server Heartbeat Packet"
+end
+
+
+-- Dissect: Server Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- End Of Replay Sequence Message
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_replay_sequence_message = {}
 
@@ -4587,11 +4617,11 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_payload.dissect = function(
   end
   -- Dissect Server Heartbeat Packet
   if server_packet_type == "H" then
-    return offset
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Packet
   if server_packet_type == "Z" then
-    return offset
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4742,6 +4772,40 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.dissect = function(b
   return index
 end
 
+-- Logout Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet = {}
+
+-- Display: Logout Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet.display = function(packet, parent, length)
+  return "Logout Request Packet"
+end
+
+
+-- Dissect: Logout Request Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_heartbeat_packet = {}
+
+-- Display: Client Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_heartbeat_packet.display = function(packet, parent, length)
+  return "Client Heartbeat Packet"
+end
+
+
+-- Dissect: Client Heartbeat Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unsequenced Data Packet
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.unsequenced_data_packet = {}
 
@@ -4872,11 +4936,11 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_payload.dissect = function(
   end
   -- Dissect Client Heartbeat Packet
   if client_packet_type == "R" then
-    return offset
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Packet
   if client_packet_type == "O" then
-    return offset
+    return nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset

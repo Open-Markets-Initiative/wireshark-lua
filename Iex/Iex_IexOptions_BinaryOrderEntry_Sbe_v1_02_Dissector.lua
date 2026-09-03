@@ -176,13 +176,11 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.ne
 -- Iex IexOptions BinaryOrderEntry 1.02 Application Messages
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.applicationlayerrejectmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message = ProtoField.new("Bulk Quote Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessage", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.execution_report_message = ProtoField.new("Execution Report Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.executionreportmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message = ProtoField.new("Gateway Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.gatewayheartbeatmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_ref_data_message = ProtoField.new("Instrument Ref Data Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.instrumentrefdatamessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_request_message = ProtoField.new("Login Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.loginrequestmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_response_message = ProtoField.new("Login Response Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.loginresponsemessage", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.logoutrequestmessage", ftypes.BYTES)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.market_maker_symbol_appointment_message = ProtoField.new("Market Maker Symbol Appointment Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.marketmakersymbolappointmentmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mass_cancel_ack_message = ProtoField.new("Mass Cancel Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.masscancelackmessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.masscancelrequestmessage", ftypes.STRING)
@@ -8474,6 +8472,40 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.dissect = function(b
   end
 end
 
+-- Logout Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message = {}
+
+-- Display: Logout Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Gateway Heartbeat Message Sub Sessions Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group = {}
 
@@ -8790,11 +8822,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.dissect = function(buf
   end
   -- Dissect Client Heartbeat Message
   if template_id == 4 then
-    return offset
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Message
   if template_id == 5 then
-    return offset
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Terminate Message
   if template_id == 6 then

@@ -138,14 +138,10 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.start_of_day_message = ProtoField.new("S
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_combined_quote_message_long_form = ProtoField.new("Utp Combined Quote Message Long Form", "nasdaq.utp.snapshot.utp.v3.0.utpcombinedquotemessagelongform", ftypes.STRING)
 
 -- Nasdaq Utp Snapshot 3.0 Session Messages
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.utp.snapshot.utp.v3.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.utp.snapshot.utp.v3.0.debugpacket", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.utp.snapshot.utp.v3.0.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.utp.snapshot.utp.v3.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.utp.snapshot.utp.v3.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.utp.snapshot.utp.v3.0.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.utp.snapshot.utp.v3.0.logoutrequestpacket", ftypes.BYTES)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.utp.snapshot.utp.v3.0.serverheartbeatpacket", ftypes.BYTES)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -3092,6 +3088,40 @@ end
 -- Dissect Nasdaq Utp Snapshot Utp 3.0
 -----------------------------------------------------------------------
 
+-- End Of Session Packet
+nasdaq_utp_snapshot_utp_v3_0.end_of_session_packet = {}
+
+-- Display: End Of Session Packet
+nasdaq_utp_snapshot_utp_v3_0.end_of_session_packet.display = function(packet, parent, length)
+  return "End Of Session Packet"
+end
+
+
+-- Dissect: End Of Session Packet
+nasdaq_utp_snapshot_utp_v3_0.end_of_session_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_utp_snapshot_utp_v3_0.end_of_session_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.server_heartbeat_packet = {}
+
+-- Display: Server Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.server_heartbeat_packet.display = function(packet, parent, length)
+  return "Server Heartbeat Packet"
+end
+
+
+-- Dissect: Server Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.server_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_utp_snapshot_utp_v3_0.server_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Rejected Packet
 nasdaq_utp_snapshot_utp_v3_0.login_rejected_packet = {}
 
@@ -5000,11 +5030,11 @@ nasdaq_utp_snapshot_utp_v3_0.server_tcp_payload.dissect = function(buffer, offse
   end
   -- Dissect Server Heartbeat Packet
   if server_packet_type == "H" then
-    return offset
+    return nasdaq_utp_snapshot_utp_v3_0.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Packet
   if server_packet_type == "Z" then
-    return offset
+    return nasdaq_utp_snapshot_utp_v3_0.end_of_session_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5084,6 +5114,40 @@ nasdaq_utp_snapshot_utp_v3_0.server_packet.dissect = function(buffer, packet, pa
   return index
 end
 
+-- Logout Request Packet
+nasdaq_utp_snapshot_utp_v3_0.logout_request_packet = {}
+
+-- Display: Logout Request Packet
+nasdaq_utp_snapshot_utp_v3_0.logout_request_packet.display = function(packet, parent, length)
+  return "Logout Request Packet"
+end
+
+
+-- Dissect: Logout Request Packet
+nasdaq_utp_snapshot_utp_v3_0.logout_request_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_utp_snapshot_utp_v3_0.logout_request_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.client_heartbeat_packet = {}
+
+-- Display: Client Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.client_heartbeat_packet.display = function(packet, parent, length)
+  return "Client Heartbeat Packet"
+end
+
+
+-- Dissect: Client Heartbeat Packet
+nasdaq_utp_snapshot_utp_v3_0.client_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_utp_snapshot_utp_v3_0.client_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Request Packet
 nasdaq_utp_snapshot_utp_v3_0.login_request_packet = {}
 
@@ -5151,11 +5215,11 @@ nasdaq_utp_snapshot_utp_v3_0.client_tcp_payload.dissect = function(buffer, offse
   end
   -- Dissect Client Heartbeat Packet
   if client_packet_type == "R" then
-    return offset
+    return nasdaq_utp_snapshot_utp_v3_0.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Packet
   if client_packet_type == "O" then
-    return offset
+    return nasdaq_utp_snapshot_utp_v3_0.logout_request_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset

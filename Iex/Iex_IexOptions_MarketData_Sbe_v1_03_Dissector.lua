@@ -85,7 +85,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe
 -- Iex IexOptions MarketData 1.03 Application Messages
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_customer_message = ProtoField.new("Add Order Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordercustomermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_non_customer_message = ProtoField.new("Add Order Non Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordernoncustomermessage", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.clientheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.deep_trade_break_message = ProtoField.new("Deep Trade Break Message", "iex.iexoptions.marketdata.sbe.v1.03.deeptradebreakmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.delete_order_message = ProtoField.new("Delete Order Message", "iex.iexoptions.marketdata.sbe.v1.03.deleteordermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.heartbeatmessage", ftypes.STRING)
@@ -102,7 +101,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.quote_update_no_customer_interest
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "iex.iexoptions.marketdata.sbe.v1.03.retransmissionrequestmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.retransmission_response_message = ProtoField.new("Retransmission Response Message", "iex.iexoptions.marketdata.sbe.v1.03.retransmissionresponsemessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message = ProtoField.new("Sequenced Packet Message", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessage", ftypes.STRING)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.serverheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.session_shutdown_message = ProtoField.new("Session Shutdown Message", "iex.iexoptions.marketdata.sbe.v1.03.sessionshutdownmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.snapshot_header_message = ProtoField.new("Snapshot Header Message", "iex.iexoptions.marketdata.sbe.v1.03.snapshotheadermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "iex.iexoptions.marketdata.sbe.v1.03.symbolmappingmessage", ftypes.STRING)
@@ -2077,6 +2075,40 @@ iex_iexoptions_marketdata_sbe_v1_03.retransmission_request_message.dissect = fun
   end
 end
 
+-- Client Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_marketdata_sbe_v1_03.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.server_heartbeat_message = {}
+
+-- Display: Server Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.server_heartbeat_message.display = function(packet, parent, length)
+  return "Server Heartbeat Message"
+end
+
+
+-- Dissect: Server Heartbeat Message
+iex_iexoptions_marketdata_sbe_v1_03.server_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_marketdata_sbe_v1_03.server_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Session Shutdown Message
 iex_iexoptions_marketdata_sbe_v1_03.session_shutdown_message = {}
 
@@ -3596,11 +3628,11 @@ iex_iexoptions_marketdata_sbe_v1_03.payload.dissect = function(buffer, offset, p
   end
   -- Dissect Server Heartbeat Message
   if template_id == 400 then
-    return offset
+    return iex_iexoptions_marketdata_sbe_v1_03.server_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat Message
   if template_id == 401 then
-    return offset
+    return iex_iexoptions_marketdata_sbe_v1_03.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request Message
   if template_id == 402 then

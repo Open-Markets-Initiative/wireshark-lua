@@ -73,15 +73,11 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header = ProtoField.n
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Session Messages
-omi_jnx_jnxequities_pts_itch_v1_7.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.itch.v1.7.debugpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.itch.v1.7.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.itch.v1.7.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.itch.v1.7.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.itch.v1.7.loginrequestpacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.itch.v1.7.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.unsequenceddatapacket", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Application Messages
@@ -2431,6 +2427,40 @@ jnx_jnxequities_pts_itch_v1_7.mold_udp_64_packet.dissect = function(buffer, pack
   return index
 end
 
+-- End Of Session Packet
+jnx_jnxequities_pts_itch_v1_7.end_of_session_packet = {}
+
+-- Display: End Of Session Packet
+jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.display = function(packet, parent, length)
+  return "End Of Session Packet"
+end
+
+
+-- Dissect: End Of Session Packet
+jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet = {}
+
+-- Display: Server Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.display = function(packet, parent, length)
+  return "Server Heartbeat Packet"
+end
+
+
+-- Dissect: Server Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message = {}
 
@@ -2684,11 +2714,11 @@ jnx_jnxequities_pts_itch_v1_7.server_tcp_payload.dissect = function(buffer, offs
   end
   -- Dissect Server Heartbeat Packet
   if server_packet_type == "H" then
-    return offset
+    return jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Packet
   if server_packet_type == "Z" then
-    return offset
+    return jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2847,6 +2877,40 @@ jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.dissect = function(buffer, packe
   return index
 end
 
+-- Logout Request Packet
+jnx_jnxequities_pts_itch_v1_7.logout_request_packet = {}
+
+-- Display: Logout Request Packet
+jnx_jnxequities_pts_itch_v1_7.logout_request_packet.display = function(packet, parent, length)
+  return "Logout Request Packet"
+end
+
+
+-- Dissect: Logout Request Packet
+jnx_jnxequities_pts_itch_v1_7.logout_request_packet.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v1_7.logout_request_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet = {}
+
+-- Display: Client Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.display = function(packet, parent, length)
+  return "Client Heartbeat Packet"
+end
+
+
+-- Dissect: Client Heartbeat Packet
+jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unsequenced Data Packet
 jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet = {}
 
@@ -2977,11 +3041,11 @@ jnx_jnxequities_pts_itch_v1_7.client_tcp_payload.dissect = function(buffer, offs
   end
   -- Dissect Client Heartbeat Packet
   if client_packet_type == "R" then
-    return offset
+    return jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Packet
   if client_packet_type == "O" then
-    return offset
+    return jnx_jnxequities_pts_itch_v1_7.logout_request_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset

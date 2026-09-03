@@ -128,15 +128,11 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message = ProtoField.ne
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto 4.0 Session Messages
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.nomoptions.itto.itch.v4.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nomoptions.itto.itch.v4.0.debugpacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.nomoptions.itto.itch.v4.0.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.nomoptions.itto.itch.v4.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nomoptions.itto.itch.v4.0.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.nomoptions.itto.itch.v4.0.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nomoptions.itto.itch.v4.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto Itch 4.0 generated fields
@@ -4101,6 +4097,40 @@ nasdaq_nomoptions_itto_itch_v4_0.mold_udp_64_packet.dissect = function(buffer, p
   return index
 end
 
+-- End Of Session Packet
+nasdaq_nomoptions_itto_itch_v4_0.end_of_session_packet = {}
+
+-- Display: End Of Session Packet
+nasdaq_nomoptions_itto_itch_v4_0.end_of_session_packet.display = function(packet, parent, length)
+  return "End Of Session Packet"
+end
+
+
+-- Dissect: End Of Session Packet
+nasdaq_nomoptions_itto_itch_v4_0.end_of_session_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.end_of_session_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.server_heartbeat_packet = {}
+
+-- Display: Server Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.server_heartbeat_packet.display = function(packet, parent, length)
+  return "Server Heartbeat Packet"
+end
+
+
+-- Dissect: Server Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.server_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.server_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Message
 nasdaq_nomoptions_itto_itch_v4_0.sequenced_message = {}
 
@@ -4398,11 +4428,11 @@ nasdaq_nomoptions_itto_itch_v4_0.server_tcp_payload.dissect = function(buffer, o
   end
   -- Dissect Server Heartbeat Packet
   if server_packet_type == "H" then
-    return offset
+    return nasdaq_nomoptions_itto_itch_v4_0.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Packet
   if server_packet_type == "Z" then
-    return offset
+    return nasdaq_nomoptions_itto_itch_v4_0.end_of_session_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4553,6 +4583,40 @@ nasdaq_nomoptions_itto_itch_v4_0.server_tcp_packet.dissect = function(buffer, pa
   return index
 end
 
+-- Logout Request Packet
+nasdaq_nomoptions_itto_itch_v4_0.logout_request_packet = {}
+
+-- Display: Logout Request Packet
+nasdaq_nomoptions_itto_itch_v4_0.logout_request_packet.display = function(packet, parent, length)
+  return "Logout Request Packet"
+end
+
+
+-- Dissect: Logout Request Packet
+nasdaq_nomoptions_itto_itch_v4_0.logout_request_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.logout_request_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.client_heartbeat_packet = {}
+
+-- Display: Client Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.client_heartbeat_packet.display = function(packet, parent, length)
+  return "Client Heartbeat Packet"
+end
+
+
+-- Dissect: Client Heartbeat Packet
+nasdaq_nomoptions_itto_itch_v4_0.client_heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.client_heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unsequenced Data Packet
 nasdaq_nomoptions_itto_itch_v4_0.unsequenced_data_packet = {}
 
@@ -4683,11 +4747,11 @@ nasdaq_nomoptions_itto_itch_v4_0.client_tcp_payload.dissect = function(buffer, o
   end
   -- Dissect Client Heartbeat Packet
   if client_packet_type == "R" then
-    return offset
+    return nasdaq_nomoptions_itto_itch_v4_0.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Packet
   if client_packet_type == "O" then
-    return offset
+    return nasdaq_nomoptions_itto_itch_v4_0.logout_request_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset

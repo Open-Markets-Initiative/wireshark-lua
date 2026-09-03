@@ -220,7 +220,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_action_request
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_control_acknowledgement_message = ProtoField.new("Risk Control Acknowledgement Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskcontrolacknowledgementmessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_control_alert_message = ProtoField.new("Risk Control Alert Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskcontrolalertmessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_limit_update_request_message = ProtoField.new("Risk Limit Update Request Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.risklimitupdaterequestmessage", ftypes.STRING)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sequenced_filler_message = ProtoField.new("Sequenced Filler Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sequencedfillermessage", ftypes.BYTES)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.series_reference_data_message = ProtoField.new("Series Reference Data Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seriesreferencedatamessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.session_configuration_acknowledgement_message = ProtoField.new("Session Configuration Acknowledgement Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sessionconfigurationacknowledgementmessage", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sessionconfigurationrequestmessage", ftypes.STRING)
@@ -9367,6 +9366,23 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.new_order_message.dissect = fu
   end
 end
 
+-- Sequenced Filler Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message = {}
+
+-- Display: Sequenced Filler Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.display = function(packet, parent, length)
+  return "Sequenced Filler Message"
+end
+
+
+-- Dissect: Sequenced Filler Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Session Configuration Request Message
 nyse_amexoptions_binarygateway_pillarstream_v3_25.session_configuration_request_message = {}
 
@@ -9446,7 +9462,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_message.dissect = fu
   end
   -- Dissect Sequenced Filler Message
   if seq_msg_type == 0x0282 then
-    return offset
+    return nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Message
   if seq_msg_type == 0x0248 then
