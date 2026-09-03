@@ -2084,8 +2084,8 @@ siac_opra_output_obi_v4_0.session_indicator.display = function(value)
   if value == 0 then
     return "Session Indicator: Regular (0)"
   end
-  if value == 88 then
-    return "Session Indicator: Pre Market (88)"
+  if value == 0x58 then
+    return "Session Indicator: Pre Market (0x58)"
   end
 
   return "Session Indicator: Unknown("..value..")"
