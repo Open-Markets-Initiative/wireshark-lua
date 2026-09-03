@@ -298,6 +298,8 @@ omi_cme_globex_ilink3_sbe_v8_9.fields.source_repo_id = ProtoField.new("Source Re
 omi_cme_globex_ilink3_sbe_v8_9.fields.split_msg = ProtoField.new("Split Msg", "cme.globex.ilink3.sbe.v8.9.splitmsg", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_order_events_group = ProtoField.new("Spread Leg Order Events Group", "cme.globex.ilink3.sbe.v8.9.spreadlegordereventsgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_order_events_groups = ProtoField.new("Spread Leg Order Events Groups", "cme.globex.ilink3.sbe.v8.9.spreadlegordereventsgroups", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_group = ProtoField.new("Spread Leg Trade Events Group", "cme.globex.ilink3.sbe.v8.9.spreadlegtradeeventsgroup", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_groups = ProtoField.new("Spread Leg Trade Events Groups", "cme.globex.ilink3.sbe.v8.9.spreadlegtradeeventsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_order_events_group = ProtoField.new("Spread Order Events Group", "cme.globex.ilink3.sbe.v8.9.spreadordereventsgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_order_events_groups = ProtoField.new("Spread Order Events Groups", "cme.globex.ilink3.sbe.v8.9.spreadordereventsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group = ProtoField.new("Spread Trade Events Group", "cme.globex.ilink3.sbe.v8.9.spreadtradeeventsgroup", ftypes.STRING)
@@ -425,6 +427,7 @@ omi_cme_globex_ilink3_sbe_v8_9.fields.requesting_party_ids_group_index = ProtoFi
 omi_cme_globex_ilink3_sbe_v8_9.fields.response_legs_group_index = ProtoField.new("Response Legs Group Index", "cme.globex.ilink3.sbe.v8.9.responselegsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_9.fields.sides_group_index = ProtoField.new("Sides Group Index", "cme.globex.ilink3.sbe.v8.9.sidesgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_order_events_group_index = ProtoField.new("Spread Leg Order Events Group Index", "cme.globex.ilink3.sbe.v8.9.spreadlegordereventsgroupindex", ftypes.UINT16)
+omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_group_index = ProtoField.new("Spread Leg Trade Events Group Index", "cme.globex.ilink3.sbe.v8.9.spreadlegtradeeventsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_order_events_group_index = ProtoField.new("Spread Order Events Group Index", "cme.globex.ilink3.sbe.v8.9.spreadordereventsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group_index = ProtoField.new("Spread Trade Events Group Index", "cme.globex.ilink3.sbe.v8.9.spreadtradeeventsgroupindex", ftypes.UINT16)
 omi_cme_globex_ilink3_sbe_v8_9.fields.trade_addendum_legs_group_index = ProtoField.new("Trade Addendum Legs Group Index", "cme.globex.ilink3.sbe.v8.9.tradeaddendumlegsgroupindex", ftypes.UINT16)
@@ -10359,31 +10362,141 @@ cme_globex_ilink3_sbe_v8_9.security_definition_response.dissect = function(buffe
   end
 end
 
--- Spread Trade Events Group
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_group = {}
+-- Contra Calculated Ccy Last Qty
+cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty = {}
 
--- Size: Spread Trade Events Group
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.size =
+-- Size: Contra Calculated Ccy Last Qty
+cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.size =
+  cme_globex_ilink3_sbe_v8_9.mantissa.size + 
+  cme_globex_ilink3_sbe_v8_9.exponent.size
+
+-- Display: Contra Calculated Ccy Last Qty
+cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
+  end
+
+  return ": " .. tostring(value)
+end
+
+-- Dissect Fields: Contra Calculated Ccy Last Qty
+cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: int64
+  index, mantissa = cme_globex_ilink3_sbe_v8_9.mantissa.dissect(buffer, index, packet, parent)
+
+  -- Exponent: int8
+  index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local contra_calculated_ccy_last_qty = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_calculated_ccy_last_qty = nil end
+
+  return index, contra_calculated_ccy_last_qty
+end
+
+-- Dissect: Contra Calculated Ccy Last Qty
+cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.contra_calculated_ccy_last_qty, buffer(offset, 0))
+    local index, value = cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Contra Gross Trade Amt
+cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt = {}
+
+-- Size: Contra Gross Trade Amt
+cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.size =
+  cme_globex_ilink3_sbe_v8_9.mantissa.size + 
+  cme_globex_ilink3_sbe_v8_9.exponent.size
+
+-- Display: Contra Gross Trade Amt
+cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.display = function(packet, parent, value, length)
+  if value == nil then
+    return ": No Value"
+  end
+
+  return ": " .. tostring(value)
+end
+
+-- Dissect Fields: Contra Gross Trade Amt
+cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: int64
+  index, mantissa = cme_globex_ilink3_sbe_v8_9.mantissa.dissect(buffer, index, packet, parent)
+
+  -- Exponent: int8
+  index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local contra_gross_trade_amt = mantissa * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_gross_trade_amt = nil end
+
+  return index, contra_gross_trade_amt
+end
+
+-- Dissect: Contra Gross Trade Amt
+cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.contra_gross_trade_amt, buffer(offset, 0))
+    local index, value = cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Leg Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group = {}
+
+-- Size: Spread Leg Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.size =
   cme_globex_ilink3_sbe_v8_9.order_event_px.size + 
   cme_globex_ilink3_sbe_v8_9.order_event_text.size + 
   cme_globex_ilink3_sbe_v8_9.order_event_exec_id.size + 
   cme_globex_ilink3_sbe_v8_9.order_event_qty.size + 
   cme_globex_ilink3_sbe_v8_9.trade_addendum.size + 
   cme_globex_ilink3_sbe_v8_9.order_event_reason.size + 
-  cme_globex_ilink3_sbe_v8_9.original_order_event_exec_id.size
+  cme_globex_ilink3_sbe_v8_9.original_order_event_exec_id.size + 
+  cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.size + 
+  cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.size
 
--- Display: Spread Trade Events Group
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.display = function(packet, parent, length)
+-- Display: Spread Leg Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Spread Trade Events Group
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields = function(buffer, offset, packet, parent, spread_trade_events_group_index)
+-- Dissect Fields: Spread Leg Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.fields = function(buffer, offset, packet, parent, spread_leg_trade_events_group_index)
   local index = offset
 
-  -- Implicit Spread Trade Events Group Index
-  if spread_trade_events_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group_index, spread_trade_events_group_index)
+  -- Implicit Spread Leg Trade Events Group Index
+  if spread_leg_trade_events_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_group_index, spread_leg_trade_events_group_index)
     iteration:set_generated()
   end
 
@@ -10408,50 +10521,56 @@ cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields = function(buffer, o
   -- Original Order Event Exec Id: uInt32NULL
   index, original_order_event_exec_id = cme_globex_ilink3_sbe_v8_9.original_order_event_exec_id.dissect(buffer, index, packet, parent)
 
+  -- Contra Gross Trade Amt: Struct of 2 fields
+  index, contra_gross_trade_amt = cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.dissect(buffer, index, packet, parent)
+
+  -- Contra Calculated Ccy Last Qty: Struct of 2 fields
+  index, contra_calculated_ccy_last_qty = cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.dissect(buffer, index, packet, parent)
+
   return index
 end
 
--- Dissect: Spread Trade Events Group
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.dissect = function(buffer, offset, packet, parent, spread_trade_events_group_index)
+-- Dissect: Spread Leg Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.dissect = function(buffer, offset, packet, parent, spread_leg_trade_events_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.fields(buffer, offset, packet, parent, spread_leg_trade_events_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
+    return cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.fields(buffer, offset, packet, parent, spread_leg_trade_events_group_index)
   end
 end
 
--- Spread Trade Events Groups
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups = {}
+-- Spread Leg Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups = {}
 
--- Calculate size of: Spread Trade Events Groups
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.size = function(buffer, offset)
+-- Calculate size of: Spread Leg Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_ilink3_sbe_v8_9.group_size.size
 
   -- Calculate field size from count
-  local spread_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + spread_trade_events_group_count * 27
+  local spread_leg_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + spread_leg_trade_events_group_count * 45
 
   return index
 end
 
--- Display: Spread Trade Events Groups
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.display = function(packet, parent, length)
+-- Display: Spread Leg Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Spread Trade Events Groups
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Leg Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -10460,29 +10579,29 @@ cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields = function(buffer, 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Spread Trade Events Group
-  for spread_trade_events_group_index = 1, num_in_group do
-    index, spread_trade_events_group = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.dissect(buffer, index, packet, parent, spread_trade_events_group_index)
+  -- Repeating: Spread Leg Trade Events Group
+  for spread_leg_trade_events_group_index = 1, num_in_group do
+    index, spread_leg_trade_events_group = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_group.dissect(buffer, index, packet, parent, spread_leg_trade_events_group_index)
   end
 
   return index
 end
 
--- Dissect: Spread Trade Events Groups
-cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Spread Leg Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_groups, buffer(offset, 0))
-    local index = cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_leg_trade_events_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.display(packet, parent, length)
+    local display = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -10772,7 +10891,7 @@ cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.size = fun
 
   index = index + cme_globex_ilink3_sbe_v8_9.fills_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.size(buffer, offset + index)
+  index = index + cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10870,8 +10989,8 @@ cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.fields = f
   -- Fills Groups: Struct of 2 fields
   index, fills_groups = cme_globex_ilink3_sbe_v8_9.fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Spread Trade Events Groups: Struct of 2 fields
-  index, spread_trade_events_groups = cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.dissect(buffer, index, packet, parent)
+  -- Spread Leg Trade Events Groups: Struct of 2 fields
+  index, spread_leg_trade_events_groups = cme_globex_ilink3_sbe_v8_9.spread_leg_trade_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10891,6 +11010,133 @@ cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.dissect = 
   else
     -- Skip element, add fields directly
     return cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread_leg.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_group = {}
+
+-- Size: Spread Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.size =
+  cme_globex_ilink3_sbe_v8_9.order_event_px.size + 
+  cme_globex_ilink3_sbe_v8_9.order_event_text.size + 
+  cme_globex_ilink3_sbe_v8_9.order_event_exec_id.size + 
+  cme_globex_ilink3_sbe_v8_9.order_event_qty.size + 
+  cme_globex_ilink3_sbe_v8_9.trade_addendum.size + 
+  cme_globex_ilink3_sbe_v8_9.order_event_reason.size + 
+  cme_globex_ilink3_sbe_v8_9.original_order_event_exec_id.size
+
+-- Display: Spread Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields = function(buffer, offset, packet, parent, spread_trade_events_group_index)
+  local index = offset
+
+  -- Implicit Spread Trade Events Group Index
+  if spread_trade_events_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group_index, spread_trade_events_group_index)
+    iteration:set_generated()
+  end
+
+  -- Order Event Px: PRICE9
+  index, order_event_px = cme_globex_ilink3_sbe_v8_9.order_event_px.dissect(buffer, index, packet, parent)
+
+  -- Order Event Text: String5
+  index, order_event_text = cme_globex_ilink3_sbe_v8_9.order_event_text.dissect(buffer, index, packet, parent)
+
+  -- Order Event Exec Id: uInt32
+  index, order_event_exec_id = cme_globex_ilink3_sbe_v8_9.order_event_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Order Event Qty: uInt32
+  index, order_event_qty = cme_globex_ilink3_sbe_v8_9.order_event_qty.dissect(buffer, index, packet, parent)
+
+  -- Trade Addendum: TradeAddendum
+  index, trade_addendum = cme_globex_ilink3_sbe_v8_9.trade_addendum.dissect(buffer, index, packet, parent)
+
+  -- Order Event Reason: uInt8
+  index, order_event_reason = cme_globex_ilink3_sbe_v8_9.order_event_reason.dissect(buffer, index, packet, parent)
+
+  -- Original Order Event Exec Id: uInt32NULL
+  index, original_order_event_exec_id = cme_globex_ilink3_sbe_v8_9.original_order_event_exec_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spread Trade Events Group
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.dissect = function(buffer, offset, packet, parent, spread_trade_events_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_group, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.fields(buffer, offset, packet, parent, spread_trade_events_group_index)
+  end
+end
+
+-- Spread Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups = {}
+
+-- Calculate size of: Spread Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_ilink3_sbe_v8_9.group_size.size
+
+  -- Calculate field size from count
+  local spread_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + spread_trade_events_group_count * 27
+
+  return index
+end
+
+-- Display: Spread Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_ilink3_sbe_v8_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Spread Trade Events Group
+  for spread_trade_events_group_index = 1, num_in_group do
+    index, spread_trade_events_group = cme_globex_ilink3_sbe_v8_9.spread_trade_events_group.dissect(buffer, index, packet, parent, spread_trade_events_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Spread Trade Events Groups
+cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.spread_trade_events_groups, buffer(offset, 0))
+    local index = cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_ilink3_sbe_v8_9.spread_trade_events_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11326,114 +11572,6 @@ cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread.dissect = func
   else
     -- Skip element, add fields directly
     return cme_globex_ilink3_sbe_v8_9.execution_report_trade_addendum_spread.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Contra Calculated Ccy Last Qty
-cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty = {}
-
--- Size: Contra Calculated Ccy Last Qty
-cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.size =
-  cme_globex_ilink3_sbe_v8_9.mantissa.size + 
-  cme_globex_ilink3_sbe_v8_9.exponent.size
-
--- Display: Contra Calculated Ccy Last Qty
-cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.display = function(packet, parent, value, length)
-  if value == nil then
-    return ": No Value"
-  end
-
-  return ": " .. tostring(value)
-end
-
--- Dissect Fields: Contra Calculated Ccy Last Qty
-cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa: int64
-  index, mantissa = cme_globex_ilink3_sbe_v8_9.mantissa.dissect(buffer, index, packet, parent)
-
-  -- Exponent: int8
-  index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local contra_calculated_ccy_last_qty = mantissa * 10 ^ exponent
-
-  -- Null check (composite is null when child is null sentinel)
-  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_calculated_ccy_last_qty = nil end
-
-  return index, contra_calculated_ccy_last_qty
-end
-
--- Dissect: Contra Calculated Ccy Last Qty
-cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.contra_calculated_ccy_last_qty, buffer(offset, 0))
-    local index, value = cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_9.contra_calculated_ccy_last_qty.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Contra Gross Trade Amt
-cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt = {}
-
--- Size: Contra Gross Trade Amt
-cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.size =
-  cme_globex_ilink3_sbe_v8_9.mantissa.size + 
-  cme_globex_ilink3_sbe_v8_9.exponent.size
-
--- Display: Contra Gross Trade Amt
-cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.display = function(packet, parent, value, length)
-  if value == nil then
-    return ": No Value"
-  end
-
-  return ": " .. tostring(value)
-end
-
--- Dissect Fields: Contra Gross Trade Amt
-cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa: int64
-  index, mantissa = cme_globex_ilink3_sbe_v8_9.mantissa.dissect(buffer, index, packet, parent)
-
-  -- Exponent: int8
-  index, exponent = cme_globex_ilink3_sbe_v8_9.exponent.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local contra_gross_trade_amt = mantissa * 10 ^ exponent
-
-  -- Null check (composite is null when child is null sentinel)
-  if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then contra_gross_trade_amt = nil end
-
-  return index, contra_gross_trade_amt
-end
-
--- Dissect: Contra Gross Trade Amt
-cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_ilink3_sbe_v8_9.fields.contra_gross_trade_amt, buffer(offset, 0))
-    local index, value = cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_ilink3_sbe_v8_9.contra_gross_trade_amt.fields(buffer, offset, packet, parent)
   end
 end
 
