@@ -132,7 +132,8 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message = ProtoField.new("Mess
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packet", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.j.packetheader", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaOptions TopFeed 1.2.j Application Messages
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.arcaoptions.topfeed.pillar.v1.2.j.complexseriesindexmappingmessage", ftypes.STRING)
@@ -176,6 +177,15 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.working_price_calculate = Prot
 -- Nyse ArcaOptions TopFeed Pillar 1.2.j Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaoptions_topfeed_pillar_v1_2_j.absolute_time_base = 0
+
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_arcaoptions_topfeed_pillar_v1_2_j.format_decimals = true
 
@@ -205,6 +215,8 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_indexes = Pref.bool("Show 
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs_changed()
 
@@ -232,6 +244,9 @@ function omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs_changed()
   end
   if nyse_arcaoptions_topfeed_pillar_v1_2_j.format_decimals ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.format_decimals then
     nyse_arcaoptions_topfeed_pillar_v1_2_j.format_decimals = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.format_decimals
+  end
+  if nyse_arcaoptions_topfeed_pillar_v1_2_j.absolute_time_base ~= omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.absolute_time_base then
+    nyse_arcaoptions_topfeed_pillar_v1_2_j.absolute_time_base = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.prefs.absolute_time_base
   end
 end
 
@@ -5765,13 +5780,17 @@ end
 -- Dissect: Send Time
 nyse_arcaoptions_topfeed_pillar_v1_2_j.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_arcaoptions_topfeed_pillar_v1_2_j.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time
+    if nyse_arcaoptions_topfeed_pillar_v1_2_j.absolute_time_base == 1 then field = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaoptions_topfeed_pillar_v1_2_j.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

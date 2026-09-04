@@ -108,7 +108,8 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message = ProtoField.new("
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.packet", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.packetheader", ftypes.STRING)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sendtime", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaOptions ComplexFeed 1.0.d Application Messages
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.complexseriesindexmappingmessage", ftypes.STRING)
@@ -136,6 +137,20 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_index = ProtoField
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -155,6 +170,8 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_headers = Pref.bool("S
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
 
@@ -173,6 +190,9 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
   end
   if show.sequences ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences then
     show.sequences = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_sequences
+  end
+  if nyse_arcaoptions_complexfeed_pillar_v1_0_d.absolute_time_base ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.absolute_time_base then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.absolute_time_base = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.absolute_time_base
   end
 end
 
@@ -4216,13 +4236,17 @@ end
 -- Dissect: Send Time
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time
+    if nyse_arcaoptions_complexfeed_pillar_v1_0_d.absolute_time_base == 1 then field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

@@ -759,7 +759,21 @@ nsxaustralia_nets_itch_v4_2_55.expiry.size = 8
 
 -- Display: Expiry
 nsxaustralia_nets_itch_v4_2_55.expiry.display = function(value)
-  return "Expiry: "..value
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Expiry: No Value"
+  end
+
+  local packed = value:tonumber()
+
+  local year = math.floor(packed / 10000000000)
+  local month = math.floor(packed / 100000000) % 100
+  local day = math.floor(packed / 1000000) % 100
+  local hour = math.floor(packed / 10000) % 100
+  local minute = math.floor(packed / 100) % 100
+  local second = packed % 100
+
+  return string.format("Expiry: %04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second)
 end
 
 -- Dissect: Expiry
@@ -920,7 +934,21 @@ nsxaustralia_nets_itch_v4_2_55.listing.size = 8
 
 -- Display: Listing
 nsxaustralia_nets_itch_v4_2_55.listing.display = function(value)
-  return "Listing: "..value
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Listing: No Value"
+  end
+
+  local packed = value:tonumber()
+
+  local year = math.floor(packed / 10000000000)
+  local month = math.floor(packed / 100000000) % 100
+  local day = math.floor(packed / 1000000) % 100
+  local hour = math.floor(packed / 10000) % 100
+  local minute = math.floor(packed / 100) % 100
+  local second = packed % 100
+
+  return string.format("Listing: %04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second)
 end
 
 -- Dissect: Listing

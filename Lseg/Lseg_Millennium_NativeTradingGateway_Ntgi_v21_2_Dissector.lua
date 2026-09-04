@@ -145,7 +145,8 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.tif = ProtoField.new(
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.trade_liquidity_indicator = ProtoField.new("Trade Liquidity Indicator", "lseg.millennium.nativetradinggateway.ntgi.v21.2.tradeliquidityindicator", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.tradematchid", ftypes.UINT64)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.trader_id = ProtoField.new("Trader Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.traderid", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.transacttime", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time_utc = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.type_of_trade = ProtoField.new("Type Of Trade", "lseg.millennium.nativetradinggateway.ntgi.v21.2.typeoftrade", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.user_name = ProtoField.new("User Name", "lseg.millennium.nativetradinggateway.ntgi.v21.2.username", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.waiver_flags = ProtoField.new("Waiver Flags", "lseg.millennium.nativetradinggateway.ntgi.v21.2.waiverflags", ftypes.UINT8)
@@ -181,6 +182,20 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_quote_message = P
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.system_status_message = ProtoField.new("System Status Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.systemstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
+-- Lseg Millennium NativeTradingGateway Ntgi 21.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -196,6 +211,8 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_application_messa
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs_changed()
 
@@ -208,6 +225,9 @@ function omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs_changed()
   end
   if show.structs ~= omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs then
     show.structs = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.show_structs
+  end
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base ~= omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base then
+    lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.prefs.absolute_time_base
   end
 end
 
@@ -3664,13 +3684,17 @@ end
 -- Dissect: Transact Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time, buffer(offset, 0))
-    local index, value = lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time
+    if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.transact_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = lseg_millennium_nativetradinggateway_ntgi_v21_2.transact_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

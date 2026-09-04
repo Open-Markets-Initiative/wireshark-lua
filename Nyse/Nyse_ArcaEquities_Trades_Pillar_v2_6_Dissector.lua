@@ -91,7 +91,8 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.message = ProtoField.new("Messag
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.trades.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.trades.pillar.v2.6.sendtime", ftypes.STRING)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.trades.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.trades.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaEquities Trades 2.6 Application Messages
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)
@@ -127,6 +128,15 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.price_calculate = ProtoField.new
 -- Nyse ArcaEquities Trades Pillar 2.6 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaequities_trades_pillar_v2_6.absolute_time_base = 0
+
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_arcaequities_trades_pillar_v2_6.format_decimals = true
 
@@ -154,6 +164,8 @@ omi_nyse_arcaequities_trades_pillar_v2_6.prefs.show_indexes = Pref.bool("Show In
 omi_nyse_arcaequities_trades_pillar_v2_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_arcaequities_trades_pillar_v2_6.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_nyse_arcaequities_trades_pillar_v2_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaequities_trades_pillar_v2_6.prefs_changed()
 
@@ -178,6 +190,9 @@ function omi_nyse_arcaequities_trades_pillar_v2_6.prefs_changed()
   end
   if nyse_arcaequities_trades_pillar_v2_6.format_decimals ~= omi_nyse_arcaequities_trades_pillar_v2_6.prefs.format_decimals then
     nyse_arcaequities_trades_pillar_v2_6.format_decimals = omi_nyse_arcaequities_trades_pillar_v2_6.prefs.format_decimals
+  end
+  if nyse_arcaequities_trades_pillar_v2_6.absolute_time_base ~= omi_nyse_arcaequities_trades_pillar_v2_6.prefs.absolute_time_base then
+    nyse_arcaequities_trades_pillar_v2_6.absolute_time_base = omi_nyse_arcaequities_trades_pillar_v2_6.prefs.absolute_time_base
   end
 end
 
@@ -4148,13 +4163,17 @@ end
 -- Dissect: Send Time
 nyse_arcaequities_trades_pillar_v2_6.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_arcaequities_trades_pillar_v2_6.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_trades_pillar_v2_6.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaequities_trades_pillar_v2_6.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time
+    if nyse_arcaequities_trades_pillar_v2_6.absolute_time_base == 1 then field = omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaequities_trades_pillar_v2_6.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

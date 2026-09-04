@@ -52,7 +52,8 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Mess
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.STRING)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaEquities ArcaBook 2.1 Application Messages
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.addordermessage", ftypes.STRING)
@@ -66,6 +67,20 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.modify_order_message = ProtoFi
 
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 generated fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.arcabook.pillar.v2.1.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities ArcaBook Pillar 2.1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -85,6 +100,8 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_structs = Pref.bool("Show 
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs_changed()
 
@@ -100,6 +117,9 @@ function omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes then
     show.indexes = omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes
+  end
+  if nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base ~= omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base then
+    nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base = omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base
   end
 end
 
@@ -1713,13 +1733,17 @@ end
 -- Dissect: Send Time
 nyse_arcaequities_arcabook_pillar_v2_1.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_arcaequities_arcabook_pillar_v2_1.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaequities_arcabook_pillar_v2_1.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaequities_arcabook_pillar_v2_1.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time
+    if nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base == 1 then field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaequities_arcabook_pillar_v2_1.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

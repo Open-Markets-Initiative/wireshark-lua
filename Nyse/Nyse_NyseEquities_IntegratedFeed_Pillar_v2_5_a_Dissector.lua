@@ -116,7 +116,8 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message = ProtoField.n
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packet", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.packetheader", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sendtime", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse NyseEquities IntegratedFeed 2.5.a Application Messages
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.addordermessage", ftypes.STRING)
@@ -150,6 +151,20 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_index = ProtoF
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Nyse NyseEquities IntegratedFeed Pillar 2.5.a Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -169,6 +184,8 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_headers = Pref.boo
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs_changed()
 
@@ -187,6 +204,9 @@ function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs_changed()
   end
   if show.sequences ~= omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences then
     show.sequences = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.show_sequences
+  end
+  if nyse_nyseequities_integratedfeed_pillar_v2_5_a.absolute_time_base ~= omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.absolute_time_base then
+    nyse_nyseequities_integratedfeed_pillar_v2_5_a.absolute_time_base = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.prefs.absolute_time_base
   end
 end
 
@@ -4890,13 +4910,17 @@ end
 -- Dissect: Send Time
 nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time
+    if nyse_nyseequities_integratedfeed_pillar_v2_5_a.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

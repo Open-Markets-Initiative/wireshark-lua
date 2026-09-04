@@ -112,7 +112,8 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packet", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packetheader", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse AmexOptions ComplexFeed 1.0.h Application Messages
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.amexoptions.complexfeed.pillar.v1.0.h.complexseriesindexmappingmessage", ftypes.STRING)
@@ -147,6 +148,15 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price_calculate = 
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base = 0
+
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = true
 
@@ -176,6 +186,8 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_indexes = Pref.bool("S
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
 
@@ -203,6 +215,9 @@ function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs_changed()
   end
   if nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals then
     nyse_amexoptions_complexfeed_pillar_v1_0_h.format_decimals = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.format_decimals
+  end
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base ~= omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base then
+    nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.prefs.absolute_time_base
   end
 end
 
@@ -4686,13 +4701,17 @@ end
 -- Dissect: Send Time
 nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time
+    if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base == 1 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else

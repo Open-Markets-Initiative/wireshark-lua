@@ -90,7 +90,8 @@ omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.message = ProtoFie
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.messageheader", ftypes.STRING)
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.packet", ftypes.STRING)
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.packetheader", ftypes.STRING)
-omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.sendtime", ftypes.STRING)
+omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse NationalEquities DepthFeedRefresh 1.6 Application Messages
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.nationalequities.depthfeedrefresh.pillar.v1.6.deltamessage", ftypes.STRING)
@@ -117,6 +118,15 @@ omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.upper_collar_calcu
 -----------------------------------------------------------------------
 -- Nyse NationalEquities DepthFeedRefresh Pillar 1.6 Formatting
 -----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_nationalequities_depthfeedrefresh_pillar_v1_6.absolute_time_base = 0
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_nationalequities_depthfeedrefresh_pillar_v1_6.format_decimals = true
@@ -147,6 +157,8 @@ omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.show_indexes = Pref
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs_changed()
 
@@ -174,6 +186,9 @@ function omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs_changed()
   end
   if nyse_nationalequities_depthfeedrefresh_pillar_v1_6.format_decimals ~= omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.format_decimals then
     nyse_nationalequities_depthfeedrefresh_pillar_v1_6.format_decimals = omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.format_decimals
+  end
+  if nyse_nationalequities_depthfeedrefresh_pillar_v1_6.absolute_time_base ~= omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.absolute_time_base then
+    nyse_nationalequities_depthfeedrefresh_pillar_v1_6.absolute_time_base = omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.prefs.absolute_time_base
   end
 end
 
@@ -3373,13 +3388,17 @@ end
 -- Dissect: Send Time
 nyse_nationalequities_depthfeedrefresh_pillar_v1_6.send_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time, buffer(offset, 0))
-    local index, value = nyse_nationalequities_depthfeedrefresh_pillar_v1_6.send_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nationalequities_depthfeedrefresh_pillar_v1_6.send_time.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_nationalequities_depthfeedrefresh_pillar_v1_6.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time
+    if nyse_nationalequities_depthfeedrefresh_pillar_v1_6.absolute_time_base == 1 then field = omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_6.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_nationalequities_depthfeedrefresh_pillar_v1_6.send_time.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
