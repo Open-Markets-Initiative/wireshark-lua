@@ -498,8 +498,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10 = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size = 10
 
 -- Display: Ask Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.display = function(value)
-  return "Ask Yield Double 10: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Yield Double 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Ask Yield Double 10: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Ask Yield Double 10
@@ -526,8 +544,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8 = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size = 8
 
 -- Display: Ask Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.display = function(value)
-  return "Ask Yield Double 8: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Yield Double 8: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Ask Yield Double 8: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Ask Yield Double 8
@@ -582,8 +618,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size = 6
 
 -- Display: Average Convexity
-koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.display = function(value)
-  return "Average Convexity: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Convexity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Convexity: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Convexity
@@ -610,8 +664,31 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_duration = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size = 6
 
 -- Display: Average Duration
-koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.display = function(value)
-  return "Average Duration: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.display = function(value, buffer, offset, packet, parent)
+  -- Check if field has value
+  if value == 0 then
+    return "Average Duration: No Value"
+  end
+
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Duration: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Duration: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Duration
@@ -638,8 +715,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size = 6
 
 -- Display: Average Forward Ytm
-koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.display = function(value)
-  return "Average Forward Ytm: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Forward Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Forward Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Forward Ytm
@@ -666,8 +761,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size = 6
 
 -- Display: Average Ytm
-koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.display = function(value)
-  return "Average Ytm: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Ytm
@@ -694,8 +807,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.based_fx = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.based_fx.size = 8
 
 -- Display: Based Fx
-koscom_mdcsrealtime_koscom_exture_v1_20.based_fx.display = function(value)
-  return "Based Fx: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.based_fx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.based_fx.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Based Fx: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Based Fx: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Based Fx
@@ -723,6 +854,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.basis_price_after_action.size = 9
 
 -- Display: Basis Price After Action
 koscom_mdcsrealtime_koscom_exture_v1_20.basis_price_after_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Basis Price After Action: No Value"
+  end
+
   return "Basis Price After Action: "..value
 end
 
@@ -751,6 +887,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.basis_price_before_action.size = 9
 
 -- Display: Basis Price Before Action
 koscom_mdcsrealtime_koscom_exture_v1_20.basis_price_before_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Basis Price Before Action: No Value"
+  end
+
   return "Basis Price Before Action: "..value
 end
 
@@ -1002,8 +1143,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10 = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size = 10
 
 -- Display: Bid Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.display = function(value)
-  return "Bid Yield Double 10: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Yield Double 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Bid Yield Double 10: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Bid Yield Double 10
@@ -1030,8 +1189,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8 = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size = 8
 
 -- Display: Bid Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.display = function(value)
-  return "Bid Yield Double 8: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Yield Double 8: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Bid Yield Double 8: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Bid Yield Double 8
@@ -1180,8 +1357,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size = 10
 
 -- Display: Call Re Investment Index
-koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.display = function(value)
-  return "Call Re Investment Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Call Re Investment Index
@@ -1232,14 +1427,23 @@ koscom_mdcsrealtime_koscom_exture_v1_20.change_date.size = 8
 
 -- Display: Change Date
 koscom_mdcsrealtime_koscom_exture_v1_20.change_date.display = function(value)
-  return "Change Date: "..value
+  -- Check if field has value
+  if tonumber(value) == 0 then
+    return "Change Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Change Date: "..value
+  end
+
+  return "Change Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Change Date
 koscom_mdcsrealtime_koscom_exture_v1_20.change_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.change_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.change_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.change_date, range, value, display)
@@ -1255,7 +1459,16 @@ koscom_mdcsrealtime_koscom_exture_v1_20.change_time.size = 8
 
 -- Display: Change Time
 koscom_mdcsrealtime_koscom_exture_v1_20.change_time.display = function(value)
-  return "Change Time: "..value
+  -- Check if field has value
+  if tonumber(value) == 0 then
+    return "Change Time: No Value"
+  end
+
+  if #value < 8 then
+    return "Change Time: "..value
+  end
+
+  return "Change Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 8)
 end
 
 -- Dissect: Change Time
@@ -1277,8 +1490,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.clean_price_index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.clean_price_index.size = 10
 
 -- Display: Clean Price Index
-koscom_mdcsrealtime_koscom_exture_v1_20.clean_price_index.display = function(value)
-  return "Clean Price Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.clean_price_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.clean_price_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Clean Price Index
@@ -1389,8 +1620,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.comparison = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size = 9
 
 -- Display: Comparison
-koscom_mdcsrealtime_koscom_exture_v1_20.comparison.display = function(value)
-  return "Comparison: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.comparison.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Comparison: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Comparison: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Comparison
@@ -1588,8 +1837,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio.size = 7
 
 -- Display: Composition Ratio
-koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio.display = function(value)
-  return "Composition Ratio: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.composition_ratio.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Composition Ratio: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Composition Ratio: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Composition Ratio
@@ -1811,14 +2078,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.date.size = 8
 
 -- Display: Date
 koscom_mdcsrealtime_koscom_exture_v1_20.date.display = function(value)
-  return "Date: "..value
+  if #value < 8 then
+    return "Date: "..value
+  end
+
+  return "Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Date
 koscom_mdcsrealtime_koscom_exture_v1_20.date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.date, range, value, display)
@@ -1833,8 +2104,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base
 koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size = 9
 
 -- Display: Day Before Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value)
-  return "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.day_before_previous_days_nontaxable_base_price_for_overseas_stocks.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Day Before Previous Days Nontaxable Base Price For Overseas Stocks: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Day Before Previous Days Nontaxable Base Price For Overseas Stocks
@@ -1861,8 +2150,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.size = 9
 
 -- Display: Disparate Ratio
-koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.display = function(value)
-  return "Disparate Ratio: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.disparate_ratio.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Disparate Ratio: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Disparate Ratio: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Disparate Ratio
@@ -1912,8 +2219,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv.size = 9
 
 -- Display: During Market Hours Final Iv
-koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv.display = function(value)
-  return "During Market Hours Final Iv: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.during_market_hours_final_iv.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "During Market Hours Final Iv: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "During Market Hours Final Iv: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: During Market Hours Final Iv
@@ -1940,8 +2265,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav.size = 9
 
 -- Display: During Marketfinal Market Nav
-koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav.display = function(value)
-  return "During Marketfinal Market Nav: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_market_nav.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "During Marketfinal Market Nav: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "During Marketfinal Market Nav: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: During Marketfinal Market Nav
@@ -1968,8 +2311,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.size = 9
 
 -- Display: During Marketfinal Nav
-koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.display = function(value)
-  return "During Marketfinal Nav: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.during_marketfinal_nav.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "During Marketfinal Nav: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "During Marketfinal Nav: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: During Marketfinal Nav
@@ -2182,8 +2543,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount.size = 9
 
 -- Display: Etf Net Asset Value Amount
-koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount.display = function(value)
-  return "Etf Net Asset Value Amount: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.etf_net_asset_value_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Etf Net Asset Value Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Etf Net Asset Value Amount: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Etf Net Asset Value Amount
@@ -2606,8 +2985,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size = 9
 
 -- Display: Futures Basis Price
-koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.display = function(value)
-  return "Futures Basis Price: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Futures Basis Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Futures Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Futures Basis Price
@@ -2686,7 +3083,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.hours.size = 6
 
 -- Display: Hours
 koscom_mdcsrealtime_koscom_exture_v1_20.hours.display = function(value)
-  return "Hours: "..value
+  if #value < 6 then
+    return "Hours: "..value
+  end
+
+  return "Hours: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Hours
@@ -2708,8 +3109,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.index.size = 9
 
 -- Display: Index
-koscom_mdcsrealtime_koscom_exture_v1_20.index.display = function(value)
-  return "Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Index: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Index
@@ -2760,14 +3179,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.input_date.size = 8
 
 -- Display: Input Date
 koscom_mdcsrealtime_koscom_exture_v1_20.input_date.display = function(value)
-  return "Input Date: "..value
+  if #value < 8 then
+    return "Input Date: "..value
+  end
+
+  return "Input Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Input Date
 koscom_mdcsrealtime_koscom_exture_v1_20.input_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.input_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.input_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.input_date, range, value, display)
@@ -2805,8 +3228,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.intrinsic_volatility = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.intrinsic_volatility.size = 5
 
 -- Display: Intrinsic Volatility
-koscom_mdcsrealtime_koscom_exture_v1_20.intrinsic_volatility.display = function(value)
-  return "Intrinsic Volatility: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.intrinsic_volatility.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.intrinsic_volatility.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Intrinsic Volatility: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Intrinsic Volatility: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Intrinsic Volatility
@@ -2931,6 +3372,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.lower_limit_price_after_action.size = 9
 
 -- Display: Lower Limit Price After Action
 koscom_mdcsrealtime_koscom_exture_v1_20.lower_limit_price_after_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Lower Limit Price After Action: No Value"
+  end
+
   return "Lower Limit Price After Action: "..value
 end
 
@@ -2959,6 +3405,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.lower_limit_price_before_action.size = 9
 
 -- Display: Lower Limit Price Before Action
 koscom_mdcsrealtime_koscom_exture_v1_20.lower_limit_price_before_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Lower Limit Price Before Action: No Value"
+  end
+
   return "Lower Limit Price Before Action: "..value
 end
 
@@ -2986,8 +3437,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.size = 8
 
 -- Display: Market Base Rate
-koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.display = function(value)
-  return "Market Base Rate: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Base Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Market Base Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Market Base Rate
@@ -3037,8 +3506,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.size = 10
 
 -- Display: Market Price Index
-koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.display = function(value)
-  return "Market Price Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Market Price Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Market Price Index
@@ -3549,8 +4036,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost.size = 10
 
 -- Display: Prerequisite Cost
-koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost.display = function(value)
-  return "Prerequisite Cost: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.prerequisite_cost.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Prerequisite Cost: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Prerequisite Cost: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Prerequisite Cost
@@ -3605,8 +4110,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.size = 8
 
 -- Display: Pretax Yield
-koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.display = function(value)
-  return "Pretax Yield: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Pretax Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Pretax Yield: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Pretax Yield
@@ -3633,8 +4156,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount.size = 12
 
 -- Display: Previous Days Cash Dividend Amount
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount.display = function(value)
-  return "Previous Days Cash Dividend Amount: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_cash_dividend_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Cash Dividend Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Cash Dividend Amount: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Cash Dividend Amount
@@ -3661,8 +4202,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv.size = 9
 
 -- Display: Previous Days Iv
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv.display = function(value)
-  return "Previous Days Iv: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_iv.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Iv: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Iv: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Iv
@@ -3689,8 +4248,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_befo
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size = 9
 
 -- Display: Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.display = function(value)
-  return "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_before_dividend_for_overseas_stocks.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Nontaxable Base Price Before Dividend For Overseas Stocks
@@ -3717,8 +4294,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size = 9
 
 -- Display: Previous Days Nontaxable Base Price For Overseas Stocks
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value)
-  return "Previous Days Nontaxable Base Price For Overseas Stocks: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_nontaxable_base_price_for_overseas_stocks.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Nontaxable Base Price For Overseas Stocks: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Nontaxable Base Price For Overseas Stocks: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Nontaxable Base Price For Overseas Stocks
@@ -3745,8 +4340,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav.size = 9
 
 -- Display: Previous Days Tax Base Nav
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav.display = function(value)
-  return "Previous Days Tax Base Nav: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Tax Base Nav: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Tax Base Nav: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Tax Base Nav
@@ -3773,8 +4386,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_divide
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_dividend.size = 9
 
 -- Display: Previous Days Tax Base Nav Before Dividend
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_dividend.display = function(value)
-  return "Previous Days Tax Base Nav Before Dividend: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_dividend.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_days_tax_base_nav_before_dividend.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Days Tax Base Nav Before Dividend: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Days Tax Base Nav Before Dividend: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Days Tax Base Nav Before Dividend
@@ -3829,8 +4460,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.previous_nav = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.previous_nav.size = 9
 
 -- Display: Previous Nav
-koscom_mdcsrealtime_koscom_exture_v1_20.previous_nav.display = function(value)
-  return "Previous Nav: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.previous_nav.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.previous_nav.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Previous Nav: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Previous Nav: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Previous Nav
@@ -3913,8 +4562,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.price_quotes_trading = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.price_quotes_trading.size = 8
 
 -- Display: Price Quotes Trading
-koscom_mdcsrealtime_koscom_exture_v1_20.price_quotes_trading.display = function(value)
-  return "Price Quotes Trading: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.price_quotes_trading.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.price_quotes_trading.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Quotes Trading: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Price Quotes Trading: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Price Quotes Trading
@@ -3998,14 +4665,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.profit_distribution_basis_date.size = 8
 
 -- Display: Profit Distribution Basis Date
 koscom_mdcsrealtime_koscom_exture_v1_20.profit_distribution_basis_date.display = function(value)
-  return "Profit Distribution Basis Date: "..value
+  if #value < 8 then
+    return "Profit Distribution Basis Date: "..value
+  end
+
+  return "Profit Distribution Basis Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Profit Distribution Basis Date
 koscom_mdcsrealtime_koscom_exture_v1_20.profit_distribution_basis_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.profit_distribution_basis_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.profit_distribution_basis_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.profit_distribution_basis_date, range, value, display)
@@ -4020,8 +4691,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.profit_rate_quotes_trading = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.profit_rate_quotes_trading.size = 8
 
 -- Display: Profit Rate Quotes Trading
-koscom_mdcsrealtime_koscom_exture_v1_20.profit_rate_quotes_trading.display = function(value)
-  return "Profit Rate Quotes Trading: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.profit_rate_quotes_trading.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.profit_rate_quotes_trading.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Profit Rate Quotes Trading: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Profit Rate Quotes Trading: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Profit Rate Quotes Trading
@@ -4156,7 +4845,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.quotes_offer_time.size = 6
 
 -- Display: Quotes Offer Time
 koscom_mdcsrealtime_koscom_exture_v1_20.quotes_offer_time.display = function(value)
-  return "Quotes Offer Time: "..value
+  if #value < 6 then
+    return "Quotes Offer Time: "..value
+  end
+
+  return "Quotes Offer Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Quotes Offer Time
@@ -4230,7 +4923,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.registered_time.size = 6
 
 -- Display: Registered Time
 koscom_mdcsrealtime_koscom_exture_v1_20.registered_time.display = function(value)
-  return "Registered Time: "..value
+  if #value < 6 then
+    return "Registered Time: "..value
+  end
+
+  return "Registered Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Registered Time
@@ -4415,8 +5112,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate.size = 7
 
 -- Display: Risk Appraisal Amount Rate
-koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate.display = function(value)
-  return "Risk Appraisal Amount Rate: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Risk Appraisal Amount Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Risk Appraisal Amount Rate: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Risk Appraisal Amount Rate
@@ -4499,8 +5214,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.security_rate = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.security_rate.size = 7
 
 -- Display: Security Rate
-koscom_mdcsrealtime_koscom_exture_v1_20.security_rate.display = function(value)
-  return "Security Rate: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.security_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.security_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Security Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Security Rate: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Security Rate
@@ -4527,8 +5260,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_delta = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_delta.size = 7
 
 -- Display: Sensitivity Delta
-koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_delta.display = function(value)
-  return "Sensitivity Delta: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_delta.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_delta.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Sensitivity Delta: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Sensitivity Delta: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Sensitivity Delta
@@ -4578,8 +5329,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_gamma = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_gamma.size = 7
 
 -- Display: Sensitivity Gamma
-koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_gamma.display = function(value)
-  return "Sensitivity Gamma: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_gamma.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_gamma.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Sensitivity Gamma: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Sensitivity Gamma: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Sensitivity Gamma
@@ -4629,8 +5398,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_rho = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_rho.size = 12
 
 -- Display: Sensitivity Rho
-koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_rho.display = function(value)
-  return "Sensitivity Rho: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_rho.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_rho.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Sensitivity Rho: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Sensitivity Rho: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Sensitivity Rho
@@ -4680,8 +5467,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_theta = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_theta.size = 12
 
 -- Display: Sensitivity Theta
-koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_theta.display = function(value)
-  return "Sensitivity Theta: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_theta.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_theta.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Sensitivity Theta: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Sensitivity Theta: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Sensitivity Theta
@@ -4731,8 +5536,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_vega = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_vega.size = 12
 
 -- Display: Sensitivity Vega
-koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_vega.display = function(value)
-  return "Sensitivity Vega: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_vega.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.sensitivity_vega.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Sensitivity Vega: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Sensitivity Vega: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Sensitivity Vega
@@ -4862,14 +5685,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.size = 8
 
 -- Display: Settlement Date String 8
 koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.display = function(value)
-  return "Settlement Date String 8: "..value
+  if #value < 8 then
+    return "Settlement Date String 8: "..value
+  end
+
+  return "Settlement Date String 8: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Settlement Date String 8
 koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_string_8, range, value, display)
@@ -4918,14 +5745,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.standard_date.size = 8
 
 -- Display: Standard Date
 koscom_mdcsrealtime_koscom_exture_v1_20.standard_date.display = function(value)
-  return "Standard Date: "..value
+  if #value < 8 then
+    return "Standard Date: "..value
+  end
+
+  return "Standard Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Standard Date
 koscom_mdcsrealtime_koscom_exture_v1_20.standard_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.standard_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.standard_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.standard_date, range, value, display)
@@ -4941,7 +5772,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.standard_time.size = 6
 
 -- Display: Standard Time
 koscom_mdcsrealtime_koscom_exture_v1_20.standard_time.display = function(value)
-  return "Standard Time: "..value
+  if #value < 6 then
+    return "Standard Time: "..value
+  end
+
+  return "Standard Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Standard Time
@@ -5009,8 +5844,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_pr
 koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.size = 9
 
 -- Display: Tax Base Nav As Of The Day Before The Previous Day
-koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.display = function(value)
-  return "Tax Base Nav As Of The Day Before The Previous Day: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.tax_base_nav_as_of_the_day_before_the_previous_day.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Tax Base Nav As Of The Day Before The Previous Day: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Tax Base Nav As Of The Day Before The Previous Day: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Tax Base Nav As Of The Day Before The Previous Day
@@ -5037,8 +5890,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.theoretical_warrant_price = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.theoretical_warrant_price.size = 10
 
 -- Display: Theoretical Warrant Price
-koscom_mdcsrealtime_koscom_exture_v1_20.theoretical_warrant_price.display = function(value)
-  return "Theoretical Warrant Price: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.theoretical_warrant_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.theoretical_warrant_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Theoretical Warrant Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Theoretical Warrant Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Theoretical Warrant Price
@@ -5066,7 +5937,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.time.size = 6
 
 -- Display: Time
 koscom_mdcsrealtime_koscom_exture_v1_20.time.display = function(value)
-  return "Time: "..value
+  if #value < 6 then
+    return "Time: "..value
+  end
+
+  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time
@@ -5116,8 +5991,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.total_profit_index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.total_profit_index.size = 10
 
 -- Display: Total Profit Index
-koscom_mdcsrealtime_koscom_exture_v1_20.total_profit_index.display = function(value)
-  return "Total Profit Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.total_profit_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.total_profit_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Profit Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Total Profit Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Total Profit Index
@@ -5256,8 +6149,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.tracking_error = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.tracking_error.size = 9
 
 -- Display: Tracking Error
-koscom_mdcsrealtime_koscom_exture_v1_20.tracking_error.display = function(value)
-  return "Tracking Error: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.tracking_error.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.tracking_error.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Tracking Error: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Tracking Error: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Tracking Error
@@ -5308,14 +6219,18 @@ koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.size = 8
 
 -- Display: Trading Date
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.display = function(value)
-  return "Trading Date: "..value
+  if #value < 8 then
+    return "Trading Date: "..value
+  end
+
+  return "Trading Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trading Date
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_date, range, value, display)
@@ -5575,6 +6490,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.upper_limit_price_after_action.size = 9
 
 -- Display: Upper Limit Price After Action
 koscom_mdcsrealtime_koscom_exture_v1_20.upper_limit_price_after_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Upper Limit Price After Action: No Value"
+  end
+
   return "Upper Limit Price After Action: "..value
 end
 
@@ -5603,6 +6523,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.upper_limit_price_before_action.size = 9
 
 -- Display: Upper Limit Price Before Action
 koscom_mdcsrealtime_koscom_exture_v1_20.upper_limit_price_before_action.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Upper Limit Price Before Action: No Value"
+  end
+
   return "Upper Limit Price Before Action: "..value
 end
 
@@ -5686,8 +6611,26 @@ koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index = {}
 koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size = 10
 
 -- Display: Zero Re Investment Index
-koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.display = function(value)
-  return "Zero Re Investment Index: "..value
+koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Zero Re Investment Index

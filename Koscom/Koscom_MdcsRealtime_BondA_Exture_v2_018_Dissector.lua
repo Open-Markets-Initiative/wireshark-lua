@@ -84,7 +84,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_remaining_maturity_pr
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_spread = ProtoField.new("Average Spread", "koscom.mdcsrealtime.bonda.exture.v2.018.averagespread", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_spread_sign = ProtoField.new("Average Spread Sign", "koscom.mdcsrealtime.bonda.exture.v2.018.averagespreadsign", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_yield = ProtoField.new("Average Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.averageyield", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.bonda.exture.v2.018.averageyld", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.bonda.exture.v2.018.averageyld", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.average_ytm = ProtoField.new("Average Ytm", "koscom.mdcsrealtime.bonda.exture.v2.018.averageytm", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_type_code = ProtoField.new("Baby Bonds Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.babybondstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.bonda.exture.v2.018.basedate", ftypes.STRING)
@@ -154,7 +154,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_time = ProtoField
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.bonda.exture.v2.018.calculationtime", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_double_11 = ProtoField.new("Call Re Investment Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_float_12816 = ProtoField.new("Call Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.cancellation = ProtoField.new("Cancellation", "koscom.mdcsrealtime.bonda.exture.v2.018.cancellation", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.cash_inflow = ProtoField.new("Cash Inflow", "koscom.mdcsrealtime.bonda.exture.v2.018.cashinflow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_accumulated_trading_value = ProtoField.new("Category Accumulated Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.categoryaccumulatedtradingvalue", ftypes.DOUBLE)
@@ -165,7 +165,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_todays_low = ProtoFi
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price = ProtoField.new("Clean Price", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_double_11 = ProtoField.new("Clean Price Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_float_12816 = ProtoField.new("Clean Price Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.bonda.exture.v2.018.closingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.closingpricetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price_with_yield = ProtoField.new("Closing Price With Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.closingpricewithyield", ftypes.DOUBLE)
@@ -279,7 +279,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_postexercise = 
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_date = ProtoField.new("Issue Date", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name = ProtoField.new("Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.issuename", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamount", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamountweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamountweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issuer_code = ProtoField.new("Issuer Code", "koscom.mdcsrealtime.bonda.exture.v2.018.issuercode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issuing_amount = ProtoField.new("Issuing Amount", "koscom.mdcsrealtime.bonda.exture.v2.018.issuingamount", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.level_payment_amount = ProtoField.new("Level Payment Amount", "koscom.mdcsrealtime.bonda.exture.v2.018.levelpaymentamount", ftypes.DOUBLE)
@@ -289,11 +289,11 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.listing_date = ProtoField.new
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.loan_fund = ProtoField.new("Loan Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.loanfund", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.lower_limit_coupon_rate = ProtoField.new("Lower Limit Coupon Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.lowerlimitcouponrate", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maintenance_fund = ProtoField.new("Maintenance Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.maintenancefund", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketcapitalizationweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketcapitalizationweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.bonda.exture.v2.018.marketoperationproductid", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_double_11 = ProtoField.new("Market Price Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_float_12816 = ProtoField.new("Market Price Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.bonda.exture.v2.018.marketvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.bonda.exture.v2.018.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maximum_yield = ProtoField.new("Maximum Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.maximumyield", ftypes.DOUBLE)
@@ -398,7 +398,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_4_remaining_q
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_5_price = ProtoField.new("Total Bid Level 5 Price", "koscom.mdcsrealtime.bonda.exture.v2.018.totalbidlevel5price", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_5_remaining_quantity = ProtoField.new("Total Bid Level 5 Remaining Quantity", "koscom.mdcsrealtime.bonda.exture.v2.018.totalbidlevel5remainingquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.bonda.exture.v2.018.totalearningsindex", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.totalearningsindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.bonda.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.bonda.exture.v2.018.totalprofitindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.bonda.exture.v2.018.tradingdate", ftypes.STRING)
@@ -414,17 +414,17 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trustee_code = ProtoField.new
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.unstripped_balance = ProtoField.new("Unstripped Balance", "koscom.mdcsrealtime.bonda.exture.v2.018.unstrippedbalance", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.unusual_issuance_condition = ProtoField.new("Unusual Issuance Condition", "koscom.mdcsrealtime.bonda.exture.v2.018.unusualissuancecondition", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.upper_limit_coupon_rate = ProtoField.new("Upper Limit Coupon Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.upperlimitcouponrate", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofcleanindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofsumindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofsumindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_opening_price = ProtoField.new("Yield Opening Price", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldopeningprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_to_maturity = ProtoField.new("Yield To Maturity", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtomaturity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_todays_high = ProtoField.new("Yield Todays High", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtodayshigh", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_todays_low = ProtoField.new("Yield Todays Low", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtodayslow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_double_11 = ProtoField.new("Zero Re Investment Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexweight", ftypes.DOUBLE)
 
 -- Koscom MdcsRealtime BondA Exture 2.018 Headers
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
@@ -502,6 +502,24 @@ function omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs_changed()
   if show.structs ~= omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_bonda_exture_v2_018.prefs.show_structs
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -613,8 +631,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_t
 koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.size = 14
 
 -- Display: Accrued Interest Rate On Bank Holidays Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.display = function(value)
-  return "Accrued Interest Rate On Bank Holidays Type Code: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accrued Interest Rate On Bank Holidays Type Code: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Accrued Interest Rate On Bank Holidays Type Code: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Accrued Interest Rate On Bank Holidays Type Code
@@ -641,8 +677,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size = 22
 
 -- Display: Accumulated Ask Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.display = function(value)
-  return "Accumulated Ask Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accumulated Ask Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Accumulated Ask Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Accumulated Ask Trading Value
@@ -697,8 +751,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size = 22
 
 -- Display: Accumulated Bid Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.display = function(value)
-  return "Accumulated Bid Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accumulated Bid Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Accumulated Bid Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Accumulated Bid Trading Value
@@ -753,8 +825,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size = 26
 
 -- Display: Accumulated Cash
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.display = function(value)
-  return "Accumulated Cash: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accumulated Cash: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Accumulated Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Accumulated Cash
@@ -781,8 +871,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size = 22
 
 -- Display: Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display = function(value)
-  return "Accumulated Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accumulated Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Accumulated Trading Value
@@ -837,8 +945,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size = 13
 
 -- Display: Additional Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.display = function(value)
-  return "Additional Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Additional Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Additional Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Additional Yield
@@ -911,8 +1037,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size = 13
 
 -- Display: Applied Exchange Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.display = function(value)
-  return "Applied Exchange Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Applied Exchange Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Applied Exchange Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Applied Exchange Rate
@@ -1023,8 +1167,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size = 22
 
 -- Display: Ask Level 1 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.display = function(value)
-  return "Ask Level 1 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 1 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Level 1 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Level 1 Trading Amount
@@ -1051,8 +1213,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size = 13
 
 -- Display: Ask Level 1 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.display = function(value)
-  return "Ask Level 1 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 1 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Level 1 Yield
@@ -1135,8 +1315,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size = 22
 
 -- Display: Ask Level 2 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.display = function(value)
-  return "Ask Level 2 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 2 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Level 2 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Level 2 Trading Amount
@@ -1163,8 +1361,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size = 13
 
 -- Display: Ask Level 2 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.display = function(value)
-  return "Ask Level 2 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 2 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Level 2 Yield
@@ -1247,8 +1463,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size = 22
 
 -- Display: Ask Level 3 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.display = function(value)
-  return "Ask Level 3 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 3 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Level 3 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Level 3 Trading Amount
@@ -1275,8 +1509,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size = 13
 
 -- Display: Ask Level 3 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.display = function(value)
-  return "Ask Level 3 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 3 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Level 3 Yield
@@ -1359,8 +1611,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size = 22
 
 -- Display: Ask Level 4 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.display = function(value)
-  return "Ask Level 4 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 4 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Level 4 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Level 4 Trading Amount
@@ -1387,8 +1657,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size = 13
 
 -- Display: Ask Level 4 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.display = function(value)
-  return "Ask Level 4 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 4 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Level 4 Yield
@@ -1471,8 +1759,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size = 22
 
 -- Display: Ask Level 5 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.display = function(value)
-  return "Ask Level 5 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 5 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Level 5 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Level 5 Trading Amount
@@ -1499,8 +1805,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size = 13
 
 -- Display: Ask Level 5 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.display = function(value)
-  return "Ask Level 5 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Level 5 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Level 5 Yield
@@ -1583,8 +1907,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size = 22
 
 -- Display: Ask Per Type Level 1 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.display = function(value)
-  return "Ask Per Type Level 1 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 1 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 1 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Per Type Level 1 Trading Amount
@@ -1611,8 +1953,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size = 13
 
 -- Display: Ask Per Type Level 1 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.display = function(value)
-  return "Ask Per Type Level 1 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 1 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Per Type Level 1 Yield
@@ -1695,8 +2055,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size = 22
 
 -- Display: Ask Per Type Level 2 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.display = function(value)
-  return "Ask Per Type Level 2 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 2 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 2 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Per Type Level 2 Trading Amount
@@ -1723,8 +2101,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size = 13
 
 -- Display: Ask Per Type Level 2 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.display = function(value)
-  return "Ask Per Type Level 2 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 2 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Per Type Level 2 Yield
@@ -1807,8 +2203,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size = 22
 
 -- Display: Ask Per Type Level 3 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.display = function(value)
-  return "Ask Per Type Level 3 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 3 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 3 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Per Type Level 3 Trading Amount
@@ -1835,8 +2249,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size = 13
 
 -- Display: Ask Per Type Level 3 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.display = function(value)
-  return "Ask Per Type Level 3 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 3 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Per Type Level 3 Yield
@@ -1919,8 +2351,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size = 22
 
 -- Display: Ask Per Type Level 4 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.display = function(value)
-  return "Ask Per Type Level 4 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 4 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 4 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Per Type Level 4 Trading Amount
@@ -1947,8 +2397,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size = 13
 
 -- Display: Ask Per Type Level 4 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.display = function(value)
-  return "Ask Per Type Level 4 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 4 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Per Type Level 4 Yield
@@ -2031,8 +2499,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size = 22
 
 -- Display: Ask Per Type Level 5 Trading Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.display = function(value)
-  return "Ask Per Type Level 5 Trading Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 5 Trading Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 5 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Ask Per Type Level 5 Trading Amount
@@ -2059,8 +2545,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size = 13
 
 -- Display: Ask Per Type Level 5 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.display = function(value)
-  return "Ask Per Type Level 5 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Per Type Level 5 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Ask Per Type Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Ask Per Type Level 5 Yield
@@ -2166,8 +2670,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size = 16
 
 -- Display: Average Convexity
-koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.display = function(value)
-  return "Average Convexity: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Convexity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Convexity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Convexity
@@ -2194,8 +2716,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size = 16
 
 -- Display: Average Coupon Price
-koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.display = function(value)
-  return "Average Coupon Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Coupon Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Coupon Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Coupon Price
@@ -2222,8 +2762,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size = 16
 
 -- Display: Average Current Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.display = function(value)
-  return "Average Current Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Current Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Current Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Current Yield
@@ -2250,8 +2808,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_duration = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size = 16
 
 -- Display: Average Duration
-koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.display = function(value)
-  return "Average Duration: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Duration: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Duration: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Duration
@@ -2278,8 +2854,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size = 7
 
 -- Display: Average Forward Ytm
-koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.display = function(value)
-  return "Average Forward Ytm: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Forward Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Forward Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Forward Ytm
@@ -2306,8 +2900,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size = 16
 
 -- Display: Average Remaining Maturity Price
-koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.display = function(value)
-  return "Average Remaining Maturity Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Remaining Maturity Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Remaining Maturity Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Remaining Maturity Price
@@ -2334,8 +2946,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_spread = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size = 16
 
 -- Display: Average Spread
-koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.display = function(value)
-  return "Average Spread: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Spread: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Spread: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Spread
@@ -2395,8 +3025,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size = 13
 
 -- Display: Average Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.display = function(value)
-  return "Average Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Yield
@@ -2423,8 +3071,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yld = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size = 16
 
 -- Display: Average Yld
-koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.display = function(value)
-  return "Average Yld: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Yld: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Yld: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Yld
@@ -2451,8 +3117,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size = 7
 
 -- Display: Average Ytm
-koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.display = function(value)
-  return "Average Ytm: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Ytm
@@ -2503,14 +3187,18 @@ koscom_mdcsrealtime_bonda_exture_v2_018.base_date.size = 8
 
 -- Display: Base Date
 koscom_mdcsrealtime_bonda_exture_v2_018.base_date.display = function(value)
-  return "Base Date: "..value
+  if #value < 8 then
+    return "Base Date: "..value
+  end
+
+  return "Base Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Base Date
 koscom_mdcsrealtime_bonda_exture_v2_018.base_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.base_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.base_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.base_date, range, value, display)
@@ -2577,7 +3265,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.base_time.size = 6
 
 -- Display: Base Time
 koscom_mdcsrealtime_bonda_exture_v2_018.base_time.display = function(value)
-  return "Base Time: "..value
+  if #value < 6 then
+    return "Base Time: "..value
+  end
+
+  return "Base Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Base Time
@@ -2599,8 +3291,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.basis_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size = 10
 
 -- Display: Basis Price
-koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.display = function(value)
-  return "Basis Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Basis Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Basis Price
@@ -2757,8 +3467,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size = 13
 
 -- Display: Bid Level 1 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.display = function(value)
-  return "Bid Level 1 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Level 1 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Level 1 Yield
@@ -2864,8 +3592,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size = 13
 
 -- Display: Bid Level 2 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.display = function(value)
-  return "Bid Level 2 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Level 2 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Level 2 Yield
@@ -2971,8 +3717,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size = 13
 
 -- Display: Bid Level 3 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.display = function(value)
-  return "Bid Level 3 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Level 3 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Level 3 Yield
@@ -3078,8 +3842,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size = 13
 
 -- Display: Bid Level 4 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.display = function(value)
-  return "Bid Level 4 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Level 4 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Level 4 Yield
@@ -3185,8 +3967,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size = 13
 
 -- Display: Bid Level 5 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.display = function(value)
-  return "Bid Level 5 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Level 5 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Level 5 Yield
@@ -3269,8 +4069,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size = 13
 
 -- Display: Bid Per Type Level 1 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.display = function(value)
-  return "Bid Per Type Level 1 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Per Type Level 1 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Per Type Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Per Type Level 1 Yield
@@ -3353,8 +4171,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size = 13
 
 -- Display: Bid Per Type Level 2 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.display = function(value)
-  return "Bid Per Type Level 2 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Per Type Level 2 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Per Type Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Per Type Level 2 Yield
@@ -3437,8 +4273,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size = 13
 
 -- Display: Bid Per Type Level 3 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.display = function(value)
-  return "Bid Per Type Level 3 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Per Type Level 3 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Per Type Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Per Type Level 3 Yield
@@ -3521,8 +4375,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size = 13
 
 -- Display: Bid Per Type Level 4 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.display = function(value)
-  return "Bid Per Type Level 4 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Per Type Level 4 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Per Type Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Per Type Level 4 Yield
@@ -3605,8 +4477,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size = 13
 
 -- Display: Bid Per Type Level 5 Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.display = function(value)
-  return "Bid Per Type Level 5 Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Per Type Level 5 Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bid Per Type Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bid Per Type Level 5 Yield
@@ -3901,8 +4791,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size = 13
 
 -- Display: Bond Issuance Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.display = function(value)
-  return "Bond Issuance Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bond Issuance Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bond Issuance Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bond Issuance Rate
@@ -4067,8 +4975,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size = 13
 
 -- Display: Bond Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.display = function(value)
-  return "Bond Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bond Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Bond Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Bond Yield
@@ -4119,14 +5045,18 @@ koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.size = 8
 
 -- Display: Calculating Date
 koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.display = function(value)
-  return "Calculating Date: "..value
+  if #value < 8 then
+    return "Calculating Date: "..value
+  end
+
+  return "Calculating Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Calculating Date
 koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_date, range, value, display)
@@ -4142,14 +5072,18 @@ koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.size = 8
 
 -- Display: Calculating Time
 koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.display = function(value)
-  return "Calculating Time: "..value
+  if #value < 6 then
+    return "Calculating Time: "..value
+  end
+
+  return "Calculating Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Calculating Time
 koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_time, range, value, display)
@@ -4187,8 +5121,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size = 11
 
 -- Display: Call Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.display = function(value)
-  return "Call Re Investment Index Double 11: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Call Re Investment Index Double 11
@@ -4215,8 +5167,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816 = {
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size = 16
 
 -- Display: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.display = function(value)
-  return "Call Re Investment Index Float 12816: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Call Re Investment Index Float 12816
@@ -4243,8 +5213,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size = 16
 
 -- Display: Call Re Investment Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display = function(value)
-  return "Call Re Investment Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Call Re Investment Index Weight
@@ -4294,8 +5282,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size = 26
 
 -- Display: Cash Inflow
-koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.display = function(value)
-  return "Cash Inflow: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Cash Inflow: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Cash Inflow: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Cash Inflow
@@ -4322,8 +5328,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size = 22
 
 -- Display: Category Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.display = function(value)
-  return "Category Accumulated Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Category Accumulated Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Category Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Category Accumulated Trading Value
@@ -4462,8 +5486,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size = 10
 
 -- Display: Clean Price
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.display = function(value)
-  return "Clean Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Clean Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Clean Price
@@ -4490,8 +5532,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size = 11
 
 -- Display: Clean Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.display = function(value)
-  return "Clean Price Index Double 11: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Clean Price Index Double 11
@@ -4518,8 +5578,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size = 16
 
 -- Display: Clean Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.display = function(value)
-  return "Clean Price Index Float 12816: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Clean Price Index Float 12816
@@ -4546,8 +5624,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size = 16
 
 -- Display: Clean Price Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.display = function(value)
-  return "Clean Price Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Clean Price Index Weight
@@ -4625,8 +5721,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size = 11
 
 -- Display: Closing Price With Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.display = function(value)
-  return "Closing Price With Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Closing Price With Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Closing Price With Yield: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Closing Price With Yield
@@ -4653,8 +5767,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size = 13
 
 -- Display: Closing Price Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.display = function(value)
-  return "Closing Price Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Closing Price Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Closing Price Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Closing Price Yield
@@ -4681,8 +5813,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size = 13
 
 -- Display: Closing Price Yield Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.display = function(value)
-  return "Closing Price Yield Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Closing Price Yield Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Closing Price Yield Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Closing Price Yield Rate
@@ -4778,8 +5928,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.convexity = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size = 7
 
 -- Display: Convexity
-koscom_mdcsrealtime_bonda_exture_v2_018.convexity.display = function(value)
-  return "Convexity: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.convexity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Convexity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Convexity: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Convexity
@@ -4926,8 +6094,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size = 14
 
 -- Display: Coupon Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.display = function(value)
-  return "Coupon Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Coupon Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Coupon Rate
@@ -5279,7 +6465,18 @@ koscom_mdcsrealtime_bonda_exture_v2_018.current_time.size = 4
 
 -- Display: Current Time
 koscom_mdcsrealtime_bonda_exture_v2_018.current_time.display = function(value)
-  return "Current Time: "..value
+  if #value < 4 then
+    return "Current Time: "..value
+  end
+
+  local hour = value:sub(1, 2)
+  local minute = value:sub(3, 4)
+
+  if minute:match("^%s*$") then
+    return "Current Time: "..hour
+  end
+
+  return "Current Time: "..hour..":"..minute
 end
 
 -- Dissect: Current Time
@@ -6234,8 +7431,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.duration = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.duration.size = 7
 
 -- Display: Duration
-koscom_mdcsrealtime_bonda_exture_v2_018.duration.display = function(value)
-  return "Duration: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.duration.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.duration.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Duration: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Duration: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Duration
@@ -6382,8 +7597,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size = 11
 
 -- Display: Equitylinked Bond Exercise Price
-koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display = function(value)
-  return "Equitylinked Bond Exercise Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Equitylinked Bond Exercise Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Equitylinked Bond Exercise Price: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Equitylinked Bond Exercise Price
@@ -6525,8 +7758,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size = 7
 
 -- Display: Exercise Ratio
-koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.display = function(value)
-  return "Exercise Ratio: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Exercise Ratio: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Exercise Ratio: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Exercise Ratio
@@ -6576,8 +7827,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size = 22
 
 -- Display: Facility Fund
-koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.display = function(value)
-  return "Facility Fund: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Facility Fund: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Facility Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Facility Fund
@@ -6719,8 +7988,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size = 10
 
 -- Display: Futures Basis Price
-koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.display = function(value)
-  return "Futures Basis Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Futures Basis Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Futures Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Futures Basis Price
@@ -6770,8 +8057,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size = 13
 
 -- Display: Guaranteed Rate For Payment
-koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.display = function(value)
-  return "Guaranteed Rate For Payment: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Guaranteed Rate For Payment: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Guaranteed Rate For Payment: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Guaranteed Rate For Payment
@@ -6844,8 +8149,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.index.size = 9
 
 -- Display: Index
-koscom_mdcsrealtime_bonda_exture_v2_018.index.display = function(value)
-  return "Index: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Index: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Index
@@ -6872,8 +8195,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day = 
 koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size = 9
 
 -- Display: Index Change Against The Previous Day
-koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.display = function(value)
-  return "Index Change Against The Previous Day: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Index Change Against The Previous Day: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Index Change Against The Previous Day: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Index Change Against The Previous Day
@@ -7415,8 +8756,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size = 16
 
 -- Display: Issued Amount Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.display = function(value)
-  return "Issued Amount Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Issued Amount Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Issued Amount Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Issued Amount Weight
@@ -7466,8 +8825,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size = 22
 
 -- Display: Issuing Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.display = function(value)
-  return "Issuing Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Issuing Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Issuing Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Issuing Amount
@@ -7494,8 +8871,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size = 22
 
 -- Display: Level Payment Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.display = function(value)
-  return "Level Payment Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Level Payment Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Level Payment Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Level Payment Amount
@@ -7545,8 +8940,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size = 22
 
 -- Display: Listed Amount
-koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.display = function(value)
-  return "Listed Amount: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Listed Amount: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Listed Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Listed Amount
@@ -7596,8 +9009,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size = 22
 
 -- Display: Loan Fund
-koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.display = function(value)
-  return "Loan Fund: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Loan Fund: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Loan Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Loan Fund
@@ -7624,8 +9055,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size = 14
 
 -- Display: Lower Limit Coupon Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.display = function(value)
-  return "Lower Limit Coupon Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Lower Limit Coupon Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Lower Limit Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Lower Limit Coupon Rate
@@ -7652,8 +9101,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size = 22
 
 -- Display: Maintenance Fund
-koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.display = function(value)
-  return "Maintenance Fund: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Maintenance Fund: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Maintenance Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Maintenance Fund
@@ -7680,8 +9147,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size = 16
 
 -- Display: Market Capitalization Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.display = function(value)
-  return "Market Capitalization Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Capitalization Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Capitalization Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Capitalization Weight
@@ -7731,8 +9216,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size = 11
 
 -- Display: Market Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.display = function(value)
-  return "Market Price Index Double 11: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Market Price Index Double 11
@@ -7759,8 +9262,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size = 16
 
 -- Display: Market Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.display = function(value)
-  return "Market Price Index Float 12816: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Price Index Float 12816
@@ -7787,8 +9308,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size = 16
 
 -- Display: Market Price Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.display = function(value)
-  return "Market Price Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Price Index Weight
@@ -7866,8 +9405,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size = 11
 
 -- Display: Maximum Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.display = function(value)
-  return "Maximum Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Maximum Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Maximum Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Maximum Yield
@@ -8672,8 +10229,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.other_funds = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size = 22
 
 -- Display: Other Funds
-koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.display = function(value)
-  return "Other Funds: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Other Funds: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Other Funds: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Other Funds
@@ -8723,8 +10298,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size = 11
 
 -- Display: Participating Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.display = function(value)
-  return "Participating Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Participating Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Participating Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Participating Rate
@@ -8866,8 +10459,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size = 14
 
 -- Display: Principal Accrued Interest Rate On Bank Holidays Type Code
-koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.display = function(value)
-  return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Principal Accrued Interest Rate On Bank Holidays Type Code
@@ -8917,8 +10528,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size = 13
 
 -- Display: Principal Guranteed Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.display = function(value)
-  return "Principal Guranteed Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Principal Guranteed Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Principal Guranteed Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Principal Guranteed Rate
@@ -8992,7 +10621,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.processing_time_of_trading_system.size =
 
 -- Display: Processing Time Of Trading System
 koscom_mdcsrealtime_bonda_exture_v2_018.processing_time_of_trading_system.display = function(value)
-  return "Processing Time Of Trading System: "..value
+  if #value < 12 then
+    return "Processing Time Of Trading System: "..value
+  end
+
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
 end
 
 -- Dissect: Processing Time Of Trading System
@@ -9198,8 +10831,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size = 13
 
 -- Display: Redemption Ratio At Maturity
-koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.display = function(value)
-  return "Redemption Ratio At Maturity: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Redemption Ratio At Maturity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Redemption Ratio At Maturity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Redemption Ratio At Maturity
@@ -9226,8 +10877,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size = 11
 
 -- Display: Reference Index For Issue Date
-koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.display = function(value)
-  return "Reference Index For Issue Date: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reference Index For Issue Date: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Reference Index For Issue Date: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Reference Index For Issue Date
@@ -9277,8 +10946,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size = 26
 
 -- Display: Reinvest Call Cash
-koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.display = function(value)
-  return "Reinvest Call Cash: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reinvest Call Cash: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Reinvest Call Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Reinvest Call Cash
@@ -9631,8 +11318,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size = 11
 
 -- Display: Report Market A Price With Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.display = function(value)
-  return "Report Market A Price With Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Report Market A Price With Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Report Market A Price With Yield: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Report Market A Price With Yield
@@ -9659,8 +11364,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size = 13
 
 -- Display: Report Market Yield Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.display = function(value)
-  return "Report Market Yield Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Report Market Yield Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Report Market Yield Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Report Market Yield Rate
@@ -9807,8 +11530,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size = 22
 
 -- Display: Rfq Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.display = function(value)
-  return "Rfq Accumulated Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Rfq Accumulated Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Rfq Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Rfq Accumulated Trading Value
@@ -10180,8 +11921,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size = 13
 
 -- Display: Shortterm Yield
-koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display = function(value)
-  return "Shortterm Yield: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Shortterm Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Shortterm Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Shortterm Yield
@@ -10231,8 +11990,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.spread = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.spread.size = 10
 
 -- Display: Spread
-koscom_mdcsrealtime_bonda_exture_v2_018.spread.display = function(value)
-  return "Spread: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.spread.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.spread.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Spread: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Spread: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Spread
@@ -10310,8 +12087,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size = 14
 
 -- Display: Stopout Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display = function(value)
-  return "Stopout Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Stopout Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Stopout Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Stopout Rate
@@ -10817,8 +12612,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size = 16
 
 -- Display: Total Earnings Index
-koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.display = function(value)
-  return "Total Earnings Index: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Earnings Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Total Earnings Index: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Total Earnings Index
@@ -10845,8 +12658,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size = 16
 
 -- Display: Total Earnings Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.display = function(value)
-  return "Total Earnings Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Earnings Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Total Earnings Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Total Earnings Index Weight
@@ -10901,8 +12732,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size = 11
 
 -- Display: Total Profit Index
-koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.display = function(value)
-  return "Total Profit Index: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Profit Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Total Profit Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Total Profit Index
@@ -11049,8 +12898,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_value = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size = 22
 
 -- Display: Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.display = function(value)
-  return "Trading Value: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Trading Value: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Trading Value
@@ -11174,8 +13041,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size = 22
 
 -- Display: Unstripped Balance
-koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.display = function(value)
-  return "Unstripped Balance: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Unstripped Balance: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Unstripped Balance: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Unstripped Balance
@@ -11225,8 +13110,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size = 14
 
 -- Display: Upper Limit Coupon Rate
-koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.display = function(value)
-  return "Upper Limit Coupon Rate: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Upper Limit Coupon Rate: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Upper Limit Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
 end
 
 -- Dissect: Upper Limit Coupon Rate
@@ -11253,8 +13156,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Call Re Investment Index Value For Integrity Index Weight
@@ -11281,8 +13202,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrit
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Clean Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Clean Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Clean Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Clean Index Value For Integrity Index Weight
@@ -11309,8 +13248,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Sum Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Sum Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Sum Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Sum Index Value For Integrity Index Weight
@@ -11337,8 +13294,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Zero Re Investment Index Value For Integrity Index Weight
@@ -11365,8 +13340,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size = 13
 
 -- Display: Yield Opening Price
-koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.display = function(value)
-  return "Yield Opening Price: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Yield Opening Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Yield Opening Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Yield Opening Price
@@ -11393,8 +13386,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size = 13
 
 -- Display: Yield To Maturity
-koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.display = function(value)
-  return "Yield To Maturity: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Yield To Maturity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Yield To Maturity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Yield To Maturity
@@ -11421,8 +13432,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size = 13
 
 -- Display: Yield Todays High
-koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.display = function(value)
-  return "Yield Todays High: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Yield Todays High: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Yield Todays High: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Yield Todays High
@@ -11449,8 +13478,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size = 13
 
 -- Display: Yield Todays Low
-koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.display = function(value)
-  return "Yield Todays Low: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Yield Todays Low: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Yield Todays Low: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Yield Todays Low
@@ -11477,8 +13524,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11 = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size = 11
 
 -- Display: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.display = function(value)
-  return "Zero Re Investment Index Double 11: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Zero Re Investment Index Double 11
@@ -11505,8 +13570,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816 = {
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size = 16
 
 -- Display: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.display = function(value)
-  return "Zero Re Investment Index Float 12816: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Zero Re Investment Index Float 12816
@@ -11533,8 +13616,26 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size = 16
 
 -- Display: Zero Re Investment Index Weight
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display = function(value)
-  return "Zero Re Investment Index Weight: "..value
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Zero Re Investment Index Weight

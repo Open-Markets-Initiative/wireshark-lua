@@ -26,7 +26,7 @@ omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_forward_ytm = 
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_remaining_maturity_price = ProtoField.new("Average Remaining Maturity Price", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averageremainingmaturityprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_spread = ProtoField.new("Average Spread", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averagespread", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_spread_sign = ProtoField.new("Average Spread Sign", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averagespreadsign", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averageyld", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_yld = ProtoField.new("Average Yld", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averageyld", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.average_ytm = ProtoField.new("Average Ytm", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.averageytm", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.basedate", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.basetime", ftypes.STRING)
@@ -38,12 +38,12 @@ omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.calculating_time = Pro
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.calculationtime", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.call_re_investment_index_double_11 = ProtoField.new("Call Re Investment Index Double 11", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.callreinvestmentindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.call_re_investment_index_float_12816 = ProtoField.new("Call Re Investment Index Float 12816", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.callreinvestmentindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.callreinvestmentindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.callreinvestmentindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.cash_inflow = ProtoField.new("Cash Inflow", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cashinflow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.clean_price = ProtoField.new("Clean Price", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cleanprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.clean_price_index_double_11 = ProtoField.new("Clean Price Index Double 11", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cleanpriceindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.clean_price_index_float_12816 = ProtoField.new("Clean Price Index Float 12816", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cleanpriceindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cleanpriceindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.cleanpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.convexity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.currency_code = ProtoField.new("Currency Code", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.currencycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.currenttime", ftypes.STRING)
@@ -61,26 +61,26 @@ omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.index_market_capitaliz
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.index_number_of_securities = ProtoField.new("Index Number Of Securities", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.indexnumberofsecurities", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.isin_code = ProtoField.new("Isin Code", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.isincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.issuedamount", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.issuedamountweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketcapitalizationweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.issuedamountweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketcapitalizationweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_price_index_double_11 = ProtoField.new("Market Price Index Double 11", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketpriceindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_price_index_float_12816 = ProtoField.new("Market Price Index Float 12816", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketpriceindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketpriceindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.reinvestcallcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.totalearningsindex", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.totalearningsindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.totalprofitindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.transmissiontime", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofcleanindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofsumindexvalueforintegrityindexweight", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofsumindexvalueforintegrityindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.zero_re_investment_index_double_11 = ProtoField.new("Zero Re Investment Index Double 11", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.zeroreinvestmentindexdouble11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.zeroreinvestmentindexweight", ftypes.STRING)
+omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.zeroreinvestmentindexweight", ftypes.DOUBLE)
 
 -- Koscom MdcsRealtime IndexProduct2 Exture 1.39 Headers
 omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct2.exture.v1.39.packet", ftypes.STRING)
@@ -131,6 +131,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Koscom MdcsRealtime IndexProduct2 Exture 1.39 Fields
 -----------------------------------------------------------------------
 
@@ -141,8 +159,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_cash = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_cash.size = 26
 
 -- Display: Accumulated Cash
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_cash.display = function(value)
-  return "Accumulated Cash: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_cash.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_cash.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Accumulated Cash: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Accumulated Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Accumulated Cash
@@ -225,8 +261,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_convexity = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_convexity.size = 16
 
 -- Display: Average Convexity
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_convexity.display = function(value)
-  return "Average Convexity: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_convexity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_convexity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Convexity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Convexity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Convexity
@@ -253,8 +307,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_coupon_price = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_coupon_price.size = 16
 
 -- Display: Average Coupon Price
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_coupon_price.display = function(value)
-  return "Average Coupon Price: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_coupon_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_coupon_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Coupon Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Coupon Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Coupon Price
@@ -281,8 +353,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_current_yield = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_current_yield.size = 16
 
 -- Display: Average Current Yield
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_current_yield.display = function(value)
-  return "Average Current Yield: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_current_yield.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_current_yield.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Current Yield: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Current Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Current Yield
@@ -309,8 +399,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_duration = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_duration.size = 16
 
 -- Display: Average Duration
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_duration.display = function(value)
-  return "Average Duration: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_duration.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_duration.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Duration: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Duration: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Duration
@@ -337,8 +445,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_forward_ytm = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_forward_ytm.size = 7
 
 -- Display: Average Forward Ytm
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_forward_ytm.display = function(value)
-  return "Average Forward Ytm: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_forward_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Forward Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Forward Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Forward Ytm
@@ -365,8 +491,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_remaining_maturity_price 
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_remaining_maturity_price.size = 16
 
 -- Display: Average Remaining Maturity Price
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_remaining_maturity_price.display = function(value)
-  return "Average Remaining Maturity Price: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_remaining_maturity_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Remaining Maturity Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Remaining Maturity Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Remaining Maturity Price
@@ -393,8 +537,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_spread = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_spread.size = 16
 
 -- Display: Average Spread
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_spread.display = function(value)
-  return "Average Spread: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_spread.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_spread.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Spread: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Spread: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Spread
@@ -454,8 +616,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_yld = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_yld.size = 16
 
 -- Display: Average Yld
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_yld.display = function(value)
-  return "Average Yld: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_yld.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_yld.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Yld: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Average Yld: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Average Yld
@@ -482,8 +662,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_ytm = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_ytm.size = 7
 
 -- Display: Average Ytm
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_ytm.display = function(value)
-  return "Average Ytm: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_ytm.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.average_ytm.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Ytm: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Average Ytm
@@ -511,14 +709,18 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_date.size = 8
 
 -- Display: Base Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_date.display = function(value)
-  return "Base Date: "..value
+  if #value < 8 then
+    return "Base Date: "..value
+  end
+
+  return "Base Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Base Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.base_date, range, value, display)
@@ -534,7 +736,11 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_time.size = 6
 
 -- Display: Base Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.base_time.display = function(value)
-  return "Base Time: "..value
+  if #value < 6 then
+    return "Base Time: "..value
+  end
+
+  return "Base Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Base Time
@@ -556,8 +762,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.basis_price = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.basis_price.size = 10
 
 -- Display: Basis Price
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.basis_price.display = function(value)
-  return "Basis Price: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.basis_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.basis_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Basis Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Basis Price
@@ -608,14 +832,18 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.business_date.size = 8
 
 -- Display: Business Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.business_date.display = function(value)
-  return "Business Date: "..value
+  if #value < 8 then
+    return "Business Date: "..value
+  end
+
+  return "Business Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Business Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.business_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.business_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct2_exture_v1_39.business_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.business_date, range, value, display)
@@ -631,14 +859,18 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_date.size = 8
 
 -- Display: Calculating Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_date.display = function(value)
-  return "Calculating Date: "..value
+  if #value < 8 then
+    return "Calculating Date: "..value
+  end
+
+  return "Calculating Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Calculating Date
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.calculating_date, range, value, display)
@@ -654,14 +886,18 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_time.size = 8
 
 -- Display: Calculating Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_time.display = function(value)
-  return "Calculating Time: "..value
+  if #value < 6 then
+    return "Calculating Time: "..value
+  end
+
+  return "Calculating Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Calculating Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculating_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.calculating_time, range, value, display)
@@ -677,7 +913,11 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculation_time.size = 6
 
 -- Display: Calculation Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.calculation_time.display = function(value)
-  return "Calculation Time: "..value
+  if #value < 6 then
+    return "Calculation Time: "..value
+  end
+
+  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Calculation Time
@@ -699,8 +939,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_double_1
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_double_11.size = 11
 
 -- Display: Call Re Investment Index Double 11
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_double_11.display = function(value)
-  return "Call Re Investment Index Double 11: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Call Re Investment Index Double 11
@@ -727,8 +985,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_float_12
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_float_12816.size = 16
 
 -- Display: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_float_12816.display = function(value)
-  return "Call Re Investment Index Float 12816: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Call Re Investment Index Float 12816
@@ -755,8 +1031,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_weight =
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_weight.size = 16
 
 -- Display: Call Re Investment Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_weight.display = function(value)
-  return "Call Re Investment Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.call_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re Investment Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Call Re Investment Index Weight
@@ -783,8 +1077,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.cash_inflow = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.cash_inflow.size = 26
 
 -- Display: Cash Inflow
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.cash_inflow.display = function(value)
-  return "Cash Inflow: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.cash_inflow.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.cash_inflow.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Cash Inflow: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Cash Inflow: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Cash Inflow
@@ -811,8 +1123,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price.size = 10
 
 -- Display: Clean Price
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price.display = function(value)
-  return "Clean Price: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Clean Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Clean Price
@@ -839,8 +1169,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_double_11 = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_double_11.size = 11
 
 -- Display: Clean Price Index Double 11
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_double_11.display = function(value)
-  return "Clean Price Index Double 11: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Clean Price Index Double 11
@@ -867,8 +1215,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_float_12816 = {
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_float_12816.size = 16
 
 -- Display: Clean Price Index Float 12816
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_float_12816.display = function(value)
-  return "Clean Price Index Float 12816: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Clean Price Index Float 12816
@@ -895,8 +1261,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_weight = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_weight.size = 16
 
 -- Display: Clean Price Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_weight.display = function(value)
-  return "Clean Price Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.clean_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Clean Price Index Weight
@@ -923,8 +1307,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.convexity = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.convexity.size = 7
 
 -- Display: Convexity
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.convexity.display = function(value)
-  return "Convexity: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.convexity.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.convexity.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Convexity: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Convexity: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Convexity
@@ -1000,7 +1402,18 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.current_time.size = 4
 
 -- Display: Current Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.current_time.display = function(value)
-  return "Current Time: "..value
+  if #value < 4 then
+    return "Current Time: "..value
+  end
+
+  local hour = value:sub(1, 2)
+  local minute = value:sub(3, 4)
+
+  if minute:match("^%s*$") then
+    return "Current Time: "..hour
+  end
+
+  return "Current Time: "..hour..":"..minute
 end
 
 -- Dissect: Current Time
@@ -1022,8 +1435,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.duration = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.duration.size = 7
 
 -- Display: Duration
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.duration.display = function(value)
-  return "Duration: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.duration.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.duration.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Duration: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Duration: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
 end
 
 -- Dissect: Duration
@@ -1096,8 +1527,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.futures_basis_price = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.futures_basis_price.size = 10
 
 -- Display: Futures Basis Price
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.futures_basis_price.display = function(value)
-  return "Futures Basis Price: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.futures_basis_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.futures_basis_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Futures Basis Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Futures Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Futures Basis Price
@@ -1147,8 +1596,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.index = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.index.size = 9
 
 -- Display: Index
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.index.display = function(value)
-  return "Index: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Index: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Index
@@ -1175,8 +1642,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_change_against_the_previous
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_change_against_the_previous_day.size = 9
 
 -- Display: Index Change Against The Previous Day
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_change_against_the_previous_day.display = function(value)
-  return "Index Change Against The Previous Day: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_change_against_the_previous_day.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Index Change Against The Previous Day: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Index Change Against The Previous Day: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Index Change Against The Previous Day
@@ -1396,8 +1881,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount_weight = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount_weight.size = 16
 
 -- Display: Issued Amount Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount_weight.display = function(value)
-  return "Issued Amount Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Issued Amount Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Issued Amount Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Issued Amount Weight
@@ -1424,8 +1927,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_capitalization_weight = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_capitalization_weight.size = 16
 
 -- Display: Market Capitalization Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_capitalization_weight.display = function(value)
-  return "Market Capitalization Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_capitalization_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Capitalization Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Capitalization Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Capitalization Weight
@@ -1452,8 +1973,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_double_11 = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_double_11.size = 11
 
 -- Display: Market Price Index Double 11
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_double_11.display = function(value)
-  return "Market Price Index Double 11: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Market Price Index Double 11
@@ -1480,8 +2019,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_float_12816 = 
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_float_12816.size = 16
 
 -- Display: Market Price Index Float 12816
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_float_12816.display = function(value)
-  return "Market Price Index Float 12816: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Price Index Float 12816
@@ -1508,8 +2065,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_weight = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_weight.size = 16
 
 -- Display: Market Price Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_weight.display = function(value)
-  return "Market Price Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.market_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Market Price Index Weight
@@ -1635,8 +2210,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.reinvest_call_cash = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.reinvest_call_cash.size = 26
 
 -- Display: Reinvest Call Cash
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.reinvest_call_cash.display = function(value)
-  return "Reinvest Call Cash: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.reinvest_call_cash.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reinvest Call Cash: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Reinvest Call Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Reinvest Call Cash
@@ -1663,8 +2256,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index.size = 16
 
 -- Display: Total Earnings Index
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index.display = function(value)
-  return "Total Earnings Index: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Earnings Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Total Earnings Index: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Total Earnings Index
@@ -1691,8 +2302,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index_weight = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index_weight.size = 16
 
 -- Display: Total Earnings Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index_weight.display = function(value)
-  return "Total Earnings Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_earnings_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Earnings Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Total Earnings Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Total Earnings Index Weight
@@ -1719,8 +2348,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_profit_index = {}
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_profit_index.size = 11
 
 -- Display: Total Profit Index
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_profit_index.display = function(value)
-  return "Total Profit Index: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_profit_index.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.total_profit_index.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Total Profit Index: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Total Profit Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Total Profit Index
@@ -1748,7 +2395,11 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.transmission_time.size = 8
 
 -- Display: Transmission Time
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.transmission_time.display = function(value)
-  return "Transmission Time: "..value
+  if #value < 8 then
+    return "Transmission Time: "..value
+  end
+
+  return "Transmission Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 8)
 end
 
 -- Dissect: Transmission Time
@@ -1770,8 +2421,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_call_re_investment_inde
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_call_re_investment_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Call Re Investment Index Value For Integrity Index Weight
@@ -1798,8 +2467,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_clean_index_value_for_i
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_clean_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_clean_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Clean Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_clean_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Clean Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Clean Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Clean Index Value For Integrity Index Weight
@@ -1826,8 +2513,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_sum_index_value_for_int
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_sum_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_sum_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Sum Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_sum_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Sum Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Sum Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Sum Index Value For Integrity Index Weight
@@ -1854,8 +2559,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_zero_re_investment_inde
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size = 16
 
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value)
-  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Weight Of Zero Re Investment Index Value For Integrity Index Weight
@@ -1882,8 +2605,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_double_1
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_double_11.size = 11
 
 -- Display: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_double_11.display = function(value)
-  return "Zero Re Investment Index Double 11: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Double 11: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Zero Re Investment Index Double 11
@@ -1910,8 +2651,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_float_12
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_float_12816.size = 16
 
 -- Display: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_float_12816.display = function(value)
-  return "Zero Re Investment Index Float 12816: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Float 12816: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Zero Re Investment Index Float 12816
@@ -1938,8 +2697,26 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_weight =
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_weight.size = 16
 
 -- Display: Zero Re Investment Index Weight
-koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_weight.display = function(value)
-  return "Zero Re Investment Index Weight: "..value
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_indexproduct2_exture_v1_39.zero_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re Investment Index Weight: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Zero Re Investment Index Weight
