@@ -18,6 +18,7 @@ local cme_globex_ebsspectrum_sbe_v12_0 = {}
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.globex.ebsspectrum.sbe.v12.0.aggressorside", ftypes.UINT8)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.block_length = ProtoField.new("Block Length", "cme.globex.ebsspectrum.sbe.v12.0.blocklength", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.ebsspectrum.sbe.v12.0.encodingtype", ftypes.UINT16)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.ebsspectrum.sbe.v12.0.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.financial_instrument_full_name = ProtoField.new("Financial Instrument Full Name", "cme.globex.ebsspectrum.sbe.v12.0.financialinstrumentfullname", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.group_size = ProtoField.new("Group Size", "cme.globex.ebsspectrum.sbe.v12.0.groupsize", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group = ProtoField.new("Incremental Refresh Spectrum Group", "cme.globex.ebsspectrum.sbe.v12.0.incrementalrefreshspectrumgroup", ftypes.STRING)
@@ -25,6 +26,7 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_spectrum_groups 
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_ticker_group = ProtoField.new("Incremental Refresh Ticker Group", "cme.globex.ebsspectrum.sbe.v12.0.incrementalrefreshtickergroup", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_ticker_groups = ProtoField.new("Incremental Refresh Ticker Groups", "cme.globex.ebsspectrum.sbe.v12.0.incrementalrefreshtickergroups", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrument Guid", "cme.globex.ebsspectrum.sbe.v12.0.instrumentguid", ftypes.UINT64)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.globex.ebsspectrum.sbe.v12.0.matcheventindicator", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.globex.ebsspectrum.sbe.v12.0.mdentrypx", ftypes.DOUBLE)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.globex.ebsspectrum.sbe.v12.0.mdentrysize", ftypes.UINT64)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.globex.ebsspectrum.sbe.v12.0.mdentrytime", ftypes.UINT64)
@@ -35,6 +37,7 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.message_size = ProtoField.new("Messa
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.globex.ebsspectrum.sbe.v12.0.numingroup", ftypes.UINT8)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.globex.ebsspectrum.sbe.v12.0.openclosesettlflag", ftypes.UINT8)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.globex.ebsspectrum.sbe.v12.0.packetsequencenumber", ftypes.UINT32)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.recovery_message = ProtoField.new("Recovery Message", "cme.globex.ebsspectrum.sbe.v12.0.recoverymessage", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.ebsspectrum.sbe.v12.0.schemaid", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.globex.ebsspectrum.sbe.v12.0.securityid", ftypes.INT32)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.globex.ebsspectrum.sbe.v12.0.securitytradingevent", ftypes.UINT8)
@@ -49,6 +52,12 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.tcp_sending_time = ProtoField.new("T
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.ebsspectrum.sbe.v12.0.templateid", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.globex.ebsspectrum.sbe.v12.0.tradingsessionid", ftypes.UINT8)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.ebsspectrum.sbe.v12.0.transacttime", ftypes.UINT64)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_0 = ProtoField.new("Unused Event Indicator 0", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_1 = ProtoField.new("Unused Event Indicator 1", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_2 = ProtoField.new("Unused Event Indicator 2", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_3 = ProtoField.new("Unused Event Indicator 3", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_4 = ProtoField.new("Unused Event Indicator 4", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_5 = ProtoField.new("Unused Event Indicator 5", "cme.globex.ebsspectrum.sbe.v12.0.unusedeventindicator5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.ebsspectrum.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Globex EbsSpectrum Sbe 12.0 Headers
@@ -1146,6 +1155,95 @@ cme_globex_ebsspectrum_sbe_v12_0.snapshot_refresh_ticker_groups.dissect = functi
   end
 end
 
+-- Match Event Indicator
+cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator = {}
+
+-- Size: Match Event Indicator
+cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.size = 1
+
+-- Display: Match Event Indicator
+cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Unused Event Indicator 0 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 0"
+  end
+  -- Is Unused Event Indicator 1 flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 1"
+  end
+  -- Is Unused Event Indicator 2 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 2"
+  end
+  -- Is Unused Event Indicator 3 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 3"
+  end
+  -- Is Unused Event Indicator 4 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 4"
+  end
+  -- Is Unused Event Indicator 5 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Unused Event Indicator 5"
+  end
+  -- Is Recovery Message flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Recovery Message"
+  end
+  -- Is End Of Event flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "End Of Event"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Match Event Indicator
+cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.bits = function(range, value, packet, parent)
+
+  -- Unused Event Indicator 0: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_0, range, value)
+
+  -- Unused Event Indicator 1: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_1, range, value)
+
+  -- Unused Event Indicator 2: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_2, range, value)
+
+  -- Unused Event Indicator 3: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_3, range, value)
+
+  -- Unused Event Indicator 4: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_4, range, value)
+
+  -- Unused Event Indicator 5: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.unused_event_indicator_5, range, value)
+
+  -- Recovery Message: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.recovery_message, range, value)
+
+  -- End Of Event: 1 Bit
+  parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.end_of_event, range, value)
+end
+
+-- Dissect: Match Event Indicator
+cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.match_event_indicator, range, display)
+
+  if show.structs then
+    cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Md Snapshot Refresh Ticker
 cme_globex_ebsspectrum_sbe_v12_0.md_snapshot_refresh_ticker = {}
 
@@ -1182,7 +1280,7 @@ cme_globex_ebsspectrum_sbe_v12_0.md_snapshot_refresh_ticker.fields = function(bu
   -- Transact Time: uInt64
   index, transact_time = cme_globex_ebsspectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: LongName
@@ -1372,7 +1470,7 @@ cme_globex_ebsspectrum_sbe_v12_0.md_snapshot_refresh_spectrum.fields = function(
   -- Transact Time: uInt64
   index, transact_time = cme_globex_ebsspectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: LongName
@@ -1582,7 +1680,7 @@ cme_globex_ebsspectrum_sbe_v12_0.md_incremental_refresh_ticker.fields = function
   -- Transact Time: uInt64
   index, transact_time = cme_globex_ebsspectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Ticker Groups: Struct of 2 fields
@@ -1768,7 +1866,7 @@ cme_globex_ebsspectrum_sbe_v12_0.md_incremental_refresh_spectrum.fields = functi
   -- Transact Time: uInt64
   index, transact_time = cme_globex_ebsspectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator
+  -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = cme_globex_ebsspectrum_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Spectrum Groups: Struct of 2 fields
