@@ -1982,8 +1982,8 @@ siac_opra_output_obi_v4_0.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
 siac_opra_output_obi_v4_0.retransmission_indicator.display = function(value)
-  if value == "" then
-    return "Retransmission Indicator: Not Retransmitted (<whitespace>)"
+  if value == "' '" then
+    return "Retransmission Indicator: Not Retransmitted (' ')"
   end
   if value == "V" then
     return "Retransmission Indicator: Retransmitted (V)"

@@ -103,7 +103,8 @@ omi_siac_opra_output_obi_v6_3_a.fields.volume = ProtoField.new("Volume", "siac.o
 
 -- Siac Opra Output Obi 6.3.a Headers
 omi_siac_opra_output_obi_v6_3_a.fields.block_header = ProtoField.new("Block Header", "siac.opra.output.obi.v6.3.a.blockheader", ftypes.STRING)
-omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v6.3.a.blocktimestamp", ftypes.STRING)
+omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v6.3.a.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp_utc = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v6.3.a.blocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_opra_output_obi_v6_3_a.fields.message = ProtoField.new("Message", "siac.opra.output.obi.v6.3.a.message", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.message_header = ProtoField.new("Message Header", "siac.opra.output.obi.v6.3.a.messageheader", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.packet = ProtoField.new("Packet", "siac.opra.output.obi.v6.3.a.packet", ftypes.STRING)
@@ -124,6 +125,20 @@ omi_siac_opra_output_obi_v6_3_a.fields.underlying_value_last_sale_message = Prot
 omi_siac_opra_output_obi_v6_3_a.fields.message_index = ProtoField.new("Message Index", "siac.opra.output.obi.v6.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Siac Opra Output Obi 6.3.a Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+siac_opra_output_obi_v6_3_a.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -141,6 +156,8 @@ omi_siac_opra_output_obi_v6_3_a.prefs.show_application_messages = Pref.bool("Sho
 omi_siac_opra_output_obi_v6_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
 
@@ -156,6 +173,9 @@ function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
   end
   if show.indexes ~= omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes then
     show.indexes = omi_siac_opra_output_obi_v6_3_a.prefs.show_indexes
+  end
+  if siac_opra_output_obi_v6_3_a.absolute_time_base ~= omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base then
+    siac_opra_output_obi_v6_3_a.absolute_time_base = omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base
   end
 end
 
@@ -2080,8 +2100,8 @@ siac_opra_output_obi_v6_3_a.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
 siac_opra_output_obi_v6_3_a.retransmission_indicator.display = function(value)
-  if value == "" then
-    return "Retransmission Indicator: Not Retransmitted (<whitespace>)"
+  if value == "' '" then
+    return "Retransmission Indicator: Not Retransmitted (' ')"
   end
   if value == "V" then
     return "Retransmission Indicator: Retransmitted (V)"
@@ -4489,13 +4509,17 @@ end
 -- Dissect: Block Timestamp
 siac_opra_output_obi_v6_3_a.block_timestamp.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp, buffer(offset, 0))
-    local index, value = siac_opra_output_obi_v6_3_a.block_timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_opra_output_obi_v6_3_a.block_timestamp.display(packet, parent, value, length)
-    parent:append_text(display)
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_opra_output_obi_v6_3_a.block_timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp
+    if siac_opra_output_obi_v6_3_a.absolute_time_base == 1 then field = omi_siac_opra_output_obi_v6_3_a.fields.block_timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = siac_opra_output_obi_v6_3_a.block_timestamp.fields(buffer, offset, packet, parent)
 
     return index, parent
   else
