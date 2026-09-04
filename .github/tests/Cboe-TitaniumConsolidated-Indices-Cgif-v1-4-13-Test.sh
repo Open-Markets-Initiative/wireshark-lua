@@ -11,6 +11,8 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (ContributorValueMessage) ---"; cat Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.ContributorValueMessage.json.stderr; exit 1; }
 
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.transacttime" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.ContributorValueMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbollength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.ContributorValueMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbolchars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.ContributorValueMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.ContributorValueMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/TitaniumConsolidated.Indices.Cgif.v1.4.13/HeartbeatMessage.pcap" \
@@ -28,8 +30,12 @@ runuser -u tester -- tshark \
 
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.currentrecordnumber" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.totalnumberofrecords" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbollength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbolchars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.descriptionlength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.description" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.bytelength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.datechars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.status" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.agentclassification" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channellength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
@@ -41,6 +47,8 @@ runuser -u tester -- tshark \
   > Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json 2> Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json.stderr \
   || { echo "--- tshark FAILED (IndexValueMessage) ---"; cat Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json.stderr; exit 1; }
 
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbollength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbolchars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/TitaniumConsolidated.Indices.Cgif.v1.4.13/IndexValueWithStatusMessage.pcap" \
@@ -50,6 +58,8 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (IndexValueWithStatusMessage) ---"; cat Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json.stderr; exit 1; }
 
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.indexstatus" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbollength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbolchars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexValueWithStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/TitaniumConsolidated.Indices.Cgif.v1.4.13/MultipleMessages.pcap" \

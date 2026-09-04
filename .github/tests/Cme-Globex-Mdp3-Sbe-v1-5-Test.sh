@@ -13,6 +13,8 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
@@ -23,6 +25,8 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
@@ -33,6 +37,11 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.5.padding5" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
@@ -43,6 +52,8 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.5.transacttime" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 grep "cme.globex.mdp3.sbe.v1.5.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 grep "cme.globex.mdp3.sbe.v1.5.padding2" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
@@ -65,6 +76,10 @@ grep "cme.globex.mdp3.sbe.v1.5.symbol" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefi
 grep "cme.globex.mdp3.sbe.v1.5.securityid" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.securitytype" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.cficode" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.year" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.month" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.day" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.week" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.currency" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.securitysubtype" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.userdefinedinstrument" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
@@ -86,3 +101,13 @@ grep "cme.globex.mdp3.sbe.v1.5.lowlimitprice" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrum
 grep "cme.globex.mdp3.sbe.v1.5.maxpricevariation" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.mainfraction" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
 grep "cme.globex.mdp3.sbe.v1.5.subfraction" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json
+grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json

@@ -10,6 +10,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json.stderr \
   || { echo "--- tshark FAILED (BusinessMessageRejectMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.refmsgtype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset19padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.refseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.BusinessMessageRejectMessage.json
@@ -63,6 +68,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportCancelMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
@@ -91,6 +101,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxfloor" B3.B3Derivatives.Bina
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.receivedtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset164padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.actionrequestedfromsessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportCancelMessage.json
 runuser -u tester -- tshark \
@@ -100,6 +112,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportModifyMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
@@ -128,6 +145,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxfloor" B3.B3Derivatives.Bina
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.receivedtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset168padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetbooleanoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset179padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
@@ -139,6 +158,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportNewMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
@@ -165,6 +189,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossidoptional" B3.B3Derivativ
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.receivedtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset152padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crosstype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetbooleanoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
@@ -178,6 +204,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportRejectMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.cxlrejresponseto" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
@@ -202,6 +233,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossedindicator" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.receivedtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset146padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportRejectMessage.json
 runuser -u tester -- tshark \
@@ -211,6 +244,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportTradeMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.side" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordstatus" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
@@ -245,6 +283,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crosstype" B3.B3Derivatives.Bin
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset159padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.norelatedtrades" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NegotiateMessage.pcap" \
@@ -279,6 +319,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json.stderr \
   || { echo "--- tshark FAILED (NewOrderCrossMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset18padding2" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
@@ -291,6 +336,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossedindicator" B3.B3Derivati
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crosstype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxsweepqty" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.blocklength" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.numingroup" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderCrossMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/NewOrderSingleMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
@@ -298,6 +345,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json.stderr \
   || { echo "--- tshark FAILED (NewOrderSingleMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
@@ -317,6 +369,11 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.minqty" B3.B3Derivatives.Binary
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxfloor" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.executingtraderoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.expiredate" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodian" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodyaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodyallocationtype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 runuser -u tester -- tshark \
@@ -326,6 +383,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderCancelReplaceRequestMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
@@ -348,6 +410,11 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.maxfloor" B3.B3Derivatives.Bina
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.executingtraderoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.accounttype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.expiredate" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodian" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodyaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.custodyallocationtype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 runuser -u tester -- tshark \
@@ -357,6 +424,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderCancelRequestMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset18padding2" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.securityid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelRequestMessage.json
@@ -375,6 +447,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderMassActionReportMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.eventindicator" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.massactiontype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.massactionscope" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
@@ -388,6 +465,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sideoptional" B3.B3Derivatives.
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset49padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.asset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.securityidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionReportMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/OrderMassActionRequestMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
@@ -395,6 +474,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderMassActionRequestMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.massactiontype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.massactionscope" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
@@ -404,6 +488,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sideoptional" B3.B3Derivatives.
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset31padding1" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.asset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.securityidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderMassActionRequestMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/RetransmissionMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
@@ -451,6 +537,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (SimpleModifyOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
@@ -467,6 +558,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderqty" B3.B3Derivatives.Bina
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.priceoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderidoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.origclordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/SimpleNewOrderMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \
@@ -474,6 +567,11 @@ runuser -u tester -- tshark \
   > B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json 2> B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (SimpleNewOrderMessage) ---"; cat B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json.stderr; exit 1; }
 
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sessionid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.msgseqnum" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
@@ -488,6 +586,8 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timeinforcesimple" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.routinginstruction" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderqty" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.priceoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/B3/B3Derivatives.BinaryEntryPoint.Sbe.v8.3/TerminateMessage.pcap" \
   -X "lua_script:B3/B3_B3Derivatives_BinaryEntryPoint_Sbe_v8_3_Dissector.lua" \

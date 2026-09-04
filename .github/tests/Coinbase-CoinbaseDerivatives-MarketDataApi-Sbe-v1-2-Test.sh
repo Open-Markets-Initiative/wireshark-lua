@@ -10,6 +10,13 @@ runuser -u tester -- tshark \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderDeleteMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json.stderr; exit 1; }
 
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentflags" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentside" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingsessiondate" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reserved" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderDeleteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/OrderPutMessage.pcap" \
@@ -18,6 +25,13 @@ runuser -u tester -- tshark \
   > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderPutMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json.stderr; exit 1; }
 
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentflags" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentside" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrumentid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.instrseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingsessiondate" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.reserved" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.quantity" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.OrderPutMessage.json

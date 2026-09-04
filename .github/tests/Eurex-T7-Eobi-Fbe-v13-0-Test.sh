@@ -53,6 +53,9 @@ grep "eurex.t7.eobi.fbe.v13.0.tradecondition" Eurex.T7.Eobi.Fbe.v13.0.ExecutionS
 grep "eurex.t7.eobi.fbe.v13.0.tradinghhiindicator" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v13.0.pad3" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v13.0.lastpx" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtsprevtimepriority" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v13.0.restinghiddenqty" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v13.0.restingcxlqty" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
 grep "eurex.t7.eobi.fbe.v13.0.aggressortime" Eurex.T7.Eobi.Fbe.v13.0.ExecutionSummary.json
@@ -153,6 +156,13 @@ runuser -u tester -- tshark \
 
 grep "eurex.t7.eobi.fbe.v13.0.requesttime" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
 grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.side" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.ordtype" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.OrderAdd.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/OrderDelete.pcap" \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
@@ -163,6 +173,13 @@ runuser -u tester -- tshark \
 grep "eurex.t7.eobi.fbe.v13.0.requesttime" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
 grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
 grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.side" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.ordtype" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/OrderModify.pcap" \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
@@ -175,6 +192,13 @@ grep "eurex.t7.eobi.fbe.v13.0.trdregtsprevtimepriority" Eurex.T7.Eobi.Fbe.v13.0.
 grep "eurex.t7.eobi.fbe.v13.0.prevprice" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v13.0.prevdisplayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.side" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.ordtype" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v13.0.prevpricehhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
 grep "eurex.t7.eobi.fbe.v13.0.pad7" Eurex.T7.Eobi.Fbe.v13.0.OrderModify.json
 runuser -u tester -- tshark \
@@ -188,6 +212,13 @@ grep "eurex.t7.eobi.fbe.v13.0.requesttime" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySa
 grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
 grep "eurex.t7.eobi.fbe.v13.0.prevdisplayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
 grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.side" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.ordtype" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.OrderModifySamePrio.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/PartialOrderExecution.pcap" \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
@@ -254,6 +285,13 @@ runuser -u tester -- tshark \
   > Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json 2> Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json.stderr \
   || { echo "--- tshark FAILED (SnapshotOrder) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json.stderr; exit 1; }
 
+grep "eurex.t7.eobi.fbe.v13.0.trdregtstimepriority" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.displayqty" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.side" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.ordtype" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
+grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.SnapshotOrder.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/TesTradeReport.pcap" \
   -X "lua_script:Eurex/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \

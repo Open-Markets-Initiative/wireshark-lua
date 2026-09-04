@@ -92,6 +92,10 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.largeticksize1" Coinbase.Deribit.M
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.largetickthreshold1" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.creationtime" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.expirytime" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.year" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.month" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.weekofmonth" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.dayofmonth" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.flags" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.type" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.status" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json

@@ -12,6 +12,16 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json.stderr; exit 1; }
 
 grep "eurex.t7.xti.fbe.v10.0.pad2" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.requesttime" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.trdregtstimein" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.trdregtstimeout" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.responsein" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.sendingtime" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.msgseqnum" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.partitionid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.applid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.applmsgid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
+grep "eurex.t7.xti.fbe.v10.0.lastfragment" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.xti.fbe.v10.0.orderid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.xti.fbe.v10.0.clordid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 grep "eurex.t7.xti.fbe.v10.0.origclordid" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json

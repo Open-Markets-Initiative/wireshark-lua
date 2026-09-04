@@ -10,6 +10,11 @@ runuser -u tester -- tshark \
   > Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr \
   || { echo "--- tshark FAILED (LimitUpLimitDownPriceBandMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr; exit 1; }
 
+grep "nasdaq.uqdf.output.utp.v1.5.marketcenteroriginatorid" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.submarketcenterid" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.siptimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttoken" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.symbol" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.luldpricebandindicator" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.luldtimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
@@ -22,6 +27,11 @@ runuser -u tester -- tshark \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteLongFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr; exit 1; }
 
+grep "nasdaq.uqdf.output.utp.v1.5.marketcenteroriginatorid" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.submarketcenterid" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.siptimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttoken" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.finratimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.symbol" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.bidprice" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
@@ -42,6 +52,11 @@ runuser -u tester -- tshark \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteShortFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr; exit 1; }
 
+grep "nasdaq.uqdf.output.utp.v1.5.marketcenteroriginatorid" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.submarketcenterid" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.siptimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.participanttoken" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.symbolshort" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.bidpriceshort" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.bidsizeshort" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json

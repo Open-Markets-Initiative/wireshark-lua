@@ -40,6 +40,8 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.securityid" Cboe.C1Options.Market
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.securitytradingstatus" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.pricetype" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.applseqnum" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
+grep "cboe.c1options.marketdatafeed.csm.v1.4.2.prevclosepxexponent" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
+grep "cboe.c1options.marketdatafeed.csm.v1.4.2.prevclosepxmantissa" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.tradevolume" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 runuser -u tester -- tshark \

@@ -11,6 +11,13 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (OptionQuoteMessage) ---"; cat Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json.stderr; exit 1; }
 
 grep "box.options.sola.multicast.hsvf.v1.8.exchangeid" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.rootsymbol" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.expirymonthcode" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.filler1" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.strikeprice" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.strikepricefractionindicator" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.expiryyear" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
+grep "box.options.sola.multicast.hsvf.v1.8.expiryday" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.options.sola.multicast.hsvf.v1.8.bidprice" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.options.sola.multicast.hsvf.v1.8.bidpricefractionindicator" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.options.sola.multicast.hsvf.v1.8.bidsize" Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json

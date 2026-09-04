@@ -64,6 +64,10 @@ grep "cme.globex.ilink3.sbe.v8.5.location" Cme.Globex.iLink3.Sbe.v8.5.QuoteCance
 grep "cme.globex.ilink3.sbe.v8.5.quoteid" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.globex.ilink3.sbe.v8.5.quotecanceltype" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 grep "cme.globex.ilink3.sbe.v8.5.liquidityflag" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
+grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
+grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
+grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
+grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/QuoteCancelAck.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
@@ -93,6 +97,10 @@ grep "cme.globex.ilink3.sbe.v8.5.totnoquoteentriesoptional" Cme.Globex.iLink3.Sb
 grep "cme.globex.ilink3.sbe.v8.5.liquidityflag" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.globex.ilink3.sbe.v8.5.possretransflag" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 grep "cme.globex.ilink3.sbe.v8.5.delaytotime" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
+grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
+grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
+grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
+grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Sequence.pcap" \
   -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \

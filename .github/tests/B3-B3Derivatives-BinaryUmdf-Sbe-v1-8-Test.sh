@@ -42,6 +42,14 @@ grep "b3.b3derivatives.binaryumdf.sbe.v1.8.dateddate" B3.B3Derivatives.BinaryUmd
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.isinnumber" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.asset" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.cficode" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.year" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.month" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.day" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.week" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.year" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.month" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.day" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.week" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.currency" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.strikecurrency" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.settlcurrency" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
@@ -59,3 +67,9 @@ grep "b3.b3derivatives.binaryumdf.sbe.v1.8.lastfragment" B3.B3Derivatives.Binary
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.multilegmodel" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.multilegpricemethod" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.mincrossqty" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.blocklength" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.numingroup" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.blocklength" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.numingroup" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.blocklength" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.numingroup" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json

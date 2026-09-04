@@ -58,6 +58,8 @@ runuser -u tester -- tshark \
 grep "cboe.c1options.complex.pitch.v2.1.18.timeoffset" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentunderlying" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.complexauctiontype" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
+grep "cboe.c1options.complex.pitch.v2.1.18.complexauctionreservedbytes" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 grep "cboe.c1options.complex.pitch.v2.1.18.legcount" Cboe.C1Options.Complex.Pitch.v2.1.18.ComplexInstrumentDefinitionExpandedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.Complex.Pitch.v2.1.18/DeleteOrderMessage.pcap" \

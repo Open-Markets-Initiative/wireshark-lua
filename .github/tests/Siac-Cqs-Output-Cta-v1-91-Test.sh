@@ -11,6 +11,8 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }
 
 grep "siac.cqs.output.cta.v1.91.participantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
+grep "siac.cqs.output.cta.v1.91.seconds" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
+grep "siac.cqs.output.cta.v1.91.nanoseconds" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.messageid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.transactionid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.participantreferencenumber" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
@@ -27,6 +29,8 @@ grep "siac.cqs.output.cta.v1.91.settlementcondition" Siac.Cqs.Output.Cta.v1.91.L
 grep "siac.cqs.output.cta.v1.91.marketcondition" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.finramarketmakerid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.finrabboindicator" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
+grep "siac.cqs.output.cta.v1.91.seconds" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
+grep "siac.cqs.output.cta.v1.91.nanoseconds" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.shortsalerestrictionindicator" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.primarylistingmarketparticipantid" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json
 grep "siac.cqs.output.cta.v1.91.financialstatusindicator" Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json

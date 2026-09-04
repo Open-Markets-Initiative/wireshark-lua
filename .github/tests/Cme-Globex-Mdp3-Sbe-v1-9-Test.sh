@@ -13,6 +13,11 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.9.transacttime" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
 grep "cme.globex.mdp3.sbe.v1.9.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
 grep "cme.globex.mdp3.sbe.v1.9.padding2" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.9.padding5" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshBook.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.9/MdIncrementalRefreshOrderBook.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_9_Dissector.lua" \
@@ -23,6 +28,8 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.9.transacttime" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
 grep "cme.globex.mdp3.sbe.v1.9.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
 grep "cme.globex.mdp3.sbe.v1.9.padding2" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshOrderBook.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.9/MdIncrementalRefreshTradeSummary.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_9_Dissector.lua" \
@@ -33,6 +40,11 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.9.transacttime" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.9.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.9.padding2" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.9.padding5" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshTradeSummary.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.9/MdIncrementalRefreshVolume.pcap" \
   -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_9_Dissector.lua" \
@@ -43,3 +55,5 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.9.transacttime" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json
 grep "cme.globex.mdp3.sbe.v1.9.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json
 grep "cme.globex.mdp3.sbe.v1.9.padding2" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json
+grep "cme.globex.mdp3.sbe.v1.9.blocklength" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json
+grep "cme.globex.mdp3.sbe.v1.9.numingroup" Cme.Globex.Mdp3.Sbe.v1.9.MdIncrementalRefreshVolume.json

@@ -11,6 +11,8 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; exit 1; }
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
+grep "siac.cts.output.cta.v2.9.seconds" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
+grep "siac.cts.output.cta.v2.9.nanoseconds" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
@@ -22,17 +24,25 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; exit 1; }
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.seconds" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.nanoseconds" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.securitysymbol" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.instrumenttype" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.settlementtype" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.tradethroughexemptreason" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.extendedhoursorsequencetype" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.srotradedetail" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.tradeprice" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.tradevolume" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.sellerssaledays" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.stopstockindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.tradethroughexemptindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.tradereportingfacilityid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.seconds" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
+grep "siac.cts.output.cta.v2.9.nanoseconds" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.shortsalerestrictionindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.primarylistingmarketparticipantid" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
@@ -47,6 +57,8 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; exit 1; }
 
 grep "siac.cts.output.cta.v2.9.participantid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
+grep "siac.cts.output.cta.v2.9.seconds" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
+grep "siac.cts.output.cta.v2.9.nanoseconds" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.messageid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json

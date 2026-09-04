@@ -13,3 +13,8 @@ runuser -u tester -- tshark \
 grep "cme.globex.mdp3.sbe.v1.8.transacttime" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.8.matcheventindicator" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
 grep "cme.globex.mdp3.sbe.v1.8.padding2" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.8.blocklength" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.8.numingroup" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.8.blocklength" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.8.padding5" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
+grep "cme.globex.mdp3.sbe.v1.8.numingroup" Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json
