@@ -230,8 +230,26 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14 = {}
 cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size = 14
 
 -- Display: Price Long Price 14
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display = function(value)
-  return "Price Long Price 14: "..value
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Long Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Price Long Price 14

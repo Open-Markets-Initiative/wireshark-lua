@@ -519,8 +519,26 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.size = 19
 
 -- Display: Indicative Price
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.display = function(value)
-  return "Indicative Price: "..value
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Indicative Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Indicative Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Indicative Price
@@ -718,8 +736,26 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19 = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size = 19
 
 -- Display: Price Long Price 19
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display = function(value)
-  return "Price Long Price 19: "..value
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Long Price 19: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Price Long Price 19: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Price Long Price 19
@@ -746,8 +782,26 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10 = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size = 10
 
 -- Display: Price Price 10
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display = function(value)
-  return "Price Price 10: "..value
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Price Price 10
@@ -774,8 +828,26 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.size = 19
 
 -- Display: Reference Price
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.display = function(value)
-  return "Reference Price: "..value
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reference Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Reference Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Reference Price

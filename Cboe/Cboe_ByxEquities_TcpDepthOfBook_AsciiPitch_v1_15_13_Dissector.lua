@@ -142,8 +142,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long_pric
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long_price_14.size = 14
 
 -- Display: Auction Only Price Long Price 14
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long_price_14.display = function(value)
-  return "Auction Only Price Long Price 14: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Auction Only Price Long Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Auction Only Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Auction Only Price Long Price 14
@@ -170,8 +188,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_price_10 
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_price_10.size = 10
 
 -- Display: Auction Only Price Price 10
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_price_10.display = function(value)
-  return "Auction Only Price Price 10: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Auction Only Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Auction Only Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Auction Only Price Price 10
@@ -436,8 +472,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long_price_
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long_price_14.size = 14
 
 -- Display: Indicative Price Long Price 14
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long_price_14.display = function(value)
-  return "Indicative Price Long Price 14: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Indicative Price Long Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Indicative Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Indicative Price Long Price 14
@@ -464,8 +518,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_price_10 = 
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_price_10.size = 10
 
 -- Display: Indicative Price Price 10
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_price_10.display = function(value)
-  return "Indicative Price Price 10: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Indicative Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Indicative Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Indicative Price Price 10
@@ -612,8 +684,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long_price_14 = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long_price_14.size = 14
 
 -- Display: Price Long Price 14
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long_price_14.display = function(value)
-  return "Price Long Price 14: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Long Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Price Long Price 14
@@ -640,8 +730,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_price_10 = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_price_10.size = 10
 
 -- Display: Price Price 10
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_price_10.display = function(value)
-  return "Price Price 10: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Price Price 10
@@ -668,8 +776,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long_price_1
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long_price_14.size = 14
 
 -- Display: Reference Price Long Price 14
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long_price_14.display = function(value)
-  return "Reference Price Long Price 14: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reference Price Long Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Reference Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
 -- Dissect: Reference Price Long Price 14
@@ -696,8 +822,26 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_price_10 = {
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_price_10.size = 10
 
 -- Display: Reference Price Price 10
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_price_10.display = function(value)
-  return "Reference Price Price 10: "..value
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Reference Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Reference Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Reference Price Price 10

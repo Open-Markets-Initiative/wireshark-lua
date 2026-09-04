@@ -142,8 +142,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_10 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_10.size = 10
 
 -- Display: Ask Price Price 10
-cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_10.display = function(value)
-  return "Ask Price Price 10: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Ask Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Ask Price Price 10
@@ -170,8 +188,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_14 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_14.size = 14
 
 -- Display: Ask Price Price 14
-cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_14.display = function(value)
-  return "Ask Price Price 14: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Ask Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Ask Price Price 14
@@ -198,8 +234,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_5 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_5.size = 5
 
 -- Display: Ask Price Price 5
-cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_5.display = function(value)
-  return "Ask Price Price 5: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_5.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_price_5.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Price 5: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Ask Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Ask Price Price 5
@@ -282,8 +336,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_10 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_10.size = 10
 
 -- Display: Bid Price Price 10
-cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_10.display = function(value)
-  return "Bid Price Price 10: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Bid Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Bid Price Price 10
@@ -310,8 +382,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_14 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_14.size = 14
 
 -- Display: Bid Price Price 14
-cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_14.display = function(value)
-  return "Bid Price Price 14: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Price Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Bid Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Bid Price Price 14
@@ -338,8 +428,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_5 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_5.size = 5
 
 -- Display: Bid Price Price 5
-cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_5.display = function(value)
-  return "Bid Price Price 5: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_5.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_price_5.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Price Price 5: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Bid Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Bid Price Price 5
@@ -501,8 +609,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_10 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_10.size = 10
 
 -- Display: Last Price Price 10
-cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_10.display = function(value)
-  return "Last Price Price 10: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Last Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Last Price Price 10
@@ -529,8 +655,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_14 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_14.size = 14
 
 -- Display: Last Price Price 14
-cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_14.display = function(value)
-  return "Last Price Price 14: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Last Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Last Price Price 14
@@ -557,8 +701,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_5 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_5.size = 5
 
 -- Display: Last Price Price 5
-cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_5.display = function(value)
-  return "Last Price Price 5: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_5.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.last_price_price_5.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Price 5: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Last Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Last Price Price 5
@@ -641,8 +803,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_10 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size = 10
 
 -- Display: Last Trade Price Price 10
-cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display = function(value)
-  return "Last Trade Price Price 10: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Trade Price Price 10: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Last Trade Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Last Trade Price Price 10
@@ -669,8 +849,26 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_14 = {}
 cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size = 14
 
 -- Display: Last Trade Price Price 14
-cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_14.display = function(value)
-  return "Last Trade Price Price 14: "..value
+cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_14.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Trade Price Price 14: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Last Trade Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Last Trade Price Price 14

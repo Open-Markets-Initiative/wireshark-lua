@@ -132,8 +132,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long = {}
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size = 10
 
 -- Display: Ask Price Long
-cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.display = function(value)
-  return "Ask Price Long: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Long: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Ask Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Ask Price Long
@@ -160,8 +178,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short = {}
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size = 5
 
 -- Display: Ask Price Short
-cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.display = function(value)
-  return "Ask Price Short: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Short: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Ask Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Ask Price Short
@@ -244,8 +280,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long = {}
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size = 10
 
 -- Display: Bid Price Long
-cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.display = function(value)
-  return "Bid Price Long: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Price Long: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Bid Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Bid Price Long
@@ -272,8 +326,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short = {}
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size = 5
 
 -- Display: Bid Price Short
-cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.display = function(value)
-  return "Bid Price Short: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Price Short: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Bid Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Bid Price Short
@@ -435,8 +507,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_price_long = {}
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size = 10
 
 -- Display: Last Price Long
-cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.display = function(value)
-  return "Last Price Long: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Long: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Last Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Last Price Long
@@ -463,8 +553,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_price_short = {}
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size = 5
 
 -- Display: Last Price Short
-cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.display = function(value)
-  return "Last Price Short: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Short: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Last Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
 -- Dissect: Last Price Short
@@ -547,8 +655,26 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price = {}
 cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size = 10
 
 -- Display: Last Trade Price
-cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.display = function(value)
-  return "Last Trade Price: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Trade Price: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Last Trade Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
 -- Dissect: Last Trade Price
