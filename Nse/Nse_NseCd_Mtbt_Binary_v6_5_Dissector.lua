@@ -83,11 +83,7 @@ nse_nsecd_mtbt_binary_v6_5.buy_order_id.size = 8
 
 -- Display: Buy Order Id
 nse_nsecd_mtbt_binary_v6_5.buy_order_id.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Buy Order Id: "..string.format("%.0f", value)
-  end
-
-  return "Buy Order Id: "..value
+  return "Buy Order Id: "..string.format("%.0f", value)
 end
 
 -- Dissect: Buy Order Id
@@ -210,11 +206,7 @@ nse_nsecd_mtbt_binary_v6_5.order_id.size = 8
 
 -- Display: Order Id
 nse_nsecd_mtbt_binary_v6_5.order_id.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Id: "..string.format("%.0f", value)
-  end
-
-  return "Order Id: "..value
+  return "Order Id: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Id
@@ -319,11 +311,7 @@ nse_nsecd_mtbt_binary_v6_5.sell_order_id.size = 8
 
 -- Display: Sell Order Id
 nse_nsecd_mtbt_binary_v6_5.sell_order_id.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Sell Order Id: "..string.format("%.0f", value)
-  end
-
-  return "Sell Order Id: "..value
+  return "Sell Order Id: "..string.format("%.0f", value)
 end
 
 -- Dissect: Sell Order Id

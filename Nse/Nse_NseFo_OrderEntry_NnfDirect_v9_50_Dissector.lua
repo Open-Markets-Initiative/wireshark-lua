@@ -741,11 +741,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ask_size.size = 8
 
 -- Display: Ask Size
 nse_nsefo_orderentry_nnfdirect_v9_50.ask_size.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Ask Size: "..string.format("%.0f", value)
-  end
-
-  return "Ask Size: "..value
+  return "Ask Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Ask Size
@@ -827,11 +823,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.bid_size.size = 8
 
 -- Display: Bid Size
 nse_nsefo_orderentry_nnfdirect_v9_50.bid_size.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Bid Size: "..string.format("%.0f", value)
-  end
-
-  return "Bid Size: "..value
+  return "Bid Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Bid Size
@@ -990,11 +982,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.size = 8
 
 -- Display: Branch Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Branch Buy Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "Branch Buy Value Limit: "..value
+  return "Branch Buy Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Branch Buy Value Limit
@@ -1063,11 +1051,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_sell_value_limit.size = 8
 
 -- Display: Branch Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_sell_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Branch Sell Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "Branch Sell Value Limit: "..value
+  return "Branch Sell Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Branch Sell Value Limit
@@ -1090,11 +1074,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_buy_value_limit.size = 8
 
 -- Display: Branch Used Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_buy_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Branch Used Buy Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "Branch Used Buy Value Limit: "..value
+  return "Branch Used Buy Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Branch Used Buy Value Limit
@@ -1117,11 +1097,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_sell_value_limit.size = 8
 
 -- Display: Branch Used Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_sell_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Branch Used Sell Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "Branch Used Sell Value Limit: "..value
+  return "Branch Used Sell Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Branch Used Sell Value Limit
@@ -1900,11 +1876,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.counter_trader_order_number.size = 8
 
 -- Display: Counter Trader Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.counter_trader_order_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Counter Trader Order Number: "..string.format("%.0f", value)
-  end
-
-  return "Counter Trader Order Number: "..value
+  return "Counter Trader Order Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Counter Trader Order Number
@@ -5614,11 +5586,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.size = 8
 
 -- Display: Nnf Field
 nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Nnf Field: "..string.format("%.0f", value)
-  end
-
-  return "Nnf Field: "..value
+  return "Nnf Field: "..string.format("%.0f", value)
 end
 
 -- Dissect: Nnf Field
@@ -6176,11 +6144,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ord_qty_buff.size = 8
 
 -- Display: Ord Qty Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.ord_qty_buff.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Ord Qty Buff: "..string.format("%.0f", value)
-  end
-
-  return "Ord Qty Buff: "..value
+  return "Ord Qty Buff: "..string.format("%.0f", value)
 end
 
 -- Dissect: Ord Qty Buff
@@ -6203,11 +6167,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ord_val_buff.size = 8
 
 -- Display: Ord Val Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.ord_val_buff.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Ord Val Buff: "..string.format("%.0f", value)
-  end
-
-  return "Ord Val Buff: "..value
+  return "Ord Val Buff: "..string.format("%.0f", value)
 end
 
 -- Dissect: Ord Val Buff
@@ -6230,11 +6190,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_number.size = 8
 
 -- Display: Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.order_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Number: "..string.format("%.0f", value)
-  end
-
-  return "Order Number: "..value
+  return "Order Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Number
@@ -6257,11 +6213,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.size = 8
 
 -- Display: Order Number 1
 nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Number 1: "..string.format("%.0f", value)
-  end
-
-  return "Order Number 1: "..value
+  return "Order Number 1: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Number 1
@@ -6284,11 +6236,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_qty_limit.size = 8
 
 -- Display: Order Qty Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.order_qty_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Qty Limit: "..string.format("%.0f", value)
-  end
-
-  return "Order Qty Limit: "..value
+  return "Order Qty Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Qty Limit
@@ -6380,11 +6328,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_val_limit.size = 8
 
 -- Display: Order Val Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.order_val_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Val Limit: "..string.format("%.0f", value)
-  end
-
-  return "Order Val Limit: "..value
+  return "Order Val Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Val Limit
@@ -7671,11 +7615,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.response_order_number.size = 8
 
 -- Display: Response Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.response_order_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Response Order Number: "..string.format("%.0f", value)
-  end
-
-  return "Response Order Number: "..value
+  return "Response Order Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Response Order Number
@@ -7928,11 +7868,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.size = 8
 
 -- Display: Sequence Number
 nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Sequence Number: "..string.format("%.0f", value)
-  end
-
-  return "Sequence Number: "..value
+  return "Sequence Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Sequence Number
@@ -8185,11 +8121,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_qty_buff.size = 8
 
 -- Display: Spd Ord Qty Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_qty_buff.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Spd Ord Qty Buff: "..string.format("%.0f", value)
-  end
-
-  return "Spd Ord Qty Buff: "..value
+  return "Spd Ord Qty Buff: "..string.format("%.0f", value)
 end
 
 -- Dissect: Spd Ord Qty Buff
@@ -8212,11 +8144,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_val_buff.size = 8
 
 -- Display: Spd Ord Val Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_val_buff.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Spd Ord Val Buff: "..string.format("%.0f", value)
-  end
-
-  return "Spd Ord Val Buff: "..value
+  return "Spd Ord Val Buff: "..string.format("%.0f", value)
 end
 
 -- Dissect: Spd Ord Val Buff
@@ -8770,11 +8698,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.size = 8
 
 -- Display: Total Trades
 nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Total Trades: "..string.format("%.0f", value)
-  end
-
-  return "Total Trades: "..value
+  return "Total Trades: "..string.format("%.0f", value)
 end
 
 -- Dissect: Total Trades
@@ -8797,11 +8721,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.size = 8
 
 -- Display: Total Value Traded
 nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Total Value Traded: "..string.format("%.0f", value)
-  end
-
-  return "Total Value Traded: "..value
+  return "Total Value Traded: "..string.format("%.0f", value)
 end
 
 -- Dissect: Total Value Traded
@@ -9476,11 +9396,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_buy_value_limit.size = 8
 
 -- Display: User Order Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_buy_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "User Order Buy Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "User Order Buy Value Limit: "..value
+  return "User Order Buy Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: User Order Buy Value Limit
@@ -9503,11 +9419,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_sell_value_limit.size = 8
 
 -- Display: User Order Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_sell_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "User Order Sell Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "User Order Sell Value Limit: "..value
+  return "User Order Sell Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: User Order Sell Value Limit
@@ -9530,11 +9442,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_buy_value_limit.size = 8
 
 -- Display: User Order Used Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_buy_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "User Order Used Buy Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "User Order Used Buy Value Limit: "..value
+  return "User Order Used Buy Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: User Order Used Buy Value Limit
@@ -9557,11 +9465,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_sell_value_limit.size = 8
 
 -- Display: User Order Used Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_sell_value_limit.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "User Order Used Sell Value Limit: "..string.format("%.0f", value)
-  end
-
-  return "User Order Used Sell Value Limit: "..value
+  return "User Order Used Sell Value Limit: "..string.format("%.0f", value)
 end
 
 -- Dissect: User Order Used Sell Value Limit

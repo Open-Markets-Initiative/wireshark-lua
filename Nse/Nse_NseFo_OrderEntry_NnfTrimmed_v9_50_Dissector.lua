@@ -798,11 +798,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.size = 8
 
 -- Display: Nnf Field
 nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Nnf Field: "..string.format("%.0f", value)
-  end
-
-  return "Nnf Field: "..value
+  return "Nnf Field: "..string.format("%.0f", value)
 end
 
 -- Dissect: Nnf Field
@@ -871,11 +867,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size = 8
 
 -- Display: Order Number
 nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Order Number: "..string.format("%.0f", value)
-  end
-
-  return "Order Number: "..value
+  return "Order Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Order Number
@@ -1203,11 +1195,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.response_order_number.size = 8
 
 -- Display: Response Order Number
 nse_nsefo_orderentry_nnftrimmed_v9_50.response_order_number.display = function(value)
-  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
-    return "Response Order Number: "..string.format("%.0f", value)
-  end
-
-  return "Response Order Number: "..value
+  return "Response Order Number: "..string.format("%.0f", value)
 end
 
 -- Dissect: Response Order Number
