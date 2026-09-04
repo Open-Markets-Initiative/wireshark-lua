@@ -338,7 +338,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.current_funding.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.current_funding.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.current_funding.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.current_funding, range, value, display)
@@ -587,7 +587,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.funding_8h.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.funding_8h.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.funding_8h.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.funding_8h, range, value, display)
@@ -610,7 +610,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.implied_volatility.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.implied_volatility.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.implied_volatility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.implied_volatility, range, value, display)

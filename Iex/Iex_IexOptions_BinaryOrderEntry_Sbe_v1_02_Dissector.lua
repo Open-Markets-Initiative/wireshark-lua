@@ -1799,7 +1799,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.delta.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.delta.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.delta, range, value, display)

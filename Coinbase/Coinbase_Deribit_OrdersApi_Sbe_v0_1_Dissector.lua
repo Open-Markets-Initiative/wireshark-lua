@@ -994,7 +994,7 @@ end
 coinbase_deribit_ordersapi_sbe_v0_1.delta_level.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v0_1.delta_level.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_ordersapi_sbe_v0_1.delta_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v0_1.fields.delta_level, range, value, display)
@@ -1667,7 +1667,7 @@ end
 coinbase_deribit_ordersapi_sbe_v0_1.quantity_level.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v0_1.quantity_level.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_ordersapi_sbe_v0_1.quantity_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v0_1.fields.quantity_level, range, value, display)
@@ -2584,7 +2584,7 @@ end
 coinbase_deribit_ordersapi_sbe_v0_1.vega_level.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v0_1.vega_level.size
   local range = buffer(offset, length)
-  local value = range:float()
+  local value = range:le_float()
   local display = coinbase_deribit_ordersapi_sbe_v0_1.vega_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v0_1.fields.vega_level, range, value, display)
