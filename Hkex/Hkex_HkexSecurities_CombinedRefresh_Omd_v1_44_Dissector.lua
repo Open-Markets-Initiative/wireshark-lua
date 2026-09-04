@@ -64,7 +64,7 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_62 = ProtoField.
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.filler63", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.fourthfiller1", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.free_text = ProtoField.new("Free Text", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.freetext", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.headline = ProtoField.new("Headline", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.headline", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.headline = ProtoField.new("Headline", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.headline", ftypes.BYTES)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.high_price = ProtoField.new("High Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.highprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.high_value = ProtoField.new("High Value", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.highvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.indexcode", ftypes.STRING)
@@ -98,7 +98,7 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_type = ProtoField.n
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.netchgprevday", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.net_chg_prev_day_pct = ProtoField.new("Net Chg Prev Day Pct", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.netchgprevdaypct", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_id = ProtoField.new("News Id", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newsid", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line = ProtoField.new("News Line", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newsline", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line = ProtoField.new("News Line", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newsline", ftypes.BYTES)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line_item = ProtoField.new("News Line Item", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newslineitem", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_market = ProtoField.new("News Market", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newsmarket", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_security = ProtoField.new("News Security", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.newssecurity", ftypes.STRING)
@@ -135,8 +135,8 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.release_time = ProtoFie
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.secondfiller1", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.second_filler_2 = ProtoField.new("Second Filler 2", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.secondfiller2", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitycode", ftypes.UINT32)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitynamegb", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitynamegccs", ftypes.STRING)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitynamegb", ftypes.BYTES)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securitynamegccs", ftypes.BYTES)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_short_name = ProtoField.new("Security Short Name", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.securityshortname", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.sell_turnover = ProtoField.new("Sell Turnover", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.sellturnover", ftypes.INT64)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.sendtime", ftypes.UINT64)
@@ -257,6 +257,24 @@ function omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs_changed()
   if show.indexes ~= omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_indexes then
     show.indexes = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.prefs.show_indexes
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -768,7 +786,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.currency_code, range, value, display)
@@ -1186,7 +1204,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value_currency.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value_currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.face_value_currency, range, value, display)
@@ -1255,7 +1273,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_2, range, value, display)
@@ -1278,7 +1296,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_3, range, value, display)
@@ -1301,7 +1319,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_37.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_37, range, value, display)
@@ -1324,7 +1342,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_4, range, value, display)
@@ -1347,7 +1365,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_44.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_44, range, value, display)
@@ -1370,7 +1388,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_62, range, value, display)
@@ -1393,7 +1411,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.filler_63.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.filler_63, range, value, display)
@@ -1439,7 +1457,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.free_text.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.free_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.free_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.free_text, range, value, display)
@@ -1462,7 +1480,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.headline, range, value, display)
@@ -1543,7 +1561,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.index_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.index_code, range, value, display)
@@ -1761,7 +1779,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.instrument_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.instrument_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.instrument_type, range, value, display)
@@ -1814,7 +1832,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.isin_code, range, value, display)
@@ -2134,7 +2152,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.market_code, range, value, display)
@@ -2157,7 +2175,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.market_name, range, value, display)
@@ -2406,7 +2424,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_id, range, value, display)
@@ -2429,7 +2447,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line, range, value, display)
@@ -2459,7 +2477,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_type, range, value, display)
@@ -3308,7 +3326,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.second_filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.second_filler_2, range, value, display)
@@ -3354,7 +3372,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gb, range, value, display)
@@ -3377,7 +3395,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gccs, range, value, display)
@@ -3400,7 +3418,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_short_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_short_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_short_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_short_name, range, value, display)
@@ -3647,7 +3665,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.spread_table_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.spread_table_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.spread_table_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.spread_table_code, range, value, display)
@@ -3730,7 +3748,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.stock_connect_market, range, value, display)
@@ -3897,7 +3915,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.third_filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.third_filler_2, range, value, display)
@@ -3927,7 +3945,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_direction.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_direction.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_direction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.trading_direction, range, value, display)

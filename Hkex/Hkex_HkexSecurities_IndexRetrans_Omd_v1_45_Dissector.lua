@@ -110,6 +110,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Hkex HkexSecurities IndexRetrans Omd 1.45 Fields
 -----------------------------------------------------------------------
 
@@ -203,7 +221,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.currency_code, range, value, display)
@@ -384,7 +402,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.filler_2, range, value, display)
@@ -407,7 +425,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.filler_3, range, value, display)
@@ -459,7 +477,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.index_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.index_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.index_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.index_code, range, value, display)
@@ -1090,6 +1108,11 @@ hkex_hkexsecurities_indexretrans_omd_v1_45.username.size = 12
 
 -- Display: Username
 hkex_hkexsecurities_indexretrans_omd_v1_45.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1097,7 +1120,18 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.username.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.username, range, value, display)

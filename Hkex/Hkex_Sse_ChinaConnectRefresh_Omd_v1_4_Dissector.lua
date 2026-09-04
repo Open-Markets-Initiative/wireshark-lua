@@ -26,7 +26,7 @@ omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_12 = ProtoField.new("Fil
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_2 = ProtoField.new("Filler 2", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler2", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_3 = ProtoField.new("Filler 3", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler3", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_6 = ProtoField.new("Filler 6", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler6", ftypes.STRING)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler60", ftypes.STRING)
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler60", ftypes.BYTES)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_7 = ProtoField.new("Filler 7", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler7", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_8 = ProtoField.new("Filler 8", "hkex.sse.chinaconnectrefresh.omd.v1.4.filler8", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.high_price = ProtoField.new("High Price", "hkex.sse.chinaconnectrefresh.omd.v1.4.highprice", ftypes.DOUBLE)
@@ -47,7 +47,7 @@ omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.opening_price = ProtoField.new(
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.sse.chinaconnectrefresh.omd.v1.4.pktsize", ftypes.UINT16)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "hkex.sse.chinaconnectrefresh.omd.v1.4.previousclosingprice", ftypes.DOUBLE)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_code = ProtoField.new("Security Code", "hkex.sse.chinaconnectrefresh.omd.v1.4.securitycode", ftypes.UINT32)
-omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.sse.chinaconnectrefresh.omd.v1.4.securitynamegb", ftypes.STRING)
+omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.sse.chinaconnectrefresh.omd.v1.4.securitynamegb", ftypes.BYTES)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_short_name = ProtoField.new("Security Short Name", "hkex.sse.chinaconnectrefresh.omd.v1.4.securityshortname", ftypes.STRING)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_trading_status = ProtoField.new("Security Trading Status", "hkex.sse.chinaconnectrefresh.omd.v1.4.securitytradingstatus", ftypes.UINT8)
 omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.send_time = ProtoField.new("Send Time", "hkex.sse.chinaconnectrefresh.omd.v1.4.sendtime", ftypes.UINT64)
@@ -108,6 +108,24 @@ function omi_hkex_sse_chinaconnectrefresh_omd_v1_4.prefs_changed()
   if show.indexes ~= omi_hkex_sse_chinaconnectrefresh_omd_v1_4.prefs.show_indexes then
     show.indexes = omi_hkex_sse_chinaconnectrefresh_omd_v1_4.prefs.show_indexes
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -234,7 +252,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.currency_code, range, value, display)
@@ -303,7 +321,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_12.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_12, range, value, display)
@@ -326,7 +344,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_2, range, value, display)
@@ -349,7 +367,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_3, range, value, display)
@@ -372,7 +390,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_6, range, value, display)
@@ -395,7 +413,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_60.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_60.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_60, range, value, display)
@@ -418,7 +436,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_7.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_7.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_7, range, value, display)
@@ -441,7 +459,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.filler_8, range, value, display)
@@ -500,7 +518,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.instrument_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.instrument_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.instrument_type, range, value, display)
@@ -523,7 +541,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.isin_code, range, value, display)
@@ -680,7 +698,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.market_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.market_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.market_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.market_code, range, value, display)
@@ -703,7 +721,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.market_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.market_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.market_name, range, value, display)
@@ -941,7 +959,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.security_name_gb.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.security_name_gb.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.security_name_gb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_name_gb, range, value, display)
@@ -964,7 +982,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.security_short_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.security_short_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.security_short_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.security_short_name, range, value, display)
@@ -1120,7 +1138,7 @@ end
 hkex_sse_chinaconnectrefresh_omd_v1_4.trading_phase_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnectrefresh_omd_v1_4.trading_phase_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_sse_chinaconnectrefresh_omd_v1_4.trading_phase_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnectrefresh_omd_v1_4.fields.trading_phase_code, range, value, display)

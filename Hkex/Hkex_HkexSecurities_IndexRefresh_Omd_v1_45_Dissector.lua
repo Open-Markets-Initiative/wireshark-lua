@@ -95,6 +95,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Hkex HkexSecurities IndexRefresh Omd 1.45 Fields
 -----------------------------------------------------------------------
 
@@ -142,7 +160,7 @@ end
 hkex_hkexsecurities_indexrefresh_omd_v1_45.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.currency_code, range, value, display)
@@ -270,7 +288,7 @@ end
 hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.filler_3, range, value, display)
@@ -322,7 +340,7 @@ end
 hkex_hkexsecurities_indexrefresh_omd_v1_45.index_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexrefresh_omd_v1_45.index_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_45.index_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_45.fields.index_code, range, value, display)

@@ -28,7 +28,7 @@ omi_hkex_hkexderivatives_standard_omd_v2_2.fields.commodity_code = ProtoField.ne
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.commodity_id = ProtoField.new("Commodity Id", "hkex.hkexderivatives.standard.omd.v2.2.commodityid", ftypes.STRING)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.commodity_name = ProtoField.new("Commodity Name", "hkex.hkexderivatives.standard.omd.v2.2.commodityname", ftypes.STRING)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.standard.omd.v2.2.compressionmode", ftypes.UINT8)
-omi_hkex_hkexderivatives_standard_omd_v2_2.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.standard.omd.v2.2.content", ftypes.STRING)
+omi_hkex_hkexderivatives_standard_omd_v2_2.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.standard.omd.v2.2.content", ftypes.BYTES)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.contract_size_int_324 = ProtoField.new("Contract Size Int 324", "hkex.hkexderivatives.standard.omd.v2.2.contractsizeint324", ftypes.INT32)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.contract_size_uint_324 = ProtoField.new("Contract Size Uint 324", "hkex.hkexderivatives.standard.omd.v2.2.contractsizeuint324", ftypes.UINT32)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.standard.omd.v2.2.coolingoffendtime", ftypes.UINT64)
@@ -52,7 +52,7 @@ omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_6 = ProtoField.new("Fil
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.standard.omd.v2.2.firsttradingdate", ftypes.UINT32)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.standard.omd.v2.2.firsttradingtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.standard.omd.v2.2.grossoi", ftypes.INT32)
-omi_hkex_hkexderivatives_standard_omd_v2_2.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.standard.omd.v2.2.header", ftypes.STRING)
+omi_hkex_hkexderivatives_standard_omd_v2_2.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.standard.omd.v2.2.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.high_price = ProtoField.new("High Price", "hkex.hkexderivatives.standard.omd.v2.2.highprice", ftypes.INT64)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.implied_price = ProtoField.new("Implied Price", "hkex.hkexderivatives.standard.omd.v2.2.impliedprice", ftypes.INT64)
 omi_hkex_hkexderivatives_standard_omd_v2_2.fields.implied_quantity = ProtoField.new("Implied Quantity", "hkex.hkexderivatives.standard.omd.v2.2.impliedquantity", ftypes.UINT64)
@@ -212,6 +212,19 @@ end
 -- Protocol Functions
 -----------------------------------------------------------------------
 
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
 
 -- Zlib decompression: wireshark built in inflate (uncompress_zlib from 4.4, uncompress before)
 local function zlib_decompress(range)
@@ -334,7 +347,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.base_currency.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.base_currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.base_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.base_currency, range, value, display)
@@ -459,7 +472,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.commodity_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.commodity_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.commodity_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.commodity_id, range, value, display)
@@ -482,7 +495,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.commodity_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.commodity_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.commodity_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.commodity_name, range, value, display)
@@ -528,7 +541,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.content.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.content.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standard_omd_v2_2.content.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.content, range, value, display)
@@ -894,7 +907,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_10.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_10, range, value, display)
@@ -917,7 +930,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_2, range, value, display)
@@ -940,7 +953,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_3, range, value, display)
@@ -963,7 +976,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_4, range, value, display)
@@ -986,7 +999,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_5.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_5.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_5, range, value, display)
@@ -1009,7 +1022,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.filler_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.filler_6, range, value, display)
@@ -1101,7 +1114,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.header.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.header.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standard_omd_v2_2.header.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.header, range, value, display)
@@ -1232,7 +1245,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.instrument_class_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.instrument_class_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.instrument_class_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.instrument_class_id, range, value, display)
@@ -1278,7 +1291,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.instrument_class_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.instrument_class_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.instrument_class_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.instrument_class_name, range, value, display)
@@ -1347,7 +1360,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.instrument_type_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.instrument_type_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.instrument_type_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.instrument_type_id, range, value, display)
@@ -1393,7 +1406,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.isin_code, range, value, display)
@@ -2346,7 +2359,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.second_filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.second_filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.second_filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.second_filler_3, range, value, display)
@@ -2449,7 +2462,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.settlement_currency_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.settlement_currency_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.settlement_currency_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.settlement_currency_id, range, value, display)
@@ -2733,7 +2746,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.symbol.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.symbol, range, value, display)
@@ -2994,7 +3007,7 @@ end
 hkex_hkexderivatives_standard_omd_v2_2.underlying_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standard_omd_v2_2.underlying_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_standard_omd_v2_2.underlying_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standard_omd_v2_2.fields.underlying_code, range, value, display)

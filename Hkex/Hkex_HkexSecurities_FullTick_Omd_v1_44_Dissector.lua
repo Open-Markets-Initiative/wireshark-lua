@@ -86,8 +86,8 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.quantity = ProtoField.new("Qua
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.reference_price = ProtoField.new("Reference Price", "hkex.hkexsecurities.fulltick.omd.v1.44.referenceprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.44.secondfiller1", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.fulltick.omd.v1.44.securitycode", ftypes.UINT32)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.fulltick.omd.v1.44.securitynamegb", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.fulltick.omd.v1.44.securitynamegccs", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.fulltick.omd.v1.44.securitynamegb", ftypes.BYTES)
+omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.fulltick.omd.v1.44.securitynamegccs", ftypes.BYTES)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_short_name = ProtoField.new("Security Short Name", "hkex.hkexsecurities.fulltick.omd.v1.44.securityshortname", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.fulltick.omd.v1.44.sendtime", ftypes.UINT64)
 omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.fulltick.omd.v1.44.seqnum", ftypes.UINT32)
@@ -186,6 +186,24 @@ function omi_hkex_hkexsecurities_fulltick_omd_v1_44.prefs_changed()
   if show.indexes ~= omi_hkex_hkexsecurities_fulltick_omd_v1_44.prefs.show_indexes then
     show.indexes = omi_hkex_hkexsecurities_fulltick_omd_v1_44.prefs.show_indexes
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -480,7 +498,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.currency_code, range, value, display)
@@ -823,7 +841,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.face_value_currency.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.face_value_currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.face_value_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.face_value_currency, range, value, display)
@@ -892,7 +910,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_2, range, value, display)
@@ -915,7 +933,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_3, range, value, display)
@@ -938,7 +956,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_37.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_37.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_37.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_37, range, value, display)
@@ -961,7 +979,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_4, range, value, display)
@@ -984,7 +1002,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_44.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_44.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_44.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_44, range, value, display)
@@ -1007,7 +1025,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_62.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_62.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_62, range, value, display)
@@ -1030,7 +1048,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.filler_63.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.filler_63.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.filler_63.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.filler_63, range, value, display)
@@ -1076,7 +1094,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.free_text.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.free_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.free_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.free_text, range, value, display)
@@ -1112,7 +1130,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.instrument_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.instrument_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.instrument_type, range, value, display)
@@ -1165,7 +1183,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.isin_code, range, value, display)
@@ -1299,7 +1317,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.market_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.market_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.market_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.market_code, range, value, display)
@@ -1322,7 +1340,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.market_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.market_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.market_name, range, value, display)
@@ -2090,7 +2108,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gb.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gb.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gb, range, value, display)
@@ -2113,7 +2131,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gccs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gccs.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.security_name_gccs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_name_gccs, range, value, display)
@@ -2136,7 +2154,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.security_short_name.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.security_short_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.security_short_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.security_short_name, range, value, display)
@@ -2285,7 +2303,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_44.spread_table_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_44.spread_table_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexsecurities_fulltick_omd_v1_44.spread_table_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_44.fields.spread_table_code, range, value, display)
