@@ -435,7 +435,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_id, range, value, display)
@@ -601,7 +601,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.order_id, range, value, display)
@@ -698,7 +698,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.password.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.password, range, value, display)
@@ -974,7 +974,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequence_number, range, value, display)
@@ -1066,7 +1066,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.session, range, value, display)
@@ -1505,7 +1505,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.trade_id, range, value, display)
@@ -1579,7 +1579,7 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.username.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.username, range, value, display)

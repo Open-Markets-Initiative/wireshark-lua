@@ -853,7 +853,7 @@ end
 cboe_bxeequities_lastsale_apf_v1_7.password.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_apf_v1_7.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bxeequities_lastsale_apf_v1_7.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_apf_v1_7.fields.password, range, value, display)
@@ -1187,7 +1187,7 @@ end
 cboe_bxeequities_lastsale_apf_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_apf_v1_7.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bxeequities_lastsale_apf_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_apf_v1_7.fields.sequence_number, range, value, display)
@@ -1240,7 +1240,7 @@ end
 cboe_bxeequities_lastsale_apf_v1_7.session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_apf_v1_7.session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bxeequities_lastsale_apf_v1_7.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_apf_v1_7.fields.session, range, value, display)
@@ -1414,7 +1414,7 @@ end
 cboe_bxeequities_lastsale_apf_v1_7.trade_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_apf_v1_7.trade_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_bxeequities_lastsale_apf_v1_7.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_apf_v1_7.fields.trade_id, range, value, display)
@@ -1579,7 +1579,7 @@ end
 cboe_bxeequities_lastsale_apf_v1_7.username.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_lastsale_apf_v1_7.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bxeequities_lastsale_apf_v1_7.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_lastsale_apf_v1_7.fields.username, range, value, display)

@@ -300,6 +300,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.account.size = 16
 
 -- Display: Account
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Account: No Value"
+  end
+
   return "Account: "..value
 end
 
@@ -307,7 +312,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.account.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.account.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.account, range, value, display)
@@ -753,7 +769,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cfi_code.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cfi_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cfi_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.cfi_code, range, value, display)
@@ -769,6 +796,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cl_ord_id.size = 20
 
 -- Display: Cl Ord Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cl Ord Id: No Value"
+  end
+
   return "Cl Ord Id: "..value
 end
 
@@ -776,7 +808,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cl_ord_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cl_ord_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.cl_ord_id, range, value, display)
@@ -792,6 +835,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_account.size = 4
 
 -- Display: Clearing Account
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account: No Value"
+  end
+
   return "Clearing Account: "..value
 end
 
@@ -799,7 +847,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_account.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_account.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.clearing_account, range, value, display)
@@ -815,6 +874,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_firm.size = 4
 
 -- Display: Clearing Firm
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Firm: No Value"
+  end
+
   return "Clearing Firm: "..value
 end
 
@@ -822,7 +886,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_firm.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.clearing_firm, range, value, display)
@@ -861,6 +936,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_optional_data.size = 16
 
 -- Display: Clearing Optional Data
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_optional_data.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Optional Data: No Value"
+  end
+
   return "Clearing Optional Data: "..value
 end
 
@@ -868,7 +948,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_optional_data.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_optional_data.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.clearing_optional_data.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.clearing_optional_data, range, value, display)
@@ -884,6 +975,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.client_id_attr.size = 4
 
 -- Display: Client Id Attr
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.client_id_attr.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Client Id Attr: No Value"
+  end
+
   return "Client Id Attr: "..value
 end
 
@@ -891,7 +987,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.client_id_attr.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.client_id_attr.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.client_id_attr.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.client_id_attr, range, value, display)
@@ -1013,6 +1120,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_broker.size = 4
 
 -- Display: Contra Broker
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_broker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Broker: No Value"
+  end
+
   return "Contra Broker: "..value
 end
 
@@ -1020,7 +1132,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_broker.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_broker.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_broker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.contra_broker, range, value, display)
@@ -1059,6 +1182,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_trader.size = 4
 
 -- Display: Contra Trader
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Trader: No Value"
+  end
+
   return "Contra Trader: "..value
 end
 
@@ -1066,7 +1194,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_trader.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_trader.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.contra_trader.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.contra_trader, range, value, display)
@@ -1158,6 +1297,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_id.size = 20
 
 -- Display: Cross Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cross Id: No Value"
+  end
+
   return "Cross Id: "..value
 end
 
@@ -1165,7 +1309,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.cross_id, range, value, display)
@@ -1181,6 +1336,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_initiator.size = 4
 
 -- Display: Cross Initiator
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_initiator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cross Initiator: No Value"
+  end
+
   return "Cross Initiator: "..value
 end
 
@@ -1188,7 +1348,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_initiator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_initiator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.cross_initiator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.cross_initiator, range, value, display)
@@ -1459,6 +1630,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_buy_clearing_firm.size = 4
 
 -- Display: Equity Buy Clearing Firm
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_buy_clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Equity Buy Clearing Firm: No Value"
+  end
+
   return "Equity Buy Clearing Firm: "..value
 end
 
@@ -1466,7 +1642,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_buy_clearing_firm.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_buy_clearing_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_buy_clearing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.equity_buy_clearing_firm, range, value, display)
@@ -1551,6 +1738,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_party_id.size = 4
 
 -- Display: Equity Party Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Equity Party Id: No Value"
+  end
+
   return "Equity Party Id: "..value
 end
 
@@ -1558,7 +1750,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_party_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_party_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_party_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.equity_party_id, range, value, display)
@@ -1574,6 +1777,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_sell_clearing_firm.size = 
 
 -- Display: Equity Sell Clearing Firm
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_sell_clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Equity Sell Clearing Firm: No Value"
+  end
+
   return "Equity Sell Clearing Firm: "..value
 end
 
@@ -1581,7 +1789,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_sell_clearing_firm.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_sell_clearing_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.equity_sell_clearing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.equity_sell_clearing_firm, range, value, display)
@@ -2037,6 +2256,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fee_code.size = 2
 
 -- Display: Fee Code
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fee_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fee Code: No Value"
+  end
+
   return "Fee Code: "..value
 end
 
@@ -2044,7 +2268,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fee_code.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fee_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.fee_code, range, value, display)
@@ -2135,6 +2370,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_destination.size = 4
 
 -- Display: Floor Destination
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_destination.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Floor Destination: No Value"
+  end
+
   return "Floor Destination: "..value
 end
 
@@ -2142,7 +2382,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_destination.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_destination.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.floor_destination, range, value, display)
@@ -2221,6 +2472,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_trader_acronym.size = 3
 
 -- Display: Floor Trader Acronym
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_trader_acronym.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Floor Trader Acronym: No Value"
+  end
+
   return "Floor Trader Acronym: "..value
 end
 
@@ -2228,7 +2484,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_trader_acronym.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_trader_acronym.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.floor_trader_acronym.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.floor_trader_acronym, range, value, display)
@@ -2244,6 +2511,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.frequent_trader_id.size = 6
 
 -- Display: Frequent Trader Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.frequent_trader_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Frequent Trader Id: No Value"
+  end
+
   return "Frequent Trader Id: "..value
 end
 
@@ -2251,7 +2523,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.frequent_trader_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.frequent_trader_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.frequent_trader_id, range, value, display)
@@ -2267,6 +2550,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.give_up_firm_id.size = 4
 
 -- Display: Give Up Firm Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.give_up_firm_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Give Up Firm Id: No Value"
+  end
+
   return "Give Up Firm Id: "..value
 end
 
@@ -2274,7 +2562,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.give_up_firm_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.give_up_firm_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.give_up_firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.give_up_firm_id, range, value, display)
@@ -2366,6 +2665,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.instruction_details.size = 3
 
 -- Display: Instruction Details
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.instruction_details.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Instruction Details: No Value"
+  end
+
   return "Instruction Details: "..value
 end
 
@@ -2373,7 +2677,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.instruction_details.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.instruction_details.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.instruction_details.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.instruction_details, range, value, display)
@@ -2740,7 +3055,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.marketing_fee_code.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.marketing_fee_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.marketing_fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.marketing_fee_code, range, value, display)
@@ -2756,6 +3082,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.mass_cancel_id.size = 20
 
 -- Display: Mass Cancel Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.mass_cancel_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mass Cancel Id: No Value"
+  end
+
   return "Mass Cancel Id: "..value
 end
 
@@ -2763,7 +3094,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.mass_cancel_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.mass_cancel_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.mass_cancel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.mass_cancel_id, range, value, display)
@@ -3167,6 +3509,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.order_origin.size = 3
 
 -- Display: Order Origin
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.order_origin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Origin: No Value"
+  end
+
   return "Order Origin: "..value
 end
 
@@ -3174,7 +3521,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.order_origin.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.order_origin.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.order_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.order_origin, range, value, display)
@@ -3334,6 +3692,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.orig_cl_ord_id.size = 20
 
 -- Display: Orig Cl Ord Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.orig_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Orig Cl Ord Id: No Value"
+  end
+
   return "Orig Cl Ord Id: "..value
 end
 
@@ -3341,7 +3704,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.orig_cl_ord_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.orig_cl_ord_id, range, value, display)
@@ -3769,6 +4143,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.quote_update_id.size = 16
 
 -- Display: Quote Update Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.quote_update_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Update Id: No Value"
+  end
+
   return "Quote Update Id: "..value
 end
 
@@ -3776,7 +4155,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.quote_update_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.quote_update_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.quote_update_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.quote_update_id, range, value, display)
@@ -3951,6 +4341,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_reset.size = 8
 
 -- Display: Risk Reset
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_reset.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Reset: No Value"
+  end
+
   return "Risk Reset: "..value
 end
 
@@ -3958,7 +4353,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_reset.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_reset.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_reset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.risk_reset, range, value, display)
@@ -4034,6 +4440,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_root.size = 6
 
 -- Display: Risk Root
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_root.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Root: No Value"
+  end
+
   return "Risk Root: "..value
 end
 
@@ -4041,7 +4452,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_root.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_root.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.risk_root, range, value, display)
@@ -4057,6 +4479,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_status_id.size = 16
 
 -- Display: Risk Status Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_status_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Status Id: No Value"
+  end
+
   return "Risk Status Id: "..value
 end
 
@@ -4064,7 +4491,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_status_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_status_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.risk_status_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.risk_status_id, range, value, display)
@@ -4080,6 +4518,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.rout_strategy.size = 6
 
 -- Display: Rout Strategy
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.rout_strategy.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rout Strategy: No Value"
+  end
+
   return "Rout Strategy: "..value
 end
 
@@ -4087,7 +4530,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.rout_strategy.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.rout_strategy.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.rout_strategy.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.rout_strategy, range, value, display)
@@ -4117,7 +4571,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.route_delivery_method.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.route_delivery_method.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.route_delivery_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.route_delivery_method, range, value, display)
@@ -4133,6 +4598,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_firm_id.size = 4
 
 -- Display: Routing Firm Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_firm_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Routing Firm Id: No Value"
+  end
+
   return "Routing Firm Id: "..value
 end
 
@@ -4140,7 +4610,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_firm_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_firm_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.routing_firm_id, range, value, display)
@@ -4156,6 +4637,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_inst.size = 4
 
 -- Display: Routing Inst
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Routing Inst: No Value"
+  end
+
   return "Routing Inst: "..value
 end
 
@@ -4163,7 +4649,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.routing_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.routing_inst, range, value, display)
@@ -4680,6 +5177,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.symbol.size = 8
 
 -- Display: Symbol
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -4687,7 +5189,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.symbol, range, value, display)
@@ -4726,6 +5239,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.target_party_id.size = 4
 
 -- Display: Target Party Id
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.target_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Id: No Value"
+  end
+
   return "Target Party Id: "..value
 end
 
@@ -4733,7 +5251,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.target_party_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.target_party_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.target_party_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.target_party_id, range, value, display)
@@ -4749,6 +5278,11 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.text.size = 60
 
 -- Display: Text
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
@@ -4756,7 +5290,18 @@ end
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.text, range, value, display)

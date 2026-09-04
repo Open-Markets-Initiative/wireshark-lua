@@ -418,7 +418,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.execution_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.execution_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.execution_id, range, value, display)
@@ -572,7 +572,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.order_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.order_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.order_id, range, value, display)
@@ -669,7 +669,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.password.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.password, range, value, display)
@@ -1113,7 +1113,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.sequence_number, range, value, display)
@@ -1208,7 +1208,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.session, range, value, display)
@@ -1464,7 +1464,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.username.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.username, range, value, display)

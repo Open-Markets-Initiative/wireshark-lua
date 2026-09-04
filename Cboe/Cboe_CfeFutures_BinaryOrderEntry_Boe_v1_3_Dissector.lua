@@ -829,6 +829,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.account.size = 16
 
 -- Display: Account
 cboe_cfefutures_binaryorderentry_boe_v1_3.account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Account: No Value"
+  end
+
   return "Account: "..value
 end
 
@@ -836,7 +841,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.account.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.account.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.account, range, value, display)
@@ -1298,6 +1314,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.cl_ord_id.size = 20
 
 -- Display: Cl Ord Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cl Ord Id: No Value"
+  end
+
   return "Cl Ord Id: "..value
 end
 
@@ -1305,7 +1326,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.cl_ord_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.cl_ord_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.cl_ord_id, range, value, display)
@@ -1321,6 +1353,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.size = 4
 
 -- Display: Clearing Account
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account: No Value"
+  end
+
   return "Clearing Account: "..value
 end
 
@@ -1328,7 +1365,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.clearing_account, range, value, display)
@@ -1344,6 +1392,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_firm.size = 4
 
 -- Display: Clearing Firm
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Firm: No Value"
+  end
+
   return "Clearing Firm: "..value
 end
 
@@ -1351,7 +1404,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_firm.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.clearing_firm, range, value, display)
@@ -1413,6 +1477,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_symbol.size = 6
 
 -- Display: Clearing Symbol
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Symbol: No Value"
+  end
+
   return "Clearing Symbol: "..value
 end
 
@@ -1420,7 +1489,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.clearing_symbol, range, value, display)
@@ -1459,6 +1539,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.contra_broker.size = 4
 
 -- Display: Contra Broker
 cboe_cfefutures_binaryorderentry_boe_v1_3.contra_broker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Broker: No Value"
+  end
+
   return "Contra Broker: "..value
 end
 
@@ -1466,7 +1551,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.contra_broker.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.contra_broker.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.contra_broker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.contra_broker, range, value, display)
@@ -1748,6 +1844,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.fee_code.size = 2
 
 -- Display: Fee Code
 cboe_cfefutures_binaryorderentry_boe_v1_3.fee_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fee Code: No Value"
+  end
+
   return "Fee Code: "..value
 end
 
@@ -1755,7 +1856,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.fee_code.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.fee_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.fee_code, range, value, display)
@@ -1771,6 +1883,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.frequent_trader_id.size = 6
 
 -- Display: Frequent Trader Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.frequent_trader_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Frequent Trader Id: No Value"
+  end
+
   return "Frequent Trader Id: "..value
 end
 
@@ -1778,7 +1895,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.frequent_trader_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.frequent_trader_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.frequent_trader_id, range, value, display)
@@ -1937,6 +2065,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.login_response_text.size = 60
 
 -- Display: Login Response Text
 cboe_cfefutures_binaryorderentry_boe_v1_3.login_response_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Login Response Text: No Value"
+  end
+
   return "Login Response Text: "..value
 end
 
@@ -1944,7 +2077,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.login_response_text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.login_response_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.login_response_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.login_response_text, range, value, display)
@@ -1996,6 +2140,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.logout_reason_text.size = 60
 
 -- Display: Logout Reason Text
 cboe_cfefutures_binaryorderentry_boe_v1_3.logout_reason_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Logout Reason Text: No Value"
+  end
+
   return "Logout Reason Text: "..value
 end
 
@@ -2003,7 +2152,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.logout_reason_text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.logout_reason_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.logout_reason_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.logout_reason_text, range, value, display)
@@ -2058,6 +2218,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_id.size = 20
 
 -- Display: Mass Cancel Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mass Cancel Id: No Value"
+  end
+
   return "Mass Cancel Id: "..value
 end
 
@@ -2065,7 +2230,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_id, range, value, display)
@@ -2081,6 +2257,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_inst.size = 16
 
 -- Display: Mass Cancel Inst
 cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mass Cancel Inst: No Value"
+  end
+
   return "Mass Cancel Inst: "..value
 end
 
@@ -2088,7 +2269,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.mass_cancel_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_inst, range, value, display)
@@ -2606,6 +2798,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.oeoid.size = 18
 
 -- Display: Oeoid
 cboe_cfefutures_binaryorderentry_boe_v1_3.oeoid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Oeoid: No Value"
+  end
+
   return "Oeoid: "..value
 end
 
@@ -2613,7 +2810,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.oeoid.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.oeoid.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.oeoid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.oeoid, range, value, display)
@@ -2952,6 +3160,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.size = 20
 
 -- Display: Orig Cl Ord Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Orig Cl Ord Id: No Value"
+  end
+
   return "Orig Cl Ord Id: "..value
 end
 
@@ -2959,7 +3172,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.orig_cl_ord_id, range, value, display)
@@ -3051,6 +3275,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.password.size = 10
 
 -- Display: Password
 cboe_cfefutures_binaryorderentry_boe_v1_3.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -3058,7 +3287,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.password.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.password, range, value, display)
@@ -3104,6 +3344,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.prevent_match.size = 3
 
 -- Display: Prevent Match
 cboe_cfefutures_binaryorderentry_boe_v1_3.prevent_match.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Prevent Match: No Value"
+  end
+
   return "Prevent Match: "..value
 end
 
@@ -3111,7 +3356,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.prevent_match.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.prevent_match.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.prevent_match.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.prevent_match, range, value, display)
@@ -3150,6 +3406,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.product_name.size = 6
 
 -- Display: Product Name
 cboe_cfefutures_binaryorderentry_boe_v1_3.product_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Name: No Value"
+  end
+
   return "Product Name: "..value
 end
 
@@ -3157,7 +3418,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.product_name.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.product_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.product_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.product_name, range, value, display)
@@ -3460,6 +3732,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.quote_update_id.size = 16
 
 -- Display: Quote Update Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.quote_update_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Update Id: No Value"
+  end
+
   return "Quote Update Id: "..value
 end
 
@@ -3467,7 +3744,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.quote_update_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.quote_update_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.quote_update_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.quote_update_id, range, value, display)
@@ -3638,7 +3926,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_reset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.risk_reset, range, value, display)
@@ -3708,6 +4007,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.risk_status_id.size = 16
 
 -- Display: Risk Status Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.risk_status_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Status Id: No Value"
+  end
+
   return "Risk Status Id: "..value
 end
 
@@ -3715,7 +4019,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.risk_status_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_status_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.risk_status_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.risk_status_id, range, value, display)
@@ -3800,6 +4115,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.session_sub_id.size = 4
 
 -- Display: Session Sub Id
 cboe_cfefutures_binaryorderentry_boe_v1_3.session_sub_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Sub Id: No Value"
+  end
+
   return "Session Sub Id: "..value
 end
 
@@ -3807,7 +4127,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.session_sub_id, range, value, display)
@@ -3956,6 +4287,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.symbol.size = 6
 
 -- Display: Symbol
 cboe_cfefutures_binaryorderentry_boe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -3963,7 +4299,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.symbol, range, value, display)
@@ -4002,6 +4349,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.text.size = 60
 
 -- Display: Text
 cboe_cfefutures_binaryorderentry_boe_v1_3.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
   return "Text: "..value
 end
 
@@ -4009,7 +4361,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.text, range, value, display)
@@ -4179,6 +4542,11 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.username.size = 4
 
 -- Display: Username
 cboe_cfefutures_binaryorderentry_boe_v1_3.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -4186,7 +4554,18 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.username.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.username, range, value, display)
