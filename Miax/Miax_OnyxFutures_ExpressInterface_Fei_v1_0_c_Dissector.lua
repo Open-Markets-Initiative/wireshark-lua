@@ -788,7 +788,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.login_status.size = 1
 
 -- Display: Login Status
 miax_onyxfutures_expressinterface_fei_v1_0_c.login_status.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Login Status: Successful (<whitespace>)"
   end
   if value == "X" then
@@ -833,7 +833,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.logout_reason.size = 1
 
 -- Display: Logout Reason
 miax_onyxfutures_expressinterface_fei_v1_0_c.logout_reason.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Logout Reason: Graceful Logout (<whitespace>)"
   end
   if value == "B" then

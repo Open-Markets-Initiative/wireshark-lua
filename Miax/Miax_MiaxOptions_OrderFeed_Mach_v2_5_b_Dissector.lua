@@ -644,7 +644,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.login_status.size = 1
 
 -- Display: Login Status
 miax_miaxoptions_orderfeed_mach_v2_5_b.login_status.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Login Status: Successful (<whitespace>)"
   end
   if value == "S" then
@@ -692,7 +692,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.logout_reason.size = 1
 
 -- Display: Logout Reason
 miax_miaxoptions_orderfeed_mach_v2_5_b.logout_reason.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Logout Reason: Graceful Logout (<whitespace>)"
   end
   if value == "B" then
