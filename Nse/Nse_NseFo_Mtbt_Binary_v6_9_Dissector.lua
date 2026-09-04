@@ -83,6 +83,10 @@ nse_nsefo_mtbt_binary_v6_9.buy_order_id.size = 8
 
 -- Display: Buy Order Id
 nse_nsefo_mtbt_binary_v6_9.buy_order_id.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Buy Order Id: "..string.format("%.0f", value)
+  end
+
   return "Buy Order Id: "..value
 end
 
@@ -206,6 +210,10 @@ nse_nsefo_mtbt_binary_v6_9.order_id.size = 8
 
 -- Display: Order Id
 nse_nsefo_mtbt_binary_v6_9.order_id.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Id: "..string.format("%.0f", value)
+  end
+
   return "Order Id: "..value
 end
 
@@ -311,6 +319,10 @@ nse_nsefo_mtbt_binary_v6_9.sell_order_id.size = 8
 
 -- Display: Sell Order Id
 nse_nsefo_mtbt_binary_v6_9.sell_order_id.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Sell Order Id: "..string.format("%.0f", value)
+  end
+
   return "Sell Order Id: "..value
 end
 
@@ -384,7 +396,14 @@ nse_nsefo_mtbt_binary_v6_9.timestamp.display = function(value)
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  -- a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
+
+  if not ok then
+    return "Timestamp: "..tostring(value)
+  end
+
+  return "Timestamp: "..text..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

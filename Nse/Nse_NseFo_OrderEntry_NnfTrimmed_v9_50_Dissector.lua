@@ -189,8 +189,14 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.size = 4
 
 -- Display: Activity Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Activity Time: "..value
+  end
+
+  return "Activity Time: "..text
 end
 
 -- Dissect: Activity Time
@@ -443,8 +449,14 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.size = 4
 
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Entry Date Time: "..value
+  end
+
+  return "Entry Date Time: "..text
 end
 
 -- Dissect: Entry Date Time
@@ -490,8 +502,14 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.size = 4
 
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Expiry Date: "..value
+  end
+
+  return "Expiry Date: "..text
 end
 
 -- Dissect: Expiry Date
@@ -704,8 +722,14 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.size = 4
 
 -- Display: Log Time
 nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Log Time: "..value
+  end
+
+  return "Log Time: "..text
 end
 
 -- Dissect: Log Time
@@ -774,6 +798,10 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.size = 8
 
 -- Display: Nnf Field
 nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Nnf Field: "..string.format("%.0f", value)
+  end
+
   return "Nnf Field: "..value
 end
 
@@ -843,6 +871,10 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size = 8
 
 -- Display: Order Number
 nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Number: "..string.format("%.0f", value)
+  end
+
   return "Order Number: "..value
 end
 
@@ -1171,6 +1203,10 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.response_order_number.size = 8
 
 -- Display: Response Order Number
 nse_nsefo_orderentry_nnftrimmed_v9_50.response_order_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Response Order Number: "..string.format("%.0f", value)
+  end
+
   return "Response Order Number: "..value
 end
 

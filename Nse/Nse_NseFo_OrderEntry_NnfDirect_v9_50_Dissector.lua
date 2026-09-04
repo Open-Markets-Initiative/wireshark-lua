@@ -613,8 +613,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.size = 4
 
 -- Display: Activity Time
 nse_nsefo_orderentry_nnfdirect_v9_50.activity_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Activity Time: "..value
+  end
+
+  return "Activity Time: "..text
 end
 
 -- Dissect: Activity Time
@@ -735,6 +741,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ask_size.size = 8
 
 -- Display: Ask Size
 nse_nsefo_orderentry_nnfdirect_v9_50.ask_size.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Ask Size: "..string.format("%.0f", value)
+  end
+
   return "Ask Size: "..value
 end
 
@@ -758,8 +768,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.size = 4
 
 -- Display: Batch 2 Start Time
 nse_nsefo_orderentry_nnfdirect_v9_50.batch_2_start_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Batch 2 Start Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Batch 2 Start Time: "..value
+  end
+
+  return "Batch 2 Start Time: "..text
 end
 
 -- Dissect: Batch 2 Start Time
@@ -811,6 +827,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.bid_size.size = 8
 
 -- Display: Bid Size
 nse_nsefo_orderentry_nnfdirect_v9_50.bid_size.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Bid Size: "..string.format("%.0f", value)
+  end
+
   return "Bid Size: "..value
 end
 
@@ -970,6 +990,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.size = 8
 
 -- Display: Branch Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_buy_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Branch Buy Value Limit: "..string.format("%.0f", value)
+  end
+
   return "Branch Buy Value Limit: "..value
 end
 
@@ -1039,6 +1063,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_sell_value_limit.size = 8
 
 -- Display: Branch Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_sell_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Branch Sell Value Limit: "..string.format("%.0f", value)
+  end
+
   return "Branch Sell Value Limit: "..value
 end
 
@@ -1062,6 +1090,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_buy_value_limit.size = 8
 
 -- Display: Branch Used Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_buy_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Branch Used Buy Value Limit: "..string.format("%.0f", value)
+  end
+
   return "Branch Used Buy Value Limit: "..value
 end
 
@@ -1085,6 +1117,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_sell_value_limit.size = 8
 
 -- Display: Branch Used Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_used_sell_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Branch Used Sell Value Limit: "..string.format("%.0f", value)
+  end
+
   return "Branch Used Sell Value Limit: "..value
 end
 
@@ -1864,6 +1900,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.counter_trader_order_number.size = 8
 
 -- Display: Counter Trader Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.counter_trader_order_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Counter Trader Order Number: "..string.format("%.0f", value)
+  end
+
   return "Counter Trader Order Number: "..value
 end
 
@@ -2301,8 +2341,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.end_time.size = 4
 
 -- Display: End Time
 nse_nsefo_orderentry_nnfdirect_v9_50.end_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "End Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "End Time: "..value
+  end
+
+  return "End Time: "..text
 end
 
 -- Dissect: End Time
@@ -2325,8 +2371,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.size = 4
 
 -- Display: Entry Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Entry Date Time: "..value
+  end
+
+  return "Entry Date Time: "..text
 end
 
 -- Dissect: Entry Date Time
@@ -2349,8 +2401,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.size = 4
 
 -- Display: Entry Date Time 1
 nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Entry Date Time 1: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Entry Date Time 1: "..value
+  end
+
+  return "Entry Date Time 1: "..text
 end
 
 -- Dissect: Entry Date Time 1
@@ -3363,8 +3421,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.size = 4
 
 -- Display: Expiry Date
 nse_nsefo_orderentry_nnfdirect_v9_50.expiry_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Expiry Date: "..value
+  end
+
+  return "Expiry Date: "..text
 end
 
 -- Dissect: Expiry Date
@@ -3387,8 +3451,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.size = 4
 
 -- Display: Expirydate 1
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_1.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Expirydate 1: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Expirydate 1: "..value
+  end
+
+  return "Expirydate 1: "..text
 end
 
 -- Dissect: Expirydate 1
@@ -3411,8 +3481,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.size = 4
 
 -- Display: Expirydate 2
 nse_nsefo_orderentry_nnfdirect_v9_50.expirydate_2.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Expirydate 2: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Expirydate 2: "..value
+  end
+
+  return "Expirydate 2: "..text
 end
 
 -- Dissect: Expirydate 2
@@ -4229,8 +4305,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.size = 4
 
 -- Display: Inner Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.inner_log_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Inner Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Inner Log Time: "..value
+  end
+
+  return "Inner Log Time: "..text
 end
 
 -- Dissect: Inner Log Time
@@ -4575,8 +4657,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.size = 4
 
 -- Display: Last Modified Date Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_date_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Modified Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Modified Date Time: "..value
+  end
+
+  return "Last Modified Date Time: "..text
 end
 
 -- Dissect: Last Modified Date Time
@@ -4599,8 +4687,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.size = 4
 
 -- Display: Last Password Change Date
 nse_nsefo_orderentry_nnfdirect_v9_50.last_password_change_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Password Change Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Password Change Date: "..value
+  end
+
+  return "Last Password Change Date: "..text
 end
 
 -- Dissect: Last Password Change Date
@@ -4623,8 +4717,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.size = 4
 
 -- Display: Last Update Index Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_index_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Update Index Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Update Index Time: "..value
+  end
+
+  return "Last Update Index Time: "..text
 end
 
 -- Dissect: Last Update Index Time
@@ -4647,8 +4747,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.size = 4
 
 -- Display: Last Update Instrument Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_instrument_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Update Instrument Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Update Instrument Time: "..value
+  end
+
+  return "Last Update Instrument Time: "..text
 end
 
 -- Dissect: Last Update Instrument Time
@@ -4671,8 +4777,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.size = 4
 
 -- Display: Last Update Participant Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_participant_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Update Participant Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Update Participant Time: "..value
+  end
+
+  return "Last Update Participant Time: "..text
 end
 
 -- Dissect: Last Update Participant Time
@@ -4695,8 +4807,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.size = 4
 
 -- Display: Last Update Portfolio T Ime
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_portfolio_t_ime.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Update Portfolio T Ime: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Update Portfolio T Ime: "..value
+  end
+
+  return "Last Update Portfolio T Ime: "..text
 end
 
 -- Dissect: Last Update Portfolio T Ime
@@ -4719,8 +4837,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.size = 4
 
 -- Display: Last Update Security Time
 nse_nsefo_orderentry_nnfdirect_v9_50.last_update_security_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Last Update Security Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Last Update Security Time: "..value
+  end
+
+  return "Last Update Security Time: "..text
 end
 
 -- Dissect: Last Update Security Time
@@ -4858,8 +4982,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.log_time.size = 4
 
 -- Display: Log Time
 nse_nsefo_orderentry_nnfdirect_v9_50.log_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Log Time: "..value
+  end
+
+  return "Log Time: "..text
 end
 
 -- Dissect: Log Time
@@ -5484,6 +5614,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.size = 8
 
 -- Display: Nnf Field
 nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Nnf Field: "..string.format("%.0f", value)
+  end
+
   return "Nnf Field: "..value
 end
 
@@ -6042,6 +6176,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ord_qty_buff.size = 8
 
 -- Display: Ord Qty Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.ord_qty_buff.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Ord Qty Buff: "..string.format("%.0f", value)
+  end
+
   return "Ord Qty Buff: "..value
 end
 
@@ -6065,6 +6203,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ord_val_buff.size = 8
 
 -- Display: Ord Val Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.ord_val_buff.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Ord Val Buff: "..string.format("%.0f", value)
+  end
+
   return "Ord Val Buff: "..value
 end
 
@@ -6088,6 +6230,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_number.size = 8
 
 -- Display: Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.order_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Number: "..string.format("%.0f", value)
+  end
+
   return "Order Number: "..value
 end
 
@@ -6111,6 +6257,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.size = 8
 
 -- Display: Order Number 1
 nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Number 1: "..string.format("%.0f", value)
+  end
+
   return "Order Number 1: "..value
 end
 
@@ -6134,6 +6284,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_qty_limit.size = 8
 
 -- Display: Order Qty Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.order_qty_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Qty Limit: "..string.format("%.0f", value)
+  end
+
   return "Order Qty Limit: "..value
 end
 
@@ -6226,6 +6380,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_val_limit.size = 8
 
 -- Display: Order Val Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.order_val_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Order Val Limit: "..string.format("%.0f", value)
+  end
+
   return "Order Val Limit: "..value
 end
 
@@ -7000,8 +7158,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_date.size = 4
 
 -- Display: Report Date
 nse_nsefo_orderentry_nnfdirect_v9_50.report_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp
-  return "Report Date: "..os.date("!%Y-%m-%d %H:%M:%S", value + 315532800)
+  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
+
+  if not ok then
+    return "Report Date: "..value
+  end
+
+  return "Report Date: "..text
 end
 
 -- Dissect: Report Date
@@ -7507,6 +7671,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.response_order_number.size = 8
 
 -- Display: Response Order Number
 nse_nsefo_orderentry_nnfdirect_v9_50.response_order_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Response Order Number: "..string.format("%.0f", value)
+  end
+
   return "Response Order Number: "..value
 end
 
@@ -7760,6 +7928,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.size = 8
 
 -- Display: Sequence Number
 nse_nsefo_orderentry_nnfdirect_v9_50.sequence_number.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Sequence Number: "..string.format("%.0f", value)
+  end
+
   return "Sequence Number: "..value
 end
 
@@ -8013,6 +8185,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_qty_buff.size = 8
 
 -- Display: Spd Ord Qty Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_qty_buff.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Spd Ord Qty Buff: "..string.format("%.0f", value)
+  end
+
   return "Spd Ord Qty Buff: "..value
 end
 
@@ -8036,6 +8212,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_val_buff.size = 8
 
 -- Display: Spd Ord Val Buff
 nse_nsefo_orderentry_nnfdirect_v9_50.spd_ord_val_buff.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Spd Ord Val Buff: "..string.format("%.0f", value)
+  end
+
   return "Spd Ord Val Buff: "..value
 end
 
@@ -8590,6 +8770,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.size = 8
 
 -- Display: Total Trades
 nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Total Trades: "..string.format("%.0f", value)
+  end
+
   return "Total Trades: "..value
 end
 
@@ -8613,6 +8797,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.size = 8
 
 -- Display: Total Value Traded
 nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "Total Value Traded: "..string.format("%.0f", value)
+  end
+
   return "Total Value Traded: "..value
 end
 
@@ -9288,6 +9476,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_buy_value_limit.size = 8
 
 -- Display: User Order Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_buy_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "User Order Buy Value Limit: "..string.format("%.0f", value)
+  end
+
   return "User Order Buy Value Limit: "..value
 end
 
@@ -9311,6 +9503,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_sell_value_limit.size = 8
 
 -- Display: User Order Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_sell_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "User Order Sell Value Limit: "..string.format("%.0f", value)
+  end
+
   return "User Order Sell Value Limit: "..value
 end
 
@@ -9334,6 +9530,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_buy_value_limit.size = 8
 
 -- Display: User Order Used Buy Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_buy_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "User Order Used Buy Value Limit: "..string.format("%.0f", value)
+  end
+
   return "User Order Used Buy Value Limit: "..value
 end
 
@@ -9357,6 +9557,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_sell_value_limit.size = 8
 
 -- Display: User Order Used Sell Value Limit
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_used_sell_value_limit.display = function(value)
+  if value == math.floor(value) and math.abs(value) >= 100000000000000 then
+    return "User Order Used Sell Value Limit: "..string.format("%.0f", value)
+  end
+
   return "User Order Used Sell Value Limit: "..value
 end
 
