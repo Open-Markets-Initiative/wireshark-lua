@@ -33,7 +33,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.bid_price = ProtoField.new("Bid 
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.bid_size = ProtoField.new("Bid Size", "nse.nsefo.orderentry.nnfdirect.v9.50.bidsize", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.board_lot_quantity = ProtoField.new("Board Lot Quantity", "nse.nsefo.orderentry.nnfdirect.v9.50.boardlotquantity", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.boc = ProtoField.new("Boc", "nse.nsefo.orderentry.nnfdirect.v9.50.boc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.book_type = ProtoField.new("Book Type", "nse.nsefo.orderentry.nnfdirect.v9.50.booktype", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.book_type = ProtoField.new("Book Type", "nse.nsefo.orderentry.nnfdirect.v9.50.booktype", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.book_type_1 = ProtoField.new("Book Type 1", "nse.nsefo.orderentry.nnfdirect.v9.50.booktype1", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.books_merged = ProtoField.new("Books Merged", "nse.nsefo.orderentry.nnfdirect.v9.50.booksmerged", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.box_id = ProtoField.new("Box Id", "nse.nsefo.orderentry.nnfdirect.v9.50.boxid", ftypes.INT16)
@@ -68,7 +68,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.chg_open_interest = ProtoField.n
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.clearing_status = ProtoField.new("Clearing Status", "nse.nsefo.orderentry.nnfdirect.v9.50.clearingstatus", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.close = ProtoField.new("Close", "nse.nsefo.orderentry.nnfdirect.v9.50.close", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.closeout_flag = ProtoField.new("Closeout Flag", "nse.nsefo.orderentry.nnfdirect.v9.50.closeoutflag", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.closing = ProtoField.new("Closing", "nse.nsefo.orderentry.nnfdirect.v9.50.closing", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.closing = ProtoField.new("Closing", "nse.nsefo.orderentry.nnfdirect.v9.50.closing", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.closing_price = ProtoField.new("Closing Price", "nse.nsefo.orderentry.nnfdirect.v9.50.closingprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.col = ProtoField.new("Col", "nse.nsefo.orderentry.nnfdirect.v9.50.col", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.col_user_bit = ProtoField.new("Col User Bit", "nse.nsefo.orderentry.nnfdirect.v9.50.coluserbit", ftypes.STRING)
@@ -123,12 +123,13 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_price = ProtoField.new("Fil
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnfdirect.v9.50.fillquantity", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsefo.orderentry.nnfdirect.v9.50.fillvolume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnfdirect.v9.50.filler", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filler1", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filler1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_116 = ProtoField.new("Filler 116", "nse.nsefo.orderentry.nnfdirect.v9.50.filler116", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_17 = ProtoField.new("Filler 17", "nse.nsefo.orderentry.nnfdirect.v9.50.filler17", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_18 = ProtoField.new("Filler 18", "nse.nsefo.orderentry.nnfdirect.v9.50.filler18", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.orderentry.nnfdirect.v9.50.filler2", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3 = ProtoField.new("Filler 3", "nse.nsefo.orderentry.nnfdirect.v9.50.filler3", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4 = ProtoField.new("Filler 4", "nse.nsefo.orderentry.nnfdirect.v9.50.filler4", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsefo.orderentry.nnfdirect.v9.50.filler9", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_options_1 = ProtoField.new("Filler Options 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filleroptions1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_y = ProtoField.new("Filler Y", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery", ftypes.STRING)
@@ -143,7 +144,8 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup_flag = ProtoField.new("Gi
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsefo.orderentry.nnfdirect.v9.50.goodtilldate", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.good_till_date_1 = ProtoField.new("Good Till Date 1", "nse.nsefo.orderentry.nnfdirect.v9.50.goodtilldate1", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.gtc = ProtoField.new("Gtc", "nse.nsefo.orderentry.nnfdirect.v9.50.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.high = ProtoField.new("High", "nse.nsefo.orderentry.nnfdirect.v9.50.high", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp", ftypes.INT64)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.high = ProtoField.new("High", "nse.nsefo.orderentry.nnfdirect.v9.50.high", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.high_price = ProtoField.new("High Price", "nse.nsefo.orderentry.nnfdirect.v9.50.highprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.hipd = ProtoField.new("Hipd", "nse.nsefo.orderentry.nnfdirect.v9.50.hipd", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.host_switch_context = ProtoField.new("Host Switch Context", "nse.nsefo.orderentry.nnfdirect.v9.50.hostswitchcontext", ftypes.STRING)
@@ -189,11 +191,16 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.limit_high = ProtoField.new("Lim
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.limit_low = ProtoField.new("Limit Low", "nse.nsefo.orderentry.nnfdirect.v9.50.limitlow", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.local_database_data = ProtoField.new("Local Database Data", "nse.nsefo.orderentry.nnfdirect.v9.50.localdatabasedata", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnfdirect.v9.50.logtime", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.low = ProtoField.new("Low", "nse.nsefo.orderentry.nnfdirect.v9.50.low", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.low = ProtoField.new("Low", "nse.nsefo.orderentry.nnfdirect.v9.50.low", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.low_price = ProtoField.new("Low Price", "nse.nsefo.orderentry.nnfdirect.v9.50.lowprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.lowpd = ProtoField.new("Lowpd", "nse.nsefo.orderentry.nnfdirect.v9.50.lowpd", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market = ProtoField.new("Market", "nse.nsefo.orderentry.nnfdirect.v9.50.market", ftypes.UINT16, {[0]="Market Order", [1]="Not A Market Order"}, base.DEC, 0x4000)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_closing_index = ProtoField.new("Market Closing Index", "nse.nsefo.orderentry.nnfdirect.v9.50.marketclosingindex", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_high_index = ProtoField.new("Market High Index", "nse.nsefo.orderentry.nnfdirect.v9.50.markethighindex", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_index = ProtoField.new("Market Index", "nse.nsefo.orderentry.nnfdirect.v9.50.marketindex", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_low_index = ProtoField.new("Market Low Index", "nse.nsefo.orderentry.nnfdirect.v9.50.marketlowindex", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_opening_index = ProtoField.new("Market Opening Index", "nse.nsefo.orderentry.nnfdirect.v9.50.marketopeningindex", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_start_index = ProtoField.new("Market Start Index", "nse.nsefo.orderentry.nnfdirect.v9.50.marketstartindex", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_status_auction = ProtoField.new("Market Status Auction", "nse.nsefo.orderentry.nnfdirect.v9.50.marketstatusauction", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_status_normal = ProtoField.new("Market Status Normal", "nse.nsefo.orderentry.nnfdirect.v9.50.marketstatusnormal", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_status_oddlot = ProtoField.new("Market Status Oddlot", "nse.nsefo.orderentry.nnfdirect.v9.50.marketstatusoddlot", ftypes.INT16)
@@ -241,9 +248,10 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open = ProtoField.new("Open", "n
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_close = ProtoField.new("Open Close", "nse.nsefo.orderentry.nnfdirect.v9.50.openclose", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_close_1 = ProtoField.new("Open Close 1", "nse.nsefo.orderentry.nnfdirect.v9.50.openclose1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_close_2 = ProtoField.new("Open Close 2", "nse.nsefo.orderentry.nnfdirect.v9.50.openclose2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest = ProtoField.new("Open Interest", "nse.nsefo.orderentry.nnfdirect.v9.50.openinterest", ftypes.INT64)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest_double = ProtoField.new("Open Interest Double", "nse.nsefo.orderentry.nnfdirect.v9.50.openinterestdouble", ftypes.DOUBLE)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest_long = ProtoField.new("Open Interest Long", "nse.nsefo.orderentry.nnfdirect.v9.50.openinterestlong", ftypes.INT64)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_price = ProtoField.new("Open Price", "nse.nsefo.orderentry.nnfdirect.v9.50.openprice", ftypes.DOUBLE)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.opening = ProtoField.new("Opening", "nse.nsefo.orderentry.nnfdirect.v9.50.opening", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.opening = ProtoField.new("Opening", "nse.nsefo.orderentry.nnfdirect.v9.50.opening", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.openpd = ProtoField.new("Openpd", "nse.nsefo.orderentry.nnfdirect.v9.50.openpd", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.option_type = ProtoField.new("Option Type", "nse.nsefo.orderentry.nnfdirect.v9.50.optiontype", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.optiontype_1 = ProtoField.new("Optiontype 1", "nse.nsefo.orderentry.nnfdirect.v9.50.optiontype1", ftypes.STRING)
@@ -352,7 +360,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.st_market_status = ProtoField.ne
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.st_order_flags = ProtoField.new("St Order Flags", "nse.nsefo.orderentry.nnfdirect.v9.50.storderflags", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.st_pl_market_status = ProtoField.new("St Pl Market Status", "nse.nsefo.orderentry.nnfdirect.v9.50.stplmarketstatus", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.st_stock_eligible_indicators = ProtoField.new("St Stock Eligible Indicators", "nse.nsefo.orderentry.nnfdirect.v9.50.ststockeligibleindicators", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.start = ProtoField.new("Start", "nse.nsefo.orderentry.nnfdirect.v9.50.start", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.start = ProtoField.new("Start", "nse.nsefo.orderentry.nnfdirect.v9.50.start", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.start_alpha_1 = ProtoField.new("Start Alpha 1", "nse.nsefo.orderentry.nnfdirect.v9.50.startalpha1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.static_cryptographic_iv = ProtoField.new("Static Cryptographic Iv", "nse.nsefo.orderentry.nnfdirect.v9.50.staticcryptographiciv", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.status = ProtoField.new("Status", "nse.nsefo.orderentry.nnfdirect.v9.50.status", ftypes.INT16)
@@ -369,17 +377,18 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16 = ProtoField.n
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.tick_size = ProtoField.new("Tick Size", "nse.nsefo.orderentry.nnfdirect.v9.50.ticksize", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.timestamp = ProtoField.new("Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp", ftypes.INT64)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.token = ProtoField.new("Token", "nse.nsefo.orderentry.nnfdirect.v9.50.token", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.token_1 = ProtoField.new("Token 1", "nse.nsefo.orderentry.nnfdirect.v9.50.token1", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.token_2 = ProtoField.new("Token 2", "nse.nsefo.orderentry.nnfdirect.v9.50.token2", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.token_no = ProtoField.new("Token No", "nse.nsefo.orderentry.nnfdirect.v9.50.tokenno", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded = ProtoField.new("Total Quantity Traded", "nse.nsefo.orderentry.nnfdirect.v9.50.totalquantitytraded", ftypes.INT64)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded_long = ProtoField.new("Total Quantity Traded Long", "nse.nsefo.orderentry.nnfdirect.v9.50.totalquantitytradedlong", ftypes.INT64)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded_short = ProtoField.new("Total Quantity Traded Short", "nse.nsefo.orderentry.nnfdirect.v9.50.totalquantitytradedshort", ftypes.UINT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_trades = ProtoField.new("Total Trades", "nse.nsefo.orderentry.nnfdirect.v9.50.totaltrades", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_value_traded = ProtoField.new("Total Value Traded", "nse.nsefo.orderentry.nnfdirect.v9.50.totalvaluetraded", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_vol_remaining_1 = ProtoField.new("Total Vol Remaining 1", "nse.nsefo.orderentry.nnfdirect.v9.50.totalvolremaining1", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_vol_remaining_2 = ProtoField.new("Total Vol Remaining 2", "nse.nsefo.orderentry.nnfdirect.v9.50.totalvolremaining2", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_volume_remaining = ProtoField.new("Total Volume Remaining", "nse.nsefo.orderentry.nnfdirect.v9.50.totalvolumeremaining", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trade_book_type = ProtoField.new("Trade Book Type", "nse.nsefo.orderentry.nnfdirect.v9.50.tradebooktype", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.traded = ProtoField.new("Traded", "nse.nsefo.orderentry.nnfdirect.v9.50.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trader_id = ProtoField.new("Trader Id", "nse.nsefo.orderentry.nnfdirect.v9.50.traderid", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trader_id_1 = ProtoField.new("Trader Id 1", "nse.nsefo.orderentry.nnfdirect.v9.50.traderid1", ftypes.INT32)
@@ -865,29 +874,29 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type = {}
 
 -- Size: Book Type
-nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size = 1
+nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size = 2
 
 -- Display: Book Type
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type.display = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Book Type: Regular Lot Order (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Book Type: Special Terms Order (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Book Type: Stop Loss Or Mit Order (3)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Book Type: Negotiated Order (4)"
   end
-  if value == "5" then
+  if value == 5 then
     return "Book Type: Odd Lot Order (5)"
   end
-  if value == "6" then
+  if value == 6 then
     return "Book Type: Spot Order (6)"
   end
-  if value == "7" then
+  if value == 7 then
     return "Book Type: Auction Order (7)"
   end
 
@@ -898,7 +907,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:int()
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.book_type, range, value, display)
@@ -1682,7 +1691,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.closing = {}
 
 -- Size: Closing
-nse_nsefo_orderentry_nnfdirect_v9_50.closing.size = 2
+nse_nsefo_orderentry_nnfdirect_v9_50.closing.size = 4
 
 -- Display: Closing
 nse_nsefo_orderentry_nnfdirect_v9_50.closing.display = function(value)
@@ -3623,7 +3632,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_1 = {}
 
 -- Size: Filler 1
-nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size = 4
+nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size = 1
 
 -- Display: Filler 1
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.display = function(value)
@@ -3634,7 +3643,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:string()
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1, range, value, display)
@@ -3753,6 +3762,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect = function(buffer, offset,
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler 4
+nse_nsefo_orderentry_nnfdirect_v9_50.filler_4 = {}
+
+-- Size: Filler 4
+nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size = 4
+
+-- Display: Filler 4
+nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.display = function(value)
+  return "Filler 4: "..value
+end
+
+-- Dissect: Filler 4
+nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4, range, value, display)
 
   return offset + length, value
 end
@@ -4010,11 +4042,45 @@ nse_nsefo_orderentry_nnfdirect_v9_50.good_till_date_1.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Header Timestamp
+nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp = {}
+
+-- Size: Header Timestamp
+nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.size = 8
+
+-- Display: Header Timestamp
+nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.display = function(value)
+  -- Parse Dos epoch nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- a value os.date cannot represent is shown raw rather than aborting the dissection
+  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
+
+  if not ok then
+    return "Header Timestamp: "..tostring(value)
+  end
+
+  return "Header Timestamp: "..text..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Header Timestamp
+nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- High
 nse_nsefo_orderentry_nnfdirect_v9_50.high = {}
 
 -- Size: High
-nse_nsefo_orderentry_nnfdirect_v9_50.high.size = 2
+nse_nsefo_orderentry_nnfdirect_v9_50.high.size = 4
 
 -- Display: High
 nse_nsefo_orderentry_nnfdirect_v9_50.high.display = function(value)
@@ -4980,7 +5046,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.low = {}
 
 -- Size: Low
-nse_nsefo_orderentry_nnfdirect_v9_50.low.size = 2
+nse_nsefo_orderentry_nnfdirect_v9_50.low.size = 4
 
 -- Display: Low
 nse_nsefo_orderentry_nnfdirect_v9_50.low.display = function(value)
@@ -5051,6 +5117,52 @@ nse_nsefo_orderentry_nnfdirect_v9_50.lowpd.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Market Closing Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index = {}
+
+-- Size: Market Closing Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.size = 2
+
+-- Display: Market Closing Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.display = function(value)
+  return "Market Closing Index: "..value
+end
+
+-- Dissect: Market Closing Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_closing_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market High Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index = {}
+
+-- Size: Market High Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.size = 2
+
+-- Display: Market High Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.display = function(value)
+  return "Market High Index: "..value
+end
+
+-- Dissect: Market High Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_high_index, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Index
 nse_nsefo_orderentry_nnfdirect_v9_50.market_index = {}
 
@@ -5070,6 +5182,75 @@ nse_nsefo_orderentry_nnfdirect_v9_50.market_index.dissect = function(buffer, off
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Low Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index = {}
+
+-- Size: Market Low Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.size = 2
+
+-- Display: Market Low Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.display = function(value)
+  return "Market Low Index: "..value
+end
+
+-- Dissect: Market Low Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_low_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Opening Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index = {}
+
+-- Size: Market Opening Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.size = 2
+
+-- Display: Market Opening Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.display = function(value)
+  return "Market Opening Index: "..value
+end
+
+-- Dissect: Market Opening Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_opening_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Start Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index = {}
+
+-- Size: Market Start Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.size = 2
+
+-- Display: Market Start Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.display = function(value)
+  return "Market Start Index: "..value
+end
+
+-- Dissect: Market Start Index
+nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_start_index, range, value, display)
 
   return offset + length, value
 end
@@ -5969,25 +6150,48 @@ nse_nsefo_orderentry_nnfdirect_v9_50.open_close_2.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Open Interest
-nse_nsefo_orderentry_nnfdirect_v9_50.open_interest = {}
+-- Open Interest Double
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double = {}
 
--- Size: Open Interest
-nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.size = 8
+-- Size: Open Interest Double
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.size = 8
 
--- Display: Open Interest
-nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.display = function(value)
-  return "Open Interest: "..value
+-- Display: Open Interest Double
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.display = function(value)
+  return "Open Interest Double: "..string.format("%.0f", value)
 end
 
--- Dissect: Open Interest
-nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.size
+-- Dissect: Open Interest Double
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.size
+  local range = buffer(offset, length)
+  local value = range:float()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest_double, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest Long
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long = {}
+
+-- Size: Open Interest Long
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.size = 8
+
+-- Display: Open Interest Long
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.display = function(value)
+  return "Open Interest Long: "..value
+end
+
+-- Dissect: Open Interest Long
+nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.open_interest_long, range, value, display)
 
   return offset + length, value
 end
@@ -6025,7 +6229,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.opening = {}
 
 -- Size: Opening
-nse_nsefo_orderentry_nnfdirect_v9_50.opening.size = 2
+nse_nsefo_orderentry_nnfdirect_v9_50.opening.size = 4
 
 -- Display: Opening
 nse_nsefo_orderentry_nnfdirect_v9_50.opening.display = function(value)
@@ -8163,7 +8367,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.start = {}
 
 -- Size: Start
-nse_nsefo_orderentry_nnfdirect_v9_50.start.size = 2
+nse_nsefo_orderentry_nnfdirect_v9_50.start.size = 4
 
 -- Display: Start
 nse_nsefo_orderentry_nnfdirect_v9_50.start.display = function(value)
@@ -8552,29 +8756,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_2.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Timestamp
-nse_nsefo_orderentry_nnfdirect_v9_50.timestamp = {}
-
--- Size: Timestamp
-nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.size = 8
-
--- Display: Timestamp
-nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Token
 nse_nsefo_orderentry_nnfdirect_v9_50.token = {}
 
@@ -8667,25 +8848,48 @@ nse_nsefo_orderentry_nnfdirect_v9_50.token_no.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Total Quantity Traded
-nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded = {}
+-- Total Quantity Traded Long
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long = {}
 
--- Size: Total Quantity Traded
-nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.size = 8
+-- Size: Total Quantity Traded Long
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.size = 8
 
--- Display: Total Quantity Traded
-nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.display = function(value)
-  return "Total Quantity Traded: "..value
+-- Display: Total Quantity Traded Long
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.display = function(value)
+  return "Total Quantity Traded Long: "..value
 end
 
--- Dissect: Total Quantity Traded
-nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.size
+-- Dissect: Total Quantity Traded Long
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Quantity Traded Short
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short = {}
+
+-- Size: Total Quantity Traded Short
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.size = 4
+
+-- Display: Total Quantity Traded Short
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.display = function(value)
+  return "Total Quantity Traded Short: "..value
+end
+
+-- Dissect: Total Quantity Traded Short
+nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_quantity_traded_short, range, value, display)
 
   return offset + length, value
 end
@@ -8801,6 +9005,29 @@ nse_nsefo_orderentry_nnfdirect_v9_50.total_volume_remaining.dissect = function(b
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.total_volume_remaining.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.total_volume_remaining, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Book Type
+nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type = {}
+
+-- Size: Trade Book Type
+nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.size = 1
+
+-- Display: Trade Book Type
+nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.display = function(value)
+  return "Trade Book Type: "..value
+end
+
+-- Dissect: Trade Book Type
+nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trade_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -10182,7 +10409,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   -- Participant Type 1: CHAR
   index, participant_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: LONG
+  -- Filler 1: CHAR
   index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
 
   -- Competitor Period 1: SHORT
@@ -10485,7 +10712,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   -- Account Number: CHAR
   index, account_number = nse_nsefo_orderentry_nnfdirect_v9_50.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type: CHAR
+  -- Book Type: SHORT
   index, book_type = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
@@ -10751,7 +10978,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.giveup.fields = function(buffer, offset, pa
   -- Buy Sell: SHORT
   index, buy_sell = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.dissect(buffer, index, packet, parent)
 
-  -- Book Type: CHAR
+  -- Book Type: SHORT
   index, book_type = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.dissect(buffer, index, packet, parent)
 
   -- Last Modified Date Time: LONG
@@ -11746,8 +11973,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contracts_details.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.limit_high.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.limit_low.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.size
 
@@ -11799,10 +12026,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contracts_details.fields = function(buffer,
   -- Open: LONG
   index, open = nse_nsefo_orderentry_nnfdirect_v9_50.open.dissect(buffer, index, packet, parent)
 
-  -- High: SHORT
+  -- High: LONG
   index, high = nse_nsefo_orderentry_nnfdirect_v9_50.high.dissect(buffer, index, packet, parent)
 
-  -- Low: SHORT
+  -- Low: LONG
   index, low = nse_nsefo_orderentry_nnfdirect_v9_50.low.dissect(buffer, index, packet, parent)
 
   -- Last: LONG
@@ -11823,11 +12050,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contracts_details.fields = function(buffer,
   -- Total Trades: DOUBLE
   index, total_trades = nse_nsefo_orderentry_nnfdirect_v9_50.total_trades.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: LONG LONG
-  index, open_interest = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.dissect(buffer, index, packet, parent)
+  -- Open Interest Double: DOUBLE
+  index, open_interest_double = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: LONG
-  index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler 4: LONG
+  index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
 
   -- Filler 2: LONG
   index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
@@ -11911,7 +12138,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_details.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.prev_close.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.life_high.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.life_low.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.size
 
@@ -11933,10 +12160,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_details.fields = function(buffer, off
   -- Open: LONG
   index, open = nse_nsefo_orderentry_nnfdirect_v9_50.open.dissect(buffer, index, packet, parent)
 
-  -- High: SHORT
+  -- High: LONG
   index, high = nse_nsefo_orderentry_nnfdirect_v9_50.high.dissect(buffer, index, packet, parent)
 
-  -- Low: SHORT
+  -- Low: LONG
   index, low = nse_nsefo_orderentry_nnfdirect_v9_50.low.dissect(buffer, index, packet, parent)
 
   -- Last: LONG
@@ -11954,8 +12181,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_details.fields = function(buffer, off
   -- Life Low: LONG
   index, life_low = nse_nsefo_orderentry_nnfdirect_v9_50.life_low.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: LONG
-  index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler 4: LONG
+  index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
 
   -- Filler 2: LONG
   index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
@@ -12528,19 +12755,19 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.fields = function(buffer, of
   -- Industry Name: CHAR
   index, industry_name = nse_nsefo_orderentry_nnfdirect_v9_50.industry_name.dissect(buffer, index, packet, parent)
 
-  -- Opening: SHORT
+  -- Opening: LONG
   index, opening = nse_nsefo_orderentry_nnfdirect_v9_50.opening.dissect(buffer, index, packet, parent)
 
-  -- High: SHORT
+  -- High: LONG
   index, high = nse_nsefo_orderentry_nnfdirect_v9_50.high.dissect(buffer, index, packet, parent)
 
-  -- Low: SHORT
+  -- Low: LONG
   index, low = nse_nsefo_orderentry_nnfdirect_v9_50.low.dissect(buffer, index, packet, parent)
 
-  -- Closing: SHORT
+  -- Closing: LONG
   index, closing = nse_nsefo_orderentry_nnfdirect_v9_50.closing.dissect(buffer, index, packet, parent)
 
-  -- Start: SHORT
+  -- Start: LONG
   index, start = nse_nsefo_orderentry_nnfdirect_v9_50.start.dissect(buffer, index, packet, parent)
 
   return index
@@ -12623,11 +12850,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_index = {}
 
 -- Size: Mkt Index
 nse_nsefo_orderentry_nnfdirect_v9_50.mkt_index.size =
-  nse_nsefo_orderentry_nnfdirect_v9_50.opening.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.high.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.low.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.closing.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.start.size
+  nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.size
 
 -- Display: Mkt Index
 nse_nsefo_orderentry_nnfdirect_v9_50.mkt_index.display = function(packet, parent, length)
@@ -12638,20 +12865,20 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.mkt_index.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Opening: SHORT
-  index, opening = nse_nsefo_orderentry_nnfdirect_v9_50.opening.dissect(buffer, index, packet, parent)
+  -- Market Opening Index: SHORT
+  index, market_opening_index = nse_nsefo_orderentry_nnfdirect_v9_50.market_opening_index.dissect(buffer, index, packet, parent)
 
-  -- High: SHORT
-  index, high = nse_nsefo_orderentry_nnfdirect_v9_50.high.dissect(buffer, index, packet, parent)
+  -- Market High Index: SHORT
+  index, market_high_index = nse_nsefo_orderentry_nnfdirect_v9_50.market_high_index.dissect(buffer, index, packet, parent)
 
-  -- Low: SHORT
-  index, low = nse_nsefo_orderentry_nnfdirect_v9_50.low.dissect(buffer, index, packet, parent)
+  -- Market Low Index: SHORT
+  index, market_low_index = nse_nsefo_orderentry_nnfdirect_v9_50.market_low_index.dissect(buffer, index, packet, parent)
 
-  -- Closing: SHORT
-  index, closing = nse_nsefo_orderentry_nnfdirect_v9_50.closing.dissect(buffer, index, packet, parent)
+  -- Market Closing Index: SHORT
+  index, market_closing_index = nse_nsefo_orderentry_nnfdirect_v9_50.market_closing_index.dissect(buffer, index, packet, parent)
 
-  -- Start: SHORT
-  index, start = nse_nsefo_orderentry_nnfdirect_v9_50.start.dissect(buffer, index, packet, parent)
+  -- Market Start Index: SHORT
+  index, market_start_index = nse_nsefo_orderentry_nnfdirect_v9_50.market_start_index.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12733,10 +12960,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.high_price.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.low_price.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.closing_price.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.previous_close_price.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.chg_open_interest.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.indicator.size
 
@@ -12773,8 +13000,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields = function(buf
   -- Closing Price: LONG
   index, closing_price = nse_nsefo_orderentry_nnfdirect_v9_50.closing_price.dissect(buffer, index, packet, parent)
 
-  -- Total Quantity Traded: LONG LONG
-  index, total_quantity_traded = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.dissect(buffer, index, packet, parent)
+  -- Total Quantity Traded Short: UNSIGNED LONG
+  index, total_quantity_traded_short = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_short.dissect(buffer, index, packet, parent)
 
   -- Total Value Traded: DOUBLE
   index, total_value_traded = nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.dissect(buffer, index, packet, parent)
@@ -12782,8 +13009,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.fields = function(buf
   -- Previous Close Price: LONG
   index, previous_close_price = nse_nsefo_orderentry_nnfdirect_v9_50.previous_close_price.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: LONG LONG
-  index, open_interest = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.dissect(buffer, index, packet, parent)
+  -- Open Interest Long: LONG LONG
+  index, open_interest_long = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.dissect(buffer, index, packet, parent)
 
   -- Chg Open Interest: LONG LONG
   index, chg_open_interest = nse_nsefo_orderentry_nnfdirect_v9_50.chg_open_interest.dissect(buffer, index, packet, parent)
@@ -12877,10 +13104,10 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.high_price.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.low_price.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.closing_price.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.previous_close_price.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.chg_open_interest.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.indicator.size
 
@@ -12917,8 +13144,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields = function(buffer, of
   -- Closing Price: LONG
   index, closing_price = nse_nsefo_orderentry_nnfdirect_v9_50.closing_price.dissect(buffer, index, packet, parent)
 
-  -- Total Quantity Traded: LONG LONG
-  index, total_quantity_traded = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded.dissect(buffer, index, packet, parent)
+  -- Total Quantity Traded Long: LONG LONG
+  index, total_quantity_traded_long = nse_nsefo_orderentry_nnfdirect_v9_50.total_quantity_traded_long.dissect(buffer, index, packet, parent)
 
   -- Total Value Traded: DOUBLE
   index, total_value_traded = nse_nsefo_orderentry_nnfdirect_v9_50.total_value_traded.dissect(buffer, index, packet, parent)
@@ -12926,8 +13153,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.fields = function(buffer, of
   -- Previous Close Price: LONG
   index, previous_close_price = nse_nsefo_orderentry_nnfdirect_v9_50.previous_close_price.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: LONG LONG
-  index, open_interest = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest.dissect(buffer, index, packet, parent)
+  -- Open Interest Long: LONG LONG
+  index, open_interest_long = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_long.dissect(buffer, index, packet, parent)
 
   -- Chg Open Interest: LONG LONG
   index, chg_open_interest = nse_nsefo_orderentry_nnfdirect_v9_50.chg_open_interest.dissect(buffer, index, packet, parent)
@@ -13495,7 +13722,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.open_close.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_open_close.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.old_account_number.size + 
@@ -13599,8 +13826,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields = functio
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsefo_orderentry_nnfdirect_v9_50.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type: CHAR
-  index, book_type = nse_nsefo_orderentry_nnfdirect_v9_50.book_type.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsefo_orderentry_nnfdirect_v9_50.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   index, third_reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
@@ -15859,7 +16086,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_header.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.alpha_char.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.trader_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.error_code.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_2.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.message_length.size
@@ -15888,8 +16115,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_header.fields = function(buffer, of
   -- Error Code: SHORT
   index, error_code = nse_nsefo_orderentry_nnfdirect_v9_50.error_code.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: LONG LONG
-  index, timestamp = nse_nsefo_orderentry_nnfdirect_v9_50.timestamp.dissect(buffer, index, packet, parent)
+  -- Header Timestamp: LONG LONG
+  index, header_timestamp = nse_nsefo_orderentry_nnfdirect_v9_50.header_timestamp.dissect(buffer, index, packet, parent)
 
   -- Time Stamp 1: CHAR
   index, time_stamp_1 = nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_1.dissect(buffer, index, packet, parent)

@@ -23,8 +23,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.algo_id = ProtoField.new("Algo 
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.aon = ProtoField.new("Aon", "nse.nsefo.orderentry.nnftrimmed.v9.50.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ato = ProtoField.new("Ato", "nse.nsefo.orderentry.nnftrimmed.v9.50.ato", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.boc = ProtoField.new("Boc", "nse.nsefo.orderentry.nnftrimmed.v9.50.boc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_char_1 = ProtoField.new("Book Type Char 1", "nse.nsefo.orderentry.nnftrimmed.v9.50.booktypechar1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_short_2 = ProtoField.new("Book Type Short 2", "nse.nsefo.orderentry.nnftrimmed.v9.50.booktypeshort2", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type = ProtoField.new("Book Type", "nse.nsefo.orderentry.nnftrimmed.v9.50.booktype", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.branch_id = ProtoField.new("Branch Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.branchid", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.broker_id = ProtoField.new("Broker Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.brokerid", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nse.nsefo.orderentry.nnftrimmed.v9.50.buysellindicator", ftypes.INT16)
@@ -91,6 +90,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.time_stamp_2 = ProtoField.new("
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.token = ProtoField.new("Token", "nse.nsefo.orderentry.nnftrimmed.v9.50.token", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.token_no = ProtoField.new("Token No", "nse.nsefo.orderentry.nnftrimmed.v9.50.tokenno", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.total_volume_remaining = ProtoField.new("Total Volume Remaining", "nse.nsefo.orderentry.nnftrimmed.v9.50.totalvolumeremaining", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trade_book_type = ProtoField.new("Trade Book Type", "nse.nsefo.orderentry.nnftrimmed.v9.50.tradebooktype", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.traded = ProtoField.new("Traded", "nse.nsefo.orderentry.nnftrimmed.v9.50.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trader_id = ProtoField.new("Trader Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.traderid", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.transaction_code = ProtoField.new("Transaction Code", "nse.nsefo.orderentry.nnftrimmed.v9.50.transactioncode", ftypes.INT16)
@@ -257,48 +257,25 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.algo_id.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Book Type Char 1
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1 = {}
+-- Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.book_type = {}
 
--- Size: Book Type Char 1
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.size = 1
+-- Size: Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.size = 2
 
--- Display: Book Type Char 1
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.display = function(value)
-  return "Book Type Char 1: "..value
+-- Display: Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.display = function(value)
+  return "Book Type: "..value
 end
 
--- Dissect: Book Type Char 1
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_char_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Type Short 2
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2 = {}
-
--- Size: Book Type Short 2
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size = 2
-
--- Display: Book Type Short 2
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.display = function(value)
-  return "Book Type Short 2: "..value
-end
-
--- Dissect: Book Type Short 2
-nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size
+-- Dissect: Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type_short_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.book_type, range, value, display)
 
   return offset + length, value
 end
@@ -1446,6 +1423,29 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.total_volume_remaining.dissect = function(
   return offset + length, value
 end
 
+-- Trade Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type = {}
+
+-- Size: Trade Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.size = 1
+
+-- Display: Trade Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.display = function(value)
+  return "Trade Book Type: "..value
+end
+
+-- Dissect: Trade Book Type
+nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trade_book_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trader Id
 nse_nsefo_orderentry_nnftrimmed_v9_50.trader_id = {}
 
@@ -1964,7 +1964,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.token.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.open_close.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.participant.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.additional_order_flags.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.pan.size + 
@@ -2061,8 +2061,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.fields 
   -- Open Close: CHAR
   index, open_close = nse_nsefo_orderentry_nnftrimmed_v9_50.open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsefo_orderentry_nnftrimmed_v9_50.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Participant: CHAR
   index, participant = nse_nsefo_orderentry_nnftrimmed_v9_50.participant.dissect(buffer, index, packet, parent)
@@ -2127,7 +2127,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.disclosed_volume.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.disclosed_volume_remaining.size + 
@@ -2204,8 +2204,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   -- Account Number: CHAR
   index, account_number = nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -2321,7 +2321,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.order_number.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.disclosed_volume.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.disclosed_volume_remaining.size + 
@@ -2379,8 +2379,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   -- Account Number: CHAR
   index, account_number = nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -2491,7 +2491,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.size =
   nse_nsefo_orderentry_nnftrimmed_v9_50.token_no.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.contract_desc_tr.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.size + 
-  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.size + 
+  nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.disclosed_volume.size + 
   nse_nsefo_orderentry_nnftrimmed_v9_50.volume.size + 
@@ -2537,8 +2537,8 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.fields = func
   -- Account Number: CHAR
   index, account_number = nse_nsefo_orderentry_nnftrimmed_v9_50.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsefo_orderentry_nnftrimmed_v9_50.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsefo_orderentry_nnftrimmed_v9_50.buy_sell_indicator.dissect(buffer, index, packet, parent)
